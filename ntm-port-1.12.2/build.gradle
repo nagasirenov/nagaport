@@ -1,0 +1,46 @@
+buildscript {
+	repositories {
+		maven { url = 'https://maven.minecraftforge.net/' }
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+	}
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+group = 'com.hbm'
+version = mod_version
+archivesBaseName = 'HBM-NTM'
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava.options.encoding = 'UTF-8'
+
+minecraft {
+	version = '1.12.2-14.23.5.2768'
+	runDir = 'run'
+	mappings = 'stable_39'
+}
+
+repositories {
+	maven { url = 'https://modmaven.dev/' }
+	maven { url = 'https://maven.cil.li/' }
+}
+
+dependencies {
+	deobfCompile 'codechicken:NotEnoughItems:1.12.2-2.4.3.245:universal'
+	deobfCompile 'li.cil.oc:OpenComputers:MC1.12.2-1.7.5.192:api'
+}
+
+processResources {
+	inputs.property 'version', project.version
+	inputs.property 'mcversion', project.minecraft.version
+
+	filesMatching('mcmod.info') {
+		expand([
+			version: project.version,
+			credits: project.credits
+		])
+	}
+}

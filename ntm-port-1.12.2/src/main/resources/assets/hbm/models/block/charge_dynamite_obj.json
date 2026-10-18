@@ -1,0 +1,10 @@
+{
+  "loader": "forge:obj",
+  "model": "hbm:models/blocks/charge_dynamite.obj",
+  "flip-v": true,
+  "textures": {
+    "particle": "hbm:blocks/charge_dynamite",
+    "OBJModel.Default.Texture.Name": "hbm:blocks/charge_dynamite",
+    "OBJModel.White.Texture.Name": "hbm:blocks/charge_dynamite"
+  }
+}

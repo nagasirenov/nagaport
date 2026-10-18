@@ -1,0 +1,15 @@
+[
+{
+  "modid": "hbm",
+  "name": "NTM: Space",
+  "description": "A mod that adds weapons, nuclear themed stuff and space travel",
+  "version":"${version}",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "credits": "${credits}",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=cact": { "model": "hbm:block/rubber_tall" },
+    "type=bush": { "model": "hbm:block/rubber_tall_bush" },
+    "type=flower": { "model": "hbm:block/rubber_tall_flower" }
+  }
+}

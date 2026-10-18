@@ -1,0 +1,2 @@
+# The original plant_spike.obj references this library but has no named
+# materials; its empty usemtl directives use Forge's default material.

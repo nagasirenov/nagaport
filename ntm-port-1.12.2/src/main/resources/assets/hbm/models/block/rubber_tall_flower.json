@@ -1,0 +1,10 @@
+{
+  "loader": "forge:obj",
+  "model": "hbm:models/plant_spike.obj",
+  "flip-v": true,
+  "textures": {
+    "particle": "hbm:blocks/rubber_tall.flower",
+    "OBJModel.Default.Texture.Name": "hbm:blocks/rubber_tall.flower",
+    "OBJModel.White.Texture.Name": "hbm:blocks/rubber_tall.flower"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "loader": "forge:obj",
+  "model": "hbm:models/blocks/spikes.obj",
+  "flip-v": true,
+  "textures": {
+    "particle": "hbm:blocks/spikes",
+    "OBJModel.Default.Texture.Name": "hbm:blocks/spikes",
+    "OBJModel.White.Texture.Name": "hbm:blocks/spikes"
+  }
+}
