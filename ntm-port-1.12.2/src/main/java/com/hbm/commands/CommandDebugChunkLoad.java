@@ -4,7 +4,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -49,7 +49,7 @@ public class CommandDebugChunkLoad extends CommandBase {
 					if(prov.chunkExists(cX, cZ)) {
 						Chunk chunk = sender.getEntityWorld().getChunkFromChunkCoords(cX, cZ);
 						if(chunk.isChunkLoaded) {
-							sender.addChatMessage(new ChatComponentText(TextFormatting.RED + "Chunk currently loaded."));
+							sender.sendMessage(new TextComponentString(TextFormatting.RED + "Chunk currently loaded."));
 							return;
 						}
 					}
@@ -63,7 +63,7 @@ public class CommandDebugChunkLoad extends CommandBase {
 					if(tagList != null) {
 						
 						if(tagList.tagCount() <= 0) {
-							sender.addChatMessage(new ChatComponentText(TextFormatting.RED + "Tag list empty"));
+							sender.sendMessage(new TextComponentString(TextFormatting.RED + "Tag list empty"));
 						}
 						
 						for(int i1 = 0; i1 < tagList.tagCount(); ++i1) {
@@ -83,7 +83,7 @@ public class CommandDebugChunkLoad extends CommandBase {
 								color = TextFormatting.RED;
 							}
 							
-							sender.addChatMessage(new ChatComponentText(color + name + " " + i + " " + j + " " + k));
+							sender.sendMessage(new TextComponentString(color + name + " " + i + " " + j + " " + k));
 							
 							if(i < 0 || i > 15 || j < 0 || j > 255 || k < 0 || k > 15) {
 								tileCompound.setString("id", "INVALID_POS_" + name);
@@ -96,17 +96,17 @@ public class CommandDebugChunkLoad extends CommandBase {
 							}
 						}
 					} else {
-						sender.addChatMessage(new ChatComponentText(TextFormatting.RED + "Tag list null"));
+						sender.sendMessage(new TextComponentString(TextFormatting.RED + "Tag list null"));
 					}
 					
 				} catch(Exception e) {
-					sender.addChatMessage(new ChatComponentText(TextFormatting.RED + "" + e.getLocalizedMessage()));
+					sender.sendMessage(new TextComponentString(TextFormatting.RED + "" + e.getLocalizedMessage()));
 				}
 			} else {
-				sender.addChatMessage(new ChatComponentText(TextFormatting.RED + "Not AnvilChunkLoader"));
+				sender.sendMessage(new TextComponentString(TextFormatting.RED + "Not AnvilChunkLoader"));
 			}
 		} else {
-			sender.addChatMessage(new ChatComponentText(TextFormatting.RED + "Not ChunkProviderServer"));
+			sender.sendMessage(new TextComponentString(TextFormatting.RED + "Not ChunkProviderServer"));
 		}
 	}
 }

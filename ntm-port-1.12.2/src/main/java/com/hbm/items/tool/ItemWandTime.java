@@ -7,7 +7,7 @@ import com.hbm.util.AstronomyUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -31,7 +31,7 @@ public class ItemWandTime extends Item {
 			AstronomyUtil.TIME_MULTIPLIER *= 2;
 		}
 
-		player.addChatMessage(new ChatComponentText("Celestial Time Multiplier set to: " + AstronomyUtil.TIME_MULTIPLIER));
+		player.sendMessage(new TextComponentString("Celestial Time Multiplier set to: " + AstronomyUtil.TIME_MULTIPLIER));
 
 		return true;
 	}

@@ -9,7 +9,7 @@ import com.hbm.items.weapon.sedna.BulletConfig;
 import com.hbm.main.MainRegistry;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
@@ -18,7 +18,7 @@ import net.minecraftforge.common.ForgeChunkManager.Type;
 public class EntityBulletBaseMK4CL extends EntityBulletBaseMK4 implements IChunkLoader {
 
 	private Ticket loaderTicket;
-	private List<ChunkCoordIntPair> loadedChunks = new ArrayList<ChunkCoordIntPair>();
+	private List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
 
 	public EntityBulletBaseMK4CL(World world) {
 		super(world);
@@ -42,7 +42,7 @@ public class EntityBulletBaseMK4CL extends EntityBulletBaseMK4 implements IChunk
 				loaderTicket.bindEntity(this);
 				loaderTicket.getModData();
 			}
-			ForgeChunkManager.forceChunk(loaderTicket, new ChunkCoordIntPair(chunkCoordX, chunkCoordZ));
+			ForgeChunkManager.forceChunk(loaderTicket, new ChunkPos(chunkCoordX, chunkCoordZ));
 		}
 	}
 	
@@ -69,14 +69,14 @@ public class EntityBulletBaseMK4CL extends EntityBulletBaseMK4 implements IChunk
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
 		if(!worldObj.isRemote && loaderTicket != null) {
 
-			for(ChunkCoordIntPair chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
+			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
 			}
 			
 			loadedChunks.clear();
-			loadedChunks.add(new ChunkCoordIntPair(newChunkX, newChunkZ));
+			loadedChunks.add(new ChunkPos(newChunkX, newChunkZ));
 
-			for(ChunkCoordIntPair chunk : loadedChunks) {
+			for(ChunkPos chunk : loadedChunks) {
 				ForgeChunkManager.forceChunk(loaderTicket, chunk);
 			}
 		}

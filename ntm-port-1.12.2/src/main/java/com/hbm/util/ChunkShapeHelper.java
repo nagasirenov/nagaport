@@ -3,7 +3,7 @@ package com.hbm.util;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 
 public class ChunkShapeHelper {
 
@@ -54,7 +54,7 @@ public class ChunkShapeHelper {
 	// 90% of this is Bresenham's Line Algorithm, and the other part is messy padding
 	// The xs and zs are the endpoints fo the line segment, and paddingSize is how many blocks away a chunk needs to be to not be included
 	// Dont give chunk coords
-	public static List<ChunkCoordIntPair> getChunksAlongLineSegment(int x0, int z0, int x1, int z1, double paddingSize) {
+	public static List<ChunkPos> getChunksAlongLineSegment(int x0, int z0, int x1, int z1, double paddingSize) {
 		int dx = Math.abs(x1 - x0);
 		int sx = x0 < x1 ? 1 : -1;
 		int dz = -Math.abs(z1 - z0);
@@ -66,14 +66,14 @@ public class ChunkShapeHelper {
 		int originalZ = z0;
 
 		// The chunks we are returning
-		List<ChunkCoordIntPair> out = new ArrayList<>();
+		List<ChunkPos> out = new ArrayList<>();
 		// The chunks we have aready checked for their distance so we dont run it over and over
-		List<ChunkCoordIntPair> checked = new ArrayList<>();
+		List<ChunkPos> checked = new ArrayList<>();
 
 		// Ahhh scary while true
 		while (true) {
 			// Add the current chunk coords, if they havent already been added
-			ChunkCoordIntPair coords = new ChunkCoordIntPair(x0 >> 4, z0 >> 4);
+			ChunkPos coords = new ChunkPos(x0 >> 4, z0 >> 4);
 			if (!out.contains(coords)) {
 				out.add(coords);
 			}
@@ -83,12 +83,12 @@ public class ChunkShapeHelper {
 			for (int[] corner : corners) {
 
 				// If we already checked this one keep going
-				ChunkCoordIntPair cornerCoords = new ChunkCoordIntPair((x0 >> 4) + corner[0], (z0 >> 4) + corner[1]);
+				ChunkPos cornerCoords = new ChunkPos((x0 >> 4) + corner[0], (z0 >> 4) + corner[1]);
 				if (checked.contains(cornerCoords)) continue;
 				checked.add(cornerCoords);
 
 				// If this box isn't already added, and it is closer than paddingSize, then add it
-				if (!out.contains(cornerCoords) && boxLineDist(originalX, originalZ, x1, z1, cornerCoords.chunkXPos * 16, cornerCoords.chunkZPos * 16) < paddingSize) {
+				if (!out.contains(cornerCoords) && boxLineDist(originalX, originalZ, x1, z1, cornerCoords.x * 16, cornerCoords.z * 16) < paddingSize) {
 					out.add(cornerCoords);
 				}
 			}

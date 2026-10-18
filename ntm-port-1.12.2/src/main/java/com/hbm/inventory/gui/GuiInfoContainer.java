@@ -2,7 +2,7 @@ package com.hbm.inventory.gui;
 
 import java.util.*;
 
-import codechicken.nei.VisiblityData;
+import codechicken.nei.VisibilityData;
 import codechicken.nei.api.INEIGuiHandler;
 import codechicken.nei.api.TaggedInventoryArea;
 import com.hbm.inventory.SlotPattern;
@@ -29,7 +29,7 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -367,7 +367,7 @@ public abstract class GuiInfoContainer extends GuiContainer implements INEIGuiHa
 	}
 	@Override
 	@Optional.Method(modid = "NotEnoughItems")
-	public VisiblityData modifyVisiblity(GuiContainer gc, VisiblityData vd) {
+	public VisibilityData modifyVisibility(GuiContainer gc, VisibilityData vd) {
 		return vd;
 	}
 

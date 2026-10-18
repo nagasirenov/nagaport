@@ -1,0 +1,15 @@
+allprojects {
+	afterEvaluate {
+		tasks.create('inspectCompileInputs') {
+			doLast {
+				def compile = tasks.getByName('compileJava')
+				def modBlocks = compile.source.files.findAll { it.name == 'ModBlocks.java' }
+				def modItems = compile.source.files.findAll { it.name == 'ModItems.java' }
+				println "COMPILE_SOURCE_COUNT=${compile.source.files.size()}"
+				println "MODBLOCKS_COMPILE_SOURCES=${modBlocks}"
+				println "MODITEMS_COMPILE_SOURCES=${modItems}"
+				compile.classpath.files.each { println "COMPILE_CLASSPATH=${it.canonicalPath}" }
+			}
+		}
+	}
+}

@@ -4,10 +4,10 @@ import java.util.Locale;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class DamageSourceSednaWithAttacker extends DamageSourceSednaNoAttacker {
 
@@ -24,9 +24,9 @@ public class DamageSourceSednaWithAttacker extends DamageSourceSednaNoAttacker {
 	@Override public Entity getEntity() { return this.shooter; }
 
 	@Override
-	public IChatComponent func_151519_b(EntityLivingBase died) {
-		IChatComponent diedName = died.func_145748_c_();
-		IChatComponent shooterName = shooter != null ? shooter.func_145748_c_() : new ChatComponentText("Unknown").setChatStyle(new ChatStyle().setObfuscated(true));
-		return new ChatComponentTranslation("death.sedna." + this.damageType + ".attacker", diedName, shooterName);
+	public ITextComponent getDeathMessage(EntityLivingBase died) {
+		ITextComponent diedName = died.getDisplayName();
+		ITextComponent shooterName = shooter != null ? shooter.getDisplayName() : new TextComponentString("Unknown").setStyle(new Style().setObfuscated(true));
+		return new TextComponentTranslation("death.sedna." + this.damageType + ".attacker", diedName, shooterName);
 	}
 }

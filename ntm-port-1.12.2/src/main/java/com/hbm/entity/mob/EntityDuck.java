@@ -2,7 +2,6 @@ package com.hbm.entity.mob;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -33,7 +32,7 @@ public class EntityDuck extends EntityChicken {
 	}
 
 	public void onDeath(DamageSource p_70645_1_) {
-		if(!worldObj.isRemote) MinecraftServer.getServer().getConfigurationManager().sendChatMsg(this.func_110142_aN().func_151521_b());
+		if(!worldObj.isRemote) worldObj.getMinecraftServer().getPlayerList().sendMessage(this.getCombatTracker().getDeathMessage());
 		super.onDeath(p_70645_1_);
 	}
 }

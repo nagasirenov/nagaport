@@ -8,8 +8,8 @@ import com.hbm.packet.PacketDispatcher;
 import com.hbm.packet.toclient.ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 
 public class ExplosionEffectStandard implements IExplosionSFX {
@@ -22,10 +22,10 @@ public class ExplosionEffectStandard implements IExplosionSFX {
 		
 		world.playSoundEffect(x, y, z, "random.explode", 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
 		
-		PacketDispatcher.wrapper.sendToAllAround(new ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket(x, y, z, explosion.size, explosion.compat.affectedBlockPositions),  new TargetPoint(world.provider.dimensionId, x, y, z, 250));
+		PacketDispatcher.wrapper.sendToAllAround(new ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket(x, y, z, explosion.size, explosion.compat.getAffectedBlockPositions()),  new TargetPoint(world.provider.dimensionId, x, y, z, 250));
 	}
 	
-	public static void performClient(World world, double x, double y, double z, float size, List affectedBlocks) {
+	public static void performClient(World world, double x, double y, double z, float size, List<BlockPos> affectedBlocks) {
 		
 		if(size >= 2.0F) {
 			world.spawnParticle("hugeexplosion", x, y, z, 1.0D, 0.0D, 0.0D);
@@ -37,10 +37,10 @@ public class ExplosionEffectStandard implements IExplosionSFX {
 
 		for(int i = 0; i < count; i++) {
 
-			ChunkPosition pos = (ChunkPosition) affectedBlocks.get(i);
-			int pX = pos.chunkPosX;
-			int pY = pos.chunkPosY;
-			int pZ = pos.chunkPosZ;
+			BlockPos pos = affectedBlocks.get(i);
+			int pX = pos.getX();
+			int pY = pos.getY();
+			int pZ = pos.getZ();
 
 			double oX = (double) ((float) pX + world.rand.nextFloat());
 			double oY = (double) ((float) pY + world.rand.nextFloat());

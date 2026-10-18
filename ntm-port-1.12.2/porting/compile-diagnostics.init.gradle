@@ -1,0 +1,5 @@
+allprojects {
+	tasks.withType(org.gradle.api.tasks.compile.JavaCompile).all {
+		options.compilerArgs.addAll(['-Xmaxerrs', '5000'])
+	}
+}

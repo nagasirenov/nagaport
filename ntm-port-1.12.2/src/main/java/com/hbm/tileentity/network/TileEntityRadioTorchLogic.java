@@ -9,8 +9,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 
 public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements IControlReceiver {
 
@@ -154,18 +153,18 @@ public class TileEntityRadioTorchLogic extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public Packet getDescriptionPacket() {
+	public SPacketUpdateTileEntity getUpdatePacket() {
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setByte("l", (byte) this.lastState);
-		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbt);
+		return new SPacketUpdateTileEntity(this.getPos(), 0, nbt);
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 		int last = this.lastState;
-		this.lastState = pkt.func_148857_g().getByte("l");
+		this.lastState = pkt.getNbtCompound().getByte("l");
 		if(this.lastState != last) {
-			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			worldObj.markBlockRangeForRenderUpdate(this.getPos(), this.getPos());
 		}
 	}
 

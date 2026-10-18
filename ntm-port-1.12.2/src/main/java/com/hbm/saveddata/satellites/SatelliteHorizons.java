@@ -6,8 +6,7 @@ import com.hbm.saveddata.SatelliteSavedData;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -56,7 +55,7 @@ public class SatelliteHorizons extends Satellite {
 		//not necessary but JUST to make sure
 		if(!world.isRemote) {
 
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(TextFormatting.RED + "Horizons has been activated."));
+			world.getMinecraftServer().getPlayerList().sendMessage(new TextComponentString(TextFormatting.RED + "Horizons has been activated."));
 		}
 	}
 

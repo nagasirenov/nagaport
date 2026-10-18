@@ -3,9 +3,9 @@ package com.hbm.items.weapon.sedna;
 import java.util.Locale;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class DamageSourceSednaNoAttacker extends DamageSource {
 
@@ -14,8 +14,8 @@ public class DamageSourceSednaNoAttacker extends DamageSource {
 	}
 
 	@Override
-	public IChatComponent func_151519_b(EntityLivingBase died) {
-		IChatComponent diedName = died.func_145748_c_();
-		return new ChatComponentTranslation("death.sedna." + this.damageType, diedName);
+	public ITextComponent getDeathMessage(EntityLivingBase died) {
+		ITextComponent diedName = died.getDisplayName();
+		return new TextComponentTranslation("death.sedna." + this.damageType, diedName);
 	}
 }

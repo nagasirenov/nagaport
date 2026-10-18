@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSavedData;
+import net.minecraft.world.storage.WorldSavedData;
 
 @NotableComments
 public class AnnihilatorSavedData extends WorldSavedData {
@@ -49,7 +49,7 @@ public class AnnihilatorSavedData extends WorldSavedData {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		
 		NBTTagList pools = new NBTTagList();
 		
@@ -64,13 +64,14 @@ public class AnnihilatorSavedData extends WorldSavedData {
 		}
 		
 		nbt.setTag("pools", pools);
+		return nbt;
 	}
 	
 	public static AnnihilatorSavedData getData(World worldObj) {
-		AnnihilatorSavedData data = (AnnihilatorSavedData) worldObj.perWorldStorage.loadData(AnnihilatorSavedData.class, KEY);
+		AnnihilatorSavedData data = (AnnihilatorSavedData) worldObj.getMapStorage().getOrLoadData(AnnihilatorSavedData.class, KEY);
 		if(data == null) {
-			worldObj.perWorldStorage.setData(KEY, new AnnihilatorSavedData());
-			data = (AnnihilatorSavedData) worldObj.perWorldStorage.loadData(AnnihilatorSavedData.class, KEY);
+			worldObj.getMapStorage().setData(KEY, new AnnihilatorSavedData());
+			data = (AnnihilatorSavedData) worldObj.getMapStorage().getOrLoadData(AnnihilatorSavedData.class, KEY);
 		}
 		return data;
 	}

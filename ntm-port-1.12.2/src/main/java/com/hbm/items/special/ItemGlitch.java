@@ -21,7 +21,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 @Spaghetti("why do you even exist")
@@ -40,10 +40,10 @@ public class ItemGlitch extends Item implements IBatteryItem {
 		if(!world.isRemote)
 			switch(itemRand.nextInt(31)) {
 			case 0:
-				player.addChatMessage(new ChatComponentText("Sorry nothing."));
+				player.sendMessage(new TextComponentString("Sorry nothing."));
 				break;
 			case 1:
-				player.addChatMessage(new ChatComponentText("Prometheus was punished by the gods by giving the gift of knowledge to man. He was cast into the bowels of the earth and pecked by birds."));
+				player.sendMessage(new TextComponentString("Prometheus was punished by the gods by giving the gift of knowledge to man. He was cast into the bowels of the earth and pecked by birds."));
 				break;
 			case 2:
 				player.attackEntityFrom(ModDamageSource.radiation, 1000);
@@ -67,7 +67,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				break;
 			case 8:
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.ammo_container, 10));
-				player.addChatMessage(new ChatComponentText("Oh, and by the way: The polaroid shifts reality. Things can be different if the polaroid is broken."));
+				player.sendMessage(new TextComponentString("Oh, and by the way: The polaroid shifts reality. Things can be different if the polaroid is broken."));
 				break;
 			case 9:
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.nuke_advanced_kit, 1));
@@ -95,7 +95,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.gun_heavy_revolver_lilmac));
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.bottle_sparkle));
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.geiger_counter));
-				player.addChatMessage(new ChatComponentText("Have some free stuff. You'll need it for that one cryptic achievement."));
+				player.sendMessage(new TextComponentString("Have some free stuff. You'll need it for that one cryptic achievement."));
 				break;
 			case 14:
 				player.inventory.dropAllItems();
@@ -106,43 +106,43 @@ public class ItemGlitch extends Item implements IBatteryItem {
 					player.inventory.addItemStackToInventory(new ItemStack(Blocks.dirt, 64));
 				break;
 			case 16:
-				player.addChatMessage(new ChatComponentText("v yvxr lbhe nggvghqr!"));
+				player.sendMessage(new TextComponentString("v yvxr lbhe nggvghqr!"));
 				break;
 			case 17:
-				player.addChatMessage(new ChatComponentText("89% of magic tricks are not magic. Technically, they are sorcery."));
+				player.sendMessage(new TextComponentString("89% of magic tricks are not magic. Technically, they are sorcery."));
 				break;
 			case 18:
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.gun_maresleg));
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.ammo_standard, 12, EnumAmmo.G12.ordinal()));
-				player.addChatMessage(new ChatComponentText("Here ya go."));
+				player.sendMessage(new TextComponentString("Here ya go."));
 				break;
 			case 19:
-				player.addChatMessage(new ChatComponentText("Ë"));
+				player.sendMessage(new TextComponentString("Ë"));
 				break;
 			case 20:
-				player.addChatMessage(new ChatComponentText("Good day, I am text"));
+				player.sendMessage(new TextComponentString("Good day, I am text"));
 				break;
 			case 21:
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.missile_nuclear));
-				player.addChatMessage(new ChatComponentText("73616d706c652074657874!"));
+				player.sendMessage(new TextComponentString("73616d706c652074657874!"));
 				break;
 			case 22:
-				player.addChatMessage(new ChatComponentText("Budget cuts, no effect for you."));
+				player.sendMessage(new TextComponentString("Budget cuts, no effect for you."));
 				break;
 			case 23:
-				player.addChatMessage(new ChatComponentText("oof"));
+				player.sendMessage(new TextComponentString("oof"));
 				break;
 			case 24:
 				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 60 * 20, 9));
-				player.addChatMessage(new ChatComponentText("Tank!"));
+				player.sendMessage(new TextComponentString("Tank!"));
 				break;
 			case 25:
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 60 * 20, 9));
-				player.addChatMessage(new ChatComponentText("More devastating than a falling boxcar!"));
+				player.sendMessage(new TextComponentString("More devastating than a falling boxcar!"));
 				break;
 			case 26:
 				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60 * 20, 9));
-				player.addChatMessage(new ChatComponentText("Ha!"));
+				player.sendMessage(new TextComponentString("Ha!"));
 				break;
 			case 27:
 				EntityVortex vortex = new EntityVortex(world, 2.5F);
@@ -157,15 +157,15 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				mirv.posY = player.posY + 100;
 				mirv.posZ = player.posZ;
 				world.spawnEntityInWorld(mirv);
-				player.addChatMessage(new ChatComponentText("Watch your head!"));
+				player.sendMessage(new TextComponentString("Watch your head!"));
 				break;
 			case 29:
 				ExplosionLarge.spawnBurst(world, player.posX, player.posY, player.posZ, 27, 3);
-				player.addChatMessage(new ChatComponentText("Bam!"));
+				player.sendMessage(new TextComponentString("Bam!"));
 				break;
 			case 30:
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.plate_saturnite));
-				player.addChatMessage(new ChatComponentText("It's dangerous to go alone, take this!"));
+				player.sendMessage(new TextComponentString("It's dangerous to go alone, take this!"));
 				break;
 			}
 		

@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -33,7 +33,7 @@ public class ItemTeleLink extends Item {
 				stack.stackTagCompound.setInteger("z", z);
 				stack.stackTagCompound.setInteger("dim", player.dimension);
 				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
-				player.addChatMessage(new ChatComponentText(TextFormatting.AQUA + "[TeleLink] Set teleporter exit to " + x + ", " + y + ", " + z + "."));
+				player.sendMessage(new TextComponentString(TextFormatting.AQUA + "[TeleLink] Set teleporter exit to " + x + ", " + y + ", " + z + "."));
 				player.swingItem();
 				
 				return true;
@@ -42,7 +42,7 @@ public class ItemTeleLink extends Item {
 				
 				if(!stack.hasTagCompound()) {
 					world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F);
-					player.addChatMessage(new ChatComponentText(TextFormatting.RED + "[TeleLink] No destination set!"));
+					player.sendMessage(new TextComponentString(TextFormatting.RED + "[TeleLink] No destination set!"));
 					return false;
 				}
 				
@@ -60,7 +60,7 @@ public class ItemTeleLink extends Item {
 				
 				tele.markDirty();
 				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
-				player.addChatMessage(new ChatComponentText(TextFormatting.AQUA + "[TeleLink] Teleporters destination has been set!"));
+				player.sendMessage(new TextComponentString(TextFormatting.AQUA + "[TeleLink] Teleporters destination has been set!"));
 				player.swingItem();
 				return true;
 			}

@@ -9,7 +9,7 @@ import com.hbm.config.StructureConfig;
 import com.hbm.util.Tuple.Pair;
 import com.hbm.util.Tuple.Quartet;
 
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.StructureStart;
@@ -137,10 +137,10 @@ public class SpawnCondition {
 	public static class WorldCoordinate {
 
 		public final World world;
-		public final ChunkCoordIntPair coords;
+		public final ChunkPos coords;
 		public final Random rand;
 
-		protected WorldCoordinate(World world, ChunkCoordIntPair coords, Random rand) {
+		protected WorldCoordinate(World world, ChunkPos coords, Random rand) {
 			this.world = world;
 			this.coords = coords;
 			this.rand = rand;

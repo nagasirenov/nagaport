@@ -13,11 +13,11 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.command.PlayerNotFoundException;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
 public class CommandLocate extends CommandBase {
@@ -51,50 +51,50 @@ public class CommandLocate extends CommandBase {
 			SpawnCondition structure = NBTStructure.getStructure(args[1]);
 
 			if(structure == null) {
-				ChatComponentTranslation message = new ChatComponentTranslation("commands.locate.no_match");
-				message.getChatStyle().setColor(TextFormatting.RED);
-				sender.addChatMessage(message);
+				TextComponentTranslation message = new TextComponentTranslation("commands.locate.no_match");
+				message.getStyle().setColor(TextFormatting.RED);
+				sender.sendMessage(message);
 				return;
 			}
 
 			int chunkX = MathHelper.floor_double(player.posX) / 16;
 			int chunkZ = MathHelper.floor_double(player.posZ) / 16;
 
-			ChunkCoordIntPair pos = getNearestLocationTo(structure, player.worldObj, chunkX, chunkZ);
+			ChunkPos pos = getNearestLocationTo(structure, player.worldObj, chunkX, chunkZ);
 
 			if(pos == null) {
-				ChatComponentTranslation message = new ChatComponentTranslation("commands.locate.none_found");
-				message.getChatStyle().setColor(TextFormatting.RED);
-				sender.addChatMessage(message);
+				TextComponentTranslation message = new TextComponentTranslation("commands.locate.none_found");
+				message.getStyle().setColor(TextFormatting.RED);
+				sender.sendMessage(message);
 				return;
 			}
 
-			ChatComponentTranslation message = new ChatComponentTranslation("commands.locate.success.coordinates", structure.name, pos.chunkXPos * 16, pos.chunkZPos * 16);
-			message.getChatStyle().setColor(TextFormatting.GREEN);
-			sender.addChatMessage(message);
+			TextComponentTranslation message = new TextComponentTranslation("commands.locate.success.coordinates", structure.name, pos.x * 16, pos.z * 16);
+			message.getStyle().setColor(TextFormatting.GREEN);
+			sender.sendMessage(message);
 		} else if (args[0].equals("list")) {
-			sender.addChatMessage(new ChatComponentText(String.join(", ", NBTStructure.listStructures())));
+			sender.sendMessage(new TextComponentString(String.join(", ", NBTStructure.listStructures())));
 		} else {
 			throw new WrongUsageException(getCommandUsage(sender), new Object[0]);
 		}
 	}
 
-	private ChunkCoordIntPair getNearestLocationTo(SpawnCondition spawn, World world, int chunkX, int chunkZ) {
+	private ChunkPos getNearestLocationTo(SpawnCondition spawn, World world, int chunkX, int chunkZ) {
 		if(HbmWorld.worldGenerator.getStructureAt(world, chunkX, chunkZ) == spawn)
-			return new ChunkCoordIntPair(chunkX, chunkZ);
+			return new ChunkPos(chunkX, chunkZ);
 
 		for(int radius = 1; radius < MAX_DISTANCE; radius++) {
 			for(int x = chunkX - radius; x <= chunkX + radius; x++) {
 				if(HbmWorld.worldGenerator.getStructureAt(world, x, chunkZ - radius) == spawn)
-					return new ChunkCoordIntPair(x, chunkZ - radius);
+					return new ChunkPos(x, chunkZ - radius);
 				if(HbmWorld.worldGenerator.getStructureAt(world, x, chunkZ + radius) == spawn)
-					return new ChunkCoordIntPair(x, chunkZ + radius);
+					return new ChunkPos(x, chunkZ + radius);
 			}
 			for(int z = chunkZ - radius; z <= chunkZ + radius; z++) {
 				if(HbmWorld.worldGenerator.getStructureAt(world, chunkX - radius, z) == spawn)
-					return new ChunkCoordIntPair(chunkX - radius, z);
+					return new ChunkPos(chunkX - radius, z);
 				if(HbmWorld.worldGenerator.getStructureAt(world, chunkX + radius, z) == spawn)
-					return new ChunkCoordIntPair(chunkX + radius, z);
+					return new ChunkPos(chunkX + radius, z);
 			}
 		}
 

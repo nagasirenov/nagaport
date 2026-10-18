@@ -21,7 +21,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.WorldServer;
@@ -170,9 +170,9 @@ public class CommandStations extends CommandBase {
 	}
 
 	private static void showMessage(ICommandSender sender, String error, boolean isError) {
-		ChatComponentTranslation message = new ChatComponentTranslation(error);
-		message.getChatStyle().setColor(isError ? TextFormatting.RED : TextFormatting.GREEN);
-		sender.addChatMessage(message);
+		TextComponentTranslation message = new TextComponentTranslation(error);
+		message.getStyle().setColor(isError ? TextFormatting.RED : TextFormatting.GREEN);
+		sender.sendMessage(message);
 	}
 
 	private static Destination getStationDestination(ICommandSender sender, ItemStack stack) {

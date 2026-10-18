@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
@@ -39,7 +39,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	protected double velocityZ;
 
 	private Ticket loaderTicket;
-	private List<ChunkCoordIntPair> loadedChunks = new ArrayList<ChunkCoordIntPair>();
+	private List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
 	
 	public float health = getMaxHealth();
 	public int timer = getLifetime();
@@ -81,7 +81,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 				loaderTicket.bindEntity(this);
 				loaderTicket.getModData();
 			}
-			ForgeChunkManager.forceChunk(loaderTicket, new ChunkCoordIntPair(chunkCoordX, chunkCoordZ));
+			ForgeChunkManager.forceChunk(loaderTicket, new ChunkPos(chunkCoordX, chunkCoordZ));
 		}
 	}
 	
@@ -197,12 +197,12 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
 		if(!worldObj.isRemote && loaderTicket != null) {
-			for(ChunkCoordIntPair chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
+			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
 			}
 			loadedChunks.clear();
-			loadedChunks.add(new ChunkCoordIntPair(newChunkX, newChunkZ));
-			for(ChunkCoordIntPair chunk : loadedChunks) ForgeChunkManager.forceChunk(loaderTicket, chunk);
+			loadedChunks.add(new ChunkPos(newChunkX, newChunkZ));
+			for(ChunkPos chunk : loadedChunks) ForgeChunkManager.forceChunk(loaderTicket, chunk);
 		}
 	}
 	

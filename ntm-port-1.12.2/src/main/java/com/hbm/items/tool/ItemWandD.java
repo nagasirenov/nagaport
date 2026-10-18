@@ -23,7 +23,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -50,12 +50,12 @@ public class ItemWandD extends Item {
 
 				if(targetId == 0) {
 					CelestialTeleporter.teleport(player, SpaceConfig.orbitDimension, player.posX, 128, player.posZ, false);
-					player.addChatMessage(new ChatComponentText("Teleported to: ORBIT"));
+					player.sendMessage(new TextComponentString("Teleported to: ORBIT"));
 				} else {
 					SolarSystem.Body target = SolarSystem.Body.values()[targetId];
 
 					CelestialTeleporter.teleport(player, target.getBody().dimensionId, player.posX, 300, player.posZ, true);
-					player.addChatMessage(new ChatComponentText("Teleported to: " + target.getBody().getUnlocalizedName()));
+					player.sendMessage(new TextComponentString("Teleported to: " + target.getBody().getUnlocalizedName()));
 				}
 
 			} else {
@@ -71,10 +71,10 @@ public class ItemWandD extends Item {
 				stack.stackTagCompound.setInteger("dim", targetId);
 
 				if(targetId == 0) {
-					player.addChatMessage(new ChatComponentText("Set teleport target to: ORBIT"));
+					player.sendMessage(new TextComponentString("Set teleport target to: ORBIT"));
 				} else {
 					SolarSystem.Body target = SolarSystem.Body.values()[targetId];
-					player.addChatMessage(new ChatComponentText("Set teleport target to: " + target.getBody().getUnlocalizedName()));
+					player.sendMessage(new TextComponentString("Set teleport target to: " + target.getBody().getUnlocalizedName()));
 				}
 			}
 		} else if(!(world.provider instanceof WorldProviderOrbit)) {
@@ -86,14 +86,14 @@ public class ItemWandD extends Item {
 				if(atmosphere != null) {
 					for(FluidEntry entry : atmosphere.fluids) {
 						// if(entry.pressure > 0.001) {
-							player.addChatMessage(new ChatComponentText("Atmosphere: " + entry.fluid.getUnlocalizedName() + " - " + entry.pressure + "bar"));
+							player.sendMessage(new TextComponentString("Atmosphere: " + entry.fluid.getUnlocalizedName() + " - " + entry.pressure + "bar"));
 							isVacuum = false;
 						// }
 					}
 				}
 
 				if(isVacuum)
-					player.addChatMessage(new ChatComponentText("Atmosphere: NEAR VACUUM"));
+					player.sendMessage(new TextComponentString("Atmosphere: NEAR VACUUM"));
 			} else {
 				CelestialBody star = CelestialBody.getStar(world);
 
@@ -107,16 +107,16 @@ public class ItemWandD extends Item {
 
 					// GOD
 					// DAMN
-					player.addChatMessage(new ChatComponentText(TextFormatting.RED + "GOD"));
-					player.addChatMessage(new ChatComponentText(TextFormatting.RED + "DAMN"));
-					player.addChatMessage(new ChatComponentText(TextFormatting.RED + "THE"));
-					player.addChatMessage(new ChatComponentText(TextFormatting.RED + "" + TextFormatting.OBFUSCATED + "SUN"));
+					player.sendMessage(new TextComponentString(TextFormatting.RED + "GOD"));
+					player.sendMessage(new TextComponentString(TextFormatting.RED + "DAMN"));
+					player.sendMessage(new TextComponentString(TextFormatting.RED + "THE"));
+					player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.OBFUSCATED + "SUN"));
 				} else {
 
 					star.clearTraits();
 					CelestialBody.clearTraits(world);
 
-					player.addChatMessage(new ChatComponentText("kidding"));
+					player.sendMessage(new TextComponentString("kidding"));
 				}
 			}
 		} else {

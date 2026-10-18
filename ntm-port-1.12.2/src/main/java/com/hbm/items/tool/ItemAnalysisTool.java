@@ -9,8 +9,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -36,7 +36,7 @@ public class ItemAnalysisTool extends Item {
 			
 			if(debug != null && !world.isRemote) {
 				for(String line : debug) {
-					player.addChatComponentMessage(new ChatComponentText(line).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+					player.sendMessage(new TextComponentString(line).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 				}
 			}
 			

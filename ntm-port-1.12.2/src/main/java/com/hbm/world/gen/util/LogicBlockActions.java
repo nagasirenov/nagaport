@@ -1,6 +1,7 @@
 package com.hbm.world.gen.util;
 
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.generic.BlockSkeletonHolder;
@@ -273,7 +274,7 @@ public class LogicBlockActions {
 
 		if(tile.phase != 1) return;
 
-		world.getClosestPlayer(x,y,z, 25).addChatMessage(new ChatComponentText(TextFormatting.LIGHT_PURPLE + "[COMMAND UNIT]"+ TextFormatting.RESET + " Missile Fired"));
+		world.getClosestPlayer(x,y,z, 25).sendMessage(new TextComponentString(TextFormatting.LIGHT_PURPLE + "[COMMAND UNIT]"+ TextFormatting.RESET + " Missile Fired"));
 
 		ForgeDirection parallel = tile.direction.getRotation(ForgeDirection.UP);
 
@@ -333,7 +334,7 @@ public class LogicBlockActions {
 		}
 
 		if (tile.phase == 2 && tile.timer > 40){
-			world.getClosestPlayer(x,y,z, 25).addChatMessage(new ChatComponentText(
+			world.getClosestPlayer(x,y,z, 25).sendMessage(new TextComponentString(
 				TextFormatting.LIGHT_PURPLE + "[RAD CONTAINMENT SYSTEM]" +
 					TextFormatting.RESET + " Diagnostics found containment failure, commencing lockdown"));
 

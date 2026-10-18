@@ -15,8 +15,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -41,7 +41,7 @@ public class ItemMirrorTool extends Item {
 				stack.stackTagCompound.setInteger("posY", pos[1] + 1);
 				stack.stackTagCompound.setInteger("posZ", pos[2]);
 				
-				player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".linked").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -58,8 +58,8 @@ public class ItemMirrorTool extends Item {
 				boolean withinReach = new Vec3d(x - tx, y - ty, z - tz).length() <= 100;
 				boolean withinAngle = (x - tx) * (x - tx) + (z - tz) * (z - tz) <= (y - ty) * (y - ty);
 				
-				if(!withinReach) player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".reach").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
-				else if(!withinAngle) player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".angle").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+				if(!withinReach) player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".reach").setStyle(new Style().setColor(TextFormatting.RED)));
+				else if(!withinAngle) player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".angle").setStyle(new Style().setColor(TextFormatting.RED)));
 				else mirror.setTarget(tx, ty, tz);
 			}
 			

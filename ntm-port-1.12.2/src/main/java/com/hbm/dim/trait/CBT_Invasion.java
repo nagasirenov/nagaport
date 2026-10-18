@@ -33,8 +33,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.stats.StatBase;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -101,7 +101,7 @@ public class CBT_Invasion extends CelestialBodyTrait {
 			if (!isInvading && !warningPlayed) {
 				warningPlayed = true;
 				MainRegistry.proxy.me().playSound("hbm:alarm.ping", 10F, 1F);
-				MainRegistry.proxy.me().addChatComponentMessage(new ChatComponentText("Incoming Invasion!").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+				MainRegistry.proxy.me().sendMessage(new TextComponentString("Incoming Invasion!").setStyle(new Style().setColor(TextFormatting.RED)));
 			}
 		}
 	}
@@ -311,8 +311,8 @@ public class CBT_Invasion extends CelestialBodyTrait {
 	private void broadcast(World world, String text, TextFormatting color) {
 		for (Object p : world.playerEntities) {
 			if (p instanceof EntityPlayer) {
-				((EntityPlayer) p).addChatComponentMessage(new ChatComponentText(text)
-						.setChatStyle(new ChatStyle().setColor(color).setBold(true)));
+				((EntityPlayer) p).sendMessage(new TextComponentString(text)
+						.setStyle(new Style().setColor(color).setBold(true)));
 			}
 		}
 	}

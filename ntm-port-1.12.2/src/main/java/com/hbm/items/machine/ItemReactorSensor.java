@@ -75,7 +75,7 @@ public class ItemReactorSensor extends Item {
 
 	private void SendMessage(EntityPlayer player, String text)
 	{
-		player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+		player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 			.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 			.next("] ").color(TextFormatting.DARK_AQUA)
 			.next(text).color(TextFormatting.GREEN).flush());

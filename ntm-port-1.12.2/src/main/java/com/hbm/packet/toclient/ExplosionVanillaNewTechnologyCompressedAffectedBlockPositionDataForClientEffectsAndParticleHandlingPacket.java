@@ -1,7 +1,6 @@
 package com.hbm.packet.toclient;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.hbm.explosion.vanillant.standard.ExplosionEffectStandard;
@@ -14,7 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.ChunkPosition;
+import net.minecraft.util.math.BlockPos;
 
 /**
  * Can you tell I'm fucking done with packets? Well, can you?
@@ -28,16 +27,16 @@ public class ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataFor
 	private double posY;
 	private double posZ;
 	private float size;
-	private List affectedBlocks;
+	private List<BlockPos> affectedBlocks;
 
 	public ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket() { }
 
-	public ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket(double x, double y, double z, float size, List blocks) {
+	public ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataForClientEffectsAndParticleHandlingPacket(double x, double y, double z, float size, List<BlockPos> blocks) {
 		this.posX = x;
 		this.posY = y;
 		this.posZ = z;
 		this.size = size;
-		this.affectedBlocks = new ArrayList(blocks);
+		this.affectedBlocks = new ArrayList<>(blocks);
 	}
 
 	@Override
@@ -47,7 +46,7 @@ public class ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataFor
 		this.posZ = (double) buf.readFloat();
 		this.size = buf.readFloat();
 		int i = buf.readInt();
-		this.affectedBlocks = new ArrayList(i);
+		this.affectedBlocks = new ArrayList<>(i);
 		int j = (int) this.posX;
 		int k = (int) this.posY;
 		int l = (int) this.posZ;
@@ -56,7 +55,7 @@ public class ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataFor
 			int j1 = buf.readByte() + j;
 			int k1 = buf.readByte() + k;
 			int l1 = buf.readByte() + l;
-			this.affectedBlocks.add(new ChunkPosition(j1, k1, l1));
+			this.affectedBlocks.add(new BlockPos(j1, k1, l1));
 		}
 	}
 
@@ -70,13 +69,10 @@ public class ExplosionVanillaNewTechnologyCompressedAffectedBlockPositionDataFor
 		int i = (int) this.posX;
 		int j = (int) this.posY;
 		int k = (int) this.posZ;
-		Iterator iterator = this.affectedBlocks.iterator();
-
-		while(iterator.hasNext()) {
-			ChunkPosition chunkposition = (ChunkPosition) iterator.next();
-			int l = chunkposition.chunkPosX - i;
-			int i1 = chunkposition.chunkPosY - j;
-			int j1 = chunkposition.chunkPosZ - k;
+		for(BlockPos blockPos : this.affectedBlocks) {
+			int l = blockPos.getX() - i;
+			int i1 = blockPos.getY() - j;
+			int j1 = blockPos.getZ() - k;
 			buf.writeByte(l);
 			buf.writeByte(i1);
 			buf.writeByte(j1);

@@ -8,7 +8,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSavedData;
+import net.minecraft.world.storage.WorldSavedData;
 import net.minecraftforge.common.DimensionManager;
 
 import java.util.HashMap;
@@ -57,7 +57,7 @@ public class SatelliteSavedData extends WorldSavedData {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("satCount", sats.size());
 
 		int i = 0;
@@ -71,15 +71,16 @@ public class SatelliteSavedData extends WorldSavedData {
 			nbt.setInteger("sat_freq_" + i, struct.getKey());
 			i++;
 		}
+		return nbt;
 	}
 
 	@Deprecated // will return invalid results in orbit
 	public static SatelliteSavedData getData(World worldObj) {
-		SatelliteSavedData data = (SatelliteSavedData)worldObj.perWorldStorage.loadData(SatelliteSavedData.class, "satellites");
+		SatelliteSavedData data = (SatelliteSavedData)worldObj.getMapStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
 		if(data == null) {
-			worldObj.perWorldStorage.setData("satellites", new SatelliteSavedData());
+			worldObj.getMapStorage().setData("satellites", new SatelliteSavedData());
 
-			data = (SatelliteSavedData)worldObj.perWorldStorage.loadData(SatelliteSavedData.class, "satellites");
+			data = (SatelliteSavedData)worldObj.getMapStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
 		}
 
 		return data;

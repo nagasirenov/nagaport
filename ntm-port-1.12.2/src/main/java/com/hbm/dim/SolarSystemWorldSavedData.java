@@ -14,7 +14,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSavedData;
+import net.minecraft.world.storage.WorldSavedData;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.util.Constants.NBT;
 
@@ -41,11 +41,11 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 	}
 
 	public static SolarSystemWorldSavedData get(World world) {
-		SolarSystemWorldSavedData result = (SolarSystemWorldSavedData) world.mapStorage.loadData(SolarSystemWorldSavedData.class, DATA_NAME);
+		SolarSystemWorldSavedData result = (SolarSystemWorldSavedData) world.getMapStorage().getOrLoadData(SolarSystemWorldSavedData.class, DATA_NAME);
 
 		if(result == null) {
-			world.mapStorage.setData(DATA_NAME, new SolarSystemWorldSavedData(DATA_NAME));
-			result = (SolarSystemWorldSavedData) world.mapStorage.loadData(SolarSystemWorldSavedData.class, DATA_NAME);
+			world.getMapStorage().setData(DATA_NAME, new SolarSystemWorldSavedData(DATA_NAME));
+			result = (SolarSystemWorldSavedData) world.getMapStorage().getOrLoadData(SolarSystemWorldSavedData.class, DATA_NAME);
 		}
 
 		return result;
@@ -101,7 +101,7 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		for(Entry<String, HashMap<Class<? extends CelestialBodyTrait>, CelestialBodyTrait>> entry : traitMap.entrySet()) {
 			NBTTagCompound data = new NBTTagCompound();
 
@@ -132,6 +132,7 @@ public class SolarSystemWorldSavedData extends WorldSavedData {
 			stationList.appendTag(stationTag);
 		}
 		nbt.setTag("stations", stationList);
+		return nbt;
 	}
 
 	public void setTraits(String bodyName, CelestialBodyTrait... traits) {

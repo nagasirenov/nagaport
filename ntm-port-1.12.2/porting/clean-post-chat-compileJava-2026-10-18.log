@@ -1,0 +1,563 @@
+
+> Configure project :
+This mapping 'stable_39' was designed for MC 1.12! Use at your own peril.
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.3.4-gfc67182        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
+Found AccessTransformer: HBM_at.cfg
+
+> Task :clean
+> Task :extractMcpMappings SKIPPED
+> Task :deobfCompileDeobfDepTask0 SKIPPED
+> Task :deobfCompileDeobfDepTask1 SKIPPED
+> Task :deobfCompileDeobfDepTask2 SKIPPED
+> Task :deobfCompileDeobfDepTask3 SKIPPED
+> Task :deobfCompileRemapDepSourcesTask4
+> Task :deobfCompileRemapDepSourcesTask5
+> Task :deobfCompileRemapDepSourcesTask6
+> Task :deobfCompileDummyTask
+> Task :getVersionJson
+> Task :extractUserdev UP-TO-DATE
+> Task :downloadClient SKIPPED
+> Task :downloadServer SKIPPED
+> Task :splitServerJar SKIPPED
+> Task :mergeJars SKIPPED
+> Task :applyBinaryPatches SKIPPED
+> Task :deobfProvidedDummyTask
+> Task :extractDependencyATs SKIPPED
+> Task :extractMcpData SKIPPED
+> Task :genSrgs SKIPPED
+> Task :deobfMcMCP SKIPPED
+> Task :sourceApiJava
+> Task :compileApiJava NO-SOURCE
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses UP-TO-DATE
+> Task :sourceMainJava
+
+> Task :compileJava
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\items\tool\ItemToolAbility.java:64: error: cannot find symbol
+import net.minecraft.network.play.server.S23PacketBlockChange;
+                                        ^
+  symbol:   class S23PacketBlockChange
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockBobble.java:25: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\explosion\ExplosionNT.java:27: error: cannot find symbol
+import net.minecraft.world.ChunkPosition;
+                          ^
+  symbol:   class ChunkPosition
+  location: package net.minecraft.world
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\ability\ToolPreset.java:6: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\entity\missile\EntityMissileBaseNT.java:30: error: cannot find symbol
+import net.minecraft.world.ChunkCoordIntPair;
+                          ^
+  symbol:   class ChunkCoordIntPair
+  location: package net.minecraft.world
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\RocketStruct.java:20: error: cannot find symbol
+import net.minecraft.entity.DataWatcher;
+                           ^
+  symbol:   class DataWatcher
+  location: package net.minecraft.entity
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\items\ItemVOTVdrive.java:22: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\items\ItemVOTVdrive.java:25: error: cannot find symbol
+import net.minecraft.world.ChunkCoordIntPair;
+                          ^
+  symbol:   class ChunkCoordIntPair
+  location: package net.minecraft.world
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\ability\ToolPreset.java:30: error: cannot find symbol
+	public ChatComponentText getMessage() {
+	       ^
+  symbol:   class ChatComponentText
+  location: class ToolPreset
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\entity\missile\EntityMissileBaseNT.java:326: error: cannot find symbol
+	List<ChunkCoordIntPair> loadedChunks = new ArrayList<ChunkCoordIntPair>();
+	     ^
+  symbol:   class ChunkCoordIntPair
+  location: class EntityMissileBaseNT
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:14: error: cannot find symbol
+import net.minecraftforge.client.model.IModelCustom;
+                                      ^
+  symbol:   class IModelCustom
+  location: package net.minecraftforge.client.model
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\RocketStruct.java:392: error: cannot find symbol
+	public static void setupDataWatcher(DataWatcher watcher, int start) {
+	                                    ^
+  symbol:   class DataWatcher
+  location: class RocketStruct
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\RocketStruct.java:402: error: cannot find symbol
+	public void writeToDataWatcher(DataWatcher watcher, int start) {
+	                               ^
+  symbol:   class DataWatcher
+  location: class RocketStruct
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\RocketStruct.java:412: error: cannot find symbol
+	public static RocketStruct readFromDataWatcher(DataWatcher watcher, int start) {
+	                                               ^
+  symbol:   class DataWatcher
+  location: class RocketStruct
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\items\ItemVOTVdrive.java:321: error: cannot find symbol
+		public ChunkCoordIntPair getChunk() {
+		       ^
+  symbol:   class ChunkCoordIntPair
+  location: class Destination
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:24: error: cannot find symbol
+	public IModelCustom model;
+	       ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:25: error: cannot find symbol
+	public IModelCustom deployedModel;
+	       ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:26: error: cannot find symbol
+	public IModelCustom shroudModel;
+	       ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:31: error: cannot find symbol
+	private MissilePart(Item item, PartType type, double height, double guiheight, IModelCustom model, ResourceLocation texture) {
+	                                                                               ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:40: error: cannot find symbol
+	private MissilePart withDeployed(IModelCustom deployedModel) {
+	                                 ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:45: error: cannot find symbol
+	private MissilePart withShroud(IModelCustom shroudModel) {
+	                               ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:60: error: cannot find symbol
+	public IModelCustom getModel(boolean deployed) {
+	       ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:65: error: cannot find symbol
+	public IModelCustom getShroud() {
+	       ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\util\MissilePart.java:436: error: cannot find symbol
+	public static MissilePart registerPart(Item item, PartType type, double height, double guiheight, IModelCustom model, ResourceLocation texture) {
+	                                                                                                  ^
+  symbol:   class IModelCustom
+  location: class MissilePart
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\BlockFallingNT.java:9: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\BlockFallingNT.java:93: error: cannot find symbol
+	@SideOnly(Side.CLIENT) public void overrideRenderer(EntityFallingBlockNT falling, RenderBlocks renderBlocks, Tessellator tessellator) { }
+	                                                                                  ^
+  symbol:   class RenderBlocks
+  location: class BlockFallingNT
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\bomb\BlockFireworks.java:22: error: cannot find symbol
+import net.minecraft.util.ChatComponentTranslation;
+                         ^
+  symbol:   class ChatComponentTranslation
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\bomb\BlockFireworks.java:23: error: cannot find symbol
+import net.minecraft.util.ChatStyle;
+                         ^
+  symbol:   class ChatStyle
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockAirPump.java:25: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockAirPump.java:26: error: cannot find symbol
+import net.minecraft.util.ChatComponentTranslation;
+                         ^
+  symbol:   class ChatComponentTranslation
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockAirPump.java:27: error: cannot find symbol
+import net.minecraft.util.ChatStyle;
+                         ^
+  symbol:   class ChatStyle
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockBarrier.java:16: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockBedrockOreTE.java:36: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockBedrockOreTE.java:270: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityBedrockOre
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockBobble.java:173: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityBobble
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\loader\IModelCustomNamed.java:5: error: cannot find symbol
+import net.minecraftforge.client.model.IModelCustom;
+                                      ^
+  symbol:   class IModelCustom
+  location: package net.minecraftforge.client.model
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\render\loader\IModelCustomNamed.java:7: error: cannot find symbol
+public interface IModelCustomNamed extends IModelCustom {
+                                           ^
+  symbol: class IModelCustom
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockDynamicSlag.java:28: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockDynamicSlag.java:265: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntitySlag
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockEmitter.java:27: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockEmitter.java:192: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityEmitter
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\extprop\HbmLivingProps.java:34: error: cannot find symbol
+import net.minecraftforge.common.IExtendedEntityProperties;
+                                ^
+  symbol:   class IExtendedEntityProperties
+  location: package net.minecraftforge.common
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\extprop\HbmLivingProps.java:36: error: cannot find symbol
+public class HbmLivingProps implements IExtendedEntityProperties {
+                                       ^
+  symbol: class IExtendedEntityProperties
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockModDoor.java:14: error: cannot find symbol
+import net.minecraft.client.renderer.IconFlipped;
+                                    ^
+  symbol:   class IconFlipped
+  location: package net.minecraft.client.renderer
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\pollution\PollutionHandler.java:34: error: cannot find symbol
+import net.minecraft.world.ChunkCoordIntPair;
+                          ^
+  symbol:   class ChunkCoordIntPair
+  location: package net.minecraft.world
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\handler\pollution\PollutionHandler.java:301: error: cannot find symbol
+		public HashMap<ChunkCoordIntPair, PollutionData> pollution = new HashMap();
+		               ^
+  symbol:   class ChunkCoordIntPair
+  location: class PollutionPerWorld
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockLoot.java:19: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockPedestal.java:27: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockKeyhole.java:27: error: cannot find symbol
+import net.minecraft.util.WeightedRandomChestContent;
+                         ^
+  symbol:   class WeightedRandomChestContent
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockPedestal.java:214: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityPedestal
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockLoot.java:121: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityLoot
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockMeteoriteTreasure.java:11: error: cannot find symbol
+import net.minecraft.util.WeightedRandomChestContent;
+                         ^
+  symbol:   class WeightedRandomChestContent
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockPlushie.java:24: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockPlushie.java:141: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityPlushie
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockRebar.java:45: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockRedBrickKeyhole.java:32: error: cannot find symbol
+import net.minecraft.util.WeightedRandomChestContent;
+                         ^
+  symbol:   class WeightedRandomChestContent
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockRedBrickKeyhole.java:157: error: cannot find symbol
+	public static void spawnPedestalItem(World world, int x, int y, int z, WeightedRandomChestContent[] pool) {
+	                                                                       ^
+  symbol:   class WeightedRandomChestContent
+  location: class BlockRedBrickKeyhole
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockSandbags.java:12: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockSkeletonHolder.java:13: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockSkeletonHolder.java:95: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntitySkeletonHolder
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockSnowglobe.java:25: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockSnowglobe.java:158: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntitySnowglobe
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockStorageCrate.java:38: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockWandLoot.java:42: error: cannot find symbol
+import net.minecraft.util.WeightedRandomChestContent;
+                         ^
+  symbol:   class WeightedRandomChestContent
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockWandStructure.java:44: error: package net.minecraft.event does not exist
+import net.minecraft.event.ClickEvent;
+                          ^
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockWandStructure.java:52: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\SpawnCondition.java:12: error: cannot find symbol
+import net.minecraft.world.ChunkCoordIntPair;
+                          ^
+  symbol:   class ChunkCoordIntPair
+  location: package net.minecraft.world
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\SpawnCondition.java:14: error: cannot find symbol
+import net.minecraft.world.biome.BiomeGenBase;
+                                ^
+  symbol:   class BiomeGenBase
+  location: package net.minecraft.world.biome
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\NBTStructure.java:41: error: cannot find symbol
+import net.minecraft.world.ChunkCoordIntPair;
+                          ^
+  symbol:   class ChunkCoordIntPair
+  location: package net.minecraft.world
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\NBTStructure.java:43: error: cannot find symbol
+import net.minecraft.world.biome.BiomeGenBase;
+                                ^
+  symbol:   class BiomeGenBase
+  location: package net.minecraft.world.biome
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\NBTStructure.java:162: error: cannot find symbol
+	public static void registerNullWeight(int dimensionId, int weight, Predicate<BiomeGenBase> predicate) {
+	                                                                             ^
+  symbol:   class BiomeGenBase
+  location: class NBTStructure
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\SpawnCondition.java:39: error: cannot find symbol
+	public Predicate<BiomeGenBase> canSpawn;
+	                 ^
+  symbol:   class BiomeGenBase
+  location: class SpawnCondition
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\SpawnCondition.java:87: error: cannot find symbol
+	protected SpawnCondition(int weight, Predicate<BiomeGenBase> predicate) {
+	                                               ^
+  symbol:   class BiomeGenBase
+  location: class SpawnCondition
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\SpawnCondition.java:98: error: cannot find symbol
+	protected boolean isValid(BiomeGenBase biome) {
+	                          ^
+  symbol:   class BiomeGenBase
+  location: class SpawnCondition
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\SpawnCondition.java:140: error: cannot find symbol
+		public final ChunkCoordIntPair coords;
+		             ^
+  symbol:   class ChunkCoordIntPair
+  location: class WorldCoordinate
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\world\gen\nbt\SpawnCondition.java:143: error: cannot find symbol
+		protected WorldCoordinate(World world, ChunkCoordIntPair coords, Random rand) {
+		                                       ^
+  symbol:   class ChunkCoordIntPair
+  location: class WorldCoordinate
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BlockWoodStructure.java:18: error: cannot find symbol
+import net.minecraft.client.renderer.RenderBlocks;
+                                    ^
+  symbol:   class RenderBlocks
+  location: package net.minecraft.client.renderer
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\BrownBarrel.java:15: error: cannot find symbol
+import net.minecraft.client.audio.SoundCategory;
+                                 ^
+  symbol:   class SoundCategory
+  location: package net.minecraft.client.audio
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\LogicBlock.java:17: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\LogicBlock.java:157: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityLogicBlock
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\PartEmitter.java:19: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\generic\PartEmitter.java:103: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityPartEmitter
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockAtmosphereEditor.java:30: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockAtmosphereEditor.java:31: error: cannot find symbol
+import net.minecraft.util.ChatComponentTranslation;
+                         ^
+  symbol:   class ChatComponentTranslation
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockAtmosphereEditor.java:32: error: cannot find symbol
+import net.minecraft.util.ChatStyle;
+                         ^
+  symbol:   class ChatStyle
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockAtmosphericCompressor.java:21: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockAtmosphericCompressor.java:22: error: cannot find symbol
+import net.minecraft.util.ChatComponentTranslation;
+                         ^
+  symbol:   class ChatComponentTranslation
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockAtmosphericCompressor.java:23: error: cannot find symbol
+import net.minecraft.util.ChatStyle;
+                         ^
+  symbol:   class ChatStyle
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockFluidBarrel.java:32: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockFluidBarrel.java:33: error: cannot find symbol
+import net.minecraft.util.ChatComponentTranslation;
+                         ^
+  symbol:   class ChatComponentTranslation
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockFluidBarrel.java:34: error: cannot find symbol
+import net.minecraft.util.ChatStyle;
+                         ^
+  symbol:   class ChatStyle
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\items\tool\ItemConveyorWand.java:30: error: cannot find symbol
+import net.minecraft.network.play.server.S23PacketBlockChange;
+                                        ^
+  symbol:   class S23PacketBlockChange
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockRefueler.java:14: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockRefueler.java:15: error: cannot find symbol
+import net.minecraft.util.ChatComponentTranslation;
+                         ^
+  symbol:   class ChatComponentTranslation
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\BlockRefueler.java:16: error: cannot find symbol
+import net.minecraft.util.ChatStyle;
+                         ^
+  symbol:   class ChatStyle
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\Floodlight.java:23: error: cannot find symbol
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+                                        ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: package net.minecraft.network.play.server
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\Floodlight.java:289: error: cannot find symbol
+		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		                                             ^
+  symbol:   class S35PacketUpdateTileEntity
+  location: class TileEntityFloodlight
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\HeaterHeatex.java:22: error: cannot find symbol
+import net.minecraft.util.ChatComponentText;
+                         ^
+  symbol:   class ChatComponentText
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\HeaterHeatex.java:23: error: cannot find symbol
+import net.minecraft.util.ChatComponentTranslation;
+                         ^
+  symbol:   class ChatComponentTranslation
+  location: package net.minecraft.util
+C:\Users\nagas\Desktop\portntm\ntm-port-1.12.2\build\sources\main\java\com\hbm\blocks\machine\HeaterHeatex.java:24: error: cannot find symbol
+import net.minecraft.util.ChatStyle;
+                         ^
+  symbol:   class ChatStyle
+  location: package net.minecraft.util
+100 errors
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/4.10.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 46s
+11 actionable tasks: 10 executed, 1 up-to-date

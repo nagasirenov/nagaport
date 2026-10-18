@@ -10,8 +10,8 @@ import com.hbm.lib.Library;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
@@ -60,7 +60,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 		RadPerWorld system = perWorld.get(world);
 		
 		if(system != null) {
-			ChunkCoordIntPair coords = new ChunkCoordIntPair(x >> 4, z >> 4);
+			ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 			int yReg = MathHelper.clamp_int(y >> 4, 0, 15);
 			SubChunk[] subChunks = system.radiation.get(coords);
 			if(subChunks != null) {
@@ -80,7 +80,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 		RadPerWorld system = perWorld.get(world);
 		
 		if(system != null) {
-			ChunkCoordIntPair coords = new ChunkCoordIntPair(x >> 4, z >> 4);
+			ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 			int yReg = MathHelper.clamp_int(y >> 4, 0, 15);
 			SubChunk[] subChunks = system.radiation.get(coords);
 			if(subChunks == null) {
@@ -124,7 +124,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 				
 				for(int i = 0; i < 16; i++) {
 					if(!event.getData().getBoolean(NBT_KEY_CHUNK_EXISTS + i)) {
-						chunk[i] = new SubChunk().rebuild(event.world, event.getChunk().xPosition << 4, i << 4, event.getChunk().zPosition << 4);
+						chunk[i] = new SubChunk().rebuild(event.world, event.getChunk().getPos().x << 4, i << 4, event.getChunk().getPos().z << 4);
 						continue;
 					}
 					SubChunk sub = new SubChunk();
@@ -135,7 +135,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 					for(int j = 0; j < 16; j++) sub.zResist[j] = event.getData().getFloat(NBT_KEY_CHUNK_RESISTANCE + "z_" + j + "_" + i);
 				}
 				
-				radWorld.radiation.put(event.getChunk().getChunkCoordIntPair(), chunk);
+				radWorld.radiation.put(event.getChunk().getPos(), chunk);
 			}
 		}
 	}
@@ -145,7 +145,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 		if(!event.world.isRemote) {
 			RadPerWorld radWorld = perWorld.get(event.world);
 			if(radWorld != null) {
-				SubChunk[] chunk = radWorld.radiation.get(event.getChunk().getChunkCoordIntPair());
+				SubChunk[] chunk = radWorld.radiation.get(event.getChunk().getPos());
 				if(chunk != null) {
 					for(int i = 0; i < 16; i++) {
 						SubChunk sub = chunk[i];
@@ -168,12 +168,12 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 		if(!event.world.isRemote) {
 			RadPerWorld radWorld = perWorld.get(event.world);
 			if(radWorld != null) {
-				radWorld.radiation.remove(event.getChunk().getChunkCoordIntPair());
+				radWorld.radiation.remove(event.getChunk().getPos());
 			}
 		}
 	}
 
-	public static final Map<ChunkCoordIntPair, SubChunk[]> newAdditions = new HashMap<>();
+	public static final Map<ChunkPos, SubChunk[]> newAdditions = new HashMap<>();
 
 	@Override
 	public void updateSystem() {
@@ -189,8 +189,8 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 			
 			//it would be way to expensive to replace the sub-chunks entirely like with the old system
 			//(that only used floats anyway...) so instead we shift the radiation into the prev value
-			for(Entry<ChunkCoordIntPair, SubChunk[]> chunk : system.radiation.entrySet()) {
-				ChunkCoordIntPair coord = chunk.getKey();
+			for(Entry<ChunkPos, SubChunk[]> chunk : system.radiation.entrySet()) {
+				ChunkPos coord = chunk.getKey();
 				
 				for(int i = 0; i < 16; i++) {
 					
@@ -204,16 +204,16 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 						
 						//process some chunks that need extra rebuilding
 						if(rebuildAllowance > 0 && sub.needsRebuild) {
-							sub.rebuild(world, coord.chunkXPos << 4, i << 4, coord.chunkZPos << 4);
+							sub.rebuild(world, coord.x << 4, i << 4, coord.z << 4);
 							if(!sub.needsRebuild) {
 								rebuildAllowance--;
 								hasTriedRebuild = true;
 							}
 						}
 						
-						if(!hasTriedRebuild && Math.abs(coord.chunkXPos * coord.chunkZPos) % 5 == cycles % 5 && world.getChunkProvider().chunkExists(coord.chunkXPos, coord.chunkZPos)) {
+						if(!hasTriedRebuild && Math.abs(coord.x * coord.z) % 5 == cycles % 5 && world.getChunkProvider().chunkExists(coord.x, coord.z)) {
 
-							Chunk c = world.getChunkFromChunkCoords(coord.chunkXPos, coord.chunkZPos);
+							Chunk c = world.getChunkFromChunkCoords(coord.x, coord.z);
 							ExtendedBlockStorage[] xbs = c.getBlockStorageArray();
 							ExtendedBlockStorage subChunk = xbs[i];
 							int checksum = 0;
@@ -223,7 +223,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 							}
 							
 							if(checksum != sub.checksum) {
-								sub.rebuild(world, coord.chunkXPos << 4, i << 4, coord.chunkZPos << 4);
+								sub.rebuild(world, coord.x << 4, i << 4, coord.z << 4);
 							}
 						}
 					}
@@ -231,9 +231,9 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 			}
 
 			//has to support additions while iterating
-			Iterator<Entry<ChunkCoordIntPair, SubChunk[]>> it = system.radiation.entrySet().iterator();
+			Iterator<Entry<ChunkPos, SubChunk[]>> it = system.radiation.entrySet().iterator();
 			while(it.hasNext()) {
-				Entry<ChunkCoordIntPair, SubChunk[]> chunk = it.next();
+				Entry<ChunkPos, SubChunk[]> chunk = it.next();
 				if(this.getPrevChunkRadiation(chunk.getValue()) <= 0) continue;
 				for(int i = 0; i < 16; i++) {
 					
@@ -261,7 +261,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 	}
 	
 	/** Returns the amount of radiation spread */
-	private static float spreadRadiation(World world, SubChunk source, int y, ChunkCoordIntPair origin, SubChunk[] chunk, Map<ChunkCoordIntPair, SubChunk[]> map, ForgeDirection dir) {
+	private static float spreadRadiation(World world, SubChunk source, int y, ChunkPos origin, SubChunk[] chunk, Map<ChunkPos, SubChunk[]> map, ForgeDirection dir) {
 
 		float spread = 0.1F;
 		float amount = source.prevRadiation * spread;
@@ -271,18 +271,18 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 		if(dir.offsetY != 0) {
 			if(dir == Library.POS_Y && y == 15) return amount; // out of world
 			if(dir == Library.NEG_Y && y == 0) return amount; // out of world
-			if(chunk[y + dir.offsetY] == null) chunk[y + dir.offsetY] = new SubChunk().rebuild(world, origin.chunkXPos << 4, (y + dir.offsetY) << 4, origin.chunkZPos << 4);
+			if(chunk[y + dir.offsetY] == null) chunk[y + dir.offsetY] = new SubChunk().rebuild(world, origin.x << 4, (y + dir.offsetY) << 4, origin.z << 4);
 			SubChunk to = chunk[y + dir.offsetY];
 			return spreadRadiationTo(source, to, amount, dir);
 		} else {
-			ChunkCoordIntPair newPos = new ChunkCoordIntPair(origin.chunkXPos + dir.offsetX, origin.chunkZPos + dir.offsetZ);
-			if(!world.getChunkProvider().chunkExists(newPos.chunkXPos, newPos.chunkZPos)) return amount;
+			ChunkPos newPos = new ChunkPos(origin.x + dir.offsetX, origin.z + dir.offsetZ);
+			if(!world.getChunkProvider().chunkExists(newPos.x, newPos.z)) return amount;
 			SubChunk[] newChunk = map.get(newPos);
 			if(newChunk == null) {
 				newChunk = new SubChunk[16];
 				newAdditions.put(newPos, newChunk);
 			}
-			if(newChunk[y] == null) newChunk[y] = new SubChunk().rebuild(world, newPos.chunkXPos << 4, y << 4, newPos.chunkZPos << 4);
+			if(newChunk[y] == null) newChunk[y] = new SubChunk().rebuild(world, newPos.x << 4, y << 4, newPos.z << 4);
 			SubChunk to = newChunk[y];
 			return spreadRadiationTo(source, to, amount, dir);
 		}
@@ -306,7 +306,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 	}
 	
 	public static class RadPerWorld {
-		public Map<ChunkCoordIntPair, SubChunk[]> radiation = new ConcurrentHashMap<>();
+		public Map<ChunkPos, SubChunk[]> radiation = new ConcurrentHashMap<>();
 	}
 	
 	public static class SubChunk {

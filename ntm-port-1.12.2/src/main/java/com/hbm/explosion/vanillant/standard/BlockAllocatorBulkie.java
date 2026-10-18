@@ -2,13 +2,14 @@ package com.hbm.explosion.vanillant.standard;
 
 import java.util.HashSet;
 
+import com.hbm.explosion.LegacyHashBlockPos;
 import com.hbm.explosion.vanillant.ExplosionVNT;
 import com.hbm.explosion.vanillant.interfaces.IBlockAllocator;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkPosition;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockAllocatorBulkie implements IBlockAllocator {
@@ -26,9 +27,9 @@ public class BlockAllocatorBulkie implements IBlockAllocator {
 	}
 
 	@Override
-	public HashSet<ChunkPosition> allocate(ExplosionVNT explosion, World world, double x, double y, double z, float size) {
+	public HashSet<BlockPos> allocate(ExplosionVNT explosion, World world, double x, double y, double z, float size) {
 
-		HashSet<ChunkPosition> affectedBlocks = new HashSet();
+		HashSet<BlockPos> affectedBlocks = new HashSet();
 
 		for(int i = 0; i < this.resolution; ++i) {
 			for(int j = 0; j < this.resolution; ++j) {
@@ -72,7 +73,7 @@ public class BlockAllocatorBulkie implements IBlockAllocator {
 							}
 
 							if(explosion.exploder == null || explosion.exploder.func_145774_a(explosion.compat, world, blockX, blockY, blockZ, block, explosion.size)) {
-								affectedBlocks.add(new ChunkPosition(blockX, blockY, blockZ));
+								affectedBlocks.add(new LegacyHashBlockPos(blockX, blockY, blockZ));
 							}
 
 							currentX += d0 * (double) stepSize;

@@ -30,7 +30,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
@@ -59,7 +59,7 @@ public class ItemTransporterLinker extends Item implements IGUIProvider {
 		if(player.isSneaking()) {
 			if(!world.isRemote) {
 				addTransporter(stack, world, transporter);
-				player.addChatMessage(new ChatComponentText("Added transporter to linker"));
+				player.sendMessage(new TextComponentString("Added transporter to linker"));
 			}
 		} else if(world.isRemote) {
 			lastTransporter = TransporterInfo.from(world.provider.dimensionId, transporter);

@@ -23,8 +23,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.render.icon.IIcon;
@@ -204,15 +203,15 @@ public class BlockPedestal extends BlockContainer {
 		@Override public boolean canUpdate() { return false; }
 
 		@Override
-		public Packet getDescriptionPacket() {
+		public SPacketUpdateTileEntity getUpdatePacket() {
 			NBTTagCompound nbt = new NBTTagCompound();
 			this.writeToNBT(nbt);
-			return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbt);
+			return new SPacketUpdateTileEntity(this.getPos(), 0, nbt);
 		}
 
 		@Override
-		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-			this.readFromNBT(pkt.func_148857_g());
+		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+			this.readFromNBT(pkt.getNbtCompound());
 		}
 
 		@Override

@@ -21,8 +21,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -202,8 +201,8 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 		}
 
 		@Override
-		public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-			NBTTagCompound nbt = pkt.func_148857_g();
+		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+			NBTTagCompound nbt = pkt.getNbtCompound();
 
 			int id = nbt.getInteger("block");
 			this.block = id == 0 ? null : Block.getBlockById(id);
@@ -212,14 +211,14 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 		}
 
 		@Override
-		public Packet getDescriptionPacket() {
+		public SPacketUpdateTileEntity getUpdatePacket() {
 			NBTTagCompound nbt = new NBTTagCompound();
 
 			if(block != null) nbt.setInteger("block", Block.getIdFromBlock(block));
 			nbt.setInteger("meta", meta);
 			nbt.setByte("insertionDir", (byte) insertionDir.ordinal());
 			nbt.setByte("ejectionDir", (byte) ejectionDir.ordinal());
-			return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbt);
+			return new SPacketUpdateTileEntity(this.getPos(), 0, nbt);
 		}
 
 		@Override

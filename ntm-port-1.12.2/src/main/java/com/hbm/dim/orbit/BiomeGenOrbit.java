@@ -2,30 +2,30 @@ package com.hbm.dim.orbit;
 
 import java.util.Random;
 
-import com.hbm.config.SpaceConfig;
-import com.hbm.dim.BiomeGenBaseCelestial;
-
-import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenOrbit extends BiomeGenBaseCelestial {
+public class BiomeGenOrbit extends Biome implements OrbitBiomeMarker {
 
-	public static final BiomeGenBase biome = new BiomeGenOrbit(SpaceConfig.orbitBiome);
+	public static BiomeGenOrbit biome;
 
-	public BiomeGenOrbit(int id) {
-		super(id);
-		this.setBiomeName("Space");
-		this.setDisableRain();
+	public BiomeGenOrbit() {
+		super(new Biome.BiomeProperties("Space").setRainDisabled());
+		this.spawnableCreatureList.clear();
+		this.spawnableMonsterList.clear();
+		this.spawnableWaterCreatureList.clear();
+		this.spawnableCaveCreatureList.clear();
 	}
 
 	@Override
-	public void genTerrainBlocks(World world, Random rand, Block[] blocks, byte[] meta, int x, int z, double noise) {
-		// NOTHING
+	public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise) {
+		// Orbit has no biome terrain replacement.
 	}
 
-	public void decorate(World world, Random rand, int x, int z) {
-		// EVEN LESS
+	@Override
+	public void decorate(World world, Random rand, BlockPos pos) {
+		// Orbit has no biome decoration.
 	}
-
 }

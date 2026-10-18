@@ -29,8 +29,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -207,19 +206,19 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 	}
 
 	@Override
-	public Packet getDescriptionPacket() {
+	public SPacketUpdateTileEntity getUpdatePacket() {
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setByte("insertionDir", (byte) insertionDir.ordinal());
 		nbt.setByte("ejectionDir", (byte) ejectionDir.ordinal());
-		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbt);
+		return new SPacketUpdateTileEntity(this.getPos(), 0, nbt);
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-		NBTTagCompound nbt = pkt.func_148857_g();
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+		NBTTagCompound nbt = pkt.getNbtCompound();
 		this.insertionDir = EnumUtil.grabEnumSafely(ForgeDirection.class, nbt.getByte("insertionDir"));
 		this.ejectionDir = EnumUtil.grabEnumSafely(ForgeDirection.class, nbt.getByte("ejectionDir"));
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord); // that's right, we're gonna cheat
+		worldObj.markBlockRangeForRenderUpdate(this.getPos(), this.getPos()); // that's right, we're gonna cheat
 	}
 
 	@Override

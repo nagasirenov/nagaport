@@ -33,10 +33,10 @@ public class BlockBase extends Block {
 		super(material);
 	}
 
-	/** Legacy NTM naming helper for the 1.12 registry and texture systems. */
+	/** Legacy NTM naming helper; the registry name retains the full legacy unlocalized path. */
 	public BlockBase setBlockName(String name) {
 		this.setUnlocalizedName(name);
-		this.setRegistryName(new ResourceLocation(RefStrings.MODID, name));
+		this.setRegistryName(new ResourceLocation(RefStrings.MODID, this.getUnlocalizedName()));
 		this.textureName = RefStrings.MODID + ":" + name;
 		return this;
 	}

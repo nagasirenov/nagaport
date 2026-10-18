@@ -1,6 +1,11 @@
 package com.hbm.util;
 
-import net.minecraft.util.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextComponentBase;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +13,11 @@ import java.util.ListIterator;
 
 public class ChatBuilder {
 
-	private ChatComponentText text;
-	private ChatComponentStyle last;
+	private TextComponentString text;
+	private TextComponentBase last;
 
 	private ChatBuilder(String text) {
-		this.text = new ChatComponentText(text);
+		this.text = new TextComponentString(text);
 		this.last = this.text;
 	}
 
@@ -27,26 +32,26 @@ public class ChatBuilder {
 	}
 
 	public ChatBuilder next(String text) {
-		ChatComponentText append = new ChatComponentText(text);
+		TextComponentString append = new TextComponentString(text);
 		this.last.appendSibling(append);
 		this.last = append;
 		return this;
 	}
 
 	public ChatBuilder nextTranslation(String text, Object... o) {
-		ChatComponentTranslation append = new ChatComponentTranslation(text, o);
+		TextComponentTranslation append = new TextComponentTranslation(text, o);
 		this.last.appendSibling(append);
 		this.last = append;
 		return this;
 	}
 
 	public ChatBuilder color(TextFormatting format) {
-		ChatStyle style = this.last.getChatStyle();
+		Style style = this.last.getStyle();
 		style.setColor(format);
 		return this;
 	}
 
-	/** Will recursively go over all IChatComponents added to the root and then set the style */
+	/** Will recursively go over all ITextComponents added to the root and then set the style */
 	public ChatBuilder colorAll(TextFormatting format) {
 
 		List list = new ArrayList();
@@ -56,15 +61,15 @@ public class ChatBuilder {
 
 		while(it.hasNext()) {
 			Object o = it.next();
-			IChatComponent component = (IChatComponent) o;
-			component.getChatStyle().setColor(format);
+			ITextComponent component = (ITextComponent) o;
+			component.getStyle().setColor(format);
 			for(Object s : component.getSiblings()) it.add(s);
 		}
 
 		return this;
 	}
 
-	public ChatComponentText flush() {
+	public TextComponentString flush() {
 		return this.text;
 	}
 }

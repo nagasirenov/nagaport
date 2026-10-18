@@ -31,7 +31,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkPosition;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import com.hbm.lib.ForgeDirection;
@@ -353,9 +353,9 @@ public class ChunkAtmosphereHandler {
 	public void receiveDetonate(ExplosionEvent.Detonate event) {
 		if(event.world.isRemote) return;
 		List<ThreeInts> unsealingBlocks = new ArrayList<ThreeInts>();
-		for(ChunkPosition block : event.getAffectedBlocks()) {
-			if(AtmosphereBlob.isBlockSealed(event.world, block.chunkPosX, block.chunkPosY, block.chunkPosZ)) {
-				unsealingBlocks.add(new ThreeInts(block.chunkPosX, block.chunkPosY, block.chunkPosZ));
+		for(BlockPos block : event.getAffectedBlocks()) {
+			if(AtmosphereBlob.isBlockSealed(event.world, block.getX(), block.getY(), block.getZ())) {
+				unsealingBlocks.add(new ThreeInts(block.getX(), block.getY(), block.getZ()));
 			}
 		}
 		explosions.add(new Pair<>(event, unsealingBlocks));

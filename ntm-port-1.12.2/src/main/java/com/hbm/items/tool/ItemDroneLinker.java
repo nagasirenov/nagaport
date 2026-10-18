@@ -30,7 +30,7 @@ public class ItemDroneLinker extends Item {
 					stack.stackTagCompound.setInteger("y", y);
 					stack.stackTagCompound.setInteger("z", z);
 					
-					player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.next("Set initial position!").color(TextFormatting.AQUA).flush());
@@ -48,12 +48,12 @@ public class ItemDroneLinker extends Item {
 						BlockPos dest = ((IDroneLinkable) tile).getPoint();
 						((IDroneLinkable) prev).setNextTarget(dest.getX(), dest.getY(), dest.getZ());
 						
-						player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+						player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 								.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 								.next("] ").color(TextFormatting.DARK_AQUA)
 								.next("Link set!").color(TextFormatting.AQUA).flush());
 					} else {
-						player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+						player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 								.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 								.next("] ").color(TextFormatting.DARK_AQUA)
 								.next("Previous link lost!").color(TextFormatting.RED).flush());
@@ -90,7 +90,7 @@ public class ItemDroneLinker extends Item {
 		if(!world.isRemote && stack.hasTagCompound()) {
 			stack.stackTagCompound = null;
 
-			player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+			player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 					.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 					.next("] ").color(TextFormatting.DARK_AQUA)
 					.next("Position cleared!").color(TextFormatting.GREEN).flush());

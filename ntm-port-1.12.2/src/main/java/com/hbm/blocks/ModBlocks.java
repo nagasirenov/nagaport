@@ -33,8 +33,8 @@ import com.hbm.main.MainRegistry;
 import com.hbm.tileentity.DoorDecl;
 import com.hbm.tileentity.machine.storage.TileEntityFileCabinet;
 import com.hbm.util.Compat;
+import com.hbm.registry.GameRegistry;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.*;
@@ -43,6 +43,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -1413,8 +1414,8 @@ public class ModBlocks {
 
 	private static Block createBarbedWire(String registryName) {
 		BarbedWire block = new BarbedWire(Material.IRON);
-		block.setRegistryName(RefStrings.MODID + ":" + registryName);
 		block.setUnlocalizedName(registryName);
+		block.setRegistryName(new ResourceLocation(RefStrings.MODID, block.getUnlocalizedName()));
 		block.setHardness(5.0F);
 		block.setResistance(10.0F);
 		block.setCreativeTab(MainRegistry.blockTab);

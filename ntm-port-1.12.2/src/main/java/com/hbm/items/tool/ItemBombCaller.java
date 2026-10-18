@@ -12,7 +12,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -72,11 +72,11 @@ public class ItemBombCaller extends Item {
 
 			}
 			WorldUtil.loadAndSpawnEntityInWorld(bomber);
-			player.addChatMessage(new ChatComponentText("Called in airstrike!"));
+			player.sendMessage(new TextComponentString("Called in airstrike!"));
 			world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
 
 			if(b2){
-		    	player.addChatMessage(new ChatComponentText("Rerouted Civilian Traffic!"));
+				player.sendMessage(new TextComponentString("Rerouted Civilian Traffic!"));
 		        world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
 			}
 

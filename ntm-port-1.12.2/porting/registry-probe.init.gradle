@@ -1,0 +1,16 @@
+allprojects {
+	afterEvaluate {
+		tasks.create('compileRegistryBridgeProbe', org.gradle.api.tasks.compile.JavaCompile) {
+			dependsOn 'sourceMainJava'
+			source = project.fileTree('build/sources/main/java') {
+				include 'com/hbm/lib/RefStrings.java'
+				include 'com/hbm/registry/GameRegistry.java'
+			}
+			classpath = project.tasks.getByName('compileJava').classpath
+			destinationDir = project.file("${project.buildDir}/registryBridgeProbe")
+			sourceCompatibility = '1.8'
+			targetCompatibility = '1.8'
+			options.encoding = 'UTF-8'
+		}
+	}
+}

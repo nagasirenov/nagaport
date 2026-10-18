@@ -61,9 +61,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.play.server.S23PacketBlockChange;
+import net.minecraft.network.play.server.SPacketBlockChange;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
@@ -370,7 +371,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 		if(player.capabilities.isCreativeMode) {
 			removedByPlayer = removeBlock(world, x, y, z, false, player);
-			player.playerNetServerHandler.sendPacket(new S23PacketBlockChange(x, y, z, world));
+			player.connection.sendPacket(new SPacketBlockChange(world, new BlockPos(x, y, z)));
 		} else {
 			ItemStack itemstack = player.getCurrentEquippedItem();
 			boolean canHarvest = block.canHarvestBlock(player, l);

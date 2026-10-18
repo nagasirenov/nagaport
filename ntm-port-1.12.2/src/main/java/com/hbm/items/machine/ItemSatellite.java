@@ -11,7 +11,7 @@ import com.hbm.saveddata.satellites.Satellite;
 import com.hbm.util.i18n.I18nUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -102,7 +102,7 @@ public class ItemSatellite extends ItemCustomMissilePart implements ISatChip {
 
 			Satellite.orbit(targetWorld, Satellite.getIDFromItem(stack.getItem()), getFreq(stack), player.posX, player.posY, player.posZ);
 
-			player.addChatMessage(new ChatComponentText("Satellite launched successfully!"));
+			player.sendMessage(new TextComponentString("Satellite launched successfully!"));
 		}
 
 		stack.stackSize--;

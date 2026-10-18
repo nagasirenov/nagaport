@@ -9,7 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -38,7 +38,7 @@ public class ItemDesingator extends Item implements IDesignatorItem {
 			stack.stackTagCompound.setInteger("zCoord", z);
 			
 			if(world.isRemote) {
-				player.addChatMessage(new ChatComponentText("Position set!"));
+				player.sendMessage(new TextComponentString("Position set!"));
 			}
 
 			world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);

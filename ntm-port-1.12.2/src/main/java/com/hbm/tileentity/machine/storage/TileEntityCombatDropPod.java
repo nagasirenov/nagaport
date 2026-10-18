@@ -19,8 +19,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -99,15 +98,15 @@ public class TileEntityCombatDropPod extends TileEntity implements IBufPacketRec
 	//we serious?? like actually??
 	//i hate working on this game so much sometimes
 	@Override
-	public Packet getDescriptionPacket() {
+	public SPacketUpdateTileEntity getUpdatePacket() {
 	    NBTTagCompound nbt = new NBTTagCompound();
 	    this.writeToNBT(nbt);
-	    return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, nbt);
+	    return new SPacketUpdateTileEntity(this.getPos(), 1, nbt);
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-	    this.readFromNBT(pkt.func_148857_g());
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+	    this.readFromNBT(pkt.getNbtCompound());
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -18,8 +18,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -43,7 +43,7 @@ public class ItemRBMKTool extends Item {
 				stack.stackTagCompound.setInteger("posY", pos[1]);
 				stack.stackTagCompound.setInteger("posZ", pos[2]);
 				
-				player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".linked").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -61,7 +61,7 @@ public class ItemRBMKTool extends Item {
 				int ty = stack.stackTagCompound.getInteger("posY");
 				int tz = stack.stackTagCompound.getInteger("posZ");
 				console.setTarget(tx, ty, tz);
-				player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".set").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -78,7 +78,7 @@ public class ItemRBMKTool extends Item {
 				int ty = stack.stackTagCompound.getInteger("posY");
 				int tz = stack.stackTagCompound.getInteger("posZ");
 				console.setTarget(tx, ty, tz);
-				player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".set").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;
@@ -93,7 +93,7 @@ public class ItemRBMKTool extends Item {
 				int ty = stack.stackTagCompound.getInteger("posY");
 				int tz = stack.stackTagCompound.getInteger("posZ");
 				console.setTarget(tx, ty, tz);
-				player.addChatComponentMessage(new ChatComponentTranslation(this.getUnlocalizedName() + ".set").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+				player.sendMessage(new TextComponentTranslation(this.getUnlocalizedName() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
 			
 			return true;

@@ -42,7 +42,7 @@ public class ItemDetonator extends Item {
 			stack.stackTagCompound.setInteger("z", z);
 
 			if(!world.isRemote) {
-				player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("Position set!").color(TextFormatting.GREEN).flush());
@@ -61,7 +61,7 @@ public class ItemDetonator extends Item {
 
 		if(stack.stackTagCompound == null) {
 			if(!world.isRemote) {
-				player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("No position set!").color(TextFormatting.RED).flush());
@@ -79,7 +79,7 @@ public class ItemDetonator extends Item {
 					if(GeneralConfig.enableExtendedLogging)
 						MainRegistry.logger.log(Level.INFO, "[DET] Tried to detonate block at " + x + " / " + y + " / " + z + " by " + player.getDisplayName() + "!");
 					
-					player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(ret.getUnlocalizedMessage()).color(ret.wasSuccessful() ? TextFormatting.YELLOW : TextFormatting.RED).flush());
@@ -87,7 +87,7 @@ public class ItemDetonator extends Item {
 				
 			} else {
 				if(!world.isRemote) {
-					player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(BombReturnCode.ERROR_NO_BOMB.getUnlocalizedMessage()).color(TextFormatting.RED).flush());

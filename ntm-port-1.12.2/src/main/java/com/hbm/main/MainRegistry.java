@@ -283,8 +283,10 @@ public class MainRegistry {
 		Mats.MAT_STONE.getUnlocalizedName();
 		Fluids.init();
 		proxy.registerPreRenderInfo();
+		com.hbm.registry.GameRegistry.beginRegistrationTables();
 		ModBlocks.mainRegistry();
 		ModItems.mainRegistry();
+		com.hbm.registry.GameRegistry.finishRegistrationTables();
 		ModBiomes.init();
 		proxy.registerRenderInfo();
 		HbmWorld.mainRegistry();

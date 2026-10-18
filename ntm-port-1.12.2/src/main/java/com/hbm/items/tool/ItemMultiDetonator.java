@@ -49,7 +49,7 @@ public class ItemMultiDetonator extends Item {
 			addLocation(stack, x, y, z);
 
 			if(!world.isRemote) {
-				player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("Position added!").color(TextFormatting.GREEN).flush());
@@ -69,7 +69,7 @@ public class ItemMultiDetonator extends Item {
 		if(stack.stackTagCompound == null || getLocations(stack) == null) {
 			
 			if(!world.isRemote) {
-				player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 						.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("No position set!").color(TextFormatting.RED).flush());
@@ -105,7 +105,7 @@ public class ItemMultiDetonator extends Item {
 				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
 				
 				if(!world.isRemote) {
-					player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.next("Triggered " + succ + "/" + locs[0].length + "!").color(TextFormatting.YELLOW).flush());
@@ -120,7 +120,7 @@ public class ItemMultiDetonator extends Item {
 				world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F);
 				
 				if(!world.isRemote) {
-					player.addChatMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
+					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(this.getUnlocalizedName() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.next("Locations cleared!").color(TextFormatting.RED).flush());

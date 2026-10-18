@@ -19,8 +19,8 @@ import com.hbm.explosion.vanillant.standard.PlayerProcessorStandard;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
@@ -78,12 +78,12 @@ public class ExplosionVNT {
 		boolean processBlocks = blockAllocator != null && blockProcessor != null;
 		boolean processEntities = entityProcessor != null && playerProcessor != null;
 		
-		HashSet<ChunkPosition> affectedBlocks = null;
+		HashSet<BlockPos> affectedBlocks = null;
 		HashMap<EntityPlayer, Vec3d> affectedPlayers = null;
 		
 		//allocation
 		if(processBlocks) affectedBlocks = blockAllocator.allocate(this, world, posX, posY, posZ, size);
-		if(processBlocks) this.compat.affectedBlockPositions.addAll(affectedBlocks);
+		if(processBlocks) this.compat.getAffectedBlockPositions().addAll(affectedBlocks);
 		if(processEntities) affectedPlayers = entityProcessor.process(this, world, posX, posY, posZ, size);
 		// technically not necessary, as the affected entity list is a separate parameter during the Detonate event
 		if(processEntities) this.compatPlayers.putAll(affectedPlayers);

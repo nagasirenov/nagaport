@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -48,7 +48,7 @@ public class ItemWiring extends Item {
 					stack.stackTagCompound.setInteger("z", z);
 
 					if(!world.isRemote) {
-						player.addChatMessage(new ChatComponentText("Wire start"));
+						player.sendMessage(new TextComponentString("Wire start"));
 					}
 				} else if(!world.isRemote) {
 
@@ -65,16 +65,16 @@ public class ItemWiring extends Item {
 							case 0:
 								first.addConnection(x, y, z);
 								second.addConnection(x1, y1, z1);
-								player.addChatMessage(new ChatComponentText("Wire end"));
+								player.sendMessage(new TextComponentString("Wire end"));
 								break;
 							case 1:
-								player.addChatMessage(new ChatComponentText("Wire error - Pylons are not the same type"));
+								player.sendMessage(new TextComponentString("Wire error - Pylons are not the same type"));
 								break;
 							case 2:
-								player.addChatMessage(new ChatComponentText("Wire error - Cannot connect to the same pylon"));
+								player.sendMessage(new TextComponentString("Wire error - Cannot connect to the same pylon"));
 								break;
 							case 3:
-								player.addChatMessage(new ChatComponentText("Wire error - Pylon is too far away"));
+								player.sendMessage(new TextComponentString("Wire error - Pylon is too far away"));
 								break;
 						}
 						
@@ -83,7 +83,7 @@ public class ItemWiring extends Item {
 					} else {
 
 						if(!world.isRemote) {
-							player.addChatMessage(new ChatComponentText("Wire error"));
+							player.sendMessage(new TextComponentString("Wire error"));
 						}
 						stack.stackTagCompound = null;
 					}

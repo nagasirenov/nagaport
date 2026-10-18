@@ -4,10 +4,10 @@ import java.util.HashSet;
 
 import com.hbm.explosion.vanillant.ExplosionVNT;
 
-import net.minecraft.world.ChunkPosition;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface IBlockAllocator {
 
-	public HashSet<ChunkPosition> allocate(ExplosionVNT explosion, World world, double x, double y, double z, float size);
+	public HashSet<BlockPos> allocate(ExplosionVNT explosion, World world, double x, double y, double z, float size);
 }

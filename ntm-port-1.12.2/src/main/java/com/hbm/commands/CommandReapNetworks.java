@@ -6,7 +6,7 @@ import com.hbm.util.ChatBuilder;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 public class CommandReapNetworks extends CommandBase {
@@ -35,14 +35,14 @@ public class CommandReapNetworks extends CommandBase {
 			UniNodespace.activeNodeNets.clear();
 			UniNodespace.worlds.clear();
 
-			sender.addChatMessage(new ChatComponentText(TextFormatting.YELLOW + "Nodespace cleared :)"));
+			sender.sendMessage(new TextComponentString(TextFormatting.YELLOW + "Nodespace cleared :)"));
 			
 		} catch(Exception ex) {
-			sender.addChatMessage(ChatBuilder.start("----------------------------------").color(TextFormatting.GRAY).flush());
-			sender.addChatMessage(ChatBuilder.start("An error has occoured during network reap, consult the log for details.").color(TextFormatting.RED).flush());
-			sender.addChatMessage(ChatBuilder.start(ex.getLocalizedMessage()).color(TextFormatting.RED).flush());
-			sender.addChatMessage(ChatBuilder.start(ex.getStackTrace()[0].toString()).color(TextFormatting.RED).flush());
-			sender.addChatMessage(ChatBuilder.start("----------------------------------").color(TextFormatting.GRAY).flush());
+			sender.sendMessage(ChatBuilder.start("----------------------------------").color(TextFormatting.GRAY).flush());
+			sender.sendMessage(ChatBuilder.start("An error has occoured during network reap, consult the log for details.").color(TextFormatting.RED).flush());
+			sender.sendMessage(ChatBuilder.start(ex.getLocalizedMessage()).color(TextFormatting.RED).flush());
+			sender.sendMessage(ChatBuilder.start(ex.getStackTrace()[0].toString()).color(TextFormatting.RED).flush());
+			sender.sendMessage(ChatBuilder.start("----------------------------------").color(TextFormatting.GRAY).flush());
 			throw ex;
 		}
 	}

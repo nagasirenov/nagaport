@@ -36,9 +36,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -1263,7 +1263,7 @@ public class NBTStructure {
 		private SpawnCondition getSpawnAtCoords(int chunkX, int chunkZ) {
 			// attempt to spawn with custom chunk coordinate rules
 			if (customSpawnMap.containsKey(worldObj.provider.dimensionId)) {
-				WorldCoordinate coords = new WorldCoordinate(worldObj, new ChunkCoordIntPair(chunkX, chunkZ), rand);
+				WorldCoordinate coords = new WorldCoordinate(worldObj, new ChunkPos(chunkX, chunkZ), rand);
 
 				List<SpawnCondition> spawnList = customSpawnMap.get(worldObj.provider.dimensionId);
 				for (SpawnCondition spawn : spawnList) {

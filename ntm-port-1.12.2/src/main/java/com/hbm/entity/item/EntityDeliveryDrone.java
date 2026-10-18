@@ -15,7 +15,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
@@ -195,12 +195,12 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 	protected void loadNeighboringChunks() {
 		if(!worldObj.isRemote && loaderTicket != null) {
 
-			for(ChunkCoordIntPair chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
+			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
 			}
 			
 			// This is the lowest padding that worked with my drone waypoint path. if they stop getting loaded crank up paddingSize
-			for (ChunkCoordIntPair chunk : ChunkShapeHelper.getChunksAlongLineSegment((int) Math.floor(this.posX), (int) Math.floor(this.posZ), (int) Math.floor(this.posX + this.motionX), (int) Math.floor(this.posZ + this.motionZ), 8)){
+			for (ChunkPos chunk : ChunkShapeHelper.getChunksAlongLineSegment((int) Math.floor(this.posX), (int) Math.floor(this.posZ), (int) Math.floor(this.posX + this.motionX), (int) Math.floor(this.posZ + this.motionZ), 8)){
 				ForgeChunkManager.forceChunk(loaderTicket, chunk);
 			}
 		}

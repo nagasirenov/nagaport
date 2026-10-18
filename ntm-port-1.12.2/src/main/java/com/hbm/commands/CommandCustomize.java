@@ -5,8 +5,8 @@ import com.hbm.items.ICustomizable;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 public class CommandCustomize extends CommandBase {
@@ -34,14 +34,14 @@ public class CommandCustomize extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if(!(sender instanceof EntityPlayer)) {
-			sender.addChatMessage(new ChatComponentText("Customization is only available to players!").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+			sender.sendMessage(new TextComponentString("Customization is only available to players!").setStyle(new Style().setColor(TextFormatting.RED)));
 			return;
 		}
 		
 		EntityPlayer player = (EntityPlayer) sender;
 		
 		if(player.getHeldItem() == null || !(player.getHeldItem().getItem() instanceof ICustomizable)) {
-			sender.addChatMessage(new ChatComponentText("You have to hold a customizable item to use this command!").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+			sender.sendMessage(new TextComponentString("You have to hold a customizable item to use this command!").setStyle(new Style().setColor(TextFormatting.RED)));
 			return;
 		}
 		

@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatBase;
 import net.minecraft.stats.StatCrafting;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.text.TextComponentTranslation;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -70,7 +70,7 @@ public class StatHelper {
 			if(item != null) {
 				int i = Item.getIdFromItem(item);
 				try {
-					StatList.objectCraftStats[i] = registerStat(new StatCrafting("stat.craftItem." + i, new ChatComponentTranslation("stat.craftItem", new Object[] { (new ItemStack(item)).func_151000_E() }), item));
+					StatList.objectCraftStats[i] = registerStat(new StatCrafting("stat.craftItem." + i, "", new TextComponentTranslation("stat.craftItem", new Object[] { (new ItemStack(item)).getTextComponent() }), item));
 				} catch(Throwable ex) { }
 			}
 		}
@@ -88,7 +88,7 @@ public class StatHelper {
 				int i = Block.getIdFromBlock(block);
 				try {
 					if(block.getEnableStats()) {
-						StatList.mineBlockStatArray[i] = registerStat(new StatCrafting("stat.mineBlock." + i, new ChatComponentTranslation("stat.mineBlock", new Object[] { (new ItemStack(block)).func_151000_E() }), Item.getItemFromBlock(block)));
+						StatList.mineBlockStatArray[i] = registerStat(new StatCrafting("stat.mineBlock." + i, "", new TextComponentTranslation("stat.mineBlock", new Object[] { (new ItemStack(block)).getTextComponent() }), Item.getItemFromBlock(block)));
 						StatList.objectMineStats.add((StatCrafting) StatList.mineBlockStatArray[i]);
 					}
 				} catch(Throwable ex) { }
@@ -107,7 +107,7 @@ public class StatHelper {
 			if(item != null) {
 				int i = Item.getIdFromItem(item);
 				try {
-					StatList.objectUseStats[i] = registerStat(new StatCrafting("stat.useItem." + i, new ChatComponentTranslation("stat.useItem", new Object[] { (new ItemStack(item)).func_151000_E() }), item));
+					StatList.objectUseStats[i] = registerStat(new StatCrafting("stat.useItem." + i, "", new TextComponentTranslation("stat.useItem", new Object[] { (new ItemStack(item)).getTextComponent() }), item));
 					if(!(item instanceof ItemBlock)) {
 						StatList.itemStats.add((StatCrafting) StatList.objectUseStats[i]);
 					}
@@ -128,7 +128,7 @@ public class StatHelper {
 				int i = Item.getIdFromItem(item);
 				try {
 					if(item.isDamageable()) {
-						StatList.objectBreakStats[i] = registerStat(new StatCrafting("stat.breakItem." + i, new ChatComponentTranslation("stat.breakItem", new Object[] { (new ItemStack(item)).func_151000_E() }), item));
+						StatList.objectBreakStats[i] = registerStat(new StatCrafting("stat.breakItem." + i, "", new TextComponentTranslation("stat.breakItem", new Object[] { (new ItemStack(item)).getTextComponent() }), item));
 					}
 				} catch(Throwable ex) { }
 			}

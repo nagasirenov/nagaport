@@ -12,7 +12,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 public abstract class CommandReloadConfig extends CommandBase {
@@ -41,16 +41,16 @@ public abstract class CommandReloadConfig extends CommandBase {
 		}
 		
 		if("list".equals(operator)) {
-			sender.addChatMessage(new ChatComponentText(TextFormatting.RED + getTitle()));
+			sender.sendMessage(new TextComponentString(TextFormatting.RED + getTitle()));
 			for(Entry<String, ConfigWrapper> line : getConfigMap().entrySet()) {
-				sender.addChatMessage(new ChatComponentText("  " + TextFormatting.GOLD + line.getKey() + ": " + TextFormatting.YELLOW + line.getValue().value));
+				sender.sendMessage(new TextComponentString("  " + TextFormatting.GOLD + line.getKey() + ": " + TextFormatting.YELLOW + line.getValue().value));
 			}
 			return;
 		}
 		
 		if("reload".equals(operator)) {
 			reload();
-			sender.addChatMessage(new ChatComponentText(TextFormatting.YELLOW + "Variables loaded from config file."));
+			sender.sendMessage(new TextComponentString(TextFormatting.YELLOW + "Variables loaded from config file."));
 			return;
 		}
 
@@ -61,7 +61,7 @@ public abstract class CommandReloadConfig extends CommandBase {
 		if("get".equals(operator)) {
 			ConfigWrapper wrapper = getConfigMap().get(key);
 			if(wrapper == null) throw new CommandException("Key does not exist.");
-			sender.addChatMessage(new ChatComponentText(TextFormatting.GOLD + key + ": " + TextFormatting.YELLOW + wrapper.value));
+			sender.sendMessage(new TextComponentString(TextFormatting.GOLD + key + ": " + TextFormatting.YELLOW + wrapper.value));
 			return;
 		}
 
@@ -76,7 +76,7 @@ public abstract class CommandReloadConfig extends CommandBase {
 			try {
 				wrapper.update(value);
 				refresh();
-				sender.addChatMessage(new ChatComponentText(TextFormatting.YELLOW + "Value updated."));
+				sender.sendMessage(new TextComponentString(TextFormatting.YELLOW + "Value updated."));
 			} catch(Exception ex) {
 				throw new CommandException("Error parsing type for " + wrapper.value.getClass().getSimpleName() + ": " + ex.getLocalizedMessage());
 			}

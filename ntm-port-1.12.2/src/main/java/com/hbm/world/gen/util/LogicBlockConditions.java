@@ -8,7 +8,7 @@ import com.hbm.items.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -83,7 +83,7 @@ public class LogicBlockConditions {
 		int z = tile.zCoord;
 
 		if(tile.phase == 0 &&  world.isBlockIndirectlyGettingPowered(x,y,z)){
-			world.getClosestPlayer(x,y,z, 25).addChatMessage(new ChatComponentText("Find a " + TextFormatting.GOLD + "great" + TextFormatting.RESET + " ancient weapon, of questionable use in the modern age"));
+			world.getClosestPlayer(x,y,z, 25).sendMessage(new TextComponentString("Find a " + TextFormatting.GOLD + "great" + TextFormatting.RESET + " ancient weapon, of questionable use in the modern age"));
 			world.setBlock(x,y + 1,z, ModBlocks.pedestal);
 			return true;
 		}

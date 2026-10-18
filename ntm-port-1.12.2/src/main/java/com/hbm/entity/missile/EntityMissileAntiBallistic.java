@@ -16,10 +16,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
@@ -193,24 +193,24 @@ public class EntityMissileAntiBallistic extends EntityThrowableInterp implements
 					loaderTicket.getModData();
 				}
 
-				ForgeChunkManager.forceChunk(loaderTicket, new ChunkCoordIntPair(chunkCoordX, chunkCoordZ));
+				ForgeChunkManager.forceChunk(loaderTicket, new ChunkPos(chunkCoordX, chunkCoordZ));
 			}
 		}
 	}
 
-	List<ChunkCoordIntPair> loadedChunks = new ArrayList<ChunkCoordIntPair>();
+	List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
 
 	public void loadNeighboringChunks(int newChunkX, int newChunkZ) {
 		if(!worldObj.isRemote && loaderTicket != null) {
 
-			for(ChunkCoordIntPair chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
+			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
 			}
 
 			loadedChunks.clear();
-			for(int i = -1; i <= 1; i++) for(int j = -1; j <= 1; j++) loadedChunks.add(new ChunkCoordIntPair(newChunkX + i, newChunkZ + j));
+			for(int i = -1; i <= 1; i++) for(int j = -1; j <= 1; j++) loadedChunks.add(new ChunkPos(newChunkX + i, newChunkZ + j));
 
-			for(ChunkCoordIntPair chunk : loadedChunks) {
+			for(ChunkPos chunk : loadedChunks) {
 				ForgeChunkManager.forceChunk(loaderTicket, chunk);
 			}
 		}

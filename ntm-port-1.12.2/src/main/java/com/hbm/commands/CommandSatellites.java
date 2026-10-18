@@ -7,9 +7,9 @@ import com.hbm.saveddata.satellites.Satellite;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.text.TextFormatting;
 
@@ -39,7 +39,7 @@ public class CommandSatellites extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if(!(sender instanceof EntityPlayer)) {
-			sender.addChatMessage(new ChatComponentTranslation( "commands.satellite.should_be_run_as_player").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+			sender.sendMessage(new TextComponentTranslation( "commands.satellite.should_be_run_as_player").setStyle(new Style().setColor(TextFormatting.RED)));
 			return;
 		}
 		EntityPlayer player = getCommandSenderAsPlayer(sender);
@@ -56,9 +56,9 @@ public class CommandSatellites extends CommandBase {
 						player.posX, player.posY, player.posZ
 					);
 					player.getHeldItem().stackSize -= 1;
-					sender.addChatMessage(new ChatComponentTranslation("commands.satellite.satellite_orbited").setChatStyle(new ChatStyle().setColor(TextFormatting.GREEN)));
+					sender.sendMessage(new TextComponentTranslation("commands.satellite.satellite_orbited").setStyle(new Style().setColor(TextFormatting.GREEN)));
 				} else {
-					sender.addChatMessage(new ChatComponentTranslation("commands.satellite.not_a_satellite").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+					sender.sendMessage(new TextComponentTranslation("commands.satellite.not_a_satellite").setStyle(new Style().setColor(TextFormatting.RED)));
 				}
 				break;
 			case "descend":
@@ -67,23 +67,23 @@ public class CommandSatellites extends CommandBase {
 				if(data.sats.containsKey(freq)) {
 					data.sats.remove(freq);
 					data.markDirty();
-					sender.addChatMessage(new ChatComponentTranslation( "commands.satellite.satellite_descended").setChatStyle(new ChatStyle().setColor(TextFormatting.GREEN)));
+					sender.sendMessage(new TextComponentTranslation( "commands.satellite.satellite_descended").setStyle(new Style().setColor(TextFormatting.GREEN)));
 				} else {
-					sender.addChatMessage(new ChatComponentTranslation( "commands.satellite.no_satellite").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+					sender.sendMessage(new TextComponentTranslation( "commands.satellite.no_satellite").setStyle(new Style().setColor(TextFormatting.RED)));
 				}
 				break;
 			case "list":
 				data = SatelliteSavedData.getData(sender.getEntityWorld(), (int)player.posX, (int)player.posZ);
 				if (data.sats.isEmpty()) {
-					ChatComponentTranslation message = new ChatComponentTranslation("commands.satellite.no_active_satellites");
-					message.getChatStyle().setColor(TextFormatting.RED);
-					sender.addChatMessage(message);
+					TextComponentTranslation message = new TextComponentTranslation("commands.satellite.no_active_satellites");
+					message.getStyle().setColor(TextFormatting.RED);
+					sender.sendMessage(message);
 				} else {
 					data.sats.forEach((listFreq, sat) -> {
 						String messageText = String.valueOf(listFreq) + " - " + sat.getClass().getSimpleName();
-						ChatComponentText message = new ChatComponentText(messageText);
-						message.getChatStyle().setColor(TextFormatting.GREEN);
-						sender.addChatMessage(message);
+						TextComponentString message = new TextComponentString(messageText);
+						message.getStyle().setColor(TextFormatting.GREEN);
+						sender.sendMessage(message);
 					});
 				}
 				break;

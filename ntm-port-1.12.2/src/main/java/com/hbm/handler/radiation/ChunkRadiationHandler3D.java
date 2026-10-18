@@ -6,8 +6,8 @@ import java.util.Map.Entry;
 
 import com.hbm.interfaces.Untested;
 
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.ChunkDataEvent;
 import net.minecraftforge.event.world.ChunkEvent;
@@ -27,7 +27,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 		ThreeDimRadiationPerWorld radWorld = perWorld.get(world);
 		
 		if(radWorld != null) {
-			ChunkCoordIntPair coords = new ChunkCoordIntPair(x >> 4, z >> 4);
+			ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 			
 			int yReg = MathHelper.clamp_int(y >> 4, 0, 15);
 			
@@ -46,7 +46,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 			
 			if(world.blockExists(x, 0, z)) {
 				
-				ChunkCoordIntPair coords = new ChunkCoordIntPair(x >> 4, z >> 4);
+				ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 				
 				int yReg = MathHelper.clamp_int(y >> 4, 0, 15);
 				
@@ -74,13 +74,13 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 		
 		for(Entry<World, ThreeDimRadiationPerWorld> entry : perWorld.entrySet()) {
 
-			Map<ChunkCoordIntPair, Float[]> radiation = entry.getValue().radiation;
-			Map<ChunkCoordIntPair, Float[]> buff = new HashMap<>(radiation);
+			Map<ChunkPos, Float[]> radiation = entry.getValue().radiation;
+			Map<ChunkPos, Float[]> buff = new HashMap<>(radiation);
 			radiation.clear();
 			
-			for(Entry<ChunkCoordIntPair, Float[]> chunk : buff.entrySet()) {
+			for(Entry<ChunkPos, Float[]> chunk : buff.entrySet()) {
 				
-				ChunkCoordIntPair coord = chunk.getKey();
+				ChunkPos coord = chunk.getKey();
 				
 				for(int y = 0; y < 16; y++) {
 					
@@ -95,7 +95,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 								
 								float percent = type == 0 ? 0.6F : type == 1 ? 0.075F : 0.025F;
 								
-								ChunkCoordIntPair newCoord = new ChunkCoordIntPair(coord.chunkXPos + i, coord.chunkZPos + k);
+								ChunkPos newCoord = new ChunkPos(coord.x + i, coord.z + k);
 								
 								if(buff.containsKey(newCoord)) {
 									int newY = MathHelper.clamp_int(y + j, 0, 15);
@@ -148,7 +148,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 					vals[i] = event.getData().getFloat(NBT_KEY_CHUNK_RADIATION + i);
 				}
 				
-				radWorld.radiation.put(event.getChunk().getChunkCoordIntPair(), vals);
+				radWorld.radiation.put(event.getChunk().getPos(), vals);
 			}
 		}
 	}
@@ -160,7 +160,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.world);
 			
 			if(radWorld != null) {
-				Float[] vals = radWorld.radiation.get(event.getChunk().getChunkCoordIntPair());
+				Float[] vals = radWorld.radiation.get(event.getChunk().getPos());
 				
 				for(int i = 0; i < 16; i++) {
 					float rad = vals[i] == null ? 0F : vals[i];
@@ -170,7 +170,6 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 		}
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public void receiveChunkUnload(ChunkEvent.Unload event) {
 		
@@ -178,12 +177,12 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 			ThreeDimRadiationPerWorld radWorld = perWorld.get(event.world);
 			
 			if(radWorld != null) { 
-				radWorld.radiation.remove(event.getChunk());
+				radWorld.radiation.remove(event.getChunk().getPos());
 			}
 		}
 	}
 	
 	public static class ThreeDimRadiationPerWorld {
-		public Map<ChunkCoordIntPair, Float[]> radiation = new HashMap<>();
+		public Map<ChunkPos, Float[]> radiation = new HashMap<>();
 	}
 }

@@ -27,8 +27,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatBase;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -69,7 +69,7 @@ public class BossSpawnHandler {
 
 					if(acidizerStat && ContaminationUtil.getRads(player) >= MobConfig.maskmanMinRad && (world.getHeightValue((int)player.posX, (int)player.posZ) > player.posY + 3 || !MobConfig.maskmanUnderground)) {	//if the player has more than 50 RAD and is underground
 
-						player.addChatComponentMessage(new ChatComponentText("The mask man is about to claim another victim.").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+						player.sendMessage(new TextComponentString("The mask man is about to claim another victim.").setStyle(new Style().setColor(TextFormatting.RED)));
 
 						double spawnX = player.posX + world.rand.nextGaussian() * 20;
 						double spawnZ = player.posZ + world.rand.nextGaussian() * 20;
@@ -90,7 +90,7 @@ public class BossSpawnHandler {
 					EntityPlayer player = (EntityPlayer) world.playerEntities.get(world.rand.nextInt(world.playerEntities.size()));
 
 					if(player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG).getLong("fbiMark") < world.getTotalWorldTime()) {
-						player.addChatComponentMessage(new ChatComponentText("FBI, OPEN UP!").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+						player.sendMessage(new TextComponentString("FBI, OPEN UP!").setStyle(new Style().setColor(TextFormatting.RED)));
 
 						Vec3d vec = new Vec3d(MobConfig.raidAttackDistance, 0, 0);
 						vec = vec.rotateYaw((float)(Math.PI * 2) * world.rand.nextFloat());
@@ -127,7 +127,7 @@ public class BossSpawnHandler {
 
 					if(player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG).getBoolean("radMark")) {
 
-						player.addChatComponentMessage(new ChatComponentText("You hear a faint clicking...").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+						player.sendMessage(new TextComponentString("You hear a faint clicking...").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 						player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG).setBoolean("radMark", false);
 
 						Vec3d vec = new Vec3d(MobConfig.raidAttackDistance, 0, 0);

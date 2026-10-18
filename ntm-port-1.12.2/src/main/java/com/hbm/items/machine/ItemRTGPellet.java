@@ -17,8 +17,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -128,7 +128,7 @@ public class ItemRTGPellet extends Item {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		
 		if(!world.isRemote && this == ModItems.pellet_rtg) {
-			player.addChatComponentMessage(new ChatComponentText(facts[world.rand.nextInt(facts.length)]).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+			player.sendMessage(new TextComponentString(facts[world.rand.nextInt(facts.length)]).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			world.playSoundAtEntity(player, "random.orb", 1.0F, 1.0F);
 		}
 		

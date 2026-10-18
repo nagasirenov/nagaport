@@ -17,9 +17,9 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -190,12 +190,12 @@ public class ContaminationUtil {
 
 		//localization and server-side restrictions have turned this into a painful mess
 		//a *functioning* painful mess, nonetheless
-		player.addChatMessage(new ChatComponentText("===== ☢ ").appendSibling(new ChatComponentTranslation("geiger.title")).appendSibling(new ChatComponentText(" ☢ =====")).setChatStyle(new ChatStyle().setColor(TextFormatting.GOLD)));
-		player.addChatMessage(new ChatComponentTranslation("geiger.chunkRad").appendSibling(new ChatComponentText(" " + chunkPrefix + rads + " RAD/s")).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-		player.addChatMessage(new ChatComponentTranslation("geiger.envRad").appendSibling(new ChatComponentText(" " + envPrefix + env + " RAD/s")).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-		player.addChatMessage(new ChatComponentTranslation("geiger.playerRad").appendSibling(new ChatComponentText(" " + radPrefix + eRad + " RAD")).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-		player.addChatMessage(new ChatComponentTranslation("geiger.playerAct").appendSibling(new ChatComponentText(" " + envPrefix + neut + " RAD/s")).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-		player.addChatMessage(new ChatComponentTranslation("geiger.playerRes").appendSibling(new ChatComponentText(" " + resPrefix + res + "% (" + resKoeff + ")")).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentString("===== ☢ ").appendSibling(new TextComponentTranslation("geiger.title")).appendSibling(new TextComponentString(" ☢ =====")).setStyle(new Style().setColor(TextFormatting.GOLD)));
+		player.sendMessage(new TextComponentTranslation("geiger.chunkRad").appendSibling(new TextComponentString(" " + chunkPrefix + rads + " RAD/s")).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentTranslation("geiger.envRad").appendSibling(new TextComponentString(" " + envPrefix + env + " RAD/s")).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentTranslation("geiger.playerRad").appendSibling(new TextComponentString(" " + radPrefix + eRad + " RAD")).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentTranslation("geiger.playerAct").appendSibling(new TextComponentString(" " + envPrefix + neut + " RAD/s")).setStyle(new Style().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentTranslation("geiger.playerRes").appendSibling(new TextComponentString(" " + resPrefix + res + "% (" + resKoeff + ")")).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 	}
 
 	public static void printDosimeterData(EntityPlayer player) {
@@ -210,8 +210,8 @@ public class ContaminationUtil {
 
 		String envPrefix = getPreffixFromRad(env);
 
-		player.addChatMessage(new ChatComponentText("===== ☢ ").appendSibling(new ChatComponentTranslation("geiger.title.dosimeter")).appendSibling(new ChatComponentText(" ☢ =====")).setChatStyle(new ChatStyle().setColor(TextFormatting.GOLD)));
-		player.addChatMessage(new ChatComponentTranslation("geiger.envRad").appendSibling(new ChatComponentText(" " + envPrefix + (limit ? ">" : "") + env + " RAD/s")).setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
+		player.sendMessage(new TextComponentString("===== ☢ ").appendSibling(new TextComponentTranslation("geiger.title.dosimeter")).appendSibling(new TextComponentString(" ☢ =====")).setStyle(new Style().setColor(TextFormatting.GOLD)));
+		player.sendMessage(new TextComponentTranslation("geiger.envRad").appendSibling(new TextComponentString(" " + envPrefix + (limit ? ">" : "") + env + " RAD/s")).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 	}
 
 	public static String getPreffixFromRad(double rads) {
@@ -239,10 +239,10 @@ public class ContaminationUtil {
 		double digamma = ((int)(HbmLivingProps.getDigamma(player) * 100)) / 100D;
 		double halflife = ((int)((1D - Math.pow(0.5, digamma)) * 10000)) / 100D;
 
-		player.addChatMessage(new ChatComponentText("===== Ϝ ").appendSibling(new ChatComponentTranslation("digamma.title")).appendSibling(new ChatComponentText(" Ϝ =====")).setChatStyle(new ChatStyle().setColor(TextFormatting.DARK_PURPLE)));
-		player.addChatMessage(new ChatComponentTranslation("digamma.playerDigamma").appendSibling(new ChatComponentText(TextFormatting.RED + " " + digamma + " DRX")).setChatStyle(new ChatStyle().setColor(TextFormatting.LIGHT_PURPLE)));
-		player.addChatMessage(new ChatComponentTranslation("digamma.playerHealth").appendSibling(new ChatComponentText(TextFormatting.RED + " " + halflife + "%")).setChatStyle(new ChatStyle().setColor(TextFormatting.LIGHT_PURPLE)));
-		player.addChatMessage(new ChatComponentTranslation("digamma.playerRes").appendSibling(new ChatComponentText(TextFormatting.BLUE + " " + "N/A")).setChatStyle(new ChatStyle().setColor(TextFormatting.LIGHT_PURPLE)));
+		player.sendMessage(new TextComponentString("===== Ϝ ").appendSibling(new TextComponentTranslation("digamma.title")).appendSibling(new TextComponentString(" Ϝ =====")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+		player.sendMessage(new TextComponentTranslation("digamma.playerDigamma").appendSibling(new TextComponentString(TextFormatting.RED + " " + digamma + " DRX")).setStyle(new Style().setColor(TextFormatting.LIGHT_PURPLE)));
+		player.sendMessage(new TextComponentTranslation("digamma.playerHealth").appendSibling(new TextComponentString(TextFormatting.RED + " " + halflife + "%")).setStyle(new Style().setColor(TextFormatting.LIGHT_PURPLE)));
+		player.sendMessage(new TextComponentTranslation("digamma.playerRes").appendSibling(new TextComponentString(TextFormatting.BLUE + " " + "N/A")).setStyle(new Style().setColor(TextFormatting.LIGHT_PURPLE)));
 	}
 
 	public static enum HazardType {

@@ -19,13 +19,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 
 public class WorldProviderOrbit extends WorldProvider {
@@ -58,8 +58,9 @@ public class WorldProviderOrbit extends WorldProvider {
 	}
 
 	@Override
-	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenOrbit.biome, 0.0F);
+	public void init() {
+		super.init();
+		this.biomeProvider = new BiomeProviderSingle(BiomeGenOrbit.biome);
 	}
 
 	@Override
@@ -68,7 +69,7 @@ public class WorldProviderOrbit extends WorldProvider {
 	}
 
 	@Override
-	public IChunkProvider createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderOrbit(this.worldObj);
 	}
 
@@ -199,14 +200,14 @@ public class WorldProviderOrbit extends WorldProvider {
 	// Same shit as in Celestial
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		ChunkCoordinates coords = player.getBedLocation(dimensionId);
+		BlockPos coords = player.getBedLocation(dimensionId);
 
 		// If no bed, respawn in overworld
 		if(coords == null)
 			return 0;
 
 		// If the bed location has no breathable atmosphere, respawn in overworld
-		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.posX, coords.posY, coords.posZ);
+		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.getX(), coords.getY(), coords.getZ());
 		if(!ChunkAtmosphereManager.proxy.canBreathe(atmosphere))
 			return 0;
 

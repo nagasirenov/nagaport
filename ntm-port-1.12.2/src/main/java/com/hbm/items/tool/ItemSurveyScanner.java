@@ -8,8 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -60,15 +60,15 @@ public class ItemSurveyScanner extends Item {
 				}
 			}
 
-			if(hasOil) player.addChatComponentMessage(new ChatComponentText("Found OIL!").setChatStyle(new ChatStyle().setColor(TextFormatting.BLACK)));
-			if(hasGas) player.addChatComponentMessage(new ChatComponentText("Found NATURAL GAS!").setChatStyle(new ChatStyle().setColor(TextFormatting.WHITE)));
-			if(hasBrine) player.addChatComponentMessage(new ChatComponentText("Found BRINE!").setChatStyle(new ChatStyle().setColor(TextFormatting.WHITE)));
-			if(hasBedrockOil) player.addChatComponentMessage(new ChatComponentText("Found BEDROCK OIL!").setChatStyle(new ChatStyle().setColor(TextFormatting.BLACK)));
-			if(hasColtan) player.addChatComponentMessage(new ChatComponentText("Found COLTAN!").setChatStyle(new ChatStyle().setColor(TextFormatting.GOLD)));
-			if(hasDepth) player.addChatComponentMessage(new ChatComponentText("Found DEPTH ROCK!").setChatStyle(new ChatStyle().setColor(TextFormatting.GRAY)));
-			if(hasSchist) player.addChatComponentMessage(new ChatComponentText("Found SCHIST!").setChatStyle(new ChatStyle().setColor(TextFormatting.DARK_AQUA)));
-			if(hasAussie) player.addChatComponentMessage(new ChatComponentText("Found AUSTRALIUM!").setChatStyle(new ChatStyle().setColor(TextFormatting.YELLOW)));
-			if(tile != null && tile.resource != null) player.addChatComponentMessage(new ChatComponentText("Found BEDROCK ORE for " + tile.resource.getDisplayName() + "!").setChatStyle(new ChatStyle().setColor(TextFormatting.RED)));
+			if(hasOil) player.sendMessage(new TextComponentString("Found OIL!").setStyle(new Style().setColor(TextFormatting.BLACK)));
+			if(hasGas) player.sendMessage(new TextComponentString("Found NATURAL GAS!").setStyle(new Style().setColor(TextFormatting.WHITE)));
+			if(hasBrine) player.sendMessage(new TextComponentString("Found BRINE!").setStyle(new Style().setColor(TextFormatting.WHITE)));
+			if(hasBedrockOil) player.sendMessage(new TextComponentString("Found BEDROCK OIL!").setStyle(new Style().setColor(TextFormatting.BLACK)));
+			if(hasColtan) player.sendMessage(new TextComponentString("Found COLTAN!").setStyle(new Style().setColor(TextFormatting.GOLD)));
+			if(hasDepth) player.sendMessage(new TextComponentString("Found DEPTH ROCK!").setStyle(new Style().setColor(TextFormatting.GRAY)));
+			if(hasSchist) player.sendMessage(new TextComponentString("Found SCHIST!").setStyle(new Style().setColor(TextFormatting.DARK_AQUA)));
+			if(hasAussie) player.sendMessage(new TextComponentString("Found AUSTRALIUM!").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+			if(tile != null && tile.resource != null) player.sendMessage(new TextComponentString("Found BEDROCK ORE for " + tile.resource.getDisplayName() + "!").setStyle(new Style().setColor(TextFormatting.RED)));
 		}
 
 		player.swingItem();

@@ -9,7 +9,7 @@ import api.hbm.energymk2.IBatteryItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -43,7 +43,7 @@ public class ItemPancake extends ItemFood {
     	}
     	
     	if(!world.isRemote)
-    		player.addChatComponentMessage(new ChatComponentText(TextFormatting.YELLOW + "Your teeth are too soft to eat this."));
+		player.sendMessage(new TextComponentString(TextFormatting.YELLOW + "Your teeth are too soft to eat this."));
     	
     	return stack;
     }

@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class ItemWand extends Item {
@@ -42,14 +42,14 @@ public class ItemWand extends Item {
 			stack.stackTagCompound.setInteger("block", Block.getIdFromBlock(world.getBlock(x, y, z)));
 			stack.stackTagCompound.setInteger("meta", world.getBlockMetadata(x, y, z));
 			if(world.isRemote)
-				player.addChatMessage(new ChatComponentText("Set block " + Block.getBlockById(stack.stackTagCompound.getInteger("block")).getUnlocalizedName()));
+				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.stackTagCompound.getInteger("block")).getUnlocalizedName()));
 		} else {
 			if(stack.stackTagCompound.getInteger("x") == 0 && stack.stackTagCompound.getInteger("y") == 0 && stack.stackTagCompound.getInteger("z") == 0) {
 				stack.stackTagCompound.setInteger("x", x);
 				stack.stackTagCompound.setInteger("y", y);
 				stack.stackTagCompound.setInteger("z", z);
 				if(world.isRemote)
-					player.addChatMessage(new ChatComponentText("Position set!"));
+					player.sendMessage(new TextComponentString("Position set!"));
 			} else {
 
 				int ox = stack.stackTagCompound.getInteger("x");
@@ -75,7 +75,7 @@ public class ItemWand extends Item {
 					}
 				}
 				if(world.isRemote)
-					player.addChatMessage(new ChatComponentText("Selection filled!"));
+					player.sendMessage(new TextComponentString("Selection filled!"));
 			}
 		}
 
@@ -91,7 +91,7 @@ public class ItemWand extends Item {
 			stack.stackTagCompound.setInteger("block", 0);
 			stack.stackTagCompound.setInteger("meta", 0);
 			if(world.isRemote)
-				player.addChatMessage(new ChatComponentText("Set block " + Block.getBlockById(stack.stackTagCompound.getInteger("block")).getUnlocalizedName()));
+				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.stackTagCompound.getInteger("block")).getUnlocalizedName()));
 		}
 
 		return stack;

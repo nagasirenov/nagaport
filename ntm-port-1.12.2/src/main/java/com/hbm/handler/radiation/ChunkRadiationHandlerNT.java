@@ -19,7 +19,7 @@ import com.hbm.util.fauxpointtwelve.BlockPos;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -120,7 +120,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 		if(worldRadData == null){
 			return false;
 		}
-		ChunkRadiationStorage st = worldRadData.data.get(new ChunkCoordIntPair(x >> 4, z >> 4)); // !!!
+		ChunkRadiationStorage st = worldRadData.data.get(new ChunkPos(x >> 4, z >> 4)); // !!!
 		if(st == null){
 			return false;
 		}
@@ -144,11 +144,11 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 	
 	public static ChunkRadiationStorage getChunkStorage(World world, int x, int y, int z){
 		WorldRadiationData worldRadData = getWorldRadData(world);
-		ChunkRadiationStorage st = worldRadData.data.get(new ChunkCoordIntPair(x >> 4, z >> 4));
+		ChunkRadiationStorage st = worldRadData.data.get(new ChunkPos(x >> 4, z >> 4));
 		//If it doesn't currently exist, create it
 		if(st == null){
 			st = new ChunkRadiationStorage(worldRadData, world.getChunkFromBlockCoords(x, z));
-			worldRadData.data.put(new ChunkCoordIntPair(x >> 4,z >> 4), st);
+			worldRadData.data.put(new ChunkPos(x >> 4,z >> 4), st);
 		}
 		return st;
 	}
@@ -184,9 +184,9 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 		if(!event.world.isRemote){
 			
 			WorldRadiationData data = getWorldRadData(event.world);
-			if(data.data.containsKey(event.getChunk().getChunkCoordIntPair())){
-				data.data.get(event.getChunk().getChunkCoordIntPair()).unload();
-				data.data.remove(event.getChunk().getChunkCoordIntPair());
+			if(data.data.containsKey(event.getChunk().getPos())){
+				data.data.get(event.getChunk().getPos()).unload();
+				data.data.remove(event.getChunk().getPos());
 			}
 		}
 	}
@@ -198,7 +198,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 				WorldRadiationData data = getWorldRadData(event.world);
 				ChunkRadiationStorage cData = new ChunkRadiationStorage(data, event.getChunk());
 				cData.readFromNBT(event.getData().getCompoundTag("hbmRadDataNT"));
-				data.data.put(event.getChunk().getChunkCoordIntPair(), cData);
+				data.data.put(event.getChunk().getPos(), cData);
 			}
 		}
 	}
@@ -207,9 +207,9 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 	public void receiveChunkSave(ChunkDataEvent.Save event) {
 		if(!event.world.isRemote){
 			WorldRadiationData data = getWorldRadData(event.world);
-			if(data.data.containsKey(event.getChunk().getChunkCoordIntPair())){
+			if(data.data.containsKey(event.getChunk().getPos())){
 				NBTTagCompound tag = new NBTTagCompound();
-				data.data.get(event.getChunk().getChunkCoordIntPair()).writeToNBT(tag);
+				data.data.get(event.getChunk().getPos()).writeToNBT(tag);
 				event.getData().setTag("hbmRadDataNT", tag);
 			}
 		}
@@ -370,7 +370,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 	
 	private static void rebuildChunkPockets(Chunk chunk, int yIndex){
 		
-		BlockPos subChunkPos = new BlockPos(chunk.getChunkCoordIntPair().chunkXPos << 4, yIndex << 4, chunk.getChunkCoordIntPair().chunkZPos << 4);
+		BlockPos subChunkPos = new BlockPos(chunk.getPos().x << 4, yIndex << 4, chunk.getPos().z << 4);
 		List<RadPocket> pockets = new ArrayList();
 		ExtendedBlockStorage blocks = chunk.getBlockStorageArray()[yIndex];
 		if(pocketsByBlock == null) {
@@ -605,7 +605,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 		}
 		
 		public BlockPos getWorldPos(int y){
-			return new BlockPos(chunk.getChunkCoordIntPair().chunkXPos << 4, y, chunk.getChunkCoordIntPair().chunkZPos << 4);
+			return new BlockPos(chunk.getPos().x << 4, y, chunk.getPos().z << 4);
 		}
 		
 		public void setForYLevel(int y, SubChunkRadiationStorage sc){
@@ -733,7 +733,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 		private boolean iteratingDirty = false;
 
 		public Set<RadPocket> activePockets = new HashSet<>();
-		public Map<ChunkCoordIntPair, ChunkRadiationStorage> data = new HashMap<>();
+		public Map<ChunkPos, ChunkRadiationStorage> data = new HashMap<>();
 
 		public WorldRadiationData(World world) {
 			this.world = world;

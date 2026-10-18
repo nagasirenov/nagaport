@@ -2,7 +2,7 @@ package com.hbm.saveddata;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSavedData;
+import net.minecraft.world.storage.WorldSavedData;
 
 public class TomSaveData extends WorldSavedData {
 
@@ -19,11 +19,11 @@ public class TomSaveData extends WorldSavedData {
 
 	/* no caching for data per world needed, minecraft's save structure already does that! call forWorld as much as you want. */
 	public static TomSaveData forWorld(World world) {
-		TomSaveData result = (TomSaveData) world.perWorldStorage.loadData(TomSaveData.class, "impactData");
+		TomSaveData result = (TomSaveData) world.getMapStorage().getOrLoadData(TomSaveData.class, "impactData");
 
 		if(result == null) {
-			world.perWorldStorage.setData(key, new TomSaveData(key));
-			result = (TomSaveData) world.perWorldStorage.loadData(TomSaveData.class, "impactData");
+			world.getMapStorage().setData(key, new TomSaveData(key));
+			result = (TomSaveData) world.getMapStorage().getOrLoadData(TomSaveData.class, "impactData");
 		}
 		lastCachedUnsafe = result;
 		return result;
@@ -57,7 +57,7 @@ public class TomSaveData extends WorldSavedData {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		nbt.setFloat("dust", dust);
 		nbt.setFloat("fire", fire);
 		nbt.setBoolean("impact", impact);
@@ -65,5 +65,6 @@ public class TomSaveData extends WorldSavedData {
 		nbt.setLong("dtime", dtime);
 		nbt.setInteger("x", x);
 		nbt.setInteger("z", z);
+		return nbt;
 	}
 }

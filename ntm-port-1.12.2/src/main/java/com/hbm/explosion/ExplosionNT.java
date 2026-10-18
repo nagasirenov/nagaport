@@ -22,9 +22,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
@@ -112,10 +112,10 @@ public class ExplosionNT extends Explosion {
 							}
 
 							if(block != Blocks.air && remainingPower > 0.0F && (this.exploder == null || this.exploder.func_145774_a(this, this.worldObj, xPos, yPos, zPos, block, remainingPower))) {
-								hashset.add(new ChunkPosition(xPos, yPos, zPos));
+								hashset.add(new LegacyHashBlockPos(xPos, yPos, zPos));
 								
 							} else if(this.has(ExAttrib.ERRODE) && errosion.containsKey(block)) {
-								hashset.add(new ChunkPosition(xPos, yPos, zPos));
+								hashset.add(new LegacyHashBlockPos(xPos, yPos, zPos));
 							}
 
 							currentX += d0 * (double) step;
@@ -127,7 +127,7 @@ public class ExplosionNT extends Explosion {
 			}
 		}
 
-		this.affectedBlockPositions.addAll(hashset);
+		this.getAffectedBlockPositions().addAll(hashset);
 
 		if(!has(ExAttrib.NOHURT)) {
 
@@ -195,20 +195,20 @@ public class ExplosionNT extends Explosion {
 		}
 
 		Iterator iterator;
-		ChunkPosition chunkposition;
+		BlockPos chunkposition;
 		int i;
 		int j;
 		int k;
 		Block block;
 
 		if(this.isSmoking) {
-			iterator = this.affectedBlockPositions.iterator();
+			iterator = this.getAffectedBlockPositions().iterator();
 
 			while(iterator.hasNext()) {
-				chunkposition = (ChunkPosition) iterator.next();
-				i = chunkposition.chunkPosX;
-				j = chunkposition.chunkPosY;
-				k = chunkposition.chunkPosZ;
+				chunkposition = (BlockPos) iterator.next();
+				i = chunkposition.getX();
+				j = chunkposition.getY();
+				k = chunkposition.getZ();
 				block = this.worldObj.getBlock(i, j, k);
 
 				if(!has(ExAttrib.NOPARTICLE)) {
@@ -290,13 +290,13 @@ public class ExplosionNT extends Explosion {
 		}
 
 		if(has(ExAttrib.FIRE) || has(ExAttrib.BALEFIRE) || has(ExAttrib.LAVA)) {
-			iterator = this.affectedBlockPositions.iterator();
+			iterator = this.getAffectedBlockPositions().iterator();
 
 			while(iterator.hasNext()) {
-				chunkposition = (ChunkPosition) iterator.next();
-				i = chunkposition.chunkPosX;
-				j = chunkposition.chunkPosY;
-				k = chunkposition.chunkPosZ;
+				chunkposition = (BlockPos) iterator.next();
+				i = chunkposition.getX();
+				j = chunkposition.getY();
+				k = chunkposition.getZ();
 				block = this.worldObj.getBlock(i, j, k);
 				Block block1 = this.worldObj.getBlock(i, j - 1, k);
 

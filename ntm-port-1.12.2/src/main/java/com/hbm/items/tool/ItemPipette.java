@@ -14,8 +14,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
@@ -91,9 +91,9 @@ public class ItemPipette extends Item implements IFillableItem {
 				else 
 					a = !player.isSneaking() ? Math.min(this.getCapacity(stack) + 50, 1_000) : Math.max(this.getCapacity(stack) - 50, 50);
 				stack.stackTagCompound.setShort("capacity", (short) a);
-				player.addChatMessage(new ChatComponentText(a + "/" + this.getMaxFill() + "mB"));
+				player.sendMessage(new TextComponentString(a + "/" + this.getMaxFill() + "mB"));
 			} else {
-				player.addChatMessage(new ChatComponentTranslation("desc.item.pipette.noEmpty"));
+				player.sendMessage(new TextComponentTranslation("desc.item.pipette.noEmpty"));
 			}
 		}
 		return stack;

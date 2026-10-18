@@ -27,9 +27,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.S23PacketBlockChange;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.network.play.server.SPacketBlockChange;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
@@ -207,11 +208,11 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 						player.inventoryContainer.detectAndSendChanges();
 					}
 
-					player.addChatMessage(new ChatComponentText("Conveyor built!"));
+					player.sendMessage(new TextComponentString("Conveyor built!"));
 				} else if(constructCount == 0) {
-					player.addChatMessage(new ChatComponentText("Not enough conveyors, build cancelled"));
+					player.sendMessage(new TextComponentString("Not enough conveyors, build cancelled"));
 				} else {
-					player.addChatMessage(new ChatComponentText("Conveyor obstructed, build cancelled"));
+					player.sendMessage(new TextComponentString("Conveyor obstructed, build cancelled"));
 				}
 			} else {
 				RenderOverhead.clearActionPreview();
@@ -352,7 +353,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			block.onBlockDestroyedByPlayer(world, x, y, z, meta);
 		}
 
-		player.playerNetServerHandler.sendPacket(new S23PacketBlockChange(x, y, z, world));
+		player.connection.sendPacket(new SPacketBlockChange(world, new BlockPos(x, y, z)));
 		breakExtra(world, player, x + input.offsetX, y + input.offsetY, z + input.offsetZ, depth);
 		breakExtra(world, player, x + output.offsetX, y + output.offsetY, z + output.offsetZ, depth);
 	}

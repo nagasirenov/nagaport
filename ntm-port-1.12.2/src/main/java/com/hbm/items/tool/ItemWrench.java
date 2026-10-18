@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -53,7 +53,7 @@ public class ItemWrench extends ItemSword {
 					stack.stackTagCompound.setInteger("z", z);
 
 					if(!world.isRemote) {
-						player.addChatMessage(new ChatComponentText("Pipe start"));
+						player.sendMessage(new TextComponentString("Pipe start"));
 					}
 				} else if(!world.isRemote) {
 
@@ -70,19 +70,19 @@ public class ItemWrench extends ItemSword {
 							case 0:
 								first.addConnection(x, y, z);
 								second.addConnection(x1, y1, z1);
-								player.addChatMessage(new ChatComponentText("Pipe end"));
+								player.sendMessage(new TextComponentString("Pipe end"));
 								break;
-							case 1: player.addChatMessage(new ChatComponentText("Pipe error - Pipes are not the same type")); break;
-							case 2: player.addChatMessage(new ChatComponentText("Pipe error - Cannot connect to the same pipe anchor")); break;
-							case 3: player.addChatMessage(new ChatComponentText("Pipe error - Pipe anchor is too far away")); break;
-							case 4: player.addChatMessage(new ChatComponentText("Pipe error - Pipe anchor fluid types do not match")); break;
+							case 1: player.sendMessage(new TextComponentString("Pipe error - Pipes are not the same type")); break;
+							case 2: player.sendMessage(new TextComponentString("Pipe error - Cannot connect to the same pipe anchor")); break;
+							case 3: player.sendMessage(new TextComponentString("Pipe error - Pipe anchor is too far away")); break;
+							case 4: player.sendMessage(new TextComponentString("Pipe error - Pipe anchor fluid types do not match")); break;
 						}
 						
 						stack.stackTagCompound = null;
 
 					} else {
 
-						player.addChatMessage(new ChatComponentText("Pipe error"));
+						player.sendMessage(new TextComponentString("Pipe error"));
 						stack.stackTagCompound = null;
 					}
 				}

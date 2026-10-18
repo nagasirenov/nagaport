@@ -15,7 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -63,10 +63,10 @@ public class ItemWandS extends Item {
 
 			if(blocks.contains(target)) {
 				blocks.remove(target);
-				if(world.isRemote) player.addChatMessage(new ChatComponentText("Removed from blacklist " + target.key.getUnlocalizedName()));
+				if(world.isRemote) player.sendMessage(new TextComponentString("Removed from blacklist " + target.key.getUnlocalizedName()));
 			} else {
 				blocks.add(target);
-				if(world.isRemote) player.addChatMessage(new ChatComponentText("Added to blacklist " + target.key.getUnlocalizedName()));
+				if(world.isRemote) player.sendMessage(new TextComponentString("Added to blacklist " + target.key.getUnlocalizedName()));
 			}
 
 			setBlocks(stack, blocks);
@@ -79,7 +79,7 @@ public class ItemWandS extends Item {
 			if(px == 0 && py == 0 && pz == 0) {
 				setPosition(stack, x, y, z);
 
-				if(world.isRemote) player.addChatMessage(new ChatComponentText("First position set!"));
+				if(world.isRemote) player.sendMessage(new TextComponentString("First position set!"));
 			} else {
 				setPosition(stack, 0, 0, 0);
 
@@ -104,12 +104,12 @@ public class ItemWandS extends Item {
 					structure.blacklist = getBlocks(stack);
 				} else {
 					if (world.isRemote)
-						player.addChatMessage(new ChatComponentText("Could not add a structure block!"));
+						player.sendMessage(new TextComponentString("Could not add a structure block!"));
 					return true;
 				}
 
 				if (world.isRemote)
-					player.addChatMessage(new ChatComponentText("Structure block configured and added at: " + minX + ", " + minY + ", " + minZ));
+					player.sendMessage(new TextComponentString("Structure block configured and added at: " + minX + ", " + minY + ", " + minZ));
 			}
 		}
 
@@ -159,7 +159,7 @@ public class ItemWandS extends Item {
 			stack.stackTagCompound.setIntArray("metas", new int[0]);
 
 			if(world.isRemote) {
-				player.addChatMessage(new ChatComponentText("Cleared blacklist"));
+				player.sendMessage(new TextComponentString("Cleared blacklist"));
 			}
 		}
 

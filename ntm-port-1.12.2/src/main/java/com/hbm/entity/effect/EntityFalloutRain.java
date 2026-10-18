@@ -5,7 +5,7 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.config.BombConfig;
 import com.hbm.config.FalloutConfigJSON;
 import com.hbm.config.FalloutConfigJSON.FalloutEntry;
-import com.hbm.dim.orbit.BiomeGenOrbit;
+import com.hbm.dim.orbit.OrbitBiomeMarker;
 import com.hbm.config.WorldConfig;
 import com.hbm.entity.item.EntityFallingBlockNT;
 import com.hbm.entity.logic.EntityExplosionChunkloading;
@@ -112,7 +112,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 
 	public static BiomeGenBase getBiomeChange(double dist, int scale, BiomeGenBase original) {
 		if(!WorldConfig.enableCraterBiomes) return null;
-		if(original instanceof BiomeGenOrbit) return null; // Don't alter orbit biomes
+		if(original instanceof OrbitBiomeMarker) return null; // Don't alter orbit biomes
 		if(scale >= 150 && dist < 15)
 			return BiomeGenCraterBase.craterInnerBiome;
 		if(scale >= 100 && dist < 55 && original != BiomeGenCraterBase.craterInnerBiome)

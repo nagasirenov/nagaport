@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -108,7 +108,7 @@ public class ItemTurretControl extends Item {
 			stack.stackTagCompound.setInteger("zCoord", z);
 			
 			if(!world.isRemote) {
-				player.addChatMessage(new ChatComponentText("Turret Linked!"));
+				player.sendMessage(new TextComponentString("Turret Linked!"));
 			}
 
 			world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
@@ -139,7 +139,7 @@ public class ItemTurretControl extends Item {
 				stack.stackTagCompound.setInteger("zCoord", iz);
 				
 				if(!world.isRemote) {
-					player.addChatMessage(new ChatComponentText("Turret Linked!"));
+					player.sendMessage(new TextComponentString("Turret Linked!"));
 				}
 
 				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);

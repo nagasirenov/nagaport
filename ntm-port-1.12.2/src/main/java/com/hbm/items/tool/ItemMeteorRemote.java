@@ -8,7 +8,7 @@ import com.hbm.handler.BossSpawnHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class ItemMeteorRemote extends Item {
@@ -32,7 +32,7 @@ public class ItemMeteorRemote extends Item {
 
 		if(!world.isRemote) {
 			BossSpawnHandler.spawnMeteorAtPlayer(player, false);
-			player.addChatMessage(new ChatComponentText("Watch your head!"));
+			player.sendMessage(new TextComponentString("Watch your head!"));
 		}
 
 		world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
