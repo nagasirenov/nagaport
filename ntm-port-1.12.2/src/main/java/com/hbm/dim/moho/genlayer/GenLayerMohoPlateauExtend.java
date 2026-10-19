@@ -2,6 +2,7 @@ package com.hbm.dim.moho.genlayer;
 
 import com.hbm.dim.moho.biome.BiomeGenBaseMoho;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -29,17 +30,17 @@ public class GenLayerMohoPlateauExtend extends GenLayer {
 				this.initChunkSeed((long) (j1 + areaX), (long) (i1 + areaY));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-				if(k1 == BiomeGenBaseMoho.mohoCrag.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoCrag)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseMoho.mohoCrag.biomeID || l1 == BiomeGenBaseMoho.mohoPlateau.biomeID)
-						&& (i2 == BiomeGenBaseMoho.mohoCrag.biomeID || i2 == BiomeGenBaseMoho.mohoPlateau.biomeID)
-						&& (j2 == BiomeGenBaseMoho.mohoCrag.biomeID || j2 == BiomeGenBaseMoho.mohoPlateau.biomeID)
-						&& (k2 == BiomeGenBaseMoho.mohoCrag.biomeID || k2 == BiomeGenBaseMoho.mohoPlateau.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoCrag) || l1 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoPlateau))
+						&& (i2 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoCrag) || i2 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoPlateau))
+						&& (j2 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoCrag) || j2 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoPlateau))
+						&& (k2 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoCrag) || k2 == Biome.getIdForBiome(BiomeGenBaseMoho.mohoPlateau)));
 					if(flag) {
-						k1 = BiomeGenBaseMoho.mohoPlateau.biomeID;
+						k1 = Biome.getIdForBiome(BiomeGenBaseMoho.mohoPlateau);
 					}
 				}
 

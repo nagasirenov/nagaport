@@ -2,13 +2,13 @@ package com.hbm.dim.duna.genlayer;
 
 import com.hbm.dim.duna.biome.BiomeGenBaseDuna;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerDiversifyDuna extends GenLayer
 {
-    private static final BiomeGenBase[] biomes = new BiomeGenBase[] { BiomeGenBaseDuna.dunaPlains, BiomeGenBaseDuna.dunaLowlands, BiomeGenBaseDuna.dunaPolar, BiomeGenBaseDuna.dunaHills, BiomeGenBaseDuna.dunaPolarHills};
+    private static final Biome[] biomes = new Biome[] { BiomeGenBaseDuna.dunaPlains, BiomeGenBaseDuna.dunaLowlands, BiomeGenBaseDuna.dunaPolar, BiomeGenBaseDuna.dunaHills, BiomeGenBaseDuna.dunaPolarHills};
 
     public GenLayerDiversifyDuna(long l, GenLayer parent)
     {
@@ -32,7 +32,7 @@ public class GenLayerDiversifyDuna extends GenLayer
                 int center = input[i];
                 initChunkSeed(xOut + x, zOut + z);
                 if (nextInt(2) == 0) {
-                	output[i] = biomes[nextInt(biomes.length)].biomeID;
+                 output[i] = Biome.getIdForBiome(biomes[nextInt(biomes.length)]);
                 } else output[i] = center;
             }
         }

@@ -2,6 +2,7 @@ package com.hbm.dim.laythe.genlayer;
 
 import com.hbm.dim.laythe.biome.BiomeGenBaseLaythe;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -29,25 +30,25 @@ public class GenLayerLaytheIslands extends GenLayer {
 				this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-				if(k1 == BiomeGenBaseLaythe.laytheCoast.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseLaythe.laytheCoast)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseLaythe.laytheIsland.biomeID)
-							|| (i2 == BiomeGenBaseLaythe.laytheIsland.biomeID)
-							|| (j2 == BiomeGenBaseLaythe.laytheIsland.biomeID)
-							|| (k2 == BiomeGenBaseLaythe.laytheIsland.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseLaythe.laytheIsland))
+							|| (i2 == Biome.getIdForBiome(BiomeGenBaseLaythe.laytheIsland))
+							|| (j2 == Biome.getIdForBiome(BiomeGenBaseLaythe.laytheIsland))
+							|| (k2 == Biome.getIdForBiome(BiomeGenBaseLaythe.laytheIsland)));
 
 					boolean islandThreshold = flag && this.nextInt(50) == 0;
 
 					if(!islandThreshold) {
-						k1 = BiomeGenBaseLaythe.laytheOcean.biomeID;
+						k1 = Biome.getIdForBiome(BiomeGenBaseLaythe.laytheOcean);
 					}
 				} else {
 
-					if(k1 == BiomeGenBaseLaythe.laytheIsland.biomeID) {
-						k1 = this.nextInt(3) == 0 ? BiomeGenBaseLaythe.laytheCoast.biomeID : k1;
+					if(k1 == Biome.getIdForBiome(BiomeGenBaseLaythe.laytheIsland)) {
+						k1 = this.nextInt(3) == 0 ? Biome.getIdForBiome(BiomeGenBaseLaythe.laytheCoast) : k1;
 					}
 				}
 

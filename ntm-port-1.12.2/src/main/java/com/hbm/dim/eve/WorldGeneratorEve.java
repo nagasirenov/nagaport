@@ -16,8 +16,9 @@ import com.hbm.world.generator.DungeonToolbox;
 
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldGeneratorEve implements IWorldGenerator {
@@ -52,7 +53,7 @@ public class WorldGeneratorEve implements IWorldGenerator {
 		int z = j + rand.nextInt(16) + 8;
 		int y = world.getHeightValue(x, z);
 
-		BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
+		Biome biome = world.getBiome(new BlockPos(x, 0, z));
 		if(biome == BiomeGenBaseEve.eveSeismicPlains) {
 			new WorldGenEveSpike().generate(world, rand, x, y, z);
 		}

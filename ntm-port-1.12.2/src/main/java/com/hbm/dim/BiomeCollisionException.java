@@ -1,6 +1,6 @@
 package com.hbm.dim;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeCollisionException extends RuntimeException {
 
@@ -14,8 +14,9 @@ public class BiomeCollisionException extends RuntimeException {
 		+ "\nBiome class: %s"
 		+ "\nPlease modify hbm.cfg to fix this error. Note that the maximum biome ID is 255, if you run out you MUST install EndlessIDs!";
 
-	public BiomeCollisionException(BiomeGenBase conflictsWith) {
-		super(String.format(EXCEPTION_MESSAGE, conflictsWith.biomeID, conflictsWith.biomeName, conflictsWith.getBiomeClass().getName()));
+	public BiomeCollisionException(Biome conflictsWith) {
+		super(String.format(EXCEPTION_MESSAGE, Biome.getIdForBiome(conflictsWith),
+				conflictsWith.getRegistryName(), conflictsWith.getClass().getName()));
 	}
 
 	public BiomeCollisionException(String message) {

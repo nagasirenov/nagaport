@@ -2,15 +2,17 @@ package com.hbm.world.gen.terrain;
 
 import java.util.function.Predicate;
 
-import com.hbm.world.gen.MapGenBaseMeta;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.block.state.IBlockState;
 
-public class MapGenBubble extends MapGenBaseMeta {
+public class MapGenBubble extends MapGenBase {
 
 	/**
 	 * Generates oil bubbles, which are generally wider than a chunk, in a safe + cascadeless manner
@@ -28,9 +30,9 @@ public class MapGenBubble extends MapGenBaseMeta {
 
 	public Block block;
 	public byte meta = 0;
-	public Block replace = Blocks.stone;
+	public Block replace = Blocks.STONE;
 
-	public Predicate<BiomeGenBase> canSpawn;
+	public Predicate<Biome> canSpawn;
 
 	public MapGenBubble(int frequency) {
 		this.frequency = frequency;
@@ -44,8 +46,8 @@ public class MapGenBubble extends MapGenBaseMeta {
 	}
 
 	@Override
-	protected void func_151538_a(World world, int offsetX, int offsetZ, int chunkX, int chunkZ, Block[] blocks) {
-		if(rand.nextInt(frequency) == frequency - 1 && (canSpawn == null || canSpawn.test(world.getBiomeGenForCoords(offsetX * 16, offsetZ * 16)))) {
+	protected void recursiveGenerate(World world, int offsetX, int offsetZ, int chunkX, int chunkZ, ChunkPrimer primer) {
+		if(rand.nextInt(frequency) == frequency - 1 && (canSpawn == null || canSpawn.test(world.getBiome(new BlockPos(offsetX * 16, 0, offsetZ * 16))))) {
 			int xCoord = (chunkX - offsetX) * 16 + rand.nextInt(16);
 			int zCoord = (chunkZ - offsetZ) * 16 + rand.nextInt(16);
 
@@ -60,9 +62,9 @@ public class MapGenBubble extends MapGenBaseMeta {
 			for(int bx = 15; bx >= 0; bx--) // bx, bz is the coordinate of the block we're modifying, relative to the generating chunk origin
 			for(int bz = 15; bz >= 0; bz--)
 			for(int by = yMin; by < yMax; by++) {
-				int index = (bx * 16 + bz) * 256 + by;
+				IBlockState state = primer.getBlockState(bx, by, bz);
 
-				if(blocks[index] == replace) {
+				if(state.getBlock() == replace) {
 					// x, z are the coordinates relative to the target virtual chunk origin
 					int x = xCoord + bx;
 					int z = zCoord + bz;
@@ -71,8 +73,7 @@ public class MapGenBubble extends MapGenBaseMeta {
 					double rSqr = x * x + z * z + y * y * 3;
 					if(fuzzy) rSqr -= rand.nextDouble() * radiusSqr / 3;
 					if(rSqr < radiusSqr) {
-						blocks[index] = block;
-						metas[index] = meta;
+						primer.setBlockState(bx, by, bz, block.getStateFromMeta(meta));
 					}
 				}
 			}

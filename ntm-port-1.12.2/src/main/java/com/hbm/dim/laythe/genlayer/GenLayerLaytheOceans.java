@@ -2,6 +2,7 @@ package com.hbm.dim.laythe.genlayer;
 
 import com.hbm.dim.laythe.biome.BiomeGenBaseLaythe;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -12,7 +13,7 @@ public class GenLayerLaytheOceans extends GenLayer {
     public GenLayerLaytheOceans(long seed, GenLayer genLayer) {
         super(seed);
         this.parent = genLayer;
-        this.targetBiome = BiomeGenBaseLaythe.laytheIsland.biomeID;
+        this.targetBiome = Biome.getIdForBiome(BiomeGenBaseLaythe.laytheIsland);
     }
 
     public GenLayerLaytheOceans(long seed, GenLayer genLayer, int targetBiome) {
@@ -38,7 +39,7 @@ public class GenLayerLaytheOceans extends GenLayer {
                 this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
                 int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-                if(k1 == BiomeGenBaseLaythe.laytheOcean.biomeID) {
+                if(k1 == Biome.getIdForBiome(BiomeGenBaseLaythe.laytheOcean)) {
                     int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
                     int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
                     int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
@@ -48,7 +49,7 @@ public class GenLayerLaytheOceans extends GenLayer {
                             || (j2 == targetBiome)
                             || (k2 == targetBiome));
                     if(flag) {
-                        k1 = BiomeGenBaseLaythe.laytheCoast.biomeID;
+                        k1 = Biome.getIdForBiome(BiomeGenBaseLaythe.laytheCoast);
                     }
                 }
 

@@ -8,27 +8,29 @@
 package com.hbm.dim.dres.biome;
 
 import com.hbm.blocks.ModBlocks;
-import com.hbm.config.SpaceConfig;
 import com.hbm.dim.BiomeDecoratorCelestial;
 import com.hbm.dim.BiomeGenBaseCelestial;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeDecorator;
 
 public abstract class BiomeGenBaseDres extends BiomeGenBaseCelestial {
 
-	public static final BiomeGenBase dresPlains = new BiomeGenDresPlains(SpaceConfig.dresBiome);
-	public static final BiomeGenBase dresCanyon = new BiomeGenDresCanyon(SpaceConfig.dresBasinBiome);
+	public static Biome dresPlains;
+	public static Biome dresCanyon;
 
-	public BiomeGenBaseDres(int id) {
-		super(id);
-		this.setDisableRain();
-		this.setTemperatureRainfall(-1.0F, 0.0F);
-
-		this.theBiomeDecorator = new BiomeDecoratorCelestial(ModBlocks.dres_rock);
-		this.theBiomeDecorator.generateLakes = false;
+	public BiomeGenBaseDres(int id, BiomeProperties properties) {
+		super(id, properties);
 
 		this.topBlock = ModBlocks.sellafield_slaked;
 		this.fillerBlock = ModBlocks.sellafield_slaked;
+	}
+
+	@Override
+	protected BiomeDecorator createBiomeDecorator() {
+		BiomeDecoratorCelestial decorator = new BiomeDecoratorCelestial(ModBlocks.dres_rock);
+		decorator.generateLakes = false;
+		return decorator;
 	}
 
 }

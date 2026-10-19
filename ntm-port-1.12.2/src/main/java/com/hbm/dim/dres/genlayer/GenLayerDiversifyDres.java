@@ -2,13 +2,13 @@ package com.hbm.dim.dres.genlayer;
 
 import com.hbm.dim.dres.biome.BiomeGenBaseDres;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerDiversifyDres extends GenLayer {
 
-	private static final BiomeGenBase[] biomes = new BiomeGenBase[] { BiomeGenBaseDres.dresCanyon, BiomeGenBaseDres.dresPlains };
+	private static final Biome[] biomes = new Biome[] { BiomeGenBaseDres.dresCanyon, BiomeGenBaseDres.dresPlains };
 
 	public GenLayerDiversifyDres(long l, GenLayer parent) {
 		super(l);
@@ -30,7 +30,7 @@ public class GenLayerDiversifyDres extends GenLayer {
 				int center = input[i];
 				initChunkSeed(xOut + x, zOut + z);
 				if(nextInt(2) == 0) {
-					output[i] = biomes[nextInt(biomes.length)].biomeID;
+					output[i] = Biome.getIdForBiome(biomes[nextInt(biomes.length)]);
 				} else
 					output[i] = center;
 			}

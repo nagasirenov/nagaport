@@ -11,7 +11,7 @@ import com.hbm.util.Tuple.Quartet;
 
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.StructureStart;
 
 public class SpawnCondition {
@@ -36,7 +36,7 @@ public class SpawnCondition {
 	/**
 	 * Defines whether the current biome is valid for spawning this structure
 	 */
-	public Predicate<BiomeGenBase> canSpawn;
+	public Predicate<Biome> canSpawn;
 
 	/**
 	 * The chance of this structure spawning relative to others,
@@ -84,7 +84,7 @@ public class SpawnCondition {
 	 */
 	public int maxHeight = 128;
 
-	protected SpawnCondition(int weight, Predicate<BiomeGenBase> predicate) {
+	protected SpawnCondition(int weight, Predicate<Biome> predicate) {
 		name = null;
 		spawnWeight = weight;
 		canSpawn = predicate;
@@ -95,7 +95,7 @@ public class SpawnCondition {
 	}
 
 	// Can this spawn in the current biome
-	protected boolean isValid(BiomeGenBase biome) {
+	protected boolean isValid(Biome biome) {
 		if(canSpawn == null) return true;
 		return canSpawn.test(biome);
 	}

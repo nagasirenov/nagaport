@@ -3,30 +3,29 @@
 package com.hbm.dim.eve.biome;
 
 import com.hbm.blocks.ModBlocks;
-import com.hbm.config.SpaceConfig;
 import com.hbm.dim.BiomeDecoratorCelestial;
 import com.hbm.dim.BiomeGenBaseCelestial;
 
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeDictionary;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeDecorator;
 
 public abstract class BiomeGenBaseEve extends BiomeGenBaseCelestial {
 
-	public static final BiomeGenBase evePlains = new BiomeGenEvePlains(SpaceConfig.eveBiome);
-	public static final BiomeGenBase eveOcean = new BiomeGenEveOcean(SpaceConfig.eveOceanBiome);
-	public static final BiomeGenBase eveMountains = new BiomeGenEveMountains(SpaceConfig.eveMountainsBiome);
-	public static final BiomeGenBase eveSeismicPlains = new BiomeGenEveSeismicPlains(SpaceConfig.eveSeismicBiome);
-	public static final BiomeGenBase eveRiver = new BiomeGenEveRiver(SpaceConfig.eveRiverBiome);
+	public static Biome evePlains;
+	public static Biome eveOcean;
+	public static Biome eveMountains;
+	public static Biome eveSeismicPlains;
+	public static Biome eveRiver;
 
-	public BiomeGenBaseEve(int id) {
-		super(id);
-		this.waterColorMultiplier = 0x5b009a;
-		this.setTemperatureRainfall(1.0F, 0.5F);
-
-		this.theBiomeDecorator = new BiomeDecoratorCelestial(ModBlocks.eve_rock);
+	public BiomeGenBaseEve(int id, BiomeProperties properties) {
+		super(id, properties);
 
 		this.topBlock = ModBlocks.eve_silt;
 		this.fillerBlock = ModBlocks.eve_rock;
-		BiomeDictionary.registerBiomeType(this, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SPOOKY);
+	}
+
+	@Override
+	protected BiomeDecorator createBiomeDecorator() {
+		return new BiomeDecoratorCelestial(ModBlocks.eve_rock);
 	}
 }

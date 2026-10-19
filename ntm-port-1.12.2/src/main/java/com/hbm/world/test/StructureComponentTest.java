@@ -7,6 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureComponent;
+import net.minecraft.world.gen.structure.template.TemplateManager;
 
 public class StructureComponentTest extends StructureComponent {
 	
@@ -17,20 +18,20 @@ public class StructureComponentTest extends StructureComponent {
 
 	//write
 	@Override
-	protected void func_143012_a(NBTTagCompound nbt) {
+	protected void writeStructureToNBT(NBTTagCompound nbt) {
 		
 	}
 
 	//read
 	@Override
-	protected void func_143011_b(NBTTagCompound nbt) {
+	protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
 		
 	}
 
 	@Override
 	public boolean addComponentParts(World world, Random rand, StructureBoundingBox boundingbox) {
 		System.out.println("aaaaaaa");
-		this.fillWithBlocks(world, boundingbox, 0, 0, 0, 4, 9, 4, Blocks.sandstone, Blocks.air, false);
+		this.fillWithBlocks(world, boundingbox, 0, 0, 0, 4, 9, 4, Blocks.SANDSTONE.getDefaultState(), Blocks.AIR.getDefaultState(), false);
 		return true;
 	}
 

@@ -12,7 +12,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.management.ServerConfigurationManager;
+import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
@@ -63,7 +63,7 @@ public class CelestialTeleporter extends Teleporter {
 
 	private void runTeleport() {
 		MinecraftServer mcServer = MinecraftServer.getServer();
-		ServerConfigurationManager manager = mcServer.getConfigurationManager();
+		PlayerList manager = mcServer.getPlayerList();
 
 		// If this entity got teleported with a player rider, switch to the rider!
 		if(entity.riddenByEntity instanceof EntityPlayerMP) {

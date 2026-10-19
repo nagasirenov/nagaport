@@ -15,8 +15,10 @@ import com.hbm.world.gen.terrain.MapGenBubble;
 
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class ChunkProviderLaythe extends ChunkProviderCelestial {
 
@@ -27,14 +29,14 @@ public class ChunkProviderLaythe extends ChunkProviderCelestial {
 
 	private MapGenBubble oil = new MapGenBubble(WorldConfig.laytheOilSpawn);
 
-	private List<SpawnListEntry> spawnedOfFlesh = new ArrayList<SpawnListEntry>();
+	private List<Biome.SpawnListEntry> spawnedOfFlesh = new ArrayList<Biome.SpawnListEntry>();
 
 	public ChunkProviderLaythe(World world, long seed, boolean hasMapFeatures) {
 		super(world, seed, hasMapFeatures);
 
-		snowires.rock = Blocks.packed_ice;
-		snowires.regolith = Blocks.snow;
-		spires.rock = Blocks.stone;
+		snowires.rock = Blocks.PACKED_ICE;
+		snowires.regolith = Blocks.SNOW;
+		spires.rock = Blocks.STONE;
 		spires.regolith = ModBlocks.laythe_silt;
 
 		spires.curve = snowires.curve = true;
@@ -43,38 +45,36 @@ public class ChunkProviderLaythe extends ChunkProviderCelestial {
 
 		oil.block = ModBlocks.ore_oil;
 		oil.meta = (byte)CelestialBody.getMeta(world);
-		oil.replace = Blocks.stone;
+		oil.replace = Blocks.STONE;
 		oil.setSize(8, 16);
 
-		seaBlock = Blocks.water;
+		seaBlock = Blocks.WATER;
 		// seaLevel = 96;
 
-		spawnedOfFlesh.add(new SpawnListEntry(EntityCreeperFlesh.class, 10, 4, 4));
+		spawnedOfFlesh.add(new Biome.SpawnListEntry(EntityCreeperFlesh.class, 10, 4, 4));
 	}
 
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = super.getChunkPrimer(x, z);
-		oil.setMetas(buffer.metas);
+	public ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = super.getChunkPrimer(x, z);
 
 		if(biomesForGeneration[0] == BiomeGenBaseLaythe.laythePolar) {
-			snowires.func_151539_a(this, worldObj, x, z, buffer.blocks);
+			snowires.generate(worldObj, x, z, primer);
 		} else {
-			spires.func_151539_a(this, worldObj, x, z, buffer.blocks);
+			spires.generate(worldObj, x, z, primer);
 		}
-		caveGenV3.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		oil.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		caveGenV3.generate(worldObj, x, z, primer);
+		oil.generate(worldObj, x, z, primer);
 
-		return buffer;
+		return primer;
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
-	public List getPossibleCreatures(EnumCreatureType creatureType, int x, int y, int z) {
-		if(creatureType == EnumCreatureType.monster && worldObj.getBlock(x, y - 1, z) == ModBlocks.tumor)
+	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
+		if(creatureType == EnumCreatureType.MONSTER && worldObj.getBlockState(pos.down()).getBlock() == ModBlocks.tumor)
 			return spawnedOfFlesh;
 
-		return super.getPossibleCreatures(creatureType, x, y, z);
+		return super.getPossibleCreatures(creatureType, pos);
 	}
 
 }

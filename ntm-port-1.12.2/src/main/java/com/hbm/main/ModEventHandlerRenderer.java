@@ -20,7 +20,7 @@ import com.hbm.render.model.ModelMan;
 import com.hbm.util.ArmorUtil;
 import com.hbm.render.util.RenderScreenOverlay;
 import com.hbm.util.Clock;
-import com.hbm.world.biome.BiomeGenCraterBase;
+import com.hbm.world.biome.CraterBiomeMarker;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -44,10 +44,11 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
@@ -677,7 +678,7 @@ public class ModEventHandlerRenderer {
 
 		for(int x = -distance; x <= distance; x++) {
 			for(int z = -distance; z <= distance; z++) {
-				BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x,  playerZ + z);
+				Biome biome = world.getBiome(new BlockPos(playerX + x, 0, playerZ + z));
 				Vec3d color = getBiomeFogColors(world, biome, red, green, blue, partialTicks);
 				r += color.x;
 				g += color.y;
@@ -699,10 +700,10 @@ public class ModEventHandlerRenderer {
 	}
 
 	/** Returns the current biome's fog color adjusted for brightness if in a crater, or the world's cached fog color if not */
-	public static Vec3d getBiomeFogColors(World world, BiomeGenBase biome, float r, float g, float b, double partialTicks) {
+	public static Vec3d getBiomeFogColors(World world, Biome biome, float r, float g, float b, double partialTicks) {
 
-		if(biome instanceof BiomeGenCraterBase) {
-			int color = biome.getSkyColorByTemp(biome.temperature);
+		if(biome instanceof CraterBiomeMarker) {
+			int color = biome.getSkyColorByTemp(biome.getDefaultTemperature());
 			r = ((color & 0xff0000) >> 16) / 255F;
 			g = ((color & 0x00ff00) >> 8) / 255F;
 			b = (color & 0x0000ff) / 255F;

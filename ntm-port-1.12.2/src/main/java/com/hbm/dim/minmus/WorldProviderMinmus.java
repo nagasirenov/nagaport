@@ -11,7 +11,7 @@ import com.hbm.dim.minmus.genlayer.GenLayerMinmusBiomes;
 import com.hbm.dim.minmus.genlayer.GenLayerMinmusPlains;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerFuzzyZoom;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
@@ -21,8 +21,9 @@ import net.minecraft.world.gen.layer.GenLayerZoom;
 public class WorldProviderMinmus extends WorldProviderCelestial {
 
 	@Override
-	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+	public void init() {
+		super.init();
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class WorldProviderMinmus extends WorldProviderCelestial {
 	}
 
 	@Override
-	public IChunkProvider createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderMinmus(this.worldObj, this.getSeed(), false);
 	}
 

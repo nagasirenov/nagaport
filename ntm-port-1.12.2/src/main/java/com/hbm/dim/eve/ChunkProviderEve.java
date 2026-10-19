@@ -10,6 +10,7 @@ import com.hbm.world.gen.terrain.MapGenBubble;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 public class ChunkProviderEve extends ChunkProviderCelestial {
@@ -44,9 +45,8 @@ public class ChunkProviderEve extends ChunkProviderCelestial {
 	}
 
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = super.getChunkPrimer(x, z);
-		oil.setMetas(buffer.metas);
+	public ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = super.getChunkPrimer(x, z);
 
 		boolean hasOcean = false;
 		boolean hasSeismic = false;
@@ -57,16 +57,16 @@ public class ChunkProviderEve extends ChunkProviderCelestial {
 			if(hasOcean && hasSeismic) break;
 		}
 
-		if(hasSeismic) generateCracks(x, z, buffer);
-		if(hasOcean) noise.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		if(hasSeismic) generateCracks(x, z, primer);
+		if(hasOcean) noise.generate(worldObj, x, z, primer);
 
-		oil.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		oil.generate(worldObj, x, z, primer);
 
-		return buffer;
+		return primer;
 	}
 
 
-	private void generateCracks(int chunkX, int chunkZ, BlockMetaBuffer buffer) {
+	private void generateCracks(int chunkX, int chunkZ, ChunkPrimer primer) {
 		for(int x = 0; x < 16; x++) {
 			for(int z = 0; z < 16; z++) {
 				if(biomesForGeneration[x + z * 16] != BiomeGenBaseEve.eveSeismicPlains) continue;
@@ -76,17 +76,15 @@ public class ChunkProviderEve extends ChunkProviderCelestial {
 				if(crackValue > 0.9) {
 					int bedrockY = -1;
 					for(int y = 0; y < 256; y++) {
-						int index = (x * 16 + z) * 256 + y;
-						if(buffer.blocks[index] == Blocks.bedrock) {
+						if(primer.getBlockState(x, y, z).getBlock() == Blocks.BEDROCK) {
 							if(bedrockY == -1) bedrockY = y;
 						} else {
-							buffer.blocks[index] = Blocks.air;
+							primer.setBlockState(x, y, z, Blocks.AIR.getDefaultState());
 						}
 					}
 					if(bedrockY != -1) {
 						for(int y = bedrockY + 1; y < Math.min(bedrockY + 10, 256); y++) {
-							int index = (x * 16 + z) * 256 + y;
-							buffer.blocks[index] = Blocks.lava;
+							primer.setBlockState(x, y, z, Blocks.LAVA.getDefaultState());
 						}
 					}
 				}

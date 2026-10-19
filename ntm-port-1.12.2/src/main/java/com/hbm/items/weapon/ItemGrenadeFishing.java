@@ -2,8 +2,8 @@ package com.hbm.items.weapon;
 
 import java.util.Random;
 
+import com.hbm.dim.DimensionFishingLoot;
 import com.hbm.entity.item.EntityItemBuoyant;
-import com.hbm.main.ModEventHandler;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -21,8 +21,6 @@ public class ItemGrenadeFishing extends ItemGenericGrenade {
 	public void explode(Entity grenade, EntityLivingBase thrower, World world, double x, double y, double z) {
 		world.newExplosion(null, x, y + 0.25D, z, 3F, false, false);
 		
-		ModEventHandler.updateFish(world);
-
 		int iX = (int) Math.floor(x);
 		int iY = (int) Math.floor(y);
 		int iZ = (int) Math.floor(z);
@@ -34,8 +32,8 @@ public class ItemGrenadeFishing extends ItemGenericGrenade {
 			int rZ = iZ + world.rand.nextInt(15) - 7;
 			
 			if(world.getBlock(rX, rY, rZ).getMaterial() == Material.water) {
-				ItemStack loot = getRandomLoot(world.rand);
-				if(loot != null) {
+				ItemStack loot = getRandomLoot(world.rand, world);
+				if(!loot.isEmpty()) {
 					EntityItemBuoyant item = new EntityItemBuoyant(world, rX + 0.5, rY + 0.5, rZ + 0.5, loot.copy());
 					item.motionY = 1;
 					world.spawnEntityInWorld(item);
@@ -44,11 +42,8 @@ public class ItemGrenadeFishing extends ItemGenericGrenade {
 		}
 	}
 	
-	public static ItemStack getRandomLoot(Random rand) {
-		float chance = rand.nextFloat();
-		int luck = 0;
-		int speed = 100; //reduces both the junk and treasure chance to near zero
-		return net.minecraftforge.common.FishingHooks.getRandomFishable(rand, chance, luck, speed);
+	public static ItemStack getRandomLoot(Random rand, World world) {
+		return DimensionFishingLoot.getRandomFishLoot(world, rand);
 	}
 
 	@Override

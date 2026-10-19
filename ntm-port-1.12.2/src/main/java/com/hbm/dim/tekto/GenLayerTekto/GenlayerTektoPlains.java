@@ -2,6 +2,7 @@ package com.hbm.dim.tekto.GenLayerTekto;
 
 import com.hbm.dim.tekto.biome.BiomeGenBaseTekto;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -29,17 +30,17 @@ public class GenlayerTektoPlains extends GenLayer {
 				this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-				if(k1 == BiomeGenBaseTekto.halogenHills.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseTekto.halogenHills)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseTekto.polyvinylPlains.biomeID)
-							|| (i2 == BiomeGenBaseTekto.polyvinylPlains.biomeID)
-							|| (j2 == BiomeGenBaseTekto.polyvinylPlains.biomeID)
-							|| (k2 == BiomeGenBaseTekto.polyvinylPlains.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseTekto.polyvinylPlains))
+							|| (i2 == Biome.getIdForBiome(BiomeGenBaseTekto.polyvinylPlains))
+							|| (j2 == Biome.getIdForBiome(BiomeGenBaseTekto.polyvinylPlains))
+							|| (k2 == Biome.getIdForBiome(BiomeGenBaseTekto.polyvinylPlains)));
 					if(flag) {
-						k1 = BiomeGenBaseTekto.halogenHills.biomeID;
+						k1 = Biome.getIdForBiome(BiomeGenBaseTekto.halogenHills);
 					}
 				}
 

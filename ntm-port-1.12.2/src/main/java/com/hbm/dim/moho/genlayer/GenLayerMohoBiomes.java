@@ -2,13 +2,13 @@ package com.hbm.dim.moho.genlayer;
 
 import com.hbm.dim.moho.biome.BiomeGenBaseMoho;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerMohoBiomes extends GenLayer {
 
-	private static final BiomeGenBase[] biomes = new BiomeGenBase[] { BiomeGenBaseMoho.mohoCrag, BiomeGenBaseMoho.mohoCrag, BiomeGenBaseMoho.mohoLavaSea };
+	private static final Biome[] biomes = new Biome[] { BiomeGenBaseMoho.mohoCrag, BiomeGenBaseMoho.mohoCrag, BiomeGenBaseMoho.mohoLavaSea };
 
 	public GenLayerMohoBiomes(long l) {
 		super(l);
@@ -21,7 +21,7 @@ public class GenLayerMohoBiomes extends GenLayer {
 		for(int k = 0; k < depth; ++k) {
 			for(int i = 0; i < width; ++i) {
 				initChunkSeed(x + i, z + k);
-				dest[i + k * width] = biomes[nextInt(biomes.length)].biomeID;
+				dest[i + k * width] = Biome.getIdForBiome(biomes[nextInt(biomes.length)]);
 			}
 		}
 

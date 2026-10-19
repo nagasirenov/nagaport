@@ -2,14 +2,14 @@ package com.hbm.dim.eve.genlayer;
 
 import com.hbm.dim.eve.biome.BiomeGenBaseEve;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerEveBiomes extends GenLayer {
 
-    private static final BiomeGenBase[] biomes = new BiomeGenBase[] { BiomeGenBaseEve.evePlains, BiomeGenBaseEve.eveOcean, BiomeGenBaseEve.eveMountains };
-    protected BiomeGenBase[] rareBiomes = { BiomeGenBaseEve.eveSeismicPlains };
+    private static final Biome[] biomes = new Biome[] { BiomeGenBaseEve.evePlains, BiomeGenBaseEve.eveOcean, BiomeGenBaseEve.eveMountains };
+    protected Biome[] rareBiomes = { BiomeGenBaseEve.eveSeismicPlains };
 
     public GenLayerEveBiomes(long l) {
         super(l);
@@ -24,9 +24,9 @@ public class GenLayerEveBiomes extends GenLayer {
                 this.initChunkSeed(dx + x, dz + z);
 
                 if(this.nextInt(20) == 0) {
-                    dest[dx + dz * width] = this.rareBiomes[this.nextInt(this.rareBiomes.length)].biomeID;
+                    dest[dx + dz * width] = Biome.getIdForBiome(this.rareBiomes[this.nextInt(this.rareBiomes.length)]);
                 } else {
-                    dest[dx + dz * width] = biomes[this.nextInt(biomes.length)].biomeID;
+                    dest[dx + dz * width] = Biome.getIdForBiome(biomes[this.nextInt(biomes.length)]);
                 }
             }
         }

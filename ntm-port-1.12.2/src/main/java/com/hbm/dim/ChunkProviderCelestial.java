@@ -6,29 +6,28 @@ import java.util.Random;
 
 import com.hbm.util.Compat;
 import com.hbm.world.WorldUtil;
-import com.hbm.world.biome.BiomeGenCraterBase;
+import com.hbm.world.biome.CraterBiomeMarker;
 
 import net.minecraftforge.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.IProgressUpdate;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkPosition;
-import net.minecraft.world.SpawnerAnimals;
+import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public abstract class ChunkProviderCelestial implements IChunkProvider {
+public abstract class ChunkProviderCelestial implements IChunkGenerator {
 
 	/**
 	 * This class creates chunks, filling them with blocks via various noise funcs
@@ -65,7 +64,7 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 	private NoiseGeneratorPerlin perlin;
 	private NoiseGeneratorOctaves heightOrder;
 
-	protected BiomeGenBase[] biomesForGeneration;
+	protected Biome[] biomesForGeneration;
 	private final double[] terrainBuffer;
 	private final float[] parabolicField;
 	private double[] stoneNoise = new double[256];
@@ -91,13 +90,13 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 
 		for(int j = -2; j <= 2; ++j) {
 			for(int k = -2; k <= 2; ++k) {
-				float f = 10.0F / MathHelper.sqrt_float((float) (j * j + k * k) + 0.2F);
+				float f = 10.0F / MathHelper.sqrt((float) (j * j + k * k) + 0.2F);
 				this.parabolicField[j + 2 + (k + 2) * 5] = f;
 			}
 		}
 
-		stoneBlock = Blocks.stone;
-		seaBlock = Blocks.air;
+		stoneBlock = Blocks.STONE;
+		seaBlock = Blocks.AIR;
 		seaLevel = 63;
 
 		NoiseGenerator[] noiseGens = { firstOrder, secondOrder, thirdOrder, perlin, heightOrder };
@@ -113,17 +112,17 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 	 * Will return back a chunk, if it doesn't exist and its not a MP client it will generates all the blocks for the
 	 * specified chunk from the map seed and chunk seed
 	 */
-	protected BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = new BlockMetaBuffer();
-		generateBlocks(x, z, buffer.blocks);
-		biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, x * 16, z * 16, 16, 16);
-		replaceBlocksForBiome(x, z, buffer.blocks, buffer.metas, biomesForGeneration);
-		return buffer;
+	protected ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = new ChunkPrimer();
+		generateBlocks(x, z, primer);
+		biomesForGeneration = worldObj.getBiomeProvider().getBiomes(null, x * 16, z * 16, 16, 16);
+		replaceBlocksForBiome(x, z, primer, biomesForGeneration);
+		return primer;
 	}
 
 	// Fills in the chunk with stone, water, and air
-	protected void generateBlocks(int x, int z, Block[] blocks) {
-		biomesForGeneration = worldObj.getWorldChunkManager().getBiomesForGeneration(biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
+	protected void generateBlocks(int x, int z, ChunkPrimer primer) {
+		biomesForGeneration = worldObj.getBiomeProvider().getBiomesForGeneration(null, x * 4 - 2, z * 4 - 2, 10, 10);
 		generateNoiseField(x * 4, 0, z * 4);
 
 		for(int k = 0; k < 4; ++k) {
@@ -155,20 +154,17 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 						double d13 = (d4 - d2) * d9;
 
 						for(int i3 = 0; i3 < 4; ++i3) {
-							int j3 = i3 + k * 4 << 12 | 0 + j1 * 4 << 8 | k2 * 8 + l2;
-							short short1 = 256;
-							j3 -= short1;
 							double d14 = 0.25D;
 							double d16 = (d11 - d10) * d14;
 							double d15 = d10 - d16;
 
 							for(int k3 = 0; k3 < 4; ++k3) {
 								if((d15 += d16) > 0.0D) {
-									blocks[j3 += short1] = stoneBlock;
+									primer.setBlockState(i3 + k * 4, k2 * 8 + l2, j1 * 4 + k3, stoneBlock.getDefaultState());
 								} else if(k2 * 8 + l2 < seaLevel) {
-									blocks[j3 += short1] = seaBlock;
+									primer.setBlockState(i3 + k * 4, k2 * 8 + l2, j1 * 4 + k3, seaBlock.getDefaultState());
 								} else {
-									blocks[j3 += short1] = Blocks.air;
+									primer.setBlockState(i3 + k * 4, k2 * 8 + l2, j1 * 4 + k3, Blocks.AIR.getDefaultState());
 								}
 							}
 
@@ -202,13 +198,13 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 				float f1 = 0.0F;
 				float f2 = 0.0F;
 				byte b0 = 2;
-				BiomeGenBase biomegenbase = biomesForGeneration[j1 + 2 + (k1 + 2) * 10];
+				Biome biomegenbase = biomesForGeneration[j1 + 2 + (k1 + 2) * 10];
 
 				for(int l1 = -b0; l1 <= b0; ++l1) {
 					for(int i2 = -b0; i2 <= b0; ++i2) {
-						BiomeGenBase biomegenbase1 = biomesForGeneration[j1 + l1 + 2 + (k1 + i2 + 2) * 10];
-						float f3 = biomegenbase1.rootHeight;
-						float f4 = biomegenbase1.heightVariation;
+						Biome biomegenbase1 = biomesForGeneration[j1 + l1 + 2 + (k1 + i2 + 2) * 10];
+						float f3 = biomegenbase1.getBaseHeight();
+						float f4 = biomegenbase1.getHeightVariation();
 
 						if(amplified && f3 > 0.0F) {
 							f3 = 1.0F + f3 * 2.0F;
@@ -217,7 +213,7 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 
 						float f5 = parabolicField[l1 + 2 + (i2 + 2) * 5] / (f3 + 2.0F);
 
-						if(biomegenbase1.rootHeight > biomegenbase.rootHeight) {
+						if(biomegenbase1.getBaseHeight() > biomegenbase.getBaseHeight()) {
 							f5 /= 2.0F;
 						}
 
@@ -288,44 +284,36 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 		}
 	}
 
-	protected void replaceBlocksForBiome(int x, int z, Block[] blocks, byte[] metas, BiomeGenBase[] biomes) {
+	protected void replaceBlocksForBiome(int x, int z, ChunkPrimer primer, Biome[] biomes) {
 		double d0 = 0.03125D;
-		stoneNoise = perlin.func_151599_a(stoneNoise, (double) (x * 16), (double) (z * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
+		stoneNoise = perlin.getRegion(stoneNoise, (double) (x * 16), (double) (z * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
 
 		for(int k = 0; k < 16; ++k) {
 			for(int l = 0; l < 16; ++l) {
-				BiomeGenBase biomegenbase = biomes[l + k * 16];
-				biomegenbase.genTerrainBlocks(worldObj, rand, blocks, metas, x * 16 + k, z * 16 + l, stoneNoise[l + k * 16]);
+				Biome biome = biomes[l + k * 16];
+				biome.genTerrainBlocks(worldObj, rand, primer, x * 16 + k, z * 16 + l, stoneNoise[l + k * 16]);
 			}
 		}
 	}
 
-	/**
-	 * Checks to see if a chunk exists at x, z
-	 */
 	@Override
-	public boolean chunkExists(int x, int z) {
-		return true;
-	}
-
-	@Override
-	public Chunk provideChunk(int x, int z) {
+	public Chunk generateChunk(int x, int z) {
 		BlockFalling.fallInstantly = true;
 
 		rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
 
-		BlockMetaBuffer ablock = getChunkPrimer(x, z);
-		Chunk chunk = new Chunk(worldObj, ablock.blocks, ablock.metas, x, z);
+		ChunkPrimer primer = getChunkPrimer(x, z);
+		Chunk chunk = new Chunk(worldObj, primer, x, z);
 
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
 			short[] biomes = WorldUtil.getBiomeShortArray(chunk);
 			for(int k = 0; k < biomes.length; ++k) {
-				biomes[k] = (short) biomesForGeneration[k].biomeID;
+				biomes[k] = (short) Biome.getIdForBiome(biomesForGeneration[k]);
 			}
 		} else {
 			byte[] biomes = chunk.getBiomeArray();
 			for(int k = 0; k < biomes.length; ++k) {
-				biomes[k] = (byte) biomesForGeneration[k].biomeID;
+				biomes[k] = (byte) Biome.getIdForBiome(biomesForGeneration[k]);
 			}
 		}
 
@@ -337,112 +325,60 @@ public abstract class ChunkProviderCelestial implements IChunkProvider {
 	}
 
 	/**
-	 * loads or generates the chunk at the chunk location specified
-	 */
-	@Override
-	public Chunk loadChunk(int x, int z) {
-		return provideChunk(x, z);
-	}
-
-	/**
 	 * Populates chunk with ores etc etc
 	 */
 	@Override
-	public void populate(IChunkProvider provider, int x, int z) {
+	public void populate(int x, int z) {
 		BlockFalling.fallInstantly = true;
 		worldObj.provider.isHellWorld = false; // Prevent other mod world generators thinking this is hell (god damn it MCP)
 
 		int k = x * 16;
 		int l = z * 16;
-		BiomeGenBase biomegenbase = worldObj.getBiomeGenForCoords(k + 16, l + 16);
+		Biome biome = worldObj.getBiome(new BlockPos(k + 16, 0, l + 16));
 		rand.setSeed(worldObj.getSeed());
 		long i1 = rand.nextLong() / 2L * 2L + 1L;
 		long j1 = rand.nextLong() / 2L * 2L + 1L;
 		rand.setSeed((long) x * i1 + (long) z * j1 ^ worldObj.getSeed());
 
-		biomegenbase.decorate(worldObj, rand, k, l);
+		biome.decorate(worldObj, rand, new BlockPos(k, 0, l));
 
-		SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, k + 8, l + 8, 16, 16, this.rand);
+		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, k + 8, l + 8, 16, 16, this.rand);
 
 		BlockFalling.fallInstantly = false;
-	}
-
-	/**
-	 * Two modes of operation: if passed true, save all Chunks in one go. If passed
-	 * false, save up to two chunks.
-	 * Return true if all chunks have been saved.
-	 */
-	@Override
-	public boolean saveChunks(boolean combined, IProgressUpdate progress) {
-		return true;
-	}
-
-	/**
-	 * Unloads chunks that are marked to be unloaded. This is not guaranteed to
-	 * unload every such chunk.
-	 */
-	@Override
-	public boolean unloadQueuedChunks() {
-		return false;
-	}
-
-	/**
-	 * Returns if the IChunkProvider supports saving.
-	 */
-	@Override
-	public boolean canSave() {
-		return true;
-	}
-
-	/**
-	 * Converts the instance data to a readable string.
-	 */
-	@Override
-	public String makeString() {
-		return "RandomLevelSource";
 	}
 
 	/**
 	 * Returns a list of creatures of the specified type that can spawn at the given
 	 * location.
 	 */
-	@SuppressWarnings("rawtypes")
 	@Override
-	public List getPossibleCreatures(EnumCreatureType creatureType, int x, int y, int z) {
-		BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(x, z);
-		if(biomegenbase instanceof BiomeGenCraterBase) return new ArrayList<SpawnListEntry>();
-		return biomegenbase.getSpawnableList(creatureType);
+	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
+		Biome biome = worldObj.getBiome(pos);
+		if(biome instanceof CraterBiomeMarker) return new ArrayList<Biome.SpawnListEntry>();
+		return biome.getSpawnableList(creatureType);
 	}
 
 	/**
 	 * I have no fucking clue, just return null
 	 */
 	@Override
-	public ChunkPosition func_147416_a(World world, String shitfuck, int x, int y, int z) {
+	public BlockPos getNearestStructurePos(World world, String structureName, BlockPos pos, boolean findUnexplored) {
 		return null;
 	}
 
 	@Override
-	public int getLoadedChunkCount() {
-		return 0;
+	public boolean generateStructures(Chunk chunk, int x, int z) {
+		return false;
 	}
 
 	@Override
-	public void recreateStructures(int x, int z) {
+	public void recreateStructures(Chunk chunk, int x, int z) {
 
 	}
 
-	/**
-	 * Save extra data not associated with any Chunk. Not saved during autosave,
-	 * only during world unload. Currently
-	 * unimplemented.
-	 */
 	@Override
-	public void saveExtraData() {}
-
-	public static class BlockMetaBuffer {
-		public Block[] blocks = new Block[65536];
-		public byte[] metas = new byte[65536];
+	public boolean isInsideStructure(World world, String structureName, BlockPos pos) {
+		return false;
 	}
 
 }

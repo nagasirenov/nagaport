@@ -2,13 +2,13 @@ package com.hbm.dim.tekto.GenLayerTekto;
 
 import com.hbm.dim.tekto.biome.BiomeGenBaseTekto;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerDiversifyTekto extends GenLayer
 {
-	private static final BiomeGenBase[] biomes = new BiomeGenBase[] { BiomeGenBaseTekto.polyvinylPlains, BiomeGenBaseTekto.halogenHills, BiomeGenBaseTekto.tetrachloricRiver, BiomeGenBaseTekto.vinylsands};
+	private static final Biome[] biomes = new Biome[] { BiomeGenBaseTekto.polyvinylPlains, BiomeGenBaseTekto.halogenHills, BiomeGenBaseTekto.tetrachloricRiver, BiomeGenBaseTekto.vinylsands};
 
 	public GenLayerDiversifyTekto(long l, GenLayer parent)
 	{
@@ -32,7 +32,7 @@ public class GenLayerDiversifyTekto extends GenLayer
 				int center = input[i];
 				initChunkSeed(xOut + x, zOut + z);
 				if (nextInt(2) == 0) {
-					output[i] = biomes[nextInt(biomes.length)].biomeID;
+					output[i] = Biome.getIdForBiome(biomes[nextInt(biomes.length)]);
 				} else output[i] = center;
 			}
 		}

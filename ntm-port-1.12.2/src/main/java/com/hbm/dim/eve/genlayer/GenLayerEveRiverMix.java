@@ -2,7 +2,8 @@ package com.hbm.dim.eve.genlayer;
 
 import com.hbm.dim.eve.biome.BiomeGenBaseEve;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerRiverMix;
 import net.minecraft.world.gen.layer.IntCache;
@@ -33,14 +34,14 @@ public class GenLayerEveRiverMix extends GenLayerRiverMix {
 		int[] outputBiomeIds = IntCache.getIntCache(width * length);
 
 		for(int i1 = 0; i1 < width * length; ++i1) {
-			if(inputBiomeIds[i1] != BiomeGenBaseEve.eveOcean.biomeID) {
-				if(riverBiomeIds[i1] == BiomeGenBase.river.biomeID) {
-					if(BiomeGenBaseEve.getBiomeGenArray()[inputBiomeIds[i1]] != null) {
-						outputBiomeIds[i1] = BiomeGenBaseEve.eveRiver.biomeID;
-					} else if(inputBiomeIds[i1] != BiomeGenBase.mushroomIsland.biomeID && inputBiomeIds[i1] != BiomeGenBase.mushroomIslandShore.biomeID) {
+			if(inputBiomeIds[i1] != Biome.getIdForBiome(BiomeGenBaseEve.eveOcean)) {
+				if(riverBiomeIds[i1] == Biome.getIdForBiome(Biomes.RIVER)) {
+					if(Biome.getBiome(inputBiomeIds[i1]) != null) {
+						outputBiomeIds[i1] = Biome.getIdForBiome(BiomeGenBaseEve.eveRiver);
+					} else if(inputBiomeIds[i1] != Biome.getIdForBiome(Biomes.MUSHROOM_ISLAND) && inputBiomeIds[i1] != Biome.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE)) {
 						outputBiomeIds[i1] = riverBiomeIds[i1] & 255;
 					} else {
-						outputBiomeIds[i1] = BiomeGenBase.mushroomIslandShore.biomeID;
+						outputBiomeIds[i1] = Biome.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE);
 					}
 				} else {
 					outputBiomeIds[i1] = inputBiomeIds[i1];

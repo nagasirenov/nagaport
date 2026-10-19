@@ -2,6 +2,7 @@ package com.hbm.dim.dres.genlayer;
 
 import com.hbm.dim.dres.biome.BiomeGenBaseDres;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -29,17 +30,17 @@ public class GenLayerDresBasins extends GenLayer {
 				this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-				if(k1 == BiomeGenBaseDres.dresCanyon.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseDres.dresCanyon)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseDres.dresPlains.biomeID)
-							|| (i2 == BiomeGenBaseDres.dresPlains.biomeID)
-							|| (j2 == BiomeGenBaseDres.dresPlains.biomeID)
-							|| (k2 == BiomeGenBaseDres.dresPlains.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseDres.dresPlains))
+							|| (i2 == Biome.getIdForBiome(BiomeGenBaseDres.dresPlains))
+							|| (j2 == Biome.getIdForBiome(BiomeGenBaseDres.dresPlains))
+							|| (k2 == Biome.getIdForBiome(BiomeGenBaseDres.dresPlains)));
 					if(flag) {
-						k1 = BiomeGenBaseDres.dresCanyon.biomeID;
+						k1 = Biome.getIdForBiome(BiomeGenBaseDres.dresCanyon);
 					}
 				}
 

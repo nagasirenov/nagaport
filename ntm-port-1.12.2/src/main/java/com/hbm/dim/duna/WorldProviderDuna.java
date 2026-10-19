@@ -18,7 +18,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerFuzzyZoom;
 import net.minecraft.world.gen.layer.GenLayerRiver;
@@ -31,8 +31,9 @@ import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
 public class WorldProviderDuna extends WorldProviderCelestial {
 
 	@Override
-	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+	public void init() {
+		super.init();
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 	}
 
 	@Override
-	public IChunkProvider createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderDuna(this.worldObj, this.getSeed(), false);
 	}
 

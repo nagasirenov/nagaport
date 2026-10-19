@@ -8,43 +8,36 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenMohoBasalt extends BiomeGenBaseMoho {
 
 	public BiomeGenMohoBasalt(int id) {
-		super(id);
-		this.setBiomeName("Moho Basalt Deltas");
-
-		this.setHeight(new BiomeGenBase.Height(0, 0.224F));
+		super(id, properties("Moho Basalt Deltas", 1.0F, 0.0F, 0.0F, 0.224F, true));
 
 		this.topBlock = ModBlocks.basalt;
 		this.fillerBlock = ModBlocks.basalt;
 	}
 
 	@Override
-	public void genTerrainBlocks(World world, Random rand, Block[] blocks, byte[] meta, int x, int z, double noise) {
+	protected boolean genTerrainBlocksLegacy(World world, Random rand, Block[] blocks, byte[] meta, int x, int z, double noise) {
 		Block block = this.topBlock;
-		byte b0 = (byte) (this.field_150604_aj & 255);
+		byte b0 = 0;
 		Block block1 = this.fillerBlock;
 		int k = -1;
 		int l = (int) (noise / 8.0D + 8.0D + rand.nextDouble() * 0.50D);
-		int bx = x & 15;
-		int bz = z & 15;
-		int s = blocks.length / 256;
 
 		for(int by = 255; by >= 0; --by) {
-			int i = (bz * 16 + bx) * s + by;
+			int i = by;
 
 			boolean contour = (noise > -0.25D && noise < 1.0D) || (noise > 1.5D && noise < 2.0D) || (noise > 2.5D && noise < 3.0D);
 			double offset = contour ? 0 : Math.pow(rand.nextDouble(), 4) * 8;
 
 			if(by <= 0 + rand.nextInt(5)) {
-				blocks[i] = Blocks.bedrock;
+				blocks[i] = Blocks.BEDROCK;
 			} else {
 				Block block2 = blocks[i];
 
-				if(block2 != null && block2.getMaterial() != Material.air) {
+				if(block2 != null && block2.getMaterial() != Material.AIR) {
 					if(block2 == ModBlocks.moho_stone) {
 						if(k == -1) {
 							if(l <= 0) {
@@ -53,11 +46,11 @@ public class BiomeGenMohoBasalt extends BiomeGenBaseMoho {
 								block1 = ModBlocks.moho_stone;
 							} else if(by >= 59 && by <= 64) {
 								block = this.topBlock;
-								b0 = (byte) (this.field_150604_aj & 255);
+								b0 = 0;
 								block1 = this.fillerBlock;
 							}
 
-							if(by < 63 && (block == null || block.getMaterial() == Material.air)) {
+					if(by < 63 && (block == null || block.getMaterial() == Material.AIR)) {
 								if(this.getFloatTemperature(x, by, z) < 0.15F) {
 									block = this.topBlock;
 									b0 = 0;
@@ -93,6 +86,7 @@ public class BiomeGenMohoBasalt extends BiomeGenBaseMoho {
 				}
 			}
 		}
+		return true;
 	}
 
 }

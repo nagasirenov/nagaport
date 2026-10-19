@@ -1,0 +1,16 @@
+allprojects {
+	afterEvaluate {
+		tasks.create('compileFishingMapGenTargetProbe', org.gradle.api.tasks.compile.JavaCompile) {
+			dependsOn 'sourceMainJava'
+			source = project.fileTree('build/sources/main/java') {
+				include 'com/hbm/dim/DimensionFishingLoot.java'
+				include 'com/hbm/world/gen/MapGenChainloader.java'
+			}
+			classpath = project.tasks.getByName('compileJava').classpath
+			destinationDir = project.file("${project.buildDir}/fishingMapGenProbe")
+			sourceCompatibility = '1.8'
+			targetCompatibility = '1.8'
+			options.encoding = 'UTF-8'
+		}
+	}
+}

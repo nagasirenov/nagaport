@@ -3,6 +3,7 @@ package com.hbm.dim.laythe.genlayer;
 import com.hbm.config.SpaceConfig;
 import com.hbm.dim.laythe.biome.BiomeGenBaseLaythe;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -31,7 +32,7 @@ public class GenLayerLaythePolar extends GenLayer {
 				int k3 = aint[j2 + 1 + (i2 + 1) * k1];
 				this.initChunkSeed((long)(j2 + p_75904_1_), (long)(i2 + p_75904_2_));
 				if(k3 == SpaceConfig.laytheOceanBiome && k2 == SpaceConfig.laytheOceanBiome && l2 == SpaceConfig.laytheOceanBiome && i3 == SpaceConfig.laytheOceanBiome && j3 == SpaceConfig.laytheOceanBiome) {
-					aint1[j2 + i2 * p_75904_3_] = BiomeGenBaseLaythe.laythePolar.biomeID;
+						aint1[j2 + i2 * p_75904_3_] = Biome.getIdForBiome(BiomeGenBaseLaythe.laythePolar);
 				} else {
 					aint1[j2 + i2 * p_75904_3_] = k3;
 				}

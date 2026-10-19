@@ -7,8 +7,9 @@ import com.hbm.blocks.generic.BlockRubberCacti.EnumBushType;
 import com.hbm.blocks.generic.BlockRubberPlant.EnumRubberPlantType;
 import com.hbm.dim.tekto.biome.BiomeGenBaseTekto;
 
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenRubberPlant extends WorldGenerator {
@@ -16,7 +17,7 @@ public class WorldGenRubberPlant extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		boolean flag = false;
-		BiomeGenBase currentBiome = world.getBiomeGenForCoords(x, z);
+		Biome currentBiome = world.getBiome(new BlockPos(x, 0, z));
 
 		for (int l = 0; l < 64; ++l) {
 			int px = x + rand.nextInt(8) - rand.nextInt(8);

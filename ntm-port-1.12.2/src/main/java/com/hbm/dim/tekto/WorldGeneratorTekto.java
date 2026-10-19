@@ -15,8 +15,9 @@ import com.hbm.world.generator.DungeonToolbox;
 
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
@@ -41,7 +42,7 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 
 		DungeonToolbox.generateOre(world, rand, i, j, WorldConfig.cobaltSpawn * 2,  6, 4, 8, ModBlocks.ore_cobalt, meta, stone);
 
-		BiomeGenBase biome = world.getBiomeGenForCoords(i + 16, j + 16);
+		Biome biome = world.getBiome(new BlockPos(i + 16, 0, j + 16));
 
 		for(int x = 0; x < 16; x++) {
 			for(int z = 0; z < 16; z++) {

@@ -12,6 +12,7 @@ import com.hbm.world.gen.terrain.MapGenBedrockOil;
 import com.hbm.world.gen.terrain.MapGenBubble;
 
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class ChunkProviderTekto extends ChunkProviderCelestial {
 
@@ -42,22 +43,20 @@ public class ChunkProviderTekto extends ChunkProviderCelestial {
 	}
 
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = super.getChunkPrimer(x, z);
-		tektonic.setMetas(buffer.metas);
-		bedtonic.setMetas(buffer.metas);
+	public ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = super.getChunkPrimer(x, z);
 
 		if(biomesForGeneration[0] == BiomeGenBaseTekto.vinylsands) {
-			volcano.func_151539_a(this, worldObj, x, z, buffer.blocks);
+			volcano.generate(worldObj, x, z, primer);
 		}
 
-		caveGenV3.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		caveGenV3.generate(worldObj, x, z, primer);
 
-		tektonic.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		bedtonic.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		tektonic.generate(worldObj, x, z, primer);
+		bedtonic.generate(worldObj, x, z, primer);
 
 		// how many times do I gotta say BEEEEG
-		return buffer;
+		return primer;
 	}
 
 }

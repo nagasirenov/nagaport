@@ -2,6 +2,7 @@ package com.hbm.dim.minmus.genlayer;
 
 import com.hbm.dim.minmus.biome.BiomeGenBaseMinmus;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -29,17 +30,17 @@ public class GenLayerMinmusPlains extends GenLayer {
 				this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-				if(k1 == BiomeGenBaseMinmus.minmusPlains.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseMinmus.minmusPlains)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseMinmus.minmusCanyon.biomeID)
-							|| (i2 == BiomeGenBaseMinmus.minmusCanyon.biomeID)
-							|| (j2 == BiomeGenBaseMinmus.minmusCanyon.biomeID)
-							|| (k2 == BiomeGenBaseMinmus.minmusCanyon.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseMinmus.minmusCanyon))
+							|| (i2 == Biome.getIdForBiome(BiomeGenBaseMinmus.minmusCanyon))
+							|| (j2 == Biome.getIdForBiome(BiomeGenBaseMinmus.minmusCanyon))
+							|| (k2 == Biome.getIdForBiome(BiomeGenBaseMinmus.minmusCanyon)));
 					if(flag) {
-						k1 = BiomeGenBaseMinmus.minmusPlains.biomeID;
+						k1 = Biome.getIdForBiome(BiomeGenBaseMinmus.minmusPlains);
 					}
 				}
 

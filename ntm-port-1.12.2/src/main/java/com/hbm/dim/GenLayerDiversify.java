@@ -1,15 +1,15 @@
 package com.hbm.dim;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerDiversify extends GenLayer {
 
-	private final BiomeGenBase[] biomes;
+	private final Biome[] biomes;
 	private final int chance;
 
-	public GenLayerDiversify(long l, GenLayer parent, int chance, BiomeGenBase... biomes) {
+	public GenLayerDiversify(long l, GenLayer parent, int chance, Biome... biomes) {
 		super(l);
 		this.parent = parent;
 		this.biomes = biomes;
@@ -31,7 +31,7 @@ public class GenLayerDiversify extends GenLayer {
 				int center = input[i];
 				initChunkSeed(xOut + x, zOut + z);
 				if(nextInt(chance) == 0) {
-					output[i] = biomes[nextInt(biomes.length)].biomeID;
+					output[i] = Biome.getIdForBiome(biomes[nextInt(biomes.length)]);
 				} else
 					output[i] = center;
 			}

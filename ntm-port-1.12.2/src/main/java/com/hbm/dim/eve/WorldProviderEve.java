@@ -17,7 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerRiver;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
@@ -27,8 +27,9 @@ import net.minecraft.world.gen.layer.GenLayerZoom;
 public class WorldProviderEve extends WorldProviderCelestial {
 
 	@Override
-	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+	public void init() {
+		super.init();
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class WorldProviderEve extends WorldProviderCelestial {
 	}
 
 	@Override
-	public IChunkProvider createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderEve(this.worldObj, this.getSeed(), false);
 	}
 

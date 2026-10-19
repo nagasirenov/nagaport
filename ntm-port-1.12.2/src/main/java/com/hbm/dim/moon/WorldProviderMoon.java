@@ -4,14 +4,15 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.dim.WorldProviderCelestial;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.biome.WorldChunkManagerHell;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.biome.BiomeProviderSingle;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldProviderMoon extends WorldProviderCelestial {
 
 	@Override
-	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenMoon.biome, 0.0F);
+	public void init() {
+		super.init();
+		this.biomeProvider = new BiomeProviderSingle(BiomeGenMoon.biome);
 	}
 
 	@Override
@@ -20,7 +21,7 @@ public class WorldProviderMoon extends WorldProviderCelestial {
 	}
 
 	@Override
-	public IChunkProvider createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderMoon(this.worldObj, this.getSeed(), false);
 	}
 

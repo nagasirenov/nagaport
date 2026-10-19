@@ -3,7 +3,7 @@ package com.hbm.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hbm.dim.BiomeGenBaseCelestial;
+import com.hbm.dim.CelestialBiomeMarker;
 import com.hbm.entity.cart.*;
 import com.hbm.entity.effect.*;
 import com.hbm.entity.grenade.*;
@@ -32,9 +32,9 @@ import com.hbm.util.Tuple.Quartet;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
-import net.minecraft.world.biome.BiomeGenMushroomIsland;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.SpawnListEntry;
+import net.minecraft.world.biome.BiomeMushroomIsland;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
@@ -266,9 +266,10 @@ public class EntityMappings {
 		addMob(EntityDummy.class, "entity_ntm_test_dummy", 0xffffff, 0x000000);
 		addMob(EntityUndeadSoldier.class, "entity_ntm_undead_soldier", 0x749F30, 0x6C5B44);
 
-		addSpawn(EntityCreeperPhosgene.class, 5, 1, 1, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray());
-		addSpawn(EntityCreeperVolatile.class, 10, 1, 1, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray());
-		addSpawn(EntityCreeperGold.class, 1, 1, 1, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray());
+		Biome[] biomes = Biome.REGISTRY.getValuesCollection().toArray(new Biome[0]);
+		addSpawn(EntityCreeperPhosgene.class, 5, 1, 1, EnumCreatureType.monster, biomes);
+		addSpawn(EntityCreeperVolatile.class, 10, 1, 1, EnumCreatureType.monster, biomes);
+		addSpawn(EntityCreeperGold.class, 1, 1, 1, EnumCreatureType.monster, biomes);
 		addSpawn(EntityPlasticBag.class, 1, 1, 3, EnumCreatureType.waterCreature, BiomeDictionary.getBiomesForType(Type.OCEAN));
 		addSpawn(EntityPigeon.class, 1, 5, 10, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.PLAINS));
 
@@ -294,13 +295,13 @@ public class EntityMappings {
 		mobMappings.add(new Quartet(clazz, name, color1, color2));
 	}
 
-	public static void addSpawn(Class<? extends EntityLiving> entityClass, int weightedProb, int min, int max, EnumCreatureType typeOfCreature, BiomeGenBase... biomes) {
+	public static void addSpawn(Class<? extends EntityLiving> entityClass, int weightedProb, int min, int max, EnumCreatureType typeOfCreature, Biome... biomes) {
 
-		for(BiomeGenBase biome : biomes) {
+		for(Biome biome : biomes) {
 
 			if(biome == null) continue;
-			if(biome instanceof BiomeGenBaseCelestial) continue;
-			if(biome instanceof BiomeGenMushroomIsland) continue;
+			if(biome instanceof CelestialBiomeMarker) continue;
+			if(biome instanceof BiomeMushroomIsland) continue;
 
 			List<SpawnListEntry> spawns = biome.getSpawnableList(typeOfCreature);
 

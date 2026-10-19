@@ -4,6 +4,8 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -19,55 +21,57 @@ public class WorldGenLiquidsCelestial extends WorldGenerator {
 		this.targetBlock = targetBlock;
 	}
 
-	public boolean generate(World world, Random rand, int x, int y, int z) {
-		if(world.getBlock(x, y + 1, z) != targetBlock) {
+	@Override
+	public boolean generate(World world, Random rand, BlockPos origin) {
+		BlockPos pos = origin;
+
+		if(world.getBlockState(pos.up()).getBlock() != targetBlock) {
 			return false;
-		} else if(world.getBlock(x, y - 1, z) != targetBlock) {
+		} else if(world.getBlockState(pos.down()).getBlock() != targetBlock) {
 			return false;
-		} else if(world.getBlock(x, y, z).getMaterial() != Material.air && world.getBlock(x, y, z) != targetBlock) {
+		} else if(world.getBlockState(pos).getMaterial() != Material.AIR && world.getBlockState(pos).getBlock() != targetBlock) {
 			return false;
 		} else {
 			int l = 0;
 
-			if(world.getBlock(x - 1, y, z) == targetBlock) {
+			if(world.getBlockState(pos.west()).getBlock() == targetBlock) {
 				++l;
 			}
 
-			if(world.getBlock(x + 1, y, z) == targetBlock) {
+			if(world.getBlockState(pos.east()).getBlock() == targetBlock) {
 				++l;
 			}
 
-			if(world.getBlock(x, y, z - 1) == targetBlock) {
+			if(world.getBlockState(pos.north()).getBlock() == targetBlock) {
 				++l;
 			}
 
-			if(world.getBlock(x, y, z + 1) == targetBlock) {
+			if(world.getBlockState(pos.south()).getBlock() == targetBlock) {
 				++l;
 			}
 
 			int i1 = 0;
 
-			if(world.isAirBlock(x - 1, y, z)) {
+			if(world.isAirBlock(pos.west())) {
 				++i1;
 			}
 
-			if(world.isAirBlock(x + 1, y, z)) {
+			if(world.isAirBlock(pos.east())) {
 				++i1;
 			}
 
-			if(world.isAirBlock(x, y, z - 1)) {
+			if(world.isAirBlock(pos.north())) {
 				++i1;
 			}
 
-			if(world.isAirBlock(x, y, z + 1)) {
+			if(world.isAirBlock(pos.south())) {
 				++i1;
 			}
 
 			if(l == 3 && i1 == 1) {
-				world.setBlock(x, y, z, this.liquidBlock, 0, 2);
-				world.scheduledUpdatesAreImmediate = true;
-				this.liquidBlock.updateTick(world, x, y, z, rand);
-				world.scheduledUpdatesAreImmediate = false;
+				IBlockState liquidState = this.liquidBlock.getStateFromMeta(0);
+				world.setBlockState(pos, liquidState, 2);
+				world.immediateBlockTick(pos, liquidState, rand);
 			}
 
 			return true;

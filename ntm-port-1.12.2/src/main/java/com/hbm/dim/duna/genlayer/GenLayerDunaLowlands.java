@@ -2,6 +2,7 @@ package com.hbm.dim.duna.genlayer;
 
 import com.hbm.dim.duna.biome.BiomeGenBaseDuna;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -29,17 +30,17 @@ public class GenLayerDunaLowlands extends GenLayer {
 				this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-				if(k1 == BiomeGenBaseDuna.dunaLowlands.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseDuna.dunaLowlands)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseDuna.dunaPlains.biomeID)
-							|| (i2 == BiomeGenBaseDuna.dunaPlains.biomeID)
-							|| (j2 == BiomeGenBaseDuna.dunaPlains.biomeID)
-							|| (k2 == BiomeGenBaseDuna.dunaPlains.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseDuna.dunaPlains))
+							|| (i2 == Biome.getIdForBiome(BiomeGenBaseDuna.dunaPlains))
+							|| (j2 == Biome.getIdForBiome(BiomeGenBaseDuna.dunaPlains))
+							|| (k2 == Biome.getIdForBiome(BiomeGenBaseDuna.dunaPlains)));
 					if(flag) {
-						k1 = BiomeGenBaseDuna.dunaLowlands.biomeID;
+						k1 = Biome.getIdForBiome(BiomeGenBaseDuna.dunaLowlands);
 					}
 				}
 

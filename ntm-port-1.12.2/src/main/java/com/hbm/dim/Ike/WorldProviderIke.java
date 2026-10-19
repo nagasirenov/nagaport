@@ -1,21 +1,24 @@
 package com.hbm.dim.Ike;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import com.hbm.blocks.ModBlocks;
+import com.hbm.dim.DimensionFishingLoot;
 import com.hbm.dim.WorldProviderCelestial;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomFishable;
-import net.minecraft.world.biome.*;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.biome.BiomeProviderSingle;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldProviderIke extends WorldProviderCelestial {
 
 	@Override
-	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenIke.biome, 0.0F);
+	public void init() {
+		super.init();
+		this.biomeProvider = new BiomeProviderSingle(BiomeGenIke.biome);
 	}
 
 	@Override
@@ -24,7 +27,7 @@ public class WorldProviderIke extends WorldProviderCelestial {
 	}
 
 	@Override
-	public IChunkProvider createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderIke(this.worldObj, this.getSeed(), false);
 	}
 
@@ -50,27 +53,21 @@ public class WorldProviderIke extends WorldProviderCelestial {
 		return true;
 	}
 
-	private static ArrayList<WeightedRandomFishable> plushie;
+	private static List<DimensionFishingLoot.Entry> plushie;
 
-	private ArrayList<WeightedRandomFishable> getPlushie() {
+	private List<DimensionFishingLoot.Entry> getPlushie() {
 		if(plushie == null) {
-			plushie = new ArrayList<>();
-			plushie.add(new WeightedRandomFishable(new ItemStack(ModBlocks.plushie, 1, 1), 100));
+			List<DimensionFishingLoot.Entry> loot = new ArrayList<>();
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(ModBlocks.plushie, 1, 1), 100));
+			plushie = Collections.unmodifiableList(loot);
 		}
 
 		return plushie;
 	}
 
 	/// FISH ///
-	public ArrayList<WeightedRandomFishable> getFish() {
-		return getPlushie();
-	}
-
-	public ArrayList<WeightedRandomFishable> getJunk() {
-		return getPlushie();
-	}
-
-	public ArrayList<WeightedRandomFishable> getTreasure() {
+	@Override
+	public List<DimensionFishingLoot.Entry> getFishingLoot(DimensionFishingLoot.Category category) {
 		return getPlushie();
 	}
 	/// FISH ///

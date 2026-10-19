@@ -2,6 +2,7 @@ package com.hbm.dim.eve.genlayer;
 
 import com.hbm.dim.eve.biome.BiomeGenBaseEve;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -29,17 +30,17 @@ public class GenLayerEveOceans extends GenLayer {
 				this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-				if(k1 == BiomeGenBaseEve.eveOcean.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseEve.eveOcean)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseEve.evePlains.biomeID)
-							|| (i2 == BiomeGenBaseEve.evePlains.biomeID)
-							|| (j2 == BiomeGenBaseEve.evePlains.biomeID)
-							|| (k2 == BiomeGenBaseEve.evePlains.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains))
+							|| (i2 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains))
+							|| (j2 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains))
+							|| (k2 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains)));
 					if(flag) {
-						k1 = BiomeGenBaseEve.eveOcean.biomeID;
+						k1 = Biome.getIdForBiome(BiomeGenBaseEve.eveOcean);
 					}
 				}
 

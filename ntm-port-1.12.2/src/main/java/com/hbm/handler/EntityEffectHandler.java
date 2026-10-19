@@ -66,13 +66,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 public class EntityEffectHandler {
 
@@ -86,7 +87,7 @@ public class EntityEffectHandler {
 		if(entity instanceof EntityPlayer && entity == MainRegistry.proxy.me()) {
 			EntityPlayer player = MainRegistry.proxy.me();
 			if(player != null) {
-				BiomeGenBase biome = player.worldObj.getBiomeGenForCoords((int) Math.floor(player.posX), (int) Math.floor(player.posZ));
+				Biome biome = player.worldObj.getBiome(new BlockPos((int) Math.floor(player.posX), 0, (int) Math.floor(player.posZ)));
 				if(biome == BiomeGenCraterBase.craterBiome || biome == BiomeGenCraterBase.craterInnerBiome) {
 					Random rand = player.getRNG();
 					for(int i = 0; i < 3; i++) player.worldObj.spawnParticle("townaura", player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);
@@ -123,7 +124,7 @@ public class EntityEffectHandler {
 				entity.setFire(5);
 			}
 
-			BiomeGenBase biome = entity.worldObj.getBiomeGenForCoords((int) Math.floor(entity.posX), (int) Math.floor(entity.posZ));
+			Biome biome = entity.worldObj.getBiome(new BlockPos((int) Math.floor(entity.posX), 0, (int) Math.floor(entity.posZ)));
 			float radiation = 0;
 			if(biome == BiomeGenCraterBase.craterOuterBiome) radiation = WorldConfig.craterBiomeOuterRad;
 			if(biome == BiomeGenCraterBase.craterBiome) radiation = WorldConfig.craterBiomeRad;

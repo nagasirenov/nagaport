@@ -1,6 +1,7 @@
 package com.hbm.dim;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Random;
 import java.util.List;
@@ -36,16 +37,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.WeightedRandomFishable;
 import net.minecraft.world.WorldProviderSurface;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
 
-public abstract class WorldProviderCelestial extends WorldProviderSurface {
+public abstract class WorldProviderCelestial extends WorldProviderSurface implements DimensionFishingLoot.Provider {
 
 	public List<AstroMetric> metrics;
 
@@ -53,9 +53,6 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface {
 	private long localTime = -1;
 	
 	public static ArrayList<Meteor> meteors = new ArrayList<>();
-
-	@Override
-	public abstract void registerWorldChunkManager();
 
 	// Ore gen will attempt to replace this block with ores
 	public Block getStone() {
@@ -613,14 +610,14 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface {
 
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		ChunkCoordinates coords = player.getBedLocation(dimensionId);
+		BlockPos coords = player.getBedLocation(dimensionId);
 
 		// If no bed, respawn in overworld
 		if(coords == null)
 			return 0;
 
 		// If the bed location has no breathable atmosphere, respawn in overworld
-		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.posX, coords.posY, coords.posZ);
+		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.getX(), coords.getY(), coords.getZ());
 		if(!ChunkAtmosphereManager.proxy.canBreathe(atmosphere))
 			return 0;
 
@@ -781,38 +778,28 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface {
 		return 63;
 	}
 
-	// This is the vanilla junk table, for replacing fish on dead worlds
-	private static ArrayList<WeightedRandomFishable> junk;
+	private static List<DimensionFishingLoot.Entry> deadWorldFishLoot;
 
 	// you know what that means
 	/// FISH ///
 
-	// returning null from any of these methods will revert to overworld loot tables
-	public ArrayList<WeightedRandomFishable> getFish() {
-		if(junk == null) {
-			junk = new ArrayList<>();
-			// junk.add((new WeightedRandomFishable(new ItemStack(Items.leather_boots), 10)).func_150709_a(0.9F));
-			// junk.add(new WeightedRandomFishable(new ItemStack(Items.leather), 10));
-			// junk.add(new WeightedRandomFishable(new ItemStack(Items.bone), 10));
-			junk.add(new WeightedRandomFishable(new ItemStack(Items.potionitem), 10));
-			junk.add(new WeightedRandomFishable(new ItemStack(Items.string), 5));
-			junk.add((new WeightedRandomFishable(new ItemStack(Items.fishing_rod), 2)).func_150709_a(0.9F));
-			junk.add(new WeightedRandomFishable(new ItemStack(Items.bowl), 10));
-			junk.add(new WeightedRandomFishable(new ItemStack(Items.stick), 5));
-			junk.add(new WeightedRandomFishable(new ItemStack(Items.dye, 10, 0), 1));
-			junk.add(new WeightedRandomFishable(new ItemStack(Blocks.tripwire_hook), 10));
-			// junk.add(new WeightedRandomFishable(new ItemStack(Items.rotten_flesh), 10));
+	@Override
+	public List<DimensionFishingLoot.Entry> getFishingLoot(DimensionFishingLoot.Category category) {
+		if(category != DimensionFishingLoot.Category.FISH) return null;
+
+		if(deadWorldFishLoot == null) {
+			List<DimensionFishingLoot.Entry> loot = new ArrayList<>();
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(Items.POTIONITEM), 10));
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(Items.STRING), 5));
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(Items.FISHING_ROD), 2, 0.9F));
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(Items.BOWL), 10));
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(Items.STICK), 5));
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(Items.DYE, 10, 0), 1));
+			loot.add(new DimensionFishingLoot.Entry(new ItemStack(Blocks.TRIPWIRE_HOOK), 10));
+			deadWorldFishLoot = Collections.unmodifiableList(loot);
 		}
 
-		return junk;
-	}
-
-	public ArrayList<WeightedRandomFishable> getJunk() {
-		return null;
-	}
-
-	public ArrayList<WeightedRandomFishable> getTreasure() {
-		return null;
+		return deadWorldFishLoot;
 	}
 	/// FISH ///
 

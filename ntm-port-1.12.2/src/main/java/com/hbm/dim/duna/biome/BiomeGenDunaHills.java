@@ -10,12 +10,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 public class BiomeGenDunaHills extends BiomeGenBaseDuna {
-
-	public static final BiomeGenBase.Height height = new BiomeGenBase.Height(0.525F, 0.51F);
 
 	private byte[] field_150621_aC;
 	private long seed;
@@ -26,14 +23,12 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 	private boolean field_150620_aI;
 
 	public BiomeGenDunaHills(int id) {
-		super(id);
-		this.setBiomeName("Weathered Dunaian Hills");
-		this.setHeight(height);
+		super(id, properties("Weathered Dunaian Hills", -1.0F, 0.0F, 0.525F, 0.51F, true));
 	}
 
 	// Ripped from BiomeGenMesa
 	@Override
-	public void genTerrainBlocks(World world, Random rand, Block[] blocks, byte[] metas, int x, int z, double noise) {
+	protected boolean genTerrainBlocksLegacy(World world, Random rand, Block[] blocks, byte[] metas, int x, int z, double noise) {
 		if (this.field_150621_aC == null || this.seed != world.getSeed()) {
 			this.generateBuffers(world.getSeed());
 		}
@@ -77,21 +72,20 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 		boolean flag1 = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
 		int j1 = -1;
 		boolean flag2 = false;
-		int k1 = blocks.length / 256;
 
 		for (int l1 = 255; l1 >= 0; --l1) {
-			int i2 = (l * 16 + k) * k1 + l1;
+			int i2 = l1;
 
-			if ((blocks[i2] == null || blocks[i2].getMaterial() == Material.air) && l1 < (int) d5) {
+			if ((blocks[i2] == null || blocks[i2].getMaterial() == Material.AIR) && l1 < (int) d5) {
 				blocks[i2] = ModBlocks.duna_rock;
 			}
 
 			if (l1 <= 0 + rand.nextInt(5)) {
-				blocks[i2] = Blocks.bedrock;
+				blocks[i2] = Blocks.BEDROCK;
 			} else {
 				Block block1 = blocks[i2];
 
-				if (block1 != null && block1.getMaterial() != Material.air) {
+				if (block1 != null && block1.getMaterial() != Material.AIR) {
 					if (block1 == ModBlocks.duna_rock) {
 						byte b0;
 
@@ -106,8 +100,8 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 								block2 = this.fillerBlock;
 							}
 
-							if (l1 < 63 && (block == null || block.getMaterial() == Material.air)) {
-								block = Blocks.water;
+							if (l1 < 63 && (block == null || block.getMaterial() == Material.AIR)) {
+								block = Blocks.WATER;
 							}
 
 							j1 = i1 + Math.max(0, l1 - 63);
@@ -131,7 +125,7 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 									}
 
 									if (b0 < 16) {
-										blocks[i2] = Blocks.stained_hardened_clay;
+										blocks[i2] = Blocks.STAINED_HARDENED_CLAY;
 										metas[i2] = 14;
 									} else {
 										blocks[i2] = ModBlocks.duna_rock;
@@ -157,7 +151,7 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 									blocks[i2] = ModBlocks.stone_resource;
 									metas[i2] = (byte)EnumStoneType.CALCIUM.ordinal();
 								} else if (b0 < 16) {
-									blocks[i2] = Blocks.stained_hardened_clay;
+								blocks[i2] = Blocks.STAINED_HARDENED_CLAY;
 									metas[i2] = b0;
 								} else {
 									blocks[i2] = ModBlocks.duna_rock;
@@ -170,6 +164,7 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 				}
 			}
 		}
+		return true;
 	}
 
 	public void generateBuffers(long seed) {

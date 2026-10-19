@@ -32,12 +32,12 @@ public class WorldGeneratorLaythe implements IWorldGenerator {
 		}});
 		NBTStructure.registerStructure(SpaceConfig.laytheDimension, new SpawnCondition("laythe_vertibird") {{
 			structure = new JigsawPiece("laythe_vertibird", StructureManager.vertibird, -3);
-			canSpawn = biome -> biome.rootHeight >= 0;
+			canSpawn = biome -> biome.getBaseHeight() >= 0;
 			spawnWeight = 6;
 		}});
 		NBTStructure.registerStructure(SpaceConfig.laytheDimension, new SpawnCondition("laythe_crashed_vertibird") {{
 			structure = new JigsawPiece("laythe_crashed_vertibird", StructureManager.crashed_vertibird, -10);
-			canSpawn = biome -> biome.rootHeight >= 0;
+			canSpawn = biome -> biome.getBaseHeight() >= 0;
 			spawnWeight = 6;
 		}});
 

@@ -7,12 +7,13 @@ import com.hbm.config.GeneralConfig;
 import com.hbm.entity.item.EntityTNTPrimedBase;
 import com.hbm.explosion.ExplosionNukeSmall;
 import com.hbm.main.MainRegistry;
-import com.hbm.world.biome.BiomeGenCraterBase;
+import com.hbm.world.biome.CraterBiomeMarker;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockFissureBomb extends BlockTNTBase {
@@ -23,7 +24,7 @@ public class BlockFissureBomb extends BlockTNTBase {
 		
 		int range = 5;
 		
-		boolean crater = world.getBiomeGenForCoords((int) Math.floor(x), (int) Math.floor(z)) instanceof BiomeGenCraterBase;
+		boolean crater = world.getBiome(new BlockPos((int) Math.floor(x), 0, (int) Math.floor(z))) instanceof CraterBiomeMarker;
 		
 		for(int i = -range; i <= range; i++) {
 			for(int j = -range; j <= range; j++) {

@@ -2,6 +2,7 @@ package com.hbm.dim.eve.genlayer;
 
 import com.hbm.dim.eve.biome.BiomeGenBaseEve;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -36,7 +37,7 @@ public class GenLayerEveRiver extends GenLayer {
 				if(k3 == k2 && k3 == i3 && k3 == l2 && k3 == j3) {
 					aint1[j2 + i2 * p_75904_3_] = -1;
 				} else {
-					aint1[j2 + i2 * p_75904_3_] = BiomeGenBaseEve.eveRiver.biomeID;
+					aint1[j2 + i2 * p_75904_3_] = Biome.getIdForBiome(BiomeGenBaseEve.eveRiver);
 				}
 			}
 		}

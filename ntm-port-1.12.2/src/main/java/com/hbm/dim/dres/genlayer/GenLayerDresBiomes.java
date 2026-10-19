@@ -2,13 +2,13 @@ package com.hbm.dim.dres.genlayer;
 
 import com.hbm.dim.dres.biome.BiomeGenBaseDres;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerDresBiomes extends GenLayer {
 
-    private static final BiomeGenBase[] biomes = new BiomeGenBase[] { BiomeGenBaseDres.dresCanyon, BiomeGenBaseDres.dresPlains };
+    private static final Biome[] biomes = new Biome[] { BiomeGenBaseDres.dresCanyon, BiomeGenBaseDres.dresPlains };
 
     public GenLayerDresBiomes(long l) {
         super(l);
@@ -21,7 +21,7 @@ public class GenLayerDresBiomes extends GenLayer {
         for(int k = 0; k < depth; ++k) {
             for(int i = 0; i < width; ++i) {
                 initChunkSeed(x + i, z + k);
-                dest[i + k * width] = biomes[nextInt(biomes.length)].biomeID;
+                dest[i + k * width] = Biome.getIdForBiome(biomes[nextInt(biomes.length)]);
             }
         }
 

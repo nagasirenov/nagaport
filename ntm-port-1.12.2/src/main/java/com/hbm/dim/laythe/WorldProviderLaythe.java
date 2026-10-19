@@ -14,7 +14,8 @@ import com.hbm.dim.laythe.genlayer.GenLayerLaythePolar;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
@@ -25,8 +26,9 @@ import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
 public class WorldProviderLaythe extends WorldProviderCelestial {
 
 	@Override
-	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+	public void init() {
+		super.init();
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
 	}
 
 	@Override
@@ -35,7 +37,7 @@ public class WorldProviderLaythe extends WorldProviderCelestial {
 	}
 
 	@Override
-	public IChunkProvider createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderLaythe(this.worldObj, this.getSeed(), false);
 	}
 
@@ -97,10 +99,10 @@ public class WorldProviderLaythe extends WorldProviderCelestial {
 		biomes = new GenLayerZoom(1001L, biomes);
 
 		biomes = new GenLayerLaytheOceans(4000L, biomes);
-		biomes = new GenLayerLaytheOceans(4001L, biomes, BiomeGenBaseLaythe.laytheCoast.biomeID);
+		biomes = new GenLayerLaytheOceans(4001L, biomes, Biome.getIdForBiome(BiomeGenBaseLaythe.laytheCoast));
 
 		biomes = new GenLayerZoom(1003L, biomes);
-		biomes = new GenLayerLaytheOceans(4342L, biomes, BiomeGenBaseLaythe.laytheCoast.biomeID);
+		biomes = new GenLayerLaytheOceans(4342L, biomes, Biome.getIdForBiome(BiomeGenBaseLaythe.laytheCoast));
 		biomes = new GenLayerSmooth(700L, biomes);
 
 		biomes = new GenLayerZoom(1006L, biomes);

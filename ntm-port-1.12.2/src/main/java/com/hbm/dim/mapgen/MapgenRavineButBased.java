@@ -2,8 +2,9 @@ package com.hbm.dim.mapgen;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.gen.MapGenRavine;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class MapgenRavineButBased extends MapGenRavine {
 
@@ -11,24 +12,21 @@ public class MapgenRavineButBased extends MapGenRavine {
 
 	public MapgenRavineButBased() {
 		super();
-		this.stoneBlock = Blocks.stone;
+		this.stoneBlock = Blocks.STONE;
 	}
 
 	@Override
-	protected void digBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(x + chunkX * 16, z + chunkZ * 16);
-		Block top = biome.topBlock;
-		Block filler = biome.fillerBlock;
-		Block block = data[index];
+	protected void digBlock(ChunkPrimer primer, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop, IBlockState top, IBlockState filler) {
+		Block block = primer.getBlockState(x, y, z).getBlock();
 
-		if(block == stoneBlock || block == filler || block == top) {
+		if(block == stoneBlock || block == filler.getBlock() || block == top.getBlock()) {
 			if(y < 10) {
-				data[index] = Blocks.flowing_lava;
+				primer.setBlockState(x, y, z, Blocks.FLOWING_LAVA.getDefaultState());
 			} else {
-				data[index] = null;
+				primer.setBlockState(x, y, z, Blocks.AIR.getDefaultState());
 
-				if (foundTop && data[index - 1] == filler) {
-					data[index - 1] = top;
+				if (foundTop && primer.getBlockState(x, y - 1, z).getBlock() == filler.getBlock()) {
+					primer.setBlockState(x, y - 1, z, top);
 				}
 			}
 		}

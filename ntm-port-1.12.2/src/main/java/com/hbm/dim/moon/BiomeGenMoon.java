@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.config.MobConfig;
-import com.hbm.config.SpaceConfig;
 import com.hbm.dim.BiomeGenBaseCelestial;
 import com.hbm.entity.mob.EntityMoonCow;
 
@@ -12,24 +11,20 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenMoon extends BiomeGenBaseCelestial {
 
-	public static final BiomeGenBase biome = new BiomeGenMoon(SpaceConfig.moonBiome);
+	public static Biome biome;
 
 	public BiomeGenMoon(int id) {
-		super(id);
-		this.setBiomeName("Mun");
-		this.setDisableRain();
+		super(id, properties("Mun", 0.5F, 0.5F, 0.125F, 0.05F, true));
 
 		if(MobConfig.enableMunCows) {
-			this.creatures.add(new BiomeGenBase.SpawnListEntry(EntityMoonCow.class, 10, 4, 4));
+			this.creatures.add(new Biome.SpawnListEntry(EntityMoonCow.class, 10, 4, 4));
 		}
 
-		this.theBiomeDecorator.generateLakes = false;
-
-		this.setHeight(new BiomeGenBase.Height(0.125F, 0.05F));
+		this.decorator.generateLakes = false;
 
 		this.topBlock = ModBlocks.moon_turf;
 		this.fillerBlock = ModBlocks.moon_rock;
@@ -41,26 +36,23 @@ public class BiomeGenMoon extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	public void genTerrainBlocks(World world, Random rand, Block[] blocks, byte[] meta, int x, int z, double noise) {
+	protected boolean genTerrainBlocksLegacy(World world, Random rand, Block[] blocks, byte[] meta, int x, int z, double noise) {
 		// boolean flag = true;
 		Block block = this.topBlock;
-		byte b0 = (byte) (this.field_150604_aj & 255);
+		byte b0 = 0;
 		Block block1 = this.fillerBlock;
 		int k = -1;
 		int l = (int) (noise / 3.0D + 3.0D + rand.nextDouble() * 0.25D);
-		int i1 = x & 15;
-		int j1 = z & 15;
-		int k1 = blocks.length / 256;
 
 		for (int l1 = 255; l1 >= 0; --l1) {
-			int i2 = (j1 * 16 + i1) * k1 + l1;
+			int i2 = l1;
 
 			if (l1 <= 0 + rand.nextInt(5)) {
-				blocks[i2] = Blocks.bedrock;
+				blocks[i2] = Blocks.BEDROCK;
 			} else {
 				Block block2 = blocks[i2];
 
-				if (block2 != null && block2.getMaterial() != Material.air) {
+				if (block2 != null && block2.getMaterial() != Material.AIR) {
 					if (block2 == ModBlocks.moon_rock) {
 						if (k == -1) {
 							if (l <= 0) {
@@ -69,11 +61,11 @@ public class BiomeGenMoon extends BiomeGenBaseCelestial {
 								block1 = ModBlocks.moon_rock;
 							} else if (l1 >= 59 && l1 <= 64) {
 								block = this.topBlock;
-								b0 = (byte) (this.field_150604_aj & 255);
+								b0 = 0;
 								block1 = this.fillerBlock;
 							}
 
-							if (l1 < 63 && (block == null || block.getMaterial() == Material.air)) {
+					if (l1 < 63 && (block == null || block.getMaterial() == Material.AIR)) {
 								if (this.getFloatTemperature(x, l1, z) < 0.15F) {
 									block = this.topBlock;
 									b0 = 0;
@@ -91,7 +83,7 @@ public class BiomeGenMoon extends BiomeGenBaseCelestial {
 							} else if (l1 < 56 - l) {
 								block = null;
 								block1 = ModBlocks.moon_rock;
-								blocks[i2] = Blocks.gravel;
+								blocks[i2] = Blocks.GRAVEL;
 							} else {
 								blocks[i2] = block1;
 							}
@@ -99,9 +91,9 @@ public class BiomeGenMoon extends BiomeGenBaseCelestial {
 							--k;
 							blocks[i2] = block1;
 
-							if (k == 0 && block1 == Blocks.sand) {
+							if (k == 0 && block1 == Blocks.SAND) {
 								k = rand.nextInt(4) + Math.max(0, l1 - 63);
-								block1 = Blocks.sandstone;
+								block1 = Blocks.SANDSTONE;
 							}
 						}
 					}
@@ -110,6 +102,7 @@ public class BiomeGenMoon extends BiomeGenBaseCelestial {
 				}
 			}
 		}
+		return true;
 	}
 
 }

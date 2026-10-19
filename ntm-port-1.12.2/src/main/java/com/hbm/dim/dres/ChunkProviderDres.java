@@ -6,6 +6,7 @@ import com.hbm.dim.mapgen.MapGenCrater;
 import com.hbm.dim.mapgen.MapGenVanillaCaves;
 
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
 public class ChunkProviderDres extends ChunkProviderCelestial {
@@ -28,14 +29,14 @@ public class ChunkProviderDres extends ChunkProviderCelestial {
 	}
 	
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = super.getChunkPrimer(x, z);
+	public ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = super.getChunkPrimer(x, z);
 
-		caveGenerator.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		smallCrater.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		largeCrater.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		caveGenerator.generate(worldObj, x, z, primer);
+		smallCrater.generate(worldObj, x, z, primer);
+		largeCrater.generate(worldObj, x, z, primer);
 		
-		return buffer;
+		return primer;
 	}
 
 }

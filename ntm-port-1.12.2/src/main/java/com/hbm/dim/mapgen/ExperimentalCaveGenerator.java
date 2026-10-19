@@ -5,10 +5,13 @@ import java.util.Random;
 import com.hbm.dim.noise.PerlinFestival;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
 public class ExperimentalCaveGenerator extends MapGenBase {
@@ -22,8 +25,8 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 
 	public float smallCaveSize = 1.0F;
 
-	public BiomeGenBase ignoreBiome;
-	public BiomeGenBase onlyBiome;
+	public Biome ignoreBiome;
+	public Biome onlyBiome;
 
 	PerlinFestival perlinNoise;
 
@@ -37,15 +40,15 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 		this.depthThreshold = depthThreshold;
 		this.largeCaveSize = largeCaveSize;
 
-		this.lavaBlock = Blocks.lava;
-		this.stoneBlock = Blocks.stone;
+		this.lavaBlock = Blocks.LAVA;
+		this.stoneBlock = Blocks.STONE;
 	}
 
-	protected void generateLargeCave(long seed, int chunkX, int chunkZ, Block[] blocks, double x, double y, double z) {
-		this.generateCaveNode(seed, chunkX, chunkZ, blocks, x, y, z, (1.0F + this.rand.nextFloat()) * largeCaveSize, 0.0F, 0.0F, -1, -1, 0.5D);
+	protected void generateLargeCave(long seed, int chunkX, int chunkZ, ChunkPrimer primer, double x, double y, double z) {
+		this.generateCaveNode(seed, chunkX, chunkZ, primer, x, y, z, (1.0F + this.rand.nextFloat()) * largeCaveSize, 0.0F, 0.0F, -1, -1, 0.5D);
 	}
 
-	protected void generateCaveNode(long seed, int chunkX, int chunkZ, Block[] blocks, double x, double y, double z, float caveSize, float yaw, float pitch, int currentStep, int totalSteps, double caveSizeIncrease) {
+	protected void generateCaveNode(long seed, int chunkX, int chunkZ, ChunkPrimer primer, double x, double y, double z, float caveSize, float yaw, float pitch, int currentStep, int totalSteps, double caveSizeIncrease) {
 		double centerX = (double) (chunkX * 16 + 8);
 		double centerZ = (double) (chunkZ * 16 + 8);
 		float f3 = 0.0F;
@@ -108,8 +111,8 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 			f3 += (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 4.0F;
 
 			if (!flag2 && currentStep == k1 && caveSize > 1.0F && totalSteps > 0) {
-				this.generateCaveNode(random.nextLong(), chunkX, chunkZ, blocks, x, y, z, random.nextFloat() * 0.5F + 0.5F, yaw - ((float) Math.PI / 2F), pitch / 3.0F, currentStep, totalSteps, 1.0D);
-				this.generateCaveNode(random.nextLong(), chunkX, chunkZ, blocks, x, y, z, random.nextFloat() * 0.5F + 0.5F, yaw + ((float) Math.PI / 2F), pitch / 3.0F, currentStep, totalSteps, 1.0D);
+				this.generateCaveNode(random.nextLong(), chunkX, chunkZ, primer, x, y, z, random.nextFloat() * 0.5F + 0.5F, yaw - ((float) Math.PI / 2F), pitch / 3.0F, currentStep, totalSteps, 1.0D);
+				this.generateCaveNode(random.nextLong(), chunkX, chunkZ, primer, x, y, z, random.nextFloat() * 0.5F + 0.5F, yaw + ((float) Math.PI / 2F), pitch / 3.0F, currentStep, totalSteps, 1.0D);
 				return;
 			}
 
@@ -162,12 +165,8 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 					for (k2 = i4; !flag3 && k2 < l1; ++k2) {
 						for (int l2 = k4; !flag3 && l2 < j2; ++l2) {
 							for (int i3 = i2 + 1; !flag3 && i3 >= j4 - 1; --i3) {
-								j3 = (k2 * 16 + l2) * 256 + i3;
-
 								if (i3 >= 0 && i3 < 256) {
-									// Block block = blocks[j3];
-
-									if (isOceanBlock(blocks, j3, k2, i3, l2, chunkX, chunkZ)) {
+									if (isOceanBlock(primer, k2, i3, l2)) {
 										flag3 = true;
 									}
 
@@ -191,7 +190,6 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 								double noiseZ = perlinNoise.noise(x * noiseScaleZ, y * noiseScaleZ, (j3 + chunkZ * 16) * noiseScaleZ) * noiseMagnitude;
 								double d14 = (((double) (j3 + chunkZ * 16) + 0.5D - z) / d6) + noiseZ;
 
-								int k3 = (k2 * 16 + j3) * 256 + i2;
 								boolean flag1 = false;
 
 								if (d13 * d13 + d14 * d14 < 1.0D) {
@@ -200,21 +198,22 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 
 										if (d12 > -0.7D && (d13 * d13 + d12 * d12 + d14 * d14) * (1 + noiseFactor) < 1.0D) {
 
-											if (isTopBlock(blocks, k3, k2, l3, j3, chunkX, chunkZ)) {
+											// The old linear index starts at i2 and decrements with l3.
+											int blockY = l3 + 1;
+											if (isTopBlock(primer, k2, blockY, j3, chunkX, chunkZ)) {
 												flag1 = true;
 											}
 											double carvingNoise = perlinNoise.noise(x * carvingScale, y * carvingScale, z * carvingScale);
 											double noiseValue = perlinNoise.noise(x * caveSizeIncrease, y * caveSizeIncrease, z * caveSizeIncrease);
 											if ((d13 * d13 + d12 * d12 + d14 * d14) * (1 + noiseValue) < 1.0D + carvingNoise) {
 												if (Math.pow(d13, 2.5) + Math.pow(d14, 2.2) < 2) {
-													digBlock(blocks, k3, k2, l3, j3, chunkX, chunkZ, flag1);
+													digBlock(primer, k2, blockY, j3, chunkX, chunkZ, flag1);
 												}
 											}
-											digBlock(blocks, k3, k2, l3, j3, chunkX, chunkZ, flag1);
+											digBlock(primer, k2, blockY, j3, chunkX, chunkZ, flag1);
 
 										}
 
-										--k3;
 									}
 								}
 							}
@@ -229,7 +228,8 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 		}
 	}
 
-	protected void func_151538_a(World p_151538_1_, int p_151538_2_, int p_151538_3_, int p_151538_4_, int p_151538_5_, Block[] p_151538_6_) {
+	@Override
+	protected void recursiveGenerate(World world, int offsetX, int offsetZ, int chunkX, int chunkZ, ChunkPrimer primer) {
 		int i1 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(15) + 1) + 1);
 
 		if (this.rand.nextInt(7) != 0) {
@@ -237,13 +237,13 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 		}
 
 		for (int j1 = 0; j1 < i1; ++j1) {
-			double d0 = (double) (p_151538_2_ * 16 + this.rand.nextInt(16));
+			double d0 = (double) (offsetX * 16 + this.rand.nextInt(16));
 			double d1 = (double) this.rand.nextInt(this.rand.nextInt(120) + 8);
-			double d2 = (double) (p_151538_3_ * 16 + this.rand.nextInt(16));
+			double d2 = (double) (offsetZ * 16 + this.rand.nextInt(16));
 			int k1 = 1;
 
 			if (this.rand.nextInt(4) == 0) {
-				this.generateLargeCave(this.rand.nextLong(), p_151538_4_, p_151538_5_, p_151538_6_, d0, d1, d2);
+				this.generateLargeCave(this.rand.nextLong(), chunkX, chunkZ, primer, d0, d1, d2);
 				k1 += this.rand.nextInt(4);
 			}
 
@@ -256,21 +256,21 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 					f2 *= smallCaveSize * this.rand.nextFloat() * this.rand.nextFloat() * 3.0F + 1.0F;
 				}
 
-				this.generateCaveNode(this.rand.nextLong(), p_151538_4_, p_151538_5_, p_151538_6_, d0, d1, d2, f2, f, f1, 0, 0, 1.0D);
+				this.generateCaveNode(this.rand.nextLong(), chunkX, chunkZ, primer, d0, d1, d2, f2, f, f1, 0, 0, 1.0D);
 			}
 		}
 	}
 
-	protected boolean isOceanBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ) {
-		return data[index] != null && data[index].getMaterial().isLiquid();
+	protected boolean isOceanBlock(ChunkPrimer primer, int x, int y, int z) {
+		return primer.getBlockState(x, y, z).getMaterial().isLiquid();
 	}
 
 	// Determine if the block at the specified location is the top block for the
 	// biome, we take into account
 	// Vanilla bugs to make sure that we generate the map the same way vanilla does.
-	private boolean isTopBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(x + chunkX * 16, z + chunkZ * 16);
-		return data[index] == biome.topBlock;
+	private boolean isTopBlock(ChunkPrimer primer, int x, int y, int z, int chunkX, int chunkZ) {
+		Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
+		return primer.getBlockState(x, y, z).getBlock() == biome.topBlock.getBlock();
 	}
 
 	/**
@@ -291,21 +291,22 @@ public class ExperimentalCaveGenerator extends MapGenBase {
 	 * @param foundTop True if we've encountered the biome's top block. Ideally if
 	 *                 we've broken the surface.
 	 */
-	protected void digBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(x + chunkX * 16, z + chunkZ * 16);
+	protected void digBlock(ChunkPrimer primer, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
+		Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
 		if(biome == ignoreBiome) return;
 		if(onlyBiome != null && biome != onlyBiome) return;
 
-		Block block = data[index];
+		IBlockState state = primer.getBlockState(x, y, z);
+		Block block = state.getBlock();
 
-		if (block != null && (block == stoneBlock || block == biome.fillerBlock || block == biome.topBlock || block.getMaterial().isLiquid())) {
+		if (block != null && (block == stoneBlock || block == biome.fillerBlock.getBlock() || block == biome.topBlock.getBlock() || state.getMaterial().isLiquid())) {
 			if (y < 10) {
-				data[index] = lavaBlock;
+				primer.setBlockState(x, y, z, lavaBlock.getDefaultState());
 			} else {
-				data[index] = null;
+				primer.setBlockState(x, y, z, Blocks.AIR.getDefaultState());
 
-				if (foundTop && data[index - 1] == biome.fillerBlock) {
-					data[index - 1] = biome.topBlock;
+				if (foundTop && primer.getBlockState(x, y - 1, z).getBlock() == biome.fillerBlock.getBlock()) {
+					primer.setBlockState(x, y - 1, z, biome.topBlock);
 				}
 			}
 		}

@@ -5,16 +5,17 @@ import com.hbm.util.BobMathUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 
 public class MapGenGreg extends MapGenCaves {
 
-	public Block stoneBlock = Blocks.stone;
+	public Block stoneBlock = Blocks.STONE;
 
 	private double[] caveNoise;
 	private float[] biomeWeightTable;
@@ -29,8 +30,8 @@ public class MapGenGreg extends MapGenCaves {
 	private double[] depthNoises;
 
 	@Override
-	public void func_151539_a(IChunkProvider c, World w, int chunkX, int chunkZ, Block[] blocks) {
-		if (worldObj != w) {
+	public void generate(World worldIn, int chunkX, int chunkZ, ChunkPrimer primer) {
+		if (this.world != worldIn) {
 			this.caveNoise = new double[825];
 			this.biomeWeightTable = new float[25];
 			this.field_147431_j = new NoiseGeneratorOctaves(this.rand, 16);
@@ -45,23 +46,13 @@ public class MapGenGreg extends MapGenCaves {
 				}
 			}
 		}
-		this.worldObj = w;
-		this.rand.setSeed(w.getSeed());
-		int k = this.range;
-		long l = this.rand.nextLong();
-		long i1 = this.rand.nextLong();
-		for (int j1 = chunkX - k; j1 <= chunkX + k; ++j1) {
-			for (int k1 = chunkZ - k; k1 <= chunkZ + k; ++k1) {
-				long l1 = (long) j1 * l;
-				long i2 = (long) k1 * i1;
-				this.rand.setSeed(l1 ^ i2 ^ w.getSeed());
-				this.func_151538_a(w, j1, k1, chunkX, chunkZ, blocks);
-			}
-		}
-		this.generateNoiseCaves(chunkX, chunkZ, blocks);
+		// MapGenBase.generate preserves vanilla neighbor seeding and traversal,
+		// dispatching each neighbor through MapGenCaves.recursiveGenerate first.
+		super.generate(worldIn, chunkX, chunkZ, primer);
+		this.generateNoiseCaves(chunkX, chunkZ, primer);
 	}
 
-	private void generateNoiseCaves(int chunkX, int chunkZ, Block[] blocks) {
+	private void generateNoiseCaves(int chunkX, int chunkZ, ChunkPrimer primer) {
 		generateNoiseCavesNoise(chunkX, chunkZ);
 
 		for (int noiseX = 0; noiseX < 4; ++noiseX) {
@@ -91,20 +82,16 @@ public class MapGenGreg extends MapGenCaves {
 						double z1Add = (x1z1 - x0z1) * 0.25D;
 
 						for (int pieceX = 0; pieceX < 4; ++pieceX) {
-							int index = pieceX + noiseX * 4 << 12 | noiseZ * 4 << 8 | noiseY * 8 + pieceY;
-							short idAdd = 256;
-							index -= idAdd;
 							double densityAdd = (z1 - z0) * 0.25D;
 							double density = z0 - densityAdd;
 
 							for (int pieceZ = 0; pieceZ < 4; ++pieceZ) {
-								index += idAdd;
 								if ((density += densityAdd) < 0) {
 									int y = noiseY * 8 + pieceY;
-									if (y > 0) {
-										if (blocks[index] != Blocks.bedrock) {
-											blocks[index] = null;
-										}
+									int x = pieceX + noiseX * 4;
+									int z = pieceZ + noiseZ * 4;
+									if (y > 0 && primer.getBlockState(x, y, z).getBlock() != Blocks.BEDROCK) {
+										primer.setBlockState(x, y, z, Blocks.AIR.getDefaultState());
 									}
 								}
 							}
@@ -129,8 +116,8 @@ public class MapGenGreg extends MapGenCaves {
 		this.interpolationNoises = this.interpolationNoise.generateNoiseOctaves(this.interpolationNoises, cx, 0, cz, 5, 33, 5, 8.555150000000001D, 4.277575000000001D, 8.555150000000001D);
 		this.lowerInterpolatedNoises = this.field_147431_j.generateNoiseOctaves(this.lowerInterpolatedNoises, cx, 0, cz, 5, 33, 5, 684.412D, 684.412D, 684.412D);
 		this.upperInterpolatedNoises = this.field_147432_k.generateNoiseOctaves(this.upperInterpolatedNoises, cx, 0, cz, 5, 33, 5, 684.412D, 684.412D, 684.412D);
-		BiomeGenBase[] biomes = null;
-		biomes = this.worldObj.getWorldChunkManager().getBiomesForGeneration(biomes, cx - 2, cz - 2, 10, 10);
+		Biome[] biomes = null;
+		biomes = this.world.getBiomeProvider().getBiomesForGeneration(biomes, cx - 2, cz - 2, 10, 10);
 		int i = 0, j = 0;
 
 		for (int x = 0; x < 5; ++x) {
@@ -140,17 +127,17 @@ public class MapGenGreg extends MapGenCaves {
 				float weight = 0.0F;
 				double lowestScaledDepth = 0;
 
-				BiomeGenBase biome0 = biomes[x + 2 + (z + 2) * 10];
+				Biome biome0 = biomes[x + 2 + (z + 2) * 10];
 				// We iterate the entire area to ensure we're not anywhere even near an ocean
 				for (int x1 = -2; x1 <= 2; ++x1) {
 					for (int z1 = -2; z1 <= 2; ++z1) {
-						BiomeGenBase biome = biomes[x + x1 + 2 + (z + z1 + 2) * 10];
-						float depthHere = biome.rootHeight;
-						float scaleHere = biome.heightVariation;
+						Biome biome = biomes[x + x1 + 2 + (z + z1 + 2) * 10];
+						float depthHere = biome.getBaseHeight();
+						float scaleHere = biome.getHeightVariation();
 
 						float weightHere = this.biomeWeightTable[x1 + 2 + (z1 + 2) * 5] / (depthHere + 2.0F);
 
-						if (biome.rootHeight > biome0.rootHeight) {
+						if (biome.getBaseHeight() > biome0.getBaseHeight()) {
 							weightHere /= 2.0F;
 						}
 
@@ -158,7 +145,7 @@ public class MapGenGreg extends MapGenCaves {
 						depth += depthHere * weightHere;
 						weight += weightHere;
 						// Disable in oceans
-						lowestScaledDepth = Math.min(lowestScaledDepth, biome.rootHeight);
+						lowestScaledDepth = Math.min(lowestScaledDepth, biome.getBaseHeight());
 					}
 				}
 				scale /= weight;
@@ -232,19 +219,20 @@ public class MapGenGreg extends MapGenCaves {
 		}
 	}
 
-	protected void digBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(x + chunkX * 16, z + chunkZ * 16);
-		Block top = biome.topBlock;
-		Block filler = biome.fillerBlock;
-		Block block = data[index];
+	@Override
+	protected void digBlock(ChunkPrimer primer, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
+		Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
+		Block top = biome.topBlock.getBlock();
+		Block filler = biome.fillerBlock.getBlock();
+		Block block = primer.getBlockState(x, y, z).getBlock();
 
 		if (block == stoneBlock || block == filler || block == top) {
 			if (y < 2) {
-				data[index] = Blocks.flowing_lava;
+				primer.setBlockState(x, y, z, Blocks.FLOWING_LAVA.getDefaultState());
 			} else {
-				data[index] = null;
-				if (foundTop && data[index - 1] == filler) {
-					data[index - 1] = top;
+				primer.setBlockState(x, y, z, Blocks.AIR.getDefaultState());
+				if (foundTop && primer.getBlockState(x, y - 1, z).getBlock() == filler) {
+					primer.setBlockState(x, y - 1, z, biome.topBlock);
 				}
 			}
 		}

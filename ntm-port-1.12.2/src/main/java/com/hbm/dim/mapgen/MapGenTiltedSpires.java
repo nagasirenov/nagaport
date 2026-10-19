@@ -5,8 +5,10 @@ import java.util.Random;
 import com.hbm.dim.noise.DoublePerlinNoiseSampler;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
 public class MapGenTiltedSpires extends MapGenBase {
@@ -43,18 +45,17 @@ public class MapGenTiltedSpires extends MapGenBase {
 
 	// setup seeded random
 	@Override
-	public void func_151539_a(IChunkProvider chunk, World world, int chunkX, int chunkZ, Block[] blocks) {
-		if (worldObj != world) {
+	public void generate(World world, int chunkX, int chunkZ, ChunkPrimer primer) {
+		if (this.world != world) {
 			this.rand.setSeed(world.getSeed() + 69);
 			this.perlin = DoublePerlinNoiseSampler.create(new Random(rand.nextLong()), -8, 1.0D, 2.0D);
 		}
 
-		super.func_151539_a(chunk, world, chunkX, chunkZ, blocks);
+		super.generate(world, chunkX, chunkZ, primer);
 	}
 
-	// This function is looped over from -this.range to +this.range on both XZ axes.
 	@Override
-	protected void func_151538_a(World world, int offsetX, int offsetZ, int chunkX, int chunkZ, Block[] blocks) {
+	protected void recursiveGenerate(World world, int offsetX, int offsetZ, int chunkX, int chunkZ, ChunkPrimer primer) {
 		int chance = perlin.sample(offsetX * 16, 0, offsetZ * 16) > threshold ? chanceHigh : chanceLow;
 
 		if(rand.nextInt(chance) == Math.abs(offsetX) % chance && rand.nextInt(chance) == Math.abs(offsetZ) % chance) {
@@ -82,10 +83,9 @@ public class MapGenTiltedSpires extends MapGenBase {
 					int d = 0;
 
 					for(int y = mid + 63; y >= 0; y--) {
-						int index = (bx * 16 + bz) * 256 + y;
 
 						// Run until the first opaque block
-						if(blocks[index] == null || !blocks[index].isOpaqueCube()) {
+						if(!primer.getBlockState(bx, y, bz).isOpaqueCube()) {
 							// x, z are the coordinates relative to the target virtual chunk origin
 							int x = xCoord * 16 + bx - ox;
 							int z = zCoord * 16 + bz - oz;
@@ -102,8 +102,8 @@ public class MapGenTiltedSpires extends MapGenBase {
 							if(radiusSqr > 0) radiusSqr *= radiusSqr;
 
 							if(rs < radiusSqr) {
-								blocks[index] = rock;
-								if(d == 1) blocks[index + 1] = regolith;
+								primer.setBlockState(bx, y, bz, getState(rock));
+								if(d == 1) primer.setBlockState(bx, y + 1, bz, getState(regolith));
 								d++;
 							} else if(d > 0) {
 								break;
@@ -115,6 +115,10 @@ public class MapGenTiltedSpires extends MapGenBase {
 				}
 			}
 		}
+	}
+
+	private IBlockState getState(Block block) {
+		return block == null ? Blocks.AIR.getDefaultState() : block.getDefaultState();
 	}
 
 }

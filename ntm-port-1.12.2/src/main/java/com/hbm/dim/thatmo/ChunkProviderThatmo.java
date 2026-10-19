@@ -7,6 +7,7 @@ import com.hbm.dim.mapgen.MapGenGreg;
 import com.hbm.dim.mapgen.MapgenRavineButBased;
 
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class ChunkProviderThatmo extends ChunkProviderCelestial {
 
@@ -32,15 +33,15 @@ public class ChunkProviderThatmo extends ChunkProviderCelestial {
 	}
 
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = super.getChunkPrimer(x, z);
+	public ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = super.getChunkPrimer(x, z);
 		
 		// NEW CAVES
-		caveGenV3.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		rgen.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		smallCrater.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		caveGenV3.generate(worldObj, x, z, primer);
+		rgen.generate(worldObj, x, z, primer);
+		smallCrater.generate(worldObj, x, z, primer);
 
-		return buffer;
+		return primer;
 	}
 
 }

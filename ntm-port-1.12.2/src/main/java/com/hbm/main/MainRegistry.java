@@ -41,7 +41,6 @@ import com.hbm.tileentity.bomb.TileEntityLaunchPadBase;
 import com.hbm.tileentity.bomb.TileEntityNukeCustom;
 import com.hbm.tileentity.machine.rbmk.RBMKDials;
 import com.hbm.util.*;
-import com.hbm.world.biome.BiomeGenCraterBase;
 import com.hbm.world.feature.BedrockOre;
 import com.hbm.world.feature.OreCave;
 import com.hbm.world.feature.OreLayer3D;
@@ -93,7 +92,6 @@ import com.hbm.dim.SolarSystem;
 import com.hbm.dim.WorldProviderCelestial;
 import com.hbm.dim.WorldTypeTeleport;
 import com.hbm.dim.trait.CBT_Atmosphere;
-import com.hbm.world.ModBiomes;
 import com.hbm.world.PlanetGen;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -287,7 +285,6 @@ public class MainRegistry {
 		ModBlocks.mainRegistry();
 		ModItems.mainRegistry();
 		com.hbm.registry.GameRegistry.finishRegistrationTables();
-		ModBiomes.init();
 		proxy.registerRenderInfo();
 		HbmWorld.mainRegistry();
 		GameRegistry.registerFuelHandler(new FuelHandler());
@@ -308,7 +305,6 @@ public class MainRegistry {
 		OreDictManager.registerGroups(); //important to run first
 		OreDictManager.registerOres();
 
-		if(WorldConfig.enableCraterBiomes) BiomeGenCraterBase.initDictionary();
 		//BiomeGenNoMansLand.initDictionary();
 
 		aMatSchrab.customCraftingMaterial = ModItems.ingot_schrabidium;

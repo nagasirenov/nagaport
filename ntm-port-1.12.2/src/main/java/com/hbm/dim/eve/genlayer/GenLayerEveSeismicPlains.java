@@ -4,6 +4,8 @@ import java.util.Random;
 
 import com.hbm.dim.eve.biome.BiomeGenBaseEve;
 
+import net.minecraft.init.Biomes;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -30,17 +32,17 @@ public class GenLayerEveSeismicPlains extends GenLayer {
 			for(int j1 = 0; j1 < p_151626_3_; ++j1) {
 				this.initChunkSeed((long) (j1 + p_151626_1_), (long) (i1 + p_151626_2_));
 				int k1 = aint[j1 + 1 + (i1 + 1) * k];
-				if(k1 == BiomeGenBaseEve.evePlains.biomeID) {
+				if(k1 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains)) {
 					int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
 					int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
 					int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
 					int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
-					boolean flag = ((l1 == BiomeGenBaseEve.evePlains.biomeID)
-							|| (i2 == BiomeGenBaseEve.evePlains.biomeID)
-							|| (j2 == BiomeGenBaseEve.evePlains.biomeID)
-							|| (k2 == BiomeGenBaseEve.evePlains.biomeID));
+					boolean flag = ((l1 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains))
+							|| (i2 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains))
+							|| (j2 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains))
+							|| (k2 == Biome.getIdForBiome(BiomeGenBaseEve.evePlains)));
 					if(flag && rand.nextInt(10) == 0) {
-						k1 = BiomeGenBaseEve.river.biomeID;
+						k1 = Biome.getIdForBiome(Biomes.RIVER);
 					}
 				}
 

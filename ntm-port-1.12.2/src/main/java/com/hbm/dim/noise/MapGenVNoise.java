@@ -1,10 +1,12 @@
 package com.hbm.dim.noise;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
 import java.util.Random;
@@ -21,10 +23,11 @@ public class MapGenVNoise extends MapGenBase {
 	public int plateThickness = 35;
 	public double shapeExponent = 2.0;
 
-	public BiomeGenBase applyToBiome;
+	public Biome applyToBiome;
 
 	@Override
-	public void func_151539_a(IChunkProvider provider, World world, int chunkX, int chunkZ, Block[] blocks) {
+	public void generate(World world, int chunkX, int chunkZ, ChunkPrimer primer) {
+		// This deterministic whole-chunk pass has no per-neighbor placement or RNG to delegate.
 		long seed = world.getSeed();
 		int startX = chunkX * 16;
 		int startZ = chunkZ * 16;
@@ -33,7 +36,7 @@ public class MapGenVNoise extends MapGenBase {
 			for(int lz = 0; lz < 16; lz++) {
 
 				if(applyToBiome != null) {
-					BiomeGenBase biome = world.getBiomeGenForCoords(lx + chunkX * 16, lz + chunkZ * 16);
+					Biome biome = world.getBiome(new BlockPos(lx + chunkX * 16, 0, lz + chunkZ * 16));
 					if(biome != applyToBiome) continue;
 				}
 
@@ -64,21 +67,23 @@ public class MapGenVNoise extends MapGenBase {
 					int topY = plateStartY + (int)(plateThickness * alpha);
 
 					for(int y = plateStartY; y < topY && y < 256; y++) {
-						int index = (lx * 16 + lz) * 256 + y;
+						Block current = primer.getBlockState(lx, y, lz).getBlock();
 
-						if(blocks[index] == Blocks.air || blocks[index] == fluidBlock) {
-							blocks[index] = rockBlock;
+						if(current == Blocks.AIR || current == fluidBlock) {
+							primer.setBlockState(lx, y, lz, getState(rockBlock));
 						}
 					}
 					if(topY > plateStartY) {
-						int topIndex = (lx * 16 + lz) * 256 + (topY - 1);
-						blocks[topIndex] = surfBlock;
+						primer.setBlockState(lx, topY - 1, lz, getState(surfBlock));
 					}
 				}
 			}
 		}
 	}
 
+	private IBlockState getState(Block block) {
+		return block == null ? Blocks.AIR.getDefaultState() : block.getDefaultState();
+	}
 
 	//i cant math for shit to be honest
 	private double[] getCellCenter(int cellX, int cellZ, long worldSeed) {

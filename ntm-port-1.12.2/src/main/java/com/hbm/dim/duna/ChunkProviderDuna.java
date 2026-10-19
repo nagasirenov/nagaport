@@ -10,6 +10,7 @@ import com.hbm.dim.mapgen.MapGenPlateau;
 import com.hbm.world.gen.terrain.MapGenBubble;
 
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class ChunkProviderDuna extends ChunkProviderCelestial {
 
@@ -46,11 +47,11 @@ public class ChunkProviderDuna extends ChunkProviderCelestial {
 	}
 
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
+	public ChunkPrimer getChunkPrimer(int x, int z) {
 		// Instead of calling super, we want to do some generation before _and_ after block replacement, for shaping!
-		BlockMetaBuffer buffer = new BlockMetaBuffer();
-		generateBlocks(x, z, buffer.blocks);
-		biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, x * 16, z * 16, 16, 16);
+		ChunkPrimer primer = new ChunkPrimer();
+		generateBlocks(x, z, primer);
+		biomesForGeneration = worldObj.getBiomeProvider().getBiomes(null, x * 16, z * 16, 16, 16);
 
 		boolean hasLowlands = false;
 		boolean hasNotLowlands = false;
@@ -63,18 +64,17 @@ public class ChunkProviderDuna extends ChunkProviderCelestial {
 		}
 
 		// Pre-biome blocks
-		if(hasPlateau) genPlateau.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		if(hasPlateau) genPlateau.generate(worldObj, x, z, primer);
 
-		replaceBlocksForBiome(x, z, buffer.blocks, buffer.metas, biomesForGeneration);
+		replaceBlocksForBiome(x, z, primer, biomesForGeneration);
 
 		// Post-biome blocks
-		if(hasLowlands) caveGenV2.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		if(hasNotLowlands) caveGenSmall.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		if(hasLowlands) caveGenV2.generate(worldObj, x, z, primer);
+		if(hasNotLowlands) caveGenSmall.generate(worldObj, x, z, primer);
 
-		oil.setMetas(buffer.metas);
-		oil.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		oil.generate(worldObj, x, z, primer);
 
-		return buffer;
+		return primer;
 	}
 
 }

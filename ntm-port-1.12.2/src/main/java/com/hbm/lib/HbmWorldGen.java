@@ -23,26 +23,23 @@ import com.hbm.util.WeightedRandomGeneric;
 import com.hbm.world.dungeon.*;
 import com.hbm.world.feature.*;
 import com.hbm.world.feature.BedrockOre.BedrockOreDefinition;
-import com.hbm.world.gen.MapGenChainloader;
 import com.hbm.world.generator.CellularDungeonFactory;
 import com.hbm.world.generator.DungeonToolbox;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderEnd;
 import net.minecraft.world.WorldProviderHell;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBeach;
-import net.minecraft.world.biome.BiomeGenForest;
-import net.minecraft.world.biome.BiomeGenJungle;
-import net.minecraft.world.biome.BiomeGenPlains;
-import net.minecraft.world.biome.BiomeGenRiver;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import com.hbm.lib.ForgeDirection;
 
@@ -51,18 +48,14 @@ import java.util.Random;
 public class HbmWorldGen implements IWorldGenerator {
 
 	@Override
-	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		// quick fix for bad generators
-		if(world.provider.dimensionId == 0) {
-			MapGenChainloader.repairBadGeneration(world, chunkX, chunkZ);
-		}
+	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
 		if(world.provider instanceof WorldProviderCelestial) {
 			generateSurface(world, rand, chunkX * 16, chunkZ * 16);
 			return;
 		}
 
-		switch (world.provider.dimensionId) {
+		switch (world.provider.getDimension()) {
 		case -1:
 			generateNether(world, rand, chunkX * 16, chunkZ * 16); break;
 		case 0:
@@ -81,7 +74,7 @@ public class HbmWorldGen implements IWorldGenerator {
 		if(world.provider instanceof WorldProviderHell || world.provider instanceof WorldProviderEnd)
 			return;
 
-		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(i, j);
+		Biome biome = world.getBiome(new BlockPos(i, 0, j));
 
 		/// CELESTIAL AND EARTH EVENTS
 		if(WorldConfig.meteoriteSpawn > 0 && rand.nextInt(WorldConfig.meteoriteSpawn) == 0) {
@@ -102,33 +95,34 @@ public class HbmWorldGen implements IWorldGenerator {
 
 		// Only generate our ores for the overworld and for custom dimensions
 		// We'll handle ore generation on planets separately
-		if(world.provider instanceof WorldProviderCelestial && world.provider.dimensionId != 0)
+		if(world.provider instanceof WorldProviderCelestial && world.provider.getDimension() != 0)
 			return;
 
 		if(!TomSaveData.forWorld(world).impact) {
 
-			if(biome instanceof BiomeGenForest && rand.nextInt(16) == 0) {
+			if((biome == Biomes.FOREST || biome == Biomes.FOREST_HILLS || biome == Biomes.BIRCH_FOREST ||
+					biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.FLOWER_FOREST || biome == Biomes.ROOFED_FOREST) && rand.nextInt(16) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.plant_flower, EnumFlowerType.FOXGLOVE.ordinal());
 			}
-			if(biome == BiomeGenBase.roofedForest && rand.nextInt(8) == 0) {
+			if(biome == Biomes.ROOFED_FOREST && rand.nextInt(8) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.plant_flower, EnumFlowerType.NIGHTSHADE.ordinal());
 			}
-			if(biome instanceof BiomeGenJungle && rand.nextInt(8) == 0) {
+			if((biome == Biomes.JUNGLE || biome == Biomes.JUNGLE_HILLS || biome == Biomes.JUNGLE_EDGE) && rand.nextInt(8) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.plant_flower, EnumFlowerType.TOBACCO.ordinal());
 			}
 			if(rand.nextInt(64) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.plant_flower, EnumFlowerType.WEED.ordinal());
 			}
-			if(biome instanceof BiomeGenPlains && rand.nextInt(32) == 0) {
+			if(biome == Biomes.PLAINS && rand.nextInt(32) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.plant_flower, EnumFlowerType.STRAWBERRY.ordinal());
 			}
-			if(biome instanceof BiomeGenPlains && rand.nextInt(32) == 0) {
+			if(biome == Biomes.PLAINS && rand.nextInt(32) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.plant_flower, EnumFlowerType.MINT.ordinal());
 			}
-			if(biome instanceof BiomeGenRiver && rand.nextInt(4) == 0) {
+			if((biome == Biomes.RIVER || biome == Biomes.FROZEN_RIVER) && rand.nextInt(4) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.reeds, 0);
 			}
-			if(biome instanceof BiomeGenBeach && rand.nextInt(8) == 0) {
+			if((biome == Biomes.BEACH || biome == Biomes.COLD_BEACH) && rand.nextInt(8) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.reeds, 0);
 			}
 		}
@@ -255,7 +249,7 @@ public class HbmWorldGen implements IWorldGenerator {
 				}
 			}
 
-			if(biome.temperature >= 0.4F && biome.rainfall <= 0.6F) {
+			if(biome.getDefaultTemperature() >= 0.4F && biome.getRainfall() <= 0.6F) {
 				if(WorldConfig.antennaStructure > 0 && rand.nextInt(WorldConfig.antennaStructure) == 0) {
 					for(int a = 0; a < 1; a++) {
 						int x = i + rand.nextInt(16);
@@ -267,7 +261,7 @@ public class HbmWorldGen implements IWorldGenerator {
 				}
 			}
 
-			if(!biome.canSpawnLightningBolt() && biome.temperature >= 1.5F) {
+			if(!biome.canRain() && biome.getDefaultTemperature() >= 1.5F) {
 				if(WorldConfig.atomStructure > 0 && rand.nextInt(WorldConfig.atomStructure) == 0) {
 					for(int a = 0; a < 1; a++) {
 						int x = i + rand.nextInt(16);
@@ -295,7 +289,7 @@ public class HbmWorldGen implements IWorldGenerator {
 			}
 
 
-			if(WorldConfig.barrelStructure > 0 && biome.temperature >= 1.5F && !biome.canSpawnLightningBolt() && rand.nextInt(WorldConfig.barrelStructure) == 0) {
+			if(WorldConfig.barrelStructure > 0 && biome.getDefaultTemperature() >= 1.5F && !biome.canRain() && rand.nextInt(WorldConfig.barrelStructure) == 0) {
 				int x = i + rand.nextInt(16);
 				int z = j + rand.nextInt(16);
 				int y = world.getHeightValue(x, z);
@@ -376,7 +370,7 @@ public class HbmWorldGen implements IWorldGenerator {
 				}
 			}
 
-			if (WorldConfig.geyserChlorine > 0 && biome == BiomeGenBase.plains && rand.nextInt(WorldConfig.geyserWater) == 0) {
+			if (WorldConfig.geyserChlorine > 0 && biome == Biomes.PLAINS && rand.nextInt(WorldConfig.geyserWater) == 0) {
 				int x = i + rand.nextInt(16);
 				int z = j + rand.nextInt(16);
 				int y = world.getHeightValue(x, z);
@@ -385,7 +379,7 @@ public class HbmWorldGen implements IWorldGenerator {
 					new Geyser().generate(world, rand, x, y, z);
 			}
 
-			if (WorldConfig.geyserWater > 0 && biome == BiomeGenBase.desert && rand.nextInt(WorldConfig.geyserChlorine) == 0) {
+			if (WorldConfig.geyserWater > 0 && biome == Biomes.DESERT && rand.nextInt(WorldConfig.geyserChlorine) == 0) {
 				int x = i + rand.nextInt(16);
 				int z = j + rand.nextInt(16);
 				int y = world.getHeightValue(x, z);
@@ -394,7 +388,7 @@ public class HbmWorldGen implements IWorldGenerator {
 					new GeyserLarge().generate(world, rand, x, y, z);
 			}
 
-			if (WorldConfig.capsuleStructure > 0 && biome == BiomeGenBase.beach && rand.nextInt(WorldConfig.capsuleStructure) == 0) {
+			if (WorldConfig.capsuleStructure > 0 && biome == Biomes.BEACH && rand.nextInt(WorldConfig.capsuleStructure) == 0) {
 				int x = i + rand.nextInt(16);
 				int z = j + rand.nextInt(16);
 				int y = world.getHeightValue(x, z) - 4;
@@ -488,7 +482,7 @@ public class HbmWorldGen implements IWorldGenerator {
 
 			}
 
-			if((biome == BiomeGenBase.jungle || biome == BiomeGenBase.jungleEdge || biome == BiomeGenBase.jungleHills) &&
+			if((biome == Biomes.JUNGLE || biome == Biomes.JUNGLE_EDGE || biome == Biomes.JUNGLE_HILLS) &&
 					WorldConfig.jungleStructure > 0 && rand.nextInt(WorldConfig.jungleStructure) == 0) {
 				int x = i + rand.nextInt(16);
 				int z = j + rand.nextInt(16);
@@ -514,7 +508,7 @@ public class HbmWorldGen implements IWorldGenerator {
 				new ArcticVault().trySpawn(world, x, y, z);
 			}
 
-			if (WorldConfig.pyramidStructure > 0 && biome.temperature >= 2.0F && !biome.canSpawnLightningBolt() && rand.nextInt(WorldConfig.pyramidStructure) == 0) {
+			if (WorldConfig.pyramidStructure > 0 && biome.getDefaultTemperature() >= 2.0F && !biome.canRain() && rand.nextInt(WorldConfig.pyramidStructure) == 0) {
 				int x = i + rand.nextInt(16);
 				int z = j + rand.nextInt(16);
 				int y = world.getHeightValue(x, z);

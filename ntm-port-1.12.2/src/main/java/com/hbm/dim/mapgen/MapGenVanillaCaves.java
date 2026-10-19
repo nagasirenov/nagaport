@@ -2,15 +2,16 @@ package com.hbm.dim.mapgen;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.gen.MapGenCaves;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class MapGenVanillaCaves extends MapGenCaves {
 
 	// Same as vanilla cavegen but supports celestial stone
 	private final Block stoneBlock;
 
-	private Block lavaBlock = Blocks.lava;
+	private Block lavaBlock = Blocks.LAVA;
 
 	public MapGenVanillaCaves(Block stoneBlock) {
 		this.stoneBlock = stoneBlock;
@@ -22,18 +23,17 @@ public class MapGenVanillaCaves extends MapGenCaves {
 	}
 
 	@Override
-	protected void digBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(x + chunkX * 16, z + chunkZ * 16);
-		Block block = data[index];
+	protected void digBlock(ChunkPrimer primer, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop, IBlockState top, IBlockState filler) {
+		Block block = primer.getBlockState(x, y, z).getBlock();
 
-		if(block == stoneBlock || block == biome.fillerBlock || block == biome.topBlock) {
+		if(block == stoneBlock || block == filler.getBlock() || block == top.getBlock()) {
 			if(y < 10) {
-				data[index] = lavaBlock;
+				primer.setBlockState(x, y, z, lavaBlock.getDefaultState());
 			} else {
-				data[index] = null;
+				primer.setBlockState(x, y, z, Blocks.AIR.getDefaultState());
 
-				if(foundTop && data[index - 1] == biome.fillerBlock) {
-					data[index - 1] = biome.topBlock;
+				if(foundTop && primer.getBlockState(x, y - 1, z).getBlock() == filler.getBlock()) {
+					primer.setBlockState(x, y - 1, z, top);
 				}
 			}
 		}

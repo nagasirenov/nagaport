@@ -11,7 +11,10 @@ import com.hbm.world.gen.terrain.MapGenBubble;
 import com.hbm.world.gen.terrain.MapGenCrater;
 
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 
@@ -42,22 +45,20 @@ public class ChunkProviderIke extends ChunkProviderCelestial {
 	}
 
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = super.getChunkPrimer(x, z);
-		brine.setMetas(buffer.metas);
+	public ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = super.getChunkPrimer(x, z);
 
-		spires.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		caveGenerator.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		brine.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		sellafield.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		spires.generate(worldObj, x, z, primer);
+		caveGenerator.generate(worldObj, x, z, primer);
+		brine.generate(worldObj, x, z, primer);
+		sellafield.generate(worldObj, x, z, primer);
 
-		return buffer;
+		return primer;
 	}
 
 	// man fuck Ike, why you gotta be spawning shit again
-	@SuppressWarnings("rawtypes")
 	@Override
-	public List getPossibleCreatures(EnumCreatureType creatureType, int x, int y, int z) {
+	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
         return null;
 	}
 

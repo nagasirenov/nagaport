@@ -12,6 +12,7 @@ import com.hbm.dim.noise.MapGenVNoise;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class ChunkProviderMoho extends ChunkProviderCelestial {
 
@@ -38,11 +39,11 @@ public class ChunkProviderMoho extends ChunkProviderCelestial {
 		caveGenV2.stoneBlock = ModBlocks.moho_stone;
 		rgen.stoneBlock = ModBlocks.moho_stone;
 		stoneBlock = ModBlocks.moho_stone;
-		seaBlock = Blocks.lava;
+		seaBlock = Blocks.LAVA;
 
 		noise.surfBlock = ModBlocks.moho_stone;
 		noise.rockBlock = ModBlocks.moho_stone;
-		noise.fluidBlock = Blocks.lava;
+		noise.fluidBlock = Blocks.LAVA;
 		noise.crackSize = 0.5;
 		noise.cellSize = 27;
 		noise.plateStartY = 62;
@@ -52,7 +53,7 @@ public class ChunkProviderMoho extends ChunkProviderCelestial {
 		plateau.maxPlateauAddition = 6;
 		plateau.surfrock = ModBlocks.moho_regolith;
 		plateau.stoneBlock = ModBlocks.moho_stone;
-		plateau.fillblock = Blocks.lava;
+		plateau.fillblock = Blocks.LAVA;
 		plateau.maxPlateauAddition = 6;
 		plateau.stepHeight = 2;
 		plateau.noiseScale = 0.03;
@@ -60,8 +61,8 @@ public class ChunkProviderMoho extends ChunkProviderCelestial {
 	}
 
 	@Override
-	public BlockMetaBuffer getChunkPrimer(int x, int z) {
-		BlockMetaBuffer buffer = super.getChunkPrimer(x, z);
+	public ChunkPrimer getChunkPrimer(int x, int z) {
+		ChunkPrimer primer = super.getChunkPrimer(x, z);
 
 		boolean hasLavaSea = false;
 		boolean hasPlateau = false;
@@ -72,16 +73,16 @@ public class ChunkProviderMoho extends ChunkProviderCelestial {
 			if(hasLavaSea && hasPlateau) break;
 		}
 
-		if(hasLavaSea) noise.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		if(hasLavaSea) noise.generate(worldObj, x, z, primer);
 
-		if(hasPlateau) plateau.func_151539_a(this, worldObj, x, z, buffer.blocks);
+		if(hasPlateau) plateau.generate(worldObj, x, z, primer);
 
-		caveGenV2.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		rgen.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		smallCrater.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		largeCrater.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		volcano.func_151539_a(this, worldObj, x, z, buffer.blocks);
-		return buffer;
+		caveGenV2.generate(worldObj, x, z, primer);
+		rgen.generate(worldObj, x, z, primer);
+		smallCrater.generate(worldObj, x, z, primer);
+		largeCrater.generate(worldObj, x, z, primer);
+		volcano.generate(worldObj, x, z, primer);
+		return primer;
 	}
 
 }

@@ -16,10 +16,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import com.hbm.lib.ForgeDirection;
 
 import java.util.*;
@@ -68,7 +69,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 							for(int z = chunkPosZ << 4; z < (chunkPosZ << 4) + 16; z++) {
 								double percent = Math.hypot(x - posX, z - posZ) * 100 / getScale();
 								stomp(x, z, percent);
-								BiomeGenBase biome = getBiomeChange(percent, getScale(), worldObj.getBiomeGenForCoords(x, z));
+								Biome biome = getBiomeChange(percent, getScale(), worldObj.getBiome(new BlockPos(x, 0, z)));
 								if(biome != null) {
 									WorldUtil.setBiome(worldObj, x, z, biome);
 									biomeModified = true;
@@ -88,7 +89,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 								if(distance <= getScale()) {
 									double percent = distance * 100 / getScale();
 									stomp(x, z, percent);
-									BiomeGenBase biome = getBiomeChange(percent, getScale(), worldObj.getBiomeGenForCoords(x, z));
+									Biome biome = getBiomeChange(percent, getScale(), worldObj.getBiome(new BlockPos(x, 0, z)));
 									if(biome != null) {
 										WorldUtil.setBiome(worldObj, x, z, biome);
 										biomeModified = true;
@@ -110,7 +111,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 		}
 	}
 
-	public static BiomeGenBase getBiomeChange(double dist, int scale, BiomeGenBase original) {
+	public static Biome getBiomeChange(double dist, int scale, Biome original) {
 		if(!WorldConfig.enableCraterBiomes) return null;
 		if(original instanceof OrbitBiomeMarker) return null; // Don't alter orbit biomes
 		if(scale >= 150 && dist < 15)
@@ -136,12 +137,12 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 		for (int angle = 0; angle <= adjustedMaxAngle; angle++) {
 			Vec3d vector = new Vec3d(outerRange, 0, 0);
 			vector = vector.rotateYaw((float) (angle * Math.PI / 180.0 / (adjustedMaxAngle / 360.0))); // Ugh, mutable data classes (also, ugh, radians; it uses degrees in 1.18; took me two hours to debug)
-			outerChunks.add(ChunkCoordIntPair.chunkXZ2Int((int) (posX + vector.x) >> 4, (int) (posZ + vector.z) >> 4));
+			outerChunks.add(ChunkPos.asLong((int) (posX + vector.x) >> 4, (int) (posZ + vector.z) >> 4));
 		}
 		for (int distance = 0; distance <= outerRange; distance += 8) for (int angle = 0; angle <= adjustedMaxAngle; angle++) {
 			Vec3d vector = new Vec3d(distance, 0, 0);
 			vector = vector.rotateYaw((float) (angle * Math.PI / 180.0 / (adjustedMaxAngle / 360.0)));
-			long chunkCoord = ChunkCoordIntPair.chunkXZ2Int((int) (posX + vector.x) >> 4, (int) (posZ + vector.z) >> 4);
+			long chunkCoord = ChunkPos.asLong((int) (posX + vector.x) >> 4, (int) (posZ + vector.z) >> 4);
 			if (!outerChunks.contains(chunkCoord)) chunks.add(chunkCoord);
 		}
 
@@ -257,7 +258,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 		int x = 0;
 		for (int coord : data) {
 			if (firstPart) x = coord;
-			else coords.add(ChunkCoordIntPair.chunkXZ2Int(x, coord));
+			else coords.add(ChunkPos.asLong(x, coord));
 			firstPart = !firstPart;
 		}
 		return coords;
