@@ -38,7 +38,7 @@ public class WorldGenElectricVolcano extends WorldGenerator {
 		if(p_76484_2_.nextInt(10) != 0) {
 			return false;
 		}
-		while (p_76484_1_.isAirBlock(p_76484_3_, p_76484_4_, p_76484_5_) && p_76484_4_ > 2) {
+		while (p_76484_1_.isAirBlock(new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_)) && p_76484_4_ > 2) {
 			--p_76484_4_;
 		}
 

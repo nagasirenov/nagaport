@@ -1,0 +1,8 @@
+{
+  "checkpoint": "CP93",
+  "full_compile_source_sha256": "7208eb560a2276223ac38ac9dff3b112f8ba0a68d29dc4bc556281ad5eb6b853",
+  "full_compile_total": 10164,
+  "selected_legacy_sound_errors": 10,
+  "scope": "Existing complete CP93 compiler evidence only; not a fresh build.",
+  "base": "0675e599e5ee31a60776b560af792372df191790"
+}

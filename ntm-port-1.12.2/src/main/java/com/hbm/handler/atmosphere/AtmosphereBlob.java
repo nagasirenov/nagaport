@@ -79,9 +79,10 @@ public class AtmosphereBlob implements Runnable {
 		if(world instanceof WorldServer && !((WorldServer) world).getChunkProvider().chunkExists(x >> 4, z >> 4))
 			return true;
 
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y, z);
+		Block block = nativeAirState.getBlock();
 
-		if(block.isAir(world, x, y, z)) return false; // Air obviously doesn't seal
+		if(block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z))) return false; // Air obviously doesn't seal
 		if(block instanceof BlockFarmland) return false;
 		if(block instanceof BlockFence) return false;
 		if(block instanceof IBlockSealable) { // Custom semi-sealables, like doors

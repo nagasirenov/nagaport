@@ -43,20 +43,20 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 		}
 
 		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) == 1) {
-			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
-			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
 
-			this.world.spawnParticle("flame", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
-			this.world.spawnParticle("smoke", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
 
-			this.world.spawnParticle("flame", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
-			this.world.spawnParticle("smoke", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
 
-			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
-			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
 
-			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
-			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
 		}
 	}
 

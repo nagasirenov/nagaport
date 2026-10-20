@@ -47,7 +47,7 @@ public class EntityWaterSplash extends EntityThrowable {
 	@Override
 	protected void onImpact(RayTraceResult p_70184_1_) {
 		if(this.ticksExisted > 5) {
-			this.world.spawnParticle("splash", posX, posY, posZ, 0.0D, 0.0D, 0.0D);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, posX, posY, posZ, 0.0D, 0.0D, 0.0D);
 			this.setDead();
 		}
 	}

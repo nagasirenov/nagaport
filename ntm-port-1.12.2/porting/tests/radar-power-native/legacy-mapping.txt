@@ -1,0 +1,12 @@
+MD: aji/b (Lahl;IIII)I net/minecraft/block/Block/func_149709_b (Lnet/minecraft/world/IBlockAccess;IIII)I
+MD: ahb/v (III)Z net/minecraft/world/World/func_72864_z (III)Z
+MD: aji/f ()Z net/minecraft/block/Block/func_149744_f ()Z
+MD: aji/c (Lahl;IIII)I net/minecraft/block/Block/func_149748_c (Lnet/minecraft/world/IBlockAccess;IIII)I
+MD: ahb/e (IIII)I net/minecraft/world/World/func_72879_k (IIII)I
+MD: ahb/f (IIII)Z net/minecraft/world/World/func_94574_k (IIII)Z
+func_72864_z,isBlockIndirectlyGettingPowered,2,"Used to see if one of the blocks next to you or your block is getting power from a neighboring block. Used by items like TNT or Doors so they don't have redstone going straight into them.  Args: x, y, z"
+func_72879_k,isBlockProvidingPowerTo,2,"Is this block powering in the specified direction Args: x, y, z, direction"
+func_94574_k,getIndirectPowerOutput,2,"Returns the indirect signal strength being outputted by the given block in the *opposite* of the given direction. Args: X, Y, Z, direction"
+func_149709_b,isProvidingWeakPower,2,
+func_149744_f,canProvidePower,2,Can this block provide power. Only wire currently seems to have this change based on its state.
+func_149748_c,isProvidingStrongPower,2,

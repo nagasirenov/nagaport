@@ -25,8 +25,8 @@ public class BlockSmolder extends Block {
 
 		if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial() == Material.AIR) {
 
-			world.spawnParticle("lava", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);
-			world.spawnParticle("flame", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);
 		}
 	}
 

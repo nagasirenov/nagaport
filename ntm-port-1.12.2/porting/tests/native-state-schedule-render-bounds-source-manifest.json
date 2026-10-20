@@ -1,0 +1,650 @@
+{
+  "baseline": "bdb4c897d5f554458d23c6efab036b056ee20de0",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockMulti.java": {
+      "before_sha256": "8a9614ddfcac2172a6bfa53fad6c0d797c29bab3b02c2313eca4b98decbccc32",
+      "after_sha256": "29346e03673e5648680bd9dd8bd2be06f5893a2c71cd52858557e05607bd24df",
+      "edits": [
+        {
+          "before_offset": 169,
+          "after_offset": 169,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 369,
+          "after_offset": 524,
+          "old": "",
+          "new": "\n\t/**\n\t * Stored block metadata is a four-bit value, not necessarily a subtype index:\n\t * some descendants also encode orientation or the upper half of a plant.\n\t * Keep all bits here and leave item/drop rectification to the owning callback.\n\t * Descendants with their own native state container override all three methods.\n\t */\n\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n"
+        },
+        {
+          "before_offset": 472,
+          "after_offset": 1047,
+          "old": "\tpublic int damageDropped(net.minecraft.block.state.IBlockState state) {\n",
+          "new": "\tprotected BlockStateContainer createBlockState() {\n\t\treturn new BlockStateContainer(this, METADATA);\n\t}\n\n\t@Override\n\tpublic IBlockState getStateFromMeta(int meta) {\n\t\treturn getDefaultState().withProperty(METADATA, meta & 15);\n\t}\n\n\t@Override\n\tpublic int getMetaFromState(IBlockState state) {\n\t\treturn state.getValue(METADATA);\n\t}\n\n\t@Override\n\tpublic int damageDropped(IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Balefire.java": {
+      "before_sha256": "0b388ed99269658b37eb152ef4374fd96c8d283835083ec36e9e8d9675a335c5",
+      "after_sha256": "707319c6807a00805b3b4a183e92c80c857aea4bcecfb20c1863fc39a4b6eebb",
+      "edits": [
+        {
+          "before_offset": 1933,
+          "after_offset": 1933,
+          "old": "\t\t\tif(meta < 15) world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world) + rand.nextInt(10));\n",
+          "new": "\t\t\tif(meta < 15) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world) + rand.nextInt(10));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java": {
+      "before_sha256": "00a1f3d3d0a226029ee553f45db8ae95b0e31372b663cc10ddbf12a52e37004e",
+      "after_sha256": "b09c1c834437dfcf3cb1eb0c061ffe2f4c7ecb0affede12049ebcfb207d4e7da",
+      "edits": [
+        {
+          "before_offset": 1224,
+          "after_offset": 1224,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 10 + rand.nextInt(40));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10 + rand.nextInt(40));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasBase.java": {
+      "before_sha256": "f0da30c86b14293c0de7e8f4f2e8324e8a689731b5270a5badd8102edaca5faf",
+      "after_sha256": "f859a3c0243bf499c9ad18891575b424ff3eda3065cdc8ff05e5eb6816bbcb1a",
+      "edits": [
+        {
+          "before_offset": 2071,
+          "after_offset": 2071,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 10);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10);\n"
+        },
+        {
+          "before_offset": 2382,
+          "after_offset": 2415,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 10);\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10);\n"
+        },
+        {
+          "before_offset": 2818,
+          "after_offset": 2884,
+          "old": "\t\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, getDelay(world));\n",
+          "new": "\t\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, getDelay(world));\n"
+        },
+        {
+          "before_offset": 3442,
+          "after_offset": 3541,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, getDelay(world));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, getDelay(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasFlammable.java": {
+      "before_sha256": "a4c68fb39176f15b75556a5c001f1528ff01864b621a419b762b84feb0d07600",
+      "after_sha256": "22ad59a550e03e7404951a3ea7b68e934056edf64f464814471ebb8ca2684b07",
+      "edits": [
+        {
+          "before_offset": 2549,
+          "after_offset": 2549,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 2);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": {
+      "before_sha256": "71f1365dbce2d89912b6ab2e0758853069c90567f097d3ff5019e6504bbf8275",
+      "after_sha256": "998af3b903b3631fac795cea0859a490369056e2c976c3690087da6b409d9790",
+      "edits": [
+        {
+          "before_offset": 1845,
+          "after_offset": 1845,
+          "old": "\t\tif(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, 1);\n",
+          "new": "\t\tif(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);\n"
+        },
+        {
+          "before_offset": 2011,
+          "after_offset": 2044,
+          "old": "\t\tif(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, 1);\n",
+          "new": "\t\tif(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockAbsorber.java": {
+      "before_sha256": "e66713a6e5f5704ad70fc057ff651f354148f0c59cbbdb55f2eb2a059b215987",
+      "after_sha256": "7bee2a07e28d121ebce226a3b7331a6cd922b6d7172c3a9066dfb27a92c53274",
+      "edits": [
+        {
+          "before_offset": 2438,
+          "after_offset": 2438,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world));\n"
+        },
+        {
+          "before_offset": 2614,
+          "after_offset": 2647,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": {
+      "before_sha256": "d4b19d465ab94d2b5a140b375be010936c5200087c73722828009274df36b530",
+      "after_sha256": "2680debe75122918629e61a3eca74f1a5cdcecb8e4bf9ca37e4bb0898d790aef",
+      "edits": [
+        {
+          "before_offset": 5945,
+          "after_offset": 5945,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y - 1, z, ModBlocks.slag, 1);\r\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y - 1, z), ModBlocks.slag, 1);\r\n"
+        },
+        {
+          "before_offset": 6980,
+          "after_offset": 7013,
+          "old": "\t\t\t\t\tworld.scheduleBlockUpdate(iX, y, iZ, ModBlocks.slag, 1);\r\n",
+          "new": "\t\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(iX, y, iZ), ModBlocks.slag, 1);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallingRad.java": {
+      "before_sha256": "e8ee34a2478ecdb5d56da74ebfd173d4c23a340918f39db8d00dc1c9ecb48c3c",
+      "after_sha256": "4cead65c857afbd06b2e4c3293637f9dae4925a71966d3d6df3a382e953c37b3",
+      "edits": [
+        {
+          "before_offset": 638,
+          "after_offset": 638,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 872,
+          "after_offset": 905,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHazard.java": {
+      "before_sha256": "d7770ccc05c006d4f851bdfc683b2b72fa9d31556b6e4df1cdee3eaa75306515",
+      "after_sha256": "edcf259e0c1946a349bcb4f467ea46c6c00a76ae40985c9ff4637204f4006dd5",
+      "edits": [
+        {
+          "before_offset": 4033,
+          "after_offset": 4033,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 4472,
+          "after_offset": 4505,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java": {
+      "before_sha256": "b065c12215db546dd38fa1dd5bf9baf6ddd7ab87f7e76dc593fd3075f4b0b438",
+      "after_sha256": "849ff5e2bb668528fa2227465e8aeea2087cc0625cad0af618f6ffaf132c53d0",
+      "edits": [
+        {
+          "before_offset": 1244,
+          "after_offset": 1244,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 1707,
+          "after_offset": 1740,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java": {
+      "before_sha256": "3c9d2a691f10d4ec41e5e5e175f13e40282f9ec2dfa7bbbd84f524d14ab196e2",
+      "after_sha256": "d481b0a4a3a04bcabbdf07316dcd506be709cc11047bacc05c61625cbfb7c63e",
+      "edits": [
+        {
+          "before_offset": 575,
+          "after_offset": 575,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 736,
+          "after_offset": 769,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/FragileBrick.java": {
+      "before_sha256": "34f1bba654fa855fd99b2c9206364a2668b02c445f9b48bd58e24ce863003146",
+      "after_sha256": "d8931d17e66b9297a86e715405c333555af2542f8d7e15fb837f2005dc57bd01",
+      "edits": [
+        {
+          "before_offset": 1341,
+          "after_offset": 1341,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, world.rand.nextInt(4) + 8);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, world.rand.nextInt(4) + 8);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/ReinforcedLamp.java": {
+      "before_sha256": "1d8c615cf5d0cae69543bd76beb73cf1b85b368bdb9e7a586282eb96e5ba8e72",
+      "after_sha256": "b476f39f34e82af93d71a0a67c78391dbbed5cf2c20492e8777ccdbc1587ea5b",
+      "edits": [
+        {
+          "before_offset": 783,
+          "after_offset": 783,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);\n"
+        },
+        {
+          "before_offset": 1205,
+          "after_offset": 1238,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/TritiumLamp.java": {
+      "before_sha256": "c859a45d557ff1642c6585fec0737d655166a01463a4f51ec947e13ad333bfc9",
+      "after_sha256": "79cbf36ff1273ae85c4596b743e3f637e3b85b42b1ae8c6e0c8e49495d01e697",
+      "edits": [
+        {
+          "before_offset": 909,
+          "after_offset": 909,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);\n"
+        },
+        {
+          "before_offset": 1366,
+          "after_offset": 1399,
+          "old": "\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n",
+          "new": "\t\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java": {
+      "before_sha256": "2da6b590abff72d211d97392bd2698e24a792ee32c1e6e7947a93d675640c46a",
+      "after_sha256": "a25570bd2322e569560d2ba52435573ffca557f0d873655f5510ab5841ebae7f",
+      "edits": [
+        {
+          "before_offset": 537,
+          "after_offset": 537,
+          "old": "\t\tif(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tif(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 902,
+          "after_offset": 935,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "6c2ec042e17d73ce7c076d93e6e3035723686f9f1724647d960ada68a5fa65e7",
+      "after_sha256": "a1539318e126682278c6aa7a162d172ba81a3a1b7bf3b0945a4732d9f7d49db9",
+      "edits": [
+        {
+          "before_offset": 3719,
+          "after_offset": 3719,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, 1);\n\t\tworld.scheduleBlockUpdate(x, y, z, this, 2);\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);\n\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java": {
+      "before_sha256": "d21a3ac16df98cee53b7712fbcdb62dfdf914d9b45718d0cac93820916f0f16f",
+      "after_sha256": "75e399a50dcee75d6b97ca40ecd444e7ef563aca68d27fb6cb8f47b0410c1331",
+      "edits": [
+        {
+          "before_offset": 763,
+          "after_offset": 763,
+          "old": "\t\tif(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tif(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        },
+        {
+          "before_offset": 1234,
+          "after_offset": 1267,
+          "old": "\t\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+      "before_sha256": "7860e6ce83d0e43dc1a565647de7ea2d08036f9177003f954b8ac324581ea0a0",
+      "after_sha256": "642bc95accb35b038d94e02ea404f2fe759fe6e53349e6f5aa7f9b64100cd68a",
+      "edits": [
+        {
+          "before_offset": 3309,
+          "after_offset": 3309,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, 1);\n\t\tworld.scheduleBlockUpdate(x, y, z, this, 2);\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);\n\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java": {
+      "before_sha256": "b8c2f52f244dc59b0fde2e35fe259bf6347aea89ad1b518c2d8a92d0a42e4f4b",
+      "after_sha256": "72b312285e53851c6dc17666354bcfc62af03f8cb6497377612e152c3d1199b5",
+      "edits": [
+        {
+          "before_offset": 3340,
+          "after_offset": 3340,
+          "old": "\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n",
+          "new": "\t\tworld.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+      "after_sha256": "21016a7aefb86b6ad1812096aee965dc07002f4f9d4bc69371ab6fdfe1381d1c",
+      "edits": [
+        {
+          "before_offset": 53566,
+          "after_offset": 53566,
+          "old": "",
+          "new": "\t\t// Snowball renderers must capture the manager supplied by Forge and the\n\t\t// live item renderer when its factory runs inside RenderManager construction.\n\t\t// The global manager is not assigned yet. Keep the exact native renderer\n\t\t// class so load-complete item ownership sees and updates its item cache.\n"
+        },
+        {
+          "before_offset": 53582,
+          "after_offset": 53890,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRocket.class, new RenderSnowball(ModItems.man_core));\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRocket.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.man_core, Minecraft.getMinecraft().getRenderItem()));\n"
+        },
+        {
+          "before_offset": 58317,
+          "after_offset": 58701,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityAcidBomb.class, new RenderSnowball(Items.slime_ball));\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityAcidBomb.class, renderManager -> new RenderSnowball<>(renderManager, Items.SLIME_BALL, Minecraft.getMinecraft().getRenderItem()));\n"
+        },
+        {
+          "before_offset": 58442,
+          "after_offset": 58902,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeGeneric.class, new RenderSnowball(ModItems.grenade_generic));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeStrong.class, new RenderSnowball(ModItems.grenade_strong));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeFrag.class, new RenderSnowball(ModItems.grenade_frag));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeFire.class, new RenderSnowball(ModItems.grenade_fire));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeCluster.class, new RenderSnowball(ModItems.grenade_cluster));\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeGeneric.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_generic, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeStrong.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_strong, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeFrag.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_frag, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeFire.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_fire, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeCluster.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_cluster, Minecraft.getMinecraft().getRenderItem()));\n"
+        },
+        {
+          "before_offset": 59185,
+          "after_offset": 60025,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeElectric.class, new RenderSnowball(ModItems.grenade_electric));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePoison.class, new RenderSnowball(ModItems.grenade_poison));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeGas.class, new RenderSnowball(ModItems.grenade_gas));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSchrabidium.class, new RenderSnowball(ModItems.grenade_schrabidium));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, new RenderSnowball(ModItems.grenade_nuke));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuclear.class, new RenderSnowball(ModItems.grenade_nuclear));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePlasma.class, new RenderSnowball(ModItems.grenade_plasma));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeTau.class, new RenderSnowball(ModItems.grenade_tau));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeLemon.class, new RenderSnowball(ModItems.grenade_lemon));\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeElectric.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_electric, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePoison.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_poison, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeGas.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_gas, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSchrabidium.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_schrabidium, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuke.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_nuke, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeNuclear.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_nuclear, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePlasma.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_plasma, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeTau.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_tau, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeLemon.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_lemon, Minecraft.getMinecraft().getRenderItem()));\n"
+        },
+        {
+          "before_offset": 60426,
+          "after_offset": 61950,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeZOMG.class, new RenderSnowball(ModItems.grenade_zomg));\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeZOMG.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_zomg, Minecraft.getMinecraft().getRenderItem()));\n"
+        },
+        {
+          "before_offset": 60677,
+          "after_offset": 62277,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePulse.class, new RenderSnowball(ModItems.grenade_pulse));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeShrapnel.class, new RenderSnowball(ModItems.grenade_shrapnel));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBlackHole.class, new RenderSnowball(ModItems.grenade_black_hole));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeGascan.class, new RenderSnowball(ModItems.grenade_gascan));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeCloud.class, new RenderSnowball(ModItems.grenade_cloud));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePC.class, new RenderSnowball(ModItems.grenade_pink_cloud));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSmart.class, new RenderSnowball(ModItems.grenade_smart));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeMIRV.class, new RenderSnowball(ModItems.grenade_mirv));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBreach.class, new RenderSnowball(ModItems.grenade_breach));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBurst.class, new RenderSnowball(ModItems.grenade_burst));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFGeneric.class, new RenderSnowball(ModItems.grenade_if_generic));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFHE.class, new RenderSnowball(ModItems.grenade_if_he));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFBouncy.class, new RenderSnowball(ModItems.grenade_if_bouncy));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFSticky.class, new RenderSnowball(ModItems.grenade_if_sticky));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFImpact.class, new RenderSnowball(ModItems.grenade_if_impact));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFIncendiary.class, new RenderSnowball(ModItems.grenade_if_incendiary));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFToxic.class, new RenderSnowball(ModItems.grenade_if_toxic));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFConcussion.class, new RenderSnowball(ModItems.grenade_if_concussion));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFBrimstone.class, new RenderSnowball(ModItems.grenade_if_brimstone));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFMystery.class, new RenderSnowball(ModItems.grenade_if_mystery));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFSpark.class, new RenderSnowball(ModItems.grenade_if_spark));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFHopwire.class, new RenderSnowball(ModItems.grenade_if_hopwire));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFNull.class, new RenderSnowball(ModItems.grenade_if_null));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityWastePearl.class, new RenderSnowball(ModItems.nuclear_waste_pearl));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeDynamite.class, new RenderSnowball(ModItems.stick_dynamite));\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePulse.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_pulse, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeShrapnel.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_shrapnel, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBlackHole.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_black_hole, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeGascan.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_gascan, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeCloud.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_cloud, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadePC.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_pink_cloud, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeSmart.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_smart, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeMIRV.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_mirv, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBreach.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_breach, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBurst.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_burst, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFGeneric.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_generic, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFHE.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_he, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFBouncy.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_bouncy, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFSticky.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_sticky, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFImpact.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_impact, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFIncendiary.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_incendiary, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFToxic.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_toxic, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFConcussion.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_concussion, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFBrimstone.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_brimstone, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFMystery.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_mystery, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFSpark.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_spark, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFHopwire.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_hopwire, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeIFNull.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.grenade_if_null, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityWastePearl.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.nuclear_waste_pearl, Minecraft.getMinecraft().getRenderItem()));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityGrenadeDynamite.class, renderManager -> new RenderSnowball<>(renderManager, ModItems.stick_dynamite, Minecraft.getMinecraft().getRenderItem()));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/DoorDecl.java": {
+      "before_sha256": "cc9889ea38187b87619b61365d4ca31460c9feadf52aec6820fbf87745d5cd70",
+      "after_sha256": "1f17891f98734ab3eb5d8cfb12354652142103615570cf6ac2c203397058cee9",
+      "edits": [
+        {
+          "before_offset": 7032,
+          "after_offset": 7032,
+          "old": "\t\t\telse if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.1, 1);\n",
+          "new": "\t\t\telse if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.1, 1);\n"
+        },
+        {
+          "before_offset": 8908,
+          "after_offset": 8897,
+          "old": "\t\t\t\telse if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.08, 1);\n",
+          "new": "\t\t\t\telse if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.08, 1);\n"
+        },
+        {
+          "before_offset": 11941,
+          "after_offset": 11919,
+          "old": "\t\t\tif(y == 1) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);\n",
+          "new": "\t\t\tif(y == 1) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);\n"
+        },
+        {
+          "before_offset": 14240,
+          "after_offset": 14207,
+          "old": "\t\t\telse if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);\n",
+          "new": "\t\t\telse if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);\n"
+        },
+        {
+          "before_offset": 17912,
+          "after_offset": 17868,
+          "old": "\t\t\telse if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0.5, 1, forCollision ? 0 : 0.125, 1);\n",
+          "new": "\t\t\telse if(y == 0) return new AxisAlignedBB(0, 0, 0.5, 1, forCollision ? 0 : 0.125, 1);\n"
+        },
+        {
+          "before_offset": 19966,
+          "after_offset": 19911,
+          "old": "\t\t\telse if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0.75, 1, forCollision ? 0 : 0.15, 1);\n",
+          "new": "\t\t\telse if(y == 0) return new AxisAlignedBB(0, 0, 0.75, 1, forCollision ? 0 : 0.15, 1);\n"
+        },
+        {
+          "before_offset": 26139,
+          "after_offset": 26073,
+          "old": "\t\t\telse if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);\n",
+          "new": "\t\t\telse if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityCrashedBomb.java": {
+      "before_sha256": "a1fe8d027e3362a185e09ef23fd6e28be274b42fb351f2d53a2a7906efb78808",
+      "after_sha256": "117af23c4b938ee1a53defd6917b5c9f1595d693f3ebc66aea68157f49ef8a3e",
+      "edits": [
+        {
+          "before_offset": 1532,
+          "after_offset": 1532,
+          "old": "\t\tList<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));\n",
+          "new": "\t\tList<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityGeysir.java": {
+      "before_sha256": "265f0616e2efee6b39bcc1d3941efc2dab06bc6396e411f981d346b83e9fe83b",
+      "after_sha256": "88cacb4b82b9366e85d7871bdace4d57769c3e3ce91f992beac6f5ad0a57081a",
+      "edits": [
+        {
+          "before_offset": 2898,
+          "after_offset": 2898,
+          "old": "\t\tif(this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range)).isEmpty())\n",
+          "new": "\t\tif(this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range)).isEmpty())\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityLantern.java": {
+      "before_sha256": "8edf90766d5ae44e3a720a0edc59ac6f18e3fc98385ceabae29ebfdcc938c877",
+      "after_sha256": "14670429adc0c334974ee3ca78ab93971f75f876e548824952958eb217219b51",
+      "edits": [
+        {
+          "before_offset": 584,
+          "after_offset": 584,
+          "old": "\t\t\tList<EntityGlyphid> glyphids = this.world.getEntitiesWithinAABB(EntityGlyphid.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5).expand(7.5, 7.5, 7.5));\n",
+          "new": "\t\t\tList<EntityGlyphid> glyphids = this.world.getEntitiesWithinAABB(EntityGlyphid.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5).expand(7.5, 7.5, 7.5));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBroadcaster.java": {
+      "before_sha256": "1c441287b0fbd60889543c1a26731125b9b767a6ec6756ff80ec940d03bdef84",
+      "after_sha256": "b26461a292b5cf84a7ba6d10ac654f735cc78f3d67eb4c801d84c7c6931457a3",
+      "edits": [
+        {
+          "before_offset": 718,
+          "after_offset": 718,
+          "old": "\t\tList<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5 - 25, this.pos.getY() + 0.5 - 25, this.pos.getZ() + 0.5 - 25, this.pos.getX() + 0.5 + 25, this.pos.getY() + 0.5 + 25, this.pos.getZ() + 0.5 + 25));\n",
+          "new": "\t\tList<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5 - 25, this.pos.getY() + 0.5 - 25, this.pos.getZ() + 0.5 - 25, this.pos.getX() + 0.5 + 25, this.pos.getY() + 0.5 + 25, this.pos.getZ() + 0.5 + 25));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java": {
+      "before_sha256": "79ae5b085f1135328c301690947c46a785cb71455a40b9714ac89c071567b126",
+      "after_sha256": "a961e865b02cae690e079120fef22c2df52c198b5ad857832e2dec7a2e90a55a",
+      "edits": [
+        {
+          "before_offset": 1139,
+          "after_offset": 1139,
+          "old": "\t\t\tplayers = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));\n",
+          "new": "\t\t\tplayers = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCore.java": {
+      "before_sha256": "d596a687c1d78aa73e20fbc79e8e5b07b52716487cee34726e702e91b3532727",
+      "after_sha256": "a3ebccb901fa0ef8ef230b1a54f9881144b97caac49a3954be911a48ea5777b9",
+      "edits": [
+        {
+          "before_offset": 5530,
+          "after_offset": 5530,
+          "old": "\t\tList<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));\n",
+          "new": "\t\tList<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));\n"
+        },
+        {
+          "before_offset": 6154,
+          "after_offset": 6143,
+          "old": "\t\tList<Entity> list2 =this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(scale, scale, scale));\n",
+          "new": "\t\tList<Entity> list2 =this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(scale, scale, scale));\n"
+        },
+        {
+          "before_offset": 9575,
+          "after_offset": 9553,
+          "old": "\t\t\tbb = AxisAlignedBB.getBoundingBox(\n",
+          "new": "\t\t\tbb = new AxisAlignedBB(\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java": {
+      "before_sha256": "692b3b23d5fc9ff7d7038dc8b2cf05a81ac47eb525dae1e1688188240fe7621c",
+      "after_sha256": "12d498e7cd19359de3c59a0554ddf7e60e6a7db45721354fa69b10a29af91c90",
+      "edits": [
+        {
+          "before_offset": 8514,
+          "after_offset": 8514,
+          "old": "\t\t\tbb = AxisAlignedBB.getBoundingBox(\n",
+          "new": "\t\t\tbb = new AxisAlignedBB(\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java": {
+      "before_sha256": "2961f44caf5a43f79dfd0ba4763ee0119916213f51d56f2d2279aabfa6c07936",
+      "after_sha256": "2b485c487e9d969d167cb6cf7db507baa2e4eb04c7e5e47a5d3a5833cddca81a",
+      "edits": [
+        {
+          "before_offset": 15061,
+          "after_offset": 15061,
+          "old": "\t\t\tbb = AxisAlignedBB.getBoundingBox(\n",
+          "new": "\t\t\tbb = new AxisAlignedBB(\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": {
+      "before_sha256": "1646752b7ffad771c13ce7e9b6bf9c6dcf569cc742f2d4aef6518c863acf7241",
+      "after_sha256": "f733ab029379677e7983e5cb5a709944abb1ae7fb1dceb171d66fdf541e95f22",
+      "edits": [
+        {
+          "before_offset": 2623,
+          "after_offset": 2623,
+          "old": "\t\t\t\tthis.world.scheduleBlockUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1);\n",
+          "new": "\t\t\t\tthis.world.scheduleUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": {
+      "before_sha256": "3ea750aae34574dedd8edcecede9a780f5fb686185ec2e4e1de4e7cfd56ffc59",
+      "after_sha256": "0740dd7cb8a4a7119c69977e47ac0676b2545f9124402ffadd8412d99fca6b86",
+      "edits": [
+        {
+          "before_offset": 2742,
+          "after_offset": 2742,
+          "old": "\t\t\t\tthis.world.scheduleBlockUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1);\n",
+          "new": "\t\t\t\tthis.world.scheduleUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": {
+      "before_sha256": "1e5bf887bcf5c31a34c71784049452c24e735ea28eaf675488dc2452611bd510",
+      "after_sha256": "d3c498fa9578003eec3bafda5867cc211e6be37ca1d3ba863369de19b31d10c1",
+      "edits": [
+        {
+          "before_offset": 5715,
+          "after_offset": 5715,
+          "old": "\t\t\t\tList<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));\n",
+          "new": "\t\t\t\tList<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));\n"
+        },
+        {
+          "before_offset": 13429,
+          "after_offset": 13418,
+          "old": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));\n",
+          "new": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java": {
+      "before_sha256": "3258be3c1a027eb9a0b4321c69450739e76eeb95081a4f89fb016f3ad97dfb64",
+      "after_sha256": "9c3c79f0dcb7fd9b0269fcf2a3fdf6f28175ce9aea9445d465aeaf14467fd61c",
+      "edits": [
+        {
+          "before_offset": 13482,
+          "after_offset": 13482,
+          "old": "\t\t\t\tAxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));\n",
+          "new": "\t\t\t\tnew AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java": {
+      "before_sha256": "02e59fedda12668ba64fc5c96aec19d1cdaba4d444949cf00b2ffd1ee9ff1f30",
+      "after_sha256": "ab118bc59afa832be20c9048ca0d45cbf3f542dcf486ce20cec0f9e2ce5fdc8b",
+      "edits": [
+        {
+          "before_offset": 1467,
+          "after_offset": 1467,
+          "old": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));\n",
+          "new": "\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java": {
+      "before_sha256": "1ece21e2eb5a11958aa4da1b9d952513bb85d6f885782841629aba4ea7206f09",
+      "after_sha256": "c7f29ddadd4b50c18b98e2a61e06474932d3a07d3c557801b2066ba53d90fa21",
+      "edits": [
+        {
+          "before_offset": 18881,
+          "after_offset": 18881,
+          "old": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));\n",
+          "new": "\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java": {
+      "before_sha256": "5081c8ab448d8ed1ed03b85e09dce045c64b3aa28d1877c60f5d2a79820f3581",
+      "after_sha256": "1e352e2aff75c018201f626698c092ff1aff578ad8f863207837027d70f6614e",
+      "edits": [
+        {
+          "before_offset": 5954,
+          "after_offset": 5954,
+          "old": "\t\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 50, 100));\n",
+          "new": "\t\t\t\tList<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 50, 100));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before_sha256": "16d7a23e345619ad3e3322d975f8b8735257aadb35f67ec583d53e72d0eb0a3c",
+      "after_sha256": "ab4d6eb96a397ccd57ad347978530ebb7779ef85660f66fbd09fade1fd68a162",
+      "edits": [
+        {
+          "before_offset": 16851,
+          "after_offset": 16851,
+          "old": "\t\t\t\tAxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));\n",
+          "new": "\t\t\t\tnew AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

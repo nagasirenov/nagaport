@@ -24,7 +24,7 @@ public class ArmorAJRO extends ArmorFSBPowered implements IItemRendererProvider 
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(models == null) {
 			models = new ModelArmorAJRO[4];
@@ -33,7 +33,7 @@ public class ArmorAJRO extends ArmorFSBPowered implements IItemRendererProvider 
 				models[i] = new ModelArmorAJRO(i);
 		}
 		
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@Override public Item getItemForRenderer() { return this; }
@@ -45,7 +45,7 @@ public class ArmorAJRO extends ArmorFSBPowered implements IItemRendererProvider 
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_ajr, armorType,
+				renderStandard(ResourceManager.armor_ajr, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.ajro_helmet, ResourceManager.ajro_chest, ResourceManager.ajro_arm, ResourceManager.ajro_leg,
 						"Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

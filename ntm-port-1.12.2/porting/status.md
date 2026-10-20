@@ -1,3 +1,15 @@
+## Current authority, 2026-10-20
+
+See [CURRENT.md](CURRENT.md) and [checkpoint85](checkpoint85/README.md): fresh full offline compilation FAIL 11,940 diagnostics. Earlier entries below are chronological history, not current readiness or bootstrap approval state. Official Mojang and the 47 official runtime library downloads were explicitly approved and completed before the fresh CP77–85 native runs. Other separate policy limits remain in force.
+
+## Checkpoint78 current result
+
+Fresh full offline compile FAIL12775 (previous12887);43 production files across native damage payload/accessor, nested-item storage and texture-side-effect naming families. All4065 generated inputs exact; bounded native probes pass, full historical source guard passes. See [checkpoint78](checkpoint78/README.md). No runnable JAR/game acceptance; published main remains CP75 and no new push.
+
+## Current recovery validation (2026-10-20)
+
+Published main is CP75 eefb4c1f;37 recovered production files through CP77 now have fresh native probes and full offline FAIL12887. See [current recovery validation](recovery-validation-2026-10-20/README.md). Older publication and bootstrap statements below are historical, superseded for this snapshot. No runnable JAR or game acceptance.
+
 ## Checkpoint 75: layered block state family and complete spill callbacks
 
 Exact predecessor CP74 5a102874e0cd18dfd6b2984a994330b9de0ece75. Published GitHub main remains separately authorized CP68 squash 8b8980209dd8ad5d1f011240c30622e3505f51a0, exact tree 5a9f56451286939bae46ee9827bd79b9e6deb9e7. No later push authorized or performed.

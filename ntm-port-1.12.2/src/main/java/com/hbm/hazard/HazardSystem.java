@@ -196,19 +196,20 @@ public class HazardSystem {
 	 */
 	public static void updatePlayerInventory(EntityPlayer player) {
 
-		for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+		for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 			
-			ItemStack stack = player.inventory.mainInventory[i];
+			ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);
 			if(stack != null) {
 				applyHazards(stack, player);
 				
 				if(stack.stackSize == 0) {
-					player.inventory.mainInventory[i] = null;
+					player.inventory.mainInventory.set(i, ItemStack.EMPTY);
 				}
 			}
 		}
 		
 		for(ItemStack stack : player.inventory.armorInventory) {
+			if (stack == ItemStack.EMPTY) stack = null;
 			if(stack != null) {
 				applyHazards(stack, player);
 			}
@@ -218,7 +219,7 @@ public class HazardSystem {
 	public static void updateLivingInventory(EntityLivingBase entity) {
 		
 		for(int i = 0; i < 5; i++) {
-			ItemStack stack = entity.getEquipmentInSlot(i);
+			ItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i);
 
 			if(stack != null) {
 				applyHazards(stack, entity);

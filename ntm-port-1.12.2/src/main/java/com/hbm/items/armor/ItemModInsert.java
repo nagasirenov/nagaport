@@ -88,13 +88,13 @@ public class ItemModInsert extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		event.ammount *= damageMod;
+		event.setAmount((float) (event.getAmount() * (damageMod)));
 		
-		if(event.source.isProjectile())
-			event.ammount *= projectileMod;
+		if(event.getSource().isProjectile())
+			event.setAmount((float) (event.getAmount() * (projectileMod)));
 		
-		if(event.source.isExplosion())
-			event.ammount *= explosionMod;
+		if(event.getSource().isExplosion())
+			event.setAmount((float) (event.getAmount() * (explosionMod)));
 		
 		ItemStack insert = ArmorModHandler.pryMods(armor)[ArmorModHandler.kevlar];
 		
@@ -128,10 +128,10 @@ public class ItemModInsert extends ItemArmorMod {
 		if(speed == 1)
 			return null;
 
-		Multimap multimap = super.getAttributeModifiers(armor);
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
 		
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),
-				new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Speed", -1F + speed, 2));
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
+				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Speed", -1F + speed, 2));
 		
 		return multimap;
 	}

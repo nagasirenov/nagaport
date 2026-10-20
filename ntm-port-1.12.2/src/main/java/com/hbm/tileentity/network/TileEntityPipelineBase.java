@@ -45,7 +45,7 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 
 		if(this.world instanceof WorldServer) {
 			WorldServer world = (WorldServer) this.world;
-			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			world.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 		}
 	}
 
@@ -72,7 +72,7 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 
 				if(this.world instanceof WorldServer) {
 					WorldServer world = (WorldServer) this.world;
-					world.getPlayerManager().markBlockForUpdate(pipeline.getPos().getX(), pipeline.getPos().getY(), pipeline.getPos().getZ());
+					world.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(pipeline.getPos().getX(), pipeline.getPos().getY(), pipeline.getPos().getZ()));
 				}
 			}
 		}

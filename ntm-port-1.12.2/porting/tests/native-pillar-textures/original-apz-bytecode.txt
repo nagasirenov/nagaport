@@ -1,0 +1,454 @@
+Compiled from "SourceFile"
+public class apz {
+  private int a;
+
+  private int b;
+
+  private int c;
+
+  private byte[] d;
+
+  private apv e;
+
+  private apv f;
+
+  private apv g;
+
+  private apv h;
+
+  public apz(int, boolean);
+    Code:
+       0: aload_0
+       1: invokespecial #22                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iload_1
+       6: putfield      #7                  // Field a:I
+       9: aload_0
+      10: sipush        4096
+      13: newarray       byte
+      15: putfield      #10                 // Field d:[B
+      18: aload_0
+      19: new           #3                  // class apv
+      22: dup
+      23: aload_0
+      24: getfield      #10                 // Field d:[B
+      27: arraylength
+      28: iconst_4
+      29: invokespecial #18                 // Method apv."<init>":(II)V
+      32: putfield      #12                 // Field f:Lapv;
+      35: aload_0
+      36: new           #3                  // class apv
+      39: dup
+      40: aload_0
+      41: getfield      #10                 // Field d:[B
+      44: arraylength
+      45: iconst_4
+      46: invokespecial #18                 // Method apv."<init>":(II)V
+      49: putfield      #13                 // Field g:Lapv;
+      52: iload_2
+      53: ifeq          73
+      56: aload_0
+      57: new           #3                  // class apv
+      60: dup
+      61: aload_0
+      62: getfield      #10                 // Field d:[B
+      65: arraylength
+      66: iconst_4
+      67: invokespecial #18                 // Method apv."<init>":(II)V
+      70: putfield      #14                 // Field h:Lapv;
+      73: return
+
+  public aji a(int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #10                 // Field d:[B
+       4: iload_2
+       5: bipush        8
+       7: ishl
+       8: iload_3
+       9: iconst_4
+      10: ishl
+      11: ior
+      12: iload_1
+      13: ior
+      14: baload
+      15: sipush        255
+      18: iand
+      19: istore        4
+      21: aload_0
+      22: getfield      #11                 // Field e:Lapv;
+      25: ifnull        46
+      28: aload_0
+      29: getfield      #11                 // Field e:Lapv;
+      32: iload_1
+      33: iload_2
+      34: iload_3
+      35: invokevirtual #19                 // Method apv.a:(III)I
+      38: bipush        8
+      40: ishl
+      41: iload         4
+      43: ior
+      44: istore        4
+      46: iload         4
+      48: invokestatic  #16                 // Method aji.e:(I)Laji;
+      51: areturn
+
+  public void a(int, int, int, aji);
+    Code:
+       0: aload_0
+       1: getfield      #10                 // Field d:[B
+       4: iload_2
+       5: bipush        8
+       7: ishl
+       8: iload_3
+       9: iconst_4
+      10: ishl
+      11: ior
+      12: iload_1
+      13: ior
+      14: baload
+      15: sipush        255
+      18: iand
+      19: istore        5
+      21: aload_0
+      22: getfield      #11                 // Field e:Lapv;
+      25: ifnull        46
+      28: aload_0
+      29: getfield      #11                 // Field e:Lapv;
+      32: iload_1
+      33: iload_2
+      34: iload_3
+      35: invokevirtual #19                 // Method apv.a:(III)I
+      38: bipush        8
+      40: ishl
+      41: iload         5
+      43: ior
+      44: istore        5
+      46: iload         5
+      48: invokestatic  #16                 // Method aji.e:(I)Laji;
+      51: astore        6
+      53: aload         6
+      55: getstatic     #6                  // Field ajn.a:Laji;
+      58: if_acmpeq     89
+      61: aload_0
+      62: dup
+      63: getfield      #8                  // Field b:I
+      66: iconst_1
+      67: isub
+      68: putfield      #8                  // Field b:I
+      71: aload         6
+      73: invokevirtual #17                 // Method aji.t:()Z
+      76: ifeq          89
+      79: aload_0
+      80: dup
+      81: getfield      #9                  // Field c:I
+      84: iconst_1
+      85: isub
+      86: putfield      #9                  // Field c:I
+      89: aload         4
+      91: getstatic     #6                  // Field ajn.a:Laji;
+      94: if_acmpeq     125
+      97: aload_0
+      98: dup
+      99: getfield      #8                  // Field b:I
+     102: iconst_1
+     103: iadd
+     104: putfield      #8                  // Field b:I
+     107: aload         4
+     109: invokevirtual #17                 // Method aji.t:()Z
+     112: ifeq          125
+     115: aload_0
+     116: dup
+     117: getfield      #9                  // Field c:I
+     120: iconst_1
+     121: iadd
+     122: putfield      #9                  // Field c:I
+     125: aload         4
+     127: invokestatic  #15                 // Method aji.b:(Laji;)I
+     130: istore        7
+     132: aload_0
+     133: getfield      #10                 // Field d:[B
+     136: iload_2
+     137: bipush        8
+     139: ishl
+     140: iload_3
+     141: iconst_4
+     142: ishl
+     143: ior
+     144: iload_1
+     145: ior
+     146: iload         7
+     148: sipush        255
+     151: iand
+     152: i2b
+     153: bastore
+     154: iload         7
+     156: sipush        255
+     159: if_icmple     208
+     162: aload_0
+     163: getfield      #11                 // Field e:Lapv;
+     166: ifnonnull     186
+     169: aload_0
+     170: new           #3                  // class apv
+     173: dup
+     174: aload_0
+     175: getfield      #10                 // Field d:[B
+     178: arraylength
+     179: iconst_4
+     180: invokespecial #18                 // Method apv."<init>":(II)V
+     183: putfield      #11                 // Field e:Lapv;
+     186: aload_0
+     187: getfield      #11                 // Field e:Lapv;
+     190: iload_1
+     191: iload_2
+     192: iload_3
+     193: iload         7
+     195: sipush        3840
+     198: iand
+     199: bipush        8
+     201: ishr
+     202: invokevirtual #20                 // Method apv.a:(IIII)V
+     205: goto          226
+     208: aload_0
+     209: getfield      #11                 // Field e:Lapv;
+     212: ifnull        226
+     215: aload_0
+     216: getfield      #11                 // Field e:Lapv;
+     219: iload_1
+     220: iload_2
+     221: iload_3
+     222: iconst_0
+     223: invokevirtual #20                 // Method apv.a:(IIII)V
+     226: return
+
+  public int b(int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field f:Lapv;
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: invokevirtual #19                 // Method apv.a:(III)I
+      10: ireturn
+
+  public void a(int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field f:Lapv;
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: iload         4
+       9: invokevirtual #20                 // Method apv.a:(IIII)V
+      12: return
+
+  public boolean a();
+    Code:
+       0: aload_0
+       1: getfield      #8                  // Field b:I
+       4: ifne          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public boolean b();
+    Code:
+       0: aload_0
+       1: getfield      #9                  // Field c:I
+       4: ifle          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public int d();
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field a:I
+       4: ireturn
+
+  public void b(int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #14                 // Field h:Lapv;
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: iload         4
+       9: invokevirtual #20                 // Method apv.a:(IIII)V
+      12: return
+
+  public int c(int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #14                 // Field h:Lapv;
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: invokevirtual #19                 // Method apv.a:(III)I
+      10: ireturn
+
+  public void c(int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field g:Lapv;
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: iload         4
+       9: invokevirtual #20                 // Method apv.a:(IIII)V
+      12: return
+
+  public int d(int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field g:Lapv;
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: invokevirtual #19                 // Method apv.a:(III)I
+      10: ireturn
+
+  public void e();
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: putfield      #8                  // Field b:I
+       5: aload_0
+       6: iconst_0
+       7: putfield      #9                  // Field c:I
+      10: iconst_0
+      11: istore_1
+      12: iload_1
+      13: bipush        16
+      15: if_icmpge     97
+      18: iconst_0
+      19: istore_2
+      20: iload_2
+      21: bipush        16
+      23: if_icmpge     91
+      26: iconst_0
+      27: istore_3
+      28: iload_3
+      29: bipush        16
+      31: if_icmpge     85
+      34: aload_0
+      35: iload_1
+      36: iload_2
+      37: iload_3
+      38: invokevirtual #21                 // Method a:(III)Laji;
+      41: astore        4
+      43: aload         4
+      45: getstatic     #6                  // Field ajn.a:Laji;
+      48: if_acmpeq     79
+      51: aload_0
+      52: dup
+      53: getfield      #8                  // Field b:I
+      56: iconst_1
+      57: iadd
+      58: putfield      #8                  // Field b:I
+      61: aload         4
+      63: invokevirtual #17                 // Method aji.t:()Z
+      66: ifeq          79
+      69: aload_0
+      70: dup
+      71: getfield      #9                  // Field c:I
+      74: iconst_1
+      75: iadd
+      76: putfield      #9                  // Field c:I
+      79: iinc          3, 1
+      82: goto          28
+      85: iinc          2, 1
+      88: goto          20
+      91: iinc          1, 1
+      94: goto          12
+      97: return
+
+  public byte[] g();
+    Code:
+       0: aload_0
+       1: getfield      #10                 // Field d:[B
+       4: areturn
+
+  public void h();
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: putfield      #11                 // Field e:Lapv;
+       5: return
+
+  public apv i();
+    Code:
+       0: aload_0
+       1: getfield      #11                 // Field e:Lapv;
+       4: areturn
+
+  public apv j();
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field f:Lapv;
+       4: areturn
+
+  public apv k();
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field g:Lapv;
+       4: areturn
+
+  public apv l();
+    Code:
+       0: aload_0
+       1: getfield      #14                 // Field h:Lapv;
+       4: areturn
+
+  public void a(byte[]);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #10                 // Field d:[B
+       5: return
+
+  public void a(apv);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #11                 // Field e:Lapv;
+       5: return
+
+  public void b(apv);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #12                 // Field f:Lapv;
+       5: return
+
+  public void c(apv);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #13                 // Field g:Lapv;
+       5: return
+
+  public void d(apv);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #14                 // Field h:Lapv;
+       5: return
+
+  public apv m();
+    Code:
+       0: aload_0
+       1: new           #3                  // class apv
+       4: dup
+       5: aload_0
+       6: getfield      #10                 // Field d:[B
+       9: arraylength
+      10: iconst_4
+      11: invokespecial #18                 // Method apv."<init>":(II)V
+      14: putfield      #11                 // Field e:Lapv;
+      17: aload_0
+      18: getfield      #11                 // Field e:Lapv;
+      21: areturn
+}

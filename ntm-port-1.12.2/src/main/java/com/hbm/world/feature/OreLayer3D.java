@@ -78,7 +78,7 @@ public class OreLayer3D {
 	@SubscribeEvent
 	public void onDecorate(DecorateBiomeEvent.Pre event) {
 
-		World world = event.world;
+		World world = event.getWorld();
 		int cx = event.chunkX;
 		int cz = event.chunkZ;
 
@@ -137,9 +137,10 @@ public class OreLayer3D {
 					double nz = cacheX[ox][y];
 
 					if(nx * ny * nz > threshold) {
-						Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+						net.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);
+						Block target = nativeCubeState_target.getBlock();
 
-						if(target.isNormalCube() && target.isReplaceableOreGen(world, x, y, z, replace)) {
+						if(target.isNormalCube(nativeCubeState_target) && target.isReplaceableOreGen(world, x, y, z, replace)) {
 							world.setBlock(x, y, z, block, meta, 2);
 						}
 					}

@@ -24,7 +24,7 @@ public class ArmorRegistry {
 		if(ArmorUtil.checkArmorNull(entity, slot))
 			return false;
 
-		List<HazardClass> list = getProtectionFromItem(entity.getEquipmentInSlot(slot + 1), entity);
+		List<HazardClass> list = getProtectionFromItem(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1), entity);
 		return list.containsAll(Arrays.asList(clazz));
 	}
 
@@ -33,7 +33,7 @@ public class ArmorRegistry {
 		if(ArmorUtil.checkArmorNull(entity, slot))
 			return false;
 
-		List<HazardClass> list = getProtectionFromItem(entity.getEquipmentInSlot(slot + 1), entity);
+		List<HazardClass> list = getProtectionFromItem(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1), entity);
 
 		if(list == null)
 			return false;
@@ -50,7 +50,7 @@ public class ArmorRegistry {
 		if(ArmorUtil.checkArmorNull(entity, slot))
 			return false;
 
-		List<HazardClass> list = getProtectionFromItem(entity.getEquipmentInSlot(slot + 1), entity);
+		List<HazardClass> list = getProtectionFromItem(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1), entity);
 
 		if(list == null)
 			return false;

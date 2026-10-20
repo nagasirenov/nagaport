@@ -1,0 +1,2 @@
+PASS 16 actual original player raw-profile identity assertions, including null/empty/case/Unicode/formatting codes. No original player constructor or game lifecycle claim.
+PASS 194 native runtime checks: actual player methods/raw identities and NBT; exact projected owner guard/target expression/dummy override; virtual player+dummy dispatch and display-name negative control. No full custom owner or gameplay lifecycle claim.

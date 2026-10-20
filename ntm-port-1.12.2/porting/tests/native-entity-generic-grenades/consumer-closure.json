@@ -1,0 +1,140 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "sha256": "a9ffc8b3769b11f10244f8f609b869aeee081cf95aa8c6a86b65f3d5e5455ed6",
+    "references": [
+      {
+        "line": 189,
+        "source": "addEntity(EntityGrenadeBouncyGeneric.class, \"entity_grenade_bouncy_generic\", 250);"
+      },
+      {
+        "line": 190,
+        "source": "addEntity(EntityGrenadeImpactGeneric.class, \"entity_grenade_impact_generic\", 250);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java",
+    "sha256": "8d44ff26eea9d047276da1e92d509bbda23e5a2eedf8c378ac822c3d65327da8",
+    "references": [
+      {
+        "line": 11,
+        "source": "public class EntityGrenadeBouncyGeneric extends EntityGrenadeBouncyBase implements IGenericGrenade {"
+      },
+      {
+        "line": 13,
+        "source": "public EntityGrenadeBouncyGeneric(World world) {"
+      },
+      {
+        "line": 17,
+        "source": "public EntityGrenadeBouncyGeneric(World world, EntityLivingBase living) {"
+      },
+      {
+        "line": 21,
+        "source": "public EntityGrenadeBouncyGeneric(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 25,
+        "source": "public EntityGrenadeBouncyGeneric setType(ItemGenericGrenade grenade) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.updateObject(12, Item.getIdFromItem(grenade))",
+      "this.dataWatcher.getWatchableObjectInt(12)",
+      "this.dataWatcher.addObject(12, 0)",
+      "this.dataWatcher.getWatchableObjectInt(12)",
+      "this.dataWatcher.updateObject(12, nbt.getInteger(\"grenade\"))"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeImpactGeneric.java",
+    "sha256": "d8148332b7f7b44359359a89eedcfa775973240493eed86027a906626a41d62c",
+    "references": [
+      {
+        "line": 11,
+        "source": "public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGenericGrenade {"
+      },
+      {
+        "line": 13,
+        "source": "public EntityGrenadeImpactGeneric(World p_i1773_1_) {"
+      },
+      {
+        "line": 17,
+        "source": "public EntityGrenadeImpactGeneric(World p_i1774_1_, EntityLivingBase p_i1774_2_) {"
+      },
+      {
+        "line": 21,
+        "source": "public EntityGrenadeImpactGeneric(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_) {"
+      },
+      {
+        "line": 25,
+        "source": "public EntityGrenadeImpactGeneric setType(ItemGenericGrenade grenade) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.updateObject(12, Item.getIdFromItem(grenade))",
+      "this.dataWatcher.getWatchableObjectInt(12)",
+      "this.dataWatcher.addObject(12, 0)",
+      "this.dataWatcher.getWatchableObjectInt(12)",
+      "this.dataWatcher.updateObject(12, nbt.getInteger(\"grenade\"))"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/DispenserBehaviorHandler.java",
+    "sha256": "59031be99f308515687febafb88c1d0617fbd70d54a38d1134ae6ef84d196536",
+    "references": [
+      {
+        "line": 32,
+        "source": "import com.hbm.entity.grenade.EntityGrenadeImpactGeneric;"
+      },
+      {
+        "line": 286,
+        "source": "return new EntityGrenadeImpactGeneric(world, position.getX(), position.getY(), position.getZ()).setType((ItemGenericGrenade) ModItems.grenade_kyiv);"
+      },
+      {
+        "line": 291,
+        "source": "return new EntityGrenadeImpactGeneric(world, position.getX(), position.getY(), position.getZ()).setType((ItemGenericGrenade) ModItems.stick_dynamite_fishing);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemGenericGrenade.java",
+    "sha256": "5834eadc049e8a7c5d34c6b2fc2548747f1b2f7af240eadfd783a34d1aa6483f",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.grenade.EntityGrenadeBouncyGeneric;"
+      },
+      {
+        "line": 4,
+        "source": "import com.hbm.entity.grenade.EntityGrenadeImpactGeneric;"
+      },
+      {
+        "line": 30,
+        "source": "world.spawnEntityInWorld(new EntityGrenadeImpactGeneric(world, player).setType(this));"
+      },
+      {
+        "line": 32,
+        "source": "world.spawnEntityInWorld(new EntityGrenadeBouncyGeneric(world, player).setType(this));"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "references": [
+      {
+        "line": 804,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeBouncyGeneric.class, renderManager -> new RenderGenericGrenade(renderManager));"
+      },
+      {
+        "line": 805,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeImpactGeneric.class, renderManager -> new RenderGenericGrenade(renderManager));"
+      }
+    ],
+    "baseline_legacy_calls": []
+  }
+]

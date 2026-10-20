@@ -56,41 +56,41 @@ public class CommonConfig {
 
 	public static int createConfigInt(Configuration config, String category, String name, String comment, int def) {
 		Property prop = config.get(category, name, def);
-		prop.comment = comment;
+		prop.setComment(comment);
 		return prop.getInt();
 	}
 
 	public static int createConfigInt(Configuration config, String category, String name, String comment, int def, int min, int max) {
 		Property prop = config.get(category, name, def, null, min, max);
-		prop.comment = comment;
+		prop.setComment(comment);
 		return prop.getInt();
 	}
 
 	public static double createConfigDouble(Configuration config, String category, String name, String comment, double def) {
 		Property prop = config.get(category, name, def);
-		prop.comment = comment;
+		prop.setComment(comment);
 		return prop.getDouble();
 	}
 
 	public static boolean createConfigBool(Configuration config, String category, String name, String comment, boolean def) {
 		Property prop = config.get(category, name, def);
-		prop.comment = comment;
+		prop.setComment(comment);
 		return prop.getBoolean();
 	}
 
 	public static String createConfigString(Configuration config, String category, String name, String comment, String def) {
 		Property prop = config.get(category, name, def);
-		prop.comment = comment;
+		prop.setComment(comment);
 		return prop.getString();
 	}
     public static int[] createConfigIntList(Configuration config, String category, String name, String comment, int[] def){
 		Property prop = config.get(category, name, def);
-		prop.comment = comment;
+		prop.setComment(comment);
 		return prop.getIntList();
 	}
 	public static String[] createConfigStringList(Configuration config, String category, String name, String comment, String[] def) {
 		Property prop = config.get(category, name, def);
-		prop.comment = comment;
+		prop.setComment(comment);
 		return prop.getStringList();
 	}
 

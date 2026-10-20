@@ -78,7 +78,7 @@ public class WorldGeneratorDuna implements IWorldGenerator {
 			int z = j + rand.nextInt(16);
 			int y = world.getHeightValue(x, z);
 
-			if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().canPlaceTorchOnTop(world, x, y - 1, z) && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, x, y, z)) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().canPlaceTorchOnTop(world, x, y - 1, z) && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 
 				world.setBlock(x, y, z, ModBlocks.lantern_behemoth, 12, 3);
 				MultiblockHandlerXR.fillSpace(world, x, y, z, new int[] {4, 0, 0, 0, 0, 0}, ModBlocks.lantern_behemoth, ForgeDirection.NORTH);

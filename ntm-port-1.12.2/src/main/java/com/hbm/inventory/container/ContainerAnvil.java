@@ -28,14 +28,14 @@ public class ContainerAnvil extends Container {
 		this.addSlotToContainer(new SlotCraftingOutput(inventory.player, output, 0, 89, 27) {
 			
 			@Override
-			public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
-				super.onPickupFromSlot(player, stack);
+			public ItemStack onTake(EntityPlayer player, ItemStack stack) {
+				super.onTake(player, stack);
 				
 				ItemStack left = ContainerAnvil.this.input.getStackInSlot(0);
 				ItemStack right = ContainerAnvil.this.input.getStackInSlot(1);
 				
 				if(left == null || right == null) {
-					return;
+					return stack;
 				}
 				
 				for(com.hbm.inventory.recipes.anvil.AnvilSmithingRecipe rec : AnvilRecipes.getSmithing()) {
@@ -46,9 +46,10 @@ public class ContainerAnvil extends Container {
 						ContainerAnvil.this.input.decrStackSize(0, rec.amountConsumed(0, i == 1));
 						ContainerAnvil.this.input.decrStackSize(1, rec.amountConsumed(1, i == 1));
 						ContainerAnvil.this.updateSmithing();
-						return;
+						return stack;
 					}
 				}
+				return stack;
 			}
 			
 		});
@@ -91,7 +92,7 @@ public class ContainerAnvil extends Container {
 				if(!this.mergeItemStack(var5, 3, this.inventorySlots.size(), true)) {
 					return null;
 				} else {
-					var4.onPickupFromSlot(p_82846_1_, var5);
+					var4.onTake(p_82846_1_, var5);
 				}
 			} else {
 				
@@ -105,7 +106,7 @@ public class ContainerAnvil extends Container {
 				var4.onSlotChanged();
 			}
 			
-			var4.onPickupFromSlot(p_82846_1_, var5);
+			var4.onTake(p_82846_1_, var5);
 		}
 		
 		return var3;
@@ -142,9 +143,10 @@ public class ContainerAnvil extends Container {
 			super.putStack(stack);
 		}
 		
-		public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
-			super.onPickupFromSlot(player, stack);
+		public ItemStack onTake(EntityPlayer player, ItemStack stack) {
+			super.onTake(player, stack);
 			ContainerAnvil.this.updateSmithing();
+			return stack;
 		}
 	}
 	

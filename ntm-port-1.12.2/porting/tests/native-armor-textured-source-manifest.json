@@ -1,0 +1,1408 @@
+{
+  "baseline": "42dea8e6e3241d0c4ce4ba9c5459fab2bdfdc99b",
+  "files": {
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "b9708fb96ad62a1a264eacf541b2c6faa70d55aab338da19447921a8d2902028",
+      "after_sha256": "c311b2992a771318f8e13fde124759bf9317ee3915a86ebbb4cf3daf253abce5",
+      "edits": [
+        {
+          "before_offset": 1044,
+          "after_offset": 1044,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 30086,
+          "after_offset": 30204,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 31555,
+          "after_offset": 31739,
+          "old": "\t\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\t\ttessellator.addVertexWithUV(-ringSize, 0, -ringSize, 0.0D, 0.0D);\n\t\t\t\t\t\t\ttessellator.addVertexWithUV(ringSize, 0, -ringSize, 1.0D, 0.0D);\n\t\t\t\t\t\t\ttessellator.addVertexWithUV(ringSize, 0, 0, 1.0D, 0.5D);\n\t\t\t\t\t\t\ttessellator.addVertexWithUV(-ringSize, 0, 0, 0.0D, 0.5D);\n",
+          "new": "\t\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\t\ttessellatorBuffer.pos(-ringSize, 0, -ringSize).tex(0.0D, 0.0D).endVertex();\n\t\t\t\t\t\t\ttessellatorBuffer.pos(ringSize, 0, -ringSize).tex(1.0D, 0.0D).endVertex();\n\t\t\t\t\t\t\ttessellatorBuffer.pos(ringSize, 0, 0).tex(1.0D, 0.5D).endVertex();\n\t\t\t\t\t\t\ttessellatorBuffer.pos(-ringSize, 0, 0).tex(0.0D, 0.5D).endVertex();\n"
+        },
+        {
+          "before_offset": 33494,
+          "after_offset": 33748,
+          "old": "\t\t\t\t\t\t\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\t\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n"
+        },
+        {
+          "before_offset": 33592,
+          "after_offset": 33876,
+          "old": "\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-qsize, 100.0D, -qsize, uMin, vMin);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(qsize, 100.0D, -qsize, uMax, vMin);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(qsize, 100.0D, qsize, uMax, vMax);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-qsize, 100.0D, qsize, uMin, vMax);\n",
+          "new": "\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-qsize, 100.0D, -qsize).tex(uMin, vMin).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(qsize, 100.0D, -qsize).tex(uMax, vMin).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(qsize, 100.0D, qsize).tex(uMax, vMax).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-qsize, 100.0D, qsize).tex(uMin, vMax).endVertex();\n"
+        },
+        {
+          "before_offset": 34231,
+          "after_offset": 34555,
+          "old": "\t\t\t\t\t\t\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\t\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n"
+        },
+        {
+          "before_offset": 34330,
+          "after_offset": 34684,
+          "old": "\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-qsize, 100.0D, -qsize, uMin, vMin);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(qsize, 100.0D, -qsize, uMax, vMin);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(qsize, 100.0D, qsize, uMax, vMax);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-qsize, 100.0D, qsize, uMin, vMax);\n",
+          "new": "\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-qsize, 100.0D, -qsize).tex(uMin, vMin).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(qsize, 100.0D, -qsize).tex(uMax, vMin).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(qsize, 100.0D, qsize).tex(uMax, vMax).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-qsize, 100.0D, qsize).tex(uMin, vMax).endVertex();\n"
+        },
+        {
+          "before_offset": 34855,
+          "after_offset": 35249,
+          "old": "\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\ttessellator.addVertexWithUV(-interpe, 100.0D, -interpe, 0.0D + uvOffset, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(interpe, 100.0D, -interpe, 1.0D + uvOffset, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(interpe, 100.0D, interpe, 1.0D + uvOffset, 1.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(-interpe, 100.0D, interpe, 0.0D + uvOffset, 1.0D);\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\ttessellatorBuffer.pos(-interpe, 100.0D, -interpe).tex(0.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(interpe, 100.0D, -interpe).tex(1.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(interpe, 100.0D, interpe).tex(1.0D + uvOffset, 1.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(-interpe, 100.0D, interpe).tex(0.0D + uvOffset, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 35423,
+          "after_offset": 35887,
+          "old": "\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\ttessellator.addVertexWithUV(-destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation, 0.0D + uvOffset, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation, 1.0D + uvOffset, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation, 1.0D + uvOffset, 1.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(-destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation, 0.0D + uvOffset, 1.0D);\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\ttessellatorBuffer.pos(-destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation).tex(0.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation).tex(1.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation).tex(1.0D + uvOffset, 1.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(-destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation).tex(0.0D + uvOffset, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 36222,
+          "after_offset": 36756,
+          "old": "\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D + uvOffset, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, -size, 1.0D + uvOffset, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, size, 1.0D + uvOffset, 1.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, size, 0.0D + uvOffset, 1.0D);\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, size).tex(1.0D + uvOffset, 1.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D + uvOffset, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 37924,
+          "after_offset": 38528,
+          "old": "\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, -size, 1.0D, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, size, 1.0D, 1.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, size, 0.0D, 1.0D);\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, size).tex(1.0D, 1.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 38880,
+          "after_offset": 39554,
+          "old": "\t\t\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D + uvOffset, 0.0D);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, -size, 1.0D + uvOffset, 0.0D);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, size, 1.0D + uvOffset, 1.0D);\n\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, size, 0.0D + uvOffset, 1.0D);\n",
+          "new": "\t\t\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D + uvOffset, 0.0D).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, size).tex(1.0D + uvOffset, 1.0D).endVertex();\n\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D + uvOffset, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 39579,
+          "after_offset": 40323,
+          "old": "\t\t\t\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-impactSize, 100.0D, -impactSize, 0.0D, 0.0D);\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(impactSize, 100.0D, -impactSize, 1.0D, 0.0D);\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(impactSize, 100.0D, impactSize, 1.0D, 1.0D);\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-impactSize, 100.0D, impactSize, 0.0D, 1.0D);\n",
+          "new": "\t\t\t\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-impactSize, 100.0D, -impactSize).tex(0.0D, 0.0D).endVertex();\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(impactSize, 100.0D, -impactSize).tex(1.0D, 0.0D).endVertex();\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(impactSize, 100.0D, impactSize).tex(1.0D, 1.0D).endVertex();\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-impactSize, 100.0D, impactSize).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 40197,
+          "after_offset": 41011,
+          "old": "\t\t\t\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-flareSize, 100.0D, -flareSize, 0.0D, 0.0D);\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(flareSize, 100.0D, -flareSize, 1.0D, 0.0D);\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(flareSize, 100.0D, flareSize, 1.0D, 1.0D);\n\t\t\t\t\t\t\t\t\ttessellator.addVertexWithUV(-flareSize, 100.0D, flareSize, 0.0D, 1.0D);\n",
+          "new": "\t\t\t\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-flareSize, 100.0D, -flareSize).tex(0.0D, 0.0D).endVertex();\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(flareSize, 100.0D, -flareSize).tex(1.0D, 0.0D).endVertex();\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(flareSize, 100.0D, flareSize).tex(1.0D, 1.0D).endVertex();\n\t\t\t\t\t\t\t\t\ttessellatorBuffer.pos(-flareSize, 100.0D, flareSize).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 40895,
+          "after_offset": 41779,
+          "old": "\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, -size, 1.0D, 0.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(size, 100.0D, size, 1.0D, 1.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(-size, 100.0D, size, 0.0D, 1.0D);\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D, 0.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(size, 100.0D, size).tex(1.0D, 1.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 41825,
+          "after_offset": 42779,
+          "old": "\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\ttessellator.addVertexWithUV(-ringSize, 0, 0, 0.0D, 0.5D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(ringSize, 0, 0, 1.0D, 0.5D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(ringSize, 0, ringSize, 1.0D, 1.0D);\n\t\t\t\t\t\ttessellator.addVertexWithUV(-ringSize, 0, ringSize, 0.0D, 1.0D);\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\t\ttessellatorBuffer.pos(-ringSize, 0, 0).tex(0.0D, 0.5D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(ringSize, 0, 0).tex(1.0D, 0.5D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(ringSize, 0, ringSize).tex(1.0D, 1.0D).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(-ringSize, 0, ringSize).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 42573,
+          "after_offset": 43597,
+          "old": "\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\ttessellator.addVertexWithUV(-1.0D, 100.0D, -1.0D, 0.0D, 0.0D);\n\t\t\t\t\ttessellator.addVertexWithUV(1.0D, 100.0D, -1.0D, 1.0D, 0.0D);\n\t\t\t\t\ttessellator.addVertexWithUV(1.0D, 100.0D, 1.0D, 1.0D, 1.0D);\n\t\t\t\t\ttessellator.addVertexWithUV(-1.0D, 100.0D, 1.0D, 0.0D, 1.0D);\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\t\ttessellatorBuffer.pos(-1.0D, 100.0D, -1.0D).tex(0.0D, 0.0D).endVertex();\n\t\t\t\t\ttessellatorBuffer.pos(1.0D, 100.0D, -1.0D).tex(1.0D, 0.0D).endVertex();\n\t\t\t\t\ttessellatorBuffer.pos(1.0D, 100.0D, 1.0D).tex(1.0D, 1.0D).endVertex();\n\t\t\t\t\ttessellatorBuffer.pos(-1.0D, 100.0D, 1.0D).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 43099,
+          "after_offset": 44193,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 43294,
+          "after_offset": 44454,
+          "old": "\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertexWithUV(offset, -ringSize, -ringSize, 0.0D, 0.0D);\n\t\ttessellator.addVertexWithUV(offset, ringSize, -ringSize, 1.0D, 0.0D);\n\t\ttessellator.addVertexWithUV(offset, ringSize, ringSize, 1.0D, 1.0D);\n\t\ttessellator.addVertexWithUV(offset, -ringSize, ringSize, 0.0D, 1.0D);\n",
+          "new": "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\ttessellatorBuffer.pos(offset, -ringSize, -ringSize).tex(0.0D, 0.0D).endVertex();\n\t\ttessellatorBuffer.pos(offset, ringSize, -ringSize).tex(1.0D, 0.0D).endVertex();\n\t\ttessellatorBuffer.pos(offset, ringSize, ringSize).tex(1.0D, 1.0D).endVertex();\n\t\ttessellatorBuffer.pos(offset, -ringSize, ringSize).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 43746,
+          "after_offset": 44976,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 44180,
+          "after_offset": 45476,
+          "old": "\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\ttessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);\n\t\t\t\ttessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);\n\t\t\t\ttessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);\n\t\t\t\ttessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\t\ttessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();\n\t\t\t\ttessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();\n\t\t\t\ttessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();\n\t\t\t\ttessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 45174,
+          "after_offset": 46540,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 46753,
+          "after_offset": 48189,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 47411,
+          "after_offset": 48913,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-size, 100.0, -size, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(size, 100.0, -size, 0.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(size, 100.0, size, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-size, 100.0, size, 1.0D, 0.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-size, 100.0, -size).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(size, 100.0, -size).tex(0.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(size, 100.0, size).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-size, 100.0, size).tex(1.0D, 0.0D).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java": {
+      "before_sha256": "b076da209475435d20ddb567fb9e2462eff2a3e5da3db7cbca1dee5df706d422",
+      "after_sha256": "2133ba896f6af07a88cca04f3a3c3bd7035929e384ab4fdfbd46ed865afeeaca",
+      "edits": [
+        {
+          "before_offset": 670,
+          "after_offset": 670,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 3085,
+          "after_offset": 3203,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertexWithUV(-var14, 100.0D, -var14, 0.0D, 0.0D);\n\t\ttessellator.addVertexWithUV(var14, 100.0D, -var14, 1.0D, 0.0D);\n\t\ttessellator.addVertexWithUV(var14, 100.0D, var14, 1.0D, 1.0D);\n\t\ttessellator.addVertexWithUV(-var14, 100.0D, var14, 0.0D, 1.0D);\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\ttessellatorBuffer.pos(-var14, 100.0D, -var14).tex(0.0D, 0.0D).endVertex();\n\t\ttessellatorBuffer.pos(var14, 100.0D, -var14).tex(1.0D, 0.0D).endVertex();\n\t\ttessellatorBuffer.pos(var14, 100.0D, var14).tex(1.0D, 1.0D).endVertex();\n\t\ttessellatorBuffer.pos(-var14, 100.0D, var14).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 3683,
+          "after_offset": 3937,
+          "old": "\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertexWithUV(-var14, 100.0D, -var14, 0.0D, 0.0D);\n\t\ttessellator.addVertexWithUV(var14, 100.0D, -var14, 1.0D, 0.0D);\n\t\ttessellator.addVertexWithUV(var14, 100.0D, var14, 1.0D, 1.0D);\n\t\ttessellator.addVertexWithUV(-var14, 100.0D, var14, 0.0D, 1.0D);\n",
+          "new": "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\ttessellatorBuffer.pos(-var14, 100.0D, -var14).tex(0.0D, 0.0D).endVertex();\n\t\ttessellatorBuffer.pos(var14, 100.0D, -var14).tex(1.0D, 0.0D).endVertex();\n\t\ttessellatorBuffer.pos(var14, 100.0D, var14).tex(1.0D, 1.0D).endVertex();\n\t\ttessellatorBuffer.pos(-var14, 100.0D, var14).tex(0.0D, 1.0D).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityDummy.java": {
+      "before_sha256": "7960c78e97197a3322e630c21ab7918051f41b8cc2bcd74adc8b9f2e0b9fed47",
+      "after_sha256": "eedc9d5a8afa2eee2a76df1d9520c8f99a2b9beea14c97630df01c0f87a70c64",
+      "edits": [
+        {
+          "before_offset": 844,
+          "after_offset": 844,
+          "old": "\t\t\tthis.setCurrentItemOrArmor(4 - armor.armorType, com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy());\n",
+          "new": "\t\t\tthis.setItemStackToSlot(armor.armorType, com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/ArmorModHandler.java": {
+      "before_sha256": "7d70535071ecd7349c66f1b894b20957c89f87cd8deb6aef27b423e2d79129d8",
+      "after_sha256": "3368c07073b9b4be536cb76d10ca84de807211f074e1a7152e0ed0eca146b804",
+      "edits": [
+        {
+          "before_offset": 1963,
+          "after_offset": 1963,
+          "old": "\t\tint type = ((ItemArmor)armor.getItem()).armorType;\n",
+          "new": "\t\tint type = com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java": {
+      "before_sha256": "8a86262be3716637e638ddfcfae54847549de93413c8d6c0de56e97e2f9d1c31",
+      "after_sha256": "561cf6c10105e11c32efe1bb90739cb096229e3880ca0d7abfaea00f39b2c9de",
+      "edits": [
+        {
+          "before_offset": 3260,
+          "after_offset": 3260,
+          "old": "\t\t\tthis.addSlotToContainer(new Slot(inventory, inventory.getSizeInventory() - 1 - i, -17 + 22, 36 + i * 18) {\n",
+          "new": "\t\t\tthis.addSlotToContainer(new Slot(inventory, inventory.mainInventory.size() + 3 - i, -17 + 22, 36 + i * 18) {\n"
+        },
+        {
+          "before_offset": 3531,
+          "after_offset": 3533,
+          "old": "\t\t\t\t\treturn stack.getItem().isValidArmor(stack, k, player);\n",
+          "new": "\t\t\t\t\treturn stack.getItem().isValidArmor(stack, com.hbm.util.ArmorSlotOrder.fromIndex(k), player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java": {
+      "before_sha256": "44a79616e015fdf5edb6a9f6d0a95be8cd96dc991989a87531963c071cd2ce96",
+      "after_sha256": "5caaa8d6a2b11c60cd99a1baafb5ddfa6583e89eeccd75002129acba3082d32f",
+      "edits": [
+        {
+          "before_offset": 561,
+          "after_offset": 561,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 9182,
+          "after_offset": 9300,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertexWithUV(x,\t\t\ty + sizeY,\tthis.zLevel,\t(sourceX + 0) * f,\t\t(sourceY + sizeY) * f1);\n\t\ttessellator.addVertexWithUV(x + sizeX,\ty + sizeY,\tthis.zLevel,\t(sourceX + sizeX) * f,\t(sourceY + sizeY) * f1);\n\t\ttessellator.addVertexWithUV(x + sizeX,\ty,\t\t\tthis.zLevel,\t(sourceX + sizeX) * f,\t(sourceY + 0) * f1);\n\t\ttessellator.addVertexWithUV(x,\t\t\ty,\t\t\tthis.zLevel,\t(sourceX + 0) * f,\t\t(sourceY + 0) * f1);\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\ttessellatorBuffer.pos(x, y + sizeY, this.zLevel).tex((sourceX + 0) * f, (sourceY + sizeY) * f1).endVertex();\n\t\ttessellatorBuffer.pos(x + sizeX, y + sizeY, this.zLevel).tex((sourceX + sizeX) * f, (sourceY + sizeY) * f1).endVertex();\n\t\ttessellatorBuffer.pos(x + sizeX, y, this.zLevel).tex((sourceX + sizeX) * f, (sourceY + 0) * f1).endVertex();\n\t\ttessellatorBuffer.pos(x, y, this.zLevel).tex((sourceX + 0) * f, (sourceY + 0) * f1).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenGuide.java": {
+      "before_sha256": "69046ab36ac96f0e56877f195e2ec4dbf3a804d788a6d9752e3c192d1b167ad8",
+      "after_sha256": "1d62d5c4999351df6d9fdeb67381f42b7668c066d94769ee2132b5c7317f8071",
+      "edits": [
+        {
+          "before_offset": 625,
+          "after_offset": 625,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 3009,
+          "after_offset": 3127,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.setBrightness(240);\n\t\ttessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F);\n\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertexWithUV(x,\t\t\ty + dimY,\t0.0D,\t0,\t1);\n\t\ttessellator.addVertexWithUV(x + dimX,\ty + dimY,\t0.0D,\t1,\t1);\n\t\ttessellator.addVertexWithUV(x + dimX,\ty,\t\t\t0.0D,\t1,\t0);\n\t\ttessellator.addVertexWithUV(x,\t\t\ty,\t\t\t0.0D,\t0,\t0);\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n\t\t// Legacy begin resets this attribute; retain its argument evaluation.\n\t\tint tessellatorResetBrightness = 240;\n\t\t// Legacy begin resets this attribute; retain its argument evaluation.\n\t\tfloat tessellatorResetRed = 1.0F, tessellatorResetGreen = 1.0F, tessellatorResetBlue = 1.0F, tessellatorResetAlpha = 1.0F;\n\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\ttessellatorBuffer.pos(x, y + dimY, 0.0D).tex(0, 1).endVertex();\n\t\ttessellatorBuffer.pos(x + dimX, y + dimY, 0.0D).tex(1, 1).endVertex();\n\t\ttessellatorBuffer.pos(x + dimX, y, 0.0D).tex(1, 0).endVertex();\n\t\ttessellatorBuffer.pos(x, y, 0.0D).tex(0, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ModItems.java": {
+      "before_sha256": "6321ccf6e1698a1a4b8b57724bdb47fde0ffc41a757a6846ee03879e48be810c",
+      "after_sha256": "5e5650e897b677e4b61fb9d94198e74cbf1d990419f5328800046242ce489024",
+      "edits": [
+        {
+          "before_offset": 24,
+          "after_offset": 24,
+          "old": "",
+          "new": "import net.minecraft.init.SoundEvents;\r\nimport net.minecraftforge.oredict.OreDictionary;\r\n"
+        },
+        {
+          "before_offset": 453418,
+          "after_offset": 453508,
+          "old": "\t\tArmorMaterial aMatLiquidator = EnumHelper.addArmorMaterial(\"HBM_LIQUIDATOR\", 750, new int[] { 3, 8, 6, 3 }, 10);\r\n\t\taMatLiquidator.customCraftingMaterial = ModItems.plate_lead;\r\n",
+          "new": "\t\tArmorMaterial aMatLiquidator = EnumHelper.addArmorMaterial(\"HBM_LIQUIDATOR\", \"leather\", 750, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\t\taMatLiquidator.repairMaterial = new ItemStack(ModItems.plate_lead, 1, OreDictionary.WILDCARD_VALUE);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ModItemsArmor.java": {
+      "before_sha256": "3383e89defe67d87d951ce989ddc1043f100d158145f30f2358c5bbbd4630c3c",
+      "after_sha256": "ee50a0077fc0babce041dcc567dd2c5c6f2c8cad7f96d75d6e0896489fae42b9",
+      "edits": [
+        {
+          "before_offset": 23,
+          "after_offset": 23,
+          "old": "",
+          "new": "import net.minecraft.init.SoundEvents;\nimport net.minecraft.item.ItemStack;\nimport net.minecraftforge.oredict.OreDictionary;\n"
+        },
+        {
+          "before_offset": 659,
+          "after_offset": 784,
+          "old": "\t\tArmorMaterial aMatRags = EnumHelper.addArmorMaterial(\"HBM_RAGS\", 150, new int[] { 1, 1, 1, 1 }, 0);\n\t\taMatRags.customCraftingMaterial = ModItems.rag;\n",
+          "new": "\t\tArmorMaterial aMatRags = EnumHelper.addArmorMaterial(\"HBM_RAGS\", \"leather\", 150, new int[] { 1, 1, 1, 1 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatRags.repairMaterial = new ItemStack(ModItems.rag, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 15636,
+          "after_offset": 15856,
+          "old": "\t\tArmorMaterial aMatZirconium = EnumHelper.addArmorMaterial(\"HBM_ZIRCONIUM\", 1000, new int[] { 2, 5, 3, 1 }, 1000);\n\t\taMatZirconium.customCraftingMaterial = ModItems.ingot_zirconium;\n",
+          "new": "\t\tArmorMaterial aMatZirconium = EnumHelper.addArmorMaterial(\"HBM_ZIRCONIUM\", \"leather\", 1000, new int[] { 1, 3, 5, 2 }, 1000, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatZirconium.repairMaterial = new ItemStack(ModItems.ingot_zirconium, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 16034,
+          "after_offset": 16349,
+          "old": "\t\tArmorMaterial aMatDNT = EnumHelper.addArmorMaterial(\"HBM_DNT_LOLOLOL\", 3, new int[] { 1, 1, 1, 1 }, 0);\n\t\taMatDNT.customCraftingMaterial = ModItems.ingot_dineutronium;\n",
+          "new": "\t\tArmorMaterial aMatDNT = EnumHelper.addArmorMaterial(\"HBM_DNT_LOLOLOL\", \"leather\", 3, new int[] { 1, 1, 1, 1 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatDNT.repairMaterial = new ItemStack(ModItems.ingot_dineutronium, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 17060,
+          "after_offset": 17470,
+          "old": "\t\tArmorMaterial aMatT51 = EnumHelper.addArmorMaterial(\"HBM_T51\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatT51.customCraftingMaterial = ModItems.plate_armor_titanium;\n",
+          "new": "\t\tArmorMaterial aMatT51 = EnumHelper.addArmorMaterial(\"HBM_T51\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatT51.repairMaterial = new ItemStack(ModItems.plate_armor_titanium, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 18603,
+          "after_offset": 19108,
+          "old": "\t\tArmorMaterial aMatDesh = EnumHelper.addArmorMaterial(\"HBM_DESH\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatDesh.customCraftingMaterial = ModItems.ingot_desh;\n",
+          "new": "\t\tArmorMaterial aMatDesh = EnumHelper.addArmorMaterial(\"HBM_DESH\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatDesh.repairMaterial = new ItemStack(ModItems.ingot_desh, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 20145,
+          "after_offset": 20745,
+          "old": "\t\tArmorMaterial aMatDiesel = EnumHelper.addArmorMaterial(\"HBM_BNUUY\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatDiesel.customCraftingMaterial = ModItems.plate_copper;\n",
+          "new": "\t\tArmorMaterial aMatDiesel = EnumHelper.addArmorMaterial(\"HBM_BNUUY\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatDiesel.repairMaterial = new ItemStack(ModItems.plate_copper, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 21702,
+          "after_offset": 22397,
+          "old": "\t\tArmorMaterial aMatAJR = EnumHelper.addArmorMaterial(\"HBM_T45AJR\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatAJR.customCraftingMaterial = ModItems.plate_armor_ajr;\n",
+          "new": "\t\tArmorMaterial aMatAJR = EnumHelper.addArmorMaterial(\"HBM_T45AJR\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatAJR.repairMaterial = new ItemStack(ModItems.plate_armor_ajr, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 27329,
+          "after_offset": 28119,
+          "old": "\t\tArmorMaterial aMatBJ = EnumHelper.addArmorMaterial(\"HBM_BLACKJACK\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatBJ.customCraftingMaterial = ModItems.plate_armor_lunar;\n",
+          "new": "\t\tArmorMaterial aMatBJ = EnumHelper.addArmorMaterial(\"HBM_BLACKJACK\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatBJ.repairMaterial = new ItemStack(ModItems.plate_armor_lunar, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 29241,
+          "after_offset": 30126,
+          "old": "\t\tArmorMaterial aMatEnv = EnumHelper.addArmorMaterial(\"HBM_ENV\", 150, new int[] { 3, 8, 6, 3 }, 10);\n\t\taMatEnv.customCraftingMaterial = ModItems.plate_armor_hev;\n",
+          "new": "\t\tArmorMaterial aMatEnv = EnumHelper.addArmorMaterial(\"HBM_ENV\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatEnv.repairMaterial = new ItemStack(ModItems.plate_armor_hev, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 30692,
+          "after_offset": 31672,
+          "old": "\t\tArmorMaterial aMatHEV = EnumHelper.addArmorMaterial(\"HBM_HEV\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatHEV.customCraftingMaterial = ModItems.plate_armor_hev;\n",
+          "new": "\t\tArmorMaterial aMatHEV = EnumHelper.addArmorMaterial(\"HBM_HEV\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatHEV.repairMaterial = new ItemStack(ModItems.plate_armor_hev, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 32419,
+          "after_offset": 33494,
+          "old": "\t\tArmorMaterial aMatFau = EnumHelper.addArmorMaterial(\"HBM_DIGAMMA\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatFau.customCraftingMaterial = ModItems.plate_armor_fau;\n",
+          "new": "\t\tArmorMaterial aMatFau = EnumHelper.addArmorMaterial(\"HBM_DIGAMMA\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatFau.repairMaterial = new ItemStack(ModItems.plate_armor_fau, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 33993,
+          "after_offset": 35163,
+          "old": "\t\tArmorMaterial aMatDNS = EnumHelper.addArmorMaterial(\"HBM_DNT_NANO\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatDNS.customCraftingMaterial = ModItems.plate_armor_dnt;\n",
+          "new": "\t\tArmorMaterial aMatDNS = EnumHelper.addArmorMaterial(\"HBM_DNT_NANO\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatDNS.repairMaterial = new ItemStack(ModItems.plate_armor_dnt, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 35671,
+          "after_offset": 36936,
+          "old": "\t\tArmorMaterial aMatTaurun = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", 150, new int[] { 3, 8, 6, 3 }, 10);\n\t\taMatTaurun.customCraftingMaterial = ModItems.plate_iron;\n",
+          "new": "\t\tArmorMaterial aMatTaurun = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatTaurun.repairMaterial = new ItemStack(ModItems.plate_iron, 1, OreDictionary.WILDCARD_VALUE);\n"
+        },
+        {
+          "before_offset": 36974,
+          "after_offset": 38334,
+          "old": "\t\tArmorMaterial aMatTrench = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", 150, new int[] { 3, 8, 6, 3 }, 0);\n\t\taMatTrench.customCraftingMaterial = ModItems.plate_iron;\n",
+          "new": "\t\tArmorMaterial aMatTrench = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\n\t\taMatTrench.repairMaterial = new ItemStack(ModItems.plate_iron, 1, OreDictionary.WILDCARD_VALUE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAJR.java": {
+      "before_sha256": "61c5a62fdaeb558e6b4c33021999578f00436bf88ba4defc4be55e98e0571008",
+      "after_sha256": "3fdf22be700db64d283a7862c18849f91351fabff9357d81ce0e3403dd84ed25",
+      "edits": [
+        {
+          "before_offset": 849,
+          "after_offset": 849,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1090,
+          "after_offset": 1155,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 1501,
+          "after_offset": 1601,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_ajr, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_ajr, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAJRO.java": {
+      "before_sha256": "af764195e0f6527825bd0f5494c352df3a0919f00837b73e235a8c4a902d8b9a",
+      "after_sha256": "5a46fc312e5e2788adebbc0c64817f87160df307b4a4a2950c84c88067639a45",
+      "edits": [
+        {
+          "before_offset": 853,
+          "after_offset": 853,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1096,
+          "after_offset": 1161,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 1507,
+          "after_offset": 1607,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_ajr, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_ajr, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAsbestos.java": {
+      "before_sha256": "fbf816c10bfdc6a1bf9ad8b2fedc635ab2dbcb0fcfe81300e5464bc1deed080c",
+      "after_sha256": "8c1ca4987b4a40e1cd31cd91f9ec9c54dc9fa7ee3518e9d1a1211c033f7dcc6e",
+      "edits": [
+        {
+          "before_offset": 1209,
+          "after_offset": 1209,
+          "old": "\t\tsuper(armorMaterial, 0, armorType);\n",
+          "new": "\t\tsuper(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));\n"
+        },
+        {
+          "before_offset": 1262,
+          "after_offset": 1301,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAshGlasses.java": {
+      "before_sha256": "2069bd89dbe7d80868fe30181c32ee7cb7d1a087a0f2ca55028092f3d016a68e",
+      "after_sha256": "80e87061cafaa691eb73e39b88fd91c019ca7b722b55de08204e0c08f05343f5",
+      "edits": [
+        {
+          "before_offset": 520,
+          "after_offset": 520,
+          "old": "\t\tsuper(armorMaterial, 0, armorType);\n",
+          "new": "\t\tsuper(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));\n"
+        },
+        {
+          "before_offset": 643,
+          "after_offset": 682,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJ.java": {
+      "before_sha256": "77e592729dfa54985568d2f91a7e94f76525ec84c6b58beeccc23092387d14e3",
+      "after_sha256": "dd09e09fc6ae560b82044484b1a1816ad18a41b6b1f83c22339b47c90cd08a5c",
+      "edits": [
+        {
+          "before_offset": 1065,
+          "after_offset": 1065,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1297,
+          "after_offset": 1362,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 2291,
+          "after_offset": 2391,
+          "old": "\t\t\t\tif(armorType == 1) {\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) {\n"
+        },
+        {
+          "before_offset": 2483,
+          "after_offset": 2618,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_bj, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_bj, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJJetpack.java": {
+      "before_sha256": "87c1548b49138de8f6b09cdb9cef483cfa8db19b17412f1f9a5e4699ef0b9d3f",
+      "after_sha256": "232487851ec918d5707be55a685afe5e1edc9c34656f799fd3ba2bb63b3cd67a",
+      "edits": [
+        {
+          "before_offset": 1160,
+          "after_offset": 1160,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBismuth.java": {
+      "before_sha256": "03e5646e2b337a3b2636d02de7f02aaffd94fe1964599c72e99e75edec989d41",
+      "after_sha256": "31bbc9c893b760552db72cb641c37ae895fd0732a947f6a265e9858964163909",
+      "edits": [
+        {
+          "before_offset": 786,
+          "after_offset": 786,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1035,
+          "after_offset": 1100,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 1446,
+          "after_offset": 1546,
+          "old": "\t\t\t\tif(armorType == 0) {\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {\n"
+        },
+        {
+          "before_offset": 1554,
+          "after_offset": 1689,
+          "old": "\t\t\t\tif(armorType == 1) {\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) {\n"
+        },
+        {
+          "before_offset": 1665,
+          "after_offset": 1835,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_bismuth, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_bismuth, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "before_sha256": "c9605f37954ac866485f046c3b96dacdf5ceb48a67107d33ad6ad6629014dd25",
+      "after_sha256": "e2093a57eb1c9c893c3af3ea332a0c06923a9f5639199581e3c3600d1c5f9c2c",
+      "edits": [
+        {
+          "before_offset": 1876,
+          "after_offset": 1876,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 2110,
+          "after_offset": 2175,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 7094,
+          "after_offset": 7194,
+          "old": "\t\t\t\tif(armorType == 0) {\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {\n"
+        },
+        {
+          "before_offset": 7273,
+          "after_offset": 7408,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_dnt, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_dnt, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java": {
+      "before_sha256": "ee6530b6fd50b915726dd0a918607f3e7ed29e26522ebe3482ebd5dd8e7bfe4f",
+      "after_sha256": "e1c4d3e48a710232f50810650d072f0d1a8930c931d5cdb3c90ab08adc75ca94",
+      "edits": [
+        {
+          "before_offset": 1177,
+          "after_offset": 1177,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.025D, 1));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", -0.025D, 1));\n"
+        },
+        {
+          "before_offset": 1449,
+          "after_offset": 1484,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1692,
+          "after_offset": 1792,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 2103,
+          "after_offset": 2238,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_steamsuit, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_steamsuit, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": {
+      "before_sha256": "e410d142125dcbd60ce743d800c58a5d5e4ac16ba6f50c833a20fddaeda1b2aa",
+      "after_sha256": "eedf28a7869ed4fe5c1dbd233083a013093db247dc9c6cb66170aafef4ba4161",
+      "edits": [
+        {
+          "before_offset": 1583,
+          "after_offset": 1583,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", 0.25D, 1));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", 0.25D, 1));\n"
+        },
+        {
+          "before_offset": 1861,
+          "after_offset": 1896,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 2101,
+          "after_offset": 2201,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 3268,
+          "after_offset": 3403,
+          "old": "\t\t\t\tif(armorType == 0) {\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {\n"
+        },
+        {
+          "before_offset": 3375,
+          "after_offset": 3545,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_dieselsuit, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_dieselsuit, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDigamma.java": {
+      "before_sha256": "49b3c6e10582fb0785b1cc8a377c63504fb8043fa47f2b8e6cec38551d2584af",
+      "after_sha256": "12f6929dd2ed7091d1b209f599d39915c0c9e07a1784d0519f8d400bf8b955e2",
+      "edits": [
+        {
+          "before_offset": 896,
+          "after_offset": 896,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1145,
+          "after_offset": 1210,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 1449,
+          "after_offset": 1549,
+          "old": "\t\t\t\tif(armorType == 0) {\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {\n"
+        },
+        {
+          "before_offset": 1669,
+          "after_offset": 1804,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_fau, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_fau, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "6efe58e84d02e49840a42d5ffe8317ecb8348700af354ec41293e7aac6d75cb7",
+      "after_sha256": "d9fafa802cea1b9cf8a72ed094c6d1f28c7c93aa29dae27afd471d572faf20ba",
+      "edits": [
+        {
+          "before_offset": 1386,
+          "after_offset": 1386,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1628,
+          "after_offset": 1693,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 3596,
+          "after_offset": 3696,
+          "old": "\t\t\t\tif(armorType == 0) {\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {\n"
+        },
+        {
+          "before_offset": 4145,
+          "after_offset": 4280,
+          "old": "\t\t\t\t\trenderStandard(ResourceManager.armor_envsuit, armorType,\n",
+          "new": "\t\t\t\t\trenderStandard(ResourceManager.armor_envsuit, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEuphemium.java": {
+      "before_sha256": "2060c8079ad60de660b24933fa7662a69c636b7af93a6e2f6535560b0f3cd222",
+      "after_sha256": "ebcbba7a00a6343e2dc9e9adf34c6af90c2dab6a213b9d52f8744baeab8b9c03",
+      "edits": [
+        {
+          "before_offset": 553,
+          "after_offset": 553,
+          "old": "\t\tsuper(armorMaterial, 0, armorType);\n",
+          "new": "\t\tsuper(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));\n"
+        },
+        {
+          "before_offset": 636,
+          "after_offset": 675,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "aeab5cf3a6856f1fb948390c407e49067884a36f124f82fcab3dff481c4e2d6b",
+      "after_sha256": "7534b4f05cea812e7ad647865cc74ff85da3740bc5864665f59aaf7a974597cc",
+      "edits": [
+        {
+          "before_offset": 2780,
+          "after_offset": 2780,
+          "old": "\t\tsuper(material, 0, slot);\n",
+          "new": "\t\tsuper(material, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));\n"
+        },
+        {
+          "before_offset": 4443,
+          "after_offset": 4482,
+          "old": "\t\t\tdouble mult = armorType == 0 ? HazmatRegistry.helmet :\n\t\t\t\tarmorType == 1 ? HazmatRegistry.chest : \n\t\t\t\tarmorType == 2 ? HazmatRegistry.legs : HazmatRegistry.boots;\n",
+          "new": "\t\t\tdouble mult = com.hbm.util.ArmorSlotOrder.index(armorType) == 0 ? HazmatRegistry.helmet :\n\t\t\t\tcom.hbm.util.ArmorSlotOrder.index(armorType) == 1 ? HazmatRegistry.chest : \n\t\t\t\tcom.hbm.util.ArmorSlotOrder.index(armorType) == 2 ? HazmatRegistry.legs : HazmatRegistry.boots;\n"
+        },
+        {
+          "before_offset": 5439,
+          "after_offset": 5583,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {\n"
+        },
+        {
+          "before_offset": 12736,
+          "after_offset": 12920,
+          "old": "\t\tif(this.armorType != 1) return;\n",
+          "new": "\t\tif(com.hbm.util.ArmorSlotOrder.index(this.armorType) != 1) return;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorGasMask.java": {
+      "before_sha256": "8c77d38b43cb9ad90faa94ea39907aae58ff54d88452ab76846bb423eb8de924",
+      "after_sha256": "877dcc79162440f1cc2993e50b0bced811aa4b90649f3ce1c7ae08b5cdb2cc15",
+      "edits": [
+        {
+          "before_offset": 2556,
+          "after_offset": 2556,
+          "old": "\t\tsuper(ArmorMaterial.IRON, 0, 0);\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\t\tsuper(ArmorMaterial.IRON, 0, com.hbm.util.ArmorSlotOrder.fromIndex(0));\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 2767,
+          "after_offset": 2871,
+          "old": "\t\t\tif(armorSlot == 0) {\n",
+          "new": "\t\t\tif(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {\n"
+        },
+        {
+          "before_offset": 3012,
+          "after_offset": 3163,
+          "old": "\t\t\tif(armorSlot == 0) {\n",
+          "new": "\t\t\tif(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {\n"
+        },
+        {
+          "before_offset": 3177,
+          "after_offset": 3375,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHEV.java": {
+      "before_sha256": "d77fb151949daf244ed8f9b31e5ff758cf6b19f6ea7bb7dc80ccbc0133bc6f0e",
+      "after_sha256": "f5f43fd9bfb23d6cba1e1f1f524dd4f1cc17806a49d83551f00cac62e71c9240",
+      "edits": [
+        {
+          "before_offset": 1314,
+          "after_offset": 1314,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1548,
+          "after_offset": 1613,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 5273,
+          "after_offset": 5373,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_hev, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_hev, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHazmatMask.java": {
+      "before_sha256": "2c44b86ae8f119e5feb240a0b56b458c166ffffba7f4dfb16155e11d3cac7662",
+      "after_sha256": "27cca2048239fee1ed94f7d0f7da9b17872105773351d9551ae3d7023398369a",
+      "edits": [
+        {
+          "before_offset": 846,
+          "after_offset": 846,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": {
+      "before_sha256": "9925bad3b3343838df45cdb00e06819aa3e36fccbef6da152b4906433d72d44f",
+      "after_sha256": "ecdde5c268282140bbdd88dc7ff20decc8cd28d556cddf98e9f3fc775c6d36a1",
+      "edits": [
+        {
+          "before_offset": 1375,
+          "after_offset": 1375,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1524,
+          "after_offset": 1589,
+          "old": "\t\t\tif (armorSlot == 0) {\n",
+          "new": "\t\t\tif (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {\n"
+        },
+        {
+          "before_offset": 1654,
+          "after_offset": 1766,
+          "old": "\t\treturn super.getArmorModel(entityLiving, itemStack, armorSlot);\n",
+          "new": "\t\treturn super.getArmorModel(entityLiving, itemStack, armorSlot, defaultModel);\n"
+        },
+        {
+          "before_offset": 1829,
+          "after_offset": 1955,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", 100D, 0));\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.1D, 1));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", 100D, 0));\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", -0.1D, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorModel.java": {
+      "before_sha256": "58dba0c25f66659cb6c8823c6dfb11798602a8853ac487b4f1f6ee2a1329fa87",
+      "after_sha256": "d4b00cfd6339befd6b56d8ec4062f465ee222332a6f327b5e31a12362cd9378f",
+      "edits": [
+        {
+          "before_offset": 1538,
+          "after_offset": 1538,
+          "old": "\t\tsuper(armorMaterial, 0, armorType);\n",
+          "new": "\t\tsuper(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));\n"
+        },
+        {
+          "before_offset": 1615,
+          "after_offset": 1654,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1750,
+          "after_offset": 1854,
+          "old": "\t\t\tif(armorSlot == 0) {\n",
+          "new": "\t\t\tif(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {\n"
+        },
+        {
+          "before_offset": 1901,
+          "after_offset": 2052,
+          "old": "\t\t\tif(armorSlot == 0) {\n",
+          "new": "\t\t\tif(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {\n"
+        },
+        {
+          "before_offset": 2150,
+          "after_offset": 2348,
+          "old": "\t\t\tif(armorSlot == 1) {\n",
+          "new": "\t\t\tif(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {\n"
+        },
+        {
+          "before_offset": 2294,
+          "after_offset": 2540,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": {
+      "before_sha256": "190856cc8de59114dff20edf2a0dd5fbc4a2598b320359d052c7711d243548f2",
+      "after_sha256": "fc7250997edae379bcc64053f8b3794d0ca07861e22f1c203bb5ad9834e270aa",
+      "edits": [
+        {
+          "before_offset": 1320,
+          "after_offset": 1320,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1557,
+          "after_offset": 1622,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 2813,
+          "after_offset": 2913,
+          "old": "\t\t\t\tif(armorType == 0) GL11.glTranslated(0, 0.5, 0);\n\t\t\t\trenderStandard(ResourceManager.armor_ncr, armorType,\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) GL11.glTranslated(0, 0.5, 0);\n\t\t\t\trenderStandard(ResourceManager.armor_ncr, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNo9.java": {
+      "before_sha256": "9bb445572e96d5160c5bad73eb2af9913a33fee9a17a97a5bcf8c0f5bc1faddc",
+      "after_sha256": "2cf4f8fbcd359fe6a305ff22cddd0f0bb2fcf69d5b6549ddd285026b024a2acc",
+      "edits": [
+        {
+          "before_offset": 2019,
+          "after_offset": 2019,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorRPA.java": {
+      "before_sha256": "309e3bec76aade46a530707ade1a185ac3deaa936d31e81152ccb6c12cbdaeaa",
+      "after_sha256": "2f7dab6ecceb75b50267fad786c5c98adcc31e3362b426b11706fddb06f205a1",
+      "edits": [
+        {
+          "before_offset": 949,
+          "after_offset": 949,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1190,
+          "after_offset": 1255,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 1601,
+          "after_offset": 1701,
+          "old": "\t\t\t\tif(armorType == 1) GL11.glTranslated(0, 0.25, 0);\n\t\t\t\trenderStandard(ResourceManager.armor_remnant, armorType,\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) GL11.glTranslated(0, 0.25, 0);\n\t\t\t\trenderStandard(ResourceManager.armor_remnant, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorT51.java": {
+      "before_sha256": "31d70d6260c56f3962e425e746a1e192ac18f3da8550d661890d46cd0fecb05b",
+      "after_sha256": "e6be2c3b9f7bfd81363d7c67d2e5fe654cb3151080ac85eea3e6f67d9fceb249",
+      "edits": [
+        {
+          "before_offset": 849,
+          "after_offset": 849,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1090,
+          "after_offset": 1155,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 1501,
+          "after_offset": 1601,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_t51, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_t51, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTaurun.java": {
+      "before_sha256": "e83654de8f1572901005972534d97ffd348db9507f415bf04c85134a351cac5e",
+      "after_sha256": "3c697986acd210e1eb8b4ccd541364badf055abd0de2d0b98a839f268cb53e83",
+      "edits": [
+        {
+          "before_offset": 805,
+          "after_offset": 805,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1045,
+          "after_offset": 1110,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 1350,
+          "after_offset": 1450,
+          "old": "\t\t\t\tif(armorType == 0) GL11.glTranslated(0, 1, 0);\n\t\t\t\tif(armorType == 1) GL11.glTranslated(0, 1.5, 0);\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) GL11.glTranslated(0, 1, 0);\n\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) GL11.glTranslated(0, 1.5, 0);\n"
+        },
+        {
+          "before_offset": 1568,
+          "after_offset": 1738,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_taurun, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_taurun, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java": {
+      "before_sha256": "f317e0c86ae64aedf8c364b54b4b6941e54ba7772605f2277dd4aa77330771d0",
+      "after_sha256": "5475a40f701e91d69320d1e515db46373d69c0c0b45280b650b6af0391c601db",
+      "edits": [
+        {
+          "before_offset": 1222,
+          "after_offset": 1222,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n"
+        },
+        {
+          "before_offset": 1474,
+          "after_offset": 1539,
+          "old": "\t\treturn models[armorSlot];\n",
+          "new": "\t\treturn models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];\n"
+        },
+        {
+          "before_offset": 3755,
+          "after_offset": 3855,
+          "old": "\t\t\t\tif(armorType == 0) GL11.glTranslated(0, 1, 0);\n\t\t\t\tif(armorType == 1) GL11.glTranslated(0, 1.5, 0);\n",
+          "new": "\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) GL11.glTranslated(0, 1, 0);\n\t\t\t\tif(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) GL11.glTranslated(0, 1.5, 0);\n"
+        },
+        {
+          "before_offset": 3973,
+          "after_offset": 4143,
+          "old": "\t\t\t\trenderStandard(ResourceManager.armor_trenchmaster, armorType,\n",
+          "new": "\t\t\t\trenderStandard(ResourceManager.armor_trenchmaster, com.hbm.util.ArmorSlotOrder.index(armorType),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHealth.java": {
+      "before_sha256": "e47f80904afeeb4607f1cf449512b66aff3ffb5d67d956b2a75d93e4e350e5be",
+      "after_sha256": "a6319e48dd0f0de6d8c9dedccbd76fd023cd160e27cb67bf25bff9081ebf7c4d",
+      "edits": [
+        {
+          "before_offset": 1635,
+          "after_offset": 1635,
+          "old": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Health\", health, 0));\n",
+          "new": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Health\", health, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java": {
+      "before_sha256": "2f42ae867cad0209c926c67cceb399643a845783d2f586b5b9a68656b8165105",
+      "after_sha256": "9926f4f4e30787bd1c2e6119ec9d2d3b510fc5f0b46f51935ead6c9af2f01eff",
+      "edits": [
+        {
+          "before_offset": 2819,
+          "after_offset": 2819,
+          "old": "\tpublic boolean isValidArmor(ItemStack stack, int armorType, Entity entity) {\n\t\treturn armorType == 3;\n",
+          "new": "\tpublic boolean isValidArmor(ItemStack stack, net.minecraft.inventory.EntityEquipmentSlot armorType, Entity entity) {\n\t\treturn armorType == net.minecraft.inventory.EntityEquipmentSlot.FEET;\n"
+        },
+        {
+          "before_offset": 2937,
+          "after_offset": 3024,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        },
+        {
+          "before_offset": 4576,
+          "after_offset": 4703,
+          "old": "\t\tMinecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), 3, null)));\n",
+          "new": "\t\tMinecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), net.minecraft.inventory.EntityEquipmentSlot.FEET, null)));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModInsert.java": {
+      "before_sha256": "2c3bf291a4fca377cb51f9bb2f7fa97a7638dcba2a42abcfb7a9610d5aaeb60d",
+      "after_sha256": "f9822af9385c1dfeb4a0102ee84378f2eecb7d057ddd98ebfd4aac97c3c14dc3",
+      "edits": [
+        {
+          "before_offset": 4448,
+          "after_offset": 4448,
+          "old": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Speed\", -1F + speed, 2));\n",
+          "new": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Speed\", -1F + speed, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModIron.java": {
+      "before_sha256": "dc9677191963635946c673cca632ac5ba42f4b578e5b5440f2b88e5e182374b0",
+      "after_sha256": "5022a5fbf317f3b40eddf168cab47d9cd98932c8ade4482a622f114718bdb19a",
+      "edits": [
+        {
+          "before_offset": 1182,
+          "after_offset": 1182,
+          "old": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Knockback\", 0.5, 0));\n",
+          "new": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Knockback\", 0.5, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModServos.java": {
+      "before_sha256": "35c748f8b3fea7331c0f0a77fc47febb95dd4474d09a2eeac77b486daa5295b4",
+      "after_sha256": "4cdd0ac9580a9805bfb69508da521a1e876e1b6b007f705381d5dc01b216d6f0",
+      "edits": [
+        {
+          "before_offset": 1440,
+          "after_offset": 1440,
+          "old": "\t\tif(item.armorType == 1) {\n",
+          "new": "\t\tif(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {\n"
+        },
+        {
+          "before_offset": 1772,
+          "after_offset": 1807,
+          "old": "\t\tif(item.armorType == 2) {\n",
+          "new": "\t\tif(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {\n"
+        },
+        {
+          "before_offset": 2222,
+          "after_offset": 2292,
+          "old": "\t\tif(item.armorType == 1) {\n",
+          "new": "\t\tif(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {\n"
+        },
+        {
+          "before_offset": 2491,
+          "after_offset": 2596,
+          "old": "\t\tif(item.armorType == 2) {\n",
+          "new": "\t\tif(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {\n"
+        },
+        {
+          "before_offset": 2925,
+          "after_offset": 3065,
+          "old": "\t\tif(item.armorType == 1) {\n",
+          "new": "\t\tif(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {\n"
+        },
+        {
+          "before_offset": 3053,
+          "after_offset": 3228,
+          "old": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Servos\", 0.5, 2));\n",
+          "new": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 0.5, 2));\n"
+        },
+        {
+          "before_offset": 3287,
+          "after_offset": 3497,
+          "old": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Servos\", 1.5, 2));\n",
+          "new": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 1.5, 2));\n"
+        },
+        {
+          "before_offset": 3419,
+          "after_offset": 3664,
+          "old": "\t\tif(item.armorType == 2) {\n",
+          "new": "\t\tif(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {\n"
+        },
+        {
+          "before_offset": 3548,
+          "after_offset": 3828,
+          "old": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Servos\", 0.25, 2));\n",
+          "new": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 0.25, 2));\n"
+        },
+        {
+          "before_offset": 3784,
+          "after_offset": 4099,
+          "old": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Servos\", 0.5, 2));\n",
+          "new": "\t\t\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 0.5, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModWD40.java": {
+      "before_sha256": "898f5d0ad0d29b18fdd27c802de5857f505d7b0290b8d3af4b8e95e1ef61a8be",
+      "after_sha256": "dcc620586a217cdc808eb3da450eae31b70fad9cdd855bb171df374fff8ac333",
+      "edits": [
+        {
+          "before_offset": 1839,
+          "after_offset": 1839,
+          "old": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], \"NTM Armor Mod Health\", 4, 0));\n",
+          "new": "\t\t\t\tnew AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Health\", 4, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBase.java": {
+      "before_sha256": "afe831fffc7258ad405ec96806d5cfc4c45214f630bcb2bd2aae112470325db4",
+      "after_sha256": "ebaabd6c946da3448c92943959956c05089e225c8ff0d7e823543fb96aaf2335",
+      "edits": [
+        {
+          "before_offset": 1910,
+          "after_offset": 1910,
+          "old": "\t\tModelBiped modelJetpack = getArmorModel(event.getEntityLiving(), null, 1);\n",
+          "new": "\t\tModelBiped modelJetpack = getArmorModel(event.getEntityLiving(), null, net.minecraft.inventory.EntityEquipmentSlot.CHEST, null);\n"
+        },
+        {
+          "before_offset": 2585,
+          "after_offset": 2639,
+          "old": "\t\tMinecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), 1, null)));\n",
+          "new": "\t\tMinecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), net.minecraft.inventory.EntityEquipmentSlot.CHEST, null)));\n"
+        },
+        {
+          "before_offset": 2825,
+          "after_offset": 2927,
+          "old": "\tpublic boolean isValidArmor(ItemStack stack, int armorType, Entity entity) {\n\t\treturn armorType == 1;\n",
+          "new": "\tpublic boolean isValidArmor(ItemStack stack, net.minecraft.inventory.EntityEquipmentSlot armorType, Entity entity) {\n\t\treturn armorType == net.minecraft.inventory.EntityEquipmentSlot.CHEST;\n"
+        },
+        {
+          "before_offset": 2967,
+          "after_offset": 3157,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n\t\tif (armorSlot == 1) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n\t\tif (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBooster.java": {
+      "before_sha256": "7429520f31fa0c499236f37cffb9520c3a71197cd4595f4f90125789fd0580df",
+      "after_sha256": "ccc383031a83350fae076f568aaeed9fd7476bc266b27e17a1b29af07f968ef7",
+      "edits": [
+        {
+          "before_offset": 897,
+          "after_offset": 897,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBreak.java": {
+      "before_sha256": "4e0d1112c38abf713c95af4e43ee9c9361a1c6bec2bcf372d18aa570c240f658",
+      "after_sha256": "e5a1ed0a494cc87f618217369f1b9793691a5c435ad47ede0affd1f353bb8927",
+      "edits": [
+        {
+          "before_offset": 928,
+          "after_offset": 928,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackRegular.java": {
+      "before_sha256": "9d5bf8231c112934cfcde21fd602c151ddb25076ca37c73df4a5e77e5916c95b",
+      "after_sha256": "b2b3ea77a97ce74f8c8b3295bff76d42e76c80a6b1209d56ceb5e179da9057d5",
+      "edits": [
+        {
+          "before_offset": 896,
+          "after_offset": 896,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackVectorized.java": {
+      "before_sha256": "d63ded63425c967ff74e28c0d47f2b27fbd4e5867d9985cfa39c1864576d74c0",
+      "after_sha256": "d6dfc5a6214eb83b7f1ccc58a32c1852751575aca5895c7c53f191f9ddf3b544",
+      "edits": [
+        {
+          "before_offset": 902,
+          "after_offset": 902,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/MaskOfInfamy.java": {
+      "before_sha256": "4e9c7c102e143f30b37752ea83b160ec064b72b40c5bd465147ca796b3015111",
+      "after_sha256": "e97f5b73db03143b5a25e2ee4a9711708e846d39864abd83f889559d840197b5",
+      "edits": [
+        {
+          "before_offset": 272,
+          "after_offset": 272,
+          "old": "\t\tsuper(mat, 0, slot);\n",
+          "new": "\t\tsuper(mat, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));\n"
+        },
+        {
+          "before_offset": 311,
+          "after_offset": 350,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ModArmor.java": {
+      "before_sha256": "c7f221f4d3eb70fb3a8df6a589f0de3a1487d0b933d60c1700db5c4c6ab78614",
+      "after_sha256": "20498b6e0c3de702a053c04376b60ccc64ddb2a381562a31bb41f77b2805f615",
+      "edits": [
+        {
+          "before_offset": 300,
+          "after_offset": 300,
+          "old": "\t\tsuper(material, 0, slot);\n",
+          "new": "\t\tsuper(material, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));\n"
+        },
+        {
+          "before_offset": 344,
+          "after_offset": 383,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/WingsMurk.java": {
+      "before_sha256": "017828514f80e3bd43b59c1c7db92fe2fe8412f01554c4dfc80e940f9d00589b",
+      "after_sha256": "d4d9f333a950671500a01c1ec46087ffbe86d2b6e969da47b671ad5a23908441",
+      "edits": [
+        {
+          "before_offset": 762,
+          "after_offset": 762,
+          "old": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {\n",
+          "new": "\tpublic String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {\n"
+        },
+        {
+          "before_offset": 937,
+          "after_offset": 977,
+          "old": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {\n\t\tif (armorSlot == 1) {\n",
+          "new": "\tpublic ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {\n\t\tif (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/MainRegistry.java": {
+      "before_sha256": "d6728c4ec543df69357a93ffee3a428a8ab746641a2d1be05538903cd7168095",
+      "after_sha256": "5d2d4c831dcd98a5ae43614d44512181f6cbec2b6dd8539233e8d3a4baef0b9f",
+      "edits": [
+        {
+          "before_offset": 23,
+          "after_offset": 23,
+          "old": "",
+          "new": "import net.minecraft.init.SoundEvents;\r\nimport net.minecraftforge.oredict.OreDictionary;\r\n"
+        },
+        {
+          "before_offset": 6853,
+          "after_offset": 6943,
+          "old": "\tpublic static ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial(\"HBM_SCHRABIDIUM\", 100, new int[] { 3, 8, 6, 3 }, 50);\r\n\tpublic static ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial(\"HBM_EUPHEMIUM\", 15000000, new int[] { 3, 8, 6, 3 }, 100);\r\n\tpublic static ArmorMaterial aMatHaz = EnumHelper.addArmorMaterial(\"HBM_HAZMAT\", 60, new int[] { 2, 5, 4, 1 }, 5);\r\n\tpublic static ArmorMaterial aMatHaz2 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT2\", 60, new int[] { 2, 5, 4, 1 }, 5);\r\n\tpublic static ArmorMaterial aMatHaz3 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT3\", 60, new int[] { 2, 5, 4, 1 }, 5);\r\n\tpublic static ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial(\"HBM_STEEL\", 20, new int[] { 2, 6, 5, 2 }, 5);\r\n\tpublic static ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial(\"HBM_ASBESTOS\", 20, new int[] { 1, 4, 3, 1 }, 5);\r\n\tpublic static ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial(\"HBM_TITANIUM\", 25, new int[] { 3, 8, 6, 3 }, 9);\r\n\tpublic static ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial(\"HBM_ALLOY\", 40, new int[] { 3, 8, 6, 3 }, 12);\r\n\tpublic static ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial(\"HBM_PAA\", 75, new int[] { 3, 8, 6, 3 }, 25);\r\n\tpublic static ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial(\"HBM_CMB\", 60, new int[] { 3, 8, 6, 3 }, 50);\r\n\tpublic static ArmorMaterial aMatAus3 = EnumHelper.addArmorMaterial(\"HBM_AUSIII\", 375, new int[] { 2, 6, 5, 2 }, 0);\r\n\tpublic static ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial(\"HBM_SECURITY\", 100, new int[] { 3, 8, 6, 3 }, 15);\r\n\tpublic static ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial(\"HBM_COBALT\", 70, new int[] { 3, 8, 6, 3 }, 60);\r\n\tpublic static ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial(\"HBM_STARMETAL\", 150, new int[] { 3, 8, 6, 3 }, 100);\r\n\tpublic static ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial(\"HBM_BISMUTH\", 100, new int[] { 3, 8, 6, 3 }, 100);\r\n",
+          "new": "\tpublic static ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial(\"HBM_SCHRABIDIUM\", \"leather\", 100, new int[] { 3, 6, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial(\"HBM_EUPHEMIUM\", \"leather\", 15000000, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatHaz = EnumHelper.addArmorMaterial(\"HBM_HAZMAT\", \"leather\", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatHaz2 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT2\", \"leather\", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatHaz3 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT3\", \"leather\", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial(\"HBM_STEEL\", \"leather\", 20, new int[] { 2, 5, 6, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial(\"HBM_ASBESTOS\", \"leather\", 20, new int[] { 1, 3, 4, 1 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial(\"HBM_TITANIUM\", \"leather\", 25, new int[] { 3, 6, 8, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial(\"HBM_ALLOY\", \"leather\", 40, new int[] { 3, 6, 8, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial(\"HBM_PAA\", \"leather\", 75, new int[] { 3, 6, 8, 3 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial(\"HBM_CMB\", \"leather\", 60, new int[] { 3, 6, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatAus3 = EnumHelper.addArmorMaterial(\"HBM_AUSIII\", \"leather\", 375, new int[] { 2, 5, 6, 2 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial(\"HBM_SECURITY\", \"leather\", 100, new int[] { 3, 6, 8, 3 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial(\"HBM_COBALT\", \"leather\", 70, new int[] { 3, 6, 8, 3 }, 60, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial(\"HBM_STARMETAL\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n\tpublic static ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial(\"HBM_BISMUTH\", \"leather\", 100, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);\r\n"
+        },
+        {
+          "before_offset": 15331,
+          "after_offset": 16301,
+          "old": "\t\taMatSchrab.customCraftingMaterial = ModItems.ingot_schrabidium;\r\n\t\taMatHaz.customCraftingMaterial = ModItems.hazmat_cloth;\r\n\t\taMatHaz2.customCraftingMaterial = ModItems.hazmat_cloth_red;\r\n\t\taMatHaz3.customCraftingMaterial = ModItems.hazmat_cloth_grey;\r\n\t\taMatTitan.customCraftingMaterial = ModItems.ingot_titanium;\r\n\t\taMatSteel.customCraftingMaterial = ModItems.ingot_steel;\r\n\t\taMatAsbestos.customCraftingMaterial = ModItems.asbestos_cloth;\r\n\t\taMatAlloy.customCraftingMaterial = ModItems.ingot_advanced_alloy;\r\n\t\taMatPaa.customCraftingMaterial = ModItems.plate_paa;\r\n\t\taMatCMB.customCraftingMaterial = ModItems.ingot_combine_steel;\r\n\t\taMatAus3.customCraftingMaterial = ModItems.ingot_australium;\r\n\t\taMatSecurity.customCraftingMaterial = ModItems.plate_kevlar;\r\n\t\taMatCobalt.customCraftingMaterial = ModItems.ingot_cobalt;\r\n\t\taMatStarmetal.customCraftingMaterial = ModItems.ingot_starmetal;\r\n\t\taMatBismuth.customCraftingMaterial = ModItems.plate_bismuth;\r\n",
+          "new": "\t\taMatSchrab.repairMaterial = new ItemStack(ModItems.ingot_schrabidium, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatHaz.repairMaterial = new ItemStack(ModItems.hazmat_cloth, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatHaz2.repairMaterial = new ItemStack(ModItems.hazmat_cloth_red, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatHaz3.repairMaterial = new ItemStack(ModItems.hazmat_cloth_grey, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatTitan.repairMaterial = new ItemStack(ModItems.ingot_titanium, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatSteel.repairMaterial = new ItemStack(ModItems.ingot_steel, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatAsbestos.repairMaterial = new ItemStack(ModItems.asbestos_cloth, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatAlloy.repairMaterial = new ItemStack(ModItems.ingot_advanced_alloy, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatPaa.repairMaterial = new ItemStack(ModItems.plate_paa, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatCMB.repairMaterial = new ItemStack(ModItems.ingot_combine_steel, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatAus3.repairMaterial = new ItemStack(ModItems.ingot_australium, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatSecurity.repairMaterial = new ItemStack(ModItems.plate_kevlar, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatCobalt.repairMaterial = new ItemStack(ModItems.ingot_cobalt, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatStarmetal.repairMaterial = new ItemStack(ModItems.ingot_starmetal, 1, OreDictionary.WILDCARD_VALUE);\r\n\t\taMatBismuth.repairMaterial = new ItemStack(ModItems.plate_bismuth, 1, OreDictionary.WILDCARD_VALUE);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderCrucible.java": {
+      "before_sha256": "804b99957f3de3e3f4f5aa2c0d92de75e07ac72f2b46dc3b5b03bae60e0ce2da",
+      "after_sha256": "73523f1c720b7e409a5036e4abe9d6e337e0249ca4b54c71398158c524fb6160",
+      "edits": [
+        {
+          "before_offset": 496,
+          "after_offset": 496,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 2329,
+          "after_offset": 2447,
+          "old": "\t\t\tTessellator tess = Tessellator.instance;\n\t\t\ttess.setNormal(0F, 1F, 0F);\n\t\t\ttess.startDrawingQuads();\n\t\t\ttess.addVertexWithUV(-1, 0.5 + level, -1, 0, 0);\n\t\t\ttess.addVertexWithUV(-1, 0.5 + level, 1, 0, 1);\n\t\t\ttess.addVertexWithUV(1, 0.5 + level, 1, 1, 1);\n\t\t\ttess.addVertexWithUV(1, 0.5 + level, -1, 1, 0);\n",
+          "new": "\t\t\tTessellator tess = Tessellator.getInstance();\n\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\t\t// Legacy begin resets this attribute; retain its argument evaluation.\n\t\t\tfloat tessResetNormalX = 0F, tessResetNormalY = 1F, tessResetNormalZ = 0F;\n\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessBuffer.pos(-1, 0.5 + level, -1).tex(0, 0).endVertex();\n\t\t\ttessBuffer.pos(-1, 0.5 + level, 1).tex(0, 1).endVertex();\n\t\t\ttessBuffer.pos(1, 0.5 + level, 1).tex(1, 1).endVertex();\n\t\t\ttessBuffer.pos(1, 0.5 + level, -1).tex(1, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderStrandCaster.java": {
+      "before_sha256": "613585626cf062e21abdc9832042a63505be7d56a9c0944e9435238137244825",
+      "after_sha256": "dbd90b2edb08517750ca70154ab6b8533aa55a4c19a86a2715549427e80d3e88",
+      "edits": [
+        {
+          "before_offset": 435,
+          "after_offset": 435,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 2879,
+          "after_offset": 2997,
+          "old": "\t\t\tTessellator tess = Tessellator.instance;\n\t\t\ttess.setNormal(0F, 1F, 0F);\n\t\t\ttess.setColorOpaque_F(r / 255F, g / 255F, b / 255F);\n",
+          "new": "\t\t\tTessellator tess = Tessellator.getInstance();\n\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\t\t// Legacy begin resets this attribute; retain its argument evaluation.\n\t\t\tfloat tessResetNormalX = 0F, tessResetNormalY = 1F, tessResetNormalZ = 0F;\n\t\t\t// Legacy begin resets this attribute; retain its argument evaluation.\n\t\t\tfloat tessResetRed = r / 255F, tessResetGreen = g / 255F, tessResetBlue = b / 255F;\n"
+        },
+        {
+          "before_offset": 3032,
+          "after_offset": 3429,
+          "old": "\t\t\ttess.startDrawingQuads();\n\t\t\ttess.addVertexWithUV(-0.9, 2.3 + level, -0.999, 0, 0);\n\t\t\ttess.addVertexWithUV(-0.9, 2.3 + level, 0.999, 0, 1);\n\t\t\ttess.addVertexWithUV(0.9, 2.3 + level, 0.999, 1, 1);\n\t\t\ttess.addVertexWithUV(0.9, 2.3 + level, -0.999, 1, 0);\n",
+          "new": "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessBuffer.pos(-0.9, 2.3 + level, -0.999).tex(0, 0).endVertex();\n\t\t\ttessBuffer.pos(-0.9, 2.3 + level, 0.999).tex(0, 1).endVertex();\n\t\t\ttessBuffer.pos(0.9, 2.3 + level, 0.999).tex(1, 1).endVertex();\n\t\t\ttessBuffer.pos(0.9, 2.3 + level, -0.999).tex(1, 0).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/SmallBlockPronter.java": {
+      "before_sha256": "2a02f6760553680a9b4010f6b1ad83f367105d516064ba856f1bb4e6ebcf578f",
+      "after_sha256": "3db547a8ffdb55e0c270b55829f1c2624c3b064e5db141c4c857a674113ec8ba",
+      "edits": [
+        {
+          "before_offset": 234,
+          "after_offset": 234,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 705,
+          "after_offset": 823,
+          "old": "\t\tTessellator tesseract = Tessellator.instance;\n\t\ttesseract.startDrawingQuads();\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1, 0);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 0, 0);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 0, 1);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2,  1 - 11 * pixel / 2, 1, 1);\n",
+          "new": "\t\tTessellator tesseract = Tessellator.getInstance();\n\t\tBufferBuilder tesseractBuffer = tesseract.getBuffer();\n\t\ttesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2).tex(1, 0).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2).tex(0, 0).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2).tex(0, 1).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2).tex(1, 1).endVertex();\n"
+        },
+        {
+          "before_offset": 1177,
+          "after_offset": 1426,
+          "old": "\t\t\ttesseract.startDrawingQuads();\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2, 1, 0);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 0, 0);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 0, 1);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2,  11 * pixel / 2, 1, 1);\n",
+          "new": "\t\t\ttesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2).tex(1, 0).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2).tex(0, 0).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2).tex(0, 1).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2).tex(1, 1).endVertex();\n"
+        },
+        {
+          "before_offset": 1602,
+          "after_offset": 1920,
+          "old": "\t\t\ttesseract.startDrawingQuads();\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2, 1, 0);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2, 0, 0);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2,  11 * pixel / 2, 0, 1);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1, 1);\n",
+          "new": "\t\t\ttesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2).tex(1, 0).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2).tex(0, 0).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2).tex(0, 1).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2).tex(1, 1).endVertex();\n"
+        },
+        {
+          "before_offset": 2011,
+          "after_offset": 2398,
+          "old": "\t\t\ttesseract.startDrawingQuads();\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1, 0);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2, 0, 0);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 11 * pixel / 2,  11 * pixel / 2, 0, 1);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 1, 1);\n",
+          "new": "\t\t\ttesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2).tex(1, 0).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2).tex(0, 0).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2).tex(0, 1).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2).tex(1, 1).endVertex();\n"
+        },
+        {
+          "before_offset": 2420,
+          "after_offset": 2876,
+          "old": "\t\t\ttesseract.startDrawingQuads();\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2, 1, 0);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2, 0, 0);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 1 - 11 * pixel / 2,  1 - 11 * pixel / 2, 0, 1);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1, 1);\n",
+          "new": "\t\t\ttesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2).tex(1, 0).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 1 - 11 * pixel / 2, 11 * pixel / 2).tex(0, 0).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2).tex(0, 1).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2).tex(1, 1).endVertex();\n"
+        },
+        {
+          "before_offset": 2845,
+          "after_offset": 3370,
+          "old": "\t\t\ttesseract.startDrawingQuads();\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1, 0);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 0, 0);\n\t\t\ttesseract.addVertexWithUV(1 - 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 0, 1);\n\t\t\ttesseract.addVertexWithUV(11 * pixel / 2, 11 * pixel / 2,  1 - 11 * pixel / 2, 1, 1);\n",
+          "new": "\t\t\ttesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2).tex(1, 0).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2).tex(0, 0).endVertex();\n\t\t\ttesseractBuffer.pos(1 - 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2).tex(0, 1).endVertex();\n\t\t\ttesseractBuffer.pos(11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2).tex(1, 1).endVertex();\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/util/ArmorSlotOrder.java": "eb1fc28d55a91eadc1df7412ee5d7ab330b7ff31d74c9bafcde8002fd284e370"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

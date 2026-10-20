@@ -1,0 +1,1143 @@
+{
+  "calls": [
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasAsbestos.java",
+      "method": "onEntityCollidedWithBlock",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(living, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "living",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "method": "randomDisplayTick",
+      "name": "checkArmorPiece",
+      "call": "ArmorUtil.checkArmorPiece(p, ModItems.ashglasses, 3)",
+      "args": [
+        "p",
+        "ModItems.ashglasses",
+        "3"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasClorine.java",
+      "method": "onEntityCollidedWithBlock",
+      "name": "hasAllProtection",
+      "call": "ArmorRegistry.hasAllProtection(entityLiving, 3, HazardClass.GAS_LUNG)",
+      "args": [
+        "entityLiving",
+        "3",
+        "HazardClass.GAS_LUNG"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasCoal.java",
+      "method": "onEntityCollidedWithBlock",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(living, 3, HazardClass.PARTICLE_COARSE)",
+      "args": [
+        "living",
+        "3",
+        "HazardClass.PARTICLE_COARSE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasMeltdown.java",
+      "method": "onEntityCollidedWithBlock",
+      "name": "hasAllProtection",
+      "call": "ArmorRegistry.hasAllProtection(entityLiving, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "entityLiving",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasMonoxide.java",
+      "method": "onEntityCollidedWithBlock",
+      "name": "hasAllProtection",
+      "call": "ArmorRegistry.hasAllProtection(entityLiving, 3, HazardClass.GAS_MONOXIDE)",
+      "args": [
+        "entityLiving",
+        "3",
+        "HazardClass.GAS_MONOXIDE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasRadon.java",
+      "method": "onEntityCollidedWithBlock",
+      "name": "hasAllProtection",
+      "call": "ArmorRegistry.hasAllProtection(entityLiving, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "entityLiving",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java",
+      "method": "onEntityCollidedWithBlock",
+      "name": "hasAllProtection",
+      "call": "ArmorRegistry.hasAllProtection(entityLiving, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "entityLiving",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BarbedWire.java",
+      "method": "onEntityCollision",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer) ent, 0, 1)",
+      "args": [
+        "(EntityPlayer) ent",
+        "0",
+        "1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BarbedWire.java",
+      "method": "onEntityCollision",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer) ent, 1, 1)",
+      "args": [
+        "(EntityPlayer) ent",
+        "1",
+        "1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BarbedWire.java",
+      "method": "onEntityCollision",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer) ent, 2, 1)",
+      "args": [
+        "(EntityPlayer) ent",
+        "2",
+        "1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BarbedWire.java",
+      "method": "onEntityCollision",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer) ent, 3, 1)",
+      "args": [
+        "(EntityPlayer) ent",
+        "3",
+        "1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockAshes.java",
+      "method": "randomDisplayTick",
+      "name": "checkArmorPiece",
+      "call": "ArmorUtil.checkArmorPiece(MainRegistry.proxy.me(), ModItems.ashglasses, 3)",
+      "args": [
+        "MainRegistry.proxy.me()",
+        "ModItems.ashglasses",
+        "3"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockAshes.java",
+      "method": "randomDisplayTick",
+      "name": "hasAnyProtection",
+      "call": "ArmorRegistry.hasAnyProtection(MainRegistry.proxy.me(), 3, HazardClass.SAND, HazardClass.LIGHT)",
+      "args": [
+        "MainRegistry.proxy.me()",
+        "3",
+        "HazardClass.SAND",
+        "HazardClass.LIGHT"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/effect/EntityMist.java",
+      "method": "affect",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(living, i, trait.getRating() / 50)",
+      "args": [
+        "living",
+        "i",
+        "trait.getRating() / 50"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/EntityFBI.java",
+      "method": "attackEntityFrom",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4)",
+      "args": [
+        "this",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/EntityFBI.java",
+      "method": "attackEntityFrom",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4)",
+      "args": [
+        "this",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/EntityFBI.java",
+      "method": "isPotionApplicable",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4)",
+      "args": [
+        "this",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "method": "onEntityHurt",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer)e, 0, config.caustic)",
+      "args": [
+        "(EntityPlayer)e",
+        "0",
+        "config.caustic"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "method": "onEntityHurt",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer)e, 1, config.caustic)",
+      "args": [
+        "(EntityPlayer)e",
+        "1",
+        "config.caustic"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "method": "onEntityHurt",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer)e, 2, config.caustic)",
+      "args": [
+        "(EntityPlayer)e",
+        "2",
+        "config.caustic"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "method": "onEntityHurt",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit((EntityPlayer)e, 3, config.caustic)",
+      "args": [
+        "(EntityPlayer)e",
+        "3",
+        "config.caustic"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "method": "affect",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(living, i, trait.getRating() / 40)",
+      "args": [
+        "living",
+        "i",
+        "trait.getRating() / 40"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "poison",
+      "name": "hasAnyProtection",
+      "call": "ArmorRegistry.hasAnyProtection(entity, 3, HazardClass.GAS_LUNG, HazardClass.GAS_BLISTERING)",
+      "args": [
+        "entity",
+        "3",
+        "HazardClass.GAS_LUNG",
+        "HazardClass.GAS_BLISTERING"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "pc",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 0, 25)",
+      "args": [
+        "entity",
+        "0",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "pc",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 1, 25)",
+      "args": [
+        "entity",
+        "1",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "pc",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 2, 25)",
+      "args": [
+        "entity",
+        "2",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "pc",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 3, 25)",
+      "args": [
+        "entity",
+        "3",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "c",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 0, 25)",
+      "args": [
+        "entity",
+        "0",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "c",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 1, 25)",
+      "args": [
+        "entity",
+        "1",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "c",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 2, 25)",
+      "args": [
+        "entity",
+        "2",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "method": "c",
+      "name": "damageSuit",
+      "call": "ArmorUtil.damageSuit(entity, 3, 25)",
+      "args": [
+        "entity",
+        "3",
+        "25"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/BossSpawnHandler.java",
+      "method": "meteorUpdate",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(p, i)",
+      "args": [
+        "p",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "method": "handleContagion",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(player, 3, HazardClass.BACTERIA)",
+      "args": [
+        "player",
+        "3",
+        "HazardClass.BACTERIA"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "method": "handleContagion",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(living, 3, HazardClass.BACTERIA)",
+      "args": [
+        "living",
+        "3",
+        "HazardClass.BACTERIA"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "method": "handleLungDisease",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(entity, 3, HazardClass.PARTICLE_COARSE)",
+      "args": [
+        "entity",
+        "3",
+        "HazardClass.PARTICLE_COARSE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "method": "handlePollution",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(entity, 3, HazardClass.GAS_BLISTERING)",
+      "args": [
+        "entity",
+        "3",
+        "HazardClass.GAS_BLISTERING"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "method": "handlePollution",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(entity, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "entity",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/HazardSystem.java",
+      "method": "updateLivingInventory",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i)",
+      "args": [
+        "entity",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 5; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/type/HazardTypeAsbestos.java",
+      "method": "onUpdate",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(target, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "target",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/type/HazardTypeAutism.java",
+      "method": "onUpdate",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(target, 3, HazardClass.LIGHT)",
+      "args": [
+        "target",
+        "3",
+        "HazardClass.LIGHT"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/type/HazardTypeBlinding.java",
+      "method": "onUpdate",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(target, 3, HazardClass.LIGHT)",
+      "args": [
+        "target",
+        "3",
+        "HazardClass.LIGHT"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/type/HazardTypeCoal.java",
+      "method": "onUpdate",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(target, 3, HazardClass.PARTICLE_COARSE)",
+      "args": [
+        "target",
+        "3",
+        "HazardClass.PARTICLE_COARSE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java",
+      "method": "onUpdate",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(target, 3, HazardClass.LIGHT)",
+      "args": [
+        "target",
+        "3",
+        "HazardClass.LIGHT"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/fluid/trait/FT_Toxin.java",
+      "method": "isProtected",
+      "name": "hasAllProtection",
+      "call": "ArmorRegistry.hasAllProtection(entity, 3, clazz)",
+      "args": [
+        "entity",
+        "3",
+        "clazz"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemCigarette.java",
+      "method": "onEaten",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4)",
+      "args": [
+        "player",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "method": "onEntityDeathFirst",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i)",
+      "args": [
+        "event.getEntityLiving()",
+        "i"
+      ],
+      "loops": [
+        "[int i = 1; i < 5; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "method": "onLivingUpdate",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i)",
+      "args": [
+        "event.getEntityLiving()",
+        "i"
+      ],
+      "loops": [
+        "[int i = 1; i < 5; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "method": "onEntityDamaged",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(e, i)",
+      "args": [
+        "e",
+        "i"
+      ],
+      "loops": [
+        "[int i = 1; i < 5; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "method": "onWingFlop",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2)",
+      "args": [
+        "player",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "method": "onBlockBreak",
+      "name": "hasProtection",
+      "call": "ArmorRegistry.hasProtection(player, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "player",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "method": "onRenderArmorEvent",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "method": "onRenderArmorEvent",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2)",
+      "args": [
+        "player",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/render/model/ModelM65.java",
+      "method": "render",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(((EntityLivingBase)entity), 4)",
+      "args": [
+        "((EntityLivingBase)entity)",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/render/model/ModelNo9.java",
+      "method": "render",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4)",
+      "args": [
+        "player",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java",
+      "method": "update",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 5; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java",
+      "method": "transferPower",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 5; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "method": "tryPick",
+      "name": "checkArmorPiece",
+      "call": "ArmorUtil.checkArmorPiece(player, ModItems.jackt, 2)",
+      "args": [
+        "player",
+        "ModItems.jackt",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityLockableBase.java",
+      "method": "tryPick",
+      "name": "checkArmorPiece",
+      "call": "ArmorUtil.checkArmorPiece(player, ModItems.jackt2, 2)",
+      "args": [
+        "player",
+        "ModItems.jackt2",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java",
+      "method": "update",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 5; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorRegistry.java",
+      "method": "hasAllProtection",
+      "name": "checkArmorNull",
+      "call": "ArmorUtil.checkArmorNull(entity, slot)",
+      "args": [
+        "entity",
+        "slot"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorRegistry.java",
+      "method": "hasAllProtection",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)",
+      "args": [
+        "entity",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorRegistry.java",
+      "method": "hasAnyProtection",
+      "name": "checkArmorNull",
+      "call": "ArmorUtil.checkArmorNull(entity, slot)",
+      "args": [
+        "entity",
+        "slot"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorRegistry.java",
+      "method": "hasAnyProtection",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)",
+      "args": [
+        "entity",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorRegistry.java",
+      "method": "hasProtection",
+      "name": "checkArmorNull",
+      "call": "ArmorUtil.checkArmorNull(entity, slot)",
+      "args": [
+        "entity",
+        "slot"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorRegistry.java",
+      "method": "hasProtection",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)",
+      "args": [
+        "entity",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkArmor",
+      "name": "checkArmorPiece",
+      "call": "checkArmorPiece(entity, armor[i], 3 - i)",
+      "args": [
+        "entity",
+        "armor[i]",
+        "3 - i"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkArmorPiece",
+      "name": "checkArmorNull",
+      "call": "checkArmorNull(entity, slot)",
+      "args": [
+        "entity",
+        "slot"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkArmorPiece",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)",
+      "args": [
+        "entity",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkArmorNull",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, slot + 1)",
+      "args": [
+        "player",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "damageSuit",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)",
+      "args": [
+        "entity",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "damageSuit",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)",
+      "args": [
+        "entity",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "damageSuit",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)",
+      "args": [
+        "entity",
+        "slot + 1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "getOxygenTank",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "getOxygenTank",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 3)",
+      "args": [
+        "player",
+        "3"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkSpecialBreathing",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkForCorrosion",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "getCorrosionProtection",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2)",
+      "args": [
+        "player",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkForDigamma2",
+      "name": "getArmorNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)",
+      "args": [
+        "player",
+        "i"
+      ],
+      "loops": [
+        "[int i = 0; i < 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkForFiend",
+      "name": "checkArmorPiece",
+      "call": "checkArmorPiece(player, ModItems.jackt, 2)",
+      "args": [
+        "player",
+        "ModItems.jackt",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "checkForFiend2",
+      "name": "checkArmorPiece",
+      "call": "checkArmorPiece(player, ModItems.jackt2, 2)",
+      "args": [
+        "player",
+        "ModItems.jackt2",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "damageGasMaskFilter",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4)",
+      "args": [
+        "entity",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "method": "isWearingEmptyMask",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4)",
+      "args": [
+        "player",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ContaminationUtil.java",
+      "method": "applyAsbestos",
+      "name": "hasAllProtection",
+      "call": "ArmorRegistry.hasAllProtection(entity, 3, HazardClass.PARTICLE_FINE)",
+      "args": [
+        "entity",
+        "3",
+        "HazardClass.PARTICLE_FINE"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4)",
+      "args": [
+        "entity",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4)",
+      "args": [
+        "entity",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3)",
+      "args": [
+        "entity",
+        "3"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3)",
+      "args": [
+        "entity",
+        "3"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2)",
+      "args": [
+        "entity",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2)",
+      "args": [
+        "entity",
+        "2"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1)",
+      "args": [
+        "entity",
+        "1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1)",
+      "args": [
+        "entity",
+        "1"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "method": "getDTDR",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i)",
+      "args": [
+        "entity",
+        "i"
+      ],
+      "loops": [
+        "[int i = 1; i <= 4; i++;]"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/EntityDamageUtil.java",
+      "method": "attackEntityFromNT",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4)",
+      "args": [
+        "living",
+        "4"
+      ],
+      "loops": []
+    },
+    {
+      "file": "src/main/java/com/hbm/util/EntityDamageUtil.java",
+      "method": "attackEntityFromNT",
+      "name": "getEquipmentNullable",
+      "call": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4)",
+      "args": [
+        "living",
+        "4"
+      ],
+      "loops": []
+    }
+  ],
+  "counts": {
+    "hasProtection": 13,
+    "checkArmorPiece": 7,
+    "hasAllProtection": 7,
+    "damageSuit": 18,
+    "hasAnyProtection": 2,
+    "getEquipmentNullable": 34,
+    "getArmorNullable": 10,
+    "checkArmorNull": 4
+  },
+  "claim": "Repository calls only: five equipment slots 0..4; wrappers receive armor slots 0..3; player armor 0..3. External legacy integer overrides/changed backing arrays are not recreated."
+}

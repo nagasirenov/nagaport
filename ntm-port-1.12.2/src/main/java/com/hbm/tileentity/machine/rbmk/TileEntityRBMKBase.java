@@ -109,10 +109,10 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 			
 			if(this.craneIndicator > 0) this.craneIndicator--;
 
-			this.world.theProfiler.startSection("rbmkBase_heat_movement");
+			this.world.profiler.startSection("rbmkBase_heat_movement");
 			moveHeat();
 			if(RBMKDials.getReasimBoilers(this.world)) {
-				this.world.theProfiler.endStartSection("rbmkBase_reasim_boilers");
+				this.world.profiler.endStartSection("rbmkBase_reasim_boilers");
 				boilWater();
 			}
 
@@ -226,9 +226,9 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 			this.markDirty();
 		}
 
-		this.world.theProfiler.endStartSection("rbmkBase_rpassive_cooling");
+		this.world.profiler.endStartSection("rbmkBase_rpassive_cooling");
 		coolPassively(members - 1);
-		this.world.theProfiler.endSection();
+		this.world.profiler.endSection();
 	}
 
 	@Override
@@ -314,7 +314,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 	public static void diagnosticPrintHook(RenderGameOverlayEvent.Pre event, World world, int x, int y, int z) {
 
 		Minecraft mc = Minecraft.getMinecraft();
-		ScaledResolution resolution = event.resolution;
+		ScaledResolution resolution = event.getResolution();
 
 		RBMKBase rbmk = (RBMKBase) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		int[] pos = rbmk.findCore(world, x, y, z);
@@ -377,7 +377,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 	public void onOverheat() {
 
 		for(int i = 0; i < 4; i++) {
-			this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.LAVA);
+			com.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.LAVA.getStateFromMeta(0), 3);
 		}
 	}
 
@@ -408,7 +408,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 				}
 
 			} else {
-				this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.AIR);
+				com.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.AIR.getStateFromMeta(0), 3);
 			}
 			this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY() + i, this.pos.getZ());
 		}
@@ -517,7 +517,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 				for (BlockPos pos : node.positions) {
 					int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 					if (this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y ,z)) != null) {
-						this.world.setBlock(x, y, z, Blocks.AIR);
+						com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.AIR.getStateFromMeta(0), 3);
 					}
 				}
 				count++;
@@ -531,7 +531,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 					if(con instanceof IOverpressurable) {
 						((IOverpressurable) con).explode(this.world, tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
 					} else {
-						this.world.setBlock(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), Blocks.AIR);
+						com.hbm.world.WorldBlockState.write(this.world, tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), Blocks.AIR.getStateFromMeta(0), 3);
 						this.world.newExplosion(null, tile.getPos().getX() + 0.5, tile.getPos().getY() + 0.5, tile.getPos().getZ() + 0.5, 5F, false, false);
 					}
 				}
@@ -551,7 +551,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 		com.hbm.sound.WorldSoundEffects.play(this.world, avgX + 0.5, this.pos.getY() + 1, avgZ + 0.5, "hbm:block.rbmk_explosion", 50.0F, 1.0F);
 
 		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class,
-				AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));
+				new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));
 
 		for(EntityPlayer player : players) {
 			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRBMKBoom);

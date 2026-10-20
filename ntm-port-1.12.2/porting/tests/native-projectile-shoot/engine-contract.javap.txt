@@ -1,0 +1,444 @@
+Compiled from "SourceFile"
+public interface zh {
+  public abstract void c(double, double, double, float, float);
+}
+
+
+Compiled from "SourceFile"
+public interface net.minecraft.entity.IProjectile {
+  public abstract void shoot(double, double, double, float, float);
+}
+
+
+public void c(double, double, double, float, float);
+    Code:
+       0: dload_1
+       1: dload_1
+       2: dmul
+       3: dload_3
+       4: dload_3
+       5: dmul
+       6: dadd
+       7: dload         5
+       9: dload         5
+      11: dmul
+      12: dadd
+      13: invokestatic  #121                // Method qh.a:(D)F
+      16: fstore        9
+      18: dload_1
+      19: fload         9
+      21: f2d
+      22: ddiv
+      23: dstore_1
+      24: dload_3
+      25: fload         9
+      27: f2d
+      28: ddiv
+      29: dstore_3
+      30: dload         5
+      32: fload         9
+      34: f2d
+      35: ddiv
+      36: dstore        5
+      38: dload_1
+      39: aload_0
+      40: getfield      #77                 // Field Z:Ljava/util/Random;
+      43: invokevirtual #120                // Method java/util/Random.nextGaussian:()D
+      46: ldc2_w        #41                 // double 0.007499999832361937d
+      49: dmul
+      50: fload         8
+      52: f2d
+      53: dmul
+      54: dadd
+      55: dstore_1
+      56: dload_3
+      57: aload_0
+      58: getfield      #77                 // Field Z:Ljava/util/Random;
+      61: invokevirtual #120                // Method java/util/Random.nextGaussian:()D
+      64: ldc2_w        #41                 // double 0.007499999832361937d
+      67: dmul
+      68: fload         8
+      70: f2d
+      71: dmul
+      72: dadd
+      73: dstore_3
+      74: dload         5
+      76: aload_0
+      77: getfield      #77                 // Field Z:Ljava/util/Random;
+      80: invokevirtual #120                // Method java/util/Random.nextGaussian:()D
+      83: ldc2_w        #41                 // double 0.007499999832361937d
+      86: dmul
+      87: fload         8
+      89: f2d
+      90: dmul
+      91: dadd
+      92: dstore        5
+      94: dload_1
+      95: fload         7
+      97: f2d
+      98: dmul
+      99: dstore_1
+     100: dload_3
+     101: fload         7
+     103: f2d
+     104: dmul
+     105: dstore_3
+     106: dload         5
+     108: fload         7
+     110: f2d
+     111: dmul
+     112: dstore        5
+     114: aload_0
+     115: dload_1
+     116: putfield      #92                 // Field v:D
+     119: aload_0
+     120: dload_3
+     121: putfield      #93                 // Field w:D
+     124: aload_0
+     125: dload         5
+     127: putfield      #94                 // Field x:D
+     130: dload_1
+     131: dload_1
+     132: dmul
+     133: dload         5
+     135: dload         5
+     137: dmul
+     138: dadd
+     139: invokestatic  #121                // Method qh.a:(D)F
+     142: fstore        10
+     144: aload_0
+     145: aload_0
+     146: dload_1
+     147: dload         5
+     149: invokestatic  #117                // Method java/lang/Math.atan2:(DD)D
+     152: ldc2_w        #51                 // double 180.0d
+     155: dmul
+     156: ldc2_w        #45                 // double 3.1415927410125732d
+     159: ddiv
+     160: d2f
+     161: dup_x1
+     162: putfield      #95                 // Field y:F
+     165: putfield      #70                 // Field A:F
+     168: aload_0
+     169: aload_0
+     170: dload_3
+     171: fload         10
+     173: f2d
+     174: invokestatic  #117                // Method java/lang/Math.atan2:(DD)D
+     177: ldc2_w        #51                 // double 180.0d
+     180: dmul
+     181: ldc2_w        #45                 // double 3.1415927410125732d
+     184: ddiv
+     185: d2f
+     186: dup_x1
+     187: putfield      #96                 // Field z:F
+     190: putfield      #71                 // Field B:F
+     193: aload_0
+     194: iconst_0
+     195: putfield      #87                 // Field i:I
+     198: return
+
+public void shoot(double, double, double, float, float);
+    Code:
+       0: dload_1
+       1: dload_1
+       2: dmul
+       3: dload_3
+       4: dload_3
+       5: dmul
+       6: dadd
+       7: dload         5
+       9: dload         5
+      11: dmul
+      12: dadd
+      13: invokestatic  #157                // Method net/minecraft/util/math/MathHelper.sqrt:(D)F
+      16: fstore        9
+      18: dload_1
+      19: fload         9
+      21: f2d
+      22: ddiv
+      23: dstore_1
+      24: dload_3
+      25: fload         9
+      27: f2d
+      28: ddiv
+      29: dstore_3
+      30: dload         5
+      32: fload         9
+      34: f2d
+      35: ddiv
+      36: dstore        5
+      38: dload_1
+      39: aload_0
+      40: getfield      #161                // Field rand:Ljava/util/Random;
+      43: invokevirtual #166                // Method java/util/Random.nextGaussian:()D
+      46: ldc2_w        #167                // double 0.007499999832361937d
+      49: dmul
+      50: fload         8
+      52: f2d
+      53: dmul
+      54: dadd
+      55: dstore_1
+      56: dload_3
+      57: aload_0
+      58: getfield      #161                // Field rand:Ljava/util/Random;
+      61: invokevirtual #166                // Method java/util/Random.nextGaussian:()D
+      64: ldc2_w        #167                // double 0.007499999832361937d
+      67: dmul
+      68: fload         8
+      70: f2d
+      71: dmul
+      72: dadd
+      73: dstore_3
+      74: dload         5
+      76: aload_0
+      77: getfield      #161                // Field rand:Ljava/util/Random;
+      80: invokevirtual #166                // Method java/util/Random.nextGaussian:()D
+      83: ldc2_w        #167                // double 0.007499999832361937d
+      86: dmul
+      87: fload         8
+      89: f2d
+      90: dmul
+      91: dadd
+      92: dstore        5
+      94: dload_1
+      95: fload         7
+      97: f2d
+      98: dmul
+      99: dstore_1
+     100: dload_3
+     101: fload         7
+     103: f2d
+     104: dmul
+     105: dstore_3
+     106: dload         5
+     108: fload         7
+     110: f2d
+     111: dmul
+     112: dstore        5
+     114: aload_0
+     115: dload_1
+     116: putfield      #131                // Field motionX:D
+     119: aload_0
+     120: dload_3
+     121: putfield      #142                // Field motionY:D
+     124: aload_0
+     125: dload         5
+     127: putfield      #135                // Field motionZ:D
+     130: dload_1
+     131: dload_1
+     132: dmul
+     133: dload         5
+     135: dload         5
+     137: dmul
+     138: dadd
+     139: invokestatic  #157                // Method net/minecraft/util/math/MathHelper.sqrt:(D)F
+     142: fstore        10
+     144: aload_0
+     145: dload_1
+     146: dload         5
+     148: invokestatic  #172                // Method net/minecraft/util/math/MathHelper.atan2:(DD)D
+     151: ldc2_w        #173                // double 57.29577951308232d
+     154: dmul
+     155: d2f
+     156: putfield      #177                // Field rotationYaw:F
+     159: aload_0
+     160: dload_3
+     161: fload         10
+     163: f2d
+     164: invokestatic  #172                // Method net/minecraft/util/math/MathHelper.atan2:(DD)D
+     167: ldc2_w        #173                // double 57.29577951308232d
+     170: dmul
+     171: d2f
+     172: putfield      #180                // Field rotationPitch:F
+     175: aload_0
+     176: aload_0
+     177: getfield      #177                // Field rotationYaw:F
+     180: putfield      #183                // Field prevRotationYaw:F
+     183: aload_0
+     184: aload_0
+     185: getfield      #180                // Field rotationPitch:F
+     188: putfield      #186                // Field prevRotationPitch:F
+     191: aload_0
+     192: iconst_0
+     193: putfield      #188                // Field ticksInGround:I
+     196: return
+
+public static final float a(double);
+    Code:
+       0: dload_0
+       1: invokestatic  #38                 // Method java/lang/Math.sqrt:(D)D
+       4: d2f
+       5: freturn
+
+public static float sqrt(double);
+    Code:
+       0: dload_0
+       1: invokestatic  #34                 // Method java/lang/Math.sqrt:(D)D
+       4: d2f
+       5: freturn
+
+Compiled from "SourceFile"
+public abstract class kk extends cm {
+  public kk();
+    Code:
+       0: aload_0
+       1: invokespecial #18                 // Method cm."<init>":()V
+       4: return
+
+  public add b(ck, add);
+    Code:
+       0: aload_1
+       1: invokeinterface #29,  1           // InterfaceMethod ck.k:()Lahb;
+       6: astore_3
+       7: aload_1
+       8: invokestatic  #16                 // Method akm.a:(Lck;)Lcx;
+      11: astore        4
+      13: aload_1
+      14: invokeinterface #28,  1           // InterfaceMethod ck.h:()I
+      19: invokestatic  #17                 // Method akm.b:(I)Lcr;
+      22: astore        5
+      24: aload_0
+      25: aload_3
+      26: aload         4
+      28: invokevirtual #23                 // Method a:(Lahb;Lcx;)Lzh;
+      31: astore        6
+      33: aload         6
+      35: aload         5
+      37: invokevirtual #19                 // Method cr.c:()I
+      40: i2d
+      41: aload         5
+      43: invokevirtual #20                 // Method cr.d:()I
+      46: i2f
+      47: ldc           #1                  // float 0.1f
+      49: fadd
+      50: f2d
+      51: aload         5
+      53: invokevirtual #21                 // Method cr.e:()I
+      56: i2d
+      57: aload_0
+      58: invokevirtual #24                 // Method b:()F
+      61: aload_0
+      62: invokevirtual #22                 // Method a:()F
+      65: invokeinterface #30,  9           // InterfaceMethod zh.c:(DDDFF)V
+      70: aload_3
+      71: aload         6
+      73: checkcast     #11                 // class sa
+      76: invokevirtual #15                 // Method ahb.d:(Lsa;)Z
+      79: pop
+      80: aload_2
+      81: iconst_1
+      82: invokevirtual #13                 // Method add.a:(I)Ladd;
+      85: pop
+      86: aload_2
+      87: areturn
+
+  protected void a(ck);
+    Code:
+       0: aload_1
+       1: invokeinterface #29,  1           // InterfaceMethod ck.k:()Lahb;
+       6: sipush        1002
+       9: aload_1
+      10: invokeinterface #25,  1           // InterfaceMethod ck.d:()I
+      15: aload_1
+      16: invokeinterface #26,  1           // InterfaceMethod ck.e:()I
+      21: aload_1
+      22: invokeinterface #27,  1           // InterfaceMethod ck.f:()I
+      27: iconst_0
+      28: invokevirtual #14                 // Method ahb.c:(IIIII)V
+      31: return
+
+  protected abstract zh a(ahb, cx);
+
+  protected float a();
+    Code:
+       0: ldc           #3                  // float 6.0f
+       2: freturn
+
+  protected float b();
+    Code:
+       0: ldc           #2                  // float 1.1f
+       2: freturn
+}
+
+
+Compiled from "SourceFile"
+public abstract class net.minecraft.dispenser.BehaviorProjectileDispense extends net.minecraft.dispenser.BehaviorDefaultDispenseItem {
+  public net.minecraft.dispenser.BehaviorProjectileDispense();
+    Code:
+       0: aload_0
+       1: invokespecial #9                  // Method net/minecraft/dispenser/BehaviorDefaultDispenseItem."<init>":()V
+       4: return
+
+  public net.minecraft.item.ItemStack dispenseStack(net.minecraft.dispenser.IBlockSource, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_1
+       1: invokeinterface #19,  1           // InterfaceMethod net/minecraft/dispenser/IBlockSource.getWorld:()Lnet/minecraft/world/World;
+       6: astore_3
+       7: aload_1
+       8: invokestatic  #25                 // Method net/minecraft/block/BlockDispenser.getDispensePosition:(Lnet/minecraft/dispenser/IBlockSource;)Lnet/minecraft/dispenser/IPosition;
+      11: astore        4
+      13: aload_1
+      14: invokeinterface #29,  1           // InterfaceMethod net/minecraft/dispenser/IBlockSource.getBlockState:()Lnet/minecraft/block/state/IBlockState;
+      19: getstatic     #33                 // Field net/minecraft/block/BlockDispenser.FACING:Lnet/minecraft/block/properties/PropertyDirection;
+      22: invokeinterface #39,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      27: checkcast     #41                 // class net/minecraft/util/EnumFacing
+      30: astore        5
+      32: aload_0
+      33: aload_3
+      34: aload         4
+      36: aload_2
+      37: invokevirtual #45                 // Method getProjectileEntity:(Lnet/minecraft/world/World;Lnet/minecraft/dispenser/IPosition;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/entity/IProjectile;
+      40: astore        6
+      42: aload         6
+      44: aload         5
+      46: invokevirtual #49                 // Method net/minecraft/util/EnumFacing.getXOffset:()I
+      49: i2d
+      50: aload         5
+      52: invokevirtual #52                 // Method net/minecraft/util/EnumFacing.getYOffset:()I
+      55: i2f
+      56: ldc           #53                 // float 0.1f
+      58: fadd
+      59: f2d
+      60: aload         5
+      62: invokevirtual #56                 // Method net/minecraft/util/EnumFacing.getZOffset:()I
+      65: i2d
+      66: aload_0
+      67: invokevirtual #60                 // Method getProjectileVelocity:()F
+      70: aload_0
+      71: invokevirtual #63                 // Method getProjectileInaccuracy:()F
+      74: invokeinterface #69,  9           // InterfaceMethod net/minecraft/entity/IProjectile.shoot:(DDDFF)V
+      79: aload_3
+      80: aload         6
+      82: checkcast     #71                 // class net/minecraft/entity/Entity
+      85: invokevirtual #77                 // Method net/minecraft/world/World.spawnEntity:(Lnet/minecraft/entity/Entity;)Z
+      88: pop
+      89: aload_2
+      90: iconst_1
+      91: invokevirtual #83                 // Method net/minecraft/item/ItemStack.shrink:(I)V
+      94: aload_2
+      95: areturn
+
+  protected void playDispenseSound(net.minecraft.dispenser.IBlockSource);
+    Code:
+       0: aload_1
+       1: invokeinterface #19,  1           // InterfaceMethod net/minecraft/dispenser/IBlockSource.getWorld:()Lnet/minecraft/world/World;
+       6: sipush        1002
+       9: aload_1
+      10: invokeinterface #101,  1          // InterfaceMethod net/minecraft/dispenser/IBlockSource.getBlockPos:()Lnet/minecraft/util/math/BlockPos;
+      15: iconst_0
+      16: invokevirtual #105                // Method net/minecraft/world/World.playEvent:(ILnet/minecraft/util/math/BlockPos;I)V
+      19: return
+
+  protected abstract net.minecraft.entity.IProjectile getProjectileEntity(net.minecraft.world.World, net.minecraft.dispenser.IPosition, net.minecraft.item.ItemStack);
+
+  protected float getProjectileInaccuracy();
+    Code:
+       0: ldc           #107                // float 6.0f
+       2: freturn
+
+  protected float getProjectileVelocity();
+    Code:
+       0: ldc           #108                // float 1.1f
+       2: freturn
+}

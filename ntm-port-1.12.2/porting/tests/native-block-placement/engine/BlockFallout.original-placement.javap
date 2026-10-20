@@ -1,0 +1,65 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iconst_1
+       4: isub
+       5: iload         4
+       7: invokevirtual #59                 // Method net/minecraft/world/World.func_147439_a:(III)Lnet/minecraft/block/Block;
+      10: astore        5
+      12: aload         5
+      14: getstatic     #64                 // Field net/minecraft/init/Blocks.field_150432_aD:Lnet/minecraft/block/Block;
+      17: if_acmpeq     28
+      20: aload         5
+      22: getstatic     #67                 // Field net/minecraft/init/Blocks.field_150403_cj:Lnet/minecraft/block/Block;
+      25: if_acmpne     30
+      28: iconst_0
+      29: ireturn
+      30: aload         5
+      32: aload_1
+      33: iload_2
+      34: iload_3
+      35: iconst_1
+      36: isub
+      37: iload         4
+      39: invokevirtual #71                 // Method net/minecraft/block/Block.isLeaves:(Lnet/minecraft/world/IBlockAccess;III)Z
+      42: ifeq          62
+      45: aload         5
+      47: aload_1
+      48: iload_2
+      49: iload_3
+      50: iconst_1
+      51: isub
+      52: iload         4
+      54: invokevirtual #74                 // Method net/minecraft/block/Block.isAir:(Lnet/minecraft/world/IBlockAccess;III)Z
+      57: ifne          62
+      60: iconst_1
+      61: ireturn
+      62: aload         5
+      64: aload_0
+      65: if_acmpne     88
+      68: aload_1
+      69: iload_2
+      70: iload_3
+      71: iconst_1
+      72: isub
+      73: iload         4
+      75: invokevirtual #78                 // Method net/minecraft/world/World.func_72805_g:(III)I
+      78: bipush        7
+      80: iand
+      81: bipush        7
+      83: if_icmpne     88
+      86: iconst_1
+      87: ireturn
+      88: aload         5
+      90: invokevirtual #80                 // Method net/minecraft/block/Block.func_149662_c:()Z
+      93: ifeq          111
+      96: aload         5
+      98: invokevirtual #84                 // Method net/minecraft/block/Block.func_149688_o:()Lnet/minecraft/block/material/Material;
+     101: invokevirtual #87                 // Method net/minecraft/block/material/Material.func_76230_c:()Z
+     104: ifeq          111
+     107: iconst_1
+     108: goto          112
+     111: iconst_0
+     112: ireturn

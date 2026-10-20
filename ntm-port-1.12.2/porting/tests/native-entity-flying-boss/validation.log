@@ -1,0 +1,8 @@
+PASS flying bosses: 3 owners / 12 private native keys / 33 pristine calls and CP88 diagnostics / 17-file typed consumer closure; exact whole-file inverse; 66 unrelated same-file diagnostics retained
+PASS 14969 native flying-boss assertions (EntityUFO,EntityBFAngel,EntityHunterChopper); bounded method projections, not full owners, attribute overrides, AI/death progression, HUD, sound playback, render GL or game startup
+PASS 14969 native flying-boss assertions (EntityUFO,EntityHunterChopper,EntityBFAngel); bounded method projections, not full owners, attribute overrides, AI/death progression, HUD, sound playback, render GL or game startup
+PASS 14969 native flying-boss assertions (EntityBFAngel,EntityUFO,EntityHunterChopper); bounded method projections, not full owners, attribute overrides, AI/death progression, HUD, sound playback, render GL or game startup
+PASS 14969 native flying-boss assertions (EntityBFAngel,EntityHunterChopper,EntityUFO); bounded method projections, not full owners, attribute overrides, AI/death progression, HUD, sound playback, render GL or game startup
+PASS 14969 native flying-boss assertions (EntityHunterChopper,EntityUFO,EntityBFAngel); bounded method projections, not full owners, attribute overrides, AI/death progression, HUD, sound playback, render GL or game startup
+PASS 14969 native flying-boss assertions (EntityHunterChopper,EntityBFAngel,EntityUFO); bounded method projections, not full owners, attribute overrides, AI/death progression, HUD, sound playback, render GL or game startup
+PASS 56 exact source slices; six fresh sibling-loading permutations; bounded metadata/constructor/NBT/consumer projections only

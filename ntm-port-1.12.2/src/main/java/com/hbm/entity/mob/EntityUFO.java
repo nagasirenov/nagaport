@@ -1,4 +1,7 @@
 package com.hbm.entity.mob;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
+	private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityUFO.class, DataSerializers.BYTE);
+	private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);
 
 	public int courseChangeCooldown;
 	public int scanCooldown;
@@ -330,7 +337,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.WORM_LASER);
 		bullet.setThrower(this);
 		bullet.setPosition(pivotX, pivotY, pivotZ);
-		bullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);
+		bullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);
 		this.world.spawnEntityInWorld(bullet);
 		this.playSound("hbm:weapon.ballsLaser", 5.0F, 1.0F);
 	}
@@ -343,7 +350,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.UFO_ROCKET);
 		bullet.setThrower(this);
 		bullet.setPosition(this.posX, this.posY - 0.5D, this.posZ);
-		bullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);
+		bullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);
 		bullet.getEntityData().setInteger("homingTarget", e.getEntityId());
 		this.world.spawnEntityInWorld(bullet);
 		this.playSound("hbm:turret.richard_fire", 5.0F, 1.0F);
@@ -357,10 +364,10 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
-		this.dataWatcher.addObject(17, 0);
-		this.dataWatcher.addObject(18, 0);
-		this.dataWatcher.addObject(19, 0);
+		this.dataManager.register(BEAM, Byte.valueOf((byte) 0));
+		this.dataManager.register(WAYPOINT_X, 0);
+		this.dataManager.register(WAYPOINT_Y, 0);
+		this.dataManager.register(WAYPOINT_Z, 0);
 	}
 
 	private boolean isCourseTraversable(double p_70790_1_, double p_70790_3_, double p_70790_5_, double p_70790_7_) {
@@ -407,29 +414,29 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 	}
 
 	public void setBeam(boolean b) {
-		this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)));
+		this.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)));
 	}
 
 	public boolean getBeam() {
-		return this.dataWatcher.getWatchableObjectByte(16) == 1;
+		return this.dataManager.get(BEAM) == 1;
 	}
 
 	public void setWaypoint(int x, int y, int z) {
-		this.dataWatcher.updateObject(17, x);
-		this.dataWatcher.updateObject(18, y);
-		this.dataWatcher.updateObject(19, z);
+		this.dataManager.set(WAYPOINT_X, x);
+		this.dataManager.set(WAYPOINT_Y, y);
+		this.dataManager.set(WAYPOINT_Z, z);
 	}
 
 	public int getX() {
-		return this.dataWatcher.getWatchableObjectInt(17);
+		return this.dataManager.get(WAYPOINT_X);
 	}
 
 	public int getY() {
-		return this.dataWatcher.getWatchableObjectInt(18);
+		return this.dataManager.get(WAYPOINT_Y);
 	}
 
 	public int getZ() {
-		return this.dataWatcher.getWatchableObjectInt(19);
+		return this.dataManager.get(WAYPOINT_Z);
 	}
 
 	@Override

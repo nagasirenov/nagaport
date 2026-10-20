@@ -1,0 +1,10 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iconst_1
+       4: isub
+       5: iload         4
+       7: invokestatic  #76                 // Method net/minecraft/world/World.func_147466_a:(Lnet/minecraft/world/IBlockAccess;III)Z
+      10: ireturn

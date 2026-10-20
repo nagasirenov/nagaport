@@ -1,0 +1,12 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-air-query/NativeWorldAirTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);W w=(W)unsafe.allocateInstance(W.class);
+                                        ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-air-query/NativeWorldAirTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);W w=(W)unsafe.allocateInstance(W.class);
+                                                                                                                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-world-air-query/NativeWorldAirTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);W w=(W)unsafe.allocateInstance(W.class);
+                                                                                                                                           ^
+3 warnings
+PASS 82283 native checks across 5485 actual registry states; genuine World.isAirBlock dispatch, state identity, two-read platform contract, raw integer coordinates and evaluation boundaries. Fixture skips unrelated World constructor; no real chunk lifecycle claim.
+PASS official Forge1614 original one-read hook and native genuine two-state-read method recorded; platform difference explicit, not hidden parity

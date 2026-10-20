@@ -203,7 +203,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
                 this.setRollingAmplitude(10);
                 this.setBeenAttacked();
                 this.setDamage(this.getDamage() + p_70097_2_ * 10.0F);
-                boolean flag = p_70097_1_.getEntity() instanceof EntityPlayer && ((EntityPlayer)p_70097_1_.getEntity()).capabilities.isCreativeMode;
+                boolean flag = p_70097_1_.getTrueSource() instanceof EntityPlayer && ((EntityPlayer)p_70097_1_.getTrueSource()).capabilities.isCreativeMode;
 
                 if (flag || this.getDamage() > 40.0F)
                 {
@@ -315,7 +315,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
 
         if (!this.world.isRemote && this.world instanceof WorldServer)
         {
-            this.world.theProfiler.startSection("portal");
+            this.world.profiler.startSection("portal");
             MinecraftServer minecraftserver = ((WorldServer)this.world).func_73046_m();
             i = this.getMaxInPortalTime();
 
@@ -362,7 +362,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
                 --this.timeUntilPortal;
             }
 
-            this.world.theProfiler.endSection();
+            this.world.profiler.endSection();
         }
 
         if (this.world.isRemote)
@@ -734,22 +734,22 @@ public abstract class EntityMinecartModBase extends EntityMinecart
             }
             else if (p_145821_9_ == 1)
             {
-                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ - 1, p_145821_2_, p_145821_3_).getBlock().isNormalCube())
+                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ - 1, p_145821_2_, p_145821_3_).isNormalCube())
                 {
                     this.motionX = 0.02D;
                 }
-                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ + 1, p_145821_2_, p_145821_3_).getBlock().isNormalCube())
+                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ + 1, p_145821_2_, p_145821_3_).isNormalCube())
                 {
                     this.motionX = -0.02D;
                 }
             }
             else if (p_145821_9_ == 0)
             {
-                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ - 1).getBlock().isNormalCube())
+                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ - 1).isNormalCube())
                 {
                     this.motionZ = 0.02D;
                 }
-                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ + 1).getBlock().isNormalCube())
+                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ + 1).isNormalCube())
                 {
                     this.motionZ = -0.02D;
                 }

@@ -1,0 +1,950 @@
+{
+  "baseline": "0675e599e5ee31a60776b560af792372df191790",
+  "files": {
+    "src/main/java/com/hbm/blocks/RubberGrass.java": {
+      "before_sha256": "aedff6ef04e49c20d4cee40c79211833619bd11d2a8e78eeb9d95c51a04cb042",
+      "after_sha256": "915a763dbc3aeed77a7bcc30ac92c64276fcb818fd97e9b6181459a61bcc1d76",
+      "edits": [
+        {
+          "before_offset": 1851,
+          "after_offset": 1851,
+          "old": "\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {\n",
+          "new": "\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);\n\t\t\tBlock b = nativeCubeState_b.getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube(nativeCubeState_b)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Balefire.java": {
+      "before_sha256": "707319c6807a00805b3b4a183e92c80c857aea4bcecfb20c1863fc39a4b6eebb",
+      "after_sha256": "eaf533131222749da0e3e81a028914cca5a1d030d87e43e06ff2f130168b1685",
+      "edits": [
+        {
+          "before_offset": 5400,
+          "after_offset": 5400,
+          "old": "\t\tif(!world.isAirBlock(x, y, z)) {\n",
+          "new": "\t\tif(!world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "before_sha256": "627a3c1cb52005cde16c704976b0b43ac22701c412a39292e1ec3110f049d900",
+      "after_sha256": "04d002f8c35437eef30702b3ea47ce9d25bbc365823129f5d203962ceb32e511",
+      "edits": [
+        {
+          "before_offset": 8640,
+          "after_offset": 8640,
+          "old": "\t\t\t\t\tthis.world.setBlock(x, y, z, b.isNormalCube() ? this.getLava() : Blocks.AIR);\n",
+          "new": "\t\t\t\t\tthis.world.setBlock(x, y, z, b.isNormalCube(nativeAirState) ? this.getLava() : Blocks.AIR);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java": {
+      "before_sha256": "5f926bf87cb1d708af994af7ed7b7f00fc8232d4493ecaacaeeaaf4253260acf",
+      "after_sha256": "d260c919237994aae5faf9fbb2314ca2e06bf3d34cec399c588b916e278acb35",
+      "edits": [
+        {
+          "before_offset": 2413,
+          "after_offset": 2413,
+          "old": "\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\t\t\tBlock b = nativeCubeState_b.getBlock();\n"
+        },
+        {
+          "before_offset": 3364,
+          "after_offset": 3445,
+          "old": "\t\t\t\tif((b.getDefaultState().getMaterial() == Material.GRASS || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS || b.getDefaultState().getMaterial() == Material.VINE) && !b.isNormalCube())\n",
+          "new": "\t\t\t\tif((b.getDefaultState().getMaterial() == Material.GRASS || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS || b.getDefaultState().getMaterial() == Material.VINE) && !b.isNormalCube(nativeCubeState_b))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java": {
+      "before_sha256": "57e00f828a5a2f14ef08547756a18d3d8cce80740965d2009d47dea1853c2989",
+      "after_sha256": "b307fbce1969b232a8e8dd31791768d4cb63bd391c753f1c1154af9f128e2b1a",
+      "edits": [
+        {
+          "before_offset": 5613,
+          "after_offset": 5613,
+          "old": "\t\t\t\tif(world.isAirBlock(ix, iy, iz) && this.canMushGrowHere(world, ix, iy, iz)) {\n",
+          "new": "\t\t\t\tif(world.isAirBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz)) && this.canMushGrowHere(world, ix, iy, iz)) {\n"
+        },
+        {
+          "before_offset": 5863,
+          "after_offset": 5901,
+          "old": "\t\t\tif(world.isAirBlock(ix, iy, iz) && this.canMushGrowHere(world, ix, iy, iz)) {\n",
+          "new": "\t\t\tif(world.isAirBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz)) && this.canMushGrowHere(world, ix, iy, iz)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": {
+      "before_sha256": "7a41e94a3a8100b602231266248eae1d526dc4bf40ce7067daef3e548175be3d",
+      "after_sha256": "dac558816051c6faddfdc7eab3a0711adad7dfca9e498cf94b2299fef00eb8e4",
+      "edits": [
+        {
+          "before_offset": 6118,
+          "after_offset": 6118,
+          "old": "\t\t\treturn world.isAirBlock(x, y + 1, z);\n",
+          "new": "\t\t\treturn world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before_sha256": "5803106864d55b9cb46e5d3c9317140c053e1076ac1cb78f5aa78b26a4c1ba4e",
+      "after_sha256": "01de7dc0ead1a75597ebd45a3290b775412dcafaae56a62d6565eec05f27bd8c",
+      "edits": [
+        {
+          "before_offset": 3407,
+          "after_offset": 3407,
+          "old": "\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.isAirBlock(x, y + 1, z);\n",
+          "new": "\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": {
+      "before_sha256": "a9cf47614da4f46686287f87e4d7ec2368da67c1d4766547ee34c8488b9198ee",
+      "after_sha256": "486691a6d264d8ff681aae311beaf70697e960c1dd14d41a83ea293c6a96662a",
+      "edits": [
+        {
+          "before_offset": 9148,
+          "after_offset": 9148,
+          "old": "\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {\n",
+          "new": "\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);\n\t\t\tBlock b = nativeCubeState_b.getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube(nativeCubeState_b)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": {
+      "before_sha256": "a814c158eb59c33923fc2c9852cdad2c8001cd21b2990e178e84cd2a444f5173",
+      "after_sha256": "1ccba199ba6c5b2215c7c9b2c343a2cdc61e9b674b3417315efeca21e45b6922",
+      "edits": [
+        {
+          "before_offset": 4098,
+          "after_offset": 4098,
+          "old": "\t\t\t\t\t\tBlock block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i).getBlock();\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i);\n\t\t\t\t\t\tBlock block = nativeCubeState_block.getBlock();\n"
+        },
+        {
+          "before_offset": 4336,
+          "after_offset": 4427,
+          "old": "\t\t\t\t\t\tif(block.isNormalCube() || blowable) {\n",
+          "new": "\t\t\t\t\t\tif(block.isNormalCube(nativeCubeState_block) || blowable) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "90626cfee2c0af2aeefca983d5b86076639f6a57a743ebcf6e7d4d06d548e378",
+      "after_sha256": "e592a741fdc354f6db0404bb61917e7ffe14c457cdc9ef247cb19fe79af0bd32",
+      "edits": [
+        {
+          "before_offset": 1968,
+          "after_offset": 1968,
+          "old": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isNormalCube())\n",
+          "new": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).isNormalCube())\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PowerDetector.java": {
+      "before_sha256": "0d24b3af27f2433733571e3c7e1699212fa0d56981f31a13f13bf205ea4affe7",
+      "after_sha256": "961ecbf0b9df2e73e68c0f266fd2a47e0388c318a4591d2b2c7aae082e455f6f",
+      "edits": [
+        {
+          "before_offset": 1148,
+          "after_offset": 1148,
+          "old": "    public boolean canProvidePower() {\n",
+          "new": "    public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java": {
+      "before_sha256": "4ff830b39892da714bc7cc1705318cd2fad26e575fdb4e51ecaeabc845a21d34",
+      "after_sha256": "396162d079577afa87a57c9c699f7ab4e2a2780a7d555f4d4a89d14478129ea2",
+      "edits": [
+        {
+          "before_offset": 5717,
+          "after_offset": 5717,
+          "old": "\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz);\n\t\t\t\tBlock b = nativeCubeState_b.getBlock();\n"
+        },
+        {
+          "before_offset": 6268,
+          "after_offset": 6349,
+          "old": "\t\t\t\t\tif(b.isNormalCube()) //obstructions\n",
+          "new": "\t\t\t\t\tif(b.isNormalCube(nativeCubeState_b)) //obstructions\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "c311b2992a771318f8e13fde124759bf9317ee3915a86ebbb4cf3daf253abce5",
+      "after_sha256": "9f6e6f07e6da02bf886fd3a4d1072c71eb4220b73267615267565812900fd182",
+      "edits": [
+        {
+          "before_offset": 49792,
+          "after_offset": 49792,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 49904,
+          "after_offset": 49956,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n",
+          "new": "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        },
+        {
+          "before_offset": 51328,
+          "after_offset": 51688,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 51440,
+          "after_offset": 51852,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n",
+          "new": "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java": {
+      "before_sha256": "890cc6ff7c474f722fce08373b404fc20bc643ea11fd787aa523068dea2d7f98",
+      "after_sha256": "49d2a80efe8466f1e76ffd19fae6d7d63f81b66921b15ff9a8def395815e48c9",
+      "edits": [
+        {
+          "before_offset": 1023,
+          "after_offset": 1023,
+          "old": "\t\twhile (p_76484_1_.isAirBlock(p_76484_3_, p_76484_4_, p_76484_5_) && p_76484_4_ > 2) {\n",
+          "new": "\t\twhile (p_76484_1_.isAirBlock(new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_)) && p_76484_4_ > 2) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenEveSpike.java": {
+      "before_sha256": "f25c42f4136fc42a262f31d01cce79b21ec90bce0fb0d2c342a371c02b85960a",
+      "after_sha256": "e98ca95030ff6abbcad605e6f5c91ec3028eaeb84d7820f6f578bbf975fd2c40",
+      "edits": [
+        {
+          "before_offset": 476,
+          "after_offset": 476,
+          "old": "\t\twhile(p_76484_1_.isAirBlock(p_76484_3_, p_76484_4_, p_76484_5_) && p_76484_4_ > 2) {\n",
+          "new": "\t\twhile(p_76484_1_.isAirBlock(new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_)) && p_76484_4_ > 2) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/TTree.java": {
+      "before_sha256": "c046774ace40bc54e385788ebbfc35efed791f9ef836ae7d225962952a91dc93",
+      "after_sha256": "2fec5a47a3e5ce7a07edc10760dcefdf1f62b07050ef919241a286d386d23e37",
+      "edits": [
+        {
+          "before_offset": 2284,
+          "after_offset": 2284,
+          "old": "\t\t\t\t\t\t\t\t\t\t\tif (world.isAirBlock(vineX, vineY, vineZ)) {\n",
+          "new": "\t\t\t\t\t\t\t\t\t\t\tif (world.isAirBlock(new net.minecraft.util.math.BlockPos(vineX, vineY, vineZ))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java": {
+      "before_sha256": "2133ba896f6af07a88cca04f3a3c3bd7035929e384ab4fdfbd46ed865afeeaca",
+      "after_sha256": "e04b6dc47753fc9599f06dbe7c52521f170e3bbda8caa78bde8ff42aefddc049",
+      "edits": [
+        {
+          "before_offset": 14589,
+          "after_offset": 14589,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 14701,
+          "after_offset": 14753,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n",
+          "new": "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        },
+        {
+          "before_offset": 16125,
+          "after_offset": 16485,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 16237,
+          "after_offset": 16649,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n",
+          "new": "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java": {
+      "before_sha256": "6c87675237622220c2980331c110233c1a615c32ab77035ba0d0cef933fa2888",
+      "after_sha256": "18141c0b41d1e687ddb393edd228c1d2ec171cf1b673ae92d470e11e693fd4f2",
+      "edits": [
+        {
+          "before_offset": 6560,
+          "after_offset": 6560,
+          "old": "\t\t\tBlock b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();\r\n",
+          "new": "\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, x, y, z);\r\n\t\t\tBlock b = nativeCubeState_b.getBlock();\r\n"
+        },
+        {
+          "before_offset": 9309,
+          "after_offset": 9390,
+          "old": "\t\t\tif(!eval && b.isNormalCube()) {\r\n",
+          "new": "\t\t\tif(!eval && b.isNormalCube(nativeCubeState_b)) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "4dc824a57b930dd96b27bd67bb49adfcfbf200b2e901bab63319fbb5a53bb0e9",
+      "after_sha256": "bfa4db470aa54c5d9fe196b3c3ad13b005d41d01a57dd3cd6b59e6243b6eec55",
+      "edits": [
+        {
+          "before_offset": 19199,
+          "after_offset": 19199,
+          "old": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, railX - 1, railY, railZ).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, railX - 1, railY, railZ).isNormalCube()) {\n"
+        },
+        {
+          "before_offset": 19334,
+          "after_offset": 19323,
+          "old": "\t\t\t\t} else if(com.hbm.world.WorldBlockState.read(this.world, railX + 1, railY, railZ).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\t\t} else if(com.hbm.world.WorldBlockState.read(this.world, railX + 1, railY, railZ).isNormalCube()) {\n"
+        },
+        {
+          "before_offset": 19509,
+          "after_offset": 19487,
+          "old": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ - 1).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ - 1).isNormalCube()) {\n"
+        },
+        {
+          "before_offset": 19644,
+          "after_offset": 19611,
+          "old": "\t\t\t\t} else if(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ + 1).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\t\t} else if(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ + 1).isNormalCube()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "f2683c4f530d600f2375eff0406809bcbf6e87d664f0eca527965b6ad538a458",
+      "after_sha256": "c449af615f5b4cad2718649dbf41d01d778eaca29950cba71e8b8ce35486e639",
+      "edits": [
+        {
+          "before_offset": 23927,
+          "after_offset": 23927,
+          "old": "                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ - 1, p_145821_2_, p_145821_3_).getBlock().isNormalCube())\n",
+          "new": "                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ - 1, p_145821_2_, p_145821_3_).isNormalCube())\n"
+        },
+        {
+          "before_offset": 24142,
+          "after_offset": 24131,
+          "old": "                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ + 1, p_145821_2_, p_145821_3_).getBlock().isNormalCube())\n",
+          "new": "                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ + 1, p_145821_2_, p_145821_3_).isNormalCube())\n"
+        },
+        {
+          "before_offset": 24430,
+          "after_offset": 24408,
+          "old": "                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ - 1).getBlock().isNormalCube())\n",
+          "new": "                if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ - 1).isNormalCube())\n"
+        },
+        {
+          "before_offset": 24645,
+          "after_offset": 24612,
+          "old": "                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ + 1).getBlock().isNormalCube())\n",
+          "new": "                else if (com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ + 1).isNormalCube())\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java": {
+      "before_sha256": "6c324d9978a5ea1ae06a6de43b172e5079190468a4cee4cdc2fa344ad5c203f4",
+      "after_sha256": "e66c442304c2e059d6b1cf958761d5e3bdc5d92a82ad409c9ac8a4dd7926f1ad",
+      "edits": [
+        {
+          "before_offset": 8600,
+          "after_offset": 8600,
+          "old": "\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n",
+          "new": "\t\t\t\tif(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java": {
+      "before_sha256": "883e44a5f6e2d2a053af0448740e4a83524e1ae19f0319295e8b739c15159899",
+      "after_sha256": "0242db53f02fe03004c79bb5640148f5d82bde2b85b6ac7d7ef2f958b24edce8",
+      "edits": [
+        {
+          "before_offset": 2394,
+          "after_offset": 2394,
+          "old": "\t\t\t\t\t\tBlock block = com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ).getBlock();\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ);\n\t\t\t\t\t\tBlock block = nativeCubeState_block.getBlock();\n"
+        },
+        {
+          "before_offset": 2691,
+          "after_offset": 2782,
+          "old": "\t\t\t\t\t\tif(block.isNormalCube()) {\n",
+          "new": "\t\t\t\t\t\tif(block.isNormalCube(nativeCubeState_block)) {\n"
+        },
+        {
+          "before_offset": 6168,
+          "after_offset": 6280,
+          "old": "\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n",
+          "new": "\t\t\t\tif(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java": {
+      "before_sha256": "379718b9a18ac24062ea52f378e416f2f7f7ae8607f068be3c50e65e7f27fe98",
+      "after_sha256": "e16a131c22f177dc7bc3cdd647a07d950a5edb7a98ba080923123427ae3e59ac",
+      "edits": [
+        {
+          "before_offset": 1711,
+          "after_offset": 1711,
+          "old": "\t\t\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n",
+          "new": "\t\t\t\t\t\tif(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        },
+        {
+          "before_offset": 2436,
+          "after_offset": 2450,
+          "old": "\t\t\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n",
+          "new": "\t\t\t\t\t\tif(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java": {
+      "before_sha256": "9b6c9b7ade01df52c8896ff05a33bb89407082cf6f538b63716a91e184324227",
+      "after_sha256": "fc8c0de351f19e92e81072bbe90ee37224b21f834c75596fc3872bbe3a6df857",
+      "edits": [
+        {
+          "before_offset": 3756,
+          "after_offset": 3756,
+          "old": "\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1).getBlock();\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1);\n\t\t\t\tBlock b = nativeCubeState_b.getBlock();\n"
+        },
+        {
+          "before_offset": 3930,
+          "after_offset": 4011,
+          "old": "\t\t\t\tif (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube() && !(b instanceof BlockDummyable) && this.world.getTileEntity(x1, y1, z1) == null) {\n",
+          "new": "\t\t\t\tif (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube(nativeCubeState_b) && !(b instanceof BlockDummyable) && this.world.getTileEntity(x1, y1, z1) == null) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java": {
+      "before_sha256": "5139774dbbf38da5f7bb046d731714946728ddd524588ef2d2872574ca935c08",
+      "after_sha256": "16990823170b099323239426e2b9ea57d6e34d0363d147f55c4031268146905a",
+      "edits": [
+        {
+          "before_offset": 7317,
+          "after_offset": 7317,
+          "old": "\t\tBlock b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ).getBlock();\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ);\n\t\tBlock b = nativeCubeState_b.getBlock();\n"
+        },
+        {
+          "before_offset": 7526,
+          "after_offset": 7605,
+          "old": "\t\tif(distanceCheck && b.getDefaultState().getMaterial() != Material.AIR && b.isNormalCube() && b != ModBlocks.glyphid_base) {\n",
+          "new": "\t\tif(distanceCheck && b.getDefaultState().getMaterial() != Material.AIR && b.isNormalCube(nativeCubeState_b) && b != ModBlocks.glyphid_base) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityChlorineFX.java": {
+      "before_sha256": "d14991851507f1189e7b10999df0e4a209f9d16123dca9810444a8645b466370",
+      "after_sha256": "a2be873f950290d92137a7eed54b33e541948fcf7fcc8071a78d225153e32f4e",
+      "edits": [
+        {
+          "before_offset": 2476,
+          "after_offset": 2476,
+          "old": "\t\t\tif (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\tif (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).isNormalCube()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityCloudFX.java": {
+      "before_sha256": "bc4f55d4ead153b26fffb2e01b3eb0c836b4ed08a1cc11e82187cf65b878cd24",
+      "after_sha256": "296535c45a4c4e00448470afeb2c0a064068377ed71bf3452857d14b1cedda7a",
+      "edits": [
+        {
+          "before_offset": 2360,
+          "after_offset": 2360,
+          "old": "\t\t\tif (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\tif (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).isNormalCube()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityPinkCloudFX.java": {
+      "before_sha256": "0e6e58beaa37f1919ae964a587e120fa8fa6a747d4c0a3ad3c4d5b65d51a7496",
+      "after_sha256": "af40f504f40fca0e6b749778f403a20474c003fbb57c6e46590680a702dbc6da",
+      "edits": [
+        {
+          "before_offset": 2740,
+          "after_offset": 2740,
+          "old": "\t\t\tif (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\tif (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).isNormalCube()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNT.java": {
+      "before_sha256": "4b69286bef9969d6f91c80d8c05c7668d2a23261286c057fb72df55460e471c4",
+      "after_sha256": "5bdd3cb8f75b948e9107b51dd2b110eb89e1df4f74576af75a888e12297e9137",
+      "edits": [
+        {
+          "before_offset": 8088,
+          "after_offset": 8088,
+          "old": "\t\t\t\tblock = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k).getBlock();\r\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k);\r\n\t\t\t\tblock = nativeCubeState_block.getBlock();\r\n"
+        },
+        {
+          "before_offset": 10030,
+          "after_offset": 10120,
+          "old": "\t\t\t\t\tif(block.isNormalCube()) {\r\n",
+          "new": "\t\t\t\t\tif(block.isNormalCube(nativeCubeState_block)) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeRayBatched.java": {
+      "before_sha256": "2c13cf4a68c9acadee088e951a1d4e21e3f1de499010dae91bb28b2b384bf466",
+      "after_sha256": "b6a127d48c9fe51f4ff945bf1d4886e8737ff9ac05d5e47fc89cf137c0a1757b",
+      "edits": [
+        {
+          "before_offset": 6212,
+          "after_offset": 6212,
+          "old": "\t\t\t\tif(!world.isAirBlock(x0, y0, z0)) {\n",
+          "new": "\t\t\t\tif(!world.isAirBlock(new net.minecraft.util.math.BlockPos(x0, y0, z0))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorDebris.java": {
+      "before_sha256": "3eaf1860f3543820422cd017e63e3313e1e16cbed987698b5fbdb9f8ec4296e6",
+      "after_sha256": "e623f2a47ecc27cbbe52f516077f5975c2bc4e122903c7b5005845138ae478e6",
+      "edits": [
+        {
+          "before_offset": 858,
+          "after_offset": 858,
+          "old": "\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();\n\t\t\tif(b.isNormalCube() && (b != metaBlock.block || com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) ) != metaBlock.meta)) {\n",
+          "new": "\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\tBlock b = nativeCubeState_b.getBlock();\n\t\t\tif(b.isNormalCube(nativeCubeState_b) && (b != metaBlock.block || com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) ) != metaBlock.meta)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBalefireMatch.java": {
+      "before_sha256": "38a4c20313d2592be0813436d5fb71cec6db0061831e08c2050d678aae98e45c",
+      "after_sha256": "78dfb130aeedc9a0a29722d17438ad09992e44a3830a3c233a6a7eca0dc5f207",
+      "edits": [
+        {
+          "before_offset": 976,
+          "after_offset": 976,
+          "old": "            if (world.isAirBlock(x, y, z)) {\n",
+          "new": "            if (world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModDoor.java": {
+      "before_sha256": "de84c8784f8de52163d6d7f392ee02cd42680eff50304aaa6c50532ff3e9fe32",
+      "after_sha256": "b49e7ba239deed5b233eed51688ee2b752d975d8a222e29452237510743097ce",
+      "edits": [
+        {
+          "before_offset": 1820,
+          "after_offset": 1820,
+          "old": "\t\tint i1 = (com.hbm.world.WorldBlockState.read(world, x - offsetX, y, z - offsetZ).getBlock().isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x - offsetX, y + 1, z - offsetZ).getBlock().isNormalCube() ? 1 : 0);\n\t\tint j1 = (com.hbm.world.WorldBlockState.read(world, x + offsetX, y, z + offsetZ).getBlock().isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x + offsetX, y + 1, z + offsetZ).getBlock().isNormalCube() ? 1 : 0);\n",
+          "new": "\t\tint i1 = (com.hbm.world.WorldBlockState.read(world, x - offsetX, y, z - offsetZ).isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x - offsetX, y + 1, z - offsetZ).isNormalCube() ? 1 : 0);\n\t\tint j1 = (com.hbm.world.WorldBlockState.read(world, x + offsetX, y, z + offsetZ).isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x + offsetX, y + 1, z + offsetZ).isNormalCube() ? 1 : 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+      "before_sha256": "d1976684752da85f836ead6742a1b30f3266ce7a91f8a39a8c7d9ade92eea9ec",
+      "after_sha256": "d1612943f92585b1ff46d37d0cb01468f201575660ff78afb5c0ab351486ae75",
+      "edits": [
+        {
+          "before_offset": 11463,
+          "after_offset": 11463,
+          "old": "\t\tif(world.isAirBlock(x, y, z))\r\n",
+          "new": "\t\tif(world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z)))\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/RedstoneSword.java": {
+      "before_sha256": "da3e53ae3287e5e09d41658aa7b15c8ad94ada45216d268c1d7ecf2298ce6da9",
+      "after_sha256": "4996d52001ad2cb66abe405e520e025bb5e5a84ef62a6ebb06d981a51a934804",
+      "edits": [
+        {
+          "before_offset": 1306,
+          "after_offset": 1306,
+          "old": "            if (world.isAirBlock(x, y, z))\n",
+          "new": "            if (world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z)))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryDrill.java": {
+      "before_sha256": "6a4b7c5b9c5217984c670972bb1c261a2b88bd2f4e4098f757355dcc44480752",
+      "after_sha256": "b94ee79ca9007d5d538820b7d6f0811f190452d28f5570ff873bf438730fad5c",
+      "edits": [
+        {
+          "before_offset": 4818,
+          "after_offset": 4818,
+          "old": "\t\tif(world.isAirBlock(x, y, z)) return;\n",
+          "new": "\t\tif(world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))) return;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/potion/HbmPotion.java": {
+      "before_sha256": "3d10a65cd9f5c064d378dbd8725341a3b16e82472d801c4d0e82a9a0e2c53358",
+      "after_sha256": "843df17f9a1ad9c125629136676a47c375e04f04f4ade8ea47b251d4e13a6478",
+      "edits": [
+        {
+          "before_offset": 5274,
+          "after_offset": 5274,
+          "old": "\t\t\t\tif(y > 1 && b.isNormalCube() && !b.isAir(nativeAirState, entity.world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) {\n",
+          "new": "\t\t\t\tif(y > 1 && b.isNormalCube(nativeAirState) && !b.isAir(nativeAirState, entity.world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java": {
+      "before_sha256": "60aea99fa48386b4c54d82675489a6434e263d31f1f7c20355ac795dbd099bec",
+      "after_sha256": "0fcc08962d093c69ae9e3860546cd0a8d36bff0d031f2bce8612b11d5b79314c",
+      "edits": [
+        {
+          "before_offset": 368,
+          "after_offset": 368,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1911,
+          "after_offset": 2029,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 2100,
+          "after_offset": 2270,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setColorRGBA_I(color.getRGB(), (int) Math.max(255 * (1 - exp), 0));\n\t\ttess.addVertexWithUV(-size, -size, 0.0D, 1, 1);\n\t\ttess.addVertexWithUV(size, -size, 0.0D, 0, 1);\n\t\ttess.addVertexWithUV(size, size, 0.0D, 0, 0);\n\t\ttess.addVertexWithUV(-size, size, 0.0D, 1, 0);\n",
+          "new": "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n\t\tint tessColor0Packed = color.getRGB();\n\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) Math.max(255 * (1 - exp), 0)));\n\t\ttessBuffer.pos(-size, -size, 0.0D).tex(1, 1).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(size, -size, 0.0D).tex(0, 1).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(size, size, 0.0D).tex(0, 0).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(-size, size, 0.0D).tex(1, 0).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        },
+        {
+          "before_offset": 3003,
+          "after_offset": 3981,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 3300,
+          "after_offset": 4330,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n\t\ttess.setColorRGBA_I(color, (int) Math.max(127 * (1 - exp), 0));\n\t\ttess.addVertexWithUV(-size, -size, 0.0D, 1 - i, 1 - j);\n\t\ttess.addVertexWithUV(size, -size, 0.0D, i, 1 - j);\n\t\ttess.addVertexWithUV(size, size, 0.0D, i, j);\n\t\ttess.addVertexWithUV(-size, size, 0.0D, 1 - i, j);\n",
+          "new": "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n\t\tint tessColor0Packed = color;\n\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) Math.max(127 * (1 - exp), 0)));\n\t\ttessBuffer.pos(-size, -size, 0.0D).tex(1 - i, 1 - j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(size, -size, 0.0D).tex(i, 1 - j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(size, size, 0.0D).tex(i, j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\ttessBuffer.pos(-size, size, 0.0D).tex(1 - i, j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        },
+        {
+          "before_offset": 4783,
+          "after_offset": 6621,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawingQuads();\n\t\t\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n\t\ttess.addVertex(-size, 0, -size);\n\t\ttess.addVertex(size, 0, -size);\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n\t\ttess.addVertex(size, length, -size);\n\t\ttess.addVertex(-size, length, -size);\n\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n\t\ttess.addVertex(-size, 0, size);\n\t\ttess.addVertex(size, 0, size);\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n\t\ttess.addVertex(size, length, size);\n\t\ttess.addVertex(-size, length, size);\n\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n\t\ttess.addVertex(-size, 0, -size);\n\t\ttess.addVertex(-size, 0, size);\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n\t\ttess.addVertex(-size, length, size);\n\t\ttess.addVertex(-size, length, -size);\n\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n\t\ttess.addVertex(size, 0, -size);\n\t\ttess.addVertex(size, 0, size);\n\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n\t\ttess.addVertex(size, length, size);\n\t\ttess.addVertex(size, length, -size);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\t\n\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n\t\ttessBuffer.pos(-size, 0, -size).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\ttessBuffer.pos(size, 0, -size).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\ttessBuffer.pos(size, length, -size).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(-size, length, -size).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\n\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n\t\ttessBuffer.pos(-size, 0, size).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n\t\ttessBuffer.pos(size, 0, size).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n\t\tint tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor3Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor3Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\ttessBuffer.pos(size, length, size).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n\t\ttessBuffer.pos(-size, length, size).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n\n\t\tint tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor4Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor4Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n\t\ttessBuffer.pos(-size, 0, -size).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n\t\ttessBuffer.pos(-size, 0, size).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n\t\tint tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor5Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor5Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\ttessBuffer.pos(-size, length, size).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n\t\ttessBuffer.pos(-size, length, -size).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n\n\t\tint tessColor6Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor6Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor6Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor6Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n\t\ttessBuffer.pos(size, 0, -size).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n\t\ttessBuffer.pos(size, 0, size).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n\t\tint tessColor7Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor7Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor7Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\tint tessColor7Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\ttessBuffer.pos(size, length, size).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n\t\ttessBuffer.pos(size, length, -size).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java": {
+      "before_sha256": "a997f9c17051f0f8874469c25710abc9ed128f540dc226ac46dc2dfd9a5a3648",
+      "after_sha256": "165276244d605e4c5dc4d6f5ff1ccfbd665989c82b18a4bd8e730450e2796371",
+      "edits": [
+        {
+          "before_offset": 443,
+          "after_offset": 443,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 5178,
+          "after_offset": 5296,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 5456,
+          "after_offset": 5626,
+          "old": "\t\t\ttess.startDrawingQuads();\n\t\t\ttess.setNormal(0F, 1F, 0F);\n\t\t\ttess.addVertexWithUV(-0.5, -0.5F, -0.5, maxU, maxV);\n\t\t\ttess.addVertexWithUV(0.5F, -0.5F, -0.5, minU, maxV);\n\t\t\ttess.addVertexWithUV(0.5F, 0.5F, -0.5, minU, minV);\n\t\t\ttess.addVertexWithUV(-0.5, 0.5F, -0.5, maxU, minV);\n",
+          "new": "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\t\tfloat tessNormal0X = 0F, tessNormal0Y = 1F, tessNormal0Z = 0F;\n\t\t\ttessBuffer.pos(-0.5, -0.5F, -0.5).tex(maxU, maxV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\ttessBuffer.pos(0.5F, -0.5F, -0.5).tex(minU, maxV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\ttessBuffer.pos(0.5F, 0.5F, -0.5).tex(minU, minV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\ttessBuffer.pos(-0.5, 0.5F, -0.5).tex(maxU, minV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderExcavator.java": {
+      "before_sha256": "1a370e5ec2e70b256a7cbd1c25ea75e82884b31fafbd5bffd5820c9bff6ae715",
+      "after_sha256": "7ccc3137b97703bd1503606a8701307174b447530e477c31da735b522d4ae261",
+      "edits": [
+        {
+          "before_offset": 319,
+          "after_offset": 319,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 3004,
+          "after_offset": 3122,
+          "old": "\t\t\tTessellator tess = Tessellator.instance;\n\t\t\ttess.startDrawingQuads();\n\t\t\ttess.setNormal(0F, 0F, 1F);\n\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 + widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 + widthZ, 1, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, 1, dropL);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropL);\n",
+          "new": "\t\t\tTessellator tess = Tessellator.getInstance();\n\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\t\tfloat tessNormal0X = 0F, tessNormal0Y = 0F, tessNormal0Z = 1F;\n\t\t\ttessBuffer.pos(widthX, 3, 2.5 + widthZ).tex(0, dropU).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 3, 2.5 + widthZ).tex(1, dropU).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(1, dropL).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropL).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        },
+        {
+          "before_offset": 3351,
+          "after_offset": 3830,
+          "old": "\t\t\ttess.setNormal(0F, 0F, -1F);\n\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 - widthZ, 1, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 - widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, 0, dropL);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, 1, dropL);\n",
+          "new": "\t\t\tfloat tessNormal1X = 0F, tessNormal1Y = 0F, tessNormal1Z = -1F;\n\t\t\ttessBuffer.pos(-widthX, 3, 2.5 - widthZ).tex(1, dropU).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 3, 2.5 - widthZ).tex(0, dropU).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(0, dropL).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(1, dropL).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n"
+        },
+        {
+          "before_offset": 3626,
+          "after_offset": 4376,
+          "old": "\t\t\ttess.setNormal(-1F, 0F, 0F);\n\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 + widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 - widthZ, 1, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, 1, dropL);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, 0, dropL);\n",
+          "new": "\t\t\tfloat tessNormal2X = -1F, tessNormal2Y = 0F, tessNormal2Z = 0F;\n\t\t\ttessBuffer.pos(-widthX, 3, 2.5 + widthZ).tex(0, dropU).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 3, 2.5 - widthZ).tex(1, dropU).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(1, dropL).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(0, dropL).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n"
+        },
+        {
+          "before_offset": 3903,
+          "after_offset": 4924,
+          "old": "\t\t\ttess.setNormal(1F, 0F, 0F);\n\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 - widthZ, 1, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 + widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropL);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, 1, dropL);\n",
+          "new": "\t\t\tfloat tessNormal3X = 1F, tessNormal3Y = 0F, tessNormal3Z = 0F;\n\t\t\ttessBuffer.pos(widthX, 3, 2.5 - widthZ).tex(1, dropU).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 3, 2.5 + widthZ).tex(0, dropU).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropL).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(1, dropL).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n"
+        },
+        {
+          "before_offset": 4378,
+          "after_offset": 5670,
+          "old": "\t\t\ttess.startDrawingQuads();\n\t\t\ttess.setNormal(0F, 0F, 1F);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, uU, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 + widthZ, uU, dropL);\n\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 + widthZ, 0, dropL);\n",
+          "new": "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\t\tfloat tessNormal4X = 0F, tessNormal4Y = 0F, tessNormal4Z = 1F;\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropU).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(uU, dropU).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 1, 2.5 + widthZ).tex(uU, dropL).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 1, 2.5 + widthZ).tex(0, dropL).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n"
+        },
+        {
+          "before_offset": 4683,
+          "after_offset": 6283,
+          "old": "\t\t\ttess.setNormal(0F, 0F, -1F);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, uU, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 - widthZ, 0, dropL);\n\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 - widthZ, uU, dropL);\n",
+          "new": "\t\t\tfloat tessNormal5X = 0F, tessNormal5Y = 0F, tessNormal5Z = -1F;\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(uU, dropU).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(0, dropU).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 1, 2.5 - widthZ).tex(0, dropL).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 1, 2.5 - widthZ).tex(uU, dropL).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n"
+        },
+        {
+          "before_offset": 4960,
+          "after_offset": 6831,
+          "old": "\t\t\ttess.setNormal(-1F, 0F, 0F);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, uL, dropU);\n\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 - widthZ, uL, dropL);\n\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 + widthZ, 0, dropL);\n",
+          "new": "\t\t\tfloat tessNormal6X = -1F, tessNormal6Y = 0F, tessNormal6Z = 0F;\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(0, dropU).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(uL, dropU).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 1, 2.5 - widthZ).tex(uL, dropL).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n\t\t\ttessBuffer.pos(-widthX, 1, 2.5 + widthZ).tex(0, dropL).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n"
+        },
+        {
+          "before_offset": 5239,
+          "after_offset": 7381,
+          "old": "\t\t\ttess.setNormal(1F, 0F, 0F);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, uL, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropU);\n\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 + widthZ, 0, dropL);\n\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 - widthZ, uL, dropL);\n",
+          "new": "\t\t\tfloat tessNormal7X = 1F, tessNormal7Y = 0F, tessNormal7Z = 0F;\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(uL, dropU).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropU).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 1, 2.5 + widthZ).tex(0, dropL).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n\t\t\ttessBuffer.pos(widthX, 1, 2.5 - widthZ).tex(uL, dropL).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java": {
+      "before_sha256": "676284149d489c2ffc6933d348da9c5383e96d415193dee16f61a1edb5291f64",
+      "after_sha256": "9cd192b802dcfe0c4d3f63439ee4ccefaa9185feac2cd7c58352f3d682bec922",
+      "edits": [
+        {
+          "before_offset": 415,
+          "after_offset": 415,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1472,
+          "after_offset": 1590,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 1568,
+          "after_offset": 1738,
+          "old": "\t\t\ttess.startDrawingQuads();\n",
+          "new": "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 1682,
+          "after_offset": 1884,
+          "old": "\t\t\ttess.setColorRGBA_I(0x00ff00, 0);\n\t\t\ttess.addVertex(0.38, 2 - offset, 1.375);\n\t\t\ttess.addVertex(0.38, 2 - offset, -0.375);\n\t\t\ttess.setColorRGBA_I(0x00ff00, 50);\n\t\t\ttess.addVertex(0.38, 2 - offset - 0.125, -0.375);\n\t\t\ttess.addVertex(0.38, 2 - offset - 0.125, 1.375);\n",
+          "new": "\t\t\tint tessColor0Packed = 0x00ff00;\n\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, 0));\n\t\t\ttessBuffer.pos(0.38, 2 - offset, 1.375).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).endVertex();\n\t\t\ttessBuffer.pos(0.38, 2 - offset, -0.375).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).endVertex();\n\t\t\tint tessColor1Packed = 0x00ff00;\n\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, 50));\n\t\t\ttessBuffer.pos(0.38, 2 - offset - 0.125, -0.375).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();\n\t\t\ttessBuffer.pos(0.38, 2 - offset - 0.125, 1.375).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2370,
+          "after_offset": 3170,
+          "old": "\t\t\t\ttess.startDrawingQuads();\n\t\t\t\ttess.setNormal(0F, 1F, 0F);\n",
+          "new": "\t\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n\t\t\t\tfloat tessNormal0X = 0F, tessNormal0Y = 1F, tessNormal0Z = 0F;\n"
+        },
+        {
+          "before_offset": 2684,
+          "after_offset": 3556,
+          "old": "\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ + size, 0.5 - sX + size, 216D / 256D, (entry.blipLevel * 8F + 8F) / 256F);\n\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ + size, 0.5 - sX - size, 224D / 256D, (entry.blipLevel * 8F + 8F) / 256F);\n\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ - size, 0.5 - sX - size, 224D / 256D, entry.blipLevel * 8F / 256F);\n\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ - size, 0.5 - sX + size, 216D / 256D, entry.blipLevel * 8F / 256F);\n",
+          "new": "\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ + size, 0.5 - sX + size).tex(216D / 256D, (entry.blipLevel * 8F + 8F) / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ + size, 0.5 - sX - size).tex(224D / 256D, (entry.blipLevel * 8F + 8F) / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ - size, 0.5 - sX - size).tex(224D / 256D, entry.blipLevel * 8F / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ - size, 0.5 - sX + size).tex(216D / 256D, entry.blipLevel * 8F / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+        },
+        {
+          "before_offset": 3254,
+          "after_offset": 4362,
+          "old": "\t\t\ttess.startDrawingQuads();\n\t\t\ttess.setColorOpaque_I(0xffffff);\n\t\t\ttess.setNormal(0F, 1F, 0F);\n\t\t\ttess.addVertexWithUV(0.38, 1.875, 1.375, 216D / 256D, (offset + 40F) / 256F);\n\t\t\ttess.addVertexWithUV(0.38, 1.875, -0.375, 256D / 256D, (offset + 40F) / 256F);\n\t\t\ttess.addVertexWithUV(0.38, 0.125, -0.375, 256D / 256D, offset / 256F);\n\t\t\ttess.addVertexWithUV(0.38, 0.125, 1.375, 216D / 256D, offset / 256F);\n",
+          "new": "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n\t\t\tint tessColor2Packed = 0xffffff;\n\t\t\tfloat tessNormal1X = 0F, tessNormal1Y = 1F, tessNormal1Z = 0F;\n\t\t\ttessBuffer.pos(0.38, 1.875, 1.375).tex(216D / 256D, (offset + 40F) / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n\t\t\ttessBuffer.pos(0.38, 1.875, -0.375).tex(256D / 256D, (offset + 40F) / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n\t\t\ttessBuffer.pos(0.38, 0.125, -0.375).tex(256D / 256D, offset / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n\t\t\ttessBuffer.pos(0.38, 0.125, 1.375).tex(216D / 256D, offset / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityVent.java": {
+      "before_sha256": "3c07129d9b1e833d2e3d5f4d7c82bf6f92e1a1b02b71f247521356e7b52bc0d2",
+      "after_sha256": "a1cf22b92652815998d1ae6da66141e252b31f26a41c528cbb5d54a5e5521b51",
+      "edits": [
+        {
+          "before_offset": 943,
+          "after_offset": 943,
+          "old": "\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {\n"
+        },
+        {
+          "before_offset": 1493,
+          "after_offset": 1482,
+          "old": "\t\t\t\tif(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\t\tif(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {\n"
+        },
+        {
+          "before_offset": 2034,
+          "after_offset": 2012,
+          "old": "\t\t\t\tif(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {\n",
+          "new": "\t\t\t\tif(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePumpBase.java": {
+      "before_sha256": "62351d8d87dd4a2ddf547f8fb4bf928b0c20cac5a1c65e9a94dde27227a82201",
+      "after_sha256": "0af6df581501639c6c92b17a99f5150dc2d4acbcbabe59ea5c7ffe4c8944328d",
+      "edits": [
+        {
+          "before_offset": 4389,
+          "after_offset": 4389,
+          "old": "\t\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z).getBlock();\n\n\t\t\t\t\tif(y == -1 && !b.isNormalCube()) return false; // first layer has to be full solid\n",
+          "new": "\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z);\n\t\t\t\t\tBlock b = nativeCubeState_b.getBlock();\n\n\t\t\t\t\tif(y == -1 && !b.isNormalCube(nativeCubeState_b)) return false; // first layer has to be full solid\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java": {
+      "before_sha256": "a9b81a81fd43ec8be0cce0573fab29969ace06edeef45f3e52ff2cd9cfb0ae1f",
+      "after_sha256": "a2ea1b159ab2a5f4b47d73cdb3a447ed5b7c7cba21b8cc2cceb186334f3dbbf7",
+      "edits": [
+        {
+          "before_offset": 9692,
+          "after_offset": 9692,
+          "old": "\t\t\tif (!this.world.isAirBlock(x + dir.offsetX * i, y, z + dir.offsetZ * i)) {\n",
+          "new": "\t\t\tif (!this.world.isAirBlock(new net.minecraft.util.math.BlockPos(x + dir.offsetX * i, y, z + dir.offsetZ * i))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": {
+      "before_sha256": "166675ebc7dcff286c810cd76e56a590258d4ebaefcc59c33e30f39446d0e5c8",
+      "after_sha256": "5acb2a062b3699fe109ea944073725bf53aa6c5f97e6e2704406a2d711f96b3a",
+      "edits": [
+        {
+          "before_offset": 2864,
+          "after_offset": 2864,
+          "old": "\t\tBlock target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\tBlock target = nativeCubeState_target.getBlock();\n"
+        },
+        {
+          "before_offset": 2947,
+          "after_offset": 3036,
+          "old": "\t\tif(target.isNormalCube() && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {\n",
+          "new": "\t\tif(target.isNormalCube(nativeCubeState_target) && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OilSpot.java": {
+      "before_sha256": "dcffe7db0b101e924d94cb1c3f740c13334a5cd42e3057328fd8b210de4733f3",
+      "after_sha256": "5bd235b676c0dac8891bf76ebd67ceb72753d75a246d700e7034e2563ffdf8fd",
+      "edits": [
+        {
+          "before_offset": 1230,
+          "after_offset": 1230,
+          "old": "\t\t\t\tBlock below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ);\n\t\t\t\tBlock below = nativeCubeState_below.getBlock();\n"
+        },
+        {
+          "before_offset": 1856,
+          "after_offset": 1945,
+          "old": "\t\t\t\tif(below.isNormalCube() && ground != ModBlocks.plant_dead) {\n",
+          "new": "\t\t\t\tif(below.isNormalCube(nativeCubeState_below) && ground != ModBlocks.plant_dead) {\n"
+        },
+        {
+          "before_offset": 10073,
+          "after_offset": 10183,
+          "old": "\t\t\t\tBlock below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ);\n\t\t\t\tBlock below = nativeCubeState_below.getBlock();\n"
+        },
+        {
+          "before_offset": 10355,
+          "after_offset": 10554,
+          "old": "\t\t\t\tif(below.isNormalCube() && ground != ModBlocks.plant_dead) {\n",
+          "new": "\t\t\t\tif(below.isNormalCube(nativeCubeState_below) && ground != ModBlocks.plant_dead) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreCave.java": {
+      "before_sha256": "787cefc2e4f32c508934218d5d1e86ab47d188ad21f710c70d27a9edf1263f32",
+      "after_sha256": "59c0a78271a4d6a07bdb5bc9d12674bdc202fcb167663b81187565eb7326cd94",
+      "edits": [
+        {
+          "before_offset": 3923,
+          "after_offset": 3923,
+          "old": "\t\t\t\t\t\tBlock genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\t\t\t\t\tBlock genTarget = nativeCubeState_genTarget.getBlock();\n"
+        },
+        {
+          "before_offset": 4017,
+          "after_offset": 4116,
+          "old": "\t\t\t\t\t\tif(genTarget.isNormalCube() && genTarget.isReplaceableOreGen(world, x, y, z, replace)) {\n",
+          "new": "\t\t\t\t\t\tif(genTarget.isNormalCube(nativeCubeState_genTarget) && genTarget.isReplaceableOreGen(world, x, y, z, replace)) {\n"
+        },
+        {
+          "before_offset": 4289,
+          "after_offset": 4413,
+          "old": "\t\t\t\t\t\t\t\tBlock neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();\n",
+          "new": "\t\t\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\t\t\t\t\t\tBlock neighbor = nativeCubeState_neighbor.getBlock();\n"
+        },
+        {
+          "before_offset": 4942,
+          "after_offset": 5165,
+          "old": "\t\t\t\t\t\t\t\t\tcase DOWN: if(!neighbor.isNormalCube()) canGenFluid = false; break;\n",
+          "new": "\t\t\t\t\t\t\t\t\tcase DOWN: if(!neighbor.isNormalCube(nativeCubeState_neighbor)) canGenFluid = false; break;\n"
+        },
+        {
+          "before_offset": 5101,
+          "after_offset": 5348,
+          "old": "\t\t\t\t\t\t\t\t\t\tif(!neighbor.isNormalCube() && neighbor != fluid) canGenFluid = false; break;\n",
+          "new": "\t\t\t\t\t\t\t\t\t\tif(!neighbor.isNormalCube(nativeCubeState_neighbor) && neighbor != fluid) canGenFluid = false; break;\n"
+        },
+        {
+          "before_offset": 5558,
+          "after_offset": 5829,
+          "old": "\t\t\t\t\t\t\t\t\tBlock neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ).getBlock();\n",
+          "new": "\t\t\t\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ);\n\t\t\t\t\t\t\t\t\tBlock neighbor = nativeCubeState_neighbor.getBlock();\n"
+        },
+        {
+          "before_offset": 5661,
+          "after_offset": 6032,
+          "old": "\t\t\t\t\t\t\t\t\tif(neighbor.isNormalCube())\n",
+          "new": "\t\t\t\t\t\t\t\t\tif(neighbor.isNormalCube(nativeCubeState_neighbor))\n"
+        },
+        {
+          "before_offset": 5921,
+          "after_offset": 6316,
+          "old": "\t\t\t\t\t\t\tif((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube()) && event.getRand().nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {\n",
+          "new": "\t\t\t\t\t\t\tif((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube(nativeCubeState_genTarget)) && event.getRand().nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreLayer3D.java": {
+      "before_sha256": "32133790ff36fe976639420a2f1537e6efd16a39ce12b9d2757708066602376e",
+      "after_sha256": "cce8a51dc1258230ac1a4876f56ce0b155990fdea8b5e488032b4eea26423333",
+      "edits": [
+        {
+          "before_offset": 3707,
+          "after_offset": 3707,
+          "old": "\t\t\t\t\t\tBlock target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\t\t\t\t\tBlock target = nativeCubeState_target.getBlock();\n"
+        },
+        {
+          "before_offset": 3792,
+          "after_offset": 3885,
+          "old": "\t\t\t\t\t\tif(target.isNormalCube() && target.isReplaceableOreGen(world, x, y, z, replace)) {\n",
+          "new": "\t\t\t\t\t\tif(target.isNormalCube(nativeCubeState_target) && target.isReplaceableOreGen(world, x, y, z, replace)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": {
+      "before_sha256": "0b3788595add73da2dad84d3a212c445e4dc35a12e977c1ec98243249567421a",
+      "after_sha256": "5e492b591b93cf0ce81fbb447d323702ec065e836646b9ff88e3f322330ddd65",
+      "edits": [
+        {
+          "before_offset": 1274,
+          "after_offset": 1274,
+          "old": "\t\t\t\t\t\tBlock target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\t\t\t\t\tBlock target = nativeCubeState_target.getBlock();\n"
+        },
+        {
+          "before_offset": 1365,
+          "after_offset": 1458,
+          "old": "\t\t\t\t\t\tif(target.isNormalCube() && target.getDefaultState().getMaterial() == Material.ROCK && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {\n",
+          "new": "\t\t\t\t\t\tif(target.isNormalCube(nativeCubeState_target) && target.getDefaultState().getMaterial() == Material.ROCK && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

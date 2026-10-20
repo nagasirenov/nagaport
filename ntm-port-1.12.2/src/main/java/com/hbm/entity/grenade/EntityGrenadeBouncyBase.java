@@ -43,7 +43,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
         this.motionX = (double)(-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
         this.motionZ = (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
         this.motionY = (double)(-MathHelper.sin((this.rotationPitch + this.func_70183_g()) / 180.0F * (float)Math.PI) * f);
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, this.func_70182_d(), 1.0F);
+        this.shoot(this.motionX, this.motionY, this.motionZ, this.func_70182_d(), 1.0F);
         this.rotationPitch = 0;
         this.prevRotationPitch = 0;
     }
@@ -82,7 +82,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
         return 0.03F;
     }
     
-    public void setThrowableHeading(double motionX, double motionY, double motionZ, float f0, float f1)
+    public void shoot(double motionX, double motionY, double motionZ, float f0, float f1)
     {
         float f2 = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
         motionX /= (double)f2;
@@ -193,7 +193,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
             for (int i = 0; i < 4; ++i)
             {
                 float f4 = 0.25F;
-                this.world.spawnParticle("bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
+                this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;

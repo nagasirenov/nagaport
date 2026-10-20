@@ -1,0 +1,161 @@
+{
+  "base": "abe006a0845275e8be52417967ac8ebf6f283a52",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/hazard/HazardSystem.java",
+      "before": "74ad11a3b550b627a93329988911044df3d80aff77b27fd0fcb6df8908811d7b",
+      "after": "e130bf5985502fbb7d948f20b21dbe3f1614464739090479f50842b86cc7d58a",
+      "edits": [
+        {
+          "offset": 6364,
+          "old": "",
+          "new": "\n\t\t\tif (stack == ItemStack.EMPTY) stack = null;",
+          "start": 6308,
+          "body": 6363,
+          "end": 6429,
+          "variable": "stack",
+          "field": "armorInventory"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "before": "8f421359a3bd4eab877a049b5a6f9b412a02196816d39ea79524426ce9b5f6e1",
+      "after": "09bec0a536a7857111fd5dbf34f70f0839624a1aae1da59d3e8913ee520df9d0",
+      "edits": [
+        {
+          "offset": 1748,
+          "old": "",
+          "new": "\n\t\t\t\t\tif (item == ItemStack.EMPTY) item = null;",
+          "start": 1694,
+          "body": 1747,
+          "end": 2285,
+          "variable": "item",
+          "field": "mainInventory"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/food/ItemPancake.java",
+      "before": "0de4339a7b31e1174515dc61cb9231b43ad693c53811830f9373fb9a2f29151f",
+      "after": "aac34083adf988d23387b43eaf38d13ad686950598d3cb2551b1a795ea65941f",
+      "edits": [
+        {
+          "offset": 804,
+          "old": "",
+          "new": "\r\n    \t\tif (st == ItemStack.EMPTY) st = null;",
+          "start": 751,
+          "body": 803,
+          "end": 1026,
+          "variable": "st",
+          "field": "armorInventory"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemAmmoContainer.java",
+      "before": "be0a5fa60f95c3e3ed39360ca72330df128cae63b94c9d30801068bf12a0a513",
+      "after": "f6e66587e1f66e6b8e1ca60a8834e528bd6a096f7bf607c47f7dee7e3379ed95",
+      "edits": [
+        {
+          "offset": 1640,
+          "old": "",
+          "new": "\n\t\t\tif (inv == ItemStack.EMPTY) inv = null;",
+          "start": 1587,
+          "body": 1639,
+          "end": 1858,
+          "variable": "inv",
+          "field": "mainInventory"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemConveyorWand.java",
+      "before": "2eb4d7033e809c3e9c385b83cf9179279670d64df2e9004459b938c7bdbda5b9",
+      "after": "7468db94abd9d746efd43d8e94d2445472184063574e689401bc27d7b1c8486c",
+      "edits": [
+        {
+          "offset": 6736,
+          "old": "",
+          "new": "\r\n\t\t\t\t\tif (inventoryStack == ItemStack.EMPTY) inventoryStack = null;",
+          "start": 6672,
+          "body": 6735,
+          "end": 6924,
+          "variable": "inventoryStack",
+          "field": "mainInventory"
+        },
+        {
+          "offset": 7759,
+          "old": "",
+          "new": "\r\n\t\t\t\t\t\t\tif (inventoryStack == ItemStack.EMPTY) inventoryStack = null;",
+          "start": 7695,
+          "body": 7758,
+          "end": 8089,
+          "variable": "inventoryStack",
+          "field": "mainInventory"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemFusionCore.java",
+      "before": "23b0b1d0cdf392ddc8b0270d84dd0e709b83eb58f1a6866a1a65d3a51a1a87b2",
+      "after": "90e7308ebcc5ebb248df7754688779388b0aafc9c6030c3918a721abef64f54a",
+      "edits": [
+        {
+          "offset": 821,
+          "old": "",
+          "new": "\n\t\t\t\tif (st == ItemStack.EMPTY) st = null;",
+          "start": 768,
+          "body": 820,
+          "end": 1177,
+          "variable": "st",
+          "field": "armorInventory"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/mags/IMagazine.java",
+      "before": "dedc6517ac08d011add034d86d7fb110cc75b2aacca320906649288d26f5fde6",
+      "after": "bfec3ed4232a675d8b9ac34055769748c04a35047b8d68e9529826815d5ded36",
+      "edits": [
+        {
+          "offset": 3128,
+          "old": "",
+          "new": "\n\t\t\t\tif (stack == ItemStack.EMPTY) stack = null;",
+          "start": 3086,
+          "body": 3127,
+          "end": 3305,
+          "variable": "stack",
+          "field": "mainInventory"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "before": "2d3fe21a7696d69194356951ffb679ce558803e3360ea19b4ea434da7acf3b54",
+      "after": "fd3d12efd106222c533256d06a5e42fe1d3ba925d47877f389a92196a17ac012",
+      "edits": [
+        {
+          "offset": 38891,
+          "old": "",
+          "new": "\n\t\t\t\tif (stack == ItemStack.EMPTY) stack = null;",
+          "start": 38835,
+          "body": 38890,
+          "end": 39038,
+          "variable": "stack",
+          "field": "armorInventory"
+        },
+        {
+          "offset": 41221,
+          "old": "",
+          "new": "\n\t\t\t\tif (stack == ItemStack.EMPTY) stack = null;",
+          "start": 41165,
+          "body": 41220,
+          "end": 41368,
+          "variable": "stack",
+          "field": "armorInventory"
+        }
+      ]
+    }
+  ]
+}

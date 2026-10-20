@@ -1,0 +1,90 @@
+[
+  {
+    "field": "cell_antimatter",
+    "translation": "cell_antimatter",
+    "texture": "hbm:cell_antimatter",
+    "full3d": false,
+    "declaration": "cell_antimatter = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"cell_antimatter\").setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.cell_empty), RefStrings.MODID + \":cell_antimatter\");",
+    "registration": "GameRegistry.registerItem(cell_antimatter, cell_antimatter.getTranslationKey());"
+  },
+  {
+    "field": "cell_anti_schrabidium",
+    "translation": "cell_anti_schrabidium",
+    "texture": "hbm:cell_anti_schrabidium",
+    "full3d": false,
+    "declaration": "cell_anti_schrabidium = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"cell_anti_schrabidium\").setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.cell_empty), RefStrings.MODID + \":cell_anti_schrabidium\");",
+    "registration": "GameRegistry.registerItem(cell_anti_schrabidium, cell_anti_schrabidium.getTranslationKey());"
+  },
+  {
+    "field": "singularity",
+    "translation": "singularity",
+    "texture": "hbm:singularity",
+    "full3d": false,
+    "declaration": "singularity = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"singularity\").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste), RefStrings.MODID + \":singularity\");",
+    "registration": "GameRegistry.registerItem(singularity, singularity.getTranslationKey());"
+  },
+  {
+    "field": "singularity_counter_resonant",
+    "translation": "singularity_counter_resonant",
+    "texture": "hbm:singularity_alt",
+    "full3d": false,
+    "declaration": "singularity_counter_resonant = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"singularity_counter_resonant\").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste), RefStrings.MODID + \":singularity_alt\");",
+    "registration": "GameRegistry.registerItem(singularity_counter_resonant, singularity_counter_resonant.getTranslationKey());"
+  },
+  {
+    "field": "singularity_super_heated",
+    "translation": "singularity_super_heated",
+    "texture": "hbm:singularity_5",
+    "full3d": false,
+    "declaration": "singularity_super_heated = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"singularity_super_heated\").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste), RefStrings.MODID + \":singularity_5\");",
+    "registration": "GameRegistry.registerItem(singularity_super_heated, singularity_super_heated.getTranslationKey());"
+  },
+  {
+    "field": "black_hole",
+    "translation": "black_hole",
+    "texture": "hbm:singularity_4",
+    "full3d": false,
+    "declaration": "black_hole = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"black_hole\").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste), RefStrings.MODID + \":singularity_4\");",
+    "registration": "GameRegistry.registerItem(black_hole, black_hole.getTranslationKey());"
+  },
+  {
+    "field": "singularity_spark",
+    "translation": "singularity_spark",
+    "texture": "hbm:singularity_spark_alt",
+    "full3d": false,
+    "declaration": "singularity_spark = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"singularity_spark\").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.nuclear_waste), RefStrings.MODID + \":singularity_spark_alt\");",
+    "registration": "GameRegistry.registerItem(singularity_spark, singularity_spark.getTranslationKey());"
+  },
+  {
+    "field": "pellet_antimatter",
+    "translation": "pellet_antimatter",
+    "texture": "hbm:pellet_antimatter",
+    "full3d": false,
+    "declaration": "pellet_antimatter = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"pellet_antimatter\").setCreativeTab(MainRegistry.controlTab).setContainerItem(ModItems.cell_empty), RefStrings.MODID + \":pellet_antimatter\");",
+    "registration": "GameRegistry.registerItem(pellet_antimatter, pellet_antimatter.getTranslationKey());"
+  },
+  {
+    "field": "crystal_xen",
+    "translation": "crystal_xen",
+    "texture": "hbm:crystal_xen",
+    "full3d": false,
+    "declaration": "crystal_xen = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"crystal_xen\").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + \":crystal_xen\");",
+    "registration": "GameRegistry.registerItem(crystal_xen, crystal_xen.getTranslationKey());"
+  },
+  {
+    "field": "detonator_deadman",
+    "translation": "detonator_deadman",
+    "texture": "hbm:detonator_deadman",
+    "full3d": true,
+    "declaration": "detonator_deadman = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"detonator_deadman\").setMaxStackSize(1).setFull3D().setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + \":detonator_deadman\");",
+    "registration": "GameRegistry.registerItem(detonator_deadman, detonator_deadman.getTranslationKey());"
+  },
+  {
+    "field": "detonator_de",
+    "translation": "detonator_de",
+    "texture": "hbm:detonator_de",
+    "full3d": true,
+    "declaration": "detonator_de = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey(\"detonator_de\").setMaxStackSize(1).setFull3D().setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + \":detonator_de\");",
+    "registration": "GameRegistry.registerItem(detonator_de, detonator_de.getTranslationKey());"
+  }
+]

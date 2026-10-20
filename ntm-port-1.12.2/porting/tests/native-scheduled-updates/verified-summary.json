@@ -1,0 +1,800 @@
+{
+  "baseline": "bdb4c897d5f554458d23c6efab036b056ee20de0",
+  "changed_files": 21,
+  "migrated_calls": 37,
+  "unchanged_native_calls": 18,
+  "before_errors": 12169,
+  "after_errors": 12132,
+  "removed_errors": 37,
+  "added_errors": 0,
+  "attributed_calls": [
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "line": "161",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new BlockPos(x, y, z) || this || 1",
+      "source": "world.scheduleUpdate(new BlockPos(x, y, z), this, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "line": "333",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new BlockPos(x, y, z) || this || 1",
+      "source": "world.scheduleUpdate(new BlockPos(x, y, z), this, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "line": "334",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new BlockPos(x, y, z) || this || 2",
+      "source": "world.scheduleUpdate(new BlockPos(x, y, z), this, 2)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockFallingNT.java",
+      "line": "38",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockFallingNT.java",
+      "line": "43",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/Balefire.java",
+      "line": "65",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world) + rand.nextInt(10)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world) + rand.nextInt(10))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+      "line": "45",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 10 + rand.nextInt(40)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10 + rand.nextInt(40))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "line": "85",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 10",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "line": "93",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 10",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "line": "106",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || getDelay(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, getDelay(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "line": "121",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) || this || getDelay(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, getDelay(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasFlammable.java",
+      "line": "94",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 2",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "line": "71",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 1",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "line": "76",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 1",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockAbsorber.java",
+      "line": "74",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockAbsorber.java",
+      "line": "80",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "line": "164",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y - 1, z) || ModBlocks.slag || 1",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y - 1, z), ModBlocks.slag, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "line": "192",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(iX, y, iZ) || ModBlocks.slag || 1",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(iX, y, iZ), ModBlocks.slag, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockFallingRad.java",
+      "line": "24",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockFallingRad.java",
+      "line": "34",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazard.java",
+      "line": "131",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazard.java",
+      "line": "151",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java",
+      "line": "50",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java",
+      "line": "71",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java",
+      "line": "23",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java",
+      "line": "28",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BrownBarrel.java",
+      "line": "97",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BrownBarrel.java",
+      "line": "107",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/FragileBrick.java",
+      "line": "51",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) || this || world.rand.nextInt(4) + 8",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, world.rand.nextInt(4) + 8)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/ReinforcedLamp.java",
+      "line": "34",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 4",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/ReinforcedLamp.java",
+      "line": "48",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 4",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/TritiumLamp.java",
+      "line": "37",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 4",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/TritiumLamp.java",
+      "line": "53",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 4",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/YellowBarrel.java",
+      "line": "79",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/YellowBarrel.java",
+      "line": "89",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java",
+      "line": "24",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java",
+      "line": "32",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "line": "132",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 1",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "line": "133",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 2",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java",
+      "line": "30",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java",
+      "line": "40",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "line": "111",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 1",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "line": "112",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || 2",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/Spotlight.java",
+      "line": "199",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new BlockPos(x, y, z) || this || 4",
+      "source": "world.scheduleUpdate(new BlockPos(x, y, z), this, 4)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "line": "98",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(x, y, z) || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisBurning.java",
+      "line": "60",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisBurning.java",
+      "line": "80",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisDigamma.java",
+      "line": "32",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || 2",
+      "source": "world.scheduleUpdate(pos, this, 2)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisRadiating.java",
+      "line": "74",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebrisRadiating.java",
+      "line": "80",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "pos || this || this.tickRate(world)",
+      "source": "world.scheduleUpdate(pos, this, this.tickRate(world))"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java",
+      "line": "74",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new BlockPos(hitX, hitY, hitZ) || ModBlocks.slag || 1",
+      "source": "world.scheduleUpdate(new BlockPos(hitX, hitY, hitZ), ModBlocks.slag, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java",
+      "line": "86",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new BlockPos(hitX, hitY, hitZ) || ModBlocks.slag || 1",
+      "source": "world.scheduleUpdate(new BlockPos(hitX, hitY, hitZ), ModBlocks.slag, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java",
+      "line": "99",
+      "receiver": "world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new BlockPos(hitX, hitY + 1, hitZ) || ModBlocks.slag || 1",
+      "source": "world.scheduleUpdate(new BlockPos(hitX, hitY + 1, hitZ), ModBlocks.slag, 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "line": "77",
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()) || com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock() || 1",
+      "source": "this.world.scheduleUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java",
+      "line": "66",
+      "receiver": "this.world",
+      "receiver_type": "net.minecraft.world.World",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.world.World",
+      "method_signature": "scheduleUpdate(net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int)",
+      "method_kind": "METHOD",
+      "arguments": "new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()) || com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock() || 1",
+      "source": "this.world.scheduleUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1)"
+    }
+  ],
+  "removed_diagnostics": [
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazard.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.BlockHazard,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.BlockNTMSand,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/Balefire.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.bomb.Balefire,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.bomb.DigammaMatter,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.gas.BlockGasBase,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 4
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasFlammable.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.gas.BlockGasFlammable,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.gas.BlockVacuum,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockAbsorber.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.BlockAbsorber,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,net.minecraft.block.Block,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockFallingRad.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.BlockFallingRad,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.BlockHazardFalling,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/FragileBrick.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.FragileBrick,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/ReinforcedLamp.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.ReinforcedLamp,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/TritiumLamp.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.generic.TritiumLamp,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.machine.MachineFieldDisturber,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.machine.MachineITER,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.machine.MachineTrollDisturber,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.machine.SoyuzLauncher,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,com.hbm.blocks.machine.ZirnoxDestroyed,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,net.minecraft.block.Block,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method scheduleBlockUpdate in class net.minecraft.world.World cannot be applied to given types;\\n  required: net.minecraft.util.math.BlockPos,net.minecraft.block.Block,int,int\\n  found: int,int,int,net.minecraft.block.Block,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    }
+  ]
+}

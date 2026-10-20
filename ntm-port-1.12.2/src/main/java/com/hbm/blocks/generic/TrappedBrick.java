@@ -60,11 +60,11 @@ public class TrappedBrick extends BlockContainer {
     		
 		switch(Trap.get(meta)) {
 		case FIRE:
-			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			break;
 		case SPIKES:
-			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))
 				world.setBlock(x, y + 1, z, ModBlocks.spikes);
 			List<Entity> targets = world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(x, y + 1, z, x + 1, y + 2, z + 1));
 			for(Entity e : targets)
@@ -75,7 +75,7 @@ public class TrappedBrick extends BlockContainer {
 			world.createExplosion(null, x + 0.5, y + 1.5, z + 0.5, 1F, false);
 			break;
 		case WEB:
-			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))
+			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.WEB; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			break;
 		case RAD_CONVERSION:
@@ -88,7 +88,7 @@ public class TrappedBrick extends BlockContainer {
 						
 						Block bl = com.hbm.world.WorldBlockState.read(world, x + a, y + b, z + c).getBlock();
 						if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
-							world.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_ooze);
+							{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_ooze; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 						}
 					}
 				}
@@ -104,7 +104,7 @@ public class TrappedBrick extends BlockContainer {
 						
 						Block bl = com.hbm.world.WorldBlockState.read(world, x + a, y + b, z + c).getBlock();
 						if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
-							world.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_mystic);
+							{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_mystic; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 						}
 					}
 				}
@@ -119,7 +119,7 @@ public class TrappedBrick extends BlockContainer {
 		}
 
 		com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, 0.6F);
-		world.setBlock(x, y, z, ModBlocks.brick_jungle);
+		{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
     }
 	
 	public static enum TrapType {

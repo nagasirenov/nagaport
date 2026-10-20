@@ -67,7 +67,7 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 			
 			for(int i = 0; i < 10; i++) {
 				double dev = 0.05D;
-				this.world.spawnParticle("cloud", posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);
 			}
 		}
 		

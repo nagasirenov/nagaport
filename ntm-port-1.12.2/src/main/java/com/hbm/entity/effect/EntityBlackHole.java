@@ -75,7 +75,7 @@ public class EntityBlackHole extends Entity {
 					int z0 = (int)(this.posZ + (vec.z * i));
 					
 					if(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock().getMaterial().isLiquid()) {
-						this.world.setBlock(x0, y0, z0, Blocks.AIR);
+						com.hbm.world.WorldBlockState.write(this.world, x0, y0, z0, Blocks.AIR.getStateFromMeta(0), 3);
 					}
 					
 					if(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock() != Blocks.AIR) {
@@ -87,7 +87,7 @@ public class EntityBlackHole extends Entity {
 						
 						this.world.spawnEntityInWorld(rubble);
 					
-						this.world.setBlock(x0, y0, z0, Blocks.AIR);
+						com.hbm.world.WorldBlockState.write(this.world, x0, y0, z0, Blocks.AIR.getStateFromMeta(0), 3);
 						break;
 					}
 				}

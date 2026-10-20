@@ -15,6 +15,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
@@ -24,6 +27,8 @@ import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
 public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
+	protected static final DataParameter<Float> PLANE_HEALTH = EntityDataManager.createKey(EntityPlaneBase.class, DataSerializers.FLOAT);
+
 	
 	protected int turnProgress;
 	protected double syncPosX;
@@ -70,7 +75,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	@Override
 	protected void entityInit() {
 		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
-		this.dataWatcher.addObject(17, new Float(50F));
+		this.dataManager.register(PLANE_HEALTH, 50F);
 	}
 
 	@Override
@@ -89,9 +94,9 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	public void onUpdate() {
 		
 		if(!this.world.isRemote) {
-			this.dataWatcher.updateObject(17, health);
+			this.dataManager.set(PLANE_HEALTH, health);
 		} else {
-			health = this.dataWatcher.getWatchableObjectFloat(17);
+			health = this.dataManager.get(PLANE_HEALTH);
 		}
 
 		if(this.world.isRemote) {
@@ -179,13 +184,13 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		ticksExisted = nbt.getInteger("ticksExisted");
-		this.getDataWatcher().updateObject(17, nbt.getFloat("health"));
+		this.dataManager.set(PLANE_HEALTH, nbt.getFloat("health"));
 	}
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("ticksExisted", ticksExisted);
-		nbt.setFloat("health", this.getDataWatcher().getWatchableObjectFloat(17));
+		nbt.setFloat("health", this.dataManager.get(PLANE_HEALTH));
 	}
 	
 	public void clearChunkLoader() {

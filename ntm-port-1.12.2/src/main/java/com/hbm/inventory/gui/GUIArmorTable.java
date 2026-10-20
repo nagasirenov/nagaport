@@ -92,7 +92,7 @@ public class GUIArmorTable extends GuiInfoContainer {
 		
 		for(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {
 			Slot slot = this.inventorySlots.getSlot(i);
-			drawIndicator(i, slot.xDisplayPosition - 1, slot.yDisplayPosition - 1);
+			drawIndicator(i, slot.xPos - 1, slot.yPos - 1);
 		}
 	}
 

@@ -1,0 +1,6 @@
+PASS all 4066 tracked production files byte-identical to CP86; production patch is empty.
+PASS parsed 4066 production Java units; zero syntax errors; no attribution/full compile was run.
+PASS 113 external registry calls; zero constructor-owned this/implicit-this candidates.
+PASS exact 113-site match to sealed CP86 typed diagnostics: {'SoundType': 87, 'ModSoundType': 26}; {'class Block': 107, 'class BlockPASource': 1, 'class BlockPABeamline': 1, 'class BlockPARFC': 1, 'class BlockPAQuadrupole': 1, 'class BlockPADipole': 1, 'class BlockPADetector': 1}
+PASS original Forge 1614 explicitly exposes setStepSound publicly; protected original bytecode is untransformed vanilla only.
+PASS native and untransformed vanilla setters assign the exact sound reference and return this; target native setter remains protected; no new access workaround introduced.

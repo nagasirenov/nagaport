@@ -1,0 +1,147 @@
+{
+  "before": 10583,
+  "after": 10555,
+  "removed": [
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+      "compiler.err.cant.apply.symbols",
+      "no suitable constructor found for ItemTool(int,net.minecraft.item.Item.ToolMaterial,java.util.Set<net.minecraft.block.Block>)\\n    constructor net.minecraft.item.ItemTool.ItemTool(float,float,net.minecraft.item.Item.ToolMaterial,java.util.Set<net.minecraft.block.Block>) is not applicable\\n      (actual and formal argument lists differ in length)\\n    constructor net.minecraft.item.ItemTool.ItemTool(net.minecraft.item.Item.ToolMaterial,java.util.Set<net.minecraft.block.Block>) is not applicable\\n      (actual and formal argument lists differ in length)"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemToolAbility"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemToolAbility"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemMirrorTool"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemRBMKTool"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemSwordAbility.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemSwordAbility.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemSwordAbility"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemSwordAbility.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemSwordAbility"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemToolingWeapon"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.ItemToolingWeapon"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "compiler.err.cant.apply.symbols",
+      "no suitable method found for getItemAttributeModifiers(no arguments)\\n    method net.minecraft.item.Item.getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot) is not applicable\\n      (actual and formal argument lists differ in length)\\n    method net.minecraft.item.ItemSword.getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot) is not applicable\\n      (actual and formal argument lists differ in length)"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.WeaponSpecial"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.WeaponSpecial"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.tool.WeaponSpecial"
+    ],
+    [
+      "src/main/java/com/hbm/items/weapon/GunB92.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/weapon/GunB92.java",
+      "compiler.err.cant.apply.symbol",
+      "method getItemAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot\\n  found: no arguments\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/weapon/GunB92.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.weapon.GunB92"
+    ],
+    [
+      "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.weapon.ItemCrucible"
+    ],
+    [
+      "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+      "compiler.err.cant.resolve.location",
+      "cannot find symbol\\n  symbol:   variable field_111210_e\\n  location: class com.hbm.items.weapon.ItemCrucible"
+    ],
+    [
+      "src/main/java/com/hbm/main/ModEventHandler.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.ItemStack cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot\\n  found: no arguments\\n  reason: actual and formal argument lists differ in length"
+    ]
+  ],
+  "added": []
+}

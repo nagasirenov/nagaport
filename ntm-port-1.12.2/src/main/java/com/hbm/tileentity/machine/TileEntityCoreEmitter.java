@@ -79,7 +79,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 				if(tank.getFill() >= 20) {
 					tank.setFill(tank.getFill() - 20);
 				} else {
-					this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA);
+					com.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA.getStateFromMeta(0), 3);
 					return;
 				}
 			}
@@ -116,9 +116,10 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 						if(te instanceof ILaserable) { ((ILaserable)te).addEnergy(this.world, x, y, z, out, dir); break; }
 						if(te instanceof TileEntityCore) { out = ((TileEntityCore)te).burn(out); continue; }
 						
-						Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);
+						Block b = nativeAirState.getBlock();
 						
-						if(!b.isAir(this.world, x, y, z)) {
+						if(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 							
 							if(b.getDefaultState().getMaterial().isLiquid()) {
 								com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
@@ -128,7 +129,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 							
 							float hardness = b.getExplosionResistance(null);
 							if(hardness < 6000 && this.world.rand.nextInt(20) == 0) {
-								this.world.func_147480_a(x, y, z, false);
+								com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);
 							}
 							
 							break;

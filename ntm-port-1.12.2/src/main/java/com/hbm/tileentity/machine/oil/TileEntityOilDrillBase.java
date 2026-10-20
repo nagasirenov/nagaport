@@ -205,7 +205,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 
 		if(b.getExplosionResistance(null) < 1000) {
 			onDrill(y);
-			this.world.setBlock(this.pos.getX(), y, this.pos.getZ(), ModBlocks.oil_pipe);
+			{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.oil_pipe; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		} else {
 			this.indicator = 2;
 		}

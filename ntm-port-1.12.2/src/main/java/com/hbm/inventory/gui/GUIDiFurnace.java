@@ -53,7 +53,7 @@ public class GUIDiFurnace extends GuiContainer {
 	}
 	
 	protected boolean isMouseOverSlot(Slot slot, int x, int y) {
-		return this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y);
+		return this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y);
 	}
 
 	@Override

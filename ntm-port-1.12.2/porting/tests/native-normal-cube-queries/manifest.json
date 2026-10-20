@@ -1,0 +1,1184 @@
+{
+  "baseline": "0675e599e5ee31a60776b560af792372df191790",
+  "files": {
+    "src/main/java/com/hbm/blocks/RubberGrass.java": {
+      "before_sha256": "aedff6ef04e49c20d4cee40c79211833619bd11d2a8e78eeb9d95c51a04cb042",
+      "after_sha256": "915a763dbc3aeed77a7bcc30ac92c64276fcb818fd97e9b6181459a61bcc1d76",
+      "edits": [
+        {
+          "before_offset": 1854,
+          "after_offset": 1854,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);\n\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 2010,
+          "after_offset": 2090,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "before_sha256": "627a3c1cb52005cde16c704976b0b43ac22701c412a39292e1ec3110f049d900",
+      "after_sha256": "04d002f8c35437eef30702b3ea47ce9d25bbc365823129f5d203962ceb32e511",
+      "edits": [
+        {
+          "before_offset": 8688,
+          "after_offset": 8688,
+          "old": "()",
+          "new": "(nativeAirState)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java": {
+      "before_sha256": "5f926bf87cb1d708af994af7ed7b7f00fc8232d4493ecaacaeeaaf4253260acf",
+      "after_sha256": "d260c919237994aae5faf9fbb2314ca2e06bf3d34cec399c588b916e278acb35",
+      "edits": [
+        {
+          "before_offset": 2417,
+          "after_offset": 2417,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 3609,
+          "after_offset": 3690,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": {
+      "before_sha256": "a9cf47614da4f46686287f87e4d7ec2368da67c1d4766547ee34c8488b9198ee",
+      "after_sha256": "486691a6d264d8ff681aae311beaf70697e960c1dd14d41a83ea293c6a96662a",
+      "edits": [
+        {
+          "before_offset": 9151,
+          "after_offset": 9151,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);\n\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 9307,
+          "after_offset": 9387,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": {
+      "before_sha256": "a814c158eb59c33923fc2c9852cdad2c8001cd21b2990e178e84cd2a444f5173",
+      "after_sha256": "1ccba199ba6c5b2215c7c9b2c343a2cdc61e9b674b3417315efeca21e45b6922",
+      "edits": [
+        {
+          "before_offset": 4104,
+          "after_offset": 4104,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i);\n\t\t\t\t\t\tBlock block = nativeCubeState_block.getBlock();"
+        },
+        {
+          "before_offset": 4363,
+          "after_offset": 4454,
+          "old": "()",
+          "new": "(nativeCubeState_block)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "90626cfee2c0af2aeefca983d5b86076639f6a57a743ebcf6e7d4d06d548e378",
+      "after_sha256": "e592a741fdc354f6db0404bb61917e7ffe14c457cdc9ef247cb19fe79af0bd32",
+      "edits": [
+        {
+          "before_offset": 2066,
+          "after_offset": 2066,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PowerDetector.java": {
+      "before_sha256": "0d24b3af27f2433733571e3c7e1699212fa0d56981f31a13f13bf205ea4affe7",
+      "after_sha256": "961ecbf0b9df2e73e68c0f266fd2a47e0388c318a4591d2b2c7aae082e455f6f",
+      "edits": [
+        {
+          "before_offset": 1167,
+          "after_offset": 1167,
+          "old": "canProvidePower()",
+          "new": "canProvidePower(net.minecraft.block.state.IBlockState state)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java": {
+      "before_sha256": "4ff830b39892da714bc7cc1705318cd2fad26e575fdb4e51ecaeabc845a21d34",
+      "after_sha256": "396162d079577afa87a57c9c699f7ab4e2a2780a7d555f4d4a89d14478129ea2",
+      "edits": [
+        {
+          "before_offset": 5721,
+          "after_offset": 5721,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz);\n\t\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 6290,
+          "after_offset": 6371,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java": {
+      "before_sha256": "6c87675237622220c2980331c110233c1a615c32ab77035ba0d0cef933fa2888",
+      "after_sha256": "18141c0b41d1e687ddb393edd228c1d2ec171cf1b673ae92d470e11e693fd4f2",
+      "edits": [
+        {
+          "before_offset": 6564,
+          "after_offset": 6564,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, x, y, z);\r\n\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 9339,
+          "after_offset": 9420,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "4dc824a57b930dd96b27bd67bb49adfcfbf200b2e901bab63319fbb5a53bb0e9",
+      "after_sha256": "bfa4db470aa54c5d9fe196b3c3ad13b005d41d01a57dd3cd6b59e6243b6eec55",
+      "edits": [
+        {
+          "before_offset": 19277,
+          "after_offset": 19277,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 19419,
+          "after_offset": 19408,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 19587,
+          "after_offset": 19565,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 19729,
+          "after_offset": 19696,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "f2683c4f530d600f2375eff0406809bcbf6e87d664f0eca527965b6ad538a458",
+      "after_sha256": "c449af615f5b4cad2718649dbf41d01d778eaca29950cba71e8b8ce35486e639",
+      "edits": [
+        {
+          "before_offset": 24036,
+          "after_offset": 24036,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 24256,
+          "after_offset": 24245,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 24539,
+          "after_offset": 24517,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 24759,
+          "after_offset": 24726,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java": {
+      "before_sha256": "6c324d9978a5ea1ae06a6de43b172e5079190468a4cee4cdc2fa344ad5c203f4",
+      "after_sha256": "e66c442304c2e059d6b1cf958761d5e3bdc5d92a82ad409c9ac8a4dd7926f1ad",
+      "edits": [
+        {
+          "before_offset": 8625,
+          "after_offset": 8625,
+          "old": "()",
+          "new": "(nativeAirState)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java": {
+      "before_sha256": "883e44a5f6e2d2a053af0448740e4a83524e1ae19f0319295e8b739c15159899",
+      "after_sha256": "0242db53f02fe03004c79bb5640148f5d82bde2b85b6ac7d7ef2f958b24edce8",
+      "edits": [
+        {
+          "before_offset": 2400,
+          "after_offset": 2400,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ);\n\t\t\t\t\t\tBlock block = nativeCubeState_block.getBlock();"
+        },
+        {
+          "before_offset": 2718,
+          "after_offset": 2809,
+          "old": "()",
+          "new": "(nativeCubeState_block)"
+        },
+        {
+          "before_offset": 6193,
+          "after_offset": 6305,
+          "old": "()",
+          "new": "(nativeAirState)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java": {
+      "before_sha256": "379718b9a18ac24062ea52f378e416f2f7f7ae8607f068be3c50e65e7f27fe98",
+      "after_sha256": "e16a131c22f177dc7bc3cdd647a07d950a5edb7a98ba080923123427ae3e59ac",
+      "edits": [
+        {
+          "before_offset": 1738,
+          "after_offset": 1738,
+          "old": "()",
+          "new": "(nativeAirState)"
+        },
+        {
+          "before_offset": 2463,
+          "after_offset": 2477,
+          "old": "()",
+          "new": "(nativeAirState)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java": {
+      "before_sha256": "9b6c9b7ade01df52c8896ff05a33bb89407082cf6f538b63716a91e184324227",
+      "after_sha256": "fc8c0de351f19e92e81072bbe90ee37224b21f834c75596fc3872bbe3a6df857",
+      "edits": [
+        {
+          "before_offset": 3760,
+          "after_offset": 3760,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1);\n\t\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 4007,
+          "after_offset": 4088,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java": {
+      "before_sha256": "5139774dbbf38da5f7bb046d731714946728ddd524588ef2d2872574ca935c08",
+      "after_sha256": "16990823170b099323239426e2b9ea57d6e34d0363d147f55c4031268146905a",
+      "edits": [
+        {
+          "before_offset": 7319,
+          "after_offset": 7319,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ);\n\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 7615,
+          "after_offset": 7694,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityChlorineFX.java": {
+      "before_sha256": "d14991851507f1189e7b10999df0e4a209f9d16123dca9810444a8645b466370",
+      "after_sha256": "a2be873f950290d92137a7eed54b33e541948fcf7fcc8071a78d225153e32f4e",
+      "edits": [
+        {
+          "before_offset": 2565,
+          "after_offset": 2565,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityCloudFX.java": {
+      "before_sha256": "bc4f55d4ead153b26fffb2e01b3eb0c836b4ed08a1cc11e82187cf65b878cd24",
+      "after_sha256": "296535c45a4c4e00448470afeb2c0a064068377ed71bf3452857d14b1cedda7a",
+      "edits": [
+        {
+          "before_offset": 2449,
+          "after_offset": 2449,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityPinkCloudFX.java": {
+      "before_sha256": "0e6e58beaa37f1919ae964a587e120fa8fa6a747d4c0a3ad3c4d5b65d51a7496",
+      "after_sha256": "af40f504f40fca0e6b749778f403a20474c003fbb57c6e46590680a702dbc6da",
+      "edits": [
+        {
+          "before_offset": 2829,
+          "after_offset": 2829,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNT.java": {
+      "before_sha256": "4b69286bef9969d6f91c80d8c05c7668d2a23261286c057fb72df55460e471c4",
+      "after_sha256": "5bdd3cb8f75b948e9107b51dd2b110eb89e1df4f74576af75a888e12297e9137",
+      "edits": [
+        {
+          "before_offset": 8092,
+          "after_offset": 8092,
+          "old": "block = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k).getBlock()",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k);\r\n\t\t\t\tblock = nativeCubeState_block.getBlock()"
+        },
+        {
+          "before_offset": 10056,
+          "after_offset": 10146,
+          "old": "()",
+          "new": "(nativeCubeState_block)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorDebris.java": {
+      "before_sha256": "3eaf1860f3543820422cd017e63e3313e1e16cbed987698b5fbdb9f8ec4296e6",
+      "after_sha256": "e623f2a47ecc27cbbe52f516077f5975c2bc4e122903c7b5005845138ae478e6",
+      "edits": [
+        {
+          "before_offset": 861,
+          "after_offset": 861,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 996,
+          "after_offset": 1076,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModDoor.java": {
+      "before_sha256": "de84c8784f8de52163d6d7f392ee02cd42680eff50304aaa6c50532ff3e9fe32",
+      "after_sha256": "b49e7ba239deed5b233eed51688ee2b752d975d8a222e29452237510743097ce",
+      "edits": [
+        {
+          "before_offset": 1902,
+          "after_offset": 1902,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 2015,
+          "after_offset": 2004,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 2134,
+          "after_offset": 2112,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 2247,
+          "after_offset": 2214,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/potion/HbmPotion.java": {
+      "before_sha256": "3d10a65cd9f5c064d378dbd8725341a3b16e82472d801c4d0e82a9a0e2c53358",
+      "after_sha256": "843df17f9a1ad9c125629136676a47c375e04f04f4ade8ea47b251d4e13a6478",
+      "edits": [
+        {
+          "before_offset": 5304,
+          "after_offset": 5304,
+          "old": "()",
+          "new": "(nativeAirState)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityVent.java": {
+      "before_sha256": "3c07129d9b1e833d2e3d5f4d7c82bf6f92e1a1b02b71f247521356e7b52bc0d2",
+      "after_sha256": "a1cf22b92652815998d1ae6da66141e252b31f26a41c528cbb5d54a5e5521b51",
+      "edits": [
+        {
+          "before_offset": 1076,
+          "after_offset": 1076,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 1625,
+          "after_offset": 1614,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        },
+        {
+          "before_offset": 2166,
+          "after_offset": 2144,
+          "old": ".getBlock().isNormalCube()",
+          "new": ".isNormalCube()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePumpBase.java": {
+      "before_sha256": "62351d8d87dd4a2ddf547f8fb4bf928b0c20cac5a1c65e9a94dde27227a82201",
+      "after_sha256": "0af6df581501639c6c92b17a99f5150dc2d4acbcbabe59ea5c7ffe4c8944328d",
+      "edits": [
+        {
+          "before_offset": 4394,
+          "after_offset": 4394,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z);\n\t\t\t\t\tBlock b = nativeCubeState_b.getBlock();"
+        },
+        {
+          "before_offset": 4561,
+          "after_offset": 4643,
+          "old": "()",
+          "new": "(nativeCubeState_b)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": {
+      "before_sha256": "166675ebc7dcff286c810cd76e56a590258d4ebaefcc59c33e30f39446d0e5c8",
+      "after_sha256": "5acb2a062b3699fe109ea944073725bf53aa6c5f97e6e2704406a2d711f96b3a",
+      "edits": [
+        {
+          "before_offset": 2866,
+          "after_offset": 2866,
+          "old": "Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\tBlock target = nativeCubeState_target.getBlock();"
+        },
+        {
+          "before_offset": 2971,
+          "after_offset": 3060,
+          "old": "()",
+          "new": "(nativeCubeState_target)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OilSpot.java": {
+      "before_sha256": "dcffe7db0b101e924d94cb1c3f740c13334a5cd42e3057328fd8b210de4733f3",
+      "after_sha256": "5bd235b676c0dac8891bf76ebd67ceb72753d75a246d700e7034e2563ffdf8fd",
+      "edits": [
+        {
+          "before_offset": 1234,
+          "after_offset": 1234,
+          "old": "Block below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ);\n\t\t\t\tBlock below = nativeCubeState_below.getBlock();"
+        },
+        {
+          "before_offset": 1881,
+          "after_offset": 1970,
+          "old": "()",
+          "new": "(nativeCubeState_below)"
+        },
+        {
+          "before_offset": 10077,
+          "after_offset": 10187,
+          "old": "Block below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ);\n\t\t\t\tBlock below = nativeCubeState_below.getBlock();"
+        },
+        {
+          "before_offset": 10380,
+          "after_offset": 10579,
+          "old": "()",
+          "new": "(nativeCubeState_below)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreCave.java": {
+      "before_sha256": "787cefc2e4f32c508934218d5d1e86ab47d188ad21f710c70d27a9edf1263f32",
+      "after_sha256": "59c0a78271a4d6a07bdb5bc9d12674bdc202fcb167663b81187565eb7326cd94",
+      "edits": [
+        {
+          "before_offset": 3929,
+          "after_offset": 3929,
+          "old": "Block genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\t\t\t\t\tBlock genTarget = nativeCubeState_genTarget.getBlock();"
+        },
+        {
+          "before_offset": 4048,
+          "after_offset": 4147,
+          "old": "()",
+          "new": "(nativeCubeState_genTarget)"
+        },
+        {
+          "before_offset": 4297,
+          "after_offset": 4421,
+          "old": "Block neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\t\t\t\t\t\tBlock neighbor = nativeCubeState_neighbor.getBlock();"
+        },
+        {
+          "before_offset": 4987,
+          "after_offset": 5210,
+          "old": "()",
+          "new": "(nativeCubeState_neighbor)"
+        },
+        {
+          "before_offset": 5136,
+          "after_offset": 5383,
+          "old": "()",
+          "new": "(nativeCubeState_neighbor)"
+        },
+        {
+          "before_offset": 5567,
+          "after_offset": 5838,
+          "old": "Block neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ);\n\t\t\t\t\t\t\t\t\tBlock neighbor = nativeCubeState_neighbor.getBlock();"
+        },
+        {
+          "before_offset": 5694,
+          "after_offset": 6065,
+          "old": "()",
+          "new": "(nativeCubeState_neighbor)"
+        },
+        {
+          "before_offset": 6016,
+          "after_offset": 6411,
+          "old": "()",
+          "new": "(nativeCubeState_genTarget)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreLayer3D.java": {
+      "before_sha256": "32133790ff36fe976639420a2f1537e6efd16a39ce12b9d2757708066602376e",
+      "after_sha256": "cce8a51dc1258230ac1a4876f56ce0b155990fdea8b5e488032b4eea26423333",
+      "edits": [
+        {
+          "before_offset": 3713,
+          "after_offset": 3713,
+          "old": "Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\t\t\t\t\tBlock target = nativeCubeState_target.getBlock();"
+        },
+        {
+          "before_offset": 3820,
+          "after_offset": 3913,
+          "old": "()",
+          "new": "(nativeCubeState_target)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": {
+      "before_sha256": "0b3788595add73da2dad84d3a212c445e4dc35a12e977c1ec98243249567421a",
+      "after_sha256": "5e492b591b93cf0ce81fbb447d323702ec065e836646b9ff88e3f322330ddd65",
+      "edits": [
+        {
+          "before_offset": 1280,
+          "after_offset": 1280,
+          "old": "Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\t\t\t\t\tBlock target = nativeCubeState_target.getBlock();"
+        },
+        {
+          "before_offset": 1393,
+          "after_offset": 1486,
+          "old": "()",
+          "new": "(nativeCubeState_target)"
+        }
+      ]
+    }
+  },
+  "callers": [
+    {
+      "file": "src/main/java/com/hbm/blocks/RubberGrass.java",
+      "before_line": 63,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 62,
+      "after_line": 64
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      "before_line": 239,
+      "receiver": "b",
+      "kind": "reused-air-state",
+      "capture_line": null,
+      "after_line": 239
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java",
+      "before_line": 95,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 86,
+      "after_line": 96
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/WasteEarth.java",
+      "before_line": 185,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 184,
+      "after_line": 186
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+      "before_line": 118,
+      "receiver": "block",
+      "kind": "captured-local",
+      "capture_line": 115,
+      "after_line": 119
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "before_line": 54,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 54
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+      "before_line": 170,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 158,
+      "after_line": 171
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+      "before_line": 227,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 163,
+      "after_line": 228
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "before_line": 608,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, railX - 1, railY, railZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 608
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "before_line": 610,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, railX + 1, railY, railZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 610
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "before_line": 614,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ - 1).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 614
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "before_line": 616,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ + 1).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 616
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "before_line": 737,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ - 1, p_145821_2_, p_145821_3_).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 737
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "before_line": 741,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, p_145821_1_ + 1, p_145821_2_, p_145821_3_).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 741
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "before_line": 748,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ - 1).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 748
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "before_line": 752,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, p_145821_1_, p_145821_2_, p_145821_3_ + 1).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 752
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java",
+      "before_line": 244,
+      "receiver": "block",
+      "kind": "reused-air-state",
+      "capture_line": null,
+      "after_line": 244
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "before_line": 69,
+      "receiver": "block",
+      "kind": "captured-local",
+      "capture_line": 65,
+      "after_line": 70
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "before_line": 134,
+      "receiver": "block",
+      "kind": "reused-air-state",
+      "capture_line": null,
+      "after_line": 135
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java",
+      "before_line": 60,
+      "receiver": "block",
+      "kind": "reused-air-state",
+      "capture_line": null,
+      "after_line": 60
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java",
+      "before_line": 77,
+      "receiver": "block",
+      "kind": "reused-air-state",
+      "capture_line": null,
+      "after_line": 77
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java",
+      "before_line": 138,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 135,
+      "after_line": 139
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java",
+      "before_line": 236,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 232,
+      "after_line": 237
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/particle/EntityChlorineFX.java",
+      "before_line": 83,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 83
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/particle/EntityCloudFX.java",
+      "before_line": 76,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 76
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/particle/EntityPinkCloudFX.java",
+      "before_line": 83,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 83
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionNT.java",
+      "before_line": 258,
+      "receiver": "block",
+      "kind": "captured-local",
+      "capture_line": 212,
+      "after_line": 259
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorDebris.java",
+      "before_line": 30,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 29,
+      "after_line": 31
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemModDoor.java",
+      "before_line": 71,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x - offsetX, y, z - offsetZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 71
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemModDoor.java",
+      "before_line": 71,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x - offsetX, y + 1, z - offsetZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 71
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemModDoor.java",
+      "before_line": 72,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + offsetX, y, z + offsetZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 72
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemModDoor.java",
+      "before_line": 72,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + offsetX, y + 1, z + offsetZ).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 72
+    },
+    {
+      "file": "src/main/java/com/hbm/potion/HbmPotion.java",
+      "before_line": 136,
+      "receiver": "b",
+      "kind": "reused-air-state",
+      "capture_line": null,
+      "after_line": 136
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/deco/TileEntityVent.java",
+      "before_line": 28,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 28
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/deco/TileEntityVent.java",
+      "before_line": 39,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 39
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/deco/TileEntityVent.java",
+      "before_line": 50,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock()",
+      "kind": "inline",
+      "capture_line": null,
+      "after_line": 50
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePumpBase.java",
+      "before_line": 144,
+      "receiver": "b",
+      "kind": "captured-local",
+      "capture_line": 142,
+      "after_line": 145
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/BiomeCave.java",
+      "before_line": 100,
+      "receiver": "target",
+      "kind": "captured-local",
+      "capture_line": 98,
+      "after_line": 101
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OilSpot.java",
+      "before_line": 44,
+      "receiver": "below",
+      "kind": "captured-local",
+      "capture_line": 36,
+      "after_line": 45
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OilSpot.java",
+      "before_line": 117,
+      "receiver": "below",
+      "kind": "captured-local",
+      "capture_line": 113,
+      "after_line": 119
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 146,
+      "receiver": "genTarget",
+      "kind": "captured-local",
+      "capture_line": 144,
+      "after_line": 147
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 164,
+      "receiver": "neighbor",
+      "kind": "captured-local",
+      "capture_line": 152,
+      "after_line": 166
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 169,
+      "receiver": "neighbor",
+      "kind": "captured-local",
+      "capture_line": 152,
+      "after_line": 171
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 184,
+      "receiver": "neighbor",
+      "kind": "captured-local",
+      "capture_line": 182,
+      "after_line": 187
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 194,
+      "receiver": "genTarget",
+      "kind": "captured-local",
+      "capture_line": 144,
+      "after_line": 197
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreLayer3D.java",
+      "before_line": 142,
+      "receiver": "target",
+      "kind": "captured-local",
+      "capture_line": 140,
+      "after_line": 143
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/SchistStratum.java",
+      "before_line": 55,
+      "receiver": "target",
+      "kind": "captured-local",
+      "capture_line": 53,
+      "after_line": 56
+    }
+  ],
+  "captures": [
+    {
+      "file": "src/main/java/com/hbm/blocks/RubberGrass.java",
+      "before_line": 62,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java",
+      "before_line": 86,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(world, x, y - 1, z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/WasteEarth.java",
+      "before_line": 184,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+      "before_line": 115,
+      "receiver": "block",
+      "state": "nativeCubeState_block",
+      "read": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+      "before_line": 158,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(world, ix, iy, iz)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+      "before_line": 163,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(this.world, x, y, z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "before_line": 65,
+      "receiver": "block",
+      "state": "nativeCubeState_block",
+      "read": "com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java",
+      "before_line": 135,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java",
+      "before_line": 232,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionNT.java",
+      "before_line": 212,
+      "receiver": "block",
+      "state": "nativeCubeState_block",
+      "read": "com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k)",
+      "kind": "ASSIGNMENT"
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorDebris.java",
+      "before_line": 29,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePumpBase.java",
+      "before_line": 142,
+      "receiver": "b",
+      "state": "nativeCubeState_b",
+      "read": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/BiomeCave.java",
+      "before_line": 98,
+      "receiver": "target",
+      "state": "nativeCubeState_target",
+      "read": "com.hbm.world.WorldBlockState.read(world, x, y, z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OilSpot.java",
+      "before_line": 36,
+      "receiver": "below",
+      "state": "nativeCubeState_below",
+      "read": "com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OilSpot.java",
+      "before_line": 113,
+      "receiver": "below",
+      "state": "nativeCubeState_below",
+      "read": "com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 144,
+      "receiver": "genTarget",
+      "state": "nativeCubeState_genTarget",
+      "read": "com.hbm.world.WorldBlockState.read(world, x, y, z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 152,
+      "receiver": "neighbor",
+      "state": "nativeCubeState_neighbor",
+      "read": "com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 182,
+      "receiver": "neighbor",
+      "state": "nativeCubeState_neighbor",
+      "read": "com.hbm.world.WorldBlockState.read(world, clX, y, clZ)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreLayer3D.java",
+      "before_line": 140,
+      "receiver": "target",
+      "state": "nativeCubeState_target",
+      "read": "com.hbm.world.WorldBlockState.read(world, x, y, z)",
+      "kind": "VARIABLE"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/SchistStratum.java",
+      "before_line": 53,
+      "receiver": "target",
+      "state": "nativeCubeState_target",
+      "read": "com.hbm.world.WorldBlockState.read(world, x, y, z)",
+      "kind": "VARIABLE"
+    }
+  ],
+  "excluded": [
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/RedBarrel.java",
+      "line": 70,
+      "receiver": "block",
+      "arity": 1,
+      "reason": "already native"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/UniversalBlockState.java",
+      "line": 37,
+      "receiver": "state",
+      "arity": 0,
+      "reason": "already native"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/pathfinder/NTMPathFinder.java",
+      "line": 222,
+      "receiver": "state",
+      "arity": 0,
+      "reason": "already native"
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorBulkie.java",
+      "line": 24,
+      "receiver": "block",
+      "arity": 0,
+      "reason": "Block parameter without captured state; interface closure excluded"
+    },
+    {
+      "file": "src/main/java/com/hbm/lib/HbmWorldGen.java",
+      "line": 247,
+      "receiver": "world.getBlockState(new BlockPos(x, y - 1 + k, z))",
+      "arity": 0,
+      "reason": "already native"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java",
+      "line": 243,
+      "receiver": "block1",
+      "arity": 3,
+      "reason": "already native"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java",
+      "line": 284,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "arity": 4,
+      "reason": "contextual overload outside zero-argument family"
+    }
+  ]
+}

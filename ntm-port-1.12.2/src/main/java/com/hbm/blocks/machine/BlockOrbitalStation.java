@@ -211,9 +211,10 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 	}
 
 	@Override
-    public boolean canPlaceBlockAt(World worldIn, int x, int y, int z) {
+    public boolean canPlaceBlockAt(World worldIn, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		if(this == ModBlocks.orbital_station) return false; // block placing of extra main ports (use the dedicated sub-ports!)
-		return super.canPlaceBlockAt(worldIn, x, y, z);
+		return super.canPlaceBlockAt(worldIn, new net.minecraft.util.math.BlockPos(x, y, z));
 	}
 
 	@Override

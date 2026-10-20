@@ -1,0 +1,178 @@
+{
+  "before": 10164,
+  "after": 10061,
+  "new_diagnostics_count": 3,
+  "removed_diagnostics_count": 106,
+  "new": [
+    {
+      "file": "com/hbm/blocks/ModBlocks.java",
+      "message": "cannot find symbol",
+      "symbol": "method setBlockTextureName(String)",
+      "location": "class Block",
+      "count": 3
+    }
+  ],
+  "removed": [
+    {
+      "file": "com/hbm/blocks/ModBlocks.java",
+      "message": "cannot find symbol",
+      "symbol": "method setStepSound(SoundType)",
+      "location": "class Block",
+      "count": 10
+    },
+    {
+      "file": "com/hbm/items/ItemInventory.java",
+      "message": "stackSize has private access in ItemStack",
+      "symbol": "",
+      "location": "",
+      "count": 6
+    },
+    {
+      "file": "com/hbm/items/ItemInventory.java",
+      "message": "cannot find symbol",
+      "symbol": "method hasNoTags()",
+      "location": "variable nbt of type NBTTagCompound",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/ItemInventory.java",
+      "message": "cannot find symbol",
+      "symbol": "method compress(NBTTagCompound)",
+      "location": "class CompressedStreamTools",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/ItemInventory.java",
+      "message": "cannot find symbol",
+      "symbol": "method getEntityItem()",
+      "location": "variable entityitem of type EntityItem",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/ItemInventory.java",
+      "message": "cannot find symbol",
+      "symbol": "method spawnEntityInWorld(EntityItem)",
+      "location": "variable world of type World",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/ItemInventory.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/block/ItemBlockStorageCrate.java",
+      "message": "InventoryCrate is not abstract and does not override abstract method clear() in IInventory",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemLeadBox.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/items/tool/ItemLeadBox.java",
+      "message": "InventoryLeadBox is not abstract and does not override abstract method clear() in IInventory",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemToolBox.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/items/tool/ItemToolBox.java",
+      "message": "InventoryToolBox is not abstract and does not override abstract method clear() in IInventory",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemRebarPlacer.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/items/tool/ItemRebarPlacer.java",
+      "message": "InventoryRebar is not abstract and does not override abstract method clear() in IInventory",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 5
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tessellator of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 20
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 24
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 5
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 6
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    }
+  ]
+}

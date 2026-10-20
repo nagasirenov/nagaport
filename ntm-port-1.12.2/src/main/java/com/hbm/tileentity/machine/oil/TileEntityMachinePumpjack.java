@@ -75,7 +75,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 			if("oreUranium".equals(name)) {
 				for(int j = 2; j < 6; j++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(j);
-					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)) {
+					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ))) {
 						this.world.setBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_radon_dense);
 					}
 				}
@@ -84,7 +84,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 			if("oreAsbestos".equals(name)) {
 				for(int j = 2; j < 6; j++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(j);
-					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)) {
+					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ))) {
 						this.world.setBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_asbestos);
 					}
 				}

@@ -1,0 +1,146 @@
+[
+  {
+    "class": "RenderBoatRubber",
+    "line": 22,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/item/RenderBoatRubber.java:22: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderBeam5",
+    "line": 16,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderBeam5.java:16: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderShrapnel",
+    "line": 17,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderShrapnel.java:17: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderRocket",
+    "line": 22,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderRocket.java:22: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderFallingNuke",
+    "line": 20,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java:20: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderCoin",
+    "line": 13,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderCoin.java:13: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderChopperMine",
+    "line": 16,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderChopperMine.java:16: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderBombletTheta",
+    "line": 20,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/projectile/RenderBombletTheta.java:20: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderCloudFleija",
+    "line": 22,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/effect/RenderCloudFleija.java:22: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderBlackHole",
+    "line": 30,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/effect/RenderBlackHole.java:30: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderDeathBlast",
+    "line": 18,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/effect/RenderDeathBlast.java:18: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderFallout",
+    "line": 21,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/effect/RenderFallout.java:21: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderCloudRainbow",
+    "line": 21,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/effect/RenderCloudRainbow.java:21: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderCloudSolinium",
+    "line": 22,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/effect/RenderCloudSolinium.java:22: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderQuacc",
+    "line": 29,
+    "kind": "chicken-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderQuacc.java:29: error: constructor RenderChicken in class RenderChicken cannot be applied to given types;"
+  },
+  {
+    "class": "RenderQuacc",
+    "line": 42,
+    "kind": "generic-override",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderQuacc.java:42: error: name clash: preRenderCallback(EntityLivingBase,float) in RenderQuacc and preRenderCallback(T,float) in RenderLivingBase have the same erasure, yet neither overrides the other"
+  },
+  {
+    "class": "RenderHunterChopper",
+    "line": 14,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderHunterChopper.java:14: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderSiegeTunneler",
+    "line": 17,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderSiegeTunneler.java:17: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderBalls",
+    "line": 16,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderBalls.java:16: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderWormBody",
+    "line": 15,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderWormBody.java:15: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderWormHead",
+    "line": 17,
+    "kind": "render-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderWormHead.java:17: error: constructor Render in class Render<T> cannot be applied to given types;"
+  },
+  {
+    "class": "RenderDuck",
+    "line": 16,
+    "kind": "chicken-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderDuck.java:16: error: constructor RenderChicken in class RenderChicken cannot be applied to given types;"
+  },
+  {
+    "class": "RenderDuck",
+    "line": 19,
+    "kind": "generic-override",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderDuck.java:19: error: name clash: getEntityTexture(Entity) in RenderDuck and getEntityTexture(T) in Render have the same erasure, yet neither overrides the other"
+  },
+  {
+    "class": "RenderQuackos",
+    "line": 15,
+    "kind": "chicken-constructor",
+    "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/render/entity/mob/RenderQuackos.java:15: error: constructor RenderChicken in class RenderChicken cannot be applied to given types;"
+  }
+]

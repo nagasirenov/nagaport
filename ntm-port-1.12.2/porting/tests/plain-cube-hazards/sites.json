@@ -1,0 +1,262 @@
+[
+  {
+    "line": 1566,
+    "name": "block_uranium",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_uranium",
+    "registration": "GameRegistry.registerBlock(block_uranium, block_uranium.getTranslationKey());",
+    "before": "\t\tblock_uranium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium\");",
+    "after": "\t\tblock_uranium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_uranium\");"
+  },
+  {
+    "line": 1567,
+    "name": "block_u233",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_u233",
+    "registration": "GameRegistry.registerBlock(block_u233, block_u233.getTranslationKey());",
+    "before": "\t\tblock_u233 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u233\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u233\");",
+    "after": "\t\tblock_u233 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u233\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_u233\");"
+  },
+  {
+    "line": 1568,
+    "name": "block_u235",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_u235",
+    "registration": "GameRegistry.registerBlock(block_u235, block_u235.getTranslationKey());",
+    "before": "\t\tblock_u235 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u235\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u235\");",
+    "after": "\t\tblock_u235 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u235\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_u235\");"
+  },
+  {
+    "line": 1569,
+    "name": "block_u238",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_u238",
+    "registration": "GameRegistry.registerBlock(block_u238, block_u238.getTranslationKey());",
+    "before": "\t\tblock_u238 = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_u238\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u238\");",
+    "after": "\t\tblock_u238 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_u238\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_u238\");"
+  },
+  {
+    "line": 1570,
+    "name": "block_uranium_fuel",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_uranium_fuel",
+    "registration": "GameRegistry.registerBlock(block_uranium_fuel, block_uranium_fuel.getTranslationKey());",
+    "before": "\t\tblock_uranium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium_fuel\");",
+    "after": "\t\tblock_uranium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_uranium_fuel\");"
+  },
+  {
+    "line": 1571,
+    "name": "block_thorium",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_thorium",
+    "registration": "GameRegistry.registerBlock(block_thorium, block_thorium.getTranslationKey());",
+    "before": "\t\tblock_thorium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium\");",
+    "after": "\t\tblock_thorium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_thorium\");"
+  },
+  {
+    "line": 1572,
+    "name": "block_thorium_fuel",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_thorium_fuel",
+    "registration": "GameRegistry.registerBlock(block_thorium_fuel, block_thorium_fuel.getTranslationKey());",
+    "before": "\t\tblock_thorium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium_fuel\");",
+    "after": "\t\tblock_thorium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_thorium_fuel\");"
+  },
+  {
+    "line": 1573,
+    "name": "block_neptunium",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_neptunium",
+    "registration": "GameRegistry.registerBlock(block_neptunium, block_neptunium.getTranslationKey());",
+    "before": "\t\tblock_neptunium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_neptunium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + \":block_neptunium\");",
+    "after": "\t\tblock_neptunium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_neptunium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60.0F), RefStrings.MODID + \":block_neptunium\");"
+  },
+  {
+    "line": 1574,
+    "name": "block_polonium",
+    "owner": "BlockHotHazard",
+    "item": "ItemBlock",
+    "texture": "block_polonium",
+    "registration": "GameRegistry.registerBlock(block_polonium, block_polonium.getTranslationKey());",
+    "before": "\t\tblock_polonium = ((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_polonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_polonium\");",
+    "after": "\t\tblock_polonium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_polonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_polonium\");"
+  },
+  {
+    "line": 1575,
+    "name": "block_mox_fuel",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_mox_fuel",
+    "registration": "GameRegistry.registerBlock(block_mox_fuel, block_mox_fuel.getTranslationKey());",
+    "before": "\t\tblock_mox_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_mox_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_mox_fuel\");",
+    "after": "\t\tblock_mox_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_mox_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_mox_fuel\");"
+  },
+  {
+    "line": 1576,
+    "name": "block_plutonium",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_plutonium",
+    "registration": "GameRegistry.registerBlock(block_plutonium, block_plutonium.getTranslationKey());",
+    "before": "\t\tblock_plutonium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium\");",
+    "after": "\t\tblock_plutonium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_plutonium\");"
+  },
+  {
+    "line": 1577,
+    "name": "block_pu238",
+    "owner": "BlockHotHazard",
+    "item": "ItemBlock",
+    "texture": "block_pu238",
+    "registration": "GameRegistry.registerBlock(block_pu238, block_pu238.getTranslationKey());",
+    "before": "\t\tblock_pu238 = ((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu238\").setCreativeTab(MainRegistry.blockTab).setLightLevel(5F/15F)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu238\");",
+    "after": "\t\tblock_pu238 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu238\").setCreativeTab(MainRegistry.blockTab).setLightLevel(5F/15F)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu238\");"
+  },
+  {
+    "line": 1578,
+    "name": "block_pu239",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_pu239",
+    "registration": "GameRegistry.registerBlock(block_pu239, block_pu239.getTranslationKey());",
+    "before": "\t\tblock_pu239 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu239\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu239\");",
+    "after": "\t\tblock_pu239 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu239\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu239\");"
+  },
+  {
+    "line": 1579,
+    "name": "block_pu240",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_pu240",
+    "registration": "GameRegistry.registerBlock(block_pu240, block_pu240.getTranslationKey());",
+    "before": "\t\tblock_pu240 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu240\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu240\");",
+    "after": "\t\tblock_pu240 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu240\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu240\");"
+  },
+  {
+    "line": 1580,
+    "name": "block_pu_mix",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_pu_mix",
+    "registration": "GameRegistry.registerBlock(block_pu_mix, block_pu_mix.getTranslationKey());",
+    "before": "\t\tblock_pu_mix = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu_mix\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu_mix\");",
+    "after": "\t\tblock_pu_mix = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu_mix\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu_mix\");"
+  },
+  {
+    "line": 1581,
+    "name": "block_plutonium_fuel",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_plutonium_fuel",
+    "registration": "GameRegistry.registerBlock(block_plutonium_fuel, block_plutonium_fuel.getTranslationKey());",
+    "before": "\t\tblock_plutonium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium_fuel\");",
+    "after": "\t\tblock_plutonium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_plutonium_fuel\");"
+  },
+  {
+    "line": 1601,
+    "name": "block_trinitite",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_trinitite",
+    "registration": "GameRegistry.registerBlock(block_trinitite, block_trinitite.getTranslationKey());",
+    "before": "\t\tblock_trinitite = new BlockHazard().makeBeaconable().setTranslationKey(\"block_trinitite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_trinitite\");",
+    "after": "\t\tblock_trinitite = com.hbm.blocks.PlainCubeTextures.bind(new BlockHazard().makeBeaconable().setTranslationKey(\"block_trinitite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_trinitite\");"
+  },
+  {
+    "line": 1606,
+    "name": "block_corium",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_corium",
+    "registration": "GameRegistry.registerBlock(block_corium, block_corium.getTranslationKey());",
+    "before": "\t\tblock_corium = new BlockHazard(Material.IRON).setTranslationKey(\"block_corium\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F).setBlockTextureName(RefStrings.MODID + \":block_corium\");",
+    "after": "\t\tblock_corium = com.hbm.blocks.PlainCubeTextures.bind(new BlockHazard(Material.IRON).setTranslationKey(\"block_corium\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F), RefStrings.MODID + \":block_corium\");"
+  },
+  {
+    "line": 1611,
+    "name": "block_schraranium",
+    "owner": "BlockHazard",
+    "item": "ItemBlockBase",
+    "texture": "block_schraranium",
+    "registration": "GameRegistry.registerBlock(block_schraranium, ItemBlockBase.class, block_schraranium.getTranslationKey());",
+    "before": "\t\tblock_schraranium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schraranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(250.0F).setBlockTextureName(RefStrings.MODID + \":block_schraranium\");",
+    "after": "\t\tblock_schraranium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schraranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(250.0F), RefStrings.MODID + \":block_schraranium\");"
+  },
+  {
+    "line": 1612,
+    "name": "block_schrabidium",
+    "owner": "BlockHazard",
+    "item": "ItemBlockBase",
+    "texture": "block_schrabidium",
+    "registration": "GameRegistry.registerBlock(block_schrabidium, ItemBlockBase.class, block_schrabidium.getTranslationKey());",
+    "before": "\t\tblock_schrabidium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium\");",
+    "after": "\t\tblock_schrabidium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_schrabidium\");"
+  },
+  {
+    "line": 1613,
+    "name": "block_schrabidate",
+    "owner": "BlockHazard",
+    "item": "ItemBlockBase",
+    "texture": "block_schrabidate",
+    "registration": "GameRegistry.registerBlock(block_schrabidate, ItemBlockBase.class, block_schrabidate.getTranslationKey());",
+    "before": "\t\tblock_schrabidate = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidate\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidate\");",
+    "after": "\t\tblock_schrabidate = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidate\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_schrabidate\");"
+  },
+  {
+    "line": 1614,
+    "name": "block_solinium",
+    "owner": "BlockHazard",
+    "item": "ItemBlockBase",
+    "texture": "block_solinium",
+    "registration": "GameRegistry.registerBlock(block_solinium, ItemBlockBase.class, block_solinium.getTranslationKey());",
+    "before": "\t\tblock_solinium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_solinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_solinium\");",
+    "after": "\t\tblock_solinium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_solinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_solinium\");"
+  },
+  {
+    "line": 1615,
+    "name": "block_schrabidium_fuel",
+    "owner": "BlockHazard",
+    "item": "ItemBlockBase",
+    "texture": "block_schrabidium_fuel",
+    "registration": "GameRegistry.registerBlock(block_schrabidium_fuel, ItemBlockBase.class, block_schrabidium_fuel.getTranslationKey());",
+    "before": "\t\tblock_schrabidium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium_fuel\");",
+    "after": "\t\tblock_schrabidium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_schrabidium_fuel\");"
+  },
+  {
+    "line": 1636,
+    "name": "block_white_phosphorus",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_white_phosphorus",
+    "registration": "GameRegistry.registerBlock(block_white_phosphorus, block_white_phosphorus.getTranslationKey());",
+    "before": "\t\tblock_white_phosphorus = new BlockHazard(Material.ROCK).makeBeaconable().setTranslationKey(\"block_white_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_white_phosphorus\");",
+    "after": "\t\tblock_white_phosphorus = com.hbm.blocks.PlainCubeTextures.bind(new BlockHazard(Material.ROCK).makeBeaconable().setTranslationKey(\"block_white_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_white_phosphorus\");"
+  },
+  {
+    "line": 1652,
+    "name": "block_ra226",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_ra226",
+    "registration": "GameRegistry.registerBlock(block_ra226, block_ra226.getTranslationKey());",
+    "before": "\t\tblock_ra226 = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_ra226\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_ra226\");",
+    "after": "\t\tblock_ra226 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_ra226\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_ra226\");"
+  },
+  {
+    "line": 1653,
+    "name": "block_actinium",
+    "owner": "BlockHazard",
+    "item": "ItemBlock",
+    "texture": "block_actinium",
+    "registration": "GameRegistry.registerBlock(block_actinium, block_actinium.getTranslationKey());",
+    "before": "\t\tblock_actinium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_actinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_actinium\");",
+    "after": "\t\tblock_actinium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_actinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_actinium\");"
+  }
+]

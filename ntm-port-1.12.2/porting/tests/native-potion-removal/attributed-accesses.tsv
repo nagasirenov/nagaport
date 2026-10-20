@@ -1,0 +1,6 @@
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSyringe.java	4089	4110	net.minecraft.potion.Potion	Potion.digSlowdown.id	net.minecraft.init.MobEffects.MINING_FATIGUE	id
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSyringe.java	4143	4159	net.minecraft.potion.Potion	Potion.hunger.id	net.minecraft.init.MobEffects.HUNGER	id
+ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSyringe.java	4332	4350	net.minecraft.potion.Potion	Potion.weakness.id	net.minecraft.init.MobEffects.WEAKNESS	id
+ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java	1581	1602	net.minecraft.potion.Potion	Potion.digSlowdown.id	net.minecraft.init.MobEffects.MINING_FATIGUE	id
+ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java	1635	1651	net.minecraft.potion.Potion	Potion.hunger.id	net.minecraft.init.MobEffects.HUNGER	id
+ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java	1824	1842	net.minecraft.potion.Potion	Potion.weakness.id	net.minecraft.init.MobEffects.WEAKNESS	id

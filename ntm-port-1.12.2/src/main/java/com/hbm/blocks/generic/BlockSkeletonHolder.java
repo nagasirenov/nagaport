@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -50,13 +51,13 @@ public class BlockSkeletonHolder extends BlockContainer {
 		if(pedestal.item == null && com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 			if(world.isRemote) return true;
 			pedestal.item = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
-			player.inventory.mainInventory[player.inventory.currentItem] = null;
+			player.inventory.mainInventory.set(player.inventory.currentItem, ItemStack.EMPTY);
 			pedestal.markDirty();
 			world.markBlockForUpdate(x, y, z);
 			return true;
 		} else if(pedestal.item != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null) {
 			if(world.isRemote) return true;
-			player.inventory.mainInventory[player.inventory.currentItem] = pedestal.item.copy();
+			player.inventory.mainInventory.set(player.inventory.currentItem, pedestal.item.copy());
 			pedestal.item = null;
 			pedestal.markDirty();
 			world.markBlockForUpdate(x, y, z);
@@ -100,7 +101,7 @@ public class BlockSkeletonHolder extends BlockContainer {
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			this.item = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("item"));
+			this.item = NullableInventoryStackNbt.read(nbt.getCompoundTag("item"));
 		}
 
 		@Override

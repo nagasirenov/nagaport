@@ -1,0 +1,874 @@
+{
+  "baseline": "f5ce86cd607379cc9810896cf91d1fee86ce6331",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockTaint.java": {
+      "before_sha256": "da4e35f9b290d433cf39134006a1616cb09a56a7401b973b94b9a74c994b357e",
+      "edits": [
+        {
+          "before_offset": 1909,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k);\n\t\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 1909
+        },
+        {
+          "before_offset": 2008,
+          "old": "world, x + i, y + j, z + k",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x + i, y + j, z + k)",
+          "kind": "native_air_arguments",
+          "after_offset": 2082
+        }
+      ],
+      "after_sha256": "0fcc433d115e23bcc7abced47f2d725125436860660af74bb5056cdd935366e7"
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "before_sha256": "c3d931415af5617835d5b18943fc1b144b76b3b0542f3ef6372f0a3166b757a1",
+      "edits": [
+        {
+          "before_offset": 8252,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);\n\t\t\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 8252
+        },
+        {
+          "before_offset": 8347,
+          "old": "this.world, x, y, z",
+          "new": "nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 8422
+        }
+      ],
+      "after_sha256": "627a3c1cb52005cde16c704976b0b43ac22701c412a39292e1ec3110f049d900"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "8e399f4852529e07924d623893b5127cdf4514f8c424e0e820b3c6974b6bac1c",
+      "edits": [
+        {
+          "before_offset": 1477,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 1477
+        },
+        {
+          "before_offset": 1687,
+          "old": "world, x, y - 1, z",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 1760
+        }
+      ],
+      "after_sha256": "8dd9e3a29415d9824b1e219dbfafa402187e7d4fb088af4445ac58d32e505001"
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypoint.java": {
+      "before_sha256": "43ec7b66e08f9b0518924bbf0d231b8ed3e50f13353c6b0aa1a93f26f84d2c0f",
+      "edits": [
+        {
+          "before_offset": 2908,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 2908
+        },
+        {
+          "before_offset": 3175,
+          "old": "world, x, y, z",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 3248
+        },
+        {
+          "before_offset": 3535,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 3662
+        },
+        {
+          "before_offset": 3805,
+          "old": "world, x, y, z",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 4005
+        }
+      ],
+      "after_sha256": "8a8e6f7314b49425b3a02e8b08e90469bb990cf0aacb808a8fd88477cae884c9"
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java": {
+      "before_sha256": "16bf458b66e8af0ce19c08dbe413da40fa915e3e762f1a2b2b7c67c1eeb00f46",
+      "edits": [
+        {
+          "before_offset": 2459,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 2459
+        },
+        {
+          "before_offset": 2726,
+          "old": "world, x, y, z",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 2799
+        },
+        {
+          "before_offset": 3086,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 3213
+        },
+        {
+          "before_offset": 3356,
+          "old": "world, x, y, z",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 3556
+        }
+      ],
+      "after_sha256": "4efa6bf2eb5540599204c181d46631db1d3d90c84b266720ef1f436d3675db7e"
+    },
+    "src/main/java/com/hbm/dim/tekto/TTree.java": {
+      "before_sha256": "e618e0f5dae5f786019b9f1fb555bcff9827f4afca22e87d30b8166af198ad12",
+      "edits": [
+        {
+          "before_offset": 1602,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz);\n\t\t\t\t\t\tBlock block = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 1602
+        },
+        {
+          "before_offset": 1725,
+          "old": "world, x + dx, bulbStartY + dy, z + dz",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x + dx, bulbStartY + dy, z + dz)",
+          "kind": "native_air_arguments",
+          "after_offset": 1802
+        }
+      ],
+      "after_sha256": "c046774ace40bc54e385788ebbfc35efed791f9ef836ae7d225962952a91dc93"
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java": {
+      "before_sha256": "a09c61f5f529c9e48fdfb6c9f95aea057e3051226c7c6a81e473b753b7b57332",
+      "edits": [
+        {
+          "before_offset": 8443,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\tBlock block = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 8443
+        },
+        {
+          "before_offset": 8569,
+          "old": "this.world, a, b, c",
+          "new": "nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c)",
+          "kind": "native_air_arguments",
+          "after_offset": 8644
+        }
+      ],
+      "after_sha256": "6c324d9978a5ea1ae06a6de43b172e5079190468a4cee4cdc2fa344ad5c203f4"
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java": {
+      "before_sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986",
+      "edits": [
+        {
+          "before_offset": 6011,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\tBlock block = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 6011
+        },
+        {
+          "before_offset": 6137,
+          "old": "this.world, a, b, c",
+          "new": "nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c)",
+          "kind": "native_air_arguments",
+          "after_offset": 6212
+        }
+      ],
+      "after_sha256": "883e44a5f6e2d2a053af0448740e4a83524e1ae19f0319295e8b739c15159899"
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java": {
+      "before_sha256": "4eb79ff2df4062e7385d9244ad2cbd0ceb1c94cc12433a596683e27b8b7ae16a",
+      "edits": [
+        {
+          "before_offset": 1552,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\t\t\tBlock block = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 1552
+        },
+        {
+          "before_offset": 1680,
+          "old": "this.world, a, b, c",
+          "new": "nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c)",
+          "kind": "native_air_arguments",
+          "after_offset": 1757
+        },
+        {
+          "before_offset": 2146,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\t\t\tBlock block = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 2277
+        },
+        {
+          "before_offset": 2274,
+          "old": "this.world, a, b, c",
+          "new": "nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c)",
+          "kind": "native_air_arguments",
+          "after_offset": 2482
+        }
+      ],
+      "after_sha256": "379718b9a18ac24062ea52f378e416f2f7f7ae8607f068be3c50e65e7f27fe98"
+    },
+    "src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java": {
+      "before_sha256": "913f81d39961a9aa3752a8536ceb2a2d779520085e64197377eb64c8ab86e3c6",
+      "edits": [
+        {
+          "before_offset": 2628,
+          "old": "Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\tBlock block = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 2628
+        },
+        {
+          "before_offset": 2723,
+          "old": "world, x, y, z",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 2796
+        }
+      ],
+      "after_sha256": "bccc025f6ff201b327ed4976189de14f7b002fa8de0bcaeb2e8dffa20a6158e5"
+    },
+    "src/main/java/com/hbm/items/tool/ItemStructurePattern.java": {
+      "before_sha256": "b1660826c2f02ebc8c2dcb87e30f4ffd7362f3032e3d063d9d8510af11bed474",
+      "edits": [
+        {
+          "before_offset": 1543,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ());\n\t\t\t\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 1543
+        },
+        {
+          "before_offset": 1674,
+          "old": "world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()",
+          "new": "nativeAirState, world, new net.minecraft.util.math.BlockPos(ix + pos.getX(), iy + pos.getY(), iz + pos.getZ())",
+          "kind": "native_air_arguments",
+          "after_offset": 1750
+        }
+      ],
+      "after_sha256": "02703f81ccb39cba14b5ca8fd28c3ba2c6fd9dc5a955328682312ea4a05a7cb4"
+    },
+    "src/main/java/com/hbm/potion/HbmPotion.java": {
+      "before_sha256": "30009b63cb206d3c84ea61b0265b2c9d39fed53ee98c4733e9f2588b498de1c2",
+      "edits": [
+        {
+          "before_offset": 5115,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z);\n\t\t\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 5115
+        },
+        {
+          "before_offset": 5244,
+          "old": "entity.world, x, y - 1, z",
+          "new": "nativeAirState, entity.world, new net.minecraft.util.math.BlockPos(x, y - 1, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 5319
+        }
+      ],
+      "after_sha256": "3d10a65cd9f5c064d378dbd8725341a3b16e82472d801c4d0e82a9a0e2c53358"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before_sha256": "a91c6c26f991a42df49b8c8af43a0ebf2374c9bc9e4e0eaf9914f753d55d4417",
+      "edits": [
+        {
+          "before_offset": 4011,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);\n\t\t\t\t\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 4011
+        },
+        {
+          "before_offset": 4114,
+          "old": "this.world, x, y, z",
+          "new": "nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "native_air_arguments",
+          "after_offset": 4191
+        }
+      ],
+      "after_sha256": "c9f69c243eb83835e24b7c53a0da62c3f47625d12e9fb60d188b4a0944cb592a"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java": {
+      "before_sha256": "5a5b1e1a175777480c31ac06e0f283a90396fb680d2e2bbdfae20ca1044b3799",
+      "edits": [
+        {
+          "before_offset": 4202,
+          "old": "Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i).getBlock();",
+          "new": "net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i);\n\t\t\t\t\t\tBlock b = nativeAirState.getBlock();",
+          "kind": "state_capture",
+          "after_offset": 4202
+        },
+        {
+          "before_offset": 4813,
+          "old": "this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i",
+          "new": "nativeAirState, this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i)",
+          "kind": "native_air_arguments",
+          "after_offset": 4890
+        }
+      ],
+      "after_sha256": "0065c58d9f2d16605ad6bb866813a018b197d3c5dc9b5d2a42d8370cbabc2e8e"
+    }
+  },
+  "callers": [
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/BlockTaint.java",
+      "before_line": 51,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k)",
+      "query_arguments": [
+        "world",
+        "x + i",
+        "y + j",
+        "z + k"
+      ],
+      "intervening": "\n\t\t\tif(b",
+      "mismatched_context": false,
+      "after_line": 52
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      "before_line": 236,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(this.world, x, y, z)",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "intervening": "\n\n\t\t\t\tif(!b",
+      "mismatched_context": false,
+      "after_line": 237
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+      "before_line": 54,
+      "receiver": "block",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x, y - 1, z)",
+      "query_arguments": [
+        "world",
+        "x",
+        "y - 1",
+        "z"
+      ],
+      "intervening": "\n\n\t\tif (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;\n\t\tif (block.isLeaves(world, x, y - 1, z) && !block",
+      "mismatched_context": false,
+      "after_line": 55
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+      "before_line": 97,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "intervening": "\n\n\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b",
+      "mismatched_context": true,
+      "after_line": 98
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+      "before_line": 110,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "intervening": "\n\n\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b",
+      "mismatched_context": true,
+      "after_line": 112
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+      "before_line": 86,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "intervening": "\n\n\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b",
+      "mismatched_context": true,
+      "after_line": 87
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+      "before_line": 99,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ)",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "intervening": "\n\n\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b",
+      "mismatched_context": true,
+      "after_line": 101
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/tekto/TTree.java",
+      "before_line": 63,
+      "receiver": "block",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz)",
+      "query_arguments": [
+        "world",
+        "x + dx",
+        "bulbStartY + dy",
+        "z + dz"
+      ],
+      "intervening": "\n\t\t\t\t\t\tif (block",
+      "mismatched_context": false,
+      "after_line": 64
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java",
+      "before_line": 243,
+      "receiver": "block",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(this.world, a, b, c)",
+      "query_arguments": [
+        "this.world",
+        "a",
+        "b",
+        "c"
+      ],
+      "intervening": "\n\t\t\t\tif(block.isNormalCube() && !block",
+      "mismatched_context": false,
+      "after_line": 244
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "before_line": 133,
+      "receiver": "block",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(this.world, a, b, c)",
+      "query_arguments": [
+        "this.world",
+        "a",
+        "b",
+        "c"
+      ],
+      "intervening": "\n\t\t\t\tif(block.isNormalCube() && !block",
+      "mismatched_context": false,
+      "after_line": 134
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java",
+      "before_line": 59,
+      "receiver": "block",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(this.world, a, b, c)",
+      "query_arguments": [
+        "this.world",
+        "a",
+        "b",
+        "c"
+      ],
+      "intervening": "\n\t\t\t\t\t\tif(block.isNormalCube() && !block",
+      "mismatched_context": false,
+      "after_line": 60
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java",
+      "before_line": 75,
+      "receiver": "block",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(this.world, a, b, c)",
+      "query_arguments": [
+        "this.world",
+        "a",
+        "b",
+        "c"
+      ],
+      "intervening": "\n\t\t\t\t\t\tif(block.isNormalCube() && !block",
+      "mismatched_context": false,
+      "after_line": 77
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java",
+      "before_line": 84,
+      "receiver": "block",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, x, y, z)",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "intervening": "\n\n\t\tif(block",
+      "mismatched_context": false,
+      "after_line": 85
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemStructurePattern.java",
+      "before_line": 50,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ())",
+      "query_arguments": [
+        "world",
+        "ix + pos.getX()",
+        "iy + pos.getY()",
+        "iz + pos.getZ()"
+      ],
+      "intervening": "\n\t\t\t\t\tif(b",
+      "mismatched_context": false,
+      "after_line": 51
+    },
+    {
+      "file": "src/main/java/com/hbm/potion/HbmPotion.java",
+      "before_line": 135,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z)",
+      "query_arguments": [
+        "entity.world",
+        "x",
+        "y - 1",
+        "z"
+      ],
+      "intervening": "\n\t\t\t\tif(y > 1 && b.isNormalCube() && !b",
+      "mismatched_context": false,
+      "after_line": 136
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+      "before_line": 121,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(this.world, x, y, z)",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "intervening": "\n\t\t\t\t\t\t\n\t\t\t\t\t\tif(!b",
+      "mismatched_context": false,
+      "after_line": 122
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java",
+      "before_line": 143,
+      "receiver": "b",
+      "receiver_origin": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i)",
+      "query_arguments": [
+        "this.world",
+        "this.pos.getX() + dir.offsetX * i",
+        "this.pos.getY()",
+        "this.pos.getZ() + dir.offsetZ * i"
+      ],
+      "intervening": "\n\t\t\t\t\t\tif(b == ModBlocks.icf) {\n\t\t\t\t\t\t\tTileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX * (i + 8), this.pos.getY() - 3, this.pos.getZ() + dir.offsetZ * (i + 8)));\n\t\t\t\t\t\t\tif(tile instanceof TileEntityICF) {\n\t\t\t\t\t\t\t\tTileEntityICF icf = (TileEntityICF) tile;\n\t\t\t\t\t\t\t\ticf.laser += this.getPower();\n\t\t\t\t\t\t\t\ticf.maxLaser += this.getMaxPower();\n\t\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\t\tif(!b",
+      "mismatched_context": false,
+      "after_line": 144
+    }
+  ],
+  "excluded": [
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/BlockTaint.java",
+      "line": 55,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ).getBlock()",
+      "arguments": [
+        "world",
+        "x + i + dir.offsetX",
+        "y + j + dir.offsetY",
+        "z + k + dir.offsetZ"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+      "line": 194,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x, y + 1, z).getBlock()",
+      "arguments": [
+        "this.world",
+        "x",
+        "y + 1",
+        "z"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 133,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock()",
+      "arguments": [
+        "this.world",
+        "(int) posX",
+        "(int) posY",
+        "(int) posZ"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 418,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock()",
+      "arguments": [
+        "this.world",
+        "x + dir.offsetX",
+        "y + dir.offsetY",
+        "z + dir.offsetZ"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 430,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock()",
+      "arguments": [
+        "this.world",
+        "x + dir.offsetX",
+        "y + dir.offsetY",
+        "z + dir.offsetZ"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory40mm.java",
+      "line": 115,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "arguments": [
+        "bullet.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java",
+      "line": 144,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java",
+      "line": 93,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryRocket.java",
+      "line": 142,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "arguments": [
+        "bullet.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/bomb/TileEntityLandmine.java",
+      "line": 43,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()).getBlock()",
+      "arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + 1",
+        "this.pos.getZ()"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java",
+      "line": 98,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java",
+      "line": 93,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      "line": 233,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock()",
+      "arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + 3",
+        "this.pos.getZ()"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyMachine.java",
+      "line": 129,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock()",
+      "arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + 3",
+        "this.pos.getZ()"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      "line": 230,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock()",
+      "arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + 3",
+        "this.pos.getZ()"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalPlant.java",
+      "line": 138,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock()",
+      "arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + 3",
+        "this.pos.getZ()"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      "line": 743,
+      "receiver": "block",
+      "arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Block parameter requires exact caller/API ownership closure"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "line": 477,
+      "receiver": "block",
+      "arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "reason": "Block parameter requires exact caller/API ownership closure"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePUREX.java",
+      "line": 120,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 5, this.pos.getZ()).getBlock()",
+      "arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + 5",
+        "this.pos.getZ()"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePrecAss.java",
+      "line": 130,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ()).getBlock()",
+      "arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + 3",
+        "this.pos.getZ()"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/BiomeCave.java",
+      "line": 105,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock()",
+      "arguments": [
+        "world",
+        "x + dir.offsetX",
+        "y + dir.offsetY",
+        "z + dir.offsetZ"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/BiomeCave.java",
+      "line": 108,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + dir.offsetX * 2, y + dir.offsetY * 2, z + dir.offsetZ * 2).getBlock()",
+      "arguments": [
+        "world",
+        "x + dir.offsetX * 2",
+        "y + dir.offsetY * 2",
+        "z + dir.offsetZ * 2"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/gen/component/SiloComponent.java",
+      "line": 1365,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, posX, posY, posZ).getBlock()",
+      "arguments": [
+        "world",
+        "posX",
+        "posY",
+        "posZ"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/gen/component/SiloComponent.java",
+      "line": 1365,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, posX, posY - 1, posZ).getBlock()",
+      "arguments": [
+        "world",
+        "posX",
+        "posY - 1",
+        "posZ"
+      ],
+      "reason": "Inline receiver requires separate control-flow-safe capture work"
+    }
+  ]
+}

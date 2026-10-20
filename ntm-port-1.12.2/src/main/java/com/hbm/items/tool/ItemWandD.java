@@ -120,7 +120,7 @@ public class ItemWandD extends Item {
 				}
 			}
 		} else {
-			world.setBlock(MathHelper.floor(player.posX), MathHelper.floor(player.posY) - 1, MathHelper.floor(player.posZ), ModBlocks.concrete);
+			{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = MathHelper.floor(player.posX); int nativeRegisteredWriteY = MathHelper.floor(player.posY) - 1; int nativeRegisteredWriteZ = MathHelper.floor(player.posZ); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.concrete; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		}
 
 		return stack;

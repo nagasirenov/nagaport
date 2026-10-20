@@ -1,0 +1,16 @@
+{
+  "pins": {
+    "porting/tests/check-native-normal-world-air-source.py": "63a7aea8157ea60c2e25974717e094e37648f293361e7040fe2f3d14d9cc332c",
+    "porting/tests/native-normal-world-air-source-manifest.json": "516ce9e9579be5477075bfef64416bc798cb250136d56c44c33d4d27f456cd8a",
+    "porting/tests/native-block-air-captures/check_source.py": "116540e4e9e754d5f2119090a19c6a94ed7cca1438076b82afb017670c81beaf",
+    "porting/tests/native-block-air-captures/manifest.json": "38dcf6b49f511c4e69d2d1050b358315325934fec513e4cddbf551b5ff6d808d"
+  },
+  "files": [
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+    "src/main/java/com/hbm/dim/tekto/TTree.java",
+    "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java",
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+    "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java",
+    "src/main/java/com/hbm/potion/HbmPotion.java"
+  ]
+}

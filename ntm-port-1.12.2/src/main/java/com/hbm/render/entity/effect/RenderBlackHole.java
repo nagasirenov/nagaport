@@ -12,14 +12,17 @@ import com.hbm.entity.effect.EntityBlackHole;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import com.hbm.render.mesh.ObjMeshModel;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderBlackHole extends Render {
+public class RenderBlackHole extends Render<Entity> {
 
 	protected static final ResourceLocation objTesterModelRL = new ResourceLocation(RefStrings.MODID, "models/Sphere.obj");
 	protected MeshModel blastModel;
@@ -27,7 +30,8 @@ public class RenderBlackHole extends Render {
 	protected ResourceLocation swirl = new ResourceLocation(RefStrings.MODID, "textures/entity/bhole.png");
 	protected ResourceLocation disc = new ResourceLocation(RefStrings.MODID, "textures/entity/bholeDisc.png");
 
-	public RenderBlackHole() {
+	public RenderBlackHole(RenderManager renderManager) {
+		super(renderManager);
 		blastModel = new ObjMeshModel(objTesterModelRL);
 	}
 
@@ -269,7 +273,8 @@ public class RenderBlackHole extends Render {
 	
 	protected void renderJets(Entity entity, float interp) {
 
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 
 		GL11.glPushMatrix();
 		GL11.glRotatef(entity.getEntityId() % 90 - 45, 1, 0, 0);
@@ -284,17 +289,23 @@ public class RenderBlackHole extends Render {
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		
 		for(int j = -1; j <= 1; j += 2) {
-			tess.startDrawing(GL11.GL_TRIANGLE_FAN);
+			tessBuffer.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
 
-			tess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.35F);
-			tess.addVertex(0, 0, 0);
-			tess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.0F);
+			int tessColor0Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessColor0Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.35F) * 255.0F)));
+			tessBuffer.pos(0, 0, 0).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+			int tessColor1Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessColor1Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessColor1Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));
 			
 			Vec3d jet = new Vec3d(0.5, 0, 0);
 			
 			for(int i = 0; i <= 12; i++) {
 
-				tess.addVertex(jet.x, 10 * j, jet.z);
+				tessBuffer.pos(jet.x, 10 * j, jet.z).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 				jet = jet.rotateYaw((float)(Math.PI / 6 * -j));
 			}
 			

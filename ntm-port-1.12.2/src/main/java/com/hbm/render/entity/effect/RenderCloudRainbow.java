@@ -6,19 +6,21 @@ import com.hbm.entity.effect.EntityCloudFleijaRainbow;
 import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.ObjMeshModel;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderCloudRainbow extends Render {
+public class RenderCloudRainbow extends Render<Entity> {
 
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(/*"/assets/" + */RefStrings.MODID, "models/Sphere.obj");
 	private MeshModel blastModel;
     public float scale = 0;
     public float ring = 0;
     
-    public RenderCloudRainbow() {
+    public RenderCloudRainbow(RenderManager renderManager) {
+		super(renderManager);
 		blastModel = new ObjMeshModel(objTesterModelRL);
     	scale = 0;
     }

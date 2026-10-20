@@ -139,9 +139,10 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 			for(int y = -1; y >= -groundDepth; y--) {
 				for(int z = -1; z <= 1; z++) {
 
-					Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z).getBlock();
+					net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z);
+					Block b = nativeCubeState_b.getBlock();
 
-					if(y == -1 && !b.isNormalCube()) return false; // first layer has to be full solid
+					if(y == -1 && !b.isNormalCube(nativeCubeState_b)) return false; // first layer has to be full solid
 
 					if(TileEntityMachinePumpBase.validBlocks.contains(b)) validBlocks++;
 					else invalidBlocks ++;

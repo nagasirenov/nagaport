@@ -33,7 +33,8 @@ public class OilSpot {
 
 			for(int y = rY; y > rY - 4; y--) {
 
-				Block below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();
+				net.minecraft.block.state.IBlockState nativeCubeState_below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ);
+				Block below = nativeCubeState_below.getBlock();
 				Block ground = com.hbm.world.WorldBlockState.read(world, rX, y, rZ).getBlock();
 				int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y, rZ) );
 
@@ -41,25 +42,25 @@ public class OilSpot {
 				if(ground == ModBlocks.plant_flower && (meta == EnumFlowerType.CD0.ordinal() || meta == EnumFlowerType.CD1.ordinal())) continue;
 				if(ground == ModBlocks.plant_tall && (meta == EnumTallFlower.CD2.ordinal() || meta == EnumTallFlower.CD3.ordinal() || meta == EnumTallFlower.CD4.ordinal())) continue;
 
-				if(below.isNormalCube() && ground != ModBlocks.plant_dead) {
+				if(below.isNormalCube(nativeCubeState_below) && ground != ModBlocks.plant_dead) {
 					if(ground instanceof BlockTallGrass) {
 						if(world.rand.nextInt(10) == 0) {
 							if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y + 1, rZ) ) == 2) {
-								world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FERN.ordinal(), 3);
+								{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.FERN.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 							} else {
-								world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GRASS.ordinal(), 3);
+								{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GRASS.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 							}
 						} else {
 							{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = rX; int nativePlacementY = y; int nativePlacementZ = rZ; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						}
 					} else if(ground instanceof BlockFlower) {
-						world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FLOWER.ordinal(), 3);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.FLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					} else if(ground instanceof BlockDoublePlant || ground instanceof BlockTallPlant) {
-						world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.BIGFLOWER.ordinal(), 3);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.BIGFLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					} else if(ground instanceof BlockBush) {
-						world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					} else if(ground instanceof IPlantable) {
-						world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					}
 				}
 
@@ -67,7 +68,7 @@ public class OilSpot {
 					world.setBlock(rX, y, rZ, world.rand.nextInt(10) == 0 ? ModBlocks.dirt_oily : ModBlocks.dirt_dead);
 
 					if(addWillows && world.rand.nextInt(50) == 0) {
-						if(ModBlocks.plant_flower.canPlaceBlockAt(world, rX, y + 1, rZ)) {
+						if(ModBlocks.plant_flower.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(rX, y + 1, rZ))) {
 							world.setBlock(rX, y + 1, rZ, ModBlocks.plant_flower, EnumFlowerType.CD0.ordinal(), 3);
 						}
 					}
@@ -110,18 +111,19 @@ public class OilSpot {
 			int rY = world.getHeightValue(rX, rZ);
 
 			for(int y = rY; y > rY - 4; y--) {
-				Block below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ).getBlock();
+				net.minecraft.block.state.IBlockState nativeCubeState_below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ);
+				Block below = nativeCubeState_below.getBlock();
 				Block ground = com.hbm.world.WorldBlockState.read(world, rX, y, rZ).getBlock();
 				int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y, rZ) );
 
-				if(below.isNormalCube() && ground != ModBlocks.plant_dead) {
+				if(below.isNormalCube(nativeCubeState_below) && ground != ModBlocks.plant_dead) {
 					if(ground == ModBlocks.rubber_plant) {
-						world.setBlock(rX, y, rZ, ModBlocks.plant_dead, meta, 3);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = meta; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					}
 				}
 
 				if(ground == ModBlocks.rubber_grass) {
-					world.setBlock(rX, y, rZ, ModBlocks.rubber_silt);
+					{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					break;
 				}
 

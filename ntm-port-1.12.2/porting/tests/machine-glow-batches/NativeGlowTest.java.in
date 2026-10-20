@@ -1,0 +1,83 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.io.*;
+import java.nio.*;
+import java.util.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.vertex.*;
+import net.minecraft.util.math.Vec3d;
+import com.hbm.util.Vec3NT;
+import org.lwjgl.opengl.*;
+
+/** Executes original 1.7.10 bmh and native 1.12.2 BufferBuilder/uploader unchanged. */
+public final class NativeGlowTest {
+ static Class<?> legacyClass;
+ static int batches,vertices,draws,executions;
+ static final float[] VALUES={-Float.POSITIVE_INFINITY,-100F,-1F,-.001F,-0F,0F,1F/255F,.1F,.25F,.5F,.999F,1F,1.001F,2F,Float.POSITIVE_INFINITY,Float.NaN};
+ static class CountRandom extends Random {int calls;CountRandom(long seed){super(seed);}public double nextDouble(){calls++;return super.nextDouble();}}
+ static Object get(Object o,String name)throws Exception{Field f=legacyClass.getDeclaredField(name);f.setAccessible(true);return f.get(o);}
+ static class Legacy {
+  final Object actual;
+  Legacy(double t)throws Exception {Constructor<?> c=legacyClass.getDeclaredConstructor(int.class);c.setAccessible(true);actual=c.newInstance(8192);legacyClass.getMethod("b",double.class,double.class,double.class).invoke(actual,t,-t,t*.25);}
+  void startDrawingQuads()throws Exception{legacyClass.getMethod("a",int.class).invoke(actual,7);}
+  void setColorRGBA_F(float r,float g,float b,float a)throws Exception{legacyClass.getMethod("a",float.class,float.class,float.class,float.class).invoke(actual,r,g,b,a);}
+  void addVertex(double x,double y,double z)throws Exception{legacyClass.getMethod("a",double.class,double.class,double.class).invoke(actual,x,y,z);}
+  void draw()throws Exception{legacyClass.getMethod("a").invoke(actual);}
+ }
+ static class Record {int count,mode;int[] bytes,state;}
+ static void floats(List<Integer> out,int name,int n){FloatBuffer f=org.lwjgl.BufferUtils.createFloatBuffer(16);GL11.glGetFloat(name,f);for(int i=0;i<n;i++)out.add(Float.floatToRawIntBits(f.get(i)));}
+ static int[] state(){List<Integer>s=new ArrayList<>();floats(s,GL11.GL_CURRENT_COLOR,4);floats(s,GL11.GL_CURRENT_NORMAL,3);
+  for(int v:new int[]{GL11.GL_VERTEX_ARRAY,GL11.GL_COLOR_ARRAY,GL11.GL_NORMAL_ARRAY,GL11.GL_TEXTURE_2D,GL11.GL_LIGHTING,GL11.GL_BLEND,GL11.GL_CULL_FACE,GL11.GL_ALPHA_TEST})s.add(GL11.glIsEnabled(v)?1:0);
+  s.add(GL11.glGetInteger(GL11.GL_SHADE_MODEL));s.add(GL11.glGetBoolean(GL11.GL_DEPTH_WRITEMASK)?1:0);s.add(GL11.glGetInteger(GL13.GL_CLIENT_ACTIVE_TEXTURE));s.add(GL11.glGetInteger(GL13.GL_ACTIVE_TEXTURE));s.add(GL11.glGetInteger(GL11.GL_BLEND_SRC));s.add(GL11.glGetInteger(GL11.GL_BLEND_DST));floats(s,GL11.GL_ALPHA_TEST_REF,1);
+  int active=GL11.glGetInteger(GL13.GL_ACTIVE_TEXTURE),client=GL11.glGetInteger(GL13.GL_CLIENT_ACTIVE_TEXTURE);
+  for(int unit:new int[]{GL13.GL_TEXTURE0,GL13.GL_TEXTURE1}){GL13.glActiveTexture(unit);floats(s,GL11.GL_CURRENT_TEXTURE_COORDS,4);GL13.glClientActiveTexture(unit);s.add(GL11.glIsEnabled(GL11.GL_TEXTURE_COORD_ARRAY)?1:0);}
+  GL13.glActiveTexture(active);GL13.glClientActiveTexture(client);return s.stream().mapToInt(Integer::intValue).toArray();
+ }
+ static void reset(){GlStateManager.resetColor();GlStateManager.color(.23F,.47F,.61F,.83F);GL11.glNormal3f(.2F,.5F,.8F);GL13.glMultiTexCoord2f(GL13.GL_TEXTURE0,.3F,.7F);GL13.glMultiTexCoord2f(GL13.GL_TEXTURE1,.2F,.8F);GL13.glActiveTexture(GL13.GL_TEXTURE0);GL13.glClientActiveTexture(GL13.GL_TEXTURE0);GL11.glDisable(GL11.GL_TEXTURE_2D);GL11.glEnable(GL11.GL_LIGHTING);GL11.glEnable(GL11.GL_CULL_FACE);GL11.glDisable(GL11.GL_BLEND);GL11.glEnable(GL11.GL_ALPHA_TEST);GL11.glAlphaFunc(GL11.GL_GREATER,.1F);GL11.glBlendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE);GL11.glShadeModel(GL11.GL_SMOOTH);GL11.glDepthMask(true);}
+ static void captureNative(Tessellator owner,List<Record> records)throws Exception{
+  BufferBuilder b=owner.getBuffer();Record r=new Record();r.count=b.getVertexCount();r.mode=b.getDrawMode();VertexFormat expected=DefaultVertexFormats.POSITION_COLOR;
+
+  if(!b.getVertexFormat().equals(expected)||b.getVertexFormat().getSize()!=16)throw new AssertionError("native format");
+  r.bytes=new int[r.count*4];ByteBuffer bytes=b.getByteBuffer().duplicate().order(ByteOrder.nativeOrder());bytes.clear();
+  for(int v=0;v<r.count;v++){int stride=16,words=4;for(int c=0;c<words;c++)r.bytes[v*words+c]=bytes.getInt(v*stride+c*4);}
+  owner.draw();r.state=state();records.add(r);if(b.getVertexCount()!=0)throw new AssertionError("native owner reset");if(GL11.glGetError()!=0)throw new AssertionError("native GL error");draws++;
+ }
+ static void captureOld(Legacy old,List<Record> records)throws Exception{
+  Record r=new Record();r.count=(Integer)get(old.actual,"g");r.mode=(Integer)get(old.actual,"s");boolean color=(Boolean)get(old.actual,"l"),uv=(Boolean)get(old.actual,"m"),light=(Boolean)get(old.actual,"n"),normal=(Boolean)get(old.actual,"o");
+  if(uv||(r.count>0&&(!color||light||normal)))throw new AssertionError("old attribute activation");
+  int[] raw=(int[])get(old.actual,"f");int words=4;r.bytes=new int[r.count*words];
+  for(int v=0;v<r.count;v++){for(int c=0;c<3;c++)r.bytes[v*words+c]=raw[v*8+c];r.bytes[v*words+3]=raw[v*8+5];}
+  old.draw();r.state=state();records.add(r);if(GL11.glGetError()!=0)throw new AssertionError("original GL error");draws++;
+ }
+ static void compare(List<Record> nativeRecords,List<Record> oldRecords,int nativeRng,int oldRng,String label){
+  if(nativeRng!=(label.equals("RenderSmallReactor")?17:0))throw new AssertionError(label+" expected RNG count");
+  if(nativeRecords.size()!=oldRecords.size()||nativeRng!=oldRng)throw new AssertionError(label+" batch/RNG count");
+  for(int i=0;i<nativeRecords.size();i++){Record n=nativeRecords.get(i),o=oldRecords.get(i);if(n.count!=o.count||n.mode!=o.mode||!Arrays.equals(n.bytes,o.bytes))throw new AssertionError(label+" vertex bytes at batch "+i);if(!Arrays.equals(n.state,o.state))throw new AssertionError(label+" GL state at batch "+i+"\n"+Arrays.toString(n.state)+"\n"+Arrays.toString(o.state));batches++;vertices+=n.count;}executions++;
+ }
+ static void rejectedMixedFormat(){
+  try {
+   new VertexFormat().addElement(DefaultVertexFormats.POSITION_3F)
+    .addElement(DefaultVertexFormats.COLOR_4UB).addElement(DefaultVertexFormats.TEX_2S)
+    .addElement(DefaultVertexFormats.NORMAL_3B).addElement(DefaultVertexFormats.PADDING_1B);
+   throw new AssertionError("Expected cached native UV1-only format construction to fail");
+  } catch(IndexOutOfBoundsException expected) {
+   if(!expected.getMessage().equals("Index: 1, Size: 0"))throw expected;
+   System.out.println("PASS explicit exclusion: actual VertexFormat.addElement(TEX_2S) rejects UV1 without UV0: "+expected);
+  }
+ }
+ /*METHODS*/
+ public static void main(String[] args)throws Exception{
+  if(ByteOrder.nativeOrder()!=ByteOrder.LITTLE_ENDIAN)throw new AssertionError("This retained oracle is scoped to little-endian packing");
+  rejectedMixedFormat();
+  Constructor<?> c=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();c.setAccessible(true);
+  try(AutoCloseable context=(AutoCloseable)c.newInstance();URLClassLoader loader=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},NativeGlowTest.class.getClassLoader())){
+   Method initialize=Class.forName("MaterialTextureAtlasSpriteNativeTest").getDeclaredMethod("initializeNativeClientSettings");initialize.setAccessible(true);initialize.invoke(null);
+   legacyClass=Class.forName("bmh",true,loader);Class.forName("buu",true,loader).getMethod("a").invoke(null);NativeGlowTest test=new NativeGlowTest();
+   for(int seed=0;seed<6;seed++)for(double translation:new double[]{0,.125,-16777216.25}){/*CALLS*/}
+   for(float value:VALUES)for(int channel=0;channel<4;channel++)test.colorBoundary(value,channel);
+
+   if(executions!=136||batches!=424||vertices!=12496||draws!=848)throw new AssertionError("Incomplete fixture coverage");
+   System.out.println("PASS actual original/native machine-glow vertices and Mesa uploads: "+executions+" paired streams, "+batches+" batch comparisons, "+vertices+" vertices, "+draws+" actual draws; same GL/current-color/current-normal/lightmap state, packing and RNG counts. Not full renderer linkage or in-game pixel proof.");
+  }
+ }
+}

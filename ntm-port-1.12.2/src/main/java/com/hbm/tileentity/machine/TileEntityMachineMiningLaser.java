@@ -251,7 +251,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 	private void buildDam() {
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			if(com.hbm.world.WorldBlockState.read(this.world, targetX + dir.offsetX, targetY + dir.offsetY, targetZ + dir.offsetZ).getBlock().getDefaultState().getMaterial().isLiquid()) this.world.setBlock(targetX + dir.offsetX, targetY + dir.offsetY, targetZ + dir.offsetZ, ModBlocks.barricade);
+			if(com.hbm.world.WorldBlockState.read(this.world, targetX + dir.offsetX, targetY + dir.offsetY, targetZ + dir.offsetZ).getBlock().getDefaultState().getMaterial().isLiquid()) { net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = targetX + dir.offsetX; int nativeRegisteredWriteY = targetY + dir.offsetY; int nativeRegisteredWriteZ = targetZ + dir.offsetZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		}
 	}
 
@@ -334,7 +334,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 
 		if(doesBreak) {
 			if(normal) b.dropBlockAsItem(this.world, targetX, targetY, targetZ, meta, fortune);
-			this.world.func_147480_a(targetX, targetY, targetZ, false);
+			com.hbm.world.WorldBlockDestruction.destroy(this.world, targetX, targetY, targetZ, false);
 		}
 
 		suckDrops();

@@ -1,0 +1,200 @@
+// original-mod-ArmorDiesel.javap.txt, javap output lines 19-40
+  public com.google.common.collect.Multimap func_111205_h();
+    Code:
+       0: invokestatic  #51                 // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: astore_1
+       4: aload_1
+       5: getstatic     #57                 // Field net/minecraft/entity/SharedMonsterAttributes.field_111266_c:Lnet/minecraft/entity/ai/attributes/IAttribute;
+       8: invokeinterface #63,  1           // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      13: new           #65                 // class net/minecraft/entity/ai/attributes/AttributeModifier
+      16: dup
+      17: getstatic     #71                 // Field com/hbm/handler/ArmorModHandler.fixedUUIDs:[Ljava/util/UUID;
+      20: aload_0
+      21: getfield      #74                 // Field field_77881_a:I
+      24: aaload
+      25: ldc           #76                 // String Armor modifier
+      27: ldc2_w        #77                 // double 0.25d
+      30: iconst_1
+      31: invokespecial #81                 // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      34: invokeinterface #87,  3           // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      39: pop
+      40: aload_1
+      41: areturn
+
+
+// original-mod-ArmorDesh.javap.txt, javap output lines 19-40
+  public com.google.common.collect.Multimap func_111205_h();
+    Code:
+       0: invokestatic  #46                 // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: astore_1
+       4: aload_1
+       5: getstatic     #52                 // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+       8: invokeinterface #58,  1           // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      13: new           #60                 // class net/minecraft/entity/ai/attributes/AttributeModifier
+      16: dup
+      17: getstatic     #66                 // Field com/hbm/handler/ArmorModHandler.fixedUUIDs:[Ljava/util/UUID;
+      20: aload_0
+      21: getfield      #69                 // Field field_77881_a:I
+      24: aaload
+      25: ldc           #71                 // String Armor modifier
+      27: ldc2_w        #72                 // double -0.025d
+      30: iconst_1
+      31: invokespecial #76                 // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      34: invokeinterface #82,  3           // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      39: pop
+      40: aload_1
+      41: areturn
+
+
+// original-mod-ArmorLiquidator.javap.txt, javap output lines 47-83
+  public com.google.common.collect.Multimap func_111205_h();
+    Code:
+       0: invokestatic  #69                 // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: astore_1
+       4: aload_1
+       5: getstatic     #75                 // Field net/minecraft/entity/SharedMonsterAttributes.field_111266_c:Lnet/minecraft/entity/ai/attributes/IAttribute;
+       8: invokeinterface #81,  1           // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      13: new           #83                 // class net/minecraft/entity/ai/attributes/AttributeModifier
+      16: dup
+      17: getstatic     #89                 // Field com/hbm/handler/ArmorModHandler.fixedUUIDs:[Ljava/util/UUID;
+      20: aload_0
+      21: getfield      #92                 // Field field_77881_a:I
+      24: aaload
+      25: ldc           #94                 // String Armor modifier
+      27: ldc2_w        #95                 // double 100.0d
+      30: iconst_0
+      31: invokespecial #99                 // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      34: invokeinterface #105,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      39: pop
+      40: aload_1
+      41: getstatic     #108                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      44: invokeinterface #81,  1           // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      49: new           #83                 // class net/minecraft/entity/ai/attributes/AttributeModifier
+      52: dup
+      53: getstatic     #89                 // Field com/hbm/handler/ArmorModHandler.fixedUUIDs:[Ljava/util/UUID;
+      56: aload_0
+      57: getfield      #92                 // Field field_77881_a:I
+      60: aaload
+      61: ldc           #94                 // String Armor modifier
+      63: ldc2_w        #109                // double -0.1d
+      66: iconst_1
+      67: invokespecial #99                 // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      70: invokeinterface #105,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      75: pop
+      76: aload_1
+      77: areturn
+
+
+// original-mod-ArmorNCRPA.javap.txt, source output lines 63-98
+      11: if_acmpeq     15
+      14: return
+      15: aload_0
+      16: aload_3
+      17: invokespecial #74                 // Method com/hbm/items/armor/ArmorFSBPowered.getAttributeModifiers:(Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+      20: astore        4
+      22: aload         4
+      24: getstatic     #80                 // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      27: invokeinterface #86,  1           // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      32: new           #88                 // class net/minecraft/entity/ai/attributes/AttributeModifier
+      35: dup
+      36: getstatic     #90                 // Field speed:Ljava/util/UUID;
+      39: ldc           #92                 // String NCRPA SPEED
+      41: ldc2_w        #93                 // double 0.1d
+      44: iconst_0
+      45: invokespecial #97                 // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      48: invokeinterface #103,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      53: pop
+      54: aload_2
+      55: invokevirtual #109                // Method net/minecraft/entity/player/EntityPlayer.func_110140_aT:()Lnet/minecraft/entity/ai/attributes/BaseAttributeMap;
+      58: aload         4
+      60: invokevirtual #115                // Method net/minecraft/entity/ai/attributes/BaseAttributeMap.func_111148_a:(Lcom/google/common/collect/Multimap;)V
+      63: aload_2
+      64: invokevirtual #119                // Method net/minecraft/entity/player/EntityPlayer.func_70051_ag:()Z
+      67: ifeq          79
+      70: aload_2
+      71: invokevirtual #109                // Method net/minecraft/entity/player/EntityPlayer.func_110140_aT:()Lnet/minecraft/entity/ai/attributes/BaseAttributeMap;
+      74: aload         4
+      76: invokevirtual #122                // Method net/minecraft/entity/ai/attributes/BaseAttributeMap.func_111147_b:(Lcom/google/common/collect/Multimap;)V
+      79: aload_0
+      80: pop
+      81: aload_2
+      82: invokestatic  #126                // Method hasFSBArmor:(Lnet/minecraft/entity/player/EntityPlayer;)Z
+      85: ifeq          134
+      88: aload_1
+      89: invokevirtual #132                // Method net/minecraft/world/World.func_82737_E:()J
+
+// original-mod-ArmorEnvsuit.javap.txt, source output lines 59-94
+      11: if_acmpeq     15
+      14: return
+      15: aload_0
+      16: aload_3
+      17: invokespecial #68                 // Method com/hbm/items/armor/ArmorFSBPowered.getAttributeModifiers:(Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+      20: astore        4
+      22: aload         4
+      24: getstatic     #74                 // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      27: invokeinterface #80,  1           // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      32: new           #82                 // class net/minecraft/entity/ai/attributes/AttributeModifier
+      35: dup
+      36: getstatic     #84                 // Field speed:Ljava/util/UUID;
+      39: ldc           #86                 // String SQUIRREL SPEED
+      41: ldc2_w        #87                 // double 0.1d
+      44: iconst_0
+      45: invokespecial #91                 // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      48: invokeinterface #97,  3           // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      53: pop
+      54: aload_2
+      55: invokevirtual #103                // Method net/minecraft/entity/player/EntityPlayer.func_110140_aT:()Lnet/minecraft/entity/ai/attributes/BaseAttributeMap;
+      58: aload         4
+      60: invokevirtual #109                // Method net/minecraft/entity/ai/attributes/BaseAttributeMap.func_111148_a:(Lcom/google/common/collect/Multimap;)V
+      63: aload_0
+      64: pop
+      65: aload_2
+      66: invokestatic  #113                // Method hasFSBArmor:(Lnet/minecraft/entity/player/EntityPlayer;)Z
+      69: ifeq          291
+      72: aload_2
+      73: invokevirtual #117                // Method net/minecraft/entity/player/EntityPlayer.func_70051_ag:()Z
+      76: ifeq          88
+      79: aload_2
+      80: invokevirtual #103                // Method net/minecraft/entity/player/EntityPlayer.func_110140_aT:()Lnet/minecraft/entity/ai/attributes/BaseAttributeMap;
+      83: aload         4
+      85: invokevirtual #120                // Method net/minecraft/entity/ai/attributes/BaseAttributeMap.func_111147_b:(Lcom/google/common/collect/Multimap;)V
+      88: aload_2
+      89: invokevirtual #123                // Method net/minecraft/entity/player/EntityPlayer.func_70090_H:()Z
+
+// original-mod-ArmorDNT.javap.txt, source output lines 65-100
+      22: invokestatic  #81                 // Method com/hbm/dim/CelestialBody.getGravity:(Lnet/minecraft/entity/EntityLivingBase;)F
+      25: fstore        5
+      27: aload_0
+      28: aload_3
+      29: invokespecial #85                 // Method com/hbm/items/armor/ArmorFSBPowered.getAttributeModifiers:(Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+      32: astore        6
+      34: aload         6
+      36: getstatic     #91                 // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      39: invokeinterface #97,  1           // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      44: new           #99                 // class net/minecraft/entity/ai/attributes/AttributeModifier
+      47: dup
+      48: getstatic     #101                // Field speed:Ljava/util/UUID;
+      51: ldc           #103                // String DNT SPEED
+      53: ldc2_w        #104                // double 0.25d
+      56: iconst_0
+      57: invokespecial #108                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      60: invokeinterface #114,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      65: pop
+      66: aload_2
+      67: invokevirtual #120                // Method net/minecraft/entity/player/EntityPlayer.func_110140_aT:()Lnet/minecraft/entity/ai/attributes/BaseAttributeMap;
+      70: aload         6
+      72: invokevirtual #126                // Method net/minecraft/entity/ai/attributes/BaseAttributeMap.func_111148_a:(Lcom/google/common/collect/Multimap;)V
+      75: aload_2
+      76: invokevirtual #130                // Method net/minecraft/entity/player/EntityPlayer.func_70051_ag:()Z
+      79: ifeq          91
+      82: aload_2
+      83: invokevirtual #120                // Method net/minecraft/entity/player/EntityPlayer.func_110140_aT:()Lnet/minecraft/entity/ai/attributes/BaseAttributeMap;
+      86: aload         6
+      88: invokevirtual #133                // Method net/minecraft/entity/ai/attributes/BaseAttributeMap.func_111147_b:(Lcom/google/common/collect/Multimap;)V
+      91: aload_0
+      92: pop
+      93: aload_2
+      94: invokestatic  #137                // Method hasFSBArmor:(Lnet/minecraft/entity/player/EntityPlayer;)Z
+      97: ifeq          600
+     100: iconst_0
+     101: istore        7

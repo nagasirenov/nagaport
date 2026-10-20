@@ -1,0 +1,132 @@
+# SOURCE: /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/patches.zip!/net/minecraft/item/Item.java.patch
+// EXCERPT containing isValidArmor; source lines 337-378
++    public boolean doesSneakBypassUse(ItemStack stack, net.minecraft.world.IBlockAccess world, BlockPos pos, EntityPlayer player)
++    {
++        return false;
++    }
++
++    /**
++     * Called to tick armor in the armor slot. Override to do something
++     */
++    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack){}
++
++    /**
++     * Determines if the specific ItemStack can be placed in the specified armor slot, for the entity.
++     *
++     * TODO: Change name to canEquip in 1.13?
++     *
++     * @param stack The ItemStack
++     * @param armorType Armor slot to be verified.
++     * @param entity The entity trying to equip the armor
++     * @return True if the given ItemStack can be inserted in the slot
++     */
++    public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity)
++    {
++        return net.minecraft.entity.EntityLiving.func_184640_d(stack) == armorType;
++    }
++
++    /**
++     * Override this to set a non-default armor slot for an ItemStack, but
++     * <em>do not use this to get the armor slot of said stack; for that, use
++     * {@link net.minecraft.entity.EntityLiving#getSlotForItemStack(ItemStack)}.</em>
++     *
++     * @param stack the ItemStack
++     * @return the armor slot of the ItemStack, or {@code null} to let the default
++     * vanilla logic as per {@code EntityLiving.getSlotForItemStack(stack)} decide
++     */
++    @Nullable
++    public EntityEquipmentSlot getEquipmentSlot(ItemStack stack)
++    {
++        return null;
++    }
++
++    /**
++     * Allow or forbid the specific book/item combination as an anvil enchant
+
+// EXCERPT containing getArmorTexture; source lines 384-427
++    public boolean isBookEnchantable(ItemStack stack, ItemStack book)
++    {
++        return true;
++    }
++
++    /**
++     * Called by RenderBiped and RenderPlayer to determine the armor texture that
++     * should be use for the currently equipped item.
++     * This will only be called on instances of ItemArmor.
++     *
++     * Returning null from this function will use the default value.
++     *
++     * @param stack ItemStack for the equipped armor
++     * @param entity The entity wearing the armor
++     * @param slot The slot the armor is in
++     * @param type The subtype, can be null or "overlay"
++     * @return Path of texture to bind, or null to use default
++     */
++    @Nullable
++    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
++    {
++        return null;
++    }
++
++    /**
++     * Returns the font renderer used to render tooltips and overlays for this item.
++     * Returning null will use the standard font renderer.
++     *
++     * @param stack The current item stack
++     * @return A instance of FontRenderer or null to use default
++     */
++    @SideOnly(Side.CLIENT)
++    @Nullable
++    public net.minecraft.client.gui.FontRenderer getFontRenderer(ItemStack stack)
++    {
++        return null;
++    }
++
++    /**
++     * Override this method to have an item handle its own armor rendering.
++     *
++     * @param  entityLiving  The entity wearing the armor
++     * @param  itemStack  The itemStack to render the model of
++     * @param  armorSlot  The slot the armor is in
+
+// EXCERPT containing getArmorModel; source lines 415-454
++    @SideOnly(Side.CLIENT)
++    @Nullable
++    public net.minecraft.client.gui.FontRenderer getFontRenderer(ItemStack stack)
++    {
++        return null;
++    }
++
++    /**
++     * Override this method to have an item handle its own armor rendering.
++     *
++     * @param  entityLiving  The entity wearing the armor
++     * @param  itemStack  The itemStack to render the model of
++     * @param  armorSlot  The slot the armor is in
++     * @param _default Original armor model. Will have attributes set.
++     * @return  A ModelBiped to render instead of the default
++     */
++    @SideOnly(Side.CLIENT)
++    @Nullable
++    public net.minecraft.client.model.ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, net.minecraft.client.model.ModelBiped _default)
++    {
++        return null;
++    }
++
++    /**
++     * Called when a entity tries to play the 'swing' animation.
++     *
++     * @param entityLiving The entity swinging the item.
++     * @param stack The Item stack
++     * @return True to cancel any further processing by EntityLiving
++     */
++    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
++    {
++        return false;
++    }
++
++    /**
++     * Called when the client starts rendering the HUD, for whatever item the player currently has as a helmet.
++     * This is where pumpkins would render there overlay.
++     *
++     * @param stack The ItemStack that is equipped

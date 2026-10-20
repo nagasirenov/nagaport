@@ -1,0 +1,12 @@
+PASS 105 attributed current mutable Block2 placements; only literal metadata0/flags3, native World and exact declaring owners.
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS actual unsplit selected-expression Code sizes: [289, 2075, 435, 463]
+[08:24:34] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[08:24:34] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[08:24:34] [main/INFO]: Replaced 1036 ore ingredients
+[08:24:34] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[08:24:34] [main/INFO]: Processing ObjectHolder annotations
+[08:24:34] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS actual YellowBarrel hierarchy, sixteen native states, metadata-zero helper placement, bounds and explicit lifecycle hooks.
+PASS 277 checks and 682 exact ordered yellow-barrel native/original-expression placement events.

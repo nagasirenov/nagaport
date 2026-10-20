@@ -1,0 +1,22 @@
+<probe>/BadCallbacks.java:3: error: EntityGrenadeBouncyBase is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile
+static class EntityGrenadeBouncyBase extends Fields implements IProjectile {public void setThrowableHeading(double motionX, double motionY, double motionZ, float f0, float f1)
+       ^
+<probe>/BadCallbacks.java:20: error: EntityBullet is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile
+static class EntityBullet extends Fields implements IProjectile {public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
+       ^
+<probe>/BadCallbacks.java:43: error: EntityChopperMine is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile
+static class EntityChopperMine extends Fields implements IProjectile {public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
+       ^
+<probe>/BadCallbacks.java:47: error: EntityExplosiveBeam is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile
+static class EntityExplosiveBeam extends Fields implements IProjectile {public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
+       ^
+<probe>/BadCallbacks.java:67: error: EntityRocket is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile
+static class EntityRocket extends Fields implements IProjectile {public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
+       ^
+<probe>/BadCallbacks.java:87: error: EntitySchrab is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile
+static class EntitySchrab extends Fields implements IProjectile {public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
+       ^
+<probe>/BadCallbacks.java:107: error: EntityThrowableNT is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile
+static class EntityThrowableNT extends Fields implements IProjectile {public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
+       ^
+7 errors

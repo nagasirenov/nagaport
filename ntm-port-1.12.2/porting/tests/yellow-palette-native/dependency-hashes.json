@@ -1,0 +1,18 @@
+{
+  "src/main/java/com/hbm/blocks/generic/YellowBarrel.java": "46954392f4156e3b7ac651179c07b0fbf5d03dccb6547df6989bb461a30db587",
+  "src/main/java/com/hbm/blocks/generic/BlockFlammable.java": "9aaf14ca2f962f5bca4c5017e16bd6b9fa6a180c0b45013ee1184887a2e9e227",
+  "src/main/java/com/hbm/blocks/bomb/BlockDetonatable.java": "1ddce481a507dd1e6ba5c2c5afaf000e22cbef79a78a38346ad303777ff07e14",
+  "src/main/java/com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+  "src/main/java/com/hbm/render/icon/IIcon.java": "5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205",
+  "src/main/java/com/hbm/render/icon/IIconRegister.java": "071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752",
+  "src/main/java/api/hbm/block/IFuckingExplode.java": "ef669704e96e4750b5d37ccda58bb77821f5da1bdaa6cb5b788e6cae884e407c",
+  "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+  "src/main/java/com/hbm/lib/ForgeDirection.java": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
+  "src/main/java/com/hbm/world/generator/DungeonToolbox.java": "c77a86116e4eb1a4c31f17524e45fd05554e08330efed47655751eaa2aaca11c",
+  "src/main/java/com/hbm/lib/Library.java": "7a7ca5297534f7ddd346b75c77498f5e2969dd4152a6b9067d91e7256494da98",
+  "src/main/java/com/hbm/inventory/RecipesCommon.java": "d10c390506e248b05e3eed10a60521e6ec4050a8b75d7187cbcddad3ff9179b2",
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "fc5a8792d525d4593cf3454ae0ba2387a2ef4d1367f317b8ec6f7d3e3ff3e802",
+  "porting/tests/dungeon-palette-native/NativeProof.java": "78e62bbf86fea0a824470b24aff1a271e3014336712668636b75398f4fdfbf39",
+  "porting/tests/ct-palette-native/EvaluationProof.java": "a45ea925baa1e3bb61e1b5f3dd2a8731dd3c765a7d188a0e9e8032e8ef0d7433",
+  "porting/tests/atlas-block-machines-native-probe.py": "b8a35b7f2d7ad890026a8e8bd16fc1b9541a1ece3809085d8e575ae103e8433d"
+}

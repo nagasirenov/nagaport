@@ -1,0 +1,290 @@
+{
+  "base": "502f0b9dc3cd3e14622edd897fe3c753e309818d",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModGasmask.java",
+      "before": "8f39add764b8f58276ae5e93f5005c78d96a25f2196645c953673dea26427faa",
+      "after": "854b78c15f6e0699cc86072d50775a67c7471b899914ce8f14abb73638f29127",
+      "edits": [
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModGasmask.java",
+          "start": 2424,
+          "end": 2432,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModGasmask.java",
+          "start": 2637,
+          "end": 2654,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java",
+      "before": "a8c261355eda2df86ff9b837c9eaa71cdc591fcab79480b9ba6650d081be5cad",
+      "after": "6120382a61b552607466739bfaebe198cbe2bfba438f712cb35430e722645653",
+      "edits": [
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java",
+          "start": 3215,
+          "end": 3223,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java",
+          "start": 3823,
+          "end": 3840,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModTesla.java",
+      "before": "672759fcb49a3c92af3804f3b203069f2769146fe956eb8642bf99549eb5597d",
+      "after": "12f118443e82189761f75f38a4c45c3fd37b8a55ecfb2324bf986e333de8dd3e",
+      "edits": [
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModTesla.java",
+          "start": 2145,
+          "end": 2153,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModTesla.java",
+          "start": 2364,
+          "end": 2381,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBase.java",
+      "before": "2768a56a3e798f21c4ef0f7464707754b562cf7a688c5f9bec0a6eff95896432",
+      "after": "b858a00c48613437f8a1cee9a12eb50c71fadf360710e272f1ef5869cc6904ed",
+      "edits": [
+        {
+          "path": "src/main/java/com/hbm/items/armor/JetpackBase.java",
+          "start": 2022,
+          "end": 2030,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/JetpackBase.java",
+          "start": 2185,
+          "end": 2202,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "before": "6558647e636775362e8594dae8897f0f34847fcc01fb4e960d4cf454a1b6ad3c",
+      "after": "3447d70ea229e57d00ecd1e44104f9112fd68c147801be54a811a7b1d04ecccc",
+      "edits": [
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 21309,
+          "end": 21317,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 21760,
+          "end": 21777,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 21869,
+          "end": 21886,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 21978,
+          "end": 21995,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 22129,
+          "end": 22146,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 22226,
+          "end": 22243,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 22323,
+          "end": 22340,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 36695,
+          "end": 36707,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderHandEvent",
+          "owner": "net.minecraftforge.client.event.RenderHandEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 37335,
+          "end": 37347,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderHandEvent",
+          "owner": "net.minecraftforge.client.event.RenderHandEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 57778,
+          "end": 57782,
+          "old": "item",
+          "new": "getItem()",
+          "receiver": "net.minecraftforge.client.event.RenderItemInFrameEvent",
+          "owner": "net.minecraftforge.client.event.RenderItemInFrameEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 57800,
+          "end": 57804,
+          "old": "item",
+          "new": "getItem()",
+          "receiver": "net.minecraftforge.client.event.RenderItemInFrameEvent",
+          "owner": "net.minecraftforge.client.event.RenderItemInFrameEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 58379,
+          "end": 58383,
+          "old": "item",
+          "new": "getItem()",
+          "receiver": "net.minecraftforge.client.event.RenderItemInFrameEvent",
+          "owner": "net.minecraftforge.client.event.RenderItemInFrameEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "start": 58401,
+          "end": 58405,
+          "old": "item",
+          "new": "getItem()",
+          "receiver": "net.minecraftforge.client.event.RenderItemInFrameEvent",
+          "owner": "net.minecraftforge.client.event.RenderItemInFrameEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+      "before": "925d7b3924036c6693af3de6361895d240e921e907743c34efd38c4185461a14",
+      "after": "1d88c7ffc80737faaa0209d5877d10dfb4a2bd0ca76c1417f1556ddae735323f",
+      "edits": [
+        {
+          "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+          "start": 7196,
+          "end": 7204,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+          "start": 7361,
+          "end": 7378,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+          "start": 8062,
+          "end": 8070,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+          "start": 8223,
+          "end": 8240,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+          "start": 8909,
+          "end": 8917,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        },
+        {
+          "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+          "start": 9067,
+          "end": 9084,
+          "old": "partialRenderTick",
+          "new": "getPartialRenderTick()",
+          "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+          "owner": "net.minecraftforge.client.event.RenderPlayerEvent"
+        }
+      ]
+    }
+  ]
+}

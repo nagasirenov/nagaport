@@ -197,7 +197,7 @@ public abstract class DoorDecl {
 			if(z == 1) return new AxisAlignedBB(0.5, 0, 0, 1, 1, 1);
 			else if(z == -2) return new AxisAlignedBB(0, 0, 0, 0.5, 1, 1);
 			else if(y > 1) return new AxisAlignedBB(0, 0.75, 0, 1, 1, 1);
-			else if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.1, 1);
+			else if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.1, 1);
 			else return super.getBlockBound(x, y, z, open, forCollision);
 		}
 	};
@@ -234,7 +234,7 @@ public abstract class DoorDecl {
 		public AxisAlignedBB getBlockBound(int x, int y, int z, boolean open, boolean forCollision) {
 			if(open) {
 				if(y == 3) return new AxisAlignedBB(0, 0.5, 0, 1, 1, 1);
-				else if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.08, 1);
+				else if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.08, 1);
 			}
 			return super.getBlockBound(x, y, z, open, forCollision);
 		}
@@ -302,7 +302,7 @@ public abstract class DoorDecl {
 				if(y > 0) return new AxisAlignedBB(0, 0, 0.375, 1, 1, 0.625);
 				return new AxisAlignedBB(0, 0, 0, 1, 1, 1);
 			}
-			if(y == 1) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);
+			if(y == 1) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);
 			else if(y == 4) return new AxisAlignedBB(0, 0.5, 0.15, 1, 1, 0.85);
 			else if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, 1, 1);
 			else return super.getBlockBound(x, y, z, open, forCollision);
@@ -360,7 +360,7 @@ public abstract class DoorDecl {
 			if(z == 1) return new AxisAlignedBB(0.4, 0, 0, 1, 1, 1);
 			else if(z == -2) return new AxisAlignedBB(0, 0, 0, 0.6, 1, 1);
 			else if(y == 3) return new AxisAlignedBB(0, 0.5, 0, 1, 1, 1);
-			else if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);
+			else if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);
 			return super.getBlockBound(x, y, z, open, forCollision);
 		};
 
@@ -443,7 +443,7 @@ public abstract class DoorDecl {
 		public AxisAlignedBB getBlockBound(int x, int y, int z, boolean open, boolean forCollision) {
 			if(!open) return new AxisAlignedBB(0, 0, 0.5, 1, 1, 1);
 			if(y > 1) return new AxisAlignedBB(0, 0.25, 0.5, 1, 1, 1);
-			else if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0.5, 1, forCollision ? 0 : 0.125, 1);
+			else if(y == 0) return new AxisAlignedBB(0, 0, 0.5, 1, forCollision ? 0 : 0.125, 1);
 			return super.getBlockBound(x, y, z, open, forCollision);
 		};
 
@@ -490,7 +490,7 @@ public abstract class DoorDecl {
 		public AxisAlignedBB getBlockBound(int x, int y, int z, boolean open, boolean forCollision) {
 			if(!open) return new AxisAlignedBB(0, 0, 0.75, 1, 1, 1);
 			else if(y > 1) return new AxisAlignedBB(0, 0.85, 0.75, 1, 1, 1);
-			else if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0.75, 1, forCollision ? 0 : 0.15, 1);
+			else if(y == 0) return new AxisAlignedBB(0, 0, 0.75, 1, forCollision ? 0 : 0.15, 1);
 			return super.getBlockBound(x, y, z, open, forCollision);
 		};
 
@@ -631,7 +631,7 @@ public abstract class DoorDecl {
 			if(!open) return super.getBlockBound(x, y, z, open, forCollision);
 			if(z == 3) return new AxisAlignedBB(0.4, 0, 0, 1, 1, 1);
 			else if(z == -3) return new AxisAlignedBB(0, 0, 0, 0.6, 1, 1);
-			else if(y == 0) return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);
+			else if(y == 0) return new AxisAlignedBB(0, 0, 0, 1, forCollision ? 0 : 0.0625, 1);
 			return super.getBlockBound(x, y, z, open, forCollision);
 		};
 

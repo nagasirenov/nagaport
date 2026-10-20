@@ -1,0 +1,155 @@
+{
+  "base": "0aeda80b859b80afc8af26398366ef05f68478af",
+  "recovered_source_commit": "d25dcb9f0908d76b1e9eca96b75e58f6397de355",
+  "baseline_loader_calls": 37,
+  "selected_calls": 7,
+  "remaining_calls": 30,
+  "note": "Reconstructed source-only scope accounting. The lost CP76 compile log is not recreated. Deferrals are scope decisions, not incompatibility claims.",
+  "owners": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+      "load_calls": 1,
+      "disposition": "deferred: separate block or navigation storage domain not examined for eligibility in this finite batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "load_calls": 1,
+      "disposition": "deferred: separate block or navigation storage domain not examined for eligibility in this finite batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+      "load_calls": 2,
+      "disposition": "deferred: portable storage/tooltip/hazard family requires coherent reader/writer audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+      "load_calls": 1,
+      "disposition": "deferred: portable storage/tooltip/hazard family requires coherent reader/writer audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "load_calls": 2,
+      "disposition": "deferred: machine/sync/singleton contracts need their own ownership audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java",
+      "load_calls": 1,
+      "disposition": "deferred: rail-cart owner outside finite seven-owner non-rail transport seal"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+      "load_calls": 1,
+      "disposition": "selected: proven NTM-owned transport cargo storage; exact reader/writer slices extracted"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMovingPackage.java",
+      "load_calls": 1,
+      "disposition": "selected: proven NTM-owned transport cargo storage; exact reader/writer slices extracted"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityParachuteCrate.java",
+      "load_calls": 1,
+      "disposition": "selected: proven NTM-owned transport cargo storage; exact reader/writer slices extracted"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "load_calls": 1,
+      "disposition": "selected: proven NTM-owned transport cargo storage; exact reader/writer slices extracted"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+      "load_calls": 1,
+      "disposition": "selected: proven NTM-owned transport cargo storage; exact reader/writer slices extracted"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "load_calls": 1,
+      "disposition": "deferred: separate block or navigation storage domain not examined for eligibility in this finite batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntitySoyuz.java",
+      "load_calls": 1,
+      "disposition": "selected: proven NTM-owned transport cargo storage; exact reader/writer slices extracted"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntitySoyuzCapsule.java",
+      "load_calls": 1,
+      "disposition": "selected: proven NTM-owned transport cargo storage; exact reader/writer slices extracted"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+      "load_calls": 1,
+      "disposition": "deferred: artillery cargo and synchronized entity setter boundary require joint audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/ArmorModHandler.java",
+      "load_calls": 2,
+      "disposition": "deferred: armor attachments/filters are separate item-owned contracts"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCBlastFurnace.java",
+      "load_calls": 3,
+      "disposition": "deferred: recipe/IMC message records require their own contract audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCCentrifuge.java",
+      "load_calls": 2,
+      "disposition": "deferred: recipe/IMC message records require their own contract audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCCrystallizer.java",
+      "load_calls": 2,
+      "disposition": "deferred: recipe/IMC message records require their own contract audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/transformer/HazardTransformerRadiationContainer.java",
+      "load_calls": 1,
+      "disposition": "deferred: portable storage/tooltip/hazard family requires coherent reader/writer audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "load_calls": 1,
+      "disposition": "deferred: portable storage/tooltip/hazard family requires coherent reader/writer audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+      "load_calls": 1,
+      "disposition": "deferred: artillery cargo and synchronized entity setter boundary require joint audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java",
+      "load_calls": 1,
+      "disposition": "deferred: machine/sync/singleton contracts need their own ownership audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "load_calls": 1,
+      "disposition": "deferred: machine/sync/singleton contracts need their own ownership audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      "load_calls": 2,
+      "disposition": "deferred: machine/sync/singleton contracts need their own ownership audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      "load_calls": 1,
+      "disposition": "deferred: machine/sync/singleton contracts need their own ownership audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java",
+      "load_calls": 1,
+      "disposition": "deferred: artillery cargo and synchronized entity setter boundary require joint audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/ArmorUtil.java",
+      "load_calls": 1,
+      "disposition": "deferred: armor attachments/filters are separate item-owned contracts"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/Compat.java",
+      "load_calls": 1,
+      "disposition": "deferred: third-party compatibility parser is not proven in this batch"
+    }
+  ]
+}

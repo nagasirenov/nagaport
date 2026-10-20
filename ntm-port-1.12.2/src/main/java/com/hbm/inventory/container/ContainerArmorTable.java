@@ -61,8 +61,8 @@ public class ContainerArmorTable extends Container {
 			}
 
 			@Override
-			public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
-				super.onPickupFromSlot(player, stack);
+			public ItemStack onTake(EntityPlayer player, ItemStack stack) {
+				super.onTake(player, stack);
 				
 				//if the armor piece is taken, absorb all armor pieces
 				
@@ -75,13 +75,14 @@ public class ContainerArmorTable extends Container {
 						upgrades.setInventorySlotContents(i, ItemStack.EMPTY);
 					}
 				}
+				return stack;
 			}
 		});
 		
 		//player armor slots for easy accessibility
 		for(int i = 0; i < 4; ++i) {
 			final int k = i;
-			this.addSlotToContainer(new Slot(inventory, inventory.getSizeInventory() - 1 - i, -17 + 22, 36 + i * 18) {
+			this.addSlotToContainer(new Slot(inventory, inventory.mainInventory.size() + 3 - i, -17 + 22, 36 + i * 18) {
 				
 				public int getSlotStackLimit() {
 					return 1;
@@ -90,7 +91,7 @@ public class ContainerArmorTable extends Container {
 				public boolean isItemValid(ItemStack stack) {
 					if(stack == null)
 						return false;
-					return stack.getItem().isValidArmor(stack, k, player);
+					return stack.getItem().isValidArmor(stack, com.hbm.util.ArmorSlotOrder.fromIndex(k), player);
 				}
 				
 				@SideOnly(Side.CLIENT)
@@ -132,7 +133,7 @@ public class ContainerArmorTable extends Container {
 					if(!this.mergeItemStack(var5, ArmorModHandler.MOD_SLOTS + 5, this.inventorySlots.size(), true))
 						return null;
 					
-				var4.onPickupFromSlot(p_82846_1_, var5);
+				var4.onTake(p_82846_1_, var5);
 			} else {
 				
 				if(var5.getItem() instanceof ItemArmor) {
@@ -208,10 +209,11 @@ public class ContainerArmorTable extends Container {
 			}
 		}
 
-		public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
-			super.onPickupFromSlot(player, stack);
+		public ItemStack onTake(EntityPlayer player, ItemStack stack) {
+			super.onTake(player, stack);
 			
 			ArmorModHandler.removeMod(armor.getStackInSlot(0), this.slotNumber);
+			return stack;
 		}
 	}
 }

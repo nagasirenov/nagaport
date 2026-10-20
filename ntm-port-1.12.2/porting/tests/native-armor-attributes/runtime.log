@@ -1,0 +1,15 @@
+PASS 36 source drift controls
+PASS strict source guard: 12 complete-file inverses, 7 dependency pins, global API census, 3 native overrides and 9 native bridges
+PASS native armor attributes: 10517 assertions; 9 complete method projections and 3 exact speed slices, actual Item/ItemStack/native attribute maps
+
+KILLED custom-own-slot-only Exception in thread "main" java.lang.AssertionError: one modifier generic.knockbackResistance got 0
+KILLED custom-new-offhand Exception in thread "main" java.lang.AssertionError: only native base plus legacy custom payload at OFFHAND
+KILLED drop-native-protection Exception in thread "main" java.lang.AssertionError: only native base plus legacy custom payload at HEAD
+KILLED wrong-custom-uuid-index Exception in thread "main" java.lang.AssertionError: UUID generic.knockbackResistance
+KILLED wrong-desh-amount Exception in thread "main" java.lang.AssertionError: amount generic.movementSpeed: -0.25 != -0.025
+KILLED manual-worn-protection Exception in thread "main" java.lang.AssertionError: sprint keeps defense: 0.0 != 8.0
+KILLED manual-bypass-virtual-bridge Exception in thread "main" java.lang.AssertionError: manual map preserves virtual MAINHAND hook
+KILLED insert-null-contract Exception in thread "main" java.lang.AssertionError: neutral insert remains null
+KILLED speed-wrong-sprint-gate Exception in thread "main" java.lang.AssertionError: sprint/full-set toggle 0
+KILLED envsuit-fullset-gate Exception in thread "main" java.lang.AssertionError: sprint/full-set toggle 1
+KILLED mod-uuid-native-index Exception in thread "main" java.lang.AssertionError: UUID generic.maxHealth

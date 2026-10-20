@@ -1,0 +1,115 @@
+import java.util.*;import com.google.common.collect.*;import net.minecraft.item.*;import net.minecraft.entity.*;import net.minecraft.entity.ai.attributes.*;import net.minecraft.inventory.EntityEquipmentSlot;import net.minecraft.block.Block;
+public class ProductionToolProjections {
+ static class ModItems { static Item wrench,schrabidium_hammer,shimmer_sledge,shimmer_axe,wrench_flipped; }
+
+static final String[] ORIGINAL_NAMES = {"com.hbm.items.tool.ItemSwordAbility","com.hbm.items.weapon.GunB92","com.hbm.items.weapon.ItemCrucible/damage=0","com.hbm.items.weapon.ItemCrucible/damage=2","com.hbm.items.weapon.ItemCrucible/damage=3","com.hbm.items.weapon.ItemCrucible/damage=4"};
+static final String[][][] ORIGINAL_PAYLOADS = {{{"generic.attackDamage","cb3f55d3-645c-4f38-a497-9c13a33db5cf","Tool modifier","250.0","0"},{"generic.movementSpeed","cb3f55d3-645c-4f38-a497-9c13a33db5cf","Tool modifier","1.5","1"}},{{"generic.attackDamage","cb3f55d3-645c-4f38-a497-9c13a33db5cf","Weapon modifier","3.5","0"}},{{"generic.attackDamage","cb3f55d3-645c-4f38-a497-9c13a33db5cf","Tool modifier","5000.0","0"},{"generic.movementSpeed","cb3f55d3-645c-4f38-a497-9c13a33db5cf","Tool modifier","1.0","1"}},{{"generic.attackDamage","cb3f55d3-645c-4f38-a497-9c13a33db5cf","Tool modifier","5000.0","0"},{"generic.movementSpeed","cb3f55d3-645c-4f38-a497-9c13a33db5cf","Tool modifier","1.0","1"}},{},{}};
+public static class ItemMirrorTool extends Item {
+public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
+		
+		Multimap multimap = super.getAttributeModifiers(slot, stack);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 2, 0));
+		return multimap;
+	}}
+public static class ItemRBMKTool extends Item {
+public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
+		
+		Multimap multimap = super.getAttributeModifiers(slot, stack);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 2, 0));
+		return multimap;
+	}}
+public static class ItemToolingWeapon extends Item {protected float damage;public ItemToolingWeapon(float f){damage=f;}
+public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
+		
+		Multimap multimap = super.getAttributeModifiers(slot, stack);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", damage, 0));
+		
+		if(this == ModItems.wrench) {
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Wrench modifier", -0.1, 1));
+		}
+		
+		return multimap;
+	}}
+public static class ItemSwordAbility extends ItemSword {protected float damage;protected double movement;public ItemSwordAbility(float damage, double movement, ToolMaterial material) {
+		super(material);
+		this.damage = damage;
+		this.movement = movement;
+	}
+public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+
+		Multimap multimap = HashMultimap.create();
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", (double) this.damage, 0));
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", movement, 1));
+		return multimap;
+	}}
+public static class ItemToolAbility extends ItemTool {protected float damage;protected double movement;EnumToolType toolType; public enum EnumToolType {MINER,PICKAXE,AXE,SHOVEL; public Set<Block> blocks=new HashSet<>();}public ItemToolAbility(float damage, double movement, ToolMaterial material, EnumToolType type) {
+		super(material, type.blocks);
+		this.damage = damage;
+		this.movement = movement;
+		this.toolType = type;
+
+		// hacky workaround, might be good to rethink this entire system
+		if(type == EnumToolType.MINER) {
+			this.setHarvestLevel("pickaxe", material.getHarvestLevel());
+			this.setHarvestLevel("shovel", material.getHarvestLevel());
+		} else {
+			this.setHarvestLevel(type.toString().toLowerCase(Locale.US), material.getHarvestLevel());
+		}
+	}
+public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+
+		Multimap multimap = HashMultimap.create();
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", (double) this.damage, 0));
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", movement, 1));
+		return multimap;
+	}}
+public static class GunB92 extends Item {
+public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+				new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 3.5, 0));
+		return multimap;
+	}}
+public static class ItemCrucible extends ItemSwordAbility {public ItemCrucible(float damage,double movement,ToolMaterial material){super(damage,movement,material);}
+public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
+
+		Multimap multimap = HashMultimap.create();
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+
+		if(stack.getItemDamage() < stack.getMaxDamage()) {
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", (double) this.damage, 0));
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", movement, 1));
+		}
+
+		return multimap;
+	}}
+public static class WeaponSpecial extends ItemSword {public WeaponSpecial(ToolMaterial p_i45356_1_) {
+		super(p_i45356_1_);
+	}
+public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.MAINHAND) {
+			AttributeModifier damage = new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) (4.0F + super.getAttackDamage()), 0);
+			multimap.remove(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);
+		}
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		if(this == ModItems.schrabidium_hammer) {
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", -0.5, 1));
+		}
+		if(this == ModItems.shimmer_sledge || this == ModItems.shimmer_axe) {
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", -0.2, 1));
+		}
+		if(this == ModItems.wrench_flipped) {
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", -0.1, 1));
+		}
+		return multimap;
+	}}
+public static boolean gauntletHeldCheck(ItemStack held){return held != null && held.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND).containsKey(SharedMonsterAttributes.ATTACK_DAMAGE.getName());}
+}

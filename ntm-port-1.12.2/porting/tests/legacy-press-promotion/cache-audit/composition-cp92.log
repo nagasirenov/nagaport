@@ -1,0 +1,4 @@
+PASS pinned remaining-colored full-file inverse for exactly src/main/java/com/hbm/render/tileentity/RenderPumpjack.java
+PASS pinned replaceability full-file inverse for exactly src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java, src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java, src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java
+PASS pinned CP92 full-file inverses for exactly four audited files; 12 rejected mutations
+PASS 518 active getter occurrences and pinned receiver/side/packet audit inputs; diagnostic boundary remains explicit

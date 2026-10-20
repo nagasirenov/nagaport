@@ -1,0 +1,22 @@
+package com.hbm.blocks;
+import net.minecraft.world.World;import net.minecraft.block.Block;import net.minecraft.block.material.Material;import net.minecraft.world.WorldServer;import com.hbm.blocks.generic.BlockGeneric;
+class ModBlocks {static Block rubber_silt;void init(){rubber_silt=new BlockGeneric(Material.ROCK).setHardness(1);}}
+class Foreign {static Block rubber_silt;void setBlock(int x,int y,int z,Block b){}}
+class Controls {
+ World w;Block alias;
+ void positive(int x){w.setBlock(x,64,0,ModBlocks.rubber_silt);w.setBlock(x,64,0,ModBlocks.rubber_silt,0,2);}
+ World factory(){return w;}
+ void negative(WorldServer server,Foreign foreign){
+  foreign.setBlock(0,64,0,ModBlocks.rubber_silt);
+  server.setBlock(0,64,0,ModBlocks.rubber_silt);
+  factory().setBlock(0,64,0,ModBlocks.rubber_silt);
+  w.setBlock(0,64,0,alias);
+  w.setBlock(0,64,0,Foreign.rubber_silt);
+  w.setBlock(0,64,0,(Block)ModBlocks.rubber_silt);
+  w.setBlock(0,64,0,ModBlocks.rubber_silt,0L,3);
+  w.setBlock(0,64,0,ModBlocks.rubber_silt,unknown,3);
+  boolean used=w.setBlock(0,64,0,ModBlocks.rubber_silt);
+  String text="w.setBlock(0,64,0,ModBlocks.rubber_silt);";
+  // w.setBlock(0,64,0,ModBlocks.rubber_silt);
+ }
+}

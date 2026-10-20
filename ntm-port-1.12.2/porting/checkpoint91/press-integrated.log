@@ -1,0 +1,2 @@
+PASS exact five-source inverse; only two source-owned promotion opt-ins; no source descendants or new guard callers
+PASS five unrelated-file mutation controls rejected by complete-file inverse

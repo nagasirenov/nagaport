@@ -1,0 +1,32 @@
+{
+  "baseline": "f5ce86cd607379cc9810896cf91d1fee86ce6331",
+  "audit_manifest_sha256": "8f465ddad6b8e3b24d50e6ae8b256768539201cc81791276c0d908c51939f465",
+  "pins": {
+    "porting/tests/native-block-air-captures/check_source.py": "116540e4e9e754d5f2119090a19c6a94ed7cca1438076b82afb017670c81beaf",
+    "porting/tests/native-block-air-captures/manifest.json": "38dcf6b49f511c4e69d2d1050b358315325934fec513e4cddbf551b5ff6d808d",
+    "porting/tests/remaining-format-batches/check_source.py": "ab4b34579ff09b3d2afd05f2558aa8ad7e2bcd348a2a8f84741f2b1bbd6686b6",
+    "porting/tests/remaining-format-batches/manifest.json": "f73f0f68cb1c80a227e4bf6017f928941f3e2fb9407726683eabb00cc19ebf6b",
+    "porting/tests/remaining-format-batches/transform.py": "086da76975028c36c1f211e9b11e4922edfd08d8f72000615bf180a0cdd369d9",
+    "porting/tests/remaining-textured-batches/transform.py": "213a21ae5cace9f579885a882e23e22d1f84eb306dc8aca6f6151e458284459e",
+    "porting/tests/simple-textured-batches/check_source.py": "5d2bb6185524abfa4f01f13abe8b388abaaeeaee93607d5d7c75e681b84ce82b",
+    "porting/tests/simple-textured-batches/manifest.json": "167829668080f0abde17745f85f78b2c223ff95786bac3dce282203b1b0a289b"
+  },
+  "families": [
+    {
+      "name": "air",
+      "implementation": "porting/tests/native-block-air-captures/check_source.py",
+      "files": [
+        "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+        "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+        "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java"
+      ]
+    },
+    {
+      "name": "format",
+      "implementation": "porting/tests/remaining-format-batches/check_source.py",
+      "files": [
+        "src/main/java/com/hbm/render/tileentity/RenderBobble.java"
+      ]
+    }
+  ]
+}

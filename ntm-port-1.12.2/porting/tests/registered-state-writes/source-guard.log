@@ -1,0 +1,1 @@
+PASS: 72 exact call regenerations/inverses; original bytes preserved outside calls; 32 exact constructor assignments and frozen state/lifecycle/range dependencies

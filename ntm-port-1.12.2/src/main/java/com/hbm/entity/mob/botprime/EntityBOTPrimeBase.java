@@ -34,7 +34,6 @@ public abstract class EntityBOTPrimeBase extends EntityWormBaseNT implements IRa
 		this.isImmuneToFire = true;
 		this.isAirBorne = true;
 		this.noClip = true;
-		this.renderDistanceWeight = 15.0D;
 		this.dragInAir = 0.995F;
 		this.dragInGround = 0.98F;
 		this.knockbackDivider = 1.0D;

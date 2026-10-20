@@ -91,7 +91,7 @@ public class BlockGasFlammable extends BlockGasBase {
 			Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 			
 			if(isFireSource(b)) {
-				world.scheduleBlockUpdate(x, y, z, this, 2);
+				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2);
 			}
 		}
 	}

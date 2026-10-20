@@ -1,0 +1,1104 @@
+{
+  "baseline": "abe006a0845275e8be52417967ac8ebf6f283a52",
+  "files": {
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "a1539318e126682278c6aa7a162d172ba81a3a1b7bf3b0945a4732d9f7d49db9",
+      "after_sha256": "2d53801db81dbd215d70fe0664b8f7688a35a9b135607507f029bc46cbdb90bb",
+      "edits": [
+        {
+          "start": 2948,
+          "line": 109,
+          "old": "pl.inventory.mainInventory[pl.inventory.currentItem]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(pl.inventory.mainInventory, pl.inventory.currentItem)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+      "before_sha256": "642bc95accb35b038d94e02ea404f2fe759fe6e53349e6f5aa7f9b64100cd68a",
+      "after_sha256": "f5cdf98a6fc7d28fe2b4b167db8e352f92c913d30f45b7efcbf768c6de03da73",
+      "edits": [
+        {
+          "start": 2585,
+          "line": 90,
+          "old": "pl.inventory.mainInventory[pl.inventory.currentItem]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(pl.inventory.mainInventory, pl.inventory.currentItem)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "c17ffe883f02d10876968307e39a01b06631e034dffceff479169926df1b98d3",
+      "after_sha256": "0da64845ae99f6e25180ed931c2cfbd3a1365412ea5c7ea7ce615bd2705a4ba3",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 19171,
+          "line": 469,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "start": 32137,
+          "line": 779,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 32377,
+          "line": 788,
+          "old": "player.inventory.armorInventory[armorSlot]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, armorSlot)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/HazmatRegistry.java": {
+      "before_sha256": "6b323763f60bb4d48fb9fac7e65569a71e8926a855c18ee2fbefe3e45f086d40",
+      "after_sha256": "b1c4386aeb85caff9e8b6105eda186836849959833c161ee4bfa83e31ae73c10",
+      "edits": [
+        {
+          "start": 8127,
+          "line": 210,
+          "old": "player.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/HazardSystem.java": {
+      "before_sha256": "74ad11a3b550b627a93329988911044df3d80aff77b27fd0fcb6df8908811d7b",
+      "after_sha256": "4d544f6233d6298b1af3b599ccc04d93ccc8e44ac78efc9549bc13abd5fe2efd",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 6043,
+          "line": 199,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "start": 6114,
+          "line": 201,
+          "old": "player.inventory.mainInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/type/HazardTypeNeutron.java": {
+      "before_sha256": "f48fbdd4c412ad9c646fd7790abeae789c9abe2314bcc199d4ef26fb3c02baa2",
+      "after_sha256": "4ffa47aaac4a44e38081cf56438806a84e36a5bed0465d0940cd54a9444682c0",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 1707,
+          "line": 49,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "kind": "length",
+          "start": 1835,
+          "line": 52,
+          "old": "player.inventory.armorInventory.length",
+          "new": "player.inventory.armorInventory.size()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "before_sha256": "8083ec5bf55c66764bb4befd9de4f437d95ec02766459e33579273318d0e1097",
+      "after_sha256": "aaaa2591b48b2ea6eade1cbb8ed2f1d0c2452a7d6d49ef3096cb01eb731c797d",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 8369,
+          "line": 297,
+          "old": "inventory.mainInventory.length",
+          "new": "inventory.mainInventory.size()"
+        },
+        {
+          "start": 8435,
+          "line": 298,
+          "old": "inventory.mainInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(inventory.mainInventory, i)"
+        },
+        {
+          "kind": "length",
+          "start": 9144,
+          "line": 319,
+          "old": "inventory.mainInventory.length",
+          "new": "inventory.mainInventory.size()"
+        },
+        {
+          "start": 9211,
+          "line": 320,
+          "old": "inventory.mainInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(inventory.mainInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJ.java": {
+      "before_sha256": "3cc4c1b66dab338b2c3aed7400b382e84dad3d63880feda2730439d71be065f0",
+      "after_sha256": "157f712eebfe2a9f4c5bddc362074022b7a1c74094ee3ace867ab0f656f42497",
+      "edits": [
+        {
+          "start": 1595,
+          "line": 52,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "e2200820edf7ca3b6e802652aae6beba3fb1c9d3ccd8520f425b077ac5912539",
+      "after_sha256": "6efe58e84d02e49840a42d5ffe8317ecb8348700af354ec41293e7aac6d75cb7",
+      "edits": [
+        {
+          "start": 2762,
+          "line": 88,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "e6cd7cdb0031ad491b5ed1911662d52b059668997f52e32bd6b4205f0c6618f7",
+      "after_sha256": "aeab5cf3a6856f1fb948390c407e49067884a36f124f82fcab3dff481c4e2d6b",
+      "edits": [
+        {
+          "start": 6971,
+          "line": 229,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 7239,
+          "line": 238,
+          "old": "player.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i)"
+        },
+        {
+          "start": 7686,
+          "line": 258,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 7954,
+          "line": 267,
+          "old": "player.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i)"
+        },
+        {
+          "start": 8638,
+          "line": 297,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 11287,
+          "line": 379,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 11566,
+          "line": 390,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHEV.java": {
+      "before_sha256": "0a862e9cb6541979c887a88eb7497bea8ad5bf06da6548e23c9bb9d541d29943",
+      "after_sha256": "d77fb151949daf244ed8f9b31e5ff758cf6b19f6ea7bb7dc80ccbc0133bc6f0e",
+      "edits": [
+        {
+          "start": 1745,
+          "line": 54,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 3203,
+          "line": 113,
+          "old": "player.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i)"
+        },
+        {
+          "start": 3284,
+          "line": 114,
+          "old": "player.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java": {
+      "before_sha256": "9a6bcc7376692e8d53d243851625c3fdadedd4d19a5d9ff25a96a4cc3b76a92e",
+      "after_sha256": "f317e0c86ae64aedf8c364b54b4b6941e54ba7772605f2277dd4aa77330771d0",
+      "edits": [
+        {
+          "start": 2801,
+          "line": 100,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 2847,
+          "line": 100,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 3053,
+          "line": 105,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 3146,
+          "line": 106,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java": {
+      "before_sha256": "2e386facb42e0b9a2fff8bd99c339ce171ccd2e7b9e516d4a5b0603de8e414d4",
+      "after_sha256": "fc1634d91dee954c84df3aa6ea259978409372af792a3e70c344e1229ba30880",
+      "edits": [
+        {
+          "start": 406,
+          "line": 16,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 452,
+          "line": 16,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 580,
+          "line": 17,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 950,
+          "line": 30,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 996,
+          "line": 30,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 1124,
+          "line": 31,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModPads.java": {
+      "before_sha256": "e6fe9da7f4440ba422323c4a0fe38917ff5dbdb129aff94f403e93a4deb019ab",
+      "after_sha256": "17ed9b5b26f5316997f7f056acd99e6386fa40992f65b282478865796aee342a",
+      "edits": [
+        {
+          "start": 2091,
+          "line": 66,
+          "old": "player.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPancake.java": {
+      "before_sha256": "0de4339a7b31e1174515dc61cb9231b43ad693c53811830f9373fb9a2f29151f",
+      "after_sha256": "ae9e3ecadc7fb68b65d018365fb1b25ab50dc9b3c450fa2a99a825468ffe569e",
+      "edits": [
+        {
+          "start": 1207,
+          "line": 41,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidSiphon.java": {
+      "before_sha256": "41034dd4ec3cdd868ecc9f4de184976b3a4dec7aa90d2f99bd41206203c67021",
+      "after_sha256": "908b6c6044444c36ef0a8f96fb4ad2790df1e29de206479263ae0f35e8933e4c",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 1606,
+          "line": 45,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "start": 1684,
+          "line": 46,
+          "old": "player.inventory.mainInventory[j]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarterKit.java": {
+      "before_sha256": "f1075dea4875f1be41d53567103c1f319d8045835fd57116151fb163c0dd4a61",
+      "after_sha256": "c07e1f1284b770913aa7448114a03241797feb0fe34894d2fc88997454005fa0",
+      "edits": [
+        {
+          "start": 1154,
+          "line": 34,
+          "old": "p.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(p.inventory.armorInventory, i)"
+        },
+        {
+          "start": 1296,
+          "line": 35,
+          "old": "p.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(p.inventory.armorInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSyringe.java": {
+      "before_sha256": "efdeca8e5f11419e3ed9135fedeef663e53823b46521134931f0600c4269f2c5",
+      "after_sha256": "4d9cb8b8b86a603e20ccff82ecb707b52217588e2efb79956c0d6674ac457b87",
+      "edits": [
+        {
+          "start": 6422,
+          "line": 189,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 6468,
+          "line": 189,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 6574,
+          "line": 191,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 6655,
+          "line": 194,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 6854,
+          "line": 201,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 6951,
+          "line": 205,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 7635,
+          "line": 227,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 7711,
+          "line": 228,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 7801,
+          "line": 232,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 7895,
+          "line": 234,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 8513,
+          "line": 251,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemFusionCore.java": {
+      "before_sha256": "23b0b1d0cdf392ddc8b0270d84dd0e709b83eb58f1a6866a1a65d3a51a1a87b2",
+      "after_sha256": "a9225c281a8b61ee88f881993695f1111bbacbcb12e812083f24a7cfe272c2f3",
+      "edits": [
+        {
+          "start": 689,
+          "line": 27,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "before_sha256": "11716fbc6d7d9b4f9464a95e9bb3dabe47467a38f99d0725b4b2753b7f08cb39",
+      "after_sha256": "707b2334498a17e702925e5e4c75bb81ec9b4d7fde6a45551ee58c6f8de1441c",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 6157,
+          "line": 167,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRepairKit.java": {
+      "before_sha256": "76951c10b1af5c18d4f3e50b37ba3a1eb9489515f145000e1267a2a62e5db8df",
+      "after_sha256": "69b28c1b2aa0b2f2da6c3176e1de9de75af82becc6a168eef22fa019aad01390",
+      "edits": [
+        {
+          "start": 669,
+          "line": 27,
+          "old": "player.inventory.mainInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92Cell.java": {
+      "before_sha256": "802c92a2bb7b810afc5aaf4f53a9c558fa9c702c50ef4132bfe1c99e7f1c9beb",
+      "after_sha256": "630396a0291692186264def096e88720af7bb14ade633c6406b1b09354d7a31c",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 592,
+          "line": 21,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "start": 645,
+          "line": 22,
+          "old": "player.inventory.mainInventory[j]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j)"
+        },
+        {
+          "start": 690,
+          "line": 22,
+          "old": "player.inventory.mainInventory[j]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j)"
+        },
+        {
+          "start": 779,
+          "line": 23,
+          "old": "player.inventory.mainInventory[j]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j)"
+        },
+        {
+          "start": 847,
+          "line": 25,
+          "old": "player.inventory.mainInventory[j]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "2d3fe21a7696d69194356951ffb679ce558803e3360ea19b4ea434da7acf3b54",
+      "after_sha256": "06a857d73ae403dc14ac85c340add3c2add53493aeb0de75550569dd919669b5",
+      "edits": [
+        {
+          "start": 38637,
+          "line": 994,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 38683,
+          "line": 994,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 38764,
+          "line": 995,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 40968,
+          "line": 1065,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 41014,
+          "line": 1065,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 41095,
+          "line": 1066,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 41498,
+          "line": 1082,
+          "old": "e.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 41539,
+          "line": 1082,
+          "old": "e.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 41614,
+          "line": 1083,
+          "old": "e.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 41908,
+          "line": 1091,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 43851,
+          "line": 1137,
+          "old": "((EntityPlayer)e).inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2)"
+        },
+        {
+          "start": 43908,
+          "line": 1137,
+          "old": "((EntityPlayer)e).inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2)"
+        },
+        {
+          "start": 43999,
+          "line": 1138,
+          "old": "((EntityPlayer)e).inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2)"
+        },
+        {
+          "start": 44482,
+          "line": 1156,
+          "old": "((EntityPlayer)e).inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2)"
+        },
+        {
+          "start": 44539,
+          "line": 1156,
+          "old": "((EntityPlayer)e).inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2)"
+        },
+        {
+          "start": 44630,
+          "line": 1157,
+          "old": "((EntityPlayer)e).inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2)"
+        },
+        {
+          "start": 51076,
+          "line": 1354,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 51122,
+          "line": 1354,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 51202,
+          "line": 1355,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "kind": "length",
+          "start": 55546,
+          "line": 1462,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "3447d70ea229e57d00ecd1e44104f9112fd68c147801be54a811a7b1d04ecccc",
+      "after_sha256": "28f857ea87645987c4405d33422de5146c4dac68fd72a4b6dce780c1aaa77c68",
+      "edits": [
+        {
+          "start": 9125,
+          "line": 215,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 16217,
+          "line": 404,
+          "old": "player.inventory.armorInventory[3]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3)"
+        },
+        {
+          "start": 18817,
+          "line": 482,
+          "old": "player.inventory.armorInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i)"
+        },
+        {
+          "start": 44610,
+          "line": 1149,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 44656,
+          "line": 1149,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 44756,
+          "line": 1150,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 54331,
+          "line": 1441,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        },
+        {
+          "start": 55611,
+          "line": 1471,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/packet/toserver/ItemFolderPacket.java": {
+      "before_sha256": "6c64ef420a7c9bb69c7039996b11fd8168d787d003d6b5fd216e08d840efbb06",
+      "after_sha256": "9bd1544ccffe7dbff02a7dbb468b2635a165658643b7c0fd260d20fa0a26fb42",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 4359,
+          "line": 145,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "start": 4432,
+          "line": 147,
+          "old": "player.inventory.mainInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDecon.java": {
+      "before_sha256": "932e27851fc0ebe9ce2105d9c8fe33d488e3c5dcd63052325d7550b21f927fe6",
+      "after_sha256": "a2d1b8664ce9485781b6fed9aebc3637a408f7d8bbb457836ea9bc2d94153e28",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 2374,
+          "line": 64,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "kind": "length",
+          "start": 2526,
+          "line": 67,
+          "old": "player.inventory.armorInventory.length",
+          "new": "player.inventory.armorInventory.size()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java": {
+      "before_sha256": "b1451e5c82154e197c55751ce16ce7ee02a33a66fb64e54d190fafe1de880646",
+      "after_sha256": "0b75dd43a426b8a5bf58d228d49574c45554b6f74eb6b0bfc555f6879d1c3b2f",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 2297,
+          "line": 69,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "kind": "length",
+          "start": 2445,
+          "line": 72,
+          "old": "player.inventory.armorInventory.length",
+          "new": "player.inventory.armorInventory.size()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": {
+      "before_sha256": "a2b4bf5bf81971bbb07998ef9115da0ef2e979bc7e3cc17f717c24c2bd8dfb22",
+      "after_sha256": "61e26a06451ed8f8847fd9a6be9f9c8685e6278c19c8a222ea90e36541fcf947",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 7054,
+          "line": 193,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "kind": "length",
+          "start": 7211,
+          "line": 196,
+          "old": "player.inventory.armorInventory.length",
+          "new": "player.inventory.armorInventory.size()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "72e7cd9ab3724565381f43000c811007a9072053edbca306c15a6b55c3514519",
+      "after_sha256": "a7533ef96a129439d57c5e1a02fa373b9f61535f84aee4d28a90a47b163ed434",
+      "edits": [
+        {
+          "start": 1287,
+          "line": 38,
+          "old": "player.inventory.armorInventory[2]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/InventoryUtil.java": {
+      "before_sha256": "6777c430c6c5ce4c00af64f83ddb09b9895e9e40de8294f723aa3d81086a811b",
+      "after_sha256": "f1c92e67e6d2983be710388f7d8a3d86639f28a067470247e6900d2c09682939",
+      "edits": [
+        {
+          "kind": "length",
+          "start": 8734,
+          "line": 319,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "start": 8802,
+          "line": 321,
+          "old": "player.inventory.mainInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i)"
+        },
+        {
+          "kind": "length",
+          "start": 9187,
+          "line": 341,
+          "old": "player.inventory.mainInventory.length",
+          "new": "player.inventory.mainInventory.size()"
+        },
+        {
+          "start": 9255,
+          "line": 343,
+          "old": "player.inventory.mainInventory[i]",
+          "kind": "indexed",
+          "new": "com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/ArmorUtil.java": {
+      "before_sha256": "fb624945810ce9c5a8bdcec0fb3276f9faa5a984ecabb74826cfb700be9db41d",
+      "after_sha256": "2cbb7e4ec3e87b69722e9f9b72f1ed8f17db3ae56e43d2891392a8994c53b029",
+      "edits": [
+        {
+          "kind": "alias_declaration",
+          "start": 15375,
+          "line": 360,
+          "old": "ItemStack[] armor = player.inventory.armorInventory;",
+          "new": "net.minecraft.util.NonNullList<ItemStack> armor = player.inventory.armorInventory;"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15434,
+          "line": 362,
+          "old": "armor[0]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 0)"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15454,
+          "line": 362,
+          "old": "armor[1]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 1)"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15474,
+          "line": 362,
+          "old": "armor[2]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 2)"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15494,
+          "line": 362,
+          "old": "armor[3]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 3)"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15547,
+          "line": 364,
+          "old": "armor[0]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 0)"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15575,
+          "line": 364,
+          "old": "armor[1]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 1)"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15603,
+          "line": 364,
+          "old": "armor[2]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 2)"
+        },
+        {
+          "kind": "alias_indexed",
+          "start": 15631,
+          "line": 364,
+          "old": "armor[3]",
+          "new": "com.hbm.util.PlayerInventoryRead.get(armor, 3)"
+        }
+      ]
+    }
+  },
+  "excluded_writes": [
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "start": 2582,
+      "line": 54,
+      "old": "player.inventory.mainInventory[player.inventory.currentItem]"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "start": 2878,
+      "line": 60,
+      "old": "player.inventory.mainInventory[player.inventory.currentItem]"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "start": 3081,
+      "line": 113,
+      "old": "pl.inventory.mainInventory[pl.inventory.currentItem]"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "start": 2718,
+      "line": 94,
+      "old": "pl.inventory.mainInventory[pl.inventory.currentItem]"
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/HazardSystem.java",
+      "start": 6246,
+      "line": 206,
+      "old": "player.inventory.mainInventory[i]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorBJ.java",
+      "start": 1751,
+      "line": 57,
+      "old": "player.inventory.armorInventory[3]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/machine/ItemFluidSiphon.java",
+      "start": 2530,
+      "line": 69,
+      "old": "player.inventory.mainInventory[j]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1369,
+      "line": 41,
+      "old": "p.inventory.armorInventory[3]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1443,
+      "line": 42,
+      "old": "p.inventory.armorInventory[2]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1516,
+      "line": 43,
+      "old": "p.inventory.armorInventory[1]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1588,
+      "line": 44,
+      "old": "p.inventory.armorInventory[0]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1681,
+      "line": 47,
+      "old": "p.inventory.armorInventory[3]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1759,
+      "line": 48,
+      "old": "p.inventory.armorInventory[2]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1836,
+      "line": 49,
+      "old": "p.inventory.armorInventory[1]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 1912,
+      "line": 50,
+      "old": "p.inventory.armorInventory[0]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 2009,
+      "line": 53,
+      "old": "p.inventory.armorInventory[3]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 2088,
+      "line": 54,
+      "old": "p.inventory.armorInventory[2]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 2166,
+      "line": 55,
+      "old": "p.inventory.armorInventory[1]"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "start": 2243,
+      "line": 56,
+      "old": "p.inventory.armorInventory[0]"
+    },
+    {
+      "file": "src/main/java/com/hbm/packet/toserver/ItemFolderPacket.java",
+      "start": 4530,
+      "line": 150,
+      "old": "player.inventory.mainInventory[i]"
+    },
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "start": 13334,
+      "line": 303,
+      "old": "player.inventory.armorInventory[i]"
+    }
+  ],
+  "indexed_reads": 83,
+  "length_reads": 19,
+  "alias_reads": 8,
+  "alias_declarations": 1,
+  "helper": {
+    "file": "src/main/java/com/hbm/util/PlayerInventoryRead.java",
+    "sha256": "fe5b2f99e7b484ea5a020d6f169dfa66e94f41dd2f2a95b84f667c7e75714bfb"
+  }
+}

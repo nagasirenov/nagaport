@@ -17,6 +17,7 @@ import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.SimpleComponent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -320,7 +321,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 
 	private int findRoomExtent(int x, int y, int z, ForgeDirection dir, int max) {
 		for (int i = 1; i < max; i++) {
-			if (!this.world.isAirBlock(x + dir.offsetX * i, y, z + dir.offsetZ * i)) {
+			if (!this.world.isAirBlock(new net.minecraft.util.math.BlockPos(x + dir.offsetX * i, y, z + dir.offsetZ * i))) {
 				return i - 1;
 			}
 		}
@@ -350,7 +351,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 		this.posLeft = nbt.getDouble("posLeft");
 
 		NBTTagCompound held = nbt.getCompoundTag("held");
-		this.loadedItem = ItemStack.loadItemStackFromNBT(held);
+		this.loadedItem = NullableInventoryStackNbt.read(held);
 	}
 
 	@Override

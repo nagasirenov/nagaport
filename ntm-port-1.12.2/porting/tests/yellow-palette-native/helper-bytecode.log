@@ -1,0 +1,41 @@
+net.minecraft.world.World, int, int, int, net.minecraft.block.Block);
+    Code:
+       0: aload_0
+       1: ifnonnull     12
+       4: new           #2                  // class java/lang/NullPointerException
+       7: dup
+       8: invokespecial #3                  // Method java/lang/NullPointerException."<init>":()V
+      11: athrow
+      12: iload_1
+      13: ldc           #4                  // int -30000000
+      15: if_icmplt     69
+      18: iload_3
+      19: ldc           #4                  // int -30000000
+      21: if_icmplt     69
+      24: iload_1
+      25: ldc           #5                  // int 30000000
+      27: if_icmpge     69
+      30: iload_3
+      31: ldc           #5                  // int 30000000
+      33: if_icmpge     69
+      36: iload_2
+      37: iflt          69
+      40: iload_2
+      41: sipush        256
+      44: if_icmpge     69
+      47: aload_0
+      48: new           #6                  // class net/minecraft/util/math/BlockPos
+      51: dup
+      52: iload_1
+      53: iload_2
+      54: iload_3
+      55: invokespecial #7                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      58: aload         4
+      60: iconst_0
+      61: invokevirtual #8                  // Method net/minecraft/block/Block.getStateFromMeta:(I)Lnet/minecraft/block/state/IBlockState;
+      64: iconst_3
+      65: invokevirtual #9                  // Method net/minecraft/world/World.setBlockState:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z
+      68: pop
+      69: return
+
+  

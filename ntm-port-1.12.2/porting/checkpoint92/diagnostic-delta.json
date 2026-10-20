@@ -1,0 +1,583 @@
+{
+  "before": 10583,
+  "after": 10366,
+  "new_diagnostics_count": 0,
+  "removed_diagnostics_count": 217,
+  "new": [],
+  "removed": [
+    {
+      "file": "com/hbm/items/tool/ItemToolAbility.java",
+      "message": "no suitable constructor found for ItemTool(int,ToolMaterial,Set<Block>)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemToolAbility.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemToolAbility.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class ItemToolAbility",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/entity/missile/EntityMissileCustom.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/missile/EntityMissileTier0.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/main/ModEventHandler.java",
+      "message": "method getAttributeModifiers in class ItemStack cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/WeaponSpecial.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/WeaponSpecial.java",
+      "message": "no suitable method found for getItemAttributeModifiers(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/WeaponSpecial.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class WeaponSpecial",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/items/tool/ItemMirrorTool.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemMirrorTool.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemMirrorTool.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class ItemMirrorTool",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemToolingWeapon.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemToolingWeapon.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemToolingWeapon.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class ItemToolingWeapon",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/items/tool/ItemSwordAbility.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemSwordAbility.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class ItemSwordAbility",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/items/tool/ItemStructurePattern.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemRBMKTool.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemRBMKTool.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemRBMKTool.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class ItemRBMKTool",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/weapon/ItemCrucible.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class ItemCrucible",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/items/weapon/GunB92.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/weapon/GunB92.java",
+      "message": "method getItemAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/weapon/GunB92.java",
+      "message": "cannot find symbol",
+      "symbol": "variable field_111210_e",
+      "location": "class GunB92",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/mob/EntityCreeperTainted.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/potion/HbmPotion.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIAnvil.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/handler/atmosphere/AtmosphereBlob.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/BlockTaint.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/BlockVolcano.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityICFController.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/network/DroneWaypoint.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/network/DroneWaypointRequest.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockFallout.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/tekto/TTree.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/laythe/SkyProviderLaytheSunset.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/laythe/SkyProviderLaytheSunset.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/dim/laythe/SkyProviderLaytheSunset.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 6
+    },
+    {
+      "file": "com/hbm/dim/laythe/SkyProviderLaytheSunset.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 6
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/util/GaugeUtil.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/util/GaugeUtil.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/util/GaugeUtil.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/util/GaugeUtil.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/util/GaugeUtil.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/util/GaugeUtil.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 6
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderDeathBlast.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderDeathBlast.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderDeathBlast.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tessellator of type Tessellator",
+      "count": 9
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,float,int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,double,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,double,float,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 12
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,double,float,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 20
+    },
+    {
+      "file": "com/hbm/render/world/RenderNTMSkyboxImpact.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderBobble.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderBobble.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_F(float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderBobble.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderBobble.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,double,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderBobble.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderBobble.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,int,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(int,int,double,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(int,double,double,float,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/LoadingScreenRendererNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,int,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAmmoPress.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,int,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 5
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineRadarNT.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIAutocrafter.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIDiFurnace.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 1
+    }
+  ]
+}

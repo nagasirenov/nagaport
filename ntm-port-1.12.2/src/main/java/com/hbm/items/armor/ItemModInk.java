@@ -34,7 +34,7 @@ public class ItemModInk extends ItemArmorMod {
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
 		if(event.getEntity().world.rand.nextInt(10) == 0) {
-			event.ammount = 0;
+			event.setAmount(0);
 			
 			if(!event.getEntity().world.isRemote) {
 				

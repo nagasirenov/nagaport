@@ -1,0 +1,6 @@
+6ab28a27f120959e8c770521cb3636431f288cf3c606db797255b072249d9e81  ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java
+50c1ed34b844b47c9c9b91028893d2ce53f9bb4337d571086a8282974983e840  ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java
+854c3312e964718acbe0dd1d099811fbfdc70aa1a09708bbd495f4452ad09941  ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java
+77d859a71f2faa7247bacc32cbbd5634b02e2be76bce60702d021b7ccf1d40aa  ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java
+3165bb0760530bd7a9f28a6e986aa087ca24ba7b2f51633467b4da4a57e1fe52  ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java
+c01d831f41221ec6ff0ef79f6f9f288bea33ffc28cc29da35b550fb8aa38e74b  ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java

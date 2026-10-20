@@ -239,8 +239,9 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 				int a = rand.nextInt(r) + (int) posX - (r / 2 - 1);
 				int b = rand.nextInt(r) + (int) posY - (r / 2 - 1);
 				int c = rand.nextInt(r) + (int) posZ - (r / 2 - 1);
-				Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();
-				if(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {
+				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);
+				Block block = nativeAirState.getBlock();
+				if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
 					this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
 				}
 			}

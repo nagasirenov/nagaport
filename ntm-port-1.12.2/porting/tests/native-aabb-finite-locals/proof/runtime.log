@@ -1,0 +1,4 @@
+PASS 2 exact replacements / 1 whole-file inverse; 2 source mutations rejected
+PASS actual original raw factory/constructor and genuine native normalizing constructor bytecode with pinned inputs; no engine binaries retained
+PASS 3764682 actual old/native assertions; 2 exact crane query expressions and coordinate initializers, 985 int coordinate triples x 7 actual direction values x 3 reach values; unsafe rewrite controls retained; extracted geometry only
+PASS 2 positive / 13 negative native-owner, local-symbol scope, all-write finiteness, integer overflow and arithmetic attribution controls

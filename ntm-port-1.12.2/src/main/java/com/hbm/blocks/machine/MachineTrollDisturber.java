@@ -27,7 +27,7 @@ public class MachineTrollDisturber extends Block {
 
 	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
-		if(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		if(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 		ChunkRadiationManager.proxy.decrementRad(world, x, y, z, absorb);
 	}
 
@@ -37,7 +37,7 @@ public class MachineTrollDisturber extends Block {
 		super.onBlockAdded(world, x, y, z);
 
 		if(!world.isRemote) {
-			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 			EntityNukeExplosionMK3.at.put(new ATEntry(world.provider.getDimension(), x, y, z),  world.getTotalWorldTime() + 100);
 		}
 	}

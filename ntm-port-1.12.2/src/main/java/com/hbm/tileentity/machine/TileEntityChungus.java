@@ -171,7 +171,7 @@ public class TileEntityChungus extends TileEntityLoadedBase implements IEnergyPr
 				ForgeDirection side = dir.getRotation(ForgeDirection.UP);
 
 				for(int i = 0; i < 10; i++) {
-					this.world.spawnParticle("cloud",
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD,
 							this.pos.getX() + 0.5 + dir.offsetX * (rand.nextDouble() + 1.25) + rand.nextGaussian() * side.offsetX * 0.65,
 							this.pos.getY() + 2.5 + rand.nextGaussian() * 0.65,
 							this.pos.getZ() + 0.5 + dir.offsetZ * (rand.nextDouble() + 1.25) + rand.nextGaussian() * side.offsetZ * 0.65,

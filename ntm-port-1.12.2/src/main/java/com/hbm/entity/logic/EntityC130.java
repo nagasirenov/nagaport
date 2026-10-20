@@ -27,7 +27,7 @@ public class EntityC130 extends EntityPlaneBase {
 		super.onUpdate();
 		
 		if(this.world.isRemote) {
-			if(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {
+			if(this.dataManager.get(PLANE_HEALTH) > 0) {
 				if(audio == null || !audio.isPlaying()) {
 					audio = MainRegistry.proxy.getLoopedSound("hbm:entity.bomberLoop", (float) posX, (float) posY, (float) posZ, 2F, 250F, 1F, 20);
 					audio.startSound();

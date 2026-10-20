@@ -83,7 +83,8 @@ public class BlockGasRadonTomb extends BlockGasBase {
 		if(!world.isRemote) {
 	
 			if(rand.nextInt(10) == 0) {
-				Block b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
+				net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
+				Block b = nativeCubeState_b.getBlock();
 				
 				if(b == Blocks.GRASS) {
 					if(rand.nextInt(5) == 0)
@@ -92,7 +93,7 @@ public class BlockGasRadonTomb extends BlockGasBase {
 						world.setBlock(x, y - 1, z, ModBlocks.waste_earth);
 				}
 				
-				if((b.getDefaultState().getMaterial() == Material.GRASS || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS || b.getDefaultState().getMaterial() == Material.VINE) && !b.isNormalCube())
+				if((b.getDefaultState().getMaterial() == Material.GRASS || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS || b.getDefaultState().getMaterial() == Material.VINE) && !b.isNormalCube(nativeCubeState_b))
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y - 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
 	

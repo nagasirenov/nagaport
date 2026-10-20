@@ -114,7 +114,7 @@ public class EntityCog extends EntityThrowableInterp {
 					this.world.createExplosion(this, posX, posY, posZ, 3F, false);
 
 					if(this.world.getBlockState(mop.getBlockPos()).getBlock().getExplosionResistance(this) < 50) {
-						this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+						com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 					}
 				}
 			}

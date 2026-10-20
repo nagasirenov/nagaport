@@ -1,0 +1,349 @@
+{
+  "base": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "files": {
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before": "cb3655a96925b139db8931efe99d1d72b73c3fd76ab9188d95c24da0ed8cc8f5",
+      "after": "6e507703ac5027f22fb6ac57e3ad4404d9b67f229bb5f076f751077f4b5489a8",
+      "edits": [
+        {
+          "start": 9951,
+          "end": 9973,
+          "new": "collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.item.EntityBoatRubber",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 10116,
+          "end": 10138,
+          "new": "collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.item.EntityBoatRubber",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 10348,
+          "end": 10370,
+          "new": "collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.item.EntityBoatRubber",
+          "owner": "net.minecraft.entity.Entity"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityDroneBase.java": {
+      "before": "ea429f2a6e36d50439000a9300547323d6b869a8a3a34ec4e1f2414f53307de8",
+      "after": "f8587e077a2f9995a9bbcbcb8701d62d37b95f01ffe011424f43f7f1213f5cc8",
+      "edits": [
+        {
+          "start": 3338,
+          "end": 3360,
+          "new": "this.collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.item.EntityDroneBase",
+          "owner": "net.minecraft.entity.Entity"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before": "44a5c2d1cce0c532c247c2a1e95f96b8019af4716761eb642dee832ba259b1ef",
+      "after": "4dc824a57b930dd96b27bd67bb49adfcfbf200b2e901bab63319fbb5a53bb0e9",
+      "edits": [
+        {
+          "start": 8457,
+          "end": 8468,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 9335,
+          "end": 9346,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before": "99f9c24408a98cedff808af69786dde93cb049ea7209af00043ec8bd28dbbc9c",
+      "after": "f2683c4f530d600f2375eff0406809bcbf6e87d664f0eca527965b6ad538a458",
+      "edits": [
+        {
+          "start": 10726,
+          "end": 10737,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 12130,
+          "end": 12141,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartTest.java": {
+      "before": "f8cbaf24dddf7f5105b8390c1548bb3e7dcf3cf9b8e3411a27e1d098ba94bc1e",
+      "after": "c1f5896daed6dd19d6c4abd8243be174c4cf9eea0eb16bd8bf5928e3ef35cb81",
+      "edits": [
+        {
+          "start": 1550,
+          "end": 1572,
+          "new": "collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.item.EntityMinecartTest",
+          "owner": "net.minecraft.entity.Entity"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityTNTPrimedBase.java": {
+      "before": "e76538dc63175cb95d3f81494f9bfeb6b61d2c9a8bf474145139f083a4d666d8",
+      "after": "4efce721c77bf1eb57e965764290e7fe6447782114eb3eadf4ccf5fd5df695b5",
+      "edits": [
+        {
+          "start": 2587,
+          "end": 2597,
+          "new": "collided",
+          "old": "isCollided",
+          "receiver": "com.hbm.entity.item.EntityTNTPrimedBase",
+          "owner": "net.minecraft.entity.Entity"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before": "29d92042015eaa705858c5af05ea35bd9c4e6afc2d78ca5bc3df3cf9425f75fb",
+      "after": "13dfa9c9afe5ed3c91ae750ceed563f32f402c6045dafaf72b7c5c5830077f27",
+      "edits": [
+        {
+          "start": 7739,
+          "end": 7761,
+          "new": "this.collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.mob.glyphid.EntityGlyphid",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 8974,
+          "end": 8985,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 10169,
+          "end": 10180,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityDebrisBase.java": {
+      "before": "acc72ea5259c1f8627f4040779af2144a0202760138bffd1dbdfa7050c68c6ad",
+      "after": "0c37308c5cab21315600de0147fc88dce5b4cb859c3f56072d58c2f7b0528784",
+      "edits": [
+        {
+          "start": 1676,
+          "end": 1687,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 4901,
+          "end": 4912,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 4940,
+          "end": 4951,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 5259,
+          "end": 5281,
+          "new": "collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.projectile.EntityDebrisBase",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 5325,
+          "end": 5345,
+          "new": "collidedVertically",
+          "old": "isCollidedVertically",
+          "receiver": "com.hbm.entity.projectile.EntityDebrisBase",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 5423,
+          "end": 5433,
+          "new": "collided",
+          "old": "isCollided",
+          "receiver": "com.hbm.entity.projectile.EntityDebrisBase",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 5441,
+          "end": 5463,
+          "new": "collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "com.hbm.entity.projectile.EntityDebrisBase",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 5472,
+          "end": 5492,
+          "new": "collidedVertically",
+          "old": "isCollidedVertically",
+          "receiver": "com.hbm.entity.projectile.EntityDebrisBase",
+          "owner": "net.minecraft.entity.Entity"
+        },
+        {
+          "start": 6145,
+          "end": 6156,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before": "0da64845ae99f6e25180ed931c2cfbd3a1365412ea5c7ea7ce615bd2705a4ba3",
+      "after": "5308d7a6bf28746a5d473aaf2450258fb478fad582729a3aa18c8d044da4561c",
+      "edits": [
+        {
+          "start": 7029,
+          "end": 7051,
+          "new": "collidedHorizontally",
+          "old": "isCollidedHorizontally",
+          "receiver": "net.minecraft.entity.player.EntityPlayer",
+          "owner": "net.minecraft.entity.Entity"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticCracker.java": {
+      "before": "c882c5025fff21a011af254252b5d8423b993a5d2e2a1892f12c7aa35a413389",
+      "after": "4065d34ebb7ceae1d482e0f07d636d3becba26ed39ebc3dc6392dce9658c2425",
+      "edits": [
+        {
+          "start": 1382,
+          "end": 1393,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 1471,
+          "end": 1482,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 1578,
+          "end": 1589,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 1712,
+          "end": 1723,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 2048,
+          "end": 2059,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before": "ab4d6eb96a397ccd57ad347978530ebb7779ef85660f66fbd09fade1fd68a162",
+      "after": "8abfe5c1148c7b5db53b0e8d5f1f35584b9f335936474c7b5f9a9c197a129a3e",
+      "edits": [
+        {
+          "start": 3454,
+          "end": 3465,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 3584,
+          "end": 3595,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 6504,
+          "end": 6515,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 6605,
+          "end": 6616,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java": {
+      "before": "7f201e86df74eed5e202843838d8cd0a5a1749177c530f9d04185c30a35b9d06",
+      "after": "fa6a7944b86b91531f180a1245b28faca7ba0de814d1f4723547cb7b093de84d",
+      "edits": [
+        {
+          "start": 2336,
+          "end": 2347,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        },
+        {
+          "start": 2413,
+          "end": 2424,
+          "new": "profiler",
+          "old": "theProfiler",
+          "receiver": "net.minecraft.world.World",
+          "owner": "net.minecraft.world.World"
+        }
+      ]
+    }
+  }
+}

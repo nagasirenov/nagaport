@@ -12,13 +12,19 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
-public class RenderFallout extends Render {
+public class RenderFallout extends Render<Entity> {
+
+	public RenderFallout(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 
 	private static final ResourceLocation falloutTexture = new ResourceLocation(RefStrings.MODID, "textures/entity/fallout.png");
 	private Random random = new Random();

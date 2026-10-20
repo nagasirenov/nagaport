@@ -1,0 +1,98 @@
+{
+  "files": {
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/deobf/codechicken/NotEnoughItems/1.12.2-2.4.3.245/NotEnoughItems-1.12.2-2.4.3.245.jar": "86454d6c7ef3bff6a68e2d39a3b88b508ac0d34ee351b378a0311e01a9b57ff1",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/deobf/mezz/jei/jei_1.12.2/4.12.0.216/jei_1.12.2-4.12.0.216.jar": "3521ccfa3ecdf75a60b6c52a3c877df0148b376b72268a4f7eb26b7e9a4267e1",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/deobf/li/cil/oc/OpenComputers/MC1.12.2-1.7.5.192/OpenComputers-MC1.12.2-1.7.5.192.jar": "00c8c7b9a19206632d8b932db72020791d2656f4a73d26ba09871ef9a84edfb2",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/deobf/codechicken/CodeChickenLib/1.12.2-3.2.3.358/CodeChickenLib-1.12.2-3.2.3.358.jar": "f46d97c529e1ca6d591f06a2fa18bff5ee04893ea1fd60f552d7d54ee4bb17ce",
+    "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar": "69e6736b75384d9218846614fd47fd61c66c0f7e8899341ef98d1886b835d775",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.mojang/authlib/1.5.25/9834cdf236c22e84b946bba989e2f94ef5897c3c/authlib-1.5.25.jar": "c8a095123be93c59d4ac29e4a0616495b3d479ac65913cb719a81ee583e9dfcd",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.1/f7be08ec23c21485b9b5a1cf1654c2ec8c58168d/jsr305-3.0.1.jar": "c885ce34249682bc0236b4a7d56efcc12048e6135a5baf7a9cde8ad8cda13fcd",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.mojang/patchy/1.3.9/eb8bb7b66fa0e2152b1b40b3856e82f7619439ee/patchy-1.3.9.jar": "79f5a9d8c788489d3375cb77cc826a905e261e50d23f31b94c2d5f2b92ad3dc6",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/oshi-project/oshi-core/1.1/9ddf7b048a8d701be231c0f4f95fd986198fd2d8/oshi-core-1.1.jar": "27901e5d4d60d3502571d5e6358fc89e3fcf874138b69d495d139bcc3e169404",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.mojang/text2speech/1.10.3/48fd510879dff266c3815947de66e3d4809f8668/text2speech-1.10.3.jar": "841d2f407824a4a9c3dd872c51ecd76d50381c569b79c3ea7b06b69eec2bba53",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/ca.weblite/java-objc-bridge/1.0.0/6ef160c3133a78de015830860197602ca1c855d3/java-objc-bridge-1.0.0.jar": "fec83601d2da127234728a8fffb429d0c4a59587452834da203163e6a3f941db",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.java.dev.jna/jna/4.4.0/cb208278274bf12ebdb56c61bd7407e6f774d65a/jna-4.4.0.jar": "c4dadeeecaa90c8847902082aee5eb107fcf59c5d0e63a17fcaf273c0e2d2bd1",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.4.0/e3f70017be8100d3d6923f50b3d2ee17714e9c13/platform-3.4.0.jar": "ea89d5090c8303ba4e9a0056e6d8a20429f3e021411e950bfd9eba3b6e6cf15c",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.ibm.icu/icu4j-core-mojang/51.2/63d216a9311cca6be337c1e458e587f99d382b84/icu4j-core-mojang-51.2.jar": "147592c5eb8e11fc8394125954f877acf25918bae13aa210c2825aefc3030ed8",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.minecraft/launchwrapper/1.12/111e7bea9c968cdb3d06ef4632bf7ff0824d0f36/launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.3/cdd846cfc4e0f7eefafc02c0f5dce32b9303aa2a/jopt-simple-5.0.3.jar": "6f45c00908265947c39221035250024f2caec9a15c1c8cf553ebeecee289f342",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-all/4.1.9.Final/97860965d6a0a6b98e7f569f3f966727b8db75/netty-all-4.1.9.Final.jar": "fd5ad66cdd0a496d281b26c699f4511da7c3f95083659ebb7bae22dab876581a",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.google.guava/guava/21.0/3a3d111be1be1b745edfa7d91678a12d7ed38709/guava-21.0.jar": "972139718abc8a4893fa78cba8cf7b2c903f35c97aaf44fa3031b0669948b480",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4/maven-artifact-3.5.3.jar": "30d066e27379a51c8d9c67b1ab0b7e55d930c9721161b07ef1666ab9fc24c629",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.5/6c6c702c89bfff3cd9e80b04d668c5e190d588c6/commons-lang3-3.5.jar": "8ac96fc686512d777fca85e144f196cd7cfe0c0aec23127229497d1a38ff651c",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/commons-io/commons-io/2.5/2852e6e05fbb95076fc091f6d1780f1f8fe35e0f/commons-io-2.5.jar": "a10418348d234968600ccb1d988efcbbd08716e1d96936ccc1880e7d22513474",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.mojang/realms/1.10.22/bd0dccebdf3744c75f1ca20063f16e8f7d5e663f/realms-1.10.22.jar": "dca25458971e72c7b06d381af2dc5e1c3fc0358756f842beac18eafa6895101e",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.3/18f4247ff4572a074444572cee34647c43e7c9c7/httpclient-4.3.3.jar": "9844cc9b5440d65a88d28bcba9d771374d2dfdab898848cda164611091633013",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar": "4241dfa94e711d435f29a4604a3e2de5c4aa3c165e23bd066be6fc1fc4309569",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.paulscode/librarylwjglopenal/20100824/73e80d0794c39665aec3f62eee88ca91676674ef/librarylwjglopenal-20100824.jar": "107d11509f6af59b8c2ba23df828bc5d3c4e067b58f3d858c7deb90ca5308f84",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl_util/2.9.4-nightly-20150209/d51a7c040a721d13efdfbd34f8b257b2df882ad0/lwjgl_util-2.9.4-nightly-20150209.jar": "034456b132a336b72757325bb7aaf99e075681ee5650d2bea21717bd485de42f",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl/2.9.4-nightly-20150209/697517568c68e78ae0b4544145af031c81082dfe/lwjgl-2.9.4-nightly-20150209.jar": "833e721817f70d1445eec13d8ce5a86e12af70efac5014356302e2bbc68b3fe2",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.java.jinput/jinput/2.0.5/39c7796b469a600f72380316f6b1f11db6c2c7c4/jinput-2.0.5.jar": "79b5a4f5829e1a49a415711f7fb8eb5b9ad22defa72929fda2da96ec30d3f018",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.java.jutils/jutils/1.0.0/e12fe1fda814bd348c1579329c86943d2cd3c6a6/jutils-1.0.0.jar": "c3334ff39cf0ab3b54925619101054c90098b7c733b1e7834c7b75e4c41e84a5",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar": "c6221763bd79c4f1c3dc7f750b5f29a0bb38b367b81314c4f71896e340c40825",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.8.1/a698750c16740fd5b3871425f4cb3bbaa87f529d/commons-compress-1.8.1.jar": "5fca136503f86ecc6cb61fbd17b137d59e56b45c7a5494e6b8fd3cabd4697fbd",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f/commons-logging-1.1.3.jar": "70903f6fc82e9908c8da9f20443f61d90f0870a312642991fe8462a0b9391784",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.2/31fbbff1ddbf98f3aa7377c94d33b0447c646b6e/httpcore-4.3.2.jar": "abd02320e2356f89d054dae4cf02306bef20a9cf7865b3ac94ec7552b4f1528b",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/7.1.0/9835253257524c1be7ab50c057aa2d418fb72082/fastutil-7.1.0.jar": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.8.1/4ac28ff2f1ddf05dae3043a190451e8c46b73c31/log4j-core-2.8.1.jar": "815a73e20e90a413662eefe8594414684df3d5723edcd76070e1a5aee864616e",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.8.1/e801d13612e22cad62a3f4f3fe7fdbe6334a8e72/log4j-api-2.8.1.jar": "1205ab764b1326f7d96d99baa4a4e12614599bf3d735790947748ee116511fa2",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.jline/jline/3.5.1/51800e9d7a13608894a5a28eed0f5c7fa2f300fb/jline-3.5.1.jar": "7285f4a93d4205674e328a3e28e4d7cec10429f3ab5a0d7024b85746e958aeda",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.ow2.asm/asm-debug-all/5.2/3354e11e2b34215f06dab629ab88e06aca477c19/asm-debug-all-5.2.jar": "254b82bec9da4f8efbc8b1f93ab2b87f7465227a82b36cf3d05d9e77a0e8dd2e",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.typesafe.akka/akka-actor_2.11/2.3.3/ed62e9fc709ca0f2ff1a3220daa8b70a2870078e/akka-actor_2.11-2.3.3.jar": "4ccbc821a417f0174c9734fc721f078177cacef94ded09c3775ebf40c6a7bdfd",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.typesafe/config/1.2.1/f771f71fdae3df231bcd54d5ca2d57f0bf93f467/config-1.2.1.jar": "c160fbd78f51a0c2375a794e435ce2112524a6871f64d0331895e9e26ee8b9ee",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang/scala-actors-migration_2.11/1.1.0/dfa8bc42b181d5b9f1a5dd147f8ae308b893eb6f/scala-actors-migration_2.11-1.1.0.jar": "b89d0beb76df20c7b2c2bee59ba53b802cc48566bc3e89ac96ce6361c5c2ee38",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang.plugins/scala-continuations-plugin_2.11.1/1.0.2/f361a3283452c57fa30c1ee69448995de23c60f7/scala-continuations-plugin_2.11.1-1.0.2.jar": "79329971a31ede7b6823f21a6ab765506b4093d9276debdc9dbe17b996884f2b",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang/scala-compiler/2.11.1/56ea2e6c025e0821f28d73ca271218b8dd04926a/scala-compiler-2.11.1.jar": "3aa616f5c56d2052fc5e3231f3e8cf1736f876caff0142a66096fc5b4dc87ae5",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang.plugins/scala-continuations-library_2.11/1.0.2/e517c53a7e9acd6b1668c5a35eccbaa3bab9aac/scala-continuations-library_2.11-1.0.2.jar": "8dd0a4941f4564117cc991734ca36aa53dff6bb0be329f39eab46d8819f60d1a",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang.modules/scala-parser-combinators_2.11/1.0.1/f05d7345bf5a58924f2837c6c1f4d73a938e1ff0/scala-parser-combinators_2.11-1.0.1.jar": "19495ce701fd9ba3c499c137e3ad5364acee8f87a01ef99e912f995a23fd4cb1",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang/scala-reflect/2.11.1/6580347e61cc7f8e802941e7fde40fa83b8badeb/scala-reflect-2.11.1.jar": "41938d1e89670979dd783102777a8b879999f4fb00a5b811b51c105b02a9d4f8",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang.modules/scala-swing_2.11/1.0.1/b1cdd92bd47b1e1837139c1c53020e86bb9112ae/scala-swing_2.11-1.0.1.jar": "4a7c757d4d87dd37382bd777ad611b5875748aef148277cf25bb39eebb496d07",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang.modules/scala-xml_2.11/1.0.2/820fbca7e524b530fdadc594c39d49a21ea0337e/scala-xml_2.11-1.0.2.jar": "13c0d8d442bde14b73af3ed60e8d53452f9e1ad62ffbe3d944cb918df652db6f",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang/scala-actors/2.11.0/8ccfb6541de179bb1c4d45cf414acee069b7f78b/scala-actors-2.11.0.jar": "fa33c031c291ef618e33398aa193ddf4d4c6859d805c9fb3cd4b7c4fbc9acbc6",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.1/e11da23da3eabab9f4777b9220e60d44c1aab6a/scala-library-2.11.1.jar": "088bcb80f71b6e6a2a31d2fe7288c1fd64f19663ce281b924cdfab3fb105f4f3",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/lzma/lzma/0.0.1/521616dc7487b42bef0e803bd2fa3faf668101d7/lzma-0.0.1.jar": "0c3085cb93c3ef95d731c274b6f2dd195aa0405fe9328d69cab7f5e899d5e124",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.sf.trove4j/trove4j/3.0.3/42ccaf4761f0dfdfa805c9e340d99a755907e2dd/trove4j-3.0.3.jar": "3c8616203d61a12a7e3487e8b34f3c198c2b5ba9e90da0c7ea32d99cd4958012",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.paulscode/codecjorbis/20101023/c73b5636faf089d9f00e8732a829577de25237ee/codecjorbis-20101023.jar": "6c4b4e50e608763564afa1bde2d25ece9dd715e7c9129540faa1faded4896506",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.paulscode/codecwav/20101023/12f031cfe88fef5c1dd36c563c0a3a69bd7261da/codecwav-20101023.jar": "bb7d17b340afe6abdfbfdaa03683bce4aef39a64887dbab0636eaff3cf2d59ba",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.paulscode/libraryjavasound/20101123/5c5e304366f75f9eaa2e8cca546a1fb6109348b3/libraryjavasound-20101123.jar": "333bbefeff5eb1722dc9b8d2e26c38bc69c1efa07d0ca870480f29d8858aa336",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/com.paulscode/soundsystem/20120107/419c05fe9be71f792b2d76cfc9b67f1ed0fec7f6/soundsystem-20120107.jar": "2882d64550240dd0c026724da664d9f97ef205c91d6a85273d10790d88608f34",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/java3d/vecmath/1.5.2/79846ba34cbd89e2422d74d53752f993dcc2ccaf/vecmath-1.5.2.jar": "09adf7955baa6bddf57a4bdbf9a91cf690261314969b59a18085ece1e05eccf9",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.1.0/60eecb6f15abdb1c653ad80abaac6fe188b3feaa/plexus-utils-3.1.0.jar": "0ffa0ad084ebff5712540a7b7ea0abda487c53d3a18f78c98d1a3675dab9bf61",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/7ff832a6eb9ab6a767f1ade2b548092d0fa64795/jinput-platform-2.0.5-natives-linux.jar": "1ab4d194277816b6105253d224c8c69f1b6d720690efe7c85f3ce884f0ea273d",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/385ee093e01f587f30ee1c8a2ee7d408fd732e16/jinput-platform-2.0.5-natives-windows.jar": "24afbd5e1fab17da57d16a4d3f19d53f36155ef46a9976484201a4bb9722287f",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/53f9c919f34d2ca9de8c51fc4e1e8282029a9232/jinput-platform-2.0.5-natives-osx.jar": "171024b00f9a743b92388b48733dc30fd3f6d3a7da4f66f9821531fbcf1aa074",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.4-nightly-20150209/b84d5102b9dbfabfeb5e43c7e2828d98a7fc80e0/lwjgl-platform-2.9.4-nightly-20150209-natives-windows.jar": "f2e1f2c6bd7511a7504f389b8b716f5d8dc2fdc71e29c89b52644314cf0a228e",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.4-nightly-20150209/931074f46c795d2f7b30ed6395df5715cfd7675b/lwjgl-platform-2.9.4-nightly-20150209-natives-linux.jar": "d312147c3999b868fd649887f45203a4195bc10fc563cee4c4f8d22761421f94",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.4-nightly-20150209/bcab850f8f487c3f4c4dbabde778bb82bd1a40ed/lwjgl-platform-2.9.4-nightly-20150209-natives-osx.jar": "8831b2bd5a53dc343fd6fbed3c18f28ab33d3f28dbe62ebd4a3af81f25c0a5ab",
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/deobf/appeng/appliedenergistics2/rv6-stable-7/appliedenergistics2-rv6-stable-7.jar": "8723e148d037f4db2ab4499f854f495ffcef59c414f94eb90912eac566ae844d",
+    "/workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar": "3f5629077628b5956ff7ff4e254c25ef0e1bc51f5b6668fde77badd5f784f67b",
+    "/tmp/nagaport-legacy-client.jar": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "/tmp/nagaport-forge1614-userdev.jar": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+    "/tmp/nagaport1710-srg.zip": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2",
+    "/workspace/shared/nagaport-toolchain/native-classpath.txt": "fc0f467afcb7b98f4c107a469bd760c624616f45cc5b518704db0dde241e23dc",
+    "/workspace/shared/nagaport-toolchain/java8/bin/java": "1a081a2c18367e5d966d716a6091d5fe2eec26b19e471980d0d8fd550174e21c",
+    "/workspace/shared/nagaport-toolchain/java8/bin/javac": "a7067cb35a7f16dbf1182e1a84d72d5c5e9dd3272a0c519d87a3e65bfad2bdff",
+    "/workspace/shared/nagaport-toolchain/java8/bin/javap": "744f218ad6eb098a11811041c91b80fd4ea2597cf85466be9e89f08d3308779c",
+    "/workspace/shared/nagaport-toolchain/java8/lib/tools.jar": "f2599fc78dcbfadefc1cb6b79e05d281e090217ac0139d50b792d72bf1130af4"
+  },
+  "inert_zip_entries": {
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/compileDummy.jar": {
+      "dummyThing": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89"
+    },
+    "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/providedDummy.jar": {
+      "dummyThing": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89"
+    }
+  },
+  "classpath_directories": {
+    "/workspace/shared/nagaport/ntm-port-1.12.2/build/classes/java/api": {
+      "optional_checked_source_output": {
+        "invtweaks/api/container/ChestContainer.class": "0319e8bcbad9c69b444e28da61e61695e88914b039e5078298bd864e1b7c268b",
+        "invtweaks/api/container/ChestContainer$IsLargeCallback.class": "5f0f804cb811859a777cb21a63b32bd3c55b8874b9c7c5468a22737b0fd5d3d1",
+        "invtweaks/api/container/ChestContainer$RowSizeCallback.class": "328e8fc36f127428d43d42e01667a0a6efc3291c58e2b9af77ef7c05ff738073"
+      }
+    },
+    "/workspace/shared/nagaport/ntm-port-1.12.2/build/resources/api": {
+      "optional_empty_directory": true
+    }
+  }
+}

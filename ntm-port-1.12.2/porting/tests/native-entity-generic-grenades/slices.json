@@ -1,0 +1,46 @@
+{
+  "EntityGrenadeBase.constructor-0": {
+    "sha256": "546d975cf48d18cc281e6bd70a927a0642e59e2a27b9d1e81159d807dac2544c",
+    "source": "public EntityGrenadeBase(World p_i1773_1_) {\n\t\tsuper(p_i1773_1_);\n\t}"
+  },
+  "EntityGrenadeBase.constructor-1": {
+    "sha256": "16817df0a8c686dc29c58d1c016b4b337ab9e1c09fc89b9207872f7cd39ce396",
+    "source": "public EntityGrenadeBase(World p_i1774_1_, EntityLivingBase p_i1774_2_) {\n\t\tsuper(p_i1774_1_, p_i1774_2_);\n\t}"
+  },
+  "EntityGrenadeBase.constructor-2": {
+    "sha256": "ec303e8926ba95db7f11e0484b0ff8e84dd6841d1c1bd9fbeaa87dda6a3a4330",
+    "source": "public EntityGrenadeBase(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_) {\n\t\tsuper(p_i1775_1_, p_i1775_2_, p_i1775_4_, p_i1775_6_);\n\t}"
+  },
+  "EntityGrenadeBouncyBase.world-constructor": {
+    "sha256": "95fb840848e5112504e2365c8e98d9e412f1c4e9fdafa1978bad4163b54d8cc9",
+    "source": "public EntityGrenadeBouncyBase(World world) {\n\t\tsuper(world);\n        this.setSize(0.25F, 0.25F);\n\t}"
+  },
+  "EntityGrenadeBouncyBase.timer": {
+    "sha256": "b009a5a630dd1519cf22b283fac070479c486bcd8f85ba1fd099e14e89ebd5b2",
+    "source": "protected int timer = 0;"
+  },
+  "EntityGrenadeBouncyBase.thrower": {
+    "sha256": "9c2454c5e55d5ce1f2f764e2737ded7e4a824b79461f9a3a0cf8e026420b8fe6",
+    "source": "protected EntityLivingBase thrower;"
+  },
+  "EntityGrenadeBouncyBase.throwerName": {
+    "sha256": "9028d7eebe1acec8716885fff89a398572e86634b45bef4b9618294fcd176b06",
+    "source": "protected String throwerName;"
+  },
+  "EntityGrenadeBouncyBase.entityInit": {
+    "sha256": "fc902fd1127bfdaf2052ff7cb069bd4771c9036e0b523513aa6db57d431b2b11",
+    "source": "protected void entityInit() { }"
+  },
+  "EntityGrenadeBouncyBase.readEntityFromNBT": {
+    "sha256": "fe22d4e53a8ffdbbf4517d4045381e89199556bdb257cd98df682ce837b40ad9",
+    "source": "protected void readEntityFromNBT(NBTTagCompound nbt) {\n\t\ttimer = nbt.getInteger(\"timer\");\n\t}"
+  },
+  "EntityGrenadeBouncyBase.writeEntityToNBT": {
+    "sha256": "6ce598b83df4c49db1d90ae5bea02e485990913fc1ed0644a1156f60863660da",
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tnbt.setInteger(\"timer\", timer);\n\t}"
+  },
+  "EntityGrenadeBouncyBase.getThrower": {
+    "sha256": "2f7d2ed5badf9e5dd5648543acc4d66accd8bf592d56dc984fd8f30c690abc81",
+    "source": "public EntityLivingBase getThrower()\n    {\n        if (this.thrower == null && this.throwerName != null && this.throwerName.length() > 0)\n        {\n            this.thrower = this.world.getPlayerEntityByName(this.throwerName);\n        }\n\n        return this.thrower;\n    }"
+  }
+}

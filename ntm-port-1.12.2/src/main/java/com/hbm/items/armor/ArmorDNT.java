@@ -50,7 +50,7 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(models == null) {
 			models = new ModelArmorDNT[4];
@@ -59,7 +59,7 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 				models[i] = new ModelArmorDNT(i);
 		}
 
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	private static final UUID speed = UUID.fromString("6ab858ba-d712-485c-bae9-e5e765fc555a");
@@ -76,8 +76,8 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 		float gravity = CelestialBody.getGravity(player);
 
 		/// SPEED ///
-		Multimap multimap = super.getAttributeModifiers(stack);
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, "DNT SPEED", 0.25, 0));
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "DNT SPEED", 0.25, 0));
 		player.getAttributeMap().removeAttributeModifiers(multimap);
 
 		if(player.isSprinting()) {
@@ -159,11 +159,11 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 
 			if(ArmorFSB.hasFSBArmor(player)) {
 
-				if(event.source.isExplosion()) {
+				if(event.getSource().isExplosion()) {
 					return;
 				}
 
-				if(event.source != ModDamageSource.oxyprime) {
+				if(event.getSource() != ModDamageSource.oxyprime) {
 					HbmPlayerProps.plink(player, "random.break", 0.5F, 1.0F + e.getRNG().nextFloat() * 0.5F);
 				}
 
@@ -182,12 +182,12 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 
 			if(ArmorFSB.hasFSBArmor(player)) {
 
-				if(event.source.isExplosion()) {
-					event.ammount *= 0.001F;
+				if(event.getSource().isExplosion()) {
+					event.setAmount((float) (event.getAmount() * (0.001F)));
 					return;
 				}
 
-				event.ammount = 0;
+				event.setAmount(0);
 			}
 		}
 	}
@@ -224,14 +224,14 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
-				if(armorType == 0) {
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {
 					GL11.glTranslated(0, -1, 0);
 				}
 				setupRenderInv();
 			}
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_dnt, armorType,
+				renderStandard(ResourceManager.armor_dnt, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.dnt_helmet, ResourceManager.dnt_chest, ResourceManager.dnt_arm, ResourceManager.dnt_leg,
 						"Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

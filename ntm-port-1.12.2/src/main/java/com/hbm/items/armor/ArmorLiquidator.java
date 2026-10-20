@@ -36,10 +36,10 @@ public class ArmorLiquidator extends ArmorFSB {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if (this == ModItems.liquidator_helmet) {
-			if (armorSlot == 0) {
+			if (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
 				if (this.model == null) {
 					this.model = new ModelM65();
 				}
@@ -47,15 +47,16 @@ public class ArmorLiquidator extends ArmorFSB {
 			}
 		}
 		
-		return super.getArmorModel(entityLiving, itemStack, armorSlot);
+		return super.getArmorModel(entityLiving, itemStack, armorSlot, defaultModel);
 	}
 	
 	@Override
-	public Multimap getItemAttributeModifiers() {
+	public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
 
-		Multimap multimap = HashMultimap.create();
-		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", 100D, 0));
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", -0.1D, 1));
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", 100D, 0));
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", -0.1D, 1));
 		return multimap;
 	}
 	

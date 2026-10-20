@@ -1,0 +1,20 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: invokespecial #27                 // Method net/minecraft/block/BlockVine.func_149742_c:(Lnet/minecraft/world/World;III)Z
+       9: ifeq          28
+      12: aload_0
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iload         4
+      18: invokevirtual #30                 // Method func_149718_j:(Lnet/minecraft/world/World;III)Z
+      21: ifeq          28
+      24: iconst_1
+      25: goto          29
+      28: iconst_0
+      29: ireturn

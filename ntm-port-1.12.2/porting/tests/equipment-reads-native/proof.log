@@ -1,0 +1,37 @@
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+        ^
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                ^
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                                                                                         ^
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:50: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static CustomMob custom(Unsafe u,ItemStack... results)throws Exception{CustomMob m=(CustomMob)u.allocateInstance(CustomMob.class);m.results=results;m.slots=new ArrayList<>();return m;}
+                         ^
+/workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java:59: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Unsafe u=unsafe();EntityPlayerMP p=(EntityPlayerMP)u.allocateInstance(EntityPlayerMP.class);p.inventory=new InventoryPlayer(p);
+                       ^
+Note: /workspace/shared/nagaport-equipment-reads-cp87/ntm-port-1.12.2/porting/tests/equipment-reads-native/NativeEquipmentReadTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+8 warnings
+PASS 2165 actual original/native equipment read assertions, all 44 complete expressions, distinct virtual hooks, receiver/index order, canonical-only vacancy, complete armor predicates/worn-set expression/hazard traversal
+PASS 14 CP86 whole-file source inverses; 44 exact selected calls; machine-energy surroundings byte-preserved; 28 drift negatives
+PASS all 44 old selected expressions fail independently against native engine signatures
+PASS actual helper bytecode: one virtual equipment dispatch or one virtual inventory armor dispatch, canonical sentinel identity only
+PASS rejected semantic mutant: empty-normalization
+PASS rejected semantic mutant: slot-order
+PASS rejected semantic mutant: null-index-order
+PASS rejected semantic mutant: armor-dispatch-bypass
+PASS rejected semantic mutant: alias-copy
+PASS bounded equipment read proof; no full mod, gameplay, energy, radiation formula or save acceptance claimed

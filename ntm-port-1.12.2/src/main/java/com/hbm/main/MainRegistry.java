@@ -1,4 +1,6 @@
 package com.hbm.main;
+import net.minecraft.init.SoundEvents;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.common.collect.ImmutableList;
 import com.hbm.blocks.BlockEnums.EnumStoneType;
@@ -135,22 +137,22 @@ public class MainRegistry {
 	public static ToolMaterial enumToolMaterialMultitool = EnumHelper.addToolMaterial("MULTITOOL", 3, 5000, 25F, 5.5F, 25);
 
 	// Armor Materials
-	public static ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial("HBM_SCHRABIDIUM", 100, new int[] { 3, 8, 6, 3 }, 50);
-	public static ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial("HBM_EUPHEMIUM", 15000000, new int[] { 3, 8, 6, 3 }, 100);
-	public static ArmorMaterial aMatHaz = EnumHelper.addArmorMaterial("HBM_HAZMAT", 60, new int[] { 2, 5, 4, 1 }, 5);
-	public static ArmorMaterial aMatHaz2 = EnumHelper.addArmorMaterial("HBM_HAZMAT2", 60, new int[] { 2, 5, 4, 1 }, 5);
-	public static ArmorMaterial aMatHaz3 = EnumHelper.addArmorMaterial("HBM_HAZMAT3", 60, new int[] { 2, 5, 4, 1 }, 5);
-	public static ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial("HBM_STEEL", 20, new int[] { 2, 6, 5, 2 }, 5);
-	public static ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial("HBM_ASBESTOS", 20, new int[] { 1, 4, 3, 1 }, 5);
-	public static ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial("HBM_TITANIUM", 25, new int[] { 3, 8, 6, 3 }, 9);
-	public static ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial("HBM_ALLOY", 40, new int[] { 3, 8, 6, 3 }, 12);
-	public static ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial("HBM_PAA", 75, new int[] { 3, 8, 6, 3 }, 25);
-	public static ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial("HBM_CMB", 60, new int[] { 3, 8, 6, 3 }, 50);
-	public static ArmorMaterial aMatAus3 = EnumHelper.addArmorMaterial("HBM_AUSIII", 375, new int[] { 2, 6, 5, 2 }, 0);
-	public static ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial("HBM_SECURITY", 100, new int[] { 3, 8, 6, 3 }, 15);
-	public static ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial("HBM_COBALT", 70, new int[] { 3, 8, 6, 3 }, 60);
-	public static ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial("HBM_STARMETAL", 150, new int[] { 3, 8, 6, 3 }, 100);
-	public static ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial("HBM_BISMUTH", 100, new int[] { 3, 8, 6, 3 }, 100);
+	public static ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial("HBM_SCHRABIDIUM", "leather", 100, new int[] { 3, 6, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial("HBM_EUPHEMIUM", "leather", 15000000, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatHaz = EnumHelper.addArmorMaterial("HBM_HAZMAT", "leather", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatHaz2 = EnumHelper.addArmorMaterial("HBM_HAZMAT2", "leather", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatHaz3 = EnumHelper.addArmorMaterial("HBM_HAZMAT3", "leather", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial("HBM_STEEL", "leather", 20, new int[] { 2, 5, 6, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial("HBM_ASBESTOS", "leather", 20, new int[] { 1, 3, 4, 1 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial("HBM_TITANIUM", "leather", 25, new int[] { 3, 6, 8, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial("HBM_ALLOY", "leather", 40, new int[] { 3, 6, 8, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial("HBM_PAA", "leather", 75, new int[] { 3, 6, 8, 3 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial("HBM_CMB", "leather", 60, new int[] { 3, 6, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatAus3 = EnumHelper.addArmorMaterial("HBM_AUSIII", "leather", 375, new int[] { 2, 5, 6, 2 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial("HBM_SECURITY", "leather", 100, new int[] { 3, 6, 8, 3 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial("HBM_COBALT", "leather", 70, new int[] { 3, 6, 8, 3 }, 60, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial("HBM_STARMETAL", "leather", 150, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+	public static ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial("HBM_BISMUTH", "leather", 100, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
 
 	// Creative Tabs
 
@@ -302,21 +304,21 @@ public class MainRegistry {
 
 		//BiomeGenNoMansLand.initDictionary();
 
-		aMatSchrab.customCraftingMaterial = ModItems.ingot_schrabidium;
-		aMatHaz.customCraftingMaterial = ModItems.hazmat_cloth;
-		aMatHaz2.customCraftingMaterial = ModItems.hazmat_cloth_red;
-		aMatHaz3.customCraftingMaterial = ModItems.hazmat_cloth_grey;
-		aMatTitan.customCraftingMaterial = ModItems.ingot_titanium;
-		aMatSteel.customCraftingMaterial = ModItems.ingot_steel;
-		aMatAsbestos.customCraftingMaterial = ModItems.asbestos_cloth;
-		aMatAlloy.customCraftingMaterial = ModItems.ingot_advanced_alloy;
-		aMatPaa.customCraftingMaterial = ModItems.plate_paa;
-		aMatCMB.customCraftingMaterial = ModItems.ingot_combine_steel;
-		aMatAus3.customCraftingMaterial = ModItems.ingot_australium;
-		aMatSecurity.customCraftingMaterial = ModItems.plate_kevlar;
-		aMatCobalt.customCraftingMaterial = ModItems.ingot_cobalt;
-		aMatStarmetal.customCraftingMaterial = ModItems.ingot_starmetal;
-		aMatBismuth.customCraftingMaterial = ModItems.plate_bismuth;
+		aMatSchrab.repairMaterial = new ItemStack(ModItems.ingot_schrabidium, 1, OreDictionary.WILDCARD_VALUE);
+		aMatHaz.repairMaterial = new ItemStack(ModItems.hazmat_cloth, 1, OreDictionary.WILDCARD_VALUE);
+		aMatHaz2.repairMaterial = new ItemStack(ModItems.hazmat_cloth_red, 1, OreDictionary.WILDCARD_VALUE);
+		aMatHaz3.repairMaterial = new ItemStack(ModItems.hazmat_cloth_grey, 1, OreDictionary.WILDCARD_VALUE);
+		aMatTitan.repairMaterial = new ItemStack(ModItems.ingot_titanium, 1, OreDictionary.WILDCARD_VALUE);
+		aMatSteel.repairMaterial = new ItemStack(ModItems.ingot_steel, 1, OreDictionary.WILDCARD_VALUE);
+		aMatAsbestos.repairMaterial = new ItemStack(ModItems.asbestos_cloth, 1, OreDictionary.WILDCARD_VALUE);
+		aMatAlloy.repairMaterial = new ItemStack(ModItems.ingot_advanced_alloy, 1, OreDictionary.WILDCARD_VALUE);
+		aMatPaa.repairMaterial = new ItemStack(ModItems.plate_paa, 1, OreDictionary.WILDCARD_VALUE);
+		aMatCMB.repairMaterial = new ItemStack(ModItems.ingot_combine_steel, 1, OreDictionary.WILDCARD_VALUE);
+		aMatAus3.repairMaterial = new ItemStack(ModItems.ingot_australium, 1, OreDictionary.WILDCARD_VALUE);
+		aMatSecurity.repairMaterial = new ItemStack(ModItems.plate_kevlar, 1, OreDictionary.WILDCARD_VALUE);
+		aMatCobalt.repairMaterial = new ItemStack(ModItems.ingot_cobalt, 1, OreDictionary.WILDCARD_VALUE);
+		aMatStarmetal.repairMaterial = new ItemStack(ModItems.ingot_starmetal, 1, OreDictionary.WILDCARD_VALUE);
+		aMatBismuth.repairMaterial = new ItemStack(ModItems.plate_bismuth, 1, OreDictionary.WILDCARD_VALUE);
 		tMatSchrab.setRepairItem(new ItemStack(ModItems.ingot_schrabidium));
 		tMatHammmer.setRepairItem(new ItemStack(Item.getItemFromBlock(ModBlocks.block_schrabidium)));
 		tMatChainsaw.setRepairItem(new ItemStack(ModItems.ingot_steel));

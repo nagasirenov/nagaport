@@ -80,7 +80,7 @@ public class EntityChlorineFX extends EntityModFX {
 			this.posY += this.motionY/subdivisions;
 			this.posZ += this.motionZ/subdivisions;
 			
-			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {
+			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).isNormalCube()) {
 	
 				if(rand.nextInt(5) != 0)
 					this.setDead();

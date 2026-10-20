@@ -7,11 +7,17 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.model.ModelHunterChopper;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import com.hbm.render.util.ClientBossDisplay;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderHunterChopper extends Render {
+public class RenderHunterChopper extends Render<Entity> {
+
+	public RenderHunterChopper(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 
 	private static final ResourceLocation chopperTexture = new ResourceLocation(RefStrings.MODID + ":textures/entity/chopper.png");
     private final ModelHunterChopper chopperModel = new ModelHunterChopper();

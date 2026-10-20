@@ -83,7 +83,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 		this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * velocity);
 		this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * velocity);
 		this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.throwAngle()) / 180.0F * (float) Math.PI) * velocity);
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, this.throwForce(), 1.0F);
+		this.shoot(this.motionX, this.motionY, this.motionZ, this.throwForce(), 1.0F);
 	}
 
 	public EntityThrowableNT(World world, double x, double y, double z) {
@@ -111,7 +111,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 	}
 
 	@Override
-	public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
+	public void shoot(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
 		float throwLen = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
 		motionX /= (double) throwLen;
 		motionY /= (double) throwLen;
@@ -260,7 +260,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 			if(this.isInWater()) {
 				for(int i = 0; i < 4; ++i) {
 					float f = 0.25F;
-					this.world.spawnParticle("bubble", this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);
 				}
 	
 				drag = this.getWaterDrag();
@@ -319,7 +319,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 		nbt.setByte("inGround", (byte) (this.inGround ? 1 : 0));
 
 		if((this.throwerName == null || this.throwerName.length() == 0) && this.thrower != null && this.thrower instanceof EntityPlayer) {
-			this.throwerName = this.thrower.getCommandSenderName();
+			this.throwerName = this.thrower.getName();
 		}
 
 		nbt.setString("ownerName", this.throwerName == null ? "" : this.throwerName);

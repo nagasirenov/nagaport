@@ -1,0 +1,37 @@
+import java.util.*;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+public class OrderedAabbProbe {
+ static long checks;
+ static void ok(boolean x,String why){checks++;if(!x)throw new AssertionError(why);}
+ static double[] old(azt a){return new double[]{a.a,a.b,a.c,a.d,a.e,a.f};}
+ static double[] neo(AxisAlignedBB a){return new double[]{a.minX,a.minY,a.minZ,a.maxX,a.maxY,a.maxZ};}
+ static boolean same(double[] a,double[] b){for(int i=0;i<6;i++)if(Double.doubleToRawLongBits(a[i])!=Double.doubleToRawLongBits(b[i]))return false;return true;}
+ static azt old(double[] a){return azt.a(a[0],a[1],a[2],a[3],a[4],a[5]);}
+ static AxisAlignedBB neo(double[] a){return new AxisAlignedBB(a[0],a[1],a[2],a[3],a[4],a[5]);}
+ static void check(azt a,AxisAlignedBB b,int site){double[] oa=old(a),nb=neo(b);for(int i=0;i<6;i++)ok(Double.doubleToRawLongBits(oa[i])==Double.doubleToRawLongBits(nb[i]),"raw coordinates site="+site+" axis="+i);}
+ static void geometry(azt a,AxisAlignedBB b,int site){check(a,b,site);double[] v=old(a);for(double c:v)ok(Double.isFinite(c),"finite selected bound");for(int i=0;i<3;i++)ok(v[i]<=v[i+3],"ordered selected bound");
+  double[][] probes={{v[0],v[1],v[2],v[3],v[4],v[5]},{v[3],v[4],v[5],v[3]+1,v[4]+1,v[5]+1},{v[0]-1,v[1]-1,v[2]-1,v[3]+1,v[4]+1,v[5]+1},{v[3]+2,v[4]+2,v[5]+2,v[3]+3,v[4]+3,v[5]+3}};
+  for(double[] p:probes){azt o=old(p);AxisAlignedBB n=neo(p);ok(a.b(o)==b.intersects(n),"intersection site="+site);for(double step:new double[]{-100,-1,-0.0,0.0,1,100}){ok(Double.doubleToRawLongBits(a.a(o,step))==Double.doubleToRawLongBits(b.calculateXOffset(n,step)),"x-offset");ok(Double.doubleToRawLongBits(a.b(o,step))==Double.doubleToRawLongBits(b.calculateYOffset(n,step)),"y-offset");ok(Double.doubleToRawLongBits(a.c(o,step))==Double.doubleToRawLongBits(b.calculateZOffset(n,step)),"z-offset");}}
+ }
+ static String events="";static double arg(int i){events+=i;return i;}static double fail(int i){events+=i;throw new IllegalStateException();}
+ static void controls(){
+  double nan1=Double.longBitsToDouble(0x7ff8000000000031L),nan2=Double.longBitsToDouble(0x7ff8000000000094L);
+  double[][] differences={{1,2,3,-1,-2,-3},{nan1,0,0,1,0,0},{0,0,0,-0.0,0,0},{Double.POSITIVE_INFINITY,0,0,Double.NEGATIVE_INFINITY,0,0},{nan1,0,0,nan2,0,0},{Integer.MAX_VALUE,0,0,Integer.MIN_VALUE,0,0}};
+  for(double[] v:differences)ok(!same(old(old(v)),neo(neo(v))),"global-constructor rewrite negative control");
+  int x=Integer.MAX_VALUE;ok(!same(old(azt.a(x,0,0,x+1,0,0)),neo(new AxisAlignedBB(x,0,0,x+1,0,0))),"actual Java int-overflow negative control");
+  events="";azt.a(arg(0),arg(1),arg(2),arg(3),arg(4),arg(5));ok(events.equals("012345"),"old evaluation order");events="";new AxisAlignedBB(arg(0),arg(1),arg(2),arg(3),arg(4),arg(5));ok(events.equals("012345"),"native evaluation order");
+  events="";try{azt.a(arg(0),arg(1),fail(2),arg(3),arg(4),arg(5));}catch(IllegalStateException e){}ok(events.equals("012"),"old abrupt evaluation");events="";try{new AxisAlignedBB(arg(0),arg(1),fail(2),arg(3),arg(4),arg(5));}catch(IllegalStateException e){}ok(events.equals("012"),"native abrupt evaluation");
+ }
+
+ BlockPos pos;
+ // INSERT_GENERATED
+ public static void main(String[] args){controls();OrderedAabbProbe probe=new OrderedAabbProbe();probe.doors(false);probe.doors(true);
+  int[] edges={Integer.MIN_VALUE,Integer.MIN_VALUE+1,-30000000,-1,0,1,30000000,Integer.MAX_VALUE-1,Integer.MAX_VALUE};
+  for(int x:edges)for(int y:edges)for(int z:edges)probe.ints(x,y,z);
+  Random r=new Random(0xaabb84L);for(int i=0;i<256;i++)probe.ints(r.nextInt(),r.nextInt(),r.nextInt());
+  BlockPos.MutableBlockPos mutable=new BlockPos.MutableBlockPos(1,2,3);BlockPos frozen=mutable.toImmutable();mutable.setPos(4,5,6);
+  ok(frozen.getClass()==BlockPos.class,"native mutable position yields plain immutable snapshot");ok(frozen.getX()==1&&frozen.getY()==2&&frozen.getZ()==3,"immutable snapshot is stable");
+  System.out.println("PASS "+checks+" actual old/native assertions; 24 exact expressions, both door ternary states, 985 int coordinate triples, 7 unsafe-rewrite counterexamples; geometry only, not complete gameplay methods");
+ }
+}

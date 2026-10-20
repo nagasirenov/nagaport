@@ -6,11 +6,17 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.loader.HFRWavefrontObject;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderCoin extends Render {
+public class RenderCoin extends Render<Entity> {
+
+	public RenderCoin(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 	
 	public static final MeshModel coin = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/trinkets/chip.obj")).asVBO();
 	public static final ResourceLocation coin_tex = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/chip_gold.png");

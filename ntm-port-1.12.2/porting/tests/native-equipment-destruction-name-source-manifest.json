@@ -1,0 +1,1163 @@
+{
+  "baseline": "fc2cd2dba34caba0dba74ed288f95107ab4dc979",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": {
+      "before_sha256": "a57ce94ffe721e300f1ebada16e895b8af331dc992b05613d5a4b094e4f01dc7",
+      "after_sha256": "f1f4264c17db2333691fefd08d1a5f833496bf2cfde910e7d24233c406301412",
+      "edits": [
+        {
+          "before_offset": 3122,
+          "after_offset": 3122,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java": {
+      "before_sha256": "e39d1ba4bbb388254a4cd302ea95de0c7036e96649ecad82ec3ccd7a00528e9f",
+      "after_sha256": "18f2381fd5e8caa68f65315a7b6bc56bcf7c74e42e08eeb7a0770305d622834f",
+      "edits": [
+        {
+          "before_offset": 4428,
+          "after_offset": 4428,
+          "old": "\t\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombFlameWar.java": {
+      "before_sha256": "af65199c7aaa71f00320e67fb5fdeb85f5aaf77fb1e0d9fc89dc6645620df699",
+      "after_sha256": "d9942c8103ddf9ca88394c08ea6fcdd2ce95386d59d8bb240533cdc02bfc5108",
+      "edits": [
+        {
+          "before_offset": 1446,
+          "after_offset": 1446,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java": {
+      "before_sha256": "61e8ff34ff1510c61afb733a619ba4c989927f10f2928fb89710ad0807328df4",
+      "after_sha256": "e395d48329c99b9e080f6923a858aa553c0d7f97c3992d5423716cbe5fbefedf",
+      "edits": [
+        {
+          "before_offset": 3678,
+          "after_offset": 3678,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, true);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DetMiner.java": {
+      "before_sha256": "b3a0614e342dc9fb7c79960ad85ac9285fbc99c9d01091ac3eda0ba1f2d88d2d",
+      "after_sha256": "14a3b0a3c9d60417e47933cdd240047800cd2f0067065f919786ced0bf2e56ca",
+      "edits": [
+        {
+          "before_offset": 945,
+          "after_offset": 945,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before_sha256": "c63513e16a2813446a7195d4acbfcc4851fefa660152f84228a629db0d3afb9d",
+      "after_sha256": "fde552d876c9106bae4e873f14ee41ffd4faa512cb4e980f68f923e0b2bf43eb",
+      "edits": [
+        {
+          "before_offset": 5425,
+          "after_offset": 5425,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": {
+      "before_sha256": "23a37393483e89f7fc5338ae16c117186514a0245780bd521a03cf72fe9a4123",
+      "after_sha256": "1d68d9348e95d1b50b09388c7a30a5f94252ec61a47ed41a5bb37d150d601845",
+      "edits": [
+        {
+          "before_offset": 3217,
+          "after_offset": 3217,
+          "old": "\t\t\t\t\t\tworldObj.func_147480_a(xCoord, yCoord, zCoord, true);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(worldObj, xCoord, yCoord, zCoord, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "af8d5b7265347ec2e4131c7ff326f70d3fc195dd1d67749e4e499d9ff2e512e7",
+      "after_sha256": "2f3ebaba1911860103217c8154cf432254050d64fe1f57641ba12b92ed8bb8a0",
+      "edits": [
+        {
+          "before_offset": 9833,
+          "after_offset": 9833,
+          "old": "\t\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLithium.java": {
+      "before_sha256": "1fdee98df3c558cab3a7760d24c93ed06d23da897498250c5255011ec9b009f9",
+      "after_sha256": "b53b728f137d74fad3a297a21ee293c4612c51f53be48d143e90c3eaa1c4462e",
+      "edits": [
+        {
+          "before_offset": 1365,
+          "after_offset": 1365,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        },
+        {
+          "before_offset": 1637,
+          "after_offset": 1668,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java": {
+      "before_sha256": "0ac6a17138e3e9d581e482ac5856142f53d0d46107b6d6a420431be512fa6be5",
+      "after_sha256": "9a4edf283a984121558d7191a25912ee96e9308038e85a2729833f3821bb064e",
+      "edits": [
+        {
+          "before_offset": 1738,
+          "after_offset": 1738,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, true);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java": {
+      "before_sha256": "6408ebfc7055bdc9cccb9fbfea9f37d5663e524cbd14f89cafb296d2044fc679",
+      "after_sha256": "8f96f0cd0260aaa6ab34ffd5099e317d5c602a46b2fadeb2dc094bc5f1d11f8f",
+      "edits": [
+        {
+          "before_offset": 2905,
+          "after_offset": 2905,
+          "old": "\t\t\t\t\tworld.func_147480_a(x, y, z, true);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/FragileBrick.java": {
+      "before_sha256": "d8931d17e66b9297a86e715405c333555af2542f8d7e15fb837f2005dc57bd01",
+      "after_sha256": "8594a1737a3f3e859e936a83754be28eb0ab056258d412f79457121d76ec590b",
+      "edits": [
+        {
+          "before_offset": 784,
+          "after_offset": 784,
+          "old": "\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        },
+        {
+          "before_offset": 992,
+          "after_offset": 1023,
+          "old": "\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlastDoor.java": {
+      "before_sha256": "cc1041ddda5233badf6130faed40853a74ce6860b2e5cd5d790831f1b90a3fa5",
+      "after_sha256": "e35f8ead1d6c7be34c070bcedca6ba3ba79852efbeda837c2cc0d07c5f934ab3",
+      "edits": [
+        {
+          "before_offset": 3557,
+          "after_offset": 3557,
+          "old": "\t\t\tworld.func_147480_a(x, y, z, true);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java": {
+      "before_sha256": "da65d161623932a4d18307ad4deeab55ea95704ba5618f54c576bbf7d8171112",
+      "after_sha256": "a85db89c33c735da28539e76bb525f279bf4deaa206b5d3df0cdb9eeb5237c0b",
+      "edits": [
+        {
+          "before_offset": 1473,
+          "after_offset": 1473,
+          "old": "    \t\t\t\tworld.func_147480_a(a, b, c, true);\n",
+          "new": "    \t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DummyOldBase.java": {
+      "before_sha256": "1a7bbad264f461c0ed81c9f8cf726bf3f8f5e75517942e10d1c9651b86824caf",
+      "after_sha256": "f8664017bed45ec8c383c4dbda6b7470ae62c1a54de5f030d35dc85989cd5935",
+      "edits": [
+        {
+          "before_offset": 1533,
+          "after_offset": 1533,
+          "old": "\t\t\t\t\tworld.func_147480_a(a, b, c, true);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSatDock.java": {
+      "before_sha256": "c7924dcfaa338d3bbf7a58ee39867fdac573295e8e5972e9fd07c2f0d97d4c21",
+      "after_sha256": "a5094ce2b5e71dd9f783eb5caa6dfd18baab485c0ee734e37dbf3e6113143d60",
+      "edits": [
+        {
+          "before_offset": 5522,
+          "after_offset": 5522,
+          "old": "\t\t\t\t\t\tworldObj.func_147480_a(xCoord, yCoord, zCoord, true);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(worldObj, xCoord, yCoord, zCoord, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "eae32c94dc4703ce74ccdbbf7fe42cae6311b52cbbe898dd72046d9f50c0a992",
+      "after_sha256": "cb3655a96925b139db8931efe99d1d72b73c3fd76ab9188d95c24da0ed8cc8f5",
+      "edits": [
+        {
+          "before_offset": 10027,
+          "after_offset": 10027,
+          "old": "\t\t\t\t\t\tthis.world.func_147480_a(x, y, z, true);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "before_sha256": "d5b9ffcdd5e30c25f7175506900cea3d9f23757322d0f1efc0d17bbfd8abaf5b",
+      "after_sha256": "85efca101170d1882b7bbe5e30047d60f3ca6eae0f8aa62326b5f04c0fad6644",
+      "edits": [
+        {
+          "before_offset": 3133,
+          "after_offset": 3133,
+          "old": "\t\tif(this.getEquipmentInSlot(4) != null && this.getEquipmentInSlot(4).getItem() == Item.getItemFromBlock(Blocks.GLASS)) {\n",
+          "new": "\t\tif(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4) != null && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4).getItem() == Item.getItemFromBlock(Blocks.GLASS)) {\n"
+        },
+        {
+          "before_offset": 3670,
+          "after_offset": 3742,
+          "old": "\t\tcase 0: this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_heavy_revolver)); break;\n\t\tcase 1: this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_spas12)); break;\n",
+          "new": "\t\tcase 0: this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_heavy_revolver)); break;\n\t\tcase 1: this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_spas12)); break;\n"
+        },
+        {
+          "before_offset": 3880,
+          "after_offset": 4048,
+          "old": "\t\t\tthis.setCurrentItemOrArmor(4, new ItemStack(ModItems.security_helmet));\n\t\t\tthis.setCurrentItemOrArmor(3, new ItemStack(ModItems.security_plate));\n\t\t\tthis.setCurrentItemOrArmor(2, new ItemStack(ModItems.security_legs));\n\t\t\tthis.setCurrentItemOrArmor(1, new ItemStack(ModItems.security_boots));\n",
+          "new": "\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(ModItems.security_helmet));\n\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(ModItems.security_plate));\n\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(ModItems.security_legs));\n\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.FEET, new ItemStack(ModItems.security_boots));\n"
+        },
+        {
+          "before_offset": 4236,
+          "after_offset": 4581,
+          "old": "\t\t\tthis.setCurrentItemOrArmor(4, new ItemStack(Blocks.GLASS));\n\t\t\tthis.setCurrentItemOrArmor(3, new ItemStack(ModItems.paa_plate));\n\t\t\tthis.setCurrentItemOrArmor(2, new ItemStack(ModItems.paa_legs));\n\t\t\tthis.setCurrentItemOrArmor(1, new ItemStack(ModItems.paa_boots));\n",
+          "new": "\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(Blocks.GLASS));\n\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(ModItems.paa_plate));\n\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(ModItems.paa_legs));\n\t\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.FEET, new ItemStack(ModItems.paa_boots));\n"
+        },
+        {
+          "before_offset": 6349,
+          "after_offset": 6871,
+          "old": "\t\tif(this.getEquipmentInSlot(4) == null)\n\t\t   \tthis.setCurrentItemOrArmor(4, new ItemStack(ModItems.gas_mask_m65));\n",
+          "new": "\t\tif(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4) == null)\n\t\t   \tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask_m65));\n"
+        },
+        {
+          "before_offset": 7190,
+          "after_offset": 7792,
+          "old": "\t\t\t\t\tthis.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityRADBeast.java": {
+      "before_sha256": "96f604fde4653ababbb1a6fb8a15fb80b0a25043dd952e070d362e22a2be22f0",
+      "after_sha256": "95da2827aeb42514bf767937efdc2f1e638e963c5a31d543aaad8ce39f78eca0",
+      "edits": [
+        {
+          "before_offset": 1293,
+          "after_offset": 1293,
+          "old": "\t\tthis.setEquipmentDropChance(0, 1F);\n\t\tthis.setCurrentItemOrArmor(0, new ItemStack(ModItems.coin_radiation));\n",
+          "new": "\t\tthis.setDropChance(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, 1F);\n\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.coin_radiation));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java": {
+      "before_sha256": "57e82491d0e6e234637d1bbcaf057956b3ac7da6a4a5b8448489504acd9475dc",
+      "after_sha256": "c7dbfb35e2737448596db8dca29c00a069669f91409c8af5d818e69bf27779d5",
+      "edits": [
+        {
+          "before_offset": 2410,
+          "after_offset": 2410,
+          "old": "\t\tthis.setCurrentItemOrArmor(4, new ItemStack(ModItems.taurun_helmet));\n\t\tthis.setCurrentItemOrArmor(3, new ItemStack(ModItems.taurun_plate));\n\t\tthis.setCurrentItemOrArmor(2, new ItemStack(ModItems.taurun_legs));\n\t\tthis.setCurrentItemOrArmor(1, new ItemStack(ModItems.taurun_boots));\n",
+          "new": "\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(ModItems.taurun_helmet));\n\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(ModItems.taurun_plate));\n\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(ModItems.taurun_legs));\n\t\tthis.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.FEET, new ItemStack(ModItems.taurun_boots));\n"
+        },
+        {
+          "before_offset": 2724,
+          "after_offset": 2901,
+          "old": "\t\tif(gun == 0) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_heavy_revolver));\n\t\tif(gun == 1) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_light_revolver));\n\t\tif(gun == 2) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_carbine));\n\t\tif(gun == 3) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_maresleg));\n\t\tif(gun == 4) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_greasegun));\n",
+          "new": "\t\tif(gun == 0) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_heavy_revolver));\n\t\tif(gun == 1) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_light_revolver));\n\t\tif(gun == 2) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_carbine));\n\t\tif(gun == 3) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_maresleg));\n\t\tif(gun == 4) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_greasegun));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIBreaking.java": {
+      "before_sha256": "ef81a5953186cf21715f6dc18739e1c7252d691e9ea4c4de0bc4bd0275d3e194",
+      "after_sha256": "5111273b5af77b46cd9dcf48b70cf65b7b2ca90d098e86a257efdb442f5b8292",
+      "edits": [
+        {
+          "before_offset": 3102,
+          "after_offset": 3102,
+          "old": "\t\t\tentityDigger.world.func_147480_a(markedLoc[0], markedLoc[1], markedLoc[2], canHarvest);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(entityDigger.world, markedLoc[0], markedLoc[1], markedLoc[2], canHarvest);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "c717bfd78811ae9dcbfdd83d823a5b27cd80fd0732f1318c7c179982063b6c55",
+      "after_sha256": "29d92042015eaa705858c5af05ea35bd9c4e6afc2d78ca5bc3df3cf9425f75fb",
+      "edits": [
+        {
+          "before_offset": 11074,
+          "after_offset": 11074,
+          "old": "\t\t\t\t\t\t\tthis.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "9bd2764705e95966fd2176bb4a31e4ba0b5f96a3c54d90dcb3c35903fb5293c6",
+      "after_sha256": "03b09776ed0e77544c4fb9865353daedc7c034fb969f341103893422c7a6db91",
+      "edits": [
+        {
+          "before_offset": 19094,
+          "after_offset": 19094,
+          "old": "\t\t\t\tthis.world.func_147480_a(bX, bY, bZ, false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, bX, bY, bZ, false);\n"
+        },
+        {
+          "before_offset": 19334,
+          "after_offset": 19365,
+          "old": "\t\t\t\tthis.world.func_147480_a(bX, bY, bZ, false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, bX, bY, bZ, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityCog.java": {
+      "before_sha256": "e3f3e06e3d3c411ccd63b4ddfa58b364642f9c0515401db1ce05787decd4eb2d",
+      "after_sha256": "20477768a3e3b747754272035e39db5d6220348f281fbd2b91b6e80ed0e61f04",
+      "edits": [
+        {
+          "before_offset": 3908,
+          "after_offset": 3908,
+          "old": "\t\t\t\t\t\tthis.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySawblade.java": {
+      "before_sha256": "ed232013c4074cd845ab38085758236dae9196821934bd904baa096d1054aa1e",
+      "after_sha256": "e94411fed242d353f2ebbd2d1cc2d46c999888df25e02afc0a4839d804c9151c",
+      "edits": [
+        {
+          "before_offset": 3823,
+          "after_offset": 3823,
+          "old": "\t\t\t\t\t\tthis.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": {
+      "before_sha256": "0851bbdfeeb297f10bd15200e8e3e2739eee91073b7ce08aaa99c8cd5789bff4",
+      "after_sha256": "f3160ac7d823285e3a969341ceaa848ea7008ecaa07e594454c9e347cf898909",
+      "edits": [
+        {
+          "before_offset": 3299,
+          "after_offset": 3299,
+          "old": "\t\t\t\tthis.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/BossSpawnHandler.java": {
+      "before_sha256": "4a87ef9dd99863372acf4a55b0f068de2dbd7a93ea72060293af44a72d7584a8",
+      "after_sha256": "11378e5a2520de2eac016ed9312068a133ee83796dfef759193861782c16bb23",
+      "edits": [
+        {
+          "before_offset": 8534,
+          "after_offset": 8534,
+          "old": "\t\t\t\t\t\tItemStack armor = p.getCurrentArmor(i);\r\n",
+          "new": "\t\t\t\t\t\tItemStack armor = com.hbm.util.LivingEquipmentRead.getArmorNullable(p, i);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/MultiblockHandler.java": {
+      "before_sha256": "1fa05bbf8e7e0f9c2fa092aab887ed083fcd1a28cc29eae48896dcf6a682bd41",
+      "after_sha256": "00c9ed6bb7e35c5d0ccf131f9e1a04f72a2a90e66b28d64b135448c70f9963dd",
+      "edits": [
+        {
+          "before_offset": 6314,
+          "after_offset": 6314,
+          "old": "\t\t\t\t\t\t\t\tworld.func_147480_a(a, b, c, false);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/HazardSystem.java": {
+      "before_sha256": "8fe9905f8565faf29f06b25a6d1f9a8281792bc68bc023da44191e887877aaca",
+      "after_sha256": "be928011c76e3e0bd3150e523bed0472d2c794420b95c1c9a5942cd80365e786",
+      "edits": [
+        {
+          "before_offset": 6636,
+          "after_offset": 6636,
+          "old": "\t\t\tItemStack stack = entity.getEquipmentInSlot(i);\n",
+          "new": "\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockColoredConcrete.java": {
+      "before_sha256": "b78602d4cdfb5082261bd1f600811a568980dee87852b8ae9ac3e602ace3defd",
+      "after_sha256": "654346ca8027e8d0642ad88b503e8a7e57b499e7e8abaf9bf14e24c1b0c77220",
+      "edits": [
+        {
+          "before_offset": 117,
+          "after_offset": 117,
+          "old": "import net.minecraft.item.ItemDye;\n",
+          "new": "import net.minecraft.item.EnumDyeColor;\n"
+        },
+        {
+          "before_offset": 435,
+          "after_offset": 440,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n\t\treturn super.getTranslationKey() + \".\" + ItemDye.field_150923_a[BlockConcreteColored.func_150032_b(stack.getItemDamage())];\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n\t\treturn super.getTranslationKey() + \".\" + EnumDyeColor.byDyeDamage(BlockConcreteColored.func_150032_b(stack.getItemDamage())).getTranslationKey();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockNamedMeta.java": {
+      "before_sha256": "ced9305966ac4f0846eac52d6b0a228ac259d12734fb50eb8a20833f3fdbe29c",
+      "after_sha256": "09dabf3acc555bec51ef9fa7c05014207c4b152eb3b0c457a2cb8132b0d401a8",
+      "edits": [
+        {
+          "before_offset": 333,
+          "after_offset": 333,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemCrayon.java": {
+      "before_sha256": "ce67b1568d7d764da1fe938bf91143b96845b8c28fddc3d77dce102fda4a917b",
+      "after_sha256": "41f4aa0a782379d8cbcb94680a9104581bf9c826e51a17d03b3dbafd6098b5cc",
+      "edits": [
+        {
+          "before_offset": 1152,
+          "after_offset": 1152,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemGear.java": {
+      "before_sha256": "f1b99786ed35d4aafc9a686d3875bee0f658ba0c38fe57c9a3c7aa0cacd821e3",
+      "after_sha256": "519f158dd4f7989972740606aec55bef17c585c5ae55d71e83c073c29c2feecf",
+      "edits": [
+        {
+          "before_offset": 582,
+          "after_offset": 582,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemMetaUpgrade.java": {
+      "before_sha256": "c0527e15f1b3c6f01f7ea22cbd0fc7dd7965c4b5f08b62ccdb12e43d4f358529",
+      "after_sha256": "665ebdfcdec4a9088956b92a6ed90e4b675dbe6859392a3ac3b28170dd4d3bdb",
+      "edits": [
+        {
+          "before_offset": 1367,
+          "after_offset": 1367,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemStampBook.java": {
+      "before_sha256": "59ad9e486cbd237f14f894375573b5523a2e5d97516ab77fc4ac12b8fa883944",
+      "after_sha256": "5c21fc82f1514febf4786a3f0ab684ea9db04c64e534d42ec7cb4467cfc2acbd",
+      "edits": [
+        {
+          "before_offset": 854,
+          "after_offset": 854,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemAutogen.java": {
+      "before_sha256": "d7b90b8a01e93a91fba132ff19b2ddaf272fa968bac15fbaac1b83127cb41a26",
+      "after_sha256": "7ef774bf0abfdffd4168bf359e4f9cd8ff39737f95fd880da88aa984ce1e7caa",
+      "edits": [
+        {
+          "before_offset": 4141,
+          "after_offset": 4141,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n\t\treturn overrideUnlocalizedName != null ? \"item.\" + overrideUnlocalizedName : super.getUnlocalizedName(stack);\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n\t\treturn overrideUnlocalizedName != null ? \"item.\" + overrideUnlocalizedName : super.getTranslationKey(stack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemCigarette.java": {
+      "before_sha256": "a0b7e7e9ad9f3c184bfd08140e6985d66502fde2815b06fb7bb2e352d57e2413",
+      "after_sha256": "3c0ff746e9d73c40d8ffb38a9142190fce8a4b7604480c46ce29b97879089f6d",
+      "edits": [
+        {
+          "before_offset": 1528,
+          "after_offset": 1528,
+          "old": "\t\t\t\tItemStack helmet = player.getEquipmentInSlot(4);\n",
+          "new": "\t\t\t\tItemStack helmet = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemMineralOre.java": {
+      "before_sha256": "45f8a2a0537d6938721164f51ebbc40b04c0507ea597d091d89c652889a6d759",
+      "after_sha256": "398dc8d996d63484db792d2989bf8548ae3d7201874b4f9017ce279d24eb930e",
+      "edits": [
+        {
+          "before_offset": 3678,
+          "after_offset": 3678,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMS.java": {
+      "before_sha256": "44aa9f006f81476eb74c775cc61ded21b02679094d43e4331fe4e4be55c7e0ce",
+      "after_sha256": "e84101c5dc198e0e701d4a91d17715e92f75035fff29f0cbf118c567d274acbb",
+      "edits": [
+        {
+          "before_offset": 895,
+          "after_offset": 895,
+          "old": "\t\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModMinecart.java": {
+      "before_sha256": "c1b61746269125ad353475d6039f4260639e5d9419d210479efbcd6a6fc353cd",
+      "after_sha256": "2e343d6d81d210aa4b20263237f7da37db4de400a39c0d276d9e5958146b1958",
+      "edits": [
+        {
+          "before_offset": 2778,
+          "after_offset": 2778,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "233f39529ea2932af27076aa6ca91963761cf2bb03e2e57d5c436a1da0c9cf35",
+      "after_sha256": "a35490a1a04c4fbf7f63ee0c40f4de65fc980ad34f0a154bb3e95ec8270b3592",
+      "edits": [
+        {
+          "before_offset": 6102,
+          "after_offset": 6102,
+          "old": "\t\t\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        },
+        {
+          "before_offset": 6535,
+          "after_offset": 6566,
+          "old": "\t\t\t\t\tworld.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);\n"
+        },
+        {
+          "before_offset": 6778,
+          "after_offset": 6840,
+          "old": "\t\t\t\t\tworld.func_147480_a(x, y + 1, z, false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y + 1, z, false);\n"
+        },
+        {
+          "before_offset": 7025,
+          "after_offset": 7118,
+          "old": "\t\t\t\t\tworld.func_147480_a(x, y - 1, z, false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(world, x, y - 1, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java": {
+      "before_sha256": "7ee7f95eb2d2516276e42cf40685d90c047c7c931339263aaac5194096068215",
+      "after_sha256": "c1267420bbe8b412fb8476c21ef92cebd6bc0e2033f5abd20efafb2a3ec9a5b1",
+      "edits": [
+        {
+          "before_offset": 6079,
+          "after_offset": 6079,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java": {
+      "before_sha256": "c5c1c25049b7a57926e998072328ec9e67e12d268a8e501d7f6f4baeec4b0f9c",
+      "after_sha256": "761d24e96503742ec917d405a5ff650d1b5330273d4be65e7200802d5fcba5f5",
+      "edits": [
+        {
+          "before_offset": 4293,
+          "after_offset": 4293,
+          "old": "\tpublic String getUnlocalizedName(ItemStack stack) {\n",
+          "new": "\tpublic String getTranslationKey(ItemStack stack) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/BulletConfig.java": {
+      "before_sha256": "63d7ec349e5f8e2621d0968b7c859d47a23929d01dd53b261c8c29cfb5534add",
+      "after_sha256": "0c557b0586d499b8e8a963164df93a64e5b16349a13acae0acfee84aaf1b4f0d",
+      "edits": [
+        {
+          "before_offset": 9227,
+          "after_offset": 9227,
+          "old": "\t\t\t\tbullet.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java": {
+      "before_sha256": "1d2e9aaed7affe74d82c33350dd4db526b99bce545d2c65251e01770ff8e6dc6",
+      "after_sha256": "f48a56055c258536d13cbda9dded996776e500e0ef641c99e1b709c3d106fd34",
+      "edits": [
+        {
+          "before_offset": 7344,
+          "after_offset": 7344,
+          "old": "\t\t\t\tbullet.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java": {
+      "before_sha256": "9d07c48728cf471d0ee713f01153db8aefc4a2ce358a59d6ecafd5e2189eca3c",
+      "after_sha256": "3c2ab63a8a13a6680b489685970bec872dc44ff5b65b88d8b1d191be43c1e035",
+      "edits": [
+        {
+          "before_offset": 3181,
+          "after_offset": 3181,
+          "old": "\t\t\t\t\tentity.world.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(entity.world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "f8376fc5ed16b3b15e380673a53441c960b0fe7235221d2b99403406eca8d2bb",
+      "after_sha256": "8f01b57095059874ebc6789abaf9a2e294fad8f30ff58223c87b08eab989092b",
+      "edits": [
+        {
+          "before_offset": 13286,
+          "after_offset": 13286,
+          "old": "\t\t\tItemStack stack = event.getEntityLiving().getEquipmentInSlot(i);\n",
+          "new": "\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i);\n"
+        },
+        {
+          "before_offset": 32046,
+          "after_offset": 32082,
+          "old": "\t\t\tItemStack armor = event.getEntityLiving().getEquipmentInSlot(i);\n",
+          "new": "\t\t\tItemStack armor = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i);\n"
+        },
+        {
+          "before_offset": 40712,
+          "after_offset": 40784,
+          "old": "\t\t\tItemStack armor = e.getEquipmentInSlot(i);\n",
+          "new": "\t\t\tItemStack armor = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(e, i);\n"
+        },
+        {
+          "before_offset": 46165,
+          "after_offset": 46273,
+          "old": "\t\t\tif(player.getCurrentArmor(2) == null && !player.onGround) {\n",
+          "new": "\t\t\tif(com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2) == null && !player.onGround) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "28f857ea87645987c4405d33422de5146c4dac68fd72a4b6dce780c1aaa77c68",
+      "after_sha256": "14f37dc68b0283a7965fffd1da972699dbbcb4e8741f4231a0c0d101165dc3ab",
+      "edits": [
+        {
+          "before_offset": 23857,
+          "after_offset": 23857,
+          "old": "\t\t\tItemStack armor = player.getCurrentArmor(i);\n",
+          "new": "\t\t\tItemStack armor = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);\n"
+        },
+        {
+          "before_offset": 24510,
+          "after_offset": 24545,
+          "old": "\t\tif(player.getCurrentArmor(2) == null && !player.isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY)) {\n",
+          "new": "\t\tif(com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2) == null && !player.isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/model/ModelM65.java": {
+      "before_sha256": "920e814ec928df7c3ed5aa3ea7ca3d99cc9b9fa945356a45694d0c9225f58fd0",
+      "after_sha256": "884b0fc886be11c3739345386d0e697db02e1410adbbaf59858d3d872277a222",
+      "edits": [
+        {
+          "before_offset": 5219,
+          "after_offset": 5219,
+          "old": "\t\tif(!(entity instanceof EntityLivingBase) || ArmorUtil.getGasMaskFilterRecursively(((EntityLivingBase)entity).getEquipmentInSlot(4), (EntityLivingBase)entity) != null)\n",
+          "new": "\t\tif(!(entity instanceof EntityLivingBase) || ArmorUtil.getGasMaskFilterRecursively(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(((EntityLivingBase)entity), 4), (EntityLivingBase)entity) != null)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/model/ModelNo9.java": {
+      "before_sha256": "e4b3529efcf7b8e7aef7272af2e01d260a83e4107a2cb0d43f4c7c524f1f3e58",
+      "after_sha256": "1648efae008504e207d951a2b6c8378612f48dfca9f94e4209334c06d44e7c1a",
+      "edits": [
+        {
+          "before_offset": 1900,
+          "after_offset": 1900,
+          "old": "\t\t\t\tItemStack helmet = player.getEquipmentInSlot(4);\n",
+          "new": "\t\t\t\tItemStack helmet = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java": {
+      "before_sha256": "793ae5b331b2bc2f3654ae8afb89eabd9101d458b54f5aa164a1da7bc045549d",
+      "after_sha256": "1056c811b004d65ea1aa7e1b2a7eaf7bd531f76571a5425c0f487c935133fb2d",
+      "edits": [
+        {
+          "before_offset": 2775,
+          "after_offset": 2775,
+          "old": "\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": {
+      "before_sha256": "53fa7ec40857aff2723555ed73d55038049e87a04ab3aea92292fdeddbf4f41e",
+      "after_sha256": "d14eea7c1232e70db56f1483b9a4642ebfc4bb3d9eb0be2b309941b2b55aa2f6",
+      "edits": [
+        {
+          "before_offset": 2708,
+          "after_offset": 2708,
+          "old": "\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java": {
+      "before_sha256": "1e535c2d7c71f1eaa8439cfbfd11e16aa0c53eb37b709e0873bfd607d719deda",
+      "after_sha256": "01ae99e7ca734312866bf3314c907a9f8de6169ab19c9e61847022626c0881d8",
+      "edits": [
+        {
+          "before_offset": 14068,
+          "after_offset": 14068,
+          "old": "\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getX(), false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getX(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java": {
+      "before_sha256": "b1a7aabad2e46ddefb8253ca5e6e95fac6f78e4a7487d534833c947427ecc87d",
+      "after_sha256": "39ab9d9d21972b8cf700f601c6e32fd611230b9e76ab5e2a669162af540f935e",
+      "edits": [
+        {
+          "before_offset": 2648,
+          "after_offset": 2648,
+          "old": "\t\t\tcase 0: zombie.setCurrentItemOrArmor(0, new ItemStack(ModItems.chernobylsign)); break;\n\t\t\tcase 1: zombie.setCurrentItemOrArmor(0, new ItemStack(ModItems.cobalt_sword)); break;\n\t\t\tcase 2: zombie.setCurrentItemOrArmor(0, new ItemStack(ModItems.cmb_hoe)); break;\n",
+          "new": "\t\t\tcase 0: zombie.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.chernobylsign)); break;\n\t\t\tcase 1: zombie.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.cobalt_sword)); break;\n\t\t\tcase 2: zombie.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.cmb_hoe)); break;\n"
+        },
+        {
+          "before_offset": 2916,
+          "after_offset": 3060,
+          "old": "\t\t\tzombie.setEquipmentDropChance(0, 1.0F);\n",
+          "new": "\t\t\tzombie.setDropChance(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, 1.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": {
+      "before_sha256": "f9a20ab9b48360842b32102e68484def8de8409056582d5c85592213a304d6bd",
+      "after_sha256": "ede006745222f7cc66a70e20e1efd33294899f556e34af450d4d1605c2a7ed8f",
+      "edits": [
+        {
+          "before_offset": 9839,
+          "after_offset": 9839,
+          "old": "\t\tif(!present.isReplaceable(this.world, x, y, z) && present != ModBlocks.dummy_block_blast) this.world.func_147480_a(x, y, z, false);\n",
+          "new": "\t\tif(!present.isReplaceable(this.world, x, y, z) && present != ModBlocks.dummy_block_blast) com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java": {
+      "before_sha256": "a961e865b02cae690e079120fef22c2df52c198b5ad857832e2dec7a2e90a55a",
+      "after_sha256": "7ad820f415590c56ade428232a74eb666a5f29b982c853d2a88d4005a7c744a3",
+      "edits": [
+        {
+          "before_offset": 1471,
+          "after_offset": 1471,
+          "old": "\t\t\t\t\tItemStack stack = player.getEquipmentInSlot(i);\n",
+          "new": "\t\t\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i);\n"
+        },
+        {
+          "before_offset": 3660,
+          "after_offset": 3696,
+          "old": "\t\t\t\tItemStack stack = player.getEquipmentInSlot(i);\n",
+          "new": "\t\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before_sha256": "e64f8877eb0670a29546b80f7435a51b20695b090357e4221f970ed0c170727a",
+      "after_sha256": "a91c6c26f991a42df49b8c8af43a0ebf2374c9bc9e4e0eaf9914f753d55d4417",
+      "edits": [
+        {
+          "before_offset": 4543,
+          "after_offset": 4543,
+          "old": "\t\t\t\t\t\t\t\tthis.world.func_147480_a(x, y, z, false);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java": {
+      "before_sha256": "f66c32b21438995354785dbdb3da2bb355604d6823d61da80b75440de0ecd929",
+      "after_sha256": "8ade5c15e490d7602801f052496e9931deb2a71e2704bc976f4bced0ba27967c",
+      "edits": [
+        {
+          "before_offset": 3280,
+          "after_offset": 3280,
+          "old": "\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java": {
+      "before_sha256": "c3456d569f90ca2c56eb24687005fa97e3ebd31e845503af40d68b21c68f7cd0",
+      "after_sha256": "2fa643dbe83be2277a66bfa1b9c6b8ad3f802ed08ee5014527a9307f762c212f",
+      "edits": [
+        {
+          "before_offset": 3433,
+          "after_offset": 3433,
+          "old": "\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        },
+        {
+          "before_offset": 3729,
+          "after_offset": 3760,
+          "old": "\t\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDummy.java": {
+      "before_sha256": "5f0f2612c26a6b165dc25a772d2256aa6a85d6fce12c549def9a98c08c178053",
+      "after_sha256": "701a04c5c9e058ec4e284844107cce75ed26cf05c99d63ea3adcda79940d421f",
+      "edits": [
+        {
+          "before_offset": 512,
+          "after_offset": 512,
+          "old": "    \t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "    \t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java": {
+      "before_sha256": "b239a74a2c5d4046936761e1fe69b995c488f62fc2374e4cb81cd91c27e7d8d0",
+      "after_sha256": "5a5b1e1a175777480c31ac06e0f283a90396fb680d2e2bbdfae20ca1044b3799",
+      "edits": [
+        {
+          "before_offset": 4971,
+          "after_offset": 4971,
+          "old": "\t\t\t\t\t\t\tif(hardness < 6000) this.world.func_147480_a(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false);\n",
+          "new": "\t\t\t\t\t\t\tif(hardness < 6000) com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java": {
+      "before_sha256": "2b485c487e9d969d167cb6cf7db507baa2e4eb04c7e5e47a5d3a5833cddca81a",
+      "after_sha256": "2567d2fc1300f9c021f957bab9a39aa39cea08335d7e8cdcb2c689b1d095a55a",
+      "edits": [
+        {
+          "before_offset": 15443,
+          "after_offset": 15443,
+          "old": "\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": {
+      "before_sha256": "d6f1d81bdf075c8a3a9daeed75650ff9ceee411ef29f557813cba38da0b1cba6",
+      "after_sha256": "5b575fe2aedb8277d401f40501140d4860b2001ac7392812130690c16c6bc5c0",
+      "edits": [
+        {
+          "before_offset": 16456,
+          "after_offset": 16456,
+          "old": "\t\t\t\tthis.world.func_147480_a(bx, by, bz, true);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, bx, by, bz, true);\n"
+        },
+        {
+          "before_offset": 16581,
+          "after_offset": 16612,
+          "old": "\t\t\t\tthis.world.func_147480_a(bx, by, bz, true);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, bx, by, bz, true);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": {
+      "before_sha256": "f733ab029379677e7983e5cb5a709944abb1ae7fb1dceb171d66fdf541e95f22",
+      "after_sha256": "6767d807eb966bf02557ed12dd92758d1462984d23a9a2409f52c77f0a143755",
+      "edits": [
+        {
+          "before_offset": 3994,
+          "after_offset": 3994,
+          "old": "\t\t\t\t\t\t\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\t\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+      "before_sha256": "5111c65f1ef08b0997700d330752afcc16f64c5ea720d353244b08aeaa6b783a",
+      "after_sha256": "505b0cb97d3c09b3e7214dd940af367a3597326e61aa09538ae2fece43bc6fb9",
+      "edits": [
+        {
+          "before_offset": 16934,
+          "after_offset": 16934,
+          "old": "\t\tthis.world.func_147480_a(x, y, z, false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": {
+      "before_sha256": "508471179a020a02c2b99b910931eef8971465520e376099c18fca9bba54dd7a",
+      "after_sha256": "82afdaa2f0c105e6dfd0d79b2d1287518cd5c9e5a9b94db9c917551bcea6a379",
+      "edits": [
+        {
+          "before_offset": 11561,
+          "after_offset": 11561,
+          "old": "\t\t\tthis.world.func_147480_a(targetX, targetY, targetZ, false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, targetX, targetY, targetZ, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": {
+      "before_sha256": "0740dd7cb8a4a7119c69977e47ac0676b2545f9124402ffadd8412d99fca6b86",
+      "after_sha256": "a8123649315e01a2149c3df38ccd3ce393e42c25f7151a0a0a16d0c9babb16cf",
+      "edits": [
+        {
+          "before_offset": 4341,
+          "after_offset": 4341,
+          "old": "\t\t\t\t\t\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java": {
+      "before_sha256": "e9aaac928f7f64bdc04df56bbe91424070c4b8c6e1c5c6c03aa6043765d724fc",
+      "after_sha256": "61cc3d9de40b0d8d168b2e7bfbbbf8001f80e25d9fddc42c08beb58d16de3cd3",
+      "edits": [
+        {
+          "before_offset": 9462,
+          "after_offset": 9462,
+          "old": "\t\t\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java": {
+      "before_sha256": "5f5b6d209d4bb91730c0213290858436ce0de89a4483dca6478f8e9b42a77613",
+      "after_sha256": "6818000c62afa9bf34be6045f1a828cadf7d76ec464139d7c65cc1f0fd1b2500",
+      "edits": [
+        {
+          "before_offset": 2460,
+          "after_offset": 2460,
+          "old": "\t\t\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java": {
+      "before_sha256": "d8a49547e2f913969f0544ffecb4311636608a1b6e6cd950a52415b2d73260fb",
+      "after_sha256": "88736afb8f7dd657ca0a9b17ce194ba182a3f682b6b3b1d9be8624991d0e9439",
+      "edits": [
+        {
+          "before_offset": 9783,
+          "after_offset": 9783,
+          "old": "\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java": {
+      "before_sha256": "ab118bc59afa832be20c9048ca0d45cbf3f542dcf486ce20cec0f9e2ce5fdc8b",
+      "after_sha256": "bf85b1d1e8a75b8a488c639dd89f13a29a4817e53fb64cb6c7bcc571983ea67a",
+      "edits": [
+        {
+          "before_offset": 1801,
+          "after_offset": 1801,
+          "old": "\t\t\t\t\tItemStack stack = player.getEquipmentInSlot(i);\n",
+          "new": "\t\t\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java": {
+      "before_sha256": "e732b10f06c39105159fe84ffb5e204816c10b11c5d6655bff7d81c3029d0f05",
+      "after_sha256": "2d9c7447ea93a23acecb97ecd364e73a3427ab92256da8680d0676f66c4d15e7",
+      "edits": [
+        {
+          "before_offset": 9025,
+          "after_offset": 9025,
+          "old": "\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        },
+        {
+          "before_offset": 9489,
+          "after_offset": 9520,
+          "old": "\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        },
+        {
+          "before_offset": 10967,
+          "after_offset": 11029,
+          "old": "\t\t\tif(this.world.rand.nextInt(3 * 60 * 20) == 0) this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\tif(this.world.rand.nextInt(3 * 60 * 20) == 0) com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBAT9000.java": {
+      "before_sha256": "233614afdd13fe1b0ccb2cb1bcfd5ce8f000516e3e3b22ec74da1c3ccf4d2474",
+      "after_sha256": "2a5b305c28a3af72c1fefaa34c3013eecfabe5795f19ac9092fab0f0af5b99e1",
+      "edits": [
+        {
+          "before_offset": 564,
+          "after_offset": 564,
+          "old": "\t\t\tthis.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/ArmorRegistry.java": {
+      "before_sha256": "211c7b2c5f8aa48dbd4ec035401703c2b824ff2e6e2c6899544ff8a8cd309deb",
+      "after_sha256": "72667465b0d197c962d0dd416d37a5ddc28880da7465212e3693cdab2f063a33",
+      "edits": [
+        {
+          "before_offset": 745,
+          "after_offset": 745,
+          "old": "\t\tList<HazardClass> list = getProtectionFromItem(entity.getEquipmentInSlot(slot + 1), entity);\n",
+          "new": "\t\tList<HazardClass> list = getProtectionFromItem(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1), entity);\n"
+        },
+        {
+          "before_offset": 1056,
+          "after_offset": 1092,
+          "old": "\t\tList<HazardClass> list = getProtectionFromItem(entity.getEquipmentInSlot(slot + 1), entity);\n",
+          "new": "\t\tList<HazardClass> list = getProtectionFromItem(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1), entity);\n"
+        },
+        {
+          "before_offset": 1443,
+          "after_offset": 1515,
+          "old": "\t\tList<HazardClass> list = getProtectionFromItem(entity.getEquipmentInSlot(slot + 1), entity);\n",
+          "new": "\t\tList<HazardClass> list = getProtectionFromItem(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1), entity);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/ArmorUtil.java": {
+      "before_sha256": "b2f178c045f41158c0f83b25bb3c4e47c4e4999cb24a420e76edf8fc33e91afb",
+      "after_sha256": "0c7c28e9c505421cc0ea0f714b4431387aaa0157cda63df05979c5297bb5a6c8",
+      "edits": [
+        {
+          "before_offset": 5955,
+          "after_offset": 5955,
+          "old": "\t\treturn !checkArmorNull(entity, slot) && entity.getEquipmentInSlot(slot + 1).getItem() == armor;\n",
+          "new": "\t\treturn !checkArmorNull(entity, slot) && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).getItem() == armor;\n"
+        },
+        {
+          "before_offset": 6132,
+          "after_offset": 6168,
+          "old": "\t\treturn player.getEquipmentInSlot(slot + 1) == null;\n",
+          "new": "\t\treturn com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, slot + 1) == null;\n"
+        },
+        {
+          "before_offset": 6271,
+          "after_offset": 6343,
+          "old": "\t\tif(entity.getEquipmentInSlot(slot + 1) == null)\n\t\t\treturn;\n\n\t\tentity.getEquipmentInSlot(slot + 1).damageItem(amount, entity);\n\n\t\tif(entity.getEquipmentInSlot(slot + 1).stackSize == 0) {\n",
+          "new": "\t\tif(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1) == null)\n\t\t\treturn;\n\n\t\tcom.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).damageItem(amount, entity);\n\n\t\tif(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).stackSize == 0) {\n"
+        },
+        {
+          "before_offset": 9748,
+          "after_offset": 9928,
+          "old": "\t\t\tItemStack stack = player.getCurrentArmor(i);\n",
+          "new": "\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);\n"
+        },
+        {
+          "before_offset": 9973,
+          "after_offset": 10188,
+          "old": "\t\tItemStack helmet = player.getCurrentArmor(3);\n",
+          "new": "\t\tItemStack helmet = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 3);\n"
+        },
+        {
+          "before_offset": 10441,
+          "after_offset": 10691,
+          "old": "\t\t\tItemStack stack = player.getCurrentArmor(i);\n",
+          "new": "\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);\n"
+        },
+        {
+          "before_offset": 12842,
+          "after_offset": 13127,
+          "old": "\t\t\t\tItemStack stack = player.getCurrentArmor(i);\n",
+          "new": "\t\t\t\tItemStack stack = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);\n"
+        },
+        {
+          "before_offset": 13902,
+          "after_offset": 14222,
+          "old": "\t\tItemStack chest = player.getCurrentArmor(2);\n",
+          "new": "\t\tItemStack chest = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2);\n"
+        },
+        {
+          "before_offset": 14974,
+          "after_offset": 15329,
+          "old": "\t\t\tItemStack armor = player.getCurrentArmor(i);\n",
+          "new": "\t\t\tItemStack armor = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);\n"
+        },
+        {
+          "before_offset": 18767,
+          "after_offset": 19157,
+          "old": "\t\tItemStack mask = entity.getEquipmentInSlot(4);\n",
+          "new": "\t\tItemStack mask = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4);\n"
+        },
+        {
+          "before_offset": 20822,
+          "after_offset": 21248,
+          "old": "\t\tItemStack mask = player.getEquipmentInSlot(4);\n",
+          "new": "\t\tItemStack mask = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/DamageResistanceHandler.java": {
+      "before_sha256": "e3032502a1493f3de6047cfbf7d0402286c81a3397b927900f6db06e56a145a8",
+      "after_sha256": "15a6a40ee08e968be43f362196aa28b3619ac019e5ab3329e7e8030cd9a322a8",
+      "edits": [
+        {
+          "before_offset": 22302,
+          "after_offset": 22302,
+          "old": "\t\t\t\tentity.getEquipmentInSlot(4) != null ? entity.getEquipmentInSlot(4).getItem() : null,\n\t\t\t\tentity.getEquipmentInSlot(3) != null ? entity.getEquipmentInSlot(3).getItem() : null,\n\t\t\t\tentity.getEquipmentInSlot(2) != null ? entity.getEquipmentInSlot(2).getItem() : null,\n\t\t\t\tentity.getEquipmentInSlot(1) != null ? entity.getEquipmentInSlot(1).getItem() : null\n",
+          "new": "\t\t\t\tcom.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4).getItem() : null,\n\t\t\t\tcom.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3).getItem() : null,\n\t\t\t\tcom.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2).getItem() : null,\n\t\t\t\tcom.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1).getItem() : null\n"
+        },
+        {
+          "before_offset": 22945,
+          "after_offset": 23233,
+          "old": "\t\t\tItemStack armor = entity.getEquipmentInSlot(i);\n",
+          "new": "\t\t\tItemStack armor = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "a7533ef96a129439d57c5e1a02fa373b9f61535f84aee4d28a90a47b163ed434",
+      "after_sha256": "df6697db24c797d0aa9e37b935b31c18cc33dced190e7dd99007f6317cfffc43",
+      "edits": [
+        {
+          "before_offset": 10779,
+          "after_offset": 10779,
+          "old": "\t\t\t\tif((source == DamageSource.anvil || source == DamageSource.fallingBlock) && living.getEquipmentInSlot(4) != null) {\n\t\t\t\t\tliving.getEquipmentInSlot(4).damageItem((int) (amount * 4.0F + living.getRNG().nextFloat() * amount * 2.0F), living);\n",
+          "new": "\t\t\t\tif((source == DamageSource.anvil || source == DamageSource.fallingBlock) && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4) != null) {\n\t\t\t\t\tcom.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4).damageItem((int) (amount * 4.0F + living.getRNG().nextFloat() * amount * 2.0F), living);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/MobUtil.java": {
+      "before_sha256": "767f55fbe635012a12916f69ad2a4f85e1f39cdfdeebeb8e20cde9925bc1520b",
+      "after_sha256": "b1b490e795c3116a762e51cf09a89cfc470f75d327a6553ef95aee13184722bd",
+      "edits": [
+        {
+          "before_offset": 11835,
+          "after_offset": 11835,
+          "old": "\t\tentity.setEquipmentDropChance(0, 0); // Prevent dropping guns\n",
+          "new": "\t\tentity.setDropChance(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, 0); // Prevent dropping guns\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/util/LivingEquipmentRead.java": "aed1dfc3c9f20cf6c0f10a4dbb6f0816ccf6d64e13a6269b851d218c89ecde18",
+    "src/main/java/com/hbm/world/WorldBlockDestruction.java": "4f9bb2ac1b44e5969e9d7777842f13daced08592f6bd9f7465f62378ebac172e"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

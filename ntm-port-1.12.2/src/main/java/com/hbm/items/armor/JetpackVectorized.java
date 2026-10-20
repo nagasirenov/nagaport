@@ -27,7 +27,7 @@ public class JetpackVectorized extends JetpackFueledBase {
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
 		return "hbm:textures/models/JetPackGreen.png";
 	}
 

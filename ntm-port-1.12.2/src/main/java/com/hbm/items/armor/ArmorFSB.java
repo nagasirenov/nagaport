@@ -1,5 +1,7 @@
 package com.hbm.items.armor;
 
+import com.hbm.render.item.NativeItemTextureRegistry;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -73,9 +75,9 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 	public double radResist = 0;
 
 	public ArmorFSB(ArmorMaterial material, int slot, String texture) {
-		super(material, 0, slot);
+		super(material, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));
 		this.texture = texture;
-		this.setTextureName(RefStrings.MODID + ":armor");
+		NativeItemTextureRegistry.texture(this, RefStrings.MODID + ":armor");
 	}
 
 	public ArmorFSB addEffect(PotionEffect effect) {
@@ -156,9 +158,9 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 	public ArmorFSB setRadResist(double fullSet) {
 		this.radResist = fullSet;
 		if(fullSet > 0) {
-			double mult = armorType == 0 ? HazmatRegistry.helmet :
-				armorType == 1 ? HazmatRegistry.chest : 
-				armorType == 2 ? HazmatRegistry.legs : HazmatRegistry.boots;
+			double mult = com.hbm.util.ArmorSlotOrder.index(armorType) == 0 ? HazmatRegistry.helmet :
+				com.hbm.util.ArmorSlotOrder.index(armorType) == 1 ? HazmatRegistry.chest : 
+				com.hbm.util.ArmorSlotOrder.index(armorType) == 2 ? HazmatRegistry.legs : HazmatRegistry.boots;
 			HazmatRegistry.external.add(new Pair(this, fullSet * mult));
 		}
 		return this;
@@ -186,7 +188,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
 		return texture;
 	}
 
@@ -224,7 +226,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 	public static boolean hasFSBArmor(EntityPlayer player) {
 
-		ItemStack plate = player.inventory.armorInventory[2];
+		ItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 
 		if(plate != null && plate.getItem() instanceof ArmorFSB) {
 
@@ -233,7 +235,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 			for(int i = 0; i < (noHelmet ? 3 : 4); i++) {
 
-				ItemStack armor = player.inventory.armorInventory[i];
+				ItemStack armor = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);
 
 				if(armor == null || !(armor.getItem() instanceof ArmorFSB))
 					return false;
@@ -253,7 +255,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 	public static boolean hasFSBArmorIgnoreCharge(EntityPlayer player) {
 
-		ItemStack plate = player.inventory.armorInventory[2];
+		ItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 
 		if(plate != null && plate.getItem() instanceof ArmorFSB) {
 
@@ -262,7 +264,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 			for(int i = 0; i < (noHelmet ? 3 : 4); i++) {
 
-				ItemStack armor = player.inventory.armorInventory[i];
+				ItemStack armor = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);
 
 				if(armor == null || !(armor.getItem() instanceof ArmorFSB))
 					return false;
@@ -292,7 +294,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 		if(ArmorFSB.hasFSBArmor(player)) {
 
-			ItemStack plate = player.inventory.armorInventory[2];
+			ItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 			ArmorFSB chestplate = (ArmorFSB) plate.getItem();
 
 			if(!chestplate.effects.isEmpty()) {
@@ -374,7 +376,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 		if(ArmorFSB.hasFSBArmor(player)) {
 
-			ArmorFSB chestplate = (ArmorFSB) player.inventory.armorInventory[2].getItem();
+			ArmorFSB chestplate = (ArmorFSB) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();
 
 			if(chestplate.jump != null)
 				player.playSound(chestplate.jump, 0.5F, 1.0F);
@@ -385,7 +387,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 		if(ArmorFSB.hasFSBArmor(player)) {
 
-			ArmorFSB chestplate = (ArmorFSB) player.inventory.armorInventory[2].getItem();
+			ArmorFSB chestplate = (ArmorFSB) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();
 
 			if(chestplate.hardLanding && fallDistance > 10) {
 
@@ -418,7 +420,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 	@Override
 	public void onArmorTick(World world, EntityPlayer entity, ItemStack stack) {
 
-		if(this.armorType != 1) return;
+		if(com.hbm.util.ArmorSlotOrder.index(this.armorType) != 1) return;
 		if(!hasFSBArmor(entity) || !this.geigerSound) return;
 		if(entity.inventory.hasItem(ModItems.geiger_counter) || entity.inventory.hasItem(ModItems.dosimeter)) return;
 

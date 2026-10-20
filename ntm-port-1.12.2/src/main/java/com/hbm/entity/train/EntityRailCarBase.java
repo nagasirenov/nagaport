@@ -25,6 +25,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
@@ -435,6 +438,10 @@ public abstract class EntityRailCarBase extends Entity implements ILookOverlay {
 	/** Invisible entities that make up the dynamic bounding structure of the train, moving as the train rotates. */
 	public static class BoundingBoxDummyEntity extends Entity implements ILookOverlay {
 
+		private static final DataParameter<Integer> TRAIN_ID = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.VARINT);
+		private static final DataParameter<Float> WIDTH = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.FLOAT);
+		private static final DataParameter<Float> HEIGHT = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.FLOAT);
+
 		private int turnProgress;
 		private double trainX;
 		private double trainY;
@@ -446,19 +453,19 @@ public abstract class EntityRailCarBase extends Entity implements ILookOverlay {
 			super(world);
 			this.setSize(width, height);
 			this.train = train;
-			if(train != null) this.dataWatcher.updateObject(3, train.getEntityId());
+			if(train != null) this.dataManager.set(TRAIN_ID, train.getEntityId());
 		}
 		
 		@Override protected void setSize(float width, float height) {
 			super.setSize(width, height);
-			this.dataWatcher.updateObject(4, width);
-			this.dataWatcher.updateObject(5, height);
+			this.dataManager.set(WIDTH, width);
+			this.dataManager.set(HEIGHT, height);
 		}
 		
 		@Override protected void entityInit() {
-			this.dataWatcher.addObject(3, new Integer(0));
-			this.dataWatcher.addObject(4, new Float(1F));
-			this.dataWatcher.addObject(5, new Float(1F));
+			this.dataManager.register(TRAIN_ID, new Integer(0));
+			this.dataManager.register(WIDTH, new Float(1F));
+			this.dataManager.register(HEIGHT, new Float(1F));
 		}
 		
 		@Override protected void writeEntityToNBT(NBTTagCompound nbt) { }
@@ -488,7 +495,7 @@ public abstract class EntityRailCarBase extends Entity implements ILookOverlay {
 					this.setPosition(this.posX, this.posY, this.posZ);
 				}
 				
-				this.setSize(this.dataWatcher.getWatchableObjectFloat(4), this.dataWatcher.getWatchableObjectFloat(5));
+				this.setSize(this.dataManager.get(WIDTH), this.dataManager.get(HEIGHT));
 			}
 		}
 		
@@ -500,7 +507,7 @@ public abstract class EntityRailCarBase extends Entity implements ILookOverlay {
 		}
 		@Override
 		public void printHook(Pre event, World world, int x, int y, int z) {
-			Entity e = this.world.getEntityByID(this.dataWatcher.getWatchableObjectInt(3));
+			Entity e = this.world.getEntityByID(this.dataManager.get(TRAIN_ID));
 			if(e instanceof EntityRailCarBase) {
 				((EntityRailCarBase) e).printHook(event, world, x, y, z);
 			}

@@ -89,14 +89,14 @@ public class EntityTNTPrimedBase extends Entity {
 			this.motionY *= -0.5D;
 		}
 
-		if(this.fuse-- <= 0 || (this.detonateOnCollision && this.isCollided)) {
+		if(this.fuse-- <= 0 || (this.detonateOnCollision && this.collided)) {
 			this.setDead();
 
 			if(!this.world.isRemote) {
 				this.explode();
 			}
 		} else {
-			this.world.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
 		}
 	}
 

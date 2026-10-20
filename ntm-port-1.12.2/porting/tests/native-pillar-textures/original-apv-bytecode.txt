@@ -1,0 +1,145 @@
+Compiled from "SourceFile"
+public class apv {
+  public final byte[] a;
+
+  private final int b;
+
+  private final int c;
+
+  public apv(int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #6                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iload_1
+       6: iconst_1
+       7: ishr
+       8: newarray       byte
+      10: putfield      #3                  // Field a:[B
+      13: aload_0
+      14: iload_2
+      15: putfield      #4                  // Field b:I
+      18: aload_0
+      19: iload_2
+      20: iconst_4
+      21: iadd
+      22: putfield      #5                  // Field c:I
+      25: return
+
+  public apv(byte[], int);
+    Code:
+       0: aload_0
+       1: invokespecial #6                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #3                  // Field a:[B
+       9: aload_0
+      10: iload_2
+      11: putfield      #4                  // Field b:I
+      14: aload_0
+      15: iload_2
+      16: iconst_4
+      17: iadd
+      18: putfield      #5                  // Field c:I
+      21: return
+
+  public int a(int, int, int);
+    Code:
+       0: iload_2
+       1: aload_0
+       2: getfield      #5                  // Field c:I
+       5: ishl
+       6: iload_3
+       7: aload_0
+       8: getfield      #4                  // Field b:I
+      11: ishl
+      12: ior
+      13: iload_1
+      14: ior
+      15: istore        4
+      17: iload         4
+      19: iconst_1
+      20: ishr
+      21: istore        5
+      23: iload         4
+      25: iconst_1
+      26: iand
+      27: istore        6
+      29: iload         6
+      31: ifne          45
+      34: aload_0
+      35: getfield      #3                  // Field a:[B
+      38: iload         5
+      40: baload
+      41: bipush        15
+      43: iand
+      44: ireturn
+      45: aload_0
+      46: getfield      #3                  // Field a:[B
+      49: iload         5
+      51: baload
+      52: iconst_4
+      53: ishr
+      54: bipush        15
+      56: iand
+      57: ireturn
+
+  public void a(int, int, int, int);
+    Code:
+       0: iload_2
+       1: aload_0
+       2: getfield      #5                  // Field c:I
+       5: ishl
+       6: iload_3
+       7: aload_0
+       8: getfield      #4                  // Field b:I
+      11: ishl
+      12: ior
+      13: iload_1
+      14: ior
+      15: istore        5
+      17: iload         5
+      19: iconst_1
+      20: ishr
+      21: istore        6
+      23: iload         5
+      25: iconst_1
+      26: iand
+      27: istore        7
+      29: iload         7
+      31: ifne          62
+      34: aload_0
+      35: getfield      #3                  // Field a:[B
+      38: iload         6
+      40: aload_0
+      41: getfield      #3                  // Field a:[B
+      44: iload         6
+      46: baload
+      47: sipush        240
+      50: iand
+      51: iload         4
+      53: bipush        15
+      55: iand
+      56: ior
+      57: i2b
+      58: bastore
+      59: goto          88
+      62: aload_0
+      63: getfield      #3                  // Field a:[B
+      66: iload         6
+      68: aload_0
+      69: getfield      #3                  // Field a:[B
+      72: iload         6
+      74: baload
+      75: bipush        15
+      77: iand
+      78: iload         4
+      80: bipush        15
+      82: iand
+      83: iconst_4
+      84: ishl
+      85: ior
+      86: i2b
+      87: bastore
+      88: return
+}

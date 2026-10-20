@@ -1,0 +1,61 @@
+Compiled from "PowerDetector.java"
+public class com.hbm.blocks.machine.PowerDetector extends net.minecraft.block.BlockContainer {
+  private net.minecraft.util.IIcon iconOn;
+
+  public com.hbm.blocks.machine.PowerDetector(net.minecraft.block.material.Material);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #15                 // Method net/minecraft/block/BlockContainer."<init>":(Lnet/minecraft/block/material/Material;)V
+       5: return
+
+  public void func_149651_a(net.minecraft.client.renderer.texture.IIconRegister);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #23                 // Method net/minecraft/block/BlockContainer.func_149651_a:(Lnet/minecraft/client/renderer/texture/IIconRegister;)V
+       5: aload_0
+       6: aload_1
+       7: ldc           #25                 // String hbm:machine_detector
+       9: invokeinterface #31,  2           // InterfaceMethod net/minecraft/client/renderer/texture/IIconRegister.func_94245_a:(Ljava/lang/String;)Lnet/minecraft/util/IIcon;
+      14: putfield      #33                 // Field iconOn:Lnet/minecraft/util/IIcon;
+      17: return
+
+  public net.minecraft.util.IIcon func_149691_a(int, int);
+    Code:
+       0: iload_2
+       1: iconst_1
+       2: if_icmpne     12
+       5: aload_0
+       6: getfield      #33                 // Field iconOn:Lnet/minecraft/util/IIcon;
+       9: goto          16
+      12: aload_0
+      13: getfield      #40                 // Field field_149761_L:Lnet/minecraft/util/IIcon;
+      16: areturn
+
+  public net.minecraft.tileentity.TileEntity func_149915_a(net.minecraft.world.World, int);
+    Code:
+       0: new           #49                 // class com/hbm/tileentity/machine/TileEntityMachineDetector
+       3: dup
+       4: invokespecial #52                 // Method com/hbm/tileentity/machine/TileEntityMachineDetector."<init>":()V
+       7: areturn
+
+  public boolean func_149744_f();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public int func_149709_b(net.minecraft.world.IBlockAccess, int, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iload         4
+       5: invokeinterface #65,  4           // InterfaceMethod net/minecraft/world/IBlockAccess.func_72805_g:(III)I
+      10: iconst_1
+      11: if_icmpne     19
+      14: bipush        15
+      16: goto          20
+      19: iconst_0
+      20: ireturn
+}

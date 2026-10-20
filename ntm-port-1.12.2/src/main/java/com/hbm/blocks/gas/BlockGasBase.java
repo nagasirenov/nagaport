@@ -72,7 +72,7 @@ public abstract class BlockGasBase extends Block {
 	}
 
 	@Override
-	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {
+	public boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return true;
 	}
 
@@ -82,7 +82,7 @@ public abstract class BlockGasBase extends Block {
 		if(!world.isRemote) {
 			
 			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 0)
-				world.scheduleBlockUpdate(x, y, z, this, 10);
+				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10);
 		}
 	}
 	
@@ -90,7 +90,7 @@ public abstract class BlockGasBase extends Block {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) != 0) {
 			world.setBlockMetadataWithNotify(x, y, z, 0, 4);
-			world.scheduleBlockUpdate(x, y, z, this, 10);
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10);
 		}
 	}
 
@@ -103,7 +103,7 @@ public abstract class BlockGasBase extends Block {
 
 			if(!tryMove(world, x, y, z, getFirstDirection(world, x, y, z)))
 				if(!tryMove(world, x, y, z, getSecondDirection(world, x, y, z)))
-					world.scheduleBlockUpdate(x, y, z, this, getDelay(world));
+					world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, getDelay(world));
 		}
 	}
 
@@ -118,7 +118,7 @@ public abstract class BlockGasBase extends Block {
 		if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this);
-			world.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, getDelay(world));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, getDelay(world));
 			return true;
 		}
 

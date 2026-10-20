@@ -1,0 +1,44 @@
+{
+  "restored_field_visibility": {
+    "textureName": "protected java.lang.String",
+    "blockIcon": "protected IIcon"
+  },
+  "excluded_subclasses": [
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWriting.java",
+      "sha256": "3fac19dea1bf08bff4861439f9ca0f2f0d0753498dca08d9e44565a76f6271b6",
+      "texture_or_state_override_or_field_access": false,
+      "constructor": "super(mat, top);",
+      "full_native_compile": false
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockForgottenLock.java",
+      "sha256": "09e3846db694849649864e4cbcbfa4a4a3aae5dbcfc04c5b4508a3c5b038ca44",
+      "texture_or_state_override_or_field_access": false,
+      "constructor": "super(mat, top);",
+      "full_native_compile": false
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/DetMiner.java",
+      "sha256": "14a3b0a3c9d60417e47933cdd240047800cd2f0067065f919786ced0bf2e56ca",
+      "texture_or_state_override_or_field_access": false,
+      "constructor": "super(mat, top);",
+      "full_native_compile": false
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockCMFlux.java",
+      "sha256": "9b74437e0b5b231f9b8ab9b226e3a20a26760e1b8b1b274fdf129b4fccbe5751",
+      "texture_or_state_override_or_field_access": false,
+      "constructor": "super(mat, top);",
+      "full_native_compile": true
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockCMHeat.java",
+      "sha256": "82518e68c00361c8eb6f35b712f6a47b19cf01a627dbfa99d29fbe24048b1e5b",
+      "texture_or_state_override_or_field_access": false,
+      "constructor": "super(mat, top);",
+      "full_native_compile": true
+    }
+  ],
+  "native_access_fixture": "Cross-package accessprobe.PillarAccess compiles and exercises protected textureName/blockIcon reads and writes. The completed native run compiles the complete CMFlux and CMHeat owners and checks inherited setter/icon behavior. Other descendant gameplay signatures are not claimed compiled."
+}

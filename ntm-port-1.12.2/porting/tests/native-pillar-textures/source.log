@@ -1,0 +1,5 @@
+PASS exact inverse: full ModBlocks and BlockPillar bytes return to sealed CP96; only new PillarModelHandler disappears.
+PASS eleven and only eleven whole construction chains restored by receiver casts; registry statements and original item classes unchanged.
+PASS all 22 original texture PNGs byte-identical; no new default textures, replacements or animation companions.
+PASS protected inherited field access, exact-class rendering admission and five unchanged descendant source boundaries.
+PASS retained completed native run/source hashes: 18,631 assertions, including all 16 world states and native chunk/named-state NBT round trips. No native rerun required.

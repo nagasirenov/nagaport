@@ -1,0 +1,262 @@
+{
+  "EntityThrowableNT.key0": {
+    "sha256": "596fb94f59c70b94925f5b2345936e92d21fab99444e8965e0fc85dad338f578",
+    "source": "private static final DataParameter<Byte> STUCK_FACE = EntityDataManager.createKey(EntityThrowableNT.class, DataSerializers.BYTE);"
+  },
+  "EntityThrowableNT.world-constructor": {
+    "sha256": "97d634964f8c2b3121296d4e854a52c7a442600982a2d2c20c87ec498863ade9",
+    "source": "public EntityThrowableNT(World world) {\n\t\tsuper(world);\n\t\tthis.setSize(0.25F, 0.25F);\n\t}"
+  },
+  "EntityThrowableNT.entityInit": {
+    "sha256": "9e85b25e14f0e3660503e1dc816a40545144ac757245857acb07808087930b2e",
+    "source": "protected void entityInit() {\n\t\tthis.dataManager.register(STUCK_FACE, Byte.valueOf((byte)0));\n\t}"
+  },
+  "EntityThrowableNT.setStuckIn": {
+    "sha256": "6323746f3f360f14e9c45f21b97579d552bfde0a37cbe4bd332b500850e35bfa",
+    "source": "public void setStuckIn(int side) {\n\t\tthis.dataManager.set(STUCK_FACE, (byte) side);\n\t}"
+  },
+  "EntityThrowableNT.getStuckIn": {
+    "sha256": "066e8c2ca710ec7179c552af54fcd13709f17929f51bf5d00457f203d3c15f12",
+    "source": "public int getStuckIn() {\n\t\treturn this.dataManager.get(STUCK_FACE);\n\t}"
+  },
+  "EntityChemical.key0": {
+    "sha256": "f1f629507a410990fdfabf45142ffc9b052848e1f4589670391cf47f735208fa",
+    "source": "private static final DataParameter<Integer> FLUID_ID = EntityDataManager.createKey(EntityChemical.class, DataSerializers.VARINT);"
+  },
+  "EntityChemical.world-constructor": {
+    "sha256": "3b072ebc0e55fc3e0e92f94b5ddbf2e5208dd07614293e4120feaac6fd37be1a",
+    "source": "public EntityChemical(World world) {\n\t\tsuper(world);\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.isImmuneToFire = true;\n\t}"
+  },
+  "EntityChemical.entityInit": {
+    "sha256": "427fb214a45a288b66528804b277ef5e8bc068876b886596aa314c76761ab93b",
+    "source": "protected void entityInit() {\n\t\tthis.dataManager.register(FLUID_ID, new Integer(0));\n\t}"
+  },
+  "EntityChemical.setFluid": {
+    "sha256": "8979e50b3c001c85b420082c6c212896bef2df68b3b817e4b88f88c7162b355a",
+    "source": "public EntityChemical setFluid(FluidType fluid) {\n\t\tthis.dataManager.set(FLUID_ID, fluid.getID());\n\t\treturn this;\n\t}"
+  },
+  "EntityChemical.getType": {
+    "sha256": "2e1da5eafab82c4d33ff6da0c502c36a5c057692469e356659c62c2f640d96d5",
+    "source": "public FluidType getType() {\n\t\treturn Fluids.fromID(this.dataManager.get(FLUID_ID));\n\t}"
+  },
+  "EntityChemical.getStyle": {
+    "sha256": "bca29df168bc174fdb88db272ff0f9da517bdebcf55c58ddc375e4dcc526241c",
+    "source": "public ChemicalStyle getStyle() {\n\t\treturn getStyleFromType(this.getType());\n\t}"
+  },
+  "EntityChemical.getStyleFromType": {
+    "sha256": "c788f11dfd58d07fb98acb3c2de386ac326426dd5a8ee04500f9c189e2113a2a",
+    "source": "public static ChemicalStyle getStyleFromType(FluidType type) {\n\n\t\tif(type == Fluids.IONGEL) {\n\t\t\treturn ChemicalStyle.LIGHTNING;\n\t\t}\n\n\t\tif(type.isAntimatter()) {\n\t\t\treturn ChemicalStyle.AMAT;\n\t\t}\n\n\t\tif(type.hasTrait(Fluids.GASEOUS.getClass()) || type.hasTrait(Fluids.EVAP.getClass())) {\n\n\t\t\tif(type.hasTrait(FT_Flammable.class) || type.hasTrait(FT_Combustible.class)) {\n\t\t\t\treturn ChemicalStyle.GASFLAME;\n\t\t\t} else {\n\t\t\t\treturn ChemicalStyle.GAS;\n\t\t\t}\n\t\t}\n\n\t\tif(type.hasTrait(Fluids.LIQUID.getClass())) {\n\n\t\t\tif(type.hasTrait(FT_Combustible.class)) {\n\t\t\t\treturn ChemicalStyle.BURNING;\n\t\t\t} else {\n\t\t\t\treturn ChemicalStyle.LIQUID;\n\t\t\t}\n\t\t}\n\n\t\treturn ChemicalStyle.NULL;\n\t}"
+  },
+  "EntityChemical.getAirDrag": {
+    "sha256": "00c0f4feed21ab4cbad17a90869d221d447c7bfcaeaf1a0f63462b1db8c8f4b3",
+    "source": "protected float getAirDrag() {\n\n\t\tChemicalStyle type = getStyle();\n\n\t\tif(type == ChemicalStyle.AMAT) return 1F;\n\t\tif(type == ChemicalStyle.LIGHTNING) return 1F;\n\t\tif(type == ChemicalStyle.GAS) return 0.95F;\n\n\t\treturn 0.99F;\n\t}"
+  },
+  "EntityChemical.getWaterDrag": {
+    "sha256": "cc38b8df358358a974f52bffa10e88ff80ff5327b92023710ae7bfee3329ff96",
+    "source": "protected float getWaterDrag() {\n\n\t\tChemicalStyle type = getStyle();\n\n\t\tif(type == ChemicalStyle.AMAT) return 1F;\n\t\tif(type == ChemicalStyle.LIGHTNING) return 1F;\n\t\tif(type == ChemicalStyle.GAS) return 1F;\n\n\t\treturn 0.8F;\n\t}"
+  },
+  "EntityChemical.getMaxAge": {
+    "sha256": "15e9c01f2eaf051dc7cb78c70198a36983493276f0e6bd3ac9384283d5904f29",
+    "source": "public int getMaxAge() {\n\n\t\tswitch(this.getStyle()) {\n\t\tcase AMAT: return 100;\n\t\tcase LIGHTNING: return 5;\n\t\tcase BURNING:return 600;\n\t\tcase GAS: return 60;\n\t\tcase GASFLAME: return 20;\n\t\tcase LIQUID: return 600;\n\t\tdefault: return 100;\n\t\t}\n\t}"
+  },
+  "EntityChemical.getGravityVelocity": {
+    "sha256": "79470b922b4613ec03677853a84ac97bdcebca7a856ffff111cf12e166fedef3",
+    "source": "public double getGravityVelocity() {\n\n\t\tChemicalStyle type = getStyle();\n\n\t\tif(type == ChemicalStyle.AMAT) return 0D;\n\t\tif(type == ChemicalStyle.LIGHTNING) return 0D;\n\t\tif(type == ChemicalStyle.GAS) return 0D;\n\t\tif(type == ChemicalStyle.GASFLAME) return -0.01D;\n\n\t\treturn 0.03D;\n\t}"
+  },
+  "EntityChemical.style-enum": {
+    "sha256": "349d9db9d3a4cd7cb8fc25eeb7e3736667d44109c73fe9f8c88a30934f591abd",
+    "source": "public static enum ChemicalStyle {\n\t\tAMAT,\t\t//renders as beam\n\t\tLIGHTNING,\t//renders as beam\n\t\tLIQUID,\t\t//no renderer, fluid particles\n\t\tGAS,\t\t//renders as particles\n\t\tGASFLAME,\t//renders as fire particles\n\t\tBURNING,\t//no renderer, fire particles\n\t\tNULL\n\t}"
+  },
+  "EntityFallingNuke.complete-production-class": {
+    "sha256": "9d839efc70efab2df0660d2026a3efb40eadcc13120f65a34d026479fc1cd576",
+    "source": "package com.hbm.entity.projectile;\n\nimport com.hbm.blocks.bomb.NukeCustom;\n\nimport net.minecraftforge.fml.relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\nimport net.minecraft.entity.projectile.EntityThrowable;\nimport net.minecraft.init.Blocks;\nimport net.minecraft.nbt.NBTTagCompound;\nimport net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\nimport net.minecraft.util.math.RayTraceResult;\nimport net.minecraft.world.World;\n\npublic class EntityFallingNuke extends EntityThrowable {\n\tprivate static final DataParameter<Byte> BLOCK_METADATA = EntityDataManager.createKey(EntityFallingNuke.class, DataSerializers.BYTE);\n\n\t\n\tfloat tnt;\n\tfloat nuke;\n\tfloat hydro;\n\tfloat amat;\n\tfloat dirty;\n\tfloat schrab;\n\tfloat euph;\n\n\tpublic EntityFallingNuke(World p_i1582_1_) {\n\t\tsuper(p_i1582_1_);\n\t\tthis.ignoreFrustumCheck = true;\n        this.setSize(0.98F, 0.98F);\n\t}\n\n\tpublic EntityFallingNuke(World p_i1582_1_, float tnt, float nuke, float hydro, float amat, float dirty, float schrab, float euph) {\n\t\tsuper(p_i1582_1_);\n\t\tthis.ignoreFrustumCheck = true;\n\t\t\n\t\tthis.tnt = tnt;\n\t\tthis.nuke = nuke;\n\t\tthis.hydro = hydro;\n\t\tthis.amat = amat;\n\t\tthis.dirty = dirty;\n\t\tthis.schrab = schrab;\n\t\tthis.euph = euph;\n        this.prevRotationYaw = this.rotationYaw = 90;\n        this.prevRotationPitch = this.rotationPitch = 90;\n        \n        this.setSize(0.98F, 0.98F);\n\t}\n\n\tpublic void setBlockMetadata(byte metadata) {\n\t\tthis.dataManager.set(BLOCK_METADATA, metadata);\n\t}\n\n\tpublic byte getBlockMetadata() {\n\t\treturn this.dataManager.get(BLOCK_METADATA);\n\t}\n\n    protected void entityInit() {\n    \tthis.dataManager.register(BLOCK_METADATA, Byte.valueOf((byte)0));\n    }\n\t\n\t@Override\n\tpublic void onUpdate() {\n\n\n\t\tthis.lastTickPosX = this.prevPosX = posX;\n\t\tthis.lastTickPosY = this.prevPosY = posY;\n\t\tthis.lastTickPosZ = this.prevPosZ = posZ;\n\t\tthis.setPosition(posX + this.motionX, posY + this.motionY, posZ + this.motionZ);\n\t\t\n\t\t/*this.prevPosX = this.posX;\n\t\tthis.prevPosY = this.posY;\n\t\tthis.prevPosZ = this.posZ;\n\t\t\n\t\tthis.posX += this.motionX;\n\t\tthis.posY += this.motionY;\n\t\tthis.posZ += this.motionZ;*/\n\t\t\n\t\tthis.motionX *= 0.99;\n\t\tthis.motionZ *= 0.99;\n\t\tthis.motionY -= 0.05D;\n\t\t\n\t\tif(motionY < -1)\n\t\t\tmotionY = -1;\n        \n        this.rotation();\n        \n        if(com.hbm.world.WorldBlockState.read(this.world, (int)Math.floor(this.posX), (int)Math.floor(this.posY), (int)Math.floor(this.posZ)).getBlock() != Blocks.AIR)\n        {\n    \t\tif(!this.world.isRemote)\n    \t\t{\n\t\t\t\tNukeCustom.explodeCustom(this.world, posX, posY, posZ, tnt, nuke, hydro, amat, dirty, schrab, euph);\n\t    \t\tthis.setDead();\n    \t\t}\n        }\n\t}\n\t\n\tpublic void rotation() {\n\n\t\tthis.prevRotationPitch = rotationPitch;\n\n\t\tif(rotationPitch > -75)\n\t\t\tthis.rotationPitch -= 2;\n\t}\n\n\t@Override\n\tprotected void onImpact(RayTraceResult p_70184_1_) { }\n\n\t@Override\n\tpublic void writeEntityToNBT(NBTTagCompound tag) {\n\t\tsuper.writeEntityToNBT(tag);\n\t\ttag.setFloat(\"tnt\", tnt);\n\t\ttag.setFloat(\"nuke\", nuke);\n\t\ttag.setFloat(\"hydro\", hydro);\n\t\ttag.setFloat(\"amat\", amat);\n\t\ttag.setFloat(\"dirty\", dirty);\n\t\ttag.setFloat(\"schrab\", schrab);\n\t\ttag.setFloat(\"euph\", euph);\n\t}\n\n\t@Override\n\tpublic void readEntityFromNBT(NBTTagCompound tag) {\n\t\tsuper.readEntityFromNBT(tag);\n\t\ttnt = tag.getFloat(\"tnt\");\n\t\tnuke = tag.getFloat(\"nuke\");\n\t\thydro = tag.getFloat(\"hydro\");\n\t\tamat = tag.getFloat(\"amat\");\n\t\tdirty = tag.getFloat(\"dirty\");\n\t\tschrab = tag.getFloat(\"schrab\");\n\t\teuph = tag.getFloat(\"euph\");\n\t}\n\n\t@Override\n\t@SideOnly(Side.CLIENT)\n    public boolean isInRangeToRenderDist(double distance)\n    {\n        return distance < 25000;\n    }\n}\n"
+  },
+  "WorldBlockState.complete-production-class": {
+    "sha256": "554240513caba36cf5d1ab87850ba194967ead30fa25472393533dbdfb9dc718",
+    "source": "package com.hbm.world;\n\nimport java.util.Objects;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.init.Blocks;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.world.World;\n\n/** Native states within NTM's original integer-coordinate world domain. */\npublic final class WorldBlockState {\n    private WorldBlockState() {}\n\n    public static IBlockState read(World world, int x, int y, int z) {\n        // An instance invocation checked its receiver after evaluating all coordinates,\n        // even when those coordinates were outside the accepted world domain.\n        Objects.requireNonNull(world);\n        if (x < -30000000 || z < -30000000 || x >= 30000000 || z >= 30000000 || y < 0 || y >= 256) {\n            return Blocks.AIR.getDefaultState();\n        }\n        return world.getBlockState(new BlockPos(x, y, z));\n    }\n\n    /**\n     * Write an already resolved native state without expanding the original world domain.\n     * Callers supply states whose conversion is total and side-effect-free; this is not\n     * a legacy Block/metadata adapter.\n     */\n    public static boolean write(World world, int x, int y, int z, IBlockState state, int flags) {\n        Objects.requireNonNull(world);\n        if (x < -30000000 || z < -30000000 || x >= 30000000 || z >= 30000000 || y < 0 || y >= 256) {\n            return false;\n        }\n        return world.setBlockState(new BlockPos(x, y, z), state, flags);\n    }\n\n    /** Metadata belongs to the actual state owner, never an assumed caller block. */\n    public static int metadata(IBlockState state) {\n        return state.getBlock().getMetaFromState(state);\n    }\n}\n"
+  },
+  "EntityDepress.key0": {
+    "sha256": "41649f633f8416a36f6d586b360a7da58be1e4dc181ddaaf3d36e84dc6d5e347",
+    "source": "private static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityDepress.class, DataSerializers.BYTE);"
+  },
+  "EntityDepress.public int timeToLive;": {
+    "sha256": "aceedc3baaaabac4fda25d069a167e19b5d4a1262a8a5d7610bcab36f3eb17de",
+    "source": "public int timeToLive;"
+  },
+  "EntityDepress.public static double range = 8;": {
+    "sha256": "15e4cfc9e5b516e222a1450a5c956e08f9ad1a36e3fe4247fd60df7ffca75f6e",
+    "source": "public static double range = 8;"
+  },
+  "EntityDepress.constructor-World world": {
+    "sha256": "b39a3b21e7cdf12f21cd49af96e8f9b5aa2e95a52be4aab08da862d5d8ab4aa2",
+    "source": "public EntityDepress(World world) {\n\t\tthis(world, ForgeDirection.DOWN, 100);\n\t}"
+  },
+  "EntityDepress.constructor-World world, ForgeDirection dir, int timeToLive": {
+    "sha256": "58f1b375d4646b32c1174c51f24e98318731ec87bb857e2428f5538e6cf11670",
+    "source": "public EntityDepress(World world, ForgeDirection dir, int timeToLive) {\n\t\tsuper(world);\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.isImmuneToFire = true;\n\t\tthis.noClip = true;\n\n\t\tthis.timeToLive = timeToLive;\n\t\tsetDir(dir);\n\t}"
+  },
+  "EntityDepress.entityInit": {
+    "sha256": "593ce649623bdc3dec1e2ae09372d9420efeca49d363c327bb382d06a0c43471",
+    "source": "protected void entityInit() {\n\t\tthis.dataManager.register(DIRECTION, new Byte((byte)0));\n\t}"
+  },
+  "EntityDepress.setDir": {
+    "sha256": "2cc20858853bc56750f806851e8a694e5a2bbc8587b13e3f4789b6ddf98e223d",
+    "source": "protected void setDir(ForgeDirection dir) {\n\t\tthis.dataManager.set(DIRECTION, (byte)dir.ordinal());\n\t}"
+  },
+  "EntityDepress.getDir": {
+    "sha256": "2d07c9bd3426c4bbc377da5522c600be9b0c59e969394aa687fa7c32d906ba59",
+    "source": "protected ForgeDirection getDir() {\n\t\treturn ForgeDirection.getOrientation(this.dataManager.get(DIRECTION));\n\t}"
+  },
+  "EntityDepress.readEntityFromNBT": {
+    "sha256": "d17be2e9219d2e6755cd17c77d888f6fc431e727db3f3446a61477d2bc8e116b",
+    "source": "protected void readEntityFromNBT(NBTTagCompound nbt) {\n\t\ttimeToLive = nbt.getInteger(\"ttl\");\n\t}"
+  },
+  "EntityDepress.writeEntityToNBT": {
+    "sha256": "7e0449d6c48b811491f9a462eca2395d40f5438e6358624e16824a789083ec51",
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tnbt.setInteger(\"ttl\", timeToLive);\n\t}"
+  },
+  "EntityDepress.exact-particle-parameters-slice": {
+    "sha256": "7fce4cf41cbaa9b4ce44ad772ca837d916841d8a5f864847e4dc8e8a1ab7eab4",
+    "source": "\n\t\tForgeDirection dir = getDir();\n\n\t\tNBTTagCompound data = new NBTTagCompound();\n\t\tdata.setDouble(\"posX\", posX + this.world.rand.nextGaussian() * 0.25);\n\t\tdata.setDouble(\"posY\", posY + this.world.rand.nextGaussian() * 0.25);\n\t\tdata.setDouble(\"posZ\", posZ + this.world.rand.nextGaussian() * 0.25);\n\t\tdata.setString(\"type\", \"depress\");\n\t\tdata.setFloat(\"scale\", 0.5f);\n\t\tdata.setDouble(\"moX\", dir.offsetX * 0.5 + this.world.rand.nextGaussian() * 0.25);\n\t\tdata.setDouble(\"moY\", dir.offsetY * 0.5 + this.world.rand.nextGaussian() * 0.25);\n\t\tdata.setDouble(\"moZ\", dir.offsetZ * 0.5 + this.world.rand.nextGaussian() * 0.25);\n\t\tdata.setInteger(\"maxAge\", 100 + this.world.rand.nextInt(20));\n\t\tdata.setInteger(\"color\", 0xFFFFFF);"
+  },
+  "ForgeDirection.complete-production-class": {
+    "sha256": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
+    "source": "package com.hbm.lib;\n\nimport net.minecraft.util.EnumFacing;\n\n/**\n * NTM-local compatibility representation for the six-direction API used by\n * the original 1.7.10 source. Forge/Minecraft-facing methods must use\n * {@link EnumFacing}; convert through {@link #toEnumFacing()} only after\n * checking that a direction is valid.\n */\npublic enum ForgeDirection {\n\tDOWN(EnumFacing.DOWN, 0, -1, 0),\n\tUP(EnumFacing.UP, 0, 1, 0),\n\tNORTH(EnumFacing.NORTH, 0, 0, -1),\n\tSOUTH(EnumFacing.SOUTH, 0, 0, 1),\n\tWEST(EnumFacing.WEST, -1, 0, 0),\n\tEAST(EnumFacing.EAST, 1, 0, 0),\n\tUNKNOWN(null, 0, 0, 0);\n\n\t/** The six real directions in legacy ordinal order (DOWN through EAST). */\n\tpublic static final ForgeDirection[] VALID_DIRECTIONS = {\n\t\t\tDOWN, UP, NORTH, SOUTH, WEST, EAST\n\t};\n\n\tpublic final int offsetX;\n\tpublic final int offsetY;\n\tpublic final int offsetZ;\n\t/** Legacy bit mask; UNKNOWN retains its ordinal bit for Forge 1.7.10 compatibility. */\n\tpublic final int flag;\n\tprivate final EnumFacing facing;\n\n\tForgeDirection(EnumFacing facing, int offsetX, int offsetY, int offsetZ) {\n\t\tthis.facing = facing;\n\t\tthis.offsetX = offsetX;\n\t\tthis.offsetY = offsetY;\n\t\tthis.offsetZ = offsetZ;\n\t\tthis.flag = 1 << ordinal();\n\t}\n\n\t/** Returns UNKNOWN for invalid ordinals, matching the legacy API. */\n\tpublic static ForgeDirection getOrientation(int ordinal) {\n\t\treturn ordinal >= 0 && ordinal < VALID_DIRECTIONS.length\n\t\t\t\t? VALID_DIRECTIONS[ordinal]\n\t\t\t\t: UNKNOWN;\n\t}\n\n\t/** Converts null and non-directional cases to the NTM UNKNOWN sentinel. */\n\tpublic static ForgeDirection fromEnumFacing(EnumFacing facing) {\n\t\tif (facing == null) return UNKNOWN;\n\t\tswitch (facing) {\n\t\t\tcase DOWN: return DOWN;\n\t\t\tcase UP: return UP;\n\t\t\tcase NORTH: return NORTH;\n\t\t\tcase SOUTH: return SOUTH;\n\t\t\tcase WEST: return WEST;\n\t\t\tcase EAST: return EAST;\n\t\t\tdefault: return UNKNOWN;\n\t\t}\n\t}\n\n\t/** Returns null for UNKNOWN; callers must handle that sentinel explicitly. */\n\tpublic EnumFacing toEnumFacing() {\n\t\treturn facing;\n\t}\n\n\tpublic ForgeDirection getOpposite() {\n\t\tswitch (this) {\n\t\t\tcase DOWN: return UP;\n\t\t\tcase UP: return DOWN;\n\t\t\tcase NORTH: return SOUTH;\n\t\t\tcase SOUTH: return NORTH;\n\t\t\tcase WEST: return EAST;\n\t\t\tcase EAST: return WEST;\n\t\t\tdefault: return UNKNOWN;\n\t\t}\n\t}\n\n\t/**\n\t * Rotates this unit direction by one quarter-turn around the supplied\n\t * cardinal axis. UNKNOWN and parallel directions remain unchanged.\n\t */\n\tpublic ForgeDirection getRotation(ForgeDirection axis) {\n\t\tif (this == UNKNOWN || axis == null || axis == UNKNOWN) return this;\n\n\t\t// Legacy ForgeDirection rotates the direction vector by d x axis.\n\t\tint x = offsetY * axis.offsetZ - offsetZ * axis.offsetY;\n\t\tint y = offsetZ * axis.offsetX - offsetX * axis.offsetZ;\n\t\tint z = offsetX * axis.offsetY - offsetY * axis.offsetX;\n\t\tif (x == 0 && y == 0 && z == 0) return this;\n\t\tif (x == 0 && y == -1 && z == 0) return DOWN;\n\t\tif (x == 0 && y == 1 && z == 0) return UP;\n\t\tif (x == 0 && y == 0 && z == -1) return NORTH;\n\t\tif (x == 0 && y == 0 && z == 1) return SOUTH;\n\t\tif (x == -1 && y == 0 && z == 0) return WEST;\n\t\tif (x == 1 && y == 0 && z == 0) return EAST;\n\t\treturn this;\n\t}\n}\n"
+  },
+  "EntityNukeTorex.key0": {
+    "sha256": "918c39c3d190d6390764c4d0ef97ed605794826b20b133284bf1f9658e6fc72b",
+    "source": "private static final DataParameter<Float> SCALE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.FLOAT);"
+  },
+  "EntityNukeTorex.key1": {
+    "sha256": "25a03acd249a2f04cd5d781118cb7455e7d55e9c14b0d081f0faadedb95f559c",
+    "source": "private static final DataParameter<Integer> COLOR_TYPE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.VARINT);"
+  },
+  "EntityNukeTorex.all-owner-fields": {
+    "sha256": "3353ed7c77edf034eaa3084173cd1deb8032b888a515f59f4532c425168a2b2e",
+    "source": "\n\tpublic double coreHeight = 3;\n\tpublic double convectionHeight = 3;\n\tpublic double torusWidth = 3;\n\tpublic double rollerSize = 1;\n\tpublic double heat = 1;\n\tpublic double lastSpawnY = - 1;\n\tpublic ArrayList<Cloudlet> cloudlets = new ArrayList();\n\t//public static int cloudletLife = 200;\n\n\tpublic boolean didPlaySound = false;\n\tpublic boolean didShake = false;\n\n\tprivate boolean hasSufficientPressure = true;\n"
+  },
+  "EntityNukeTorex.complete-constructor": {
+    "sha256": "69b5d70c9087d6743b55ce24f8267def4197a7a5a6b5362a5b3523df3dfb8b9c",
+    "source": "public EntityNukeTorex(World world) {\n\t\tsuper(world);\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.setSize(1F, 50F);\n\n\t\t// Check current atmospheric pressure (wow, so difficult)\n\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(world, CBT_Atmosphere.class);\n\t\tif(CelestialBody.inOrbit(world) || atmosphere == null || atmosphere.getPressure() < 0.01) {\n\t\t\thasSufficientPressure = false;\n\t\t}\n\t}"
+  },
+  "EntityNukeTorex.entityInit": {
+    "sha256": "8f6c430baedfc8ae7507a14f7323e246398050e313ef531e7ce0e9c8681de31a",
+    "source": "protected void entityInit() {\n\t\tthis.dataManager.register(SCALE, new Float(1));\n\t\tthis.dataManager.register(COLOR_TYPE, new Integer(0));\n\t}"
+  },
+  "EntityNukeTorex.setScale": {
+    "sha256": "975e3e0185ee2d056ce6919eba9c8abff3ebdbfe8e0d677e91fccb419a83aa8c",
+    "source": "public EntityNukeTorex setScale(float scale) {\n\t\tif(!this.world.isRemote) getDataManager().set(SCALE, scale);\n\t\tthis.coreHeight = this.coreHeight / 1.5D * scale;\n\t\tthis.convectionHeight = this.convectionHeight / 1.5D * scale;\n\t\tthis.torusWidth = this.torusWidth / 1.5D * scale;\n\t\tthis.rollerSize = this.rollerSize / 1.5D * scale;\n\t\treturn this;\n\t}"
+  },
+  "EntityNukeTorex.setSynchronizedScale": {
+    "sha256": "a3fe0beeb32552ce3b66d026129639742ad459d09eaa05dd4361f7e969663108",
+    "source": "public void setSynchronizedScale(float scale) {\n\t\tthis.dataManager.set(SCALE, scale);\n\t}"
+  },
+  "EntityNukeTorex.setType": {
+    "sha256": "2261fff0b732317ed92a3ae160803c79cad6d5977cc5f333dce855bb0ca7e655",
+    "source": "public EntityNukeTorex setType(int type) {\n\t\tthis.dataManager.set(COLOR_TYPE, type);\n\t\treturn this;\n\t}"
+  },
+  "EntityNukeTorex.getScale": {
+    "sha256": "a7a00f2bae8ddb09c0c8364b5cc2446cae043f1a46055a100d60ef2f5070201d",
+    "source": "public double getScale() {\n\t\treturn this.dataManager.get(SCALE);\n\t}"
+  },
+  "EntityNukeTorex.getMaxAge": {
+    "sha256": "e73443e49a5906830e738f5a480d89beb61ab3ecaa18a3cdb98f5ef7f3162ed3",
+    "source": "public int getMaxAge() {\n\t\tdouble s = this.getScale();\n\t\treturn (int) (45 * 20 * s);\n\t}"
+  },
+  "EntityNukeTorex.getSimulationSpeed": {
+    "sha256": "0205c4e7a9dc810d1b023cb4300d76e0db55152c59962237f903a1d2d904cda7",
+    "source": "public double getSimulationSpeed() {\n\n\t\tint lifetime = getMaxAge();\n\t\tint simSlow = lifetime / 4;\n\t\tint simStop = lifetime / 2;\n\t\tint life = EntityNukeTorex.this.ticksExisted;\n\n\t\tif(life > simStop) {\n\t\t\treturn 0D;\n\t\t}\n\n\t\tif(life > simSlow) {\n\t\t\treturn 1D - ((double)(life - simSlow) / (double)(simStop - simSlow));\n\t\t}\n\n\t\treturn 1.0D;\n\t}"
+  },
+  "EntityNukeTorex.getSaturation": {
+    "sha256": "e526e2fdb13657d0185995e4b845e34a165b7d7dfd7964cf778a26ef3deba761",
+    "source": "public double getSaturation() {\n\t\tdouble d = (double) this.ticksExisted / (double) this.getMaxAge();\n\t\treturn 1D - (d * d * d * d);\n\t}"
+  },
+  "EntityNukeTorex.getGreying": {
+    "sha256": "e57a79ed623a5dcbe6faeb71b9a5aaf8745b513b0c288cf582885d6d4701dc9d",
+    "source": "public double getGreying() {\n\n\t\tint lifetime = getMaxAge();\n\t\tint greying = lifetime * 3 / 4;\n\n\t\tif(ticksExisted > greying) {\n\t\t\treturn 1 + ((double)(ticksExisted - greying) / (double)(lifetime - greying));\n\t\t}\n\n\t\treturn 1D;\n\t}"
+  },
+  "EntityNukeTorex.getAlpha": {
+    "sha256": "16b46c079699052aa6446660e22098f7eb3a5b93fb5451473efd592df2d3a9d9",
+    "source": "public float getAlpha() {\n\n\t\tint lifetime = getMaxAge();\n\t\tint fadeOut = lifetime * 3 / 4;\n\t\tint life = EntityNukeTorex.this.ticksExisted;\n\n\t\tif(life > fadeOut) {\n\t\t\tfloat fac = (float)(life - fadeOut) / (float)(lifetime - fadeOut);\n\t\t\treturn 1F - fac;\n\t\t}\n\n\t\treturn 1.0F;\n\t}"
+  },
+  "EntityNukeTorex.writeEntityToNBT": {
+    "sha256": "c8f530d511b74e83804cfaaf94fe4dc5f133a2222405ad163f418045f6280e3c",
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) { }"
+  },
+  "EntityNukeTorex.writeToNBTOptional": {
+    "sha256": "29f637fccac093e2c75636b8dcba5a2240a348156af137d79b5367623538e936",
+    "source": "public boolean writeToNBTOptional(NBTTagCompound nbt) { return false; }"
+  },
+  "EntityNukeTorex.readEntityFromNBT": {
+    "sha256": "71044c7b94bc6021eef964377e20521371d5d0f2060c2fe229cfc33832212b84",
+    "source": "public void readEntityFromNBT(NBTTagCompound nbt) { this.setDead(); }"
+  },
+  "EntityNukeTorex.cloudlet-fields": {
+    "sha256": "60fc30ffcce8739a190c9e83436672be1a5af069608e73c53823a0102e77b461",
+    "source": "\n\t\tpublic double posX;\n\t\tpublic double posY;\n\t\tpublic double posZ;\n\t\tpublic double prevPosX;\n\t\tpublic double prevPosY;\n\t\tpublic double prevPosZ;\n\t\tpublic double motionX;\n\t\tpublic double motionY;\n\t\tpublic double motionZ;\n\t\tpublic int age;\n\t\tpublic int cloudletLife;\n\t\tpublic float angle;\n\t\tpublic boolean isDead = false;\n\t\tfloat rangeMod = 1.0F;\n\t\tpublic float colorMod = 1.0F;\n\t\tpublic Vec3d color;\n\t\tpublic Vec3d prevColor;\n\t\tpublic TorexType type;\n"
+  },
+  "EntityNukeTorex.cloudlet-constructor-double posX, double posY, double posZ, float angle, int age, int maxAge": {
+    "sha256": "aa2399b3ec4165c3e228d46b708f9d28849615146276eb789f654475dfb49299",
+    "source": "public Cloudlet(double posX, double posY, double posZ, float angle, int age, int maxAge) {\n\t\t\tthis(posX, posY, posZ, angle, age, maxAge, TorexType.STANDARD);\n\t\t}"
+  },
+  "EntityNukeTorex.cloudlet-constructor-double posX, double posY, double posZ, float angle, int age, int maxAge, TorexType type": {
+    "sha256": "d3d86b8f6fe4ece3efdb71d2a8ca05bd3fa08d2da723b95f9a5f3f16a16a8907",
+    "source": "public Cloudlet(double posX, double posY, double posZ, float angle, int age, int maxAge, TorexType type) {\n\t\t\tthis.posX = posX;\n\t\t\tthis.posY = posY;\n\t\t\tthis.posZ = posZ;\n\t\t\tthis.age = age;\n\t\t\tthis.cloudletLife = maxAge;\n\t\t\tthis.angle = angle;\n\t\t\tthis.rangeMod = 0.3F + rand.nextFloat() * 0.7F;\n\t\t\tthis.colorMod = 0.8F + rand.nextFloat() * 0.2F;\n\t\t\tthis.type = type;\n\n\t\t\tthis.updateColor();\n\t\t}"
+  },
+  "EntityNukeTorex.cloudlet-updateColor": {
+    "sha256": "57619b63efbcec51a03b1bdcb8f1cb6c0a06c13663708c3c39139c365bef10c1",
+    "source": "private void updateColor() {\n\t\t\tthis.prevColor = this.color;\n\n\t\t\tdouble exX = EntityNukeTorex.this.posX;\n\t\t\tdouble exY = EntityNukeTorex.this.posY + EntityNukeTorex.this.coreHeight;\n\t\t\tdouble exZ = EntityNukeTorex.this.posZ;\n\n\t\t\tdouble distX = exX - posX;\n\t\t\tdouble distY = exY - posY;\n\t\t\tdouble distZ = exZ - posZ;\n\n\t\t\tdouble distSq = distX * distX + distY * distY + distZ * distZ;\n\t\t\tdistSq /= EntityNukeTorex.this.heat;\n\t\t\tdouble dist = Math.sqrt(distSq);\n\n\t\t\tdist = Math.max(dist, 1);\n\t\t\tdouble col = 2D / dist;\n\n\t\t\tint type = EntityNukeTorex.this.dataManager.get(COLOR_TYPE);\n\n\t\t\tif(this.type == TorexType.STARFISH) {\n\t\t\t\tthis.color = new Vec3d(\n\t\t\t\t\t\tMath.max(col * 8, 0.5),\n\t\t\t\t\t\tMath.max(col * 1.5, 0.1),\n\t\t\t\t\t\tMath.max(col * 0.5, 0.05)\n\t\t\t\t\t);\n\t\t\t} else if(type == 1) {\n\t\t\t\tthis.color = new Vec3d(\n\t\t\t\t\t\tMath.max(col * 1, 0.25),\n\t\t\t\t\t\tMath.max(col * 2, 0.25),\n\t\t\t\t\t\tMath.max(col * 0.5, 0.25)\n\t\t\t\t\t\t);\n\t\t\t} else if(type == 2) {\n\t\t\t\tColor color = Color.getHSBColor(this.angle / 2F / (float) Math.PI, 1F, 1F);\n\t\t\t\tif(this.type == TorexType.RING) {\n\t\t\t\t\tthis.color = new Vec3d(\n\t\t\t\t\t\t\tMath.max(col * 1, 0.25),\n\t\t\t\t\t\t\tMath.max(col * 1, 0.25),\n\t\t\t\t\t\t\tMath.max(col * 1, 0.25)\n\t\t\t\t\t\t\t);\n\t\t\t\t} else {\n\t\t\t\t\tthis.color = new Vec3d(color.getRed() / 255D, color.getGreen() / 255D, color.getBlue() / 255D);\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tthis.color = new Vec3d(\n\t\t\t\t\t\tMath.max(col * 2, 0.25),\n\t\t\t\t\t\tMath.max(col * 1.5, 0.25),\n\t\t\t\t\t\tMath.max(col * 0.5, 0.25)\n\t\t\t\t\t\t);\n\t\t\t}\n\t\t}"
+  },
+  "EntityNukeTorex.torex-enum": {
+    "sha256": "69415571ae281ba1ca6fb3254f9ad1cfed7a0d8341fc2044749e0f1a7dd3c6db",
+    "source": "public static enum TorexType {\n\t\tSTANDARD,\n\t\tSHOCK,\n\t\tRING,\n\t\tCONDENSATION,\n\t\tSTARFISH,\n\t}"
+  },
+  "FluidType.private int id;": {
+    "sha256": "04ea89063237b4a50c1a22b7fad2a421b8e32bdea610acc4c1ef01381a35413d",
+    "source": "private int id;"
+  },
+  "FluidType.private int color;": {
+    "sha256": "6cc0fa061d2fda2a6ac5b5d53efdb9ab109f2a194ef12104dbd8d216099f0b5e",
+    "source": "private int color;"
+  },
+  "FluidType.public HashMap<Class<? extends FluidTrait>, FluidTrait> traits = new HashMap();": {
+    "sha256": "3e9d253e799532f76906b8a940d923443d3443b32bfcb0203f0d80df1c200606",
+    "source": "public HashMap<Class<? extends FluidTrait>, FluidTrait> traits = new HashMap();"
+  },
+  "FluidType.getID": {
+    "sha256": "b4d528b966f2a8448279deb6fa0b06599f85e23cd6ca934c7724deb84fee591b",
+    "source": "public int getID() {\n\t\treturn this.id;\n\t}"
+  },
+  "FluidType.getColor": {
+    "sha256": "b9683b508fce2f061b992e8e751ab8e4e6a92ae3aea391d613fd53150eddadc7",
+    "source": "public int getColor() {\n\t\treturn this.color;\n\t}"
+  },
+  "FluidType.hasTrait": {
+    "sha256": "abab639da0bba9273663503a25cc8609571d1ea9b176a595e180ca0b029402c8",
+    "source": "public boolean hasTrait(Class<? extends FluidTrait> trait) {\n\t\treturn this.traits.containsKey(trait);\n\t}"
+  },
+  "FluidType.isAntimatter": {
+    "sha256": "99aeda8f72075a9ecfc7c70801622061937d84497725bc228d062c58f929a5d6",
+    "source": "public boolean isAntimatter() {\n\t\treturn this.traits.containsKey(FT_Amat.class);\n\t}"
+  },
+  "Fluids.idMapping": {
+    "sha256": "10e8528300a1f0d2e2dd9c4ba59c8273de2401ae00637eeaaa30b259628c4137",
+    "source": "private static final HashMap<Integer, FluidType> idMapping = new HashMap();"
+  },
+  "Fluids.fromID": {
+    "sha256": "c476c8bd6fcdb6a6142e7b0bfd936320d9a473025b67f17b3df58ea900a9fba3",
+    "source": "public static FluidType fromID(int id) {\n\t\tFluidType fluid = idMapping.get(id);\n\n\t\tif(fluid == null)\n\t\t\tfluid = Fluids.NONE;\n\n\t\treturn fluid;\n\t}"
+  },
+  "NukeCustom.exact-metadata-application": {
+    "sha256": "4005a41fe40cb01aaf1544e5ae3235dee6a828dc897cddac8d02a7ca052dc26d",
+    "source": "bomb.setBlockMetadata((byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));"
+  },
+  "NukeBoy.exact-metadata-application": {
+    "sha256": "9bc77e81b12836d1a8c4e4086dadf6a272e978e5d445ee359e09cea7b8144f93",
+    "source": "torex.setSynchronizedScale(1.5F);"
+  },
+  "RenderFallingNuke.exact-lookup-expression": {
+    "sha256": "2ae560a3a64190f9898b0c839d60238de33ee465b775ce4b7387276564235981",
+    "source": "((EntityFallingNuke) p_76986_1_).getBlockMetadata()"
+  }
+}

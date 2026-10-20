@@ -9,17 +9,19 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBoat;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderBoatRubber extends Render {
+public class RenderBoatRubber extends Render<Entity> {
 
 	private static final ResourceLocation boatTextures = new ResourceLocation(RefStrings.MODID + ":textures/entity/boat_rubber.png");
 	protected ModelBase modelBoat;
 
-	public RenderBoatRubber() {
+	public RenderBoatRubber(RenderManager renderManager) {
+		super(renderManager);
 		this.shadowSize = 0.5F;
 		this.modelBoat = new ModelBoat();
 	}

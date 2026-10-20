@@ -1,0 +1,9 @@
+{
+  "porting/tests/MaterialTextureAtlasSpriteNativeTest.java": "2c5dfcebee1a45f08371273e503a47e6f4f55daf5fe63adccd648a21b0f011bd",
+  "src/main/java/com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java": "54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a",
+  "src/main/java/com/hbm/render/shader/Shader.java": "9fdb5a969643b3ee15048327d431769865361255bf49a7914a4bde6fca1f3d52",
+  "src/main/resources/assets/hbm/shaders/swarm.vert": "79ec12901bfbca673997f6dab3dda08295e529ee60c97eee21376e8f84819bf3",
+  "src/main/resources/assets/hbm/shaders/swarm.frag": "decef612bc94ec2d96b29aa80cf9ae87b0e93cc31a2e716a57d681fba6393b76",
+  "src/main/resources/assets/hbm/shaders/blackhole.frag": "37941a44f6bf28b55c801002f1737cbcb77dcfebc660aff077124b758c60ec6f",
+  "src/main/resources/assets/hbm/shaders/default.vert": "d8731bcd6d13c042ca4e0ba93cd152a214cb1af1f733a1229708a1f49ea6c48a"
+}

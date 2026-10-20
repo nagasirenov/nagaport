@@ -1,0 +1,310 @@
+{
+  "before": 10061,
+  "after": 10014,
+  "new_diagnostics_count": 0,
+  "removed_diagnostics_count": 47,
+  "new": [],
+  "removed": [
+    {
+      "file": "com/hbm/blocks/generic/BlockDeadPlant.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockDeadPlant.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockTallPlant.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockTallPlant.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/main/ModEventHandler.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/explosion/ExplosionThermo.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemModDoor.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/entity/grenade/EntityWastePearl.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/effect/EntityFalloutRain.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/gas/BlockGasRadonDense.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/Landmine.java",
+      "message": "cannot find symbol",
+      "symbol": "method doesBlockHaveSolidTopSurface(World,int,int,int)",
+      "location": "class World",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/Landmine.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_149825_a(Block)",
+      "location": "class BlockFence",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/Balefire.java",
+      "message": "no suitable method found for canPlaceBlockAt(World,int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/DigammaFlame.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/DigammaFlame.java",
+      "message": "cannot find symbol",
+      "symbol": "method doesBlockHaveSolidTopSurface(World,int,int,int)",
+      "location": "class World",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/fluid/MeltedFlesh.java",
+      "message": "method isLeaves in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/fluid/MeltedFlesh.java",
+      "message": "method isOpaqueCube in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/BlockOrbitalStation.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/BlockOrbitalStation.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/MachineChungus.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/fusion/MachineFusionTorus.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/MachineITER.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/BlockWaterPlant.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/BlockWaterPlant.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockStalagmite.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockStalagmite.java",
+      "message": "cannot find symbol",
+      "symbol": "method doesBlockHaveSolidTopSurface(World,int,int,int)",
+      "location": "class World",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockRubberPlant.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockRubberPlant.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockModDoor.java",
+      "message": "cannot find symbol",
+      "symbol": "method doesBlockHaveSolidTopSurface(World,int,int,int)",
+      "location": "class World",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockModDoor.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockMush.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockMush.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockFallout.java",
+      "message": "method isLeaves in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockFallout.java",
+      "message": "method isOpaqueCube in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/BlockVinylVine.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/BlockVinylVine.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/BlockKelp.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/world/feature/OilSpot.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/world/feature/OreCave.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+      "message": "method canPlaceBlockAt in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    }
+  ]
+}

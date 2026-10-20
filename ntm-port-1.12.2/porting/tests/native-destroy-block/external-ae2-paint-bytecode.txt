@@ -1,0 +1,155 @@
+Compiled from "BlockPaint.java"
+public class appeng.block.paint.BlockPaint extends appeng.block.AEBaseTileBlock {
+  static final appeng.block.paint.PaintSplotchesProperty SPLOTCHES;
+
+  public appeng.block.paint.BlockPaint();
+    Code:
+       0: aload_0
+       1: new           #11                 // class net/minecraft/block/material/MaterialLiquid
+       4: dup
+       5: getstatic     #17                 // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+       8: invokespecial #20                 // Method net/minecraft/block/material/MaterialLiquid."<init>":(Lnet/minecraft/block/material/MapColor;)V
+      11: invokespecial #23                 // Method appeng/block/AEBaseTileBlock."<init>":(Lnet/minecraft/block/material/Material;)V
+      14: aload_0
+      15: iconst_0
+      16: invokevirtual #27                 // Method setLightOpacity:(I)Lnet/minecraft/block/Block;
+      19: pop
+      20: aload_0
+      21: iconst_0
+      22: invokevirtual #31                 // Method setFullSize:(Z)Z
+      25: pop
+      26: aload_0
+      27: iconst_0
+      28: invokevirtual #34                 // Method setOpaque:(Z)Z
+      31: pop
+      32: return
+
+  protected net.minecraft.block.state.BlockStateContainer createBlockState();
+    Code:
+       0: new           #40                 // class net/minecraftforge/common/property/ExtendedBlockState
+       3: dup
+       4: aload_0
+       5: iconst_0
+       6: anewarray     #42                 // class net/minecraft/block/properties/IProperty
+       9: iconst_1
+      10: anewarray     #44                 // class net/minecraftforge/common/property/IUnlistedProperty
+      13: dup
+      14: iconst_0
+      15: getstatic     #46                 // Field SPLOTCHES:Lappeng/block/paint/PaintSplotchesProperty;
+      18: aastore
+      19: invokespecial #49                 // Method net/minecraftforge/common/property/ExtendedBlockState."<init>":(Lnet/minecraft/block/Block;[Lnet/minecraft/block/properties/IProperty;[Lnet/minecraftforge/common/property/IUnlistedProperty;)V
+      22: areturn
+
+  public net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: checkcast     #53                 // class net/minecraftforge/common/property/IExtendedBlockState
+       4: astore        4
+       6: aload_0
+       7: aload_2
+       8: aload_3
+       9: invokevirtual #57                 // Method getTileEntity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lappeng/tile/AEBaseTile;
+      12: checkcast     #59                 // class appeng/tile/misc/TilePaint
+      15: astore        5
+      17: invokestatic  #65                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+      20: astore        6
+      22: aload         5
+      24: ifnull        34
+      27: aload         5
+      29: invokevirtual #69                 // Method appeng/tile/misc/TilePaint.getDots:()Ljava/util/Collection;
+      32: astore        6
+      34: aload         4
+      36: getstatic     #46                 // Field SPLOTCHES:Lappeng/block/paint/PaintSplotchesProperty;
+      39: new           #73                 // class appeng/block/paint/PaintSplotches
+      42: dup
+      43: aload         6
+      45: invokespecial #76                 // Method appeng/block/paint/PaintSplotches."<init>":(Ljava/util/Collection;)V
+      48: invokeinterface #80,  3           // InterfaceMethod net/minecraftforge/common/property/IExtendedBlockState.withProperty:(Lnet/minecraftforge/common/property/IUnlistedProperty;Ljava/lang/Object;)Lnet/minecraftforge/common/property/IExtendedBlockState;
+      53: areturn
+
+  public net.minecraft.util.BlockRenderLayer getRenderLayer();
+    Code:
+       0: getstatic     #101                // Field net/minecraft/util/BlockRenderLayer.CUTOUT:Lnet/minecraft/util/BlockRenderLayer;
+       3: areturn
+
+  public void getSubBlocks(net.minecraft.creativetab.CreativeTabs, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack>);
+    Code:
+       0: return
+
+  public net.minecraft.util.math.AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public boolean canCollideCheck(net.minecraft.block.state.IBlockState, boolean);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #57                 // Method getTileEntity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lappeng/tile/AEBaseTile;
+       6: checkcast     #59                 // class appeng/tile/misc/TilePaint
+       9: astore        6
+      11: aload         6
+      13: ifnull        21
+      16: aload         6
+      18: invokevirtual #124                // Method appeng/tile/misc/TilePaint.neighborChanged:()V
+      21: return
+
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public void dropBlockAsItemWithChance(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, float, int);
+    Code:
+       0: return
+
+  public void fillWithRain(net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: invokestatic  #147                // Method appeng/util/Platform.isServer:()Z
+       3: ifeq          12
+       6: aload_1
+       7: aload_2
+       8: invokevirtual #153                // Method net/minecraft/world/World.setBlockToAir:(Lnet/minecraft/util/math/BlockPos;)Z
+      11: pop
+      12: return
+
+  public int getLightValue(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #57                 // Method getTileEntity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lappeng/tile/AEBaseTile;
+       6: checkcast     #59                 // class appeng/tile/misc/TilePaint
+       9: astore        4
+      11: aload         4
+      13: ifnull        22
+      16: aload         4
+      18: invokevirtual #160                // Method appeng/tile/misc/TilePaint.getLightLevel:()I
+      21: ireturn
+      22: iconst_0
+      23: ireturn
+
+  public boolean isAir(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean isReplaceable(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  static {};
+    Code:
+       0: new           #167                // class appeng/block/paint/PaintSplotchesProperty
+       3: dup
+       4: invokespecial #169                // Method appeng/block/paint/PaintSplotchesProperty."<init>":()V
+       7: putstatic     #46                 // Field SPLOTCHES:Lappeng/block/paint/PaintSplotchesProperty;
+      10: return
+}

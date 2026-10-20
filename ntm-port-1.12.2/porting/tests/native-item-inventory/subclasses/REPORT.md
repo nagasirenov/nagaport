@@ -1,0 +1,13 @@
+# Native nested inventory declarations
+
+`run.py` compiles all four complete current nested inventory declarations, extracted without body changes into explicitly limited outer hosts. The hosts are not claimed to be complete ItemLeadBox, ItemToolBox, ItemRebarPlacer or ItemBlockStorageCrate gameplay classes. Complete production ItemInventory, NullableInventoryStackNbt, NativeHeldItem, WorldSoundEffects, ModSoundEvents and RefStrings are compiled normally.
+
+The ItemBlockStorageCrate host extends real native ItemBlock solely for the original lead-box `instanceof` validity contract. ModItems.toolbox is a named item-identity fixture. ModBlocks' six fields identify real distinct native blocks and their real registered ItemBlocks. The six crate tile collaborators are projections of exact source constructor/size/name/custom-name methods, not replacement platform classes or a claim of complete tile lifecycle compilation. The full InventoryCrate factory and every inventory method are unchanged and really execute against those explicit collaborators.
+
+1,418 assertions cover all four inventory identities, capacities and limits; actual native Slot vacancy/content behavior; native interface dispatch; original upper clamp, removal and raw negative aliases; fieldless behavior; literal/translated naming; target/type-specific validity; list versus slotN persistence including zero/negative records; exact reload payload; unrelated tags; crate zero retention and stacklock; virtual clear writer; and all six crate factory choices.
+
+All three list constructors are tested against owner counts Integer.MIN_VALUE, -1, 0, 1 and 64, each with signed contents -128, -7, -1, 0 and 1. The original target object, raw compound object, existing list and unrelated tags remain identical; contents load rather than disappear behind native hasTagCompound masking. Native constructors run completely, not isolated presence predicates.
+
+Actual constructed native World and EntityPlayer subclasses and a Container observer test inherited/default usability, crate exact held-object identity versus equal copy/EMPTY, toolbox close flag/random update, and empty crate close removing stacklock and empty compound. World abstract chunk hooks are supplied without loading chunks. The source sound bridge executes; complete box click/transfer/outer right-click integration is not claimed.
+
+The source recipe and generated declarations are retained. `receipt.json` pins exact production bytes. Expected native static sound registration prefix warnings appear outside a loaded mod context; there are no suppressed Java errors.

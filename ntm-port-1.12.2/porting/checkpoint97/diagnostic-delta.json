@@ -1,0 +1,37 @@
+{
+  "before": 10006,
+  "after": 9989,
+  "new_diagnostics_count": 0,
+  "removed_diagnostics_count": 17,
+  "new": [],
+  "removed": [
+    {
+      "file": "com/hbm/blocks/ModBlocks.java",
+      "message": "cannot find symbol",
+      "symbol": "method setBlockTextureName(String)",
+      "location": "class Block",
+      "count": 11
+    },
+    {
+      "file": "com/hbm/blocks/machine/BlockPillar.java",
+      "message": "cannot find symbol",
+      "symbol": "variable textureName",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/machine/BlockPillar.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/machine/BlockPillar.java",
+      "message": "cannot find symbol",
+      "symbol": "variable blockIcon",
+      "location": "",
+      "count": 2
+    }
+  ]
+}

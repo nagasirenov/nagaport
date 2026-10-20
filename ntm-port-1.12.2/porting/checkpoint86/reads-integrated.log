@@ -1,0 +1,5 @@
+PASS Native player inventory/range source: 47 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 144 rejected mutations. Not runtime/GL proof.
+PASS 1277 native InventoryPlayer/ItemStack and exact-source expression/Faraday checks.
+LIMIT: this proves indexed and size reads only; foreach, mutable whole-array consumers, native stack semantics and gameplay remain separate.
+PASS bounded baseline diagnostic reproduction: 83 array reads + 19 length reads fail against real native types
+PASS native helper compiled with exact 110 migrated expressions and complete Faraday body. No full production-class/client/server claim.

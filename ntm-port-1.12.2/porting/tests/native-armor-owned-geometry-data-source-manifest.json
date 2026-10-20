@@ -1,0 +1,728 @@
+{
+  "baseline": "df18fc077648dd18e6d0c1055d82c11dc2ebdb78",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockCrop.java": {
+      "before_sha256": "f0d22b8765e7baf5b48ceff74494976d0d022b85dc43a01d0787a17e3dde0abc",
+      "after_sha256": "0b0282c42ebe1cff51a1cf1dae05c0512fb3121a688a69620e3ef013852fb002",
+      "edits": [
+        {
+          "before_offset": 884,
+          "after_offset": 884,
+          "old": "",
+          "new": "\tprivate final net.minecraft.util.math.AxisAlignedBB shape;\n\n"
+        },
+        {
+          "before_offset": 1229,
+          "after_offset": 1290,
+          "old": "\t\tsetBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);\n",
+          "new": "\t\tthis.shape = new net.minecraft.util.math.AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);\n"
+        },
+        {
+          "before_offset": 6530,
+          "after_offset": 6631,
+          "old": "",
+          "new": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "1728f0357c57a60b44ab80ff732eb3516ba7bd79c513c4d4d6e66082e5e784dc",
+      "after_sha256": "cb984a0c2b97fdf98c04b6b3cddb8a18aea64f649a1501a5f1edd97229892304",
+      "edits": [
+        {
+          "before_offset": 5605,
+          "after_offset": 5605,
+          "old": "\t\t\ttorex.getDataWatcher().updateObject(10, 1.5F);\n",
+          "new": "\t\t\ttorex.setSynchronizedScale(1.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "010a8b4417c239460af053f9ce5d3a880e8d5d94be074c350d7293fa31fdd056",
+      "after_sha256": "af8d5b7265347ec2e4131c7ff326f70d3fc195dd1d67749e4e499d9ff2e512e7",
+      "edits": [
+        {
+          "before_offset": 10244,
+          "after_offset": 10244,
+          "old": "\t\t\t\tbomb.getDataWatcher().updateObject(20, (byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));\n",
+          "new": "\t\t\t\tbomb.setBlockMetadata((byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "a6e5e95193b42e839d185742919b28da2028796c1e00f8db9de8246170f6c204",
+      "after_sha256": "596e1ebf5300ccb76f9e1960de37789f5e5a6272190d730769383dee2aa9ee53",
+      "edits": [
+        {
+          "before_offset": 560,
+          "after_offset": 560,
+          "old": "",
+          "new": "\tprivate final net.minecraft.util.math.AxisAlignedBB shape;\n\n"
+        },
+        {
+          "before_offset": 610,
+          "after_offset": 671,
+          "old": "\t\tthis.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);\n",
+          "new": "\t\tthis.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);\n"
+        },
+        {
+          "before_offset": 3714,
+          "after_offset": 3810,
+          "old": "",
+          "new": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "f45a8c9b86975844b2ccacddb7230196c8d409e61321d75154e95bb56dc28afa",
+      "after_sha256": "4c9af08985f6c2910fca8ba996b36798dbea58c5fb6086eee03a349edf5b4bc7",
+      "edits": [
+        {
+          "before_offset": 776,
+          "after_offset": 776,
+          "old": "",
+          "new": "\n\tprivate final net.minecraft.util.math.AxisAlignedBB shape;\n"
+        },
+        {
+          "before_offset": 830,
+          "after_offset": 891,
+          "old": "\t\tthis.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);\n",
+          "new": "\t\tthis.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);\n"
+        },
+        {
+          "before_offset": 3409,
+          "after_offset": 3505,
+          "old": "",
+          "new": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java": {
+      "before_sha256": "aa2759d47c98edc4fdb3ac0c0ff9cefefb62c66ce583f88116a5c329026a9971",
+      "after_sha256": "4e64c0c81af4dd37b8ec6df841369cad906e27965f54d041ab2229e14d3ccd0f",
+      "edits": [
+        {
+          "before_offset": 2926,
+          "after_offset": 2926,
+          "old": "\t\t\tworld.setBlock(x + i, y, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + i, y, z - width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + width, y, z + i, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y, z + i, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + i, y + height - 1, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + i, y + height - 1, z - width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3586,
+          "after_offset": 9026,
+          "old": "\t\t\tworld.setBlock(x + width, y + i, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + width, y + i, z - width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y + i, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y + i, z - width, ModBlocks.brick_red, 6, 3);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3951,
+          "after_offset": 12111,
+          "old": "\t\t\t\tworld.setBlock(x + width, y + i, z + j, ModBlocks.brick_red, 4, 3);\n\t\t\t\tworld.setBlock(x - width, y + i, z + j, ModBlocks.brick_red, 5, 3);\n\t\t\t\tworld.setBlock(x + j, y + i, z + width, ModBlocks.brick_red, 2, 3);\n\t\t\t\tworld.setBlock(x + j, y + i, z - width, ModBlocks.brick_red, 3, 3);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 5; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 2; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 4798,
+          "after_offset": 15678,
+          "old": "\t\t\t\tworld.setBlock(x + i, y, z + j, ModBlocks.brick_red, 1, 3);\n\t\t\t\tworld.setBlock(x + i, y + height - 1, z + j, ModBlocks.brick_red, 0, 3);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 1; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 0; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java": {
+      "before_sha256": "18ac6110dfc119ac53f83c3c00608950bf7245b76830e2b48285b3abe285bbc1",
+      "after_sha256": "57e00f828a5a2f14ef08547756a18d3d8cce80740965d2009d47dea1853c2989",
+      "edits": [
+        {
+          "before_offset": 702,
+          "after_offset": 702,
+          "old": "",
+          "new": "\tprivate final net.minecraft.util.math.AxisAlignedBB shape;\n\n"
+        },
+        {
+          "before_offset": 784,
+          "after_offset": 845,
+          "old": "\t\tthis.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);\n",
+          "new": "\t\tthis.shape = new net.minecraft.util.math.AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);\n"
+        },
+        {
+          "before_offset": 3005,
+          "after_offset": 3101,
+          "old": "\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {\n",
+          "new": "\tpublic AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, IBlockAccess world, BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 6215,
+          "after_offset": 6348,
+          "old": "",
+          "new": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrick.java": {
+      "before_sha256": "1341d0ad7f47158c0e163ee1438f9316df85d7617a29067306284f77a96f863f",
+      "after_sha256": "6dedacebca5e13241f46f9ef5f3b81341beeb749655636a0fdf3a737e3dcf943",
+      "edits": [
+        {
+          "before_offset": 223,
+          "after_offset": 223,
+          "old": "import net.minecraft.block.BlockPistonBase;\n",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\nimport net.minecraft.util.math.BlockPos;\nimport net.minecraft.util.math.MathHelper;\n"
+        },
+        {
+          "before_offset": 583,
+          "after_offset": 778,
+          "old": "",
+          "new": "\t/** All original raw nibble values are meaningful, including 6–15 with no front face. */\n\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\t@Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, METADATA); }\n\t@Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(METADATA, meta & 15); }\n\t@Override public int getMetaFromState(IBlockState state) { return state.getValue(METADATA); }\n\n\tprotected IIcon blockIcon;\n"
+        },
+        {
+          "before_offset": 700,
+          "after_offset": 1433,
+          "old": "",
+          "new": "\t\tsetDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n"
+        },
+        {
+          "before_offset": 705,
+          "after_offset": 1510,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1046,
+          "after_offset": 1840,
+          "old": "\t@Override\n",
+          "new": ""
+        },
+        {
+          "before_offset": 1659,
+          "after_offset": 2442,
+          "old": "\t\tint l = BlockPistonBase.determineOrientation(world, x, y, z, player);\n\t\tworld.setBlockMetadataWithNotify(x, y, z, l, 2);\n",
+          "new": "\t\tint l = determinePlacementOrientation(nativePlacementPos, player);\n\t\tif(world == null) throw new NullPointerException();\n\t\tif(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y >= 0 && y < 256) {\n\t\t\tIBlockState current = world.getBlockState(nativePlacementPos);\n\t\t\tcom.hbm.world.WorldBlockState.write(world, x, y, z, current.getBlock().getStateFromMeta(l), 2);\n\t\t}\n"
+        },
+        {
+          "before_offset": 1785,
+          "after_offset": 2831,
+          "old": "",
+          "new": "\n\t/** Original piston orientation, deliberately not native half-block/eye-height orientation. */\n\tprivate static int determinePlacementOrientation(BlockPos pos, EntityLivingBase player) {\n\t\tif(MathHelper.abs((float) player.posX - pos.getX()) < 2.0F && MathHelper.abs((float) player.posZ - pos.getZ()) < 2.0F) {\n\t\t\t// Native posY is feet-relative; the original posY - yOffset is that same position.\n\t\t\tdouble height = player.posY + 1.82D;\n\t\t\tif(height - pos.getY() > 2.0D) return 1;\n\t\t\tif(pos.getY() - height > 0.0D) return 0;\n\t\t}\n\t\tint yaw = MathHelper.floor((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;\n\t\treturn yaw == 0 ? 2 : (yaw == 1 ? 5 : (yaw == 2 ? 3 : (yaw == 3 ? 4 : 0)));\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java": {
+      "before_sha256": "d67a1cee20881b952fb887c2fb7fd9e4dc44392591b2085bb7f25320fd4a149f",
+      "after_sha256": "e685bbb0194b77c504c5e875585e443e699417c45706906ee6482101d3728cbd",
+      "edits": [
+        {
+          "before_offset": 3999,
+          "after_offset": 3999,
+          "old": "\t\t\tworld.setBlock(x + i, y, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + i, y, z - width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + width, y, z + i, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y, z + i, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + i, y + height - 1, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + i, y + height - 1, z - width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 4659,
+          "after_offset": 10099,
+          "old": "\t\t\tworld.setBlock(x + width, y + i, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x + width, y + i, z - width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y + i, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\tworld.setBlock(x - width, y + i, z - width, ModBlocks.brick_red, 6, 3);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 5024,
+          "after_offset": 13184,
+          "old": "\t\t\t\tif(dir != Library.POS_X) world.setBlock(x + width, y + i, z + j, ModBlocks.brick_red, 6, 3);\n\t\t\t\tif(dir != Library.NEG_X) world.setBlock(x - width, y + i, z + j, ModBlocks.brick_red, 6, 3);\n\t\t\t\tif(dir != Library.POS_Z) world.setBlock(x + j, y + i, z + width, ModBlocks.brick_red, 6, 3);\n\t\t\t\tif(dir != Library.NEG_Z) world.setBlock(x + j, y + i, z - width, ModBlocks.brick_red, 6, 3);\n",
+          "new": "\t\t\t\tif(dir != Library.POS_X) { net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\tif(dir != Library.NEG_X) { net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\tif(dir != Library.POS_Z) { net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\tif(dir != Library.NEG_Z) { net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 5547,
+          "after_offset": 16427,
+          "old": "\t\t\t\tworld.setBlock(x + i, y, z + j, ModBlocks.brick_red, 6, 3);\n\t\t\t\tworld.setBlock(x + i, y + height - 1, z + j, ModBlocks.brick_red, 6, 3);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n\t\t\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityDepress.java": {
+      "before_sha256": "7116c3ad069a5c629a6b40c9d4111b71590bb2197ff92ded1d0116706c47e0f8",
+      "after_sha256": "a8b3ef266332b2b2e762012112e82813c027b3215560b34dd8b403593e26890d",
+      "edits": [
+        {
+          "before_offset": 302,
+          "after_offset": 302,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 500,
+          "after_offset": 665,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityDepress.class, DataSerializers.BYTE);\n\n"
+        },
+        {
+          "before_offset": 933,
+          "after_offset": 1225,
+          "old": "\t\tthis.dataWatcher.updateObject(10, (byte)dir.ordinal());\n",
+          "new": "\t\tthis.dataManager.set(DIRECTION, (byte)dir.ordinal());\n"
+        },
+        {
+          "before_offset": 1032,
+          "after_offset": 1322,
+          "old": "\t\treturn ForgeDirection.getOrientation(this.dataWatcher.getWatchableObjectByte(10));\n",
+          "new": "\t\treturn ForgeDirection.getOrientation(this.dataManager.get(DIRECTION));\n"
+        },
+        {
+          "before_offset": 1163,
+          "after_offset": 1441,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Byte((byte)0));\n",
+          "new": "\t\tthis.dataManager.register(DIRECTION, new Byte((byte)0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityNukeTorex.java": {
+      "before_sha256": "96ca61bdafa17929e7c49fcc184c42a2934e16bfcdad7f8983f64fe6bdc32632",
+      "after_sha256": "5107687e043d295a4e46f24de2752b67d6dea288910b1798fa4d827bdd7de8cc",
+      "edits": [
+        {
+          "before_offset": 435,
+          "after_offset": 435,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 694,
+          "after_offset": 859,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Float> SCALE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Integer> COLOR_TYPE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.VARINT);\n\n"
+        },
+        {
+          "before_offset": 1539,
+          "after_offset": 1965,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Float(1));\n\t\tthis.dataWatcher.addObject(11, new Integer(0));\n",
+          "new": "\t\tthis.dataManager.register(SCALE, new Float(1));\n\t\tthis.dataManager.register(COLOR_TYPE, new Integer(0));\n"
+        },
+        {
+          "before_offset": 7772,
+          "after_offset": 8207,
+          "old": "\t\tif(!this.world.isRemote) getDataWatcher().updateObject(10, scale);\n",
+          "new": "\t\tif(!this.world.isRemote) getDataManager().set(SCALE, scale);\n"
+        },
+        {
+          "before_offset": 8080,
+          "after_offset": 8509,
+          "old": "",
+          "new": "\t/** Updates synchronized scale only, without resizing local simulation fields. */\n\tpublic void setSynchronizedScale(float scale) {\n\t\tthis.dataManager.set(SCALE, scale);\n\t}\n\n"
+        },
+        {
+          "before_offset": 8124,
+          "after_offset": 8727,
+          "old": "\t\tthis.dataWatcher.updateObject(11, type);\n",
+          "new": "\t\tthis.dataManager.set(COLOR_TYPE, type);\n"
+        },
+        {
+          "before_offset": 8554,
+          "after_offset": 9156,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectFloat(10);\n",
+          "new": "\t\treturn this.dataManager.get(SCALE);\n"
+        },
+        {
+          "before_offset": 17094,
+          "after_offset": 17679,
+          "old": "\t\t\tint type = EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11);\n",
+          "new": "\t\t\tint type = EntityNukeTorex.this.dataManager.get(COLOR_TYPE);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "a5e3baf54787788bb244109717c6c256dff2d90310f25532556bd30ca7cf885b",
+      "after_sha256": "fa821e2db4392a3d7a74ab84054e7ca8486ded815791d7663e499deb49e364da",
+      "edits": [
+        {
+          "before_offset": 1313,
+          "after_offset": 1313,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1746,
+          "after_offset": 1911,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> FLUID_ID = EntityDataManager.createKey(EntityChemical.class, DataSerializers.VARINT);\n\n"
+        },
+        {
+          "before_offset": 2826,
+          "after_offset": 3123,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\n",
+          "new": "\t\tthis.dataManager.register(FLUID_ID, new Integer(0));\n"
+        },
+        {
+          "before_offset": 2931,
+          "after_offset": 3233,
+          "old": "\t\tthis.dataWatcher.updateObject(10, fluid.getID());\n",
+          "new": "\t\tthis.dataManager.set(FLUID_ID, fluid.getID());\n"
+        },
+        {
+          "before_offset": 3032,
+          "after_offset": 3331,
+          "old": "\t\treturn Fluids.fromID(this.dataWatcher.getWatchableObjectInt(10));\n",
+          "new": "\t\treturn Fluids.fromID(this.dataManager.get(FLUID_ID));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java": {
+      "before_sha256": "586fc06ba1ccc97a1c34208612042ed7e7789f0d371662c6fd5161e730bb690e",
+      "after_sha256": "9d839efc70efab2df0660d2026a3efb40eadcc13120f65a34d026479fc1cd576",
+      "edits": [
+        {
+          "before_offset": 305,
+          "after_offset": 305,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 444,
+          "after_offset": 609,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Byte> BLOCK_METADATA = EntityDataManager.createKey(EntityFallingNuke.class, DataSerializers.BYTE);\n\n"
+        },
+        {
+          "before_offset": 1180,
+          "after_offset": 1481,
+          "old": "",
+          "new": "\tpublic void setBlockMetadata(byte metadata) {\n\t\tthis.dataManager.set(BLOCK_METADATA, metadata);\n\t}\n\n\tpublic byte getBlockMetadata() {\n\t\treturn this.dataManager.get(BLOCK_METADATA);\n\t}\n\n"
+        },
+        {
+          "before_offset": 1214,
+          "after_offset": 1701,
+          "old": "    \tthis.dataWatcher.addObject(20, Byte.valueOf((byte)0));\n",
+          "new": "    \tthis.dataManager.register(BLOCK_METADATA, Byte.valueOf((byte)0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ModItemsArmor.java": {
+      "before_sha256": "8236f48616870559678917207cef871f941b718a087ce1492587e0c1c140a5b1",
+      "after_sha256": "3383e89defe67d87d951ce989ddc1043f100d158145f30f2358c5bbbd4630c3c",
+      "edits": [
+        {
+          "before_offset": 23,
+          "after_offset": 23,
+          "old": "",
+          "new": "\nimport com.hbm.render.item.NativeItemTextureRegistry;\n"
+        },
+        {
+          "before_offset": 757,
+          "after_offset": 812,
+          "old": "\t\tgoggles = new ArmorModel(ArmorMaterial.IRON, 0).setTranslationKey(\"goggles\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":goggles\");\n\t\tashglasses = new ArmorAshGlasses(ArmorMaterial.IRON, 0).setTranslationKey(\"ashglasses\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":ashglasses\");\n\t\tgas_mask = new ArmorGasMask().setTranslationKey(\"gas_mask\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":gas_mask\");\n\t\tgas_mask_m65 = new ArmorGasMask().setTranslationKey(\"gas_mask_m65\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":gas_mask_m65\");\n\t\tgas_mask_mono = new ArmorGasMask().setTranslationKey(\"gas_mask_mono\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":gas_mask_mono\");\n\t\tgas_mask_olde = new ArmorGasMask().setTranslationKey(\"gas_mask_olde\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":gas_mask_olde\");\n\t\tmask_rag = new ModArmor(aMatRags, 0).setTranslationKey(\"mask_rag\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":mask_rag\");\n\t\tmask_piss = new ModArmor(aMatRags, 0).setTranslationKey(\"mask_piss\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":mask_piss\");\n\t\that = new ArmorHat(MainRegistry.aMatAlloy, 0).setTranslationKey(\"nossy_hat\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":hat\");\n",
+          "new": "\t\tgoggles = NativeItemTextureRegistry.texture(new ArmorModel(ArmorMaterial.IRON, 0).setTranslationKey(\"goggles\").setMaxStackSize(1), RefStrings.MODID + \":goggles\");\n\t\tashglasses = NativeItemTextureRegistry.texture(new ArmorAshGlasses(ArmorMaterial.IRON, 0).setTranslationKey(\"ashglasses\").setMaxStackSize(1), RefStrings.MODID + \":ashglasses\");\n\t\tgas_mask = NativeItemTextureRegistry.texture(new ArmorGasMask().setTranslationKey(\"gas_mask\").setMaxStackSize(1), RefStrings.MODID + \":gas_mask\");\n\t\tgas_mask_m65 = NativeItemTextureRegistry.texture(new ArmorGasMask().setTranslationKey(\"gas_mask_m65\").setMaxStackSize(1), RefStrings.MODID + \":gas_mask_m65\");\n\t\tgas_mask_mono = NativeItemTextureRegistry.texture(new ArmorGasMask().setTranslationKey(\"gas_mask_mono\").setMaxStackSize(1), RefStrings.MODID + \":gas_mask_mono\");\n\t\tgas_mask_olde = NativeItemTextureRegistry.texture(new ArmorGasMask().setTranslationKey(\"gas_mask_olde\").setMaxStackSize(1), RefStrings.MODID + \":gas_mask_olde\");\n\t\tmask_rag = NativeItemTextureRegistry.texture(new ModArmor(aMatRags, 0).setTranslationKey(\"mask_rag\").setMaxStackSize(1), RefStrings.MODID + \":mask_rag\");\n\t\tmask_piss = NativeItemTextureRegistry.texture(new ModArmor(aMatRags, 0).setTranslationKey(\"mask_piss\").setMaxStackSize(1), RefStrings.MODID + \":mask_piss\");\n\t\that = NativeItemTextureRegistry.texture(new ArmorHat(MainRegistry.aMatAlloy, 0).setTranslationKey(\"nossy_hat\").setMaxStackSize(1), RefStrings.MODID + \":hat\");\n"
+        },
+        {
+          "before_offset": 2286,
+          "after_offset": 2521,
+          "old": "\t\teuphemium_helmet = new ArmorEuphemium(MainRegistry.aMatEuph, 0).setTranslationKey(\"euphemium_helmet\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":euphemium_helmet\");\n\t\teuphemium_plate = new ArmorEuphemium(MainRegistry.aMatEuph, 1).setTranslationKey(\"euphemium_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":euphemium_plate\");\n\t\teuphemium_legs = new ArmorEuphemium(MainRegistry.aMatEuph, 2).setTranslationKey(\"euphemium_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":euphemium_legs\");\n\t\teuphemium_boots = new ArmorEuphemium(MainRegistry.aMatEuph, 3).setTranslationKey(\"euphemium_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":euphemium_boots\");\n",
+          "new": "\t\teuphemium_helmet = NativeItemTextureRegistry.texture(new ArmorEuphemium(MainRegistry.aMatEuph, 0).setTranslationKey(\"euphemium_helmet\").setMaxStackSize(1), RefStrings.MODID + \":euphemium_helmet\");\n\t\teuphemium_plate = NativeItemTextureRegistry.texture(new ArmorEuphemium(MainRegistry.aMatEuph, 1).setTranslationKey(\"euphemium_plate\").setMaxStackSize(1), RefStrings.MODID + \":euphemium_plate\");\n\t\teuphemium_legs = NativeItemTextureRegistry.texture(new ArmorEuphemium(MainRegistry.aMatEuph, 2).setTranslationKey(\"euphemium_legs\").setMaxStackSize(1), RefStrings.MODID + \":euphemium_legs\");\n\t\teuphemium_boots = NativeItemTextureRegistry.texture(new ArmorEuphemium(MainRegistry.aMatEuph, 3).setTranslationKey(\"euphemium_boots\").setMaxStackSize(1), RefStrings.MODID + \":euphemium_boots\");\n"
+        },
+        {
+          "before_offset": 3472,
+          "after_offset": 3787,
+          "old": "\t\tschrabidium_plate = new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_plate\").setTextureName(RefStrings.MODID + \":schrabidium_plate\");\n\t\tschrabidium_legs = new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + \":textures/armor/schrabidium_2.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_legs\").setTextureName(RefStrings.MODID + \":schrabidium_legs\");\n\t\tschrabidium_boots = new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_boots\").setTextureName(RefStrings.MODID + \":schrabidium_boots\");\n",
+          "new": "\t\tschrabidium_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_plate\"), RefStrings.MODID + \":schrabidium_plate\");\n\t\tschrabidium_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + \":textures/armor/schrabidium_2.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_legs\"), RefStrings.MODID + \":schrabidium_legs\");\n\t\tschrabidium_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + \":textures/armor/schrabidium_1.png\").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey(\"schrabidium_boots\"), RefStrings.MODID + \":schrabidium_boots\");\n"
+        },
+        {
+          "before_offset": 4782,
+          "after_offset": 5157,
+          "old": "\t\tbismuth_plate = new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_plate\").setTextureName(RefStrings.MODID + \":bismuth_plate\");\n\t\tbismuth_legs = new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_legs\").setTextureName(RefStrings.MODID + \":bismuth_legs\");\n\t\tbismuth_boots = new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_boots\").setTextureName(RefStrings.MODID + \":bismuth_boots\");\n\t\ttitanium_helmet = new ArmorFSB(MainRegistry.aMatTitan, 0, RefStrings.MODID + \":textures/armor/titanium_1.png\").setTranslationKey(\"titanium_helmet\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":titanium_helmet\");\n\t\ttitanium_plate = new ArmorFSB(MainRegistry.aMatTitan, 1, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":titanium_plate\");\n\t\ttitanium_legs = new ArmorFSB(MainRegistry.aMatTitan, 2, RefStrings.MODID + \":textures/armor/titanium_2.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":titanium_legs\");\n\t\ttitanium_boots = new ArmorFSB(MainRegistry.aMatTitan, 3, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_boots\").setTextureName(RefStrings.MODID + \":titanium_boots\");\n\t\tsteel_helmet = new ArmorFSB(MainRegistry.aMatSteel, 0, RefStrings.MODID + \":textures/armor/steel_1.png\").setTranslationKey(\"steel_helmet\").setTextureName(RefStrings.MODID + \":steel_helmet\");\n\t\tsteel_plate = new ArmorFSB(MainRegistry.aMatSteel, 1, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_plate\").setTextureName(RefStrings.MODID + \":steel_plate\");\n\t\tsteel_legs = new ArmorFSB(MainRegistry.aMatSteel, 2, RefStrings.MODID + \":textures/armor/steel_2.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_legs\").setTextureName(RefStrings.MODID + \":steel_legs\");\n\t\tsteel_boots = new ArmorFSB(MainRegistry.aMatSteel, 3, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_boots\").setTextureName(RefStrings.MODID + \":steel_boots\");\n\t\talloy_helmet = new ArmorFSB(MainRegistry.aMatAlloy, 0, RefStrings.MODID + \":textures/armor/alloy_1.png\").setTranslationKey(\"alloy_helmet\").setTextureName(RefStrings.MODID + \":alloy_helmet\");\n\t\talloy_plate = new ArmorFSB(MainRegistry.aMatAlloy, 1, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_plate\").setTextureName(RefStrings.MODID + \":alloy_plate\");\n\t\talloy_legs = new ArmorFSB(MainRegistry.aMatAlloy, 2, RefStrings.MODID + \":textures/armor/alloy_2.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_legs\").setTextureName(RefStrings.MODID + \":alloy_legs\");\n\t\talloy_boots = new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_boots\").setTextureName(RefStrings.MODID + \":alloy_boots\");\n",
+          "new": "\t\tbismuth_plate = NativeItemTextureRegistry.texture(new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_plate\"), RefStrings.MODID + \":bismuth_plate\");\n\t\tbismuth_legs = NativeItemTextureRegistry.texture(new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_legs\"), RefStrings.MODID + \":bismuth_legs\");\n\t\tbismuth_boots = NativeItemTextureRegistry.texture(new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_boots\"), RefStrings.MODID + \":bismuth_boots\");\n\t\ttitanium_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatTitan, 0, RefStrings.MODID + \":textures/armor/titanium_1.png\").setTranslationKey(\"titanium_helmet\").setMaxStackSize(1), RefStrings.MODID + \":titanium_helmet\");\n\t\ttitanium_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatTitan, 1, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_plate\").setMaxStackSize(1), RefStrings.MODID + \":titanium_plate\");\n\t\ttitanium_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatTitan, 2, RefStrings.MODID + \":textures/armor/titanium_2.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_legs\").setMaxStackSize(1), RefStrings.MODID + \":titanium_legs\");\n\t\ttitanium_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatTitan, 3, RefStrings.MODID + \":textures/armor/titanium_1.png\").cloneStats((ArmorFSB) titanium_helmet).setTranslationKey(\"titanium_boots\"), RefStrings.MODID + \":titanium_boots\");\n\t\tsteel_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSteel, 0, RefStrings.MODID + \":textures/armor/steel_1.png\").setTranslationKey(\"steel_helmet\"), RefStrings.MODID + \":steel_helmet\");\n\t\tsteel_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSteel, 1, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_plate\"), RefStrings.MODID + \":steel_plate\");\n\t\tsteel_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSteel, 2, RefStrings.MODID + \":textures/armor/steel_2.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_legs\"), RefStrings.MODID + \":steel_legs\");\n\t\tsteel_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSteel, 3, RefStrings.MODID + \":textures/armor/steel_1.png\").cloneStats((ArmorFSB) steel_helmet).setTranslationKey(\"steel_boots\"), RefStrings.MODID + \":steel_boots\");\n\t\talloy_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAlloy, 0, RefStrings.MODID + \":textures/armor/alloy_1.png\").setTranslationKey(\"alloy_helmet\"), RefStrings.MODID + \":alloy_helmet\");\n\t\talloy_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAlloy, 1, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_plate\"), RefStrings.MODID + \":alloy_plate\");\n\t\talloy_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAlloy, 2, RefStrings.MODID + \":textures/armor/alloy_2.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_legs\"), RefStrings.MODID + \":alloy_legs\");\n\t\talloy_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + \":textures/armor/alloy_1.png\").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey(\"alloy_boots\"), RefStrings.MODID + \":alloy_boots\");\n"
+        },
+        {
+          "before_offset": 8618,
+          "after_offset": 9293,
+          "old": "\t\tcmb_plate = new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_plate\").setTextureName(RefStrings.MODID + \":cmb_plate\");\n\t\tcmb_legs = new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + \":textures/armor/cmb_2.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_legs\").setTextureName(RefStrings.MODID + \":cmb_legs\");\n\t\tcmb_boots = new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_boots\").setTextureName(RefStrings.MODID + \":cmb_boots\");\n",
+          "new": "\t\tcmb_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_plate\"), RefStrings.MODID + \":cmb_plate\");\n\t\tcmb_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + \":textures/armor/cmb_2.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_legs\"), RefStrings.MODID + \":cmb_legs\");\n\t\tcmb_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + \":textures/armor/cmb_1.png\").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey(\"cmb_boots\"), RefStrings.MODID + \":cmb_boots\");\n"
+        },
+        {
+          "before_offset": 9516,
+          "after_offset": 10251,
+          "old": "\t\tpaa_legs = new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + \":textures/armor/paa_2.png\").cloneStats((ArmorFSB) paa_plate).setTranslationKey(\"paa_legs\").setTextureName(RefStrings.MODID + \":paa_legs\");\n\t\tpaa_boots = new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + \":textures/armor/paa_1.png\").cloneStats((ArmorFSB) paa_plate).setTranslationKey(\"paa_boots\").setTextureName(RefStrings.MODID + \":paa_boots\");\n",
+          "new": "\t\tpaa_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + \":textures/armor/paa_2.png\").cloneStats((ArmorFSB) paa_plate).setTranslationKey(\"paa_legs\"), RefStrings.MODID + \":paa_legs\");\n\t\tpaa_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + \":textures/armor/paa_1.png\").cloneStats((ArmorFSB) paa_plate).setTranslationKey(\"paa_boots\"), RefStrings.MODID + \":paa_boots\");\n"
+        },
+        {
+          "before_offset": 10217,
+          "after_offset": 10992,
+          "old": "\t\tasbestos_plate = new ArmorFSB(MainRegistry.aMatAsbestos, 1, RefStrings.MODID + \":textures/armor/asbestos_1.png\").setTranslationKey(\"asbestos_plate\").setTextureName(RefStrings.MODID + \":asbestos_plate\");\n\t\tasbestos_legs = new ArmorFSB(MainRegistry.aMatAsbestos, 2, RefStrings.MODID + \":textures/armor/asbestos_2.png\").setTranslationKey(\"asbestos_legs\").setTextureName(RefStrings.MODID + \":asbestos_legs\");\n\t\tasbestos_boots = new ArmorFSB(MainRegistry.aMatAsbestos, 3, RefStrings.MODID + \":textures/armor/asbestos_1.png\").setTranslationKey(\"asbestos_boots\").setTextureName(RefStrings.MODID + \":asbestos_boots\");\n\t\tsecurity_helmet = new ArmorFSB(MainRegistry.aMatSecurity, 0, RefStrings.MODID + \":textures/armor/security_1.png\").setTranslationKey(\"security_helmet\").setTextureName(RefStrings.MODID + \":security_helmet\");\n\t\tsecurity_plate = new ArmorFSB(MainRegistry.aMatSecurity, 1, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_plate\").setTextureName(RefStrings.MODID + \":security_plate\");\n\t\tsecurity_legs = new ArmorFSB(MainRegistry.aMatSecurity, 2, RefStrings.MODID + \":textures/armor/security_2.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_legs\").setTextureName(RefStrings.MODID + \":security_legs\");\n\t\tsecurity_boots = new ArmorFSB(MainRegistry.aMatSecurity, 3, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_boots\").setTextureName(RefStrings.MODID + \":security_boots\");\n\t\tcobalt_helmet = new ArmorFSB(MainRegistry.aMatCobalt, 0, RefStrings.MODID + \":textures/armor/cobalt_1.png\").setTranslationKey(\"cobalt_helmet\").setTextureName(RefStrings.MODID + \":cobalt_helmet\");\n\t\tcobalt_plate = new ArmorFSB(MainRegistry.aMatCobalt, 1, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_plate\").setTextureName(RefStrings.MODID + \":cobalt_plate\");\n\t\tcobalt_legs = new ArmorFSB(MainRegistry.aMatCobalt, 2, RefStrings.MODID + \":textures/armor/cobalt_2.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_legs\").setTextureName(RefStrings.MODID + \":cobalt_legs\");\n\t\tcobalt_boots = new ArmorFSB(MainRegistry.aMatCobalt, 3, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_boots\").setTextureName(RefStrings.MODID + \":cobalt_boots\");\n\t\tstarmetal_helmet = new ArmorFSB(MainRegistry.aMatStarmetal, 0, RefStrings.MODID + \":textures/armor/starmetal_1.png\")\n\t\t\t\t.setTranslationKey(\"starmetal_helmet\").setTextureName(RefStrings.MODID + \":starmetal_helmet\");\n\t\tstarmetal_plate = new ArmorFSB(MainRegistry.aMatStarmetal, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_plate\").setTextureName(RefStrings.MODID + \":starmetal_plate\");\n\t\tstarmetal_legs = new ArmorFSB(MainRegistry.aMatStarmetal, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_legs\").setTextureName(RefStrings.MODID + \":starmetal_legs\");\n\t\tstarmetal_boots = new ArmorFSB(MainRegistry.aMatStarmetal, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_boots\").setTextureName(RefStrings.MODID + \":starmetal_boots\");\n\n\t\trobes_helmet = new ArmorFSB(ArmorMaterial.CHAIN, 0, RefStrings.MODID + \":textures/armor/robes_1.png\").setTranslationKey(\"robes_helmet\").setTextureName(RefStrings.MODID + \":robes_helmet\");\n\t\trobes_plate = new ArmorFSB(ArmorMaterial.CHAIN, 1, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_plate\").setTextureName(RefStrings.MODID + \":robes_plate\");\n\t\trobes_legs = new ArmorFSB(ArmorMaterial.CHAIN, 2, RefStrings.MODID + \":textures/armor/robes_2.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_legs\").setTextureName(RefStrings.MODID + \":robes_legs\");\n\t\trobes_boots = new ArmorFSB(ArmorMaterial.CHAIN, 3, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_boots\").setTextureName(RefStrings.MODID + \":robes_boots\");\n",
+          "new": "\t\tasbestos_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAsbestos, 1, RefStrings.MODID + \":textures/armor/asbestos_1.png\").setTranslationKey(\"asbestos_plate\"), RefStrings.MODID + \":asbestos_plate\");\n\t\tasbestos_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAsbestos, 2, RefStrings.MODID + \":textures/armor/asbestos_2.png\").setTranslationKey(\"asbestos_legs\"), RefStrings.MODID + \":asbestos_legs\");\n\t\tasbestos_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAsbestos, 3, RefStrings.MODID + \":textures/armor/asbestos_1.png\").setTranslationKey(\"asbestos_boots\"), RefStrings.MODID + \":asbestos_boots\");\n\t\tsecurity_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSecurity, 0, RefStrings.MODID + \":textures/armor/security_1.png\").setTranslationKey(\"security_helmet\"), RefStrings.MODID + \":security_helmet\");\n\t\tsecurity_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSecurity, 1, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_plate\"), RefStrings.MODID + \":security_plate\");\n\t\tsecurity_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSecurity, 2, RefStrings.MODID + \":textures/armor/security_2.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_legs\"), RefStrings.MODID + \":security_legs\");\n\t\tsecurity_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSecurity, 3, RefStrings.MODID + \":textures/armor/security_1.png\").cloneStats((ArmorFSB) security_helmet).setTranslationKey(\"security_boots\"), RefStrings.MODID + \":security_boots\");\n\t\tcobalt_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCobalt, 0, RefStrings.MODID + \":textures/armor/cobalt_1.png\").setTranslationKey(\"cobalt_helmet\"), RefStrings.MODID + \":cobalt_helmet\");\n\t\tcobalt_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCobalt, 1, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_plate\"), RefStrings.MODID + \":cobalt_plate\");\n\t\tcobalt_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCobalt, 2, RefStrings.MODID + \":textures/armor/cobalt_2.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_legs\"), RefStrings.MODID + \":cobalt_legs\");\n\t\tcobalt_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCobalt, 3, RefStrings.MODID + \":textures/armor/cobalt_1.png\").cloneStats((ArmorFSB) cobalt_helmet).setTranslationKey(\"cobalt_boots\"), RefStrings.MODID + \":cobalt_boots\");\n\t\tstarmetal_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatStarmetal, 0, RefStrings.MODID + \":textures/armor/starmetal_1.png\")\n\t\t\t\t.setTranslationKey(\"starmetal_helmet\"), RefStrings.MODID + \":starmetal_helmet\");\n\t\tstarmetal_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatStarmetal, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_plate\"), RefStrings.MODID + \":starmetal_plate\");\n\t\tstarmetal_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatStarmetal, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_legs\"), RefStrings.MODID + \":starmetal_legs\");\n\t\tstarmetal_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatStarmetal, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) starmetal_helmet).setTranslationKey(\"starmetal_boots\"), RefStrings.MODID + \":starmetal_boots\");\n\n\t\trobes_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(ArmorMaterial.CHAIN, 0, RefStrings.MODID + \":textures/armor/robes_1.png\").setTranslationKey(\"robes_helmet\"), RefStrings.MODID + \":robes_helmet\");\n\t\trobes_plate = NativeItemTextureRegistry.texture(new ArmorFSB(ArmorMaterial.CHAIN, 1, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_plate\"), RefStrings.MODID + \":robes_plate\");\n\t\trobes_legs = NativeItemTextureRegistry.texture(new ArmorFSB(ArmorMaterial.CHAIN, 2, RefStrings.MODID + \":textures/armor/robes_2.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_legs\"), RefStrings.MODID + \":robes_legs\");\n\t\trobes_boots = NativeItemTextureRegistry.texture(new ArmorFSB(ArmorMaterial.CHAIN, 3, RefStrings.MODID + \":textures/armor/robes_1.png\").cloneStats((ArmorFSB) robes_helmet).setTranslationKey(\"robes_boots\"), RefStrings.MODID + \":robes_boots\");\n"
+        },
+        {
+          "before_offset": 14664,
+          "after_offset": 15819,
+          "old": "\t\tzirconium_legs = new ArmorFSB(aMatZirconium, 2, RefStrings.MODID + \":textures/armor/zirconium_2.png\").setTranslationKey(\"zirconium_legs\").setTextureName(RefStrings.MODID + \":zirconium_legs\");\n",
+          "new": "\t\tzirconium_legs = NativeItemTextureRegistry.texture(new ArmorFSB(aMatZirconium, 2, RefStrings.MODID + \":textures/armor/zirconium_2.png\").setTranslationKey(\"zirconium_legs\"), RefStrings.MODID + \":zirconium_legs\");\n"
+        },
+        {
+          "before_offset": 15029,
+          "after_offset": 16204,
+          "old": "\t\tdnt_helmet = new ArmorFSB(aMatDNT, 0, RefStrings.MODID + \":textures/armor/dnt_1.png\")\n\t\t\t\t.setTranslationKey(\"dnt_helmet\").setTextureName(RefStrings.MODID + \":dnt_helmet\");\n\t\tdnt_plate = new ArmorFSB(aMatDNT, 1, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_plate\").setTextureName(RefStrings.MODID + \":dnt_plate\");\n\t\tdnt_legs = new ArmorFSB(aMatDNT, 2, RefStrings.MODID + \":textures/armor/dnt_2.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_legs\").setTextureName(RefStrings.MODID + \":dnt_legs\");\n\t\tdnt_boots = new ArmorFSB(aMatDNT, 3, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_boots\").setTextureName(RefStrings.MODID + \":dnt_boots\");\n",
+          "new": "\t\tdnt_helmet = NativeItemTextureRegistry.texture(new ArmorFSB(aMatDNT, 0, RefStrings.MODID + \":textures/armor/dnt_1.png\")\n\t\t\t\t.setTranslationKey(\"dnt_helmet\"), RefStrings.MODID + \":dnt_helmet\");\n\t\tdnt_plate = NativeItemTextureRegistry.texture(new ArmorFSB(aMatDNT, 1, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_plate\"), RefStrings.MODID + \":dnt_plate\");\n\t\tdnt_legs = NativeItemTextureRegistry.texture(new ArmorFSB(aMatDNT, 2, RefStrings.MODID + \":textures/armor/dnt_2.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_legs\"), RefStrings.MODID + \":dnt_legs\");\n\t\tdnt_boots = NativeItemTextureRegistry.texture(new ArmorFSB(aMatDNT, 3, RefStrings.MODID + \":textures/armor/dnt_1.png\").cloneStats((ArmorFSB) dnt_helmet).setTranslationKey(\"dnt_boots\"), RefStrings.MODID + \":dnt_boots\");\n"
+        },
+        {
+          "before_offset": 16548,
+          "after_offset": 17803,
+          "old": "\t\tt51_plate = new ArmorT51(aMatT51, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n\t\tt51_legs = new ArmorT51(aMatT51, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n\t\tt51_boots = new ArmorT51(aMatT51, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n",
+          "new": "\t\tt51_plate = NativeItemTextureRegistry.texture(new ArmorT51(aMatT51, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_plate\").setMaxStackSize(1), RefStrings.MODID + \":armor\");\n\t\tt51_legs = NativeItemTextureRegistry.texture(new ArmorT51(aMatT51, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_legs\").setMaxStackSize(1), RefStrings.MODID + \":armor\");\n\t\tt51_boots = NativeItemTextureRegistry.texture(new ArmorT51(aMatT51, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_boots\").setMaxStackSize(1), RefStrings.MODID + \":armor\");\n"
+        },
+        {
+          "before_offset": 17914,
+          "after_offset": 19229,
+          "old": "\t\tsteamsuit_plate = new ArmorDesh(aMatDesh, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_plate\");\n\t\tsteamsuit_legs = new ArmorDesh(aMatDesh, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_legs\");\n\t\tsteamsuit_boots = new ArmorDesh(aMatDesh, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_boots\");\n",
+          "new": "\t\tsteamsuit_plate = NativeItemTextureRegistry.texture(new ArmorDesh(aMatDesh, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_plate\").setMaxStackSize(1), RefStrings.MODID + \":steamsuit_plate\");\n\t\tsteamsuit_legs = NativeItemTextureRegistry.texture(new ArmorDesh(aMatDesh, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_legs\").setMaxStackSize(1), RefStrings.MODID + \":steamsuit_legs\");\n\t\tsteamsuit_boots = NativeItemTextureRegistry.texture(new ArmorDesh(aMatDesh, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_boots\").setMaxStackSize(1), RefStrings.MODID + \":steamsuit_boots\");\n"
+        },
+        {
+          "before_offset": 19384,
+          "after_offset": 20759,
+          "old": "\t\tdieselsuit_plate = new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_plate\");\n\t\tdieselsuit_legs = new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_legs\");\n\t\tdieselsuit_boots = new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_boots\");\n",
+          "new": "\t\tdieselsuit_plate = NativeItemTextureRegistry.texture(new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_plate\").setMaxStackSize(1), RefStrings.MODID + \":dieselsuit_plate\");\n\t\tdieselsuit_legs = NativeItemTextureRegistry.texture(new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_legs\").setMaxStackSize(1), RefStrings.MODID + \":dieselsuit_legs\");\n\t\tdieselsuit_boots = NativeItemTextureRegistry.texture(new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_boots\").setMaxStackSize(1), RefStrings.MODID + \":dieselsuit_boots\");\n"
+        },
+        {
+          "before_offset": 21052,
+          "after_offset": 22487,
+          "old": "\t\tajr_plate = new ArmorAJR(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_plate\").setTextureName(RefStrings.MODID + \":ajr_plate\");\n\t\tajr_legs = new ArmorAJR(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_legs\").setTextureName(RefStrings.MODID + \":ajr_legs\");\n\t\tajr_boots = new ArmorAJR(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_boots\").setTextureName(RefStrings.MODID + \":ajr_boots\");\n",
+          "new": "\t\tajr_plate = NativeItemTextureRegistry.texture(new ArmorAJR(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_plate\"), RefStrings.MODID + \":ajr_plate\");\n\t\tajr_legs = NativeItemTextureRegistry.texture(new ArmorAJR(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_legs\"), RefStrings.MODID + \":ajr_legs\");\n\t\tajr_boots = NativeItemTextureRegistry.texture(new ArmorAJR(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_boots\"), RefStrings.MODID + \":ajr_boots\");\n"
+        },
+        {
+          "before_offset": 22374,
+          "after_offset": 23869,
+          "old": "\t\tajro_plate = new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_plate\").setTextureName(RefStrings.MODID + \":ajro_plate\");\n\t\tajro_legs = new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_legs\").setTextureName(RefStrings.MODID + \":ajro_legs\");\n\t\tajro_boots = new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_boots\").setTextureName(RefStrings.MODID + \":ajro_boots\");\n",
+          "new": "\t\tajro_plate = NativeItemTextureRegistry.texture(new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_plate\"), RefStrings.MODID + \":ajro_plate\");\n\t\tajro_legs = NativeItemTextureRegistry.texture(new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_legs\"), RefStrings.MODID + \":ajro_legs\");\n\t\tajro_boots = NativeItemTextureRegistry.texture(new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_boots\"), RefStrings.MODID + \":ajro_boots\");\n"
+        },
+        {
+          "before_offset": 23657,
+          "after_offset": 25212,
+          "old": "\t\trpa_plate = new ArmorRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_plate\").setTextureName(RefStrings.MODID + \":rpa_plate\");\n\t\trpa_legs = new ArmorRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_legs\").setTextureName(RefStrings.MODID + \":rpa_legs\");\n\t\trpa_boots = new ArmorRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_boots\").setTextureName(RefStrings.MODID + \":rpa_boots\");\n",
+          "new": "\t\trpa_plate = NativeItemTextureRegistry.texture(new ArmorRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_plate\"), RefStrings.MODID + \":rpa_plate\");\n\t\trpa_legs = NativeItemTextureRegistry.texture(new ArmorRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_legs\"), RefStrings.MODID + \":rpa_legs\");\n\t\trpa_boots = NativeItemTextureRegistry.texture(new ArmorRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_boots\"), RefStrings.MODID + \":rpa_boots\");\n"
+        },
+        {
+          "before_offset": 24933,
+          "after_offset": 26548,
+          "old": "\t\tncrpa_plate = new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_plate\").setTextureName(RefStrings.MODID + \":rpa_plate\");\n\t\tncrpa_legs = new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_legs\").setTextureName(RefStrings.MODID + \":rpa_legs\");\n\t\tncrpa_boots = new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_boots\").setTextureName(RefStrings.MODID + \":rpa_boots\");\n",
+          "new": "\t\tncrpa_plate = NativeItemTextureRegistry.texture(new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_plate\"), RefStrings.MODID + \":rpa_plate\");\n\t\tncrpa_legs = NativeItemTextureRegistry.texture(new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_legs\"), RefStrings.MODID + \":rpa_legs\");\n\t\tncrpa_boots = NativeItemTextureRegistry.texture(new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_boots\"), RefStrings.MODID + \":rpa_boots\");\n"
+        },
+        {
+          "before_offset": 26541,
+          "after_offset": 28216,
+          "old": "\t\tbj_plate = new ArmorBJ(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_plate\").setTextureName(RefStrings.MODID + \":bj_plate\");\n\t\tbj_plate_jetpack = new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_plate_jetpack\").setTextureName(RefStrings.MODID + \":bj_plate_jetpack\");\n\t\tbj_legs = new ArmorBJ(aMatBJ, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_legs\").setTextureName(RefStrings.MODID + \":bj_legs\");\n\t\tbj_boots = new ArmorBJ(aMatBJ, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_boots\").setTextureName(RefStrings.MODID + \":bj_boots\");\n",
+          "new": "\t\tbj_plate = NativeItemTextureRegistry.texture(new ArmorBJ(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_plate\"), RefStrings.MODID + \":bj_plate\");\n\t\tbj_plate_jetpack = NativeItemTextureRegistry.texture(new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_plate_jetpack\"), RefStrings.MODID + \":bj_plate_jetpack\");\n\t\tbj_legs = NativeItemTextureRegistry.texture(new ArmorBJ(aMatBJ, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_legs\"), RefStrings.MODID + \":bj_legs\");\n\t\tbj_boots = NativeItemTextureRegistry.texture(new ArmorBJ(aMatBJ, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_boots\"), RefStrings.MODID + \":bj_boots\");\n"
+        },
+        {
+          "before_offset": 28126,
+          "after_offset": 29881,
+          "old": "\t\tenvsuit_plate = new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_plate\").setTextureName(RefStrings.MODID + \":envsuit_plate\");\n\t\tenvsuit_legs = new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_legs\").setTextureName(RefStrings.MODID + \":envsuit_legs\");\n\t\tenvsuit_boots = new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_boots\").setTextureName(RefStrings.MODID + \":envsuit_boots\");\n",
+          "new": "\t\tenvsuit_plate = NativeItemTextureRegistry.texture(new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_plate\"), RefStrings.MODID + \":envsuit_plate\");\n\t\tenvsuit_legs = NativeItemTextureRegistry.texture(new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_legs\"), RefStrings.MODID + \":envsuit_legs\");\n\t\tenvsuit_boots = NativeItemTextureRegistry.texture(new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_boots\"), RefStrings.MODID + \":envsuit_boots\");\n"
+        },
+        {
+          "before_offset": 29562,
+          "after_offset": 31377,
+          "old": "\t\thev_plate = new ArmorHEV(aMatHEV, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_plate\").setTextureName(RefStrings.MODID + \":hev_plate\");\n\t\thev_legs = new ArmorHEV(aMatHEV, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_legs\").setTextureName(RefStrings.MODID + \":hev_legs\");\n\t\thev_boots = new ArmorHEV(aMatHEV, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_boots\").setTextureName(RefStrings.MODID + \":hev_boots\");\n\n\t\tjackt = new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt\").setTextureName(RefStrings.MODID + \":jackt\");\n\t\tjackt2 = new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt2\").setTextureName(RefStrings.MODID + \":jackt2\");\n",
+          "new": "\t\thev_plate = NativeItemTextureRegistry.texture(new ArmorHEV(aMatHEV, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_plate\"), RefStrings.MODID + \":hev_plate\");\n\t\thev_legs = NativeItemTextureRegistry.texture(new ArmorHEV(aMatHEV, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_legs\"), RefStrings.MODID + \":hev_legs\");\n\t\thev_boots = NativeItemTextureRegistry.texture(new ArmorHEV(aMatHEV, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_boots\"), RefStrings.MODID + \":hev_boots\");\n\n\t\tjackt = NativeItemTextureRegistry.texture(new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt\"), RefStrings.MODID + \":jackt\");\n\t\tjackt2 = NativeItemTextureRegistry.texture(new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt2\"), RefStrings.MODID + \":jackt2\");\n"
+        },
+        {
+          "before_offset": 31820,
+          "after_offset": 33735,
+          "old": "\t\tfau_boots = new ArmorDigamma(aMatFau, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).setTranslationKey(\"fau_boots\").setTextureName(RefStrings.MODID + \":fau_boots\");\n",
+          "new": "\t\tfau_boots = NativeItemTextureRegistry.texture(new ArmorDigamma(aMatFau, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).setTranslationKey(\"fau_boots\"), RefStrings.MODID + \":fau_boots\");\n"
+        },
+        {
+          "before_offset": 32955,
+          "after_offset": 34890,
+          "old": "\t\tdns_plate = new ArmorDNT(aMatDNS, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_plate\").setTextureName(RefStrings.MODID + \":dns_plate\");\n\t\tdns_legs = new ArmorDNT(aMatDNS, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_legs\").setTextureName(RefStrings.MODID + \":dns_legs\");\n\t\tdns_boots = new ArmorDNT(aMatDNS, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_boots\").setTextureName(RefStrings.MODID + \":dns_boots\");\n",
+          "new": "\t\tdns_plate = NativeItemTextureRegistry.texture(new ArmorDNT(aMatDNS, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_plate\"), RefStrings.MODID + \":dns_plate\");\n\t\tdns_legs = NativeItemTextureRegistry.texture(new ArmorDNT(aMatDNS, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_legs\"), RefStrings.MODID + \":dns_legs\");\n\t\tdns_boots = NativeItemTextureRegistry.texture(new ArmorDNT(aMatDNS, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_boots\"), RefStrings.MODID + \":dns_boots\");\n"
+        },
+        {
+          "before_offset": 34247,
+          "after_offset": 36242,
+          "old": "\t\ttaurun_plate = new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_plate\").setTextureName(RefStrings.MODID + \":taurun_plate\");\n\t\ttaurun_legs = new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_legs\").setTextureName(RefStrings.MODID + \":taurun_legs\");\n\t\ttaurun_boots = new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_boots\").setTextureName(RefStrings.MODID + \":taurun_boots\");\n",
+          "new": "\t\ttaurun_plate = NativeItemTextureRegistry.texture(new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_plate\"), RefStrings.MODID + \":taurun_plate\");\n\t\ttaurun_legs = NativeItemTextureRegistry.texture(new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_legs\"), RefStrings.MODID + \":taurun_legs\");\n\t\ttaurun_boots = NativeItemTextureRegistry.texture(new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_boots\"), RefStrings.MODID + \":taurun_boots\");\n"
+        },
+        {
+          "before_offset": 35724,
+          "after_offset": 37779,
+          "old": "\t\ttrenchmaster_plate = new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_plate\").setTextureName(RefStrings.MODID + \":trenchmaster_plate\");\n\t\ttrenchmaster_legs = new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_legs\").setTextureName(RefStrings.MODID + \":trenchmaster_legs\");\n\t\ttrenchmaster_boots = new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_boots\").setTextureName(RefStrings.MODID + \":trenchmaster_boots\");\n\n\t\tjackt = new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt\").setTextureName(RefStrings.MODID + \":jackt\");\n\t\tjackt2 = new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt2\").setTextureName(RefStrings.MODID + \":jackt2\");\n",
+          "new": "\t\ttrenchmaster_plate = NativeItemTextureRegistry.texture(new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_plate\"), RefStrings.MODID + \":trenchmaster_plate\");\n\t\ttrenchmaster_legs = NativeItemTextureRegistry.texture(new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_legs\"), RefStrings.MODID + \":trenchmaster_legs\");\n\t\ttrenchmaster_boots = NativeItemTextureRegistry.texture(new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_boots\"), RefStrings.MODID + \":trenchmaster_boots\");\n\n\t\tjackt = NativeItemTextureRegistry.texture(new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt\"), RefStrings.MODID + \":jackt\");\n\t\tjackt2 = NativeItemTextureRegistry.texture(new ModArmor(MainRegistry.aMatSteel, 1).setTranslationKey(\"jackt2\"), RefStrings.MODID + \":jackt2\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "bcce52a5e6883c7e9e9e1b07e5c40df3f97786f7e5b316d45cf34fb5011bafc7",
+      "after_sha256": "e6cd7cdb0031ad491b5ed1911662d52b059668997f52e32bd6b4205f0c6618f7",
+      "edits": [
+        {
+          "before_offset": 29,
+          "after_offset": 29,
+          "old": "",
+          "new": "\nimport com.hbm.render.item.NativeItemTextureRegistry;\n"
+        },
+        {
+          "before_offset": 2779,
+          "after_offset": 2834,
+          "old": "\t\tthis.setTextureName(RefStrings.MODID + \":armor\");\n",
+          "new": "\t\tNativeItemTextureRegistry.texture(this, RefStrings.MODID + \":armor\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java": {
+      "before_sha256": "28cccae8270bd32e02fb92070a6d3625f3fd5f28055b029721c4110c02af8413",
+      "after_sha256": "9cb6a624d7f387cc2583df9fc4160d48bbdf8e86c3892c7dcc5426130b11cd28",
+      "edits": [
+        {
+          "before_offset": 74,
+          "after_offset": 74,
+          "old": "",
+          "new": "import com.hbm.entity.projectile.EntityFallingNuke;\n"
+        },
+        {
+          "before_offset": 980,
+          "after_offset": 1032,
+          "old": "\t\tswitch(p_76986_1_.getDataWatcher().getWatchableObjectByte(20)) {\n",
+          "new": "\t\tswitch(((EntityFallingNuke) p_76986_1_).getBlockMetadata()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/NativeItemTextureModelHandler.java": {
+      "before_sha256": "eda9237a3df2c6d55d7758c852e007b3534db8aa77f3cb9c2e83b15c85344ac7",
+      "after_sha256": "c2b5cba0fb608e58d7833ca3a5009ac1dc19254a307820c074ff12dc9686d761",
+      "edits": [
+        {
+          "before_offset": 2449,
+          "after_offset": 2449,
+          "old": "                // The original default Item icon is metadata-insensitive. A\n                // plain subtype item still uses that same image for every meta.\n                if(item.getHasSubtypes()) ModelLoader.setCustomMeshDefinition(item, stack -> location);\n                else ModelLoader.setCustomModelResourceLocation(item, 0, location);\n",
+          "new": "                // The original default Item icon is metadata-insensitive even\n                // for non-damageable items that do not declare subtypes.\n                ModelLoader.setCustomMeshDefinition(item, stack -> location);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Antenna.java": {
+      "before_sha256": "a4dcd3b096c7ceaf75cd40b8c0351c35bddf4470dcc9c8336bf653ee03afc662",
+      "after_sha256": "1e54a1118b8f53a9daf44d719d7b22b7501875de5dd6c9c033a3a765c78b8cd5",
+      "edits": [
+        {
+          "before_offset": 2230,
+          "after_offset": 2230,
+          "old": "\t\tworld.setBlock(x + 1, y + 0, z + 0, ModBlocks.steel_poles, 2, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 0; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 2; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 2460,
+          "after_offset": 3140,
+          "old": "\t\tworld.setBlock(x + 0, y + 0, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 0; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 2882,
+          "after_offset": 4242,
+          "old": "\t\tworld.setBlock(x + 1, y + 0, z + 2, ModBlocks.steel_poles, 3, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 2; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3418,
+          "after_offset": 5458,
+          "old": "\t\tworld.setBlock(x + 1, y + 1, z + 0, ModBlocks.steel_poles, 2, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 0; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 2; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3648,
+          "after_offset": 6368,
+          "old": "\t\tworld.setBlock(x + 0, y + 1, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 0; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 4070,
+          "after_offset": 7470,
+          "old": "\t\tworld.setBlock(x + 1, y + 1, z + 2, ModBlocks.steel_poles, 3, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 2; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 6206,
+          "after_offset": 10286,
+          "old": "\t\tworld.setBlock(x + 1, y + 3, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 3; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 7570,
+          "after_offset": 12330,
+          "old": "\t\tworld.setBlock(x + 1, y + 4, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 4; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 8934,
+          "after_offset": 14374,
+          "old": "\t\tworld.setBlock(x + 1, y + 5, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 5; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 10298,
+          "after_offset": 16418,
+          "old": "\t\tworld.setBlock(x + 1, y + 6, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 6; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 11662,
+          "after_offset": 18462,
+          "old": "\t\tworld.setBlock(x + 1, y + 7, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 7; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 13026,
+          "after_offset": 20506,
+          "old": "\t\tworld.setBlock(x + 1, y + 8, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 8; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 14390,
+          "after_offset": 22550,
+          "old": "\t\tworld.setBlock(x + 1, y + 9, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 9; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 15758,
+          "after_offset": 24598,
+          "old": "\t\tworld.setBlock(x + 1, y + 10, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 10; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 17131,
+          "after_offset": 26651,
+          "old": "\t\tworld.setBlock(x + 1, y + 11, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 11; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 18504,
+          "after_offset": 28704,
+          "old": "\t\tworld.setBlock(x + 1, y + 12, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 12; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 21262,
+          "after_offset": 32142,
+          "old": "\t\tworld.setBlock(x + 1, y + 14, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 14; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 22635,
+          "after_offset": 34195,
+          "old": "\t\tworld.setBlock(x + 1, y + 15, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 15; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 24008,
+          "after_offset": 36248,
+          "old": "\t\tworld.setBlock(x + 1, y + 16, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 16; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 28151,
+          "after_offset": 41071,
+          "old": "\t\tworld.setBlock(x + 1, y + 19, z + 1, ModBlocks.steel_poles, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 19; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        },
+        {
+          "before_offset": 29524,
+          "after_offset": 43124,
+          "old": "\t\tworld.setBlock(x + 1, y + 20, z + 1, ModBlocks.pole_top, 4, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 20; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.pole_top; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

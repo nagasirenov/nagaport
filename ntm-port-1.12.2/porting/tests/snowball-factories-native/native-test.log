@@ -1,0 +1,12 @@
+PASS original-source audit: 42 entity/item mappings, metadata 0, 41 exact original PNGs, specialized grenade ownership preserved; native generated GROUND retains 0.5 size and original vertical extent.
+PASS CP83 typed attribution: 41 RenderSnowball constructor-arity diagnostics + 1 Items.slime_ball symbol diagnostic; no measured full-build delta claimed.
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[10:32:33] [main/INFO]: Setting user: AtlasProbe
+[10:32:34] [main/INFO]: Processing ObjectHolder annotations
+[10:32:34] [main/INFO]: Found 1167 ObjectHolder annotations
+[10:32:34] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2-client.jar, resources
+[10:32:35] [main/INFO]: Max texture size: 16384
+[10:32:35] [main/INFO]: Created: 128x128 textures-atlas
+PASS 1145 actual Forge factory/lifecycle/native stack/original-texture/generated-model/EGL draw checks. Controlled application tokens; not full ClientProxy or in-game acceptance.

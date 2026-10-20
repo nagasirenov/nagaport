@@ -13,6 +13,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 public abstract class EntityRailCarRidable extends EntityRailCarCargo {
@@ -201,6 +204,9 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 	/** Dynamic seats generated when a player clicks near a seat-spot, moves and rotates with the train as one would expect. */
 	public static class SeatDummyEntity extends Entity {
 
+		private static final DataParameter<Integer> TRAIN_ID = EntityDataManager.createKey(SeatDummyEntity.class, DataSerializers.VARINT);
+		private static final DataParameter<Integer> SEAT_INDEX = EntityDataManager.createKey(SeatDummyEntity.class, DataSerializers.VARINT);
+
 		private int turnProgress;
 		private double trainX;
 		private double trainY;
@@ -211,11 +217,11 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 		public SeatDummyEntity(World world, EntityRailCarRidable train, int index) {
 			this(world);
 			this.train = train;
-			if(train != null) this.dataWatcher.updateObject(3, train.getEntityId());
-			this.dataWatcher.updateObject(4, index);
+			if(train != null) this.dataManager.set(TRAIN_ID, train.getEntityId());
+			this.dataManager.set(SEAT_INDEX, index);
 		}
 		
-		@Override protected void entityInit() { this.dataWatcher.addObject(3, new Integer(0)); this.dataWatcher.addObject(4, new Integer(0)); }
+		@Override protected void entityInit() { this.dataManager.register(TRAIN_ID, new Integer(0)); this.dataManager.register(SEAT_INDEX, new Integer(0)); }
 		@Override protected void writeEntityToNBT(NBTTagCompound nbt) { }
 		@Override public boolean writeToNBTOptional(NBTTagCompound nbt) { return false; }
 		@Override public void readEntityFromNBT(NBTTagCompound nbt) { this.setDead(); }
@@ -252,7 +258,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 			if(this.isBeingRidden()) {
 				
 				if(train == null) {
-					int eid = this.dataWatcher.getWatchableObjectInt(3);
+					int eid = this.dataManager.get(TRAIN_ID);
 					Entity entity = this.world.getEntityByID(eid);
 					if(entity instanceof EntityRailCarRidable) {
 						train = (EntityRailCarRidable) entity;
@@ -267,7 +273,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 				
 				//doing it like this instead of with the position directly removes any discrepancies caused by entity tick order
 				//mmhmhmhm silky smooth
-				int index = this.dataWatcher.getWatchableObjectInt(4);
+				int index = this.dataManager.get(SEAT_INDEX);
 				com.hbm.util.Vec3NT rot = new com.hbm.util.Vec3NT(this.train.getPassengerSeats()[index]);
 				rot.rotateAroundXRad((float) (train.rotationPitch * Math.PI / 180));
 				rot.rotateAroundYRad((float) (-train.rotationYaw * Math.PI / 180));

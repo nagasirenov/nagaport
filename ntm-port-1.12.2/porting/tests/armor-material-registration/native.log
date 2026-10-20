@@ -1,0 +1,14 @@
+/workspace/shared/nagaport-cp90-materials/ntm-port-1.12.2/porting/tests/armor-material-registration/NativeArmorMaterialTest.java:73: warning: ConstructorAccessor is internal proprietary API and may be removed in a future release
+   sun.reflect.ConstructorAccessor maker=sun.reflect.ReflectionFactory.getReflectionFactory().newConstructorAccessor(constructor);
+              ^
+/workspace/shared/nagaport-cp90-materials/ntm-port-1.12.2/porting/tests/armor-material-registration/NativeArmorMaterialTest.java:73: warning: ReflectionFactory is internal proprietary API and may be removed in a future release
+   sun.reflect.ConstructorAccessor maker=sun.reflect.ReflectionFactory.getReflectionFactory().newConstructorAccessor(constructor);
+                                                    ^
+Note: /workspace/shared/nagaport-cp90-materials/ntm-port-1.12.2/porting/tests/armor-material-registration/NativeArmorMaterialTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+[12:46:45] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[12:46:45] [main/INFO]: Replaced 1036 ore ingredients
+PASS 3056 real native/original assertions: 31 native enum creations, 30 exact repair identities, source creation/assignment timing, duplicate names, all slots, original constructors/durability/enchantability/render fallbacks, item-only repair metadata/NBT and signed-int overflow controls.
+PASS byte-exact inverse: 31 material creations, 30 repair assignments, three complete registration owners; all other source bytes unchanged.
+PASS bounded native compile delta: original 31 EnumHelper overload + 30 customCraftingMaterial field errors; migrated exact slices compile below.

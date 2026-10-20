@@ -110,10 +110,11 @@ public class ItemRBMKTool extends Item {
 	}
 
 	@Override
-	public Multimap getAttributeModifiers(ItemStack stack) {
+	public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
 		
-		Multimap multimap = super.getAttributeModifiers(stack);
-		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 2, 0));
+		Multimap multimap = super.getAttributeModifiers(slot, stack);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 2, 0));
 		return multimap;
 	}
 }

@@ -1,0 +1,1 @@
+{"before_du":"694M","after_du":"33M","verified_tracked_omissions":13959,"verified_bytes":651011221,"recoverable_commit":"f5ce86cd607379cc9810896cf91d1fee86ce6331","verification":"Every omitted tracked file hash-object matched HEAD:path before sparse-checkout; nine dirty files and new test directory preserved; no canonical caches removed."}

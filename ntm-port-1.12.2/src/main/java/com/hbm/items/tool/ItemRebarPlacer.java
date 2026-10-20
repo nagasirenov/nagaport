@@ -151,7 +151,7 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 					for(int i = minX; i<= maxX; i++) {
 						if(rebarLeft <= 0) break outer;
 						
-						if(com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock().isReplaceable(world, i, k, j) && player.canPlayerEdit(i, k, j, side, stack)) {
+						if(com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(i, k, j)) && player.canPlayerEdit(i, k, j, side, stack)) {
 							world.setBlock(i, k, j, ModBlocks.rebar);
 							TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(i, k, j));
 							if(tile instanceof TileEntityRebar) {
@@ -164,7 +164,7 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 				}
 			}
 			
-			InventoryUtil.tryConsumeAStack(player.inventory.mainInventory, 0, player.inventory.mainInventory.length - 1, new ComparableStack(ModBlocks.rebar, rebarUsed));
+			InventoryUtil.tryConsumeAStack(player.inventory.mainInventory, 0, player.inventory.mainInventory.size() - 1, new ComparableStack(ModBlocks.rebar, rebarUsed));
 			
 			player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 					.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
@@ -196,15 +196,15 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 			this.target = box;
 			slots = new ItemStack[this.getSizeInventory()];
 
-			if(!box.hasTagCompound()) box.setTagCompound(new NBTTagCompound());
+			if(box.getTagCompound() == null) box.setTagCompound(new NBTTagCompound());
 
-			ItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);
+			ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);
 			if(fromNBT != null) System.arraycopy(fromNBT, 0, slots, 0, slots.length);
 		}
 
 		@Override public int getSizeInventory() { return 1; }
-		@Override public String getInventoryName() { return "container.rebar"; }
-		@Override public boolean hasCustomInventoryName() { return target.hasDisplayName(); }
+		@Override public String getName() { return "container.rebar"; }
+		@Override public boolean hasCustomName() { return target.hasDisplayName(); }
 		@Override public int getInventoryStackLimit() { return 1; }
 	}
 	
@@ -261,7 +261,7 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 
 		@Override
 		public boolean canInteractWith(EntityPlayer player) {
-			return rebar.isUseableByPlayer(player);
+			return rebar.isUsableByPlayer(player);
 		}
 		
 		@Override
@@ -321,8 +321,8 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 
 		@Override
 		protected void drawGuiContainerForegroundLayer(int i, int j) {
-			String name = I18n.format(this.inventory.getInventoryName());
-			if(inventory.hasCustomInventoryName()) name = inventory.target.getDisplayName();
+			String name = I18n.format(this.inventory.getName());
+			if(inventory.hasCustomName()) name = inventory.target.getDisplayName();
 			this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
 			this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 		}

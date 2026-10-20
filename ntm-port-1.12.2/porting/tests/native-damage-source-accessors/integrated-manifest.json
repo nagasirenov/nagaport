@@ -1,0 +1,610 @@
+{
+  "baseline": "d5ef20a8f1cb65fbd06faa86a4901870c8bab3f2",
+  "scope": "35 source-entity calls plus both Sedna virtual overrides; no other production changes",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+      "before_sha256": "641855732ff0b4c21d06d636f985dc0cd6f002e91e41121626dd98ea71de77f5",
+      "after_sha256": "c01a3218c341baed629999312502a2b0d3c38fcc4042e8b55ac58a00685bfa66",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 3417,
+          "end": 3426,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.item.EntityBoatRubber#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 3417,
+          "after_end": 3430
+        },
+        {
+          "kind": "CALL",
+          "start": 3479,
+          "end": 3488,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.item.EntityBoatRubber#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 3483,
+          "after_end": 3496
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "before_sha256": "8d26f03aa6f274e17248c3da616345d8ee2afc465d6b0dba52a0e8c01b8bfc26",
+      "after_sha256": "44a5c2d1cce0c532c247c2a1e95f96b8019af4716761eb642dee832ba259b1ef",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 6792,
+          "end": 6801,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.item.EntityMinecartDeobf#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 6792,
+          "after_end": 6805
+        },
+        {
+          "kind": "CALL",
+          "start": 6854,
+          "end": 6863,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.item.EntityMinecartDeobf#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 6858,
+          "after_end": 6871
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "before_sha256": "3777a076452c46f46459416e88a947752643409732d5dad3e3a240fb4e6ada21",
+      "after_sha256": "99f9c24408a98cedff808af69786dde93cb049ea7209af00043ec8bd28dbbc9c",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 7863,
+          "end": 7872,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.item.EntityMinecartModBase#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 7863,
+          "after_end": 7876
+        },
+        {
+          "kind": "CALL",
+          "start": 7928,
+          "end": 7937,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.item.EntityMinecartModBase#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 7932,
+          "after_end": 7945
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityMovingPackage.java",
+      "before_sha256": "7582adac5ff9365473a29569b60489d4c8910b048dfa9325d4990b41539828ad",
+      "after_sha256": "801d99610908cd548d84d45887e1fb2096298e108e64c7e2622ba0ce6b76f45e",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 1824,
+          "end": 1833,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.item.EntityMovingPackage#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 1824,
+          "after_end": 1837
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "before_sha256": "a9657a7b94582d9ccdd794c3614e4047f3ea5786755f1798e86b88237e61c00b",
+      "after_sha256": "a23963599d9b7a780cd3fa64a171362634deb43b95893c5f782b6139e78b2918",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 23439,
+          "end": 23448,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.missile.EntityRideableRocket#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 23439,
+          "after_end": 23452
+        },
+        {
+          "kind": "CALL",
+          "start": 23830,
+          "end": 23839,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.missile.EntityRideableRocket#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 23834,
+          "after_end": 23847
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java",
+      "before_sha256": "a0ae4750ea750c44d63adc697368c2a89496011cf4d3e1b6b723fecb765c3a16",
+      "after_sha256": "f5d4ed15c81357a06e78e44c32cb9793189f3afaef7b42428c7c5bccb2fdcbbd",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 2769,
+          "end": 2778,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.EntityCreeperNuclear#onDeath(net.minecraft.util.DamageSource)",
+          "after_start": 2769,
+          "after_end": 2782
+        },
+        {
+          "kind": "CALL",
+          "start": 2851,
+          "end": 2860,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.EntityCreeperNuclear#onDeath(net.minecraft.util.DamageSource)",
+          "after_start": 2855,
+          "after_end": 2868
+        },
+        {
+          "kind": "CALL",
+          "start": 2916,
+          "end": 2925,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.EntityCreeperNuclear#onDeath(net.minecraft.util.DamageSource)",
+          "after_start": 2924,
+          "after_end": 2937
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityFBI.java",
+      "before_sha256": "0c81196035781a068061cf9469af5dbf59d10f5234bbc574876d2befe6e6c253",
+      "after_sha256": "d5b9ffcdd5e30c25f7175506900cea3d9f23757322d0f1efc0d17bbfd8abaf5b",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 3071,
+          "end": 3080,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSourceIndirect",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.EntityFBI#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 3071,
+          "after_end": 3084
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityMaskMan.java",
+      "before_sha256": "9e2e478988b965dc76280c4fb3799cf4fb2d4fb0a77dfb27504a0627fb7976ef",
+      "after_sha256": "851065c0b3c1ed6eed6ed48201fc32c1c25b49558371735c8eb10a0b24dbc34a",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 2772,
+          "end": 2789,
+          "old": "getSourceOfDamage",
+          "new": "getImmediateSource",
+          "receiver": "net.minecraft.util.EntityDamageSourceIndirect",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.EntityMaskMan#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 2772,
+          "after_end": 2790
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityTankbot.java",
+      "before_sha256": "c5c094c73a0197407e9a6c935e25183e1f7578daf50582f5aef6f549ddbc1953",
+      "after_sha256": "9ef12504e94f095af0e4eadd64a7178d234bafc3bd6499a23bfc0420e1e1a241",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 4214,
+          "end": 4231,
+          "old": "getSourceOfDamage",
+          "new": "getImmediateSource",
+          "receiver": "net.minecraft.util.EntityDamageSourceIndirect",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.EntityTankbot#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 4214,
+          "after_end": 4232
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityWarBehemoth.java",
+      "before_sha256": "72822f5b4effb462f47bbd1731e49d183290219d6c577d7a06c21662a9d5e3f5",
+      "after_sha256": "a4dbc3c13a0a4a7222c7561e696522a19aae7d8314faf563b82b2c6dc8eda0a1",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 2702,
+          "end": 2719,
+          "old": "getSourceOfDamage",
+          "new": "getImmediateSource",
+          "receiver": "net.minecraft.util.EntityDamageSourceIndirect",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.EntityWarBehemoth#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 2702,
+          "after_end": 2720
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java",
+      "before_sha256": "00ecaf765a01b0574012d3485d1f6582822bbc3ae2a804110a9874aa790bf822",
+      "after_sha256": "ef44d49922e0f08bb57489a80f92f0ec70961b3d92798d3b42b3a7f76b764b04",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 2106,
+          "end": 2115,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.botprime.EntityWormBaseNT#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 2106,
+          "after_end": 2119
+        },
+        {
+          "kind": "CALL",
+          "start": 2177,
+          "end": 2186,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.botprime.EntityWormBaseNT#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 2181,
+          "after_end": 2194
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+      "before_sha256": "fb20225f15c45ea6aa9e584e1b31dfe0bb967f53c846c9e4cbfd5e4d7556dbcf",
+      "after_sha256": "c717bfd78811ae9dcbfdd83d823a5b27cd80fd0732f1318c7c179982063b6c55",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 12917,
+          "end": 12926,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.glyphid.EntityGlyphid#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 12917,
+          "after_end": 12930
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/glyphid/GlyphidStats.java",
+      "before_sha256": "12cd254563ec0502183a8cb38ddf60d5f51a24be1d0b3d0bbac728e1c8eeae29",
+      "after_sha256": "cd8c9d9d0d810f624dbb676615a8ed1e323e8a9e83ea002c9b71a88c1cf57465",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 5618,
+          "end": 5635,
+          "old": "getSourceOfDamage",
+          "new": "getImmediateSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.glyphid.GlyphidStats.GlyphidStatsNT#handleAttack(com.hbm.entity.mob.glyphid.EntityGlyphid,net.minecraft.util.DamageSource,float)",
+          "after_start": 5618,
+          "after_end": 5636
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "before_sha256": "7e0d4a664c33d128db4b8f77049e3335e0e2e7ddfb208f22edb58fb2e5ba0504",
+      "after_sha256": "84a8f4df0feea14638100f52ad82c458e37f0627875ee0b947eb9ae815e626c3",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 1879,
+          "end": 1888,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.siege.EntitySiegeCraft#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 1879,
+          "after_end": 1892
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "before_sha256": "a5e359e9259cdeeea47e1ada7688eb67a295a1b003e064745dafad0f404b9886",
+      "after_sha256": "385c4026fc28f0ee28f54bee4a7dbab2fafee2498ce69e589767ca00e241b3cc",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 1792,
+          "end": 1801,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.siege.EntitySiegeTunneler#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 1792,
+          "after_end": 1805
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "before_sha256": "ec07e8d76c809fd84aed1f30515a3479200b474c5aea56e83a68cf463c644f1b",
+      "after_sha256": "4339334451452567cb09ee6caf111c63a45adecd3029dc0091ced61f7256d0ed",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 1999,
+          "end": 2008,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.entity.mob.siege.EntitySiegeUFO#attackEntityFrom(net.minecraft.util.DamageSource,float)",
+          "after_start": 1999,
+          "after_end": 2012
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "before_sha256": "c89b4fa12059e18d58d01eada3a4fd631346f0039acce5aebcc0ecfff4c8ea89",
+      "after_sha256": "9a6bcc7376692e8d53d243851625c3fdadedd4d19a5d9ff25a96a4cc3b76a92e",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 2163,
+          "end": 2180,
+          "old": "getSourceOfDamage",
+          "new": "getImmediateSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.items.armor.ArmorTrenchmaster#handleHurt(net.minecraftforge.event.entity.living.LivingHurtEvent)",
+          "after_start": 2163,
+          "after_end": 2181
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModBathwater.java",
+      "before_sha256": "c377c70328cd5463a067da27c833682c2470d812a434771882f9f610638ab1e6",
+      "after_sha256": "5ffb1237e3264f30fd01d56c02fe796960a22494ff6de727aff202edfe85be64",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 1862,
+          "end": 1871,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.items.armor.ItemModBathwater#modDamage(net.minecraftforge.event.entity.living.LivingHurtEvent,net.minecraft.item.ItemStack)",
+          "after_start": 1862,
+          "after_end": 1875
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/DamageSourceSednaWithAttacker.java",
+      "before_sha256": "55569a9b9c8520f9bfd7e5e9b61c609d481e1c04e201094150561de05e22a21d",
+      "after_sha256": "d6714649cfda4927c9e58c8f0284d2ed9c065aeab16b1914be4af90b4bb42038",
+      "edits": [
+        {
+          "kind": "DECL",
+          "start": 706,
+          "end": 723,
+          "old": "getSourceOfDamage",
+          "new": "getImmediateSource",
+          "receiver": "com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker",
+          "owner": "com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker",
+          "context": "com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker#getSourceOfDamage()",
+          "after_start": 706,
+          "after_end": 724
+        },
+        {
+          "kind": "DECL",
+          "start": 859,
+          "end": 868,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker",
+          "owner": "com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker",
+          "context": "com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker#getEntity()",
+          "after_start": 860,
+          "after_end": 873
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "before_sha256": "7199993ad1cd728adc0d514328dac3ce47a792ac06579e9477e0330fe913d95c",
+      "after_sha256": "3c775817c07fce2b274336d710475f00070f893dd2bc34f3b9633728a2785727",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 17944,
+          "end": 17953,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.main.ModEventHandler#onEntityDeath(net.minecraftforge.event.entity.living.LivingDeathEvent)",
+          "after_start": 17944,
+          "after_end": 17957
+        },
+        {
+          "kind": "CALL",
+          "start": 18026,
+          "end": 18035,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.main.ModEventHandler#onEntityDeath(net.minecraftforge.event.entity.living.LivingDeathEvent)",
+          "after_start": 18030,
+          "after_end": 18043
+        },
+        {
+          "kind": "CALL",
+          "start": 20242,
+          "end": 20251,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.main.ModEventHandler#onEntityDeathLast(net.minecraftforge.event.entity.living.LivingDeathEvent)",
+          "after_start": 20250,
+          "after_end": 20263
+        },
+        {
+          "kind": "CALL",
+          "start": 39877,
+          "end": 39886,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.main.ModEventHandler#onEntityDamaged(net.minecraftforge.event.entity.living.LivingHurtEvent)",
+          "after_start": 39889,
+          "after_end": 39902
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/util/EntityDamageUtil.java",
+      "before_sha256": "7a2a92b7bbfae144b7dc09bb9259db593c9ce8829c9ff4be189ec8b566d4ada9",
+      "after_sha256": "72e7cd9ab3724565381f43000c811007a9072053edbca306c15a6b55c3514519",
+      "edits": [
+        {
+          "kind": "CALL",
+          "start": 1149,
+          "end": 1158,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.EntityDamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.util.EntityDamageUtil#wasAttackedByV1(net.minecraft.util.DamageSource)",
+          "after_start": 1149,
+          "after_end": 1162
+        },
+        {
+          "kind": "CALL",
+          "start": 2521,
+          "end": 2530,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.util.EntityDamageUtil#attackEntityFromNT(net.minecraft.entity.EntityLivingBase,net.minecraft.util.DamageSource,float,boolean,boolean,double,float,float)",
+          "after_start": 2525,
+          "after_end": 2538
+        },
+        {
+          "kind": "CALL",
+          "start": 2663,
+          "end": 2672,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.util.EntityDamageUtil#attackEntityFromNT(net.minecraft.entity.EntityLivingBase,net.minecraft.util.DamageSource,float,boolean,boolean,double,float,float)",
+          "after_start": 2671,
+          "after_end": 2684
+        },
+        {
+          "kind": "CALL",
+          "start": 4436,
+          "end": 4445,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.util.EntityDamageUtil#attackEntitySuperCompatibility(net.minecraft.entity.EntityLivingBase,net.minecraft.util.DamageSource,float,boolean,boolean,double)",
+          "after_start": 4448,
+          "after_end": 4461
+        },
+        {
+          "kind": "CALL",
+          "start": 6526,
+          "end": 6535,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.util.EntityDamageUtil#attackEntitySEDNAPatch(net.minecraft.entity.EntityLivingBase,net.minecraft.util.DamageSource,float,boolean,boolean,double)",
+          "after_start": 6542,
+          "after_end": 6555
+        },
+        {
+          "kind": "CALL",
+          "start": 11642,
+          "end": 11651,
+          "old": "getEntity",
+          "new": "getTrueSource",
+          "receiver": "net.minecraft.util.DamageSource",
+          "owner": "<unresolved-legacy>",
+          "context": "com.hbm.util.EntityDamageUtil#attackEntityFromNT(net.minecraft.entity.EntityLivingBase,net.minecraft.util.DamageSource,float)",
+          "after_start": 11662,
+          "after_end": 11675
+        }
+      ]
+    }
+  ],
+  "untouched": [
+    {
+      "path": "src/main/java/com/hbm/entity/item/EntityMovingItem.java",
+      "kind": "CALL",
+      "start": 2701,
+      "end": 2714,
+      "old": "getTrueSource",
+      "new": "getTrueSource",
+      "receiver": "net.minecraft.util.DamageSource",
+      "owner": "net.minecraft.util.DamageSource",
+      "context": "com.hbm.entity.item.EntityMovingItem#attackEntityFrom(net.minecraft.util.DamageSource,float)"
+    }
+  ]
+}

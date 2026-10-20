@@ -1,0 +1,603 @@
+{
+  "base": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "log_path": "ntm-port-1.12.2/porting/checkpoint88/full-compile.log",
+  "log_sha256": "5b058b568cd036df56753808a11ab765c9cc928b6eb1073af4f350ff3026ec43",
+  "watcher_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 54,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectByte(16) != 0;\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 98,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 99,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(21, Float.valueOf(0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 100,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(22, Float.valueOf(0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 101,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(23, Byte.valueOf((byte) 0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 235,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tbyte b1 = this.dataWatcher.getWatchableObjectByte(16);\n\t\t\t\t              ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 239,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.dataWatcher.updateObject(16, Byte.valueOf(b0));\n\t\t\t\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 409,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(23, Byte.valueOf((byte) (b ? 1 : 0)));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 413,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectByte(23) == 1;\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 360,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 361,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(17, 0);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 362,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(18, 0);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 363,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(19, 0);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 410,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 414,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectByte(16) == 1;\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 418,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(17, x);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 419,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(18, y);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 420,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(19, z);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 424,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(17);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 428,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(18);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 432,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(19);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 564,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 565,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(17, 0);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 566,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(18, 0);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 567,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(19, 0);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 614,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 618,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectByte(16) == 1;\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 622,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(17, x);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 623,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(18, y);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 624,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(19, z);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 628,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(17);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 632,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(18);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 636,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(19);\n\t\t           ^\n  symbol: variable dataWatcher"
+    }
+  ],
+  "other_same_file_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 66,
+      "message": "method isEntityInvulnerable in class Entity cannot be applied to given types;",
+      "detail": "\t\tif(this.isEntityInvulnerable() || source instanceof EntityDamageSource || this.getHealth() <= 0.1F) {\n\t\t       ^\n  required: DamageSource\n  found: no arguments\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 107,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(750.0D);\n\t\t                                               ^\n  symbol:   variable maxHealth\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 111,
+      "message": "updateEntityActionState() in EntityHunterChopper cannot override updateEntityActionState() in EntityLiving",
+      "detail": "\tprotected void updateEntityActionState() {\n\t               ^\n  overridden method is final"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 112,
+      "message": "cannot find symbol",
+      "detail": "\t\tif(!this.world.isRemote && this.world.difficultySetting == EnumDifficulty.PEACEFUL) {\n\t\t                                     ^\n  symbol:   variable difficultySetting\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 117,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:misc.nullChopper\", 10.0F, 0.5F);\n\t\t\t          ^\n  symbol:   method playSoundEffect(double,double,double,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 129,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);\n\t\t\t\t\t                           ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 133,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);\n\t\t\t\t\t                           ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 148,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);\n\t\t\t\t\t                           ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 165,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < d4 * d4) {\n\t\t\t                                                     ^\n  symbol:   method getDistanceSqToEntity(EntityHunterChopper)\n  location: variable targetedEntity of type Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 181,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.playSoundAtEntity(this, \"hbm:weapon.osiprShoot\", 10.0F, 1.0F);\n\t\t\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityHunterChopper,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 202,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.spawnEntityInWorld(entityarrow);\n\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityBullet)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 205,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.playSoundAtEntity(this, \"hbm:entity.chopperCharge\", 5.0F, 1.0F);\n\t\t\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityHunterChopper,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 210,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.playSoundAtEntity(this, \"hbm:entity.chopperDrop\", 15.0F, 1.0F);\n\t\t\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityHunterChopper,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 213,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.spawnEntityInWorld(mine);\n\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityChopperMine)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 220,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tthis.world.spawnEntityInWorld(mine1);\n\t\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityChopperMine)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 221,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tthis.world.spawnEntityInWorld(mine2);\n\t\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityChopperMine)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 222,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tthis.world.spawnEntityInWorld(mine3);\n\t\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityChopperMine)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 223,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tthis.world.spawnEntityInWorld(mine4);\n\t\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityChopperMine)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 271,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.world.playSoundEffect(this.posX, this.posY, this.posZ, \"hbm:misc.nullCrashing\", 10.0F, 0.5F);\n\t\t\t\t          ^\n  symbol:   method playSoundEffect(double,double,double,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 312,
+      "message": "cannot find symbol",
+      "detail": "\t\tAxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();\n\t\t                                                         ^\n  symbol:   method copy()\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 317,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {\n\t\t\t              ^\n  symbol:   method getCollidingBoundingBoxes(EntityHunterChopper,AxisAlignedBB)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 325,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 331,
+      "message": "getDeathSound() in EntityHunterChopper cannot override getDeathSound() in EntityLivingBase",
+      "detail": "\tprotected String getDeathSound() {\n\t                 ^\n  return type String is not compatible with SoundEvent"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 330,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 359,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.rand.nextInt(20) == 0 && super.getCanSpawnHere() && this.world.difficultySetting != EnumDifficulty.PEACEFUL;\n\t\t                                                                          ^\n  symbol:   variable difficultySetting\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "line": 395,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.world.playSoundAtEntity(this, \"hbm:entity.chopperDamage\", 10.0F, 1.0F);\n\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityHunterChopper,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 83,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20000.0D);\n\t\t                                               ^\n  symbol:   variable maxHealth\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 87,
+      "message": "updateEntityActionState() in EntityUFO cannot override updateEntityActionState() in EntityLiving",
+      "detail": "\tprotected void updateEntityActionState() {\n\t               ^\n  overridden method is final"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 91,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {\n\t\t\t             ^\n  symbol:   variable difficultySetting\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 133,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tif(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {\n\t\t\t\t\t\t       ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 133,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tif(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {\n\t\t\t\t\t\t                                            ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 139,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tif(entity instanceof EntityLivingBase && this.getDistanceSqToEntity(entity) < 100 * 100 && this.canEntityBeSeen(entity) && entity != this.target) {\n\t\t\t\t                                             ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 163,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ) + 20 + rand.nextInt(15), (int) this.target.posY + 15),  wZ);\n\t\t\t                                        ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 184,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.playSoundAtEntity(this, \"hbm:entity.ufoBeam\", 10.0F, 1.0F);\n\t\t\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityUFO,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 201,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));\n\t\t\t\t\t                                                                                           ^\n  symbol:   method getBoundingBox(double,int,double,double,double,double)\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 299,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.world.playSoundAtEntity(this, \"hbm:entity.chopperDamage\", 10.0F, 1.0F);\n\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityUFO,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 334,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.world.spawnEntityInWorld(bullet);\n\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityBulletBaseNT)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 335,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\tthis.playSound(\"hbm:weapon.ballsLaser\", 5.0F, 1.0F);\n\t\t               ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 348,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.world.spawnEntityInWorld(bullet);\n\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityBulletBaseNT)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 349,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\tthis.playSound(\"hbm:turret.richard_fire\", 5.0F, 1.0F);\n\t\t               ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 371,
+      "message": "cannot find symbol",
+      "detail": "\t\tAxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();\n\t\t                                                         ^\n  symbol:   method copy()\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 376,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {\n\t\t\t              ^\n  symbol:   method getCollidingBoundingBoxes(EntityUFO,AxisAlignedBB)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 389,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 395,
+      "message": "getDeathSound() in EntityUFO cannot override getDeathSound() in EntityLivingBase",
+      "detail": "\tprotected String getDeathSound() {\n\t                 ^\n  return type String is not compatible with SoundEvent"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "line": 394,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 111,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10000.0D);\n\t\t                                               ^\n  symbol:   variable maxHealth\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 115,
+      "message": "updateEntityActionState() in EntityBFAngel cannot override updateEntityActionState() in EntityLiving",
+      "detail": "\tprotected void updateEntityActionState() {\n\t               ^\n  overridden method is final"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 119,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {\n\t\t\t             ^\n  symbol:   variable difficultySetting\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 161,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tif(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {\n\t\t\t\t\t\t       ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 161,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tif(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {\n\t\t\t\t\t\t                                            ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 167,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tif(entity instanceof EntityLivingBase && this.getDistanceSqToEntity(entity) < 100 * 100 && this.canEntityBeSeen(entity) && entity != this.target) {\n\t\t\t\t                                             ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 191,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ) + rand.nextInt(15), (int) this.target.posY - 5),  wZ);\n\t\t\t                                        ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 229,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));\n\t\t\t\t\t                                                                                           ^\n  symbol:   method getBoundingBox(double,int,double,double,double,double)\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 276,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\t\tthis.world.playSoundAtEntity(this, \"hbm:entity.bfatalk\", 10.0F, 1.0F);\n\t\t\t\t\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityBFAngel,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 447,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.world.playSoundAtEntity(this, \"hbm:entity.chopperDamage\", 10.0F, 1.0F);\n\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntityBFAngel,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 500,
+      "message": "cannot find symbol",
+      "detail": "\t\t    this.world.spawnEntityInWorld(bullet);\n\t\t              ^\n  symbol:   method spawnEntityInWorld(EntityBulletBeamBase)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 501,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\t    this.playSound(\"hbm:entity.bfashoot\", 5.0F, 1.0F);\n\t\t                   ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 524,
+      "message": "cannot find symbol",
+      "detail": "\t\t    this.world.spawnEntityInWorld(bullet);\n\t\t              ^\n  symbol:   method spawnEntityInWorld(EntityBulletBeamBase)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 526,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\t    this.playSound(\"hbm:entity.bfashoot\", 5.0F, 1.0F);\n\t\t                   ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 552,
+      "message": "cannot find symbol",
+      "detail": "\t\t    this.world.spawnEntityInWorld(bullet);\n\t\t              ^\n  symbol:   method spawnEntityInWorld(EntityBulletBaseMK4)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 553,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\t    this.playSound(\"hbm:turret.richard_fire\", 5.0F, 1.0F);\n\t\t                   ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 575,
+      "message": "cannot find symbol",
+      "detail": "\t\tAxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();\n\t\t                                                         ^\n  symbol:   method copy()\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 580,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {\n\t\t\t              ^\n  symbol:   method getCollidingBoundingBoxes(EntityBFAngel,AxisAlignedBB)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 593,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 599,
+      "message": "getDeathSound() in EntityBFAngel cannot override getDeathSound() in EntityLivingBase",
+      "detail": "\tprotected String getDeathSound() {\n\t                 ^\n  return type String is not compatible with SoundEvent"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "line": 598,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    }
+  ]
+}

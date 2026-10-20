@@ -11,6 +11,9 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
@@ -24,6 +27,17 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpawnData {
+
+	/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public boolean isInRangeToRenderDist(double distance) {
+		double range = this.getEntityBoundingBox().getAverageEdgeLength();
+		range *= 64.0D * 10.0D;
+		return distance < range * range;
+	}
+
+	private static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBeamBase.class, DataSerializers.VARINT);
 	
 	public EntityLivingBase thrower;
 	public BulletConfig config;
@@ -36,7 +50,6 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 	public EntityBulletBeamBase(World world) {
 		super(world);
 		this.ignoreFrustumCheck = true;
-		this.renderDistanceWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 		this.isImmuneToFire = true;
 	}
@@ -102,16 +115,16 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(3, Integer.valueOf(0));
+		this.dataManager.register(BULLET_CONFIG, Integer.valueOf(0));
 	}
 	
 	public void setBulletConfig(BulletConfig config) {
 		this.config = config;
-		this.dataWatcher.updateObject(3, config.id);
+		this.dataManager.set(BULLET_CONFIG, config.id);
 	}
 	
 	public BulletConfig getBulletConfig() {
-		int id = this.dataWatcher.getWatchableObjectInt(3);
+		int id = this.dataManager.get(BULLET_CONFIG);
 		if(id < 0 || id > BulletConfig.configs.size()) return null;
 		return BulletConfig.configs.get(id);
 	}

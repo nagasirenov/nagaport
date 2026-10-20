@@ -1,0 +1,6 @@
+PASS original complete LeadBox/ToolBox/Rebar constructors: 27 nonpositive owner/content cases; raw NBT identity retained
+PASS original engine checks=1112; full original ItemInventory decrement/set/remove/markDirty/checkNBT-small invoked
+PASS native engine checks=666 quantityField=stackSize
+PASS native engine checks=666 quantityField=field_77994_a
+PASS 401 byte-identical original/native/SRG compressed compound payloads; exact 5999/6000/6001 boundaries
+PASS engine oracle; no native production inventory or spawned-world ejection claimed

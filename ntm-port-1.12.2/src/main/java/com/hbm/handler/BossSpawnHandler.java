@@ -208,7 +208,7 @@ public class BossSpawnHandler {
 					boolean strike = true;
 
 					for(int i = 0; i < 4; i++) {
-						ItemStack armor = p.getCurrentArmor(i);
+						ItemStack armor = com.hbm.util.LivingEquipmentRead.getArmorNullable(p, i);
 						if(armor != null && ArmorModHandler.hasMods(armor)) {
 
 							for(int j = 0; j < 8; j++) {

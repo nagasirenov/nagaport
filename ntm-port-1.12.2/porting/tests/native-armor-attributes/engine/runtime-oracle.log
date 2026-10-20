@@ -1,0 +1,30 @@
+PASS Forge1614 actual Item/ItemStack virtual bridge patches and absence of armor hook replacements; FML has no competing attribute hook patch
+/workspace/shared/nagaport-cp91-armor-attributes/ntm-port-1.12.2/porting/tests/native-armor-attributes/engine/OriginalArmorPayloadOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp91-armor-attributes/ntm-port-1.12.2/porting/tests/native-armor-attributes/engine/OriginalArmorPayloadOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp91-armor-attributes/ntm-port-1.12.2/porting/tests/native-armor-attributes/engine/OriginalArmorPayloadOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp91-armor-attributes/ntm-port-1.12.2/porting/tests/native-armor-attributes/engine/OriginalArmorPayloadOracle.java:75: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe"); unsafeField.setAccessible(true);
+                            ^
+/workspace/shared/nagaport-cp91-armor-attributes/ntm-port-1.12.2/porting/tests/native-armor-attributes/engine/OriginalArmorPayloadOracle.java:76: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Unsafe unsafe = (Unsafe) unsafeField.get(null);
+        ^
+/workspace/shared/nagaport-cp91-armor-attributes/ntm-port-1.12.2/porting/tests/native-armor-attributes/engine/OriginalArmorPayloadOracle.java:76: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Unsafe unsafe = (Unsafe) unsafeField.get(null);
+                         ^
+Note: /workspace/shared/nagaport-cp91-armor-attributes/ntm-port-1.12.2/porting/tests/native-armor-attributes/engine/NativeArmorAttributeEngineTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+PASS real original Item and four ItemArmor empty base maps
+PASS native virtual Item bridge and ItemStack dispatch across all six equipment slots
+PASS actual native AttributeMap protection-strip counterexample and MAINHAND preservation
+PASS ordinary native NBT replacement, slot filtering, and direct-item distinction
+PASS 68 actual-engine assertions; no platform stubs or production classes loaded
+SCOPE: legacy Forge stack bridge and old-five/native-six equipment loops are exact patch/bytecode evidence; no patched legacy runtime or full entity update/gameplay simulation is claimed.
+PASS complete original Diesel/Desh/Liquidator classfiles, actual old Item.k virtual dispatch: 12 maps / 16 exact payload tuples
+SCOPE: symbols only remapped from supplied SRG to official old client names; every original class/method body retained. Unsafe bypasses unrelated constructors; no complete mod lifecycle startup/gameplay claimed.

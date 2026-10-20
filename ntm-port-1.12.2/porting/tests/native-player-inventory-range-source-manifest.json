@@ -1,0 +1,1048 @@
+{
+  "baseline": "abe006a0845275e8be52417967ac8ebf6f283a52",
+  "files": {
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before_sha256": "675202fd449d5d7c0687129bed445e18a9667c14357c50952b67cf25f4c1d483",
+      "after_sha256": "f5e0b7c23094650587ebe9e0fc2e66913e247250893be3dbc0d6da3c16d935d8",
+      "edits": [
+        {
+          "before_offset": 2579,
+          "after_offset": 2579,
+          "old": "\t\t\tplayer.inventory.mainInventory[player.inventory.currentItem] = null;\r\n",
+          "new": "\t\t\tplayer.inventory.mainInventory.set(player.inventory.currentItem, ItemStack.EMPTY);\r\n"
+        },
+        {
+          "before_offset": 2875,
+          "after_offset": 2889,
+          "old": "\t\t\tplayer.inventory.mainInventory[player.inventory.currentItem] = pedestal.item.copy();\r\n",
+          "new": "\t\t\tplayer.inventory.mainInventory.set(player.inventory.currentItem, pedestal.item.copy());\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "a1539318e126682278c6aa7a162d172ba81a3a1b7bf3b0945a4732d9f7d49db9",
+      "after_sha256": "b176490de233a9d64bb4eca921775ca43184002e078139d6eecb50a3f0c369e0",
+      "edits": [
+        {
+          "before_offset": 2926,
+          "after_offset": 2926,
+          "old": "\t\t\t\tItemStack stack = pl.inventory.mainInventory[pl.inventory.currentItem];\n",
+          "new": "\t\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(pl.inventory.mainInventory, pl.inventory.currentItem);\n"
+        },
+        {
+          "before_offset": 3076,
+          "after_offset": 3114,
+          "old": "\t\t\t\t\tpl.inventory.mainInventory[pl.inventory.currentItem] = new ItemStack(this);\n",
+          "new": "\t\t\t\t\tpl.inventory.mainInventory.set(pl.inventory.currentItem, new ItemStack(this));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+      "before_sha256": "642bc95accb35b038d94e02ea404f2fe759fe6e53349e6f5aa7f9b64100cd68a",
+      "after_sha256": "b6cf697ee372ebb6c9aa97e934cfc728bdc90e3b148b5da0279daa2243b32475",
+      "edits": [
+        {
+          "before_offset": 2563,
+          "after_offset": 2563,
+          "old": "\t\t\t\tItemStack stack = pl.inventory.mainInventory[pl.inventory.currentItem];\n",
+          "new": "\t\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(pl.inventory.mainInventory, pl.inventory.currentItem);\n"
+        },
+        {
+          "before_offset": 2713,
+          "after_offset": 2751,
+          "old": "\t\t\t\t\tpl.inventory.mainInventory[pl.inventory.currentItem] = new ItemStack(this);\n",
+          "new": "\t\t\t\t\tpl.inventory.mainInventory.set(pl.inventory.currentItem, new ItemStack(this));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityGhost.java": {
+      "before_sha256": "1ffb62f882e6e638ec74509c4bee8b6e6ef7ce8ed3661ea772dbc6a53b5b11e8",
+      "after_sha256": "33161038693deecc909e1e6ecd0d160b793f21e1586a454da9893ea5178fd944",
+      "edits": [
+        {
+          "before_offset": 483,
+          "after_offset": 483,
+          "old": "",
+          "new": "\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 10.0D;\n\t\treturn distance < range * range;\n\t}\n\n"
+        },
+        {
+          "before_offset": 784,
+          "after_offset": 1165,
+          "old": "\t\tthis.renderDistanceWeight *= 10;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTankbot.java": {
+      "before_sha256": "9ef12504e94f095af0e4eadd64a7178d234bafc3bd6499a23bfc0420e1e1a241",
+      "after_sha256": "5449179f175f059689721f7ccf97a759767aec2d641555f83b06060ec137fd01",
+      "edits": [
+        {
+          "before_offset": 1656,
+          "after_offset": 1656,
+          "old": "",
+          "new": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 24.0D;\n\t\treturn distance < range * range;\n\t}\n"
+        },
+        {
+          "before_offset": 2208,
+          "after_offset": 2589,
+          "old": "        this.renderDistanceWeight = 24.0D;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBase.java": {
+      "before_sha256": "73b255b2ba152d633b7a8e0dabf0456037925ce2331cdcb961bcd4bb9c9acddf",
+      "after_sha256": "dbbd61493a84259ce282a2f5a44639b16779ae80a4a832864109140c9f0d232b",
+      "edits": [
+        {
+          "before_offset": 1008,
+          "after_offset": 1008,
+          "old": "\t\tthis.renderDistanceWeight = 15.0D;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java": {
+      "before_sha256": "ef44d49922e0f08bb57489a80f92f0ec70961b3d92798d3b42b3a7f76b764b04",
+      "after_sha256": "e87faa38a142ace99df89c93306935813ee4ff0ea0bd1752d25bcf036113c324",
+      "edits": [
+        {
+          "before_offset": 537,
+          "after_offset": 537,
+          "old": "",
+          "new": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 15.0D;\n\t\treturn distance < range * range;\n\t}\n"
+        },
+        {
+          "before_offset": 1562,
+          "after_offset": 1943,
+          "old": "\t\tthis.renderDistanceWeight = 15.0D;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "387e44d6b3edcdc83c68c45f60f8b6069eb9f55499af9e22ed5c0718464c3d65",
+      "after_sha256": "ffb072d4dd139cdd9851215031f64d2cc36a5b853eeb599daad3d460bbbd295a",
+      "edits": [
+        {
+          "before_offset": 1852,
+          "after_offset": 1852,
+          "old": "",
+          "new": "\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n\n"
+        },
+        {
+          "before_offset": 3044,
+          "after_offset": 3485,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 3232,
+          "after_offset": 3670,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 3539,
+          "after_offset": 3974,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 4621,
+          "after_offset": 5053,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 5929,
+          "after_offset": 6358,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 7195,
+          "after_offset": 7621,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 8693,
+          "after_offset": 9116,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java": {
+      "before_sha256": "b44685f2fd7b95c161aae61cd08c055c1cc756f7fecd1b64d4a1b64bb52c7887",
+      "after_sha256": "27381ea60623d0275bd4042fc034f0af01c5424b90b4d2030f6a6e6d89caa1e1",
+      "edits": [
+        {
+          "before_offset": 1464,
+          "after_offset": 1464,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "eed53cad8a79c8dbf4d139a4ffd493baf3a4df22e2236058305b475121c06cf2",
+      "after_sha256": "9bd2764705e95966fd2176bb4a31e4ba0b5f96a3c54d90dcb3c35903fb5293c6",
+      "edits": [
+        {
+          "before_offset": 4000,
+          "after_offset": 4000,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 4372,
+          "after_offset": 4335,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 5764,
+          "after_offset": 5690,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 6372,
+          "after_offset": 6261,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java": {
+      "before_sha256": "c9e75c6187c5a6b13ab6f4c29bc28e60fcd867182807e19d1840f9493a72dd7e",
+      "after_sha256": "d7892341cbbecd1e485b47ba1faeaa7efaae8666d8aa234f9a925da6438292c2",
+      "edits": [
+        {
+          "before_offset": 1206,
+          "after_offset": 1206,
+          "old": "",
+          "new": "\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 10.0D;\n\t\treturn distance < range * range;\n\t}\n\n"
+        },
+        {
+          "before_offset": 1632,
+          "after_offset": 2013,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": ""
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "2e20450b36307da7f064c2bfbdc89a1c8540a60a0d0244f6cd2553ee14b13172",
+      "after_sha256": "0549d61174ce07e685156b3a035be9d628035374966d5fe6e9048482a07a9907",
+      "edits": [
+        {
+          "before_offset": 1055,
+          "after_offset": 1055,
+          "old": "",
+          "new": "\n\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n"
+        },
+        {
+          "before_offset": 1843,
+          "after_offset": 2284,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 2066,
+          "after_offset": 2504,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 2417,
+          "after_offset": 2852,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 3658,
+          "after_offset": 4090,
+          "old": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "new": "\t\tthis.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 4789,
+          "after_offset": 5218,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "f7923b214d9ea2788d52d5a1e84a2b5173630f5003a39fe2031e65b50032a612",
+      "after_sha256": "7a478d12ef4cfd57c702e6fc49f9bafd480665c094089edd32f6a3eb9707665f",
+      "edits": [
+        {
+          "before_offset": 1278,
+          "after_offset": 1278,
+          "old": "",
+          "new": "\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n\n"
+        },
+        {
+          "before_offset": 2158,
+          "after_offset": 2599,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 2374,
+          "after_offset": 2812,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 2718,
+          "after_offset": 3153,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 3913,
+          "after_offset": 4345,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "369a18b96e17284454623abb59d21373fea8f59d9e9548c655a54cf1baf63a97",
+      "after_sha256": "5c96cb88527e71a9896057821961b030855d769ef603257f9f957917bbc60949",
+      "edits": [
+        {
+          "before_offset": 1297,
+          "after_offset": 1297,
+          "old": "",
+          "new": "\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n\n"
+        },
+        {
+          "before_offset": 2177,
+          "after_offset": 2618,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 2393,
+          "after_offset": 2831,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 2737,
+          "after_offset": 3172,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        },
+        {
+          "before_offset": 3932,
+          "after_offset": 4364,
+          "old": "        this.renderDistanceWeight = 10.0D;\n",
+          "new": "        this.renderRangeWeight = 10.0D;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "c17ffe883f02d10876968307e39a01b06631e034dffceff479169926df1b98d3",
+      "after_sha256": "0da64845ae99f6e25180ed931c2cfbd3a1365412ea5c7ea7ce615bd2705a4ba3",
+      "edits": [
+        {
+          "before_offset": 19139,
+          "after_offset": 19139,
+          "old": "\t\t\t\tint randSlot = rand.nextInt(player.inventory.mainInventory.length);\n",
+          "new": "\t\t\t\tint randSlot = rand.nextInt(player.inventory.mainInventory.size());\n"
+        },
+        {
+          "before_offset": 32115,
+          "after_offset": 32115,
+          "old": "\t\t\t\tItemStack plate = player.inventory.armorInventory[2];\n",
+          "new": "\t\t\t\tItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        },
+        {
+          "before_offset": 32350,
+          "after_offset": 32388,
+          "old": "\t\t\t\tItemStack armorStack = player.inventory.armorInventory[armorSlot];\n",
+          "new": "\t\t\t\tItemStack armorStack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, armorSlot);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/HazmatRegistry.java": {
+      "before_sha256": "6b323763f60bb4d48fb9fac7e65569a71e8926a855c18ee2fbefe3e45f086d40",
+      "after_sha256": "b1c4386aeb85caff9e8b6105eda186836849959833c161ee4bfa83e31ae73c10",
+      "edits": [
+        {
+          "before_offset": 8103,
+          "after_offset": 8103,
+          "old": "\t\t\tres += getResistance(player.inventory.armorInventory[i]);\n",
+          "new": "\t\t\tres += getResistance(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/HazardSystem.java": {
+      "before_sha256": "74ad11a3b550b627a93329988911044df3d80aff77b27fd0fcb6df8908811d7b",
+      "after_sha256": "8fe9905f8565faf29f06b25a6d1f9a8281792bc68bc023da44191e887877aaca",
+      "edits": [
+        {
+          "before_offset": 6022,
+          "after_offset": 6022,
+          "old": "\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n\t\t\t\n\t\t\tItemStack stack = player.inventory.mainInventory[i];\n",
+          "new": "\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n\t\t\t\n\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);\n"
+        },
+        {
+          "before_offset": 6241,
+          "after_offset": 6279,
+          "old": "\t\t\t\t\tplayer.inventory.mainInventory[i] = null;\n",
+          "new": "\t\t\t\t\tplayer.inventory.mainInventory.set(i, ItemStack.EMPTY);\n"
+        },
+        {
+          "before_offset": 6365,
+          "after_offset": 6417,
+          "old": "",
+          "new": "\t\t\tif (stack == ItemStack.EMPTY) stack = null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/type/HazardTypeNeutron.java": {
+      "before_sha256": "f48fbdd4c412ad9c646fd7790abeae789c9abe2314bcc199d4ef26fb3c02baa2",
+      "after_sha256": "4ffa47aaac4a44e38081cf56438806a84e36a5bed0465d0940cd54a9444682c0",
+      "edits": [
+        {
+          "before_offset": 1684,
+          "after_offset": 1684,
+          "old": "\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n",
+          "new": "\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n"
+        },
+        {
+          "before_offset": 1812,
+          "after_offset": 1812,
+          "old": "\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.length; i++) {\n",
+          "new": "\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.size(); i++) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "before_sha256": "8083ec5bf55c66764bb4befd9de4f437d95ec02766459e33579273318d0e1097",
+      "after_sha256": "aaaa2591b48b2ea6eade1cbb8ed2f1d0c2452a7d6d49ef3096cb01eb731c797d",
+      "edits": [
+        {
+          "before_offset": 8346,
+          "after_offset": 8346,
+          "old": "\t\t\t\tfor(int i = 0; i < inventory.mainInventory.length; i++) {\n\t\t\t\t\tItemStack stackItem = inventory.mainInventory[i];\n",
+          "new": "\t\t\t\tfor(int i = 0; i < inventory.mainInventory.size(); i++) {\n\t\t\t\t\tItemStack stackItem = com.hbm.util.PlayerInventoryRead.get(inventory.mainInventory, i);\n"
+        },
+        {
+          "before_offset": 9120,
+          "after_offset": 9158,
+          "old": "\t\t\t\t\tfor(int i = 0; i < inventory.mainInventory.length; i++) {\n\t\t\t\t\t\tItemStack stackItem = inventory.mainInventory[i];\n",
+          "new": "\t\t\t\t\tfor(int i = 0; i < inventory.mainInventory.size(); i++) {\n\t\t\t\t\t\tItemStack stackItem = com.hbm.util.PlayerInventoryRead.get(inventory.mainInventory, i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJ.java": {
+      "before_sha256": "3cc4c1b66dab338b2c3aed7400b382e84dad3d63880feda2730439d71be065f0",
+      "after_sha256": "77e592729dfa54985568d2f91a7e94f76525ec84c6b58beeccc23092387d14e3",
+      "edits": [
+        {
+          "before_offset": 1573,
+          "after_offset": 1573,
+          "old": "\t\t\tItemStack helmet = player.inventory.armorInventory[3];\n",
+          "new": "\t\t\tItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);\n"
+        },
+        {
+          "before_offset": 1748,
+          "after_offset": 1786,
+          "old": "\t\t\tplayer.inventory.armorInventory[3] = null;\n",
+          "new": "\t\t\tplayer.inventory.armorInventory.set(3, ItemStack.EMPTY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "e2200820edf7ca3b6e802652aae6beba3fb1c9d3ccd8520f425b077ac5912539",
+      "after_sha256": "6efe58e84d02e49840a42d5ffe8317ecb8348700af354ec41293e7aac6d75cb7",
+      "edits": [
+        {
+          "before_offset": 2739,
+          "after_offset": 2739,
+          "old": "\t\t\t\tItemStack helmet = player.inventory.armorInventory[3];\n",
+          "new": "\t\t\t\tItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "e6cd7cdb0031ad491b5ed1911662d52b059668997f52e32bd6b4205f0c6618f7",
+      "after_sha256": "aeab5cf3a6856f1fb948390c407e49067884a36f124f82fcab3dff481c4e2d6b",
+      "edits": [
+        {
+          "before_offset": 6951,
+          "after_offset": 6951,
+          "old": "\t\tItemStack plate = player.inventory.armorInventory[2];\n",
+          "new": "\t\tItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        },
+        {
+          "before_offset": 7217,
+          "after_offset": 7255,
+          "old": "\t\t\t\tItemStack armor = player.inventory.armorInventory[i];\n",
+          "new": "\t\t\t\tItemStack armor = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);\n"
+        },
+        {
+          "before_offset": 7666,
+          "after_offset": 7742,
+          "old": "\t\tItemStack plate = player.inventory.armorInventory[2];\n",
+          "new": "\t\tItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        },
+        {
+          "before_offset": 7932,
+          "after_offset": 8046,
+          "old": "\t\t\t\tItemStack armor = player.inventory.armorInventory[i];\n",
+          "new": "\t\t\t\tItemStack armor = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);\n"
+        },
+        {
+          "before_offset": 8617,
+          "after_offset": 8769,
+          "old": "\t\t\tItemStack plate = player.inventory.armorInventory[2];\n",
+          "new": "\t\t\tItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        },
+        {
+          "before_offset": 11251,
+          "after_offset": 11441,
+          "old": "\t\t\tArmorFSB chestplate = (ArmorFSB) player.inventory.armorInventory[2].getItem();\n",
+          "new": "\t\t\tArmorFSB chestplate = (ArmorFSB) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();\n"
+        },
+        {
+          "before_offset": 11530,
+          "after_offset": 11758,
+          "old": "\t\t\tArmorFSB chestplate = (ArmorFSB) player.inventory.armorInventory[2].getItem();\n",
+          "new": "\t\t\tArmorFSB chestplate = (ArmorFSB) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHEV.java": {
+      "before_sha256": "0a862e9cb6541979c887a88eb7497bea8ad5bf06da6548e23c9bb9d541d29943",
+      "after_sha256": "d77fb151949daf244ed8f9b31e5ff758cf6b19f6ea7bb7dc80ccbc0133bc6f0e",
+      "edits": [
+        {
+          "before_offset": 1700,
+          "after_offset": 1700,
+          "old": "\t\tif(this.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory[2].getItem() == ModItems.hev_plate) {\n",
+          "new": "\t\tif(this.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() == ModItems.hev_plate) {\n"
+        },
+        {
+          "before_offset": 3182,
+          "after_offset": 3220,
+          "old": "\t\t\tItemStack armor = player.inventory.armorInventory[i];\n\t\t\tArmorFSBPowered item = ((ArmorFSBPowered) player.inventory.armorInventory[i].getItem());\n",
+          "new": "\t\t\tItemStack armor = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);\n\t\t\tArmorFSBPowered item = ((ArmorFSBPowered) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i).getItem());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java": {
+      "before_sha256": "9a6bcc7376692e8d53d243851625c3fdadedd4d19a5d9ff25a96a4cc3b76a92e",
+      "after_sha256": "f317e0c86ae64aedf8c364b54b4b6941e54ba7772605f2277dd4aa77330771d0",
+      "edits": [
+        {
+          "before_offset": 2792,
+          "after_offset": 2792,
+          "old": "\t\treturn player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() == ModItems.trenchmaster_plate && ArmorFSB.hasFSBArmor(player);\n",
+          "new": "\t\treturn com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() == ModItems.trenchmaster_plate && ArmorFSB.hasFSBArmor(player);\n"
+        },
+        {
+          "before_offset": 3048,
+          "after_offset": 3124,
+          "old": "\t\tif(player.inventory.armorInventory[3] != null) {\n\t\t\tItemStack[] mods =  ArmorModHandler.pryMods(player.inventory.armorInventory[3]);\n",
+          "new": "\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3) != null) {\n\t\t\tItemStack[] mods =  ArmorModHandler.pryMods(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java": {
+      "before_sha256": "2e386facb42e0b9a2fff8bd99c339ce171ccd2e7b9e516d4a5b0603de8e414d4",
+      "after_sha256": "fc1634d91dee954c84df3aa6ea259978409372af792a3e70c344e1229ba30880",
+      "edits": [
+        {
+          "before_offset": 401,
+          "after_offset": 401,
+          "old": "\t\tif(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof IPAWeaponsProvider) {\n\t\t\tIPAWeaponsProvider prov = (IPAWeaponsProvider) player.inventory.armorInventory[2].getItem();\n",
+          "new": "\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof IPAWeaponsProvider) {\n\t\t\tIPAWeaponsProvider prov = (IPAWeaponsProvider) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();\n"
+        },
+        {
+          "before_offset": 945,
+          "after_offset": 1059,
+          "old": "\t\tif(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof IPAWeaponsProvider) {\n\t\t\tIPAWeaponsProvider prov = (IPAWeaponsProvider) player.inventory.armorInventory[2].getItem();\n",
+          "new": "\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof IPAWeaponsProvider) {\n\t\t\tIPAWeaponsProvider prov = (IPAWeaponsProvider) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModPads.java": {
+      "before_sha256": "e6fe9da7f4440ba422323c4a0fe38917ff5dbdb129aff94f403e93a4deb019ab",
+      "after_sha256": "17ed9b5b26f5316997f7f056acd99e6386fa40992f65b282478865796aee342a",
+      "edits": [
+        {
+          "before_offset": 2067,
+          "after_offset": 2067,
+          "old": "\t\t\t\t\t\tItemStack stack = player.inventory.armorInventory[i];\n",
+          "new": "\t\t\t\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": {
+      "before_sha256": "8f421359a3bd4eab877a049b5a6f9b412a02196816d39ea79524426ce9b5f6e1",
+      "after_sha256": "09bec0a536a7857111fd5dbf34f70f0839624a1aae1da59d3e8913ee520df9d0",
+      "edits": [
+        {
+          "before_offset": 1749,
+          "after_offset": 1749,
+          "old": "",
+          "new": "\t\t\t\t\tif (item == ItemStack.EMPTY) item = null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPancake.java": {
+      "before_sha256": "0de4339a7b31e1174515dc61cb9231b43ad693c53811830f9373fb9a2f29151f",
+      "after_sha256": "bea4be2a2be9eb2b4e76b5aa25faf9b352b47da809c6e464b49dc6dde4b42f83",
+      "edits": [
+        {
+          "before_offset": 806,
+          "after_offset": 806,
+          "old": "",
+          "new": "    \t\tif (st == ItemStack.EMPTY) st = null;\r\n"
+        },
+        {
+          "before_offset": 1155,
+          "after_offset": 1200,
+          "old": "    \tif(ArmorFSB.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory[3].getItem() == ModItems.bj_helmet) {\r\n",
+          "new": "    \tif(ArmorFSB.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItem() == ModItems.bj_helmet) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidSiphon.java": {
+      "before_sha256": "41034dd4ec3cdd868ecc9f4de184976b3a4dec7aa90d2f99bd41206203c67021",
+      "after_sha256": "42cc9eb6f0922ba607adc37dea5c5a507826104652490e07333692943ffac410",
+      "edits": [
+        {
+          "before_offset": 1583,
+          "after_offset": 1583,
+          "old": "\t\t\t\tfor(int j = 0; j < player.inventory.mainInventory.length; j++) {\n\t\t\t\t\tItemStack inventoryStack = player.inventory.mainInventory[j];\n",
+          "new": "\t\t\t\tfor(int j = 0; j < player.inventory.mainInventory.size(); j++) {\n\t\t\t\t\tItemStack inventoryStack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j);\n"
+        },
+        {
+          "before_offset": 2523,
+          "after_offset": 2561,
+          "old": "\t\t\t\t\t\t\tplayer.inventory.mainInventory[j] = null;\n",
+          "new": "\t\t\t\t\t\t\tplayer.inventory.mainInventory.set(j, ItemStack.EMPTY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarterKit.java": {
+      "before_sha256": "f1075dea4875f1be41d53567103c1f319d8045835fd57116151fb163c0dd4a61",
+      "after_sha256": "76bec6ca4069dd904bc4dee3dc8420da3e0e20ba039f24c75ddaaa72f28e18aa",
+      "edits": [
+        {
+          "before_offset": 1148,
+          "after_offset": 1148,
+          "old": "\t\t\tif(p.inventory.armorInventory[i] != null && !world.isRemote) {\n\t\t\t\tworld.spawnEntity(new EntityItem(world, p.posX, p.posY + p.eyeHeight, p.posZ, p.inventory.armorInventory[i]));\n",
+          "new": "\t\t\tif(com.hbm.util.PlayerInventoryRead.get(p.inventory.armorInventory, i) != null && !world.isRemote) {\n\t\t\t\tworld.spawnEntity(new EntityItem(world, p.posX, p.posY + p.eyeHeight, p.posZ, com.hbm.util.PlayerInventoryRead.get(p.inventory.armorInventory, i)));\n"
+        },
+        {
+          "before_offset": 1366,
+          "after_offset": 1442,
+          "old": "\t\t\tp.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet);\n\t\t\tp.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate);\n\t\t\tp.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs);\n\t\t\tp.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots);\n",
+          "new": "\t\t\tp.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet));\n\t\t\tp.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate));\n\t\t\tp.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs));\n\t\t\tp.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots));\n"
+        },
+        {
+          "before_offset": 1678,
+          "after_offset": 1766,
+          "old": "\t\t\tp.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet_red);\n\t\t\tp.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate_red);\n\t\t\tp.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs_red);\n\t\t\tp.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots_red);\n",
+          "new": "\t\t\tp.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet_red));\n\t\t\tp.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate_red));\n\t\t\tp.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs_red));\n\t\t\tp.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots_red));\n"
+        },
+        {
+          "before_offset": 2006,
+          "after_offset": 2106,
+          "old": "\t\t\tp.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet_grey);\n\t\t\tp.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate_grey);\n\t\t\tp.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs_grey);\n\t\t\tp.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots_grey);\n",
+          "new": "\t\t\tp.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet_grey));\n\t\t\tp.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate_grey));\n\t\t\tp.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs_grey));\n\t\t\tp.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots_grey));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSyringe.java": {
+      "before_sha256": "efdeca8e5f11419e3ed9135fedeef663e53823b46521134931f0600c4269f2c5",
+      "after_sha256": "4d9cb8b8b86a603e20ccff82ecb707b52217588e2efb79956c0d6674ac457b87",
+      "edits": [
+        {
+          "before_offset": 6376,
+          "after_offset": 6376,
+          "old": "\t\tif(this == ModItems.gas_mask_filter_mono && player.inventory.armorInventory[3] != null && player.inventory.armorInventory[3].getItem() == ModItems.gas_mask_mono) {\n\t\t\tif(!world.isRemote) {\n\t\t\t\tif(player.inventory.armorInventory[3].getItemDamage() == 0)\n",
+          "new": "\t\tif(this == ModItems.gas_mask_filter_mono && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItem() == ModItems.gas_mask_mono) {\n\t\t\tif(!world.isRemote) {\n\t\t\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItemDamage() == 0)\n"
+        },
+        {
+          "before_offset": 6651,
+          "after_offset": 6765,
+          "old": "\t\t\t\tplayer.inventory.armorInventory[3].setItemDamage(0);\n",
+          "new": "\t\t\t\tcom.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).setItemDamage(0);\n"
+        },
+        {
+          "before_offset": 6816,
+          "after_offset": 6968,
+          "old": "\t\tif(this == ModItems.jetpack_tank && player.inventory.armorInventory[2] != null) {\n\n\t\t\tif(!world.isRemote) {\n\n\t\t\t\tItemStack jetpack = player.inventory.armorInventory[2];\n",
+          "new": "\t\tif(this == ModItems.jetpack_tank && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null) {\n\n\t\t\tif(!world.isRemote) {\n\n\t\t\t\tItemStack jetpack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        },
+        {
+          "before_offset": 7607,
+          "after_offset": 7835,
+          "old": "\t\t\t\tif(jetpack.getItem() != player.inventory.armorInventory[2].getItem())\n\t\t\t\t\tArmorModHandler.applyMod(player.inventory.armorInventory[2], jetpack);\n\t\t\t}\n\t\t}\n\n\t\tif(this == ModItems.lox_tank && player.inventory.armorInventory[3] != null) {\n\t\t\tif(!world.isRemote) {\n\t\t\t\tItemStack helmet = player.inventory.armorInventory[3];\n",
+          "new": "\t\t\t\tif(jetpack.getItem() != com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem())\n\t\t\t\t\tArmorModHandler.applyMod(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2), jetpack);\n\t\t\t}\n\t\t}\n\n\t\tif(this == ModItems.lox_tank && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3) != null) {\n\t\t\tif(!world.isRemote) {\n\t\t\t\tItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);\n"
+        },
+        {
+          "before_offset": 8483,
+          "after_offset": 8863,
+          "old": "\t\t\t\t\tArmorModHandler.applyMod(player.inventory.armorInventory[3], tankStack);\n",
+          "new": "\t\t\t\t\tArmorModHandler.applyMod(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3), tankStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemAmmoContainer.java": {
+      "before_sha256": "be0a5fa60f95c3e3ed39360ca72330df128cae63b94c9d30801068bf12a0a513",
+      "after_sha256": "f6e66587e1f66e6b8e1ca60a8834e528bd6a096f7bf607c47f7dee7e3379ed95",
+      "edits": [
+        {
+          "before_offset": 1641,
+          "after_offset": 1641,
+          "old": "",
+          "new": "\t\t\tif (inv == ItemStack.EMPTY) inv = null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemConveyorWand.java": {
+      "before_sha256": "2eb4d7033e809c3e9c385b83cf9179279670d64df2e9004459b938c7bdbda5b9",
+      "after_sha256": "7468db94abd9d746efd43d8e94d2445472184063574e689401bc27d7b1c8486c",
+      "edits": [
+        {
+          "before_offset": 6738,
+          "after_offset": 6738,
+          "old": "",
+          "new": "\t\t\t\t\tif (inventoryStack == ItemStack.EMPTY) inventoryStack = null;\r\n"
+        },
+        {
+          "before_offset": 7761,
+          "after_offset": 7829,
+          "old": "",
+          "new": "\t\t\t\t\t\t\tif (inventoryStack == ItemStack.EMPTY) inventoryStack = null;\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemFusionCore.java": {
+      "before_sha256": "23b0b1d0cdf392ddc8b0270d84dd0e709b83eb58f1a6866a1a65d3a51a1a87b2",
+      "after_sha256": "8528bb030449862c6561292222c26df44056eb49eef4b8e825a6684f1c51d19c",
+      "edits": [
+        {
+          "before_offset": 640,
+          "after_offset": 640,
+          "old": "\t\tif(ArmorFSB.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory[2].getItem() instanceof ArmorFSBPowered) {\n",
+          "new": "\t\tif(ArmorFSB.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSBPowered) {\n"
+        },
+        {
+          "before_offset": 822,
+          "after_offset": 860,
+          "old": "",
+          "new": "\t\t\t\tif (st == ItemStack.EMPTY) st = null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "before_sha256": "11716fbc6d7d9b4f9464a95e9bb3dabe47467a38f99d0725b4b2753b7f08cb39",
+      "after_sha256": "707b2334498a17e702925e5e4c75bb81ec9b4d7fde6a45551ee58c6f8de1441c",
+      "edits": [
+        {
+          "before_offset": 6088,
+          "after_offset": 6088,
+          "old": "\t\t\tInventoryUtil.tryConsumeAStack(player.inventory.mainInventory, 0, player.inventory.mainInventory.length - 1, new ComparableStack(ModBlocks.rebar, rebarUsed));\n",
+          "new": "\t\t\tInventoryUtil.tryConsumeAStack(player.inventory.mainInventory, 0, player.inventory.mainInventory.size() - 1, new ComparableStack(ModBlocks.rebar, rebarUsed));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRepairKit.java": {
+      "before_sha256": "76951c10b1af5c18d4f3e50b37ba3a1eb9489515f145000e1267a2a62e5db8df",
+      "after_sha256": "69b28c1b2aa0b2f2da6c3176e1de9de75af82becc6a168eef22fa019aad01390",
+      "edits": [
+        {
+          "before_offset": 649,
+          "after_offset": 649,
+          "old": "\t\t\tItemStack item = player.inventory.mainInventory[i];\n",
+          "new": "\t\t\tItemStack item = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92Cell.java": {
+      "before_sha256": "802c92a2bb7b810afc5aaf4f53a9c558fa9c702c50ef4132bfe1c99e7f1c9beb",
+      "after_sha256": "630396a0291692186264def096e88720af7bb14ade633c6406b1b09354d7a31c",
+      "edits": [
+        {
+          "before_offset": 570,
+          "after_offset": 570,
+          "old": "\t\t\tfor(int j = 0; j < player.inventory.mainInventory.length; j++) {\n\t\t\t\tif(player.inventory.mainInventory[j] != null && player.inventory.mainInventory[j].getItem() == ModItems.gun_b92) {\n\t\t\t\t\tint p = getPower(player.inventory.mainInventory[j]);\n",
+          "new": "\t\t\tfor(int j = 0; j < player.inventory.mainInventory.size(); j++) {\n\t\t\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j).getItem() == ModItems.gun_b92) {\n\t\t\t\t\tint p = getPower(com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j));\n"
+        },
+        {
+          "before_offset": 832,
+          "after_offset": 946,
+          "old": "\t\t\t\t\t\tsetPower(player.inventory.mainInventory[j], p - 1);\n",
+          "new": "\t\t\t\t\t\tsetPower(com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j), p - 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/mags/IMagazine.java": {
+      "before_sha256": "dedc6517ac08d011add034d86d7fb110cc75b2aacca320906649288d26f5fde6",
+      "after_sha256": "bfec3ed4232a675d8b9ac34055769748c04a35047b8d68e9529826815d5ded36",
+      "edits": [
+        {
+          "before_offset": 3129,
+          "after_offset": 3129,
+          "old": "",
+          "new": "\t\t\t\tif (stack == ItemStack.EMPTY) stack = null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "2d3fe21a7696d69194356951ffb679ce558803e3360ea19b4ea434da7acf3b54",
+      "after_sha256": "f8376fc5ed16b3b15e380673a53441c960b0fe7235221d2b99403406eca8d2bb",
+      "edits": [
+        {
+          "before_offset": 38631,
+          "after_offset": 38631,
+          "old": "\t\t\tif(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB)\n\t\t\t\t((ArmorFSB)player.inventory.armorInventory[2].getItem()).handleAttack(event);\n",
+          "new": "\t\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)\n\t\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).handleAttack(event);\n"
+        },
+        {
+          "before_offset": 38892,
+          "after_offset": 39006,
+          "old": "",
+          "new": "\t\t\t\tif (stack == ItemStack.EMPTY) stack = null;\n"
+        },
+        {
+          "before_offset": 40962,
+          "after_offset": 41124,
+          "old": "\t\t\tif(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB)\n\t\t\t\t((ArmorFSB)player.inventory.armorInventory[2].getItem()).handleHurt(event);\n",
+          "new": "\t\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)\n\t\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).handleHurt(event);\n"
+        },
+        {
+          "before_offset": 41222,
+          "after_offset": 41498,
+          "old": "",
+          "new": "\t\t\t\tif (stack == ItemStack.EMPTY) stack = null;\n"
+        },
+        {
+          "before_offset": 41493,
+          "after_offset": 41817,
+          "old": "\t\tif(e.inventory.armorInventory[2] != null && e.inventory.armorInventory[2].getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)e.inventory.armorInventory[2].getItem()).handleFall(e, event.distance);\n",
+          "new": "\t\tif(com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2).getItem()).handleFall(e, event.distance);\n"
+        },
+        {
+          "before_offset": 41883,
+          "after_offset": 42321,
+          "old": "\t\tItemStack chestplate = player.inventory.armorInventory[2];\n",
+          "new": "\t\tItemStack chestplate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        },
+        {
+          "before_offset": 43817,
+          "after_offset": 44293,
+          "old": "\t\tif(e instanceof EntityPlayer && ((EntityPlayer)e).inventory.armorInventory[2] != null && ((EntityPlayer)e).inventory.armorInventory[2].getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)((EntityPlayer)e).inventory.armorInventory[2].getItem()).handleJump((EntityPlayer)e);\n",
+          "new": "\t\tif(e instanceof EntityPlayer && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem()).handleJump((EntityPlayer)e);\n"
+        },
+        {
+          "before_offset": 44448,
+          "after_offset": 45038,
+          "old": "\t\tif(e instanceof EntityPlayer && ((EntityPlayer)e).inventory.armorInventory[2] != null && ((EntityPlayer)e).inventory.armorInventory[2].getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)((EntityPlayer)e).inventory.armorInventory[2].getItem()).handleFall((EntityPlayer)e, event.distance);\n",
+          "new": "\t\tif(e instanceof EntityPlayer && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem()).handleFall((EntityPlayer)e, event.distance);\n"
+        },
+        {
+          "before_offset": 51071,
+          "after_offset": 51775,
+          "old": "\t\tif(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)player.inventory.armorInventory[2].getItem()).handleTick(event);\n",
+          "new": "\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)\n\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).handleTick(event);\n"
+        },
+        {
+          "before_offset": 55524,
+          "after_offset": 56342,
+          "old": "\t\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n",
+          "new": "\t\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "3447d70ea229e57d00ecd1e44104f9112fd68c147801be54a811a7b1d04ecccc",
+      "after_sha256": "28f857ea87645987c4405d33422de5146c4dac68fd72a4b6dce780c1aaa77c68",
+      "edits": [
+        {
+          "before_offset": 9074,
+          "after_offset": 9074,
+          "old": "\t\t\tif(!(ArmorFSB.hasFSBArmor(player) && ((ArmorFSB)player.inventory.armorInventory[2].getItem()).customGeiger)) {\n",
+          "new": "\t\t\tif(!(ArmorFSB.hasFSBArmor(player) && ((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).customGeiger)) {\n"
+        },
+        {
+          "before_offset": 16196,
+          "after_offset": 16234,
+          "old": "\t\tItemStack helmet = player.inventory.armorInventory[3];\n",
+          "new": "\t\tItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);\n"
+        },
+        {
+          "before_offset": 18795,
+          "after_offset": 18871,
+          "old": "\t\t\t\tItemStack stack = player.inventory.armorInventory[i];\n",
+          "new": "\t\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);\n"
+        },
+        {
+          "before_offset": 44604,
+          "after_offset": 44718,
+          "old": "\t\t\tif(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB) {\n\t\t\t\tArmorFSB plate = (ArmorFSB) player.inventory.armorInventory[2].getItem();\n",
+          "new": "\t\t\tif(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB) {\n\t\t\t\tArmorFSB plate = (ArmorFSB) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();\n"
+        },
+        {
+          "before_offset": 54309,
+          "after_offset": 54537,
+          "old": "\t\t\t\tItemStack plate = player.inventory.armorInventory[2];\n",
+          "new": "\t\t\t\tItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        },
+        {
+          "before_offset": 55590,
+          "after_offset": 55856,
+          "old": "\t\t\tItemStack plate = player.inventory.armorInventory[2];\n",
+          "new": "\t\t\tItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/packet/toserver/ItemFolderPacket.java": {
+      "before_sha256": "6c64ef420a7c9bb69c7039996b11fd8168d787d003d6b5fd216e08d840efbb06",
+      "after_sha256": "fec3da467351edebd6f6af1c1efe41095b0af898454dccec5477fe691d97bdcd",
+      "edits": [
+        {
+          "before_offset": 4337,
+          "after_offset": 4337,
+          "old": "\t\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n",
+          "new": "\t\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n"
+        },
+        {
+          "before_offset": 4410,
+          "after_offset": 4410,
+          "old": "\t\t\t\tItemStack stack = player.inventory.mainInventory[i];\n",
+          "new": "\t\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);\n"
+        },
+        {
+          "before_offset": 4525,
+          "after_offset": 4563,
+          "old": "\t\t\t\t\tplayer.inventory.mainInventory[i] = new ItemStack(result, stack.stackSize, stack.getItemDamage());\n",
+          "new": "\t\t\t\t\tplayer.inventory.mainInventory.set(i, new ItemStack(result, stack.stackSize, stack.getItemDamage()));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDecon.java": {
+      "before_sha256": "932e27851fc0ebe9ce2105d9c8fe33d488e3c5dcd63052325d7550b21f927fe6",
+      "after_sha256": "a2d1b8664ce9485781b6fed9aebc3637a408f7d8bbb457836ea9bc2d94153e28",
+      "edits": [
+        {
+          "before_offset": 2351,
+          "after_offset": 2351,
+          "old": "\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n",
+          "new": "\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n"
+        },
+        {
+          "before_offset": 2503,
+          "after_offset": 2503,
+          "old": "\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.length; i++) {\n",
+          "new": "\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.size(); i++) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java": {
+      "before_sha256": "b1451e5c82154e197c55751ce16ce7ee02a33a66fb64e54d190fafe1de880646",
+      "after_sha256": "0b75dd43a426b8a5bf58d228d49574c45554b6f74eb6b0bfc555f6879d1c3b2f",
+      "edits": [
+        {
+          "before_offset": 2274,
+          "after_offset": 2274,
+          "old": "\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n",
+          "new": "\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n"
+        },
+        {
+          "before_offset": 2422,
+          "after_offset": 2422,
+          "old": "\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.length; i++) {\n",
+          "new": "\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.size(); i++) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": {
+      "before_sha256": "a2b4bf5bf81971bbb07998ef9115da0ef2e979bc7e3cc17f717c24c2bd8dfb22",
+      "after_sha256": "61e26a06451ed8f8847fd9a6be9f9c8685e6278c19c8a222ea90e36541fcf947",
+      "edits": [
+        {
+          "before_offset": 7028,
+          "after_offset": 7028,
+          "old": "\t\t\t\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n",
+          "new": "\t\t\t\t\t\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n"
+        },
+        {
+          "before_offset": 7185,
+          "after_offset": 7185,
+          "old": "\t\t\t\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.length; i++) {\n",
+          "new": "\t\t\t\t\t\t\tfor(int i = 0; i < player.inventory.armorInventory.size(); i++) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/ArmorUtil.java": {
+      "before_sha256": "fb624945810ce9c5a8bdcec0fb3276f9faa5a984ecabb74826cfb700be9db41d",
+      "after_sha256": "b2f178c045f41158c0f83b25bb3c4e47c4e4999cb24a420e76edf8fc33e91afb",
+      "edits": [
+        {
+          "before_offset": 13329,
+          "after_offset": 13329,
+          "old": "\t\t\t\t\tplayer.inventory.armorInventory[i] = null;\n",
+          "new": "\t\t\t\t\tplayer.inventory.armorInventory.set(i, ItemStack.EMPTY);\n"
+        },
+        {
+          "before_offset": 15373,
+          "after_offset": 15387,
+          "old": "\t\tItemStack[] armor = player.inventory.armorInventory;\n\n\t\tif(armor[0] == null || armor[1] == null || armor[2] == null || armor[3] == null) return false;\n\n\t\tif(isFaradayArmor(armor[0]) && isFaradayArmor(armor[1]) && isFaradayArmor(armor[2]) && isFaradayArmor(armor[3]))\n",
+          "new": "\t\tnet.minecraft.util.NonNullList<ItemStack> armor = player.inventory.armorInventory;\n\n\t\tif(com.hbm.util.PlayerInventoryRead.get(armor, 0) == null || com.hbm.util.PlayerInventoryRead.get(armor, 1) == null || com.hbm.util.PlayerInventoryRead.get(armor, 2) == null || com.hbm.util.PlayerInventoryRead.get(armor, 3) == null) return false;\n\n\t\tif(isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 0)) && isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 1)) && isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 2)) && isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 3)))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "72e7cd9ab3724565381f43000c811007a9072053edbca306c15a6b55c3514519",
+      "after_sha256": "a7533ef96a129439d57c5e1a02fa373b9f61535f84aee4d28a90a47b163ed434",
+      "edits": [
+        {
+          "before_offset": 1260,
+          "after_offset": 1260,
+          "old": "\t\t\t\tItemStack chestplate = player.inventory.armorInventory[2];\n",
+          "new": "\t\t\t\tItemStack chestplate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/InventoryUtil.java": {
+      "before_sha256": "6777c430c6c5ce4c00af64f83ddb09b9895e9e40de8294f723aa3d81086a811b",
+      "after_sha256": "f1c92e67e6d2983be710388f7d8a3d86639f28a067470247e6900d2c09682939",
+      "edits": [
+        {
+          "before_offset": 8713,
+          "after_offset": 8713,
+          "old": "\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n\n\t\t\tItemStack stack = player.inventory.mainInventory[i];\n",
+          "new": "\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n\n\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);\n"
+        },
+        {
+          "before_offset": 9166,
+          "after_offset": 9204,
+          "old": "\t\tfor(int i = 0; i < player.inventory.mainInventory.length; i++) {\n\n\t\t\tItemStack stack = player.inventory.mainInventory[i];\n",
+          "new": "\t\tfor(int i = 0; i < player.inventory.mainInventory.size(); i++) {\n\n\t\t\tItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/util/PlayerInventoryRead.java": "fe5b2f99e7b484ea5a020d6f169dfa66e94f41dd2f2a95b84f667c7e75714bfb"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

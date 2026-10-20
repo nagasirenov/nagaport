@@ -1,0 +1,1669 @@
+{
+  "original_owners": [
+    {
+      "owner": "com/hbm/blocks/BlockCoral",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050005000000312a2b1c1d1504b700299900262a2b1c1d1504b6002c99001a2b1c1d04601504b60032b60038b6003b99000704a7000403ac0000000300540000000500022f400100520000000600010000003300530000003400050000003100160017000000000031002100220001000000310023000a0002000000310024000a0003000000310025000a0004"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockKelp",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00040006000000202b1c1d04641504b6003f3a0519052aa5000b1905b20045a6000704a7000403ac0000000300790000000b0003fc001a07000403400100770000000a00020000003f000c004000780000003e00060000002000170018000000000020003100320001000000200033001c0002000000200034001c0003000000200035001c0004000c0014004600430005"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockVinylVine",
+      "parent": "net/minecraft/block/BlockVine",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000001e2a2b1c1d1504b7001b9900132a2b1c1d1504b6001e99000704a7000403ac0000000300460000000500021c400100440000000600010000001600450000003400050000001e000a000b00000000001e0010001100010000001e0012001300020000001e0014001300030000001e001500130004"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockWaterPlant",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050005000000312a2b1c1d1504b7003a9900262a2b1c1d1504b6003d99001a2b1c1d04601504b60043b60047b6004a99000704a7000403ac00000003004e0000000500022f4001004c00000006000100000034004d0000003400050000003100110012000000000031001a001b000100000031001c001d000200000031001e001d000300000031001f001d0004"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/DigammaFlame",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000400050000000b2b1c1d04641504b8004cac0000000200580000000600010000003f00590000003400050000000b0019001a00000000000b002b002c00010000000b002d002e00020000000b002f002e00030000000b0030002e0004"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/Landmine",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00040005000000232b1c1d04641504b800809a00132b1c1d04641504b60084b8008a99000704a7000403ac0000000302040000000600031d03400102020000000600010000005002030000003400050000002300230024000000000023002e002f0001000000230058003100020000002300590031000300000023005a00310004"
+    },
+    {
+      "owner": "com/hbm/blocks/fluid/MeltedFlesh",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050006000000682b1c1d04641504b6003d3a051905b20042a500551905b20045a5004d19052b1c1d04641504b6004999000704a7003b19052aa600192b1c1d04641504b6004d10077e1007a0000704a7001f1905b6004f9900121905b60053b6005899000704a7000803a7000403ac0000000300a40000000d0005fc002f0700041b1603400100a20000000a00020000002e000c002f00a30000003e000600000068001300140000000000680059005a000100000068005b0032000200000068005c0032000300000068005d00320004000c005c005e001f0005"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockChain",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050005000000662b1c1d04601504b20083b600889a00112b1c1d04601504b600892aa6000504ac2b1c04641d1504b2008cb600889a00332b1c04601d1504b2008fb600889a00232b1c1d15040464b20092b600889a00132b1c1d15040460b20095b6008899000704a7000403ac0000000300bb0000000800051e013f03400100b90000001e00070000007a001e007b0020007d003a007e004a007f005a00800065007d00ba0000003400050000006600140015000000000066002100540001000000660023000f0002000000660024000f0003000000660025000f0004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockDeadPlant",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000001e2a2b1c1d1504b700199900132a2b1c1d1504b6001c99000704a7000403ac00000003006d0000000500021c4001006b0000000600010000001f006c0000003400050000001e0014001500000000001e001d001e00010000001e001f002000020000001e0021002000030000001e002200200004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockFallout",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050006000000712b1c1d04641504b6003b3a051905b20040a5000b1905b20043a6000503ac19052b1c1d04641504b6004799001419052b1c1d04641504b6004a9a000504ac19052aa600172b1c1d04641504b6004e10077e1007a0000504ac1905b600509900121905b60054b6005799000704a7000403ac0000000300be0000000e0006fc001c070004011f1916400100bf00000016000500000031000c0033001e0034003e00350058003700c00000003e0006000000710020002100000000007100580059000100000071005a0030000200000071005b0030000300000071005c00300004000c0065005d00170005"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockHangingVine",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000000a2a2b1c1d1504b6003bac0000000200c00000000600010000002700c10000003400050000000a0018001900000000000a0030003100010000000a0032001300020000000a0033001300030000000a003400130004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockLayering",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500060000007a2b1c1d04641504b600553a051905c100579a000b1905c1005999000504ac1905b2005fa500551905b20062a5004d19052b1c1d04641504b6006699000704a7003b19052aa600192b1c1d04641504b6001e10077e1007a0000704a7001f1905b600689900121905b6006cb6007199000704a7000803a7000403ac0000000300ca0000000f0007fc001c07000401221b1603400100c800000012000400000039000c003b001c003c001e003e00c90000003e00060000007a0013001400000000007a0072003600010000007a0073003800020000007a0074003800030000007a007500380004000c006e0076005d0005"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockModDoor",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000003b1d2bb601280464a1000703a7002f2b1c1d04641504b800e09900212a2b1c1d1504b7012a9900152a2b1c1d04601504b7012a99000704a7000403ac0000000301590000000600030e2a400101570000001600050000015e0015015f00210160002f0161003a015e01580000003400050000003b0018001900000000003b012b007700010000003b012c002400020000003b012d002400030000003b012e00240004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockMush",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000001e2a2b1c1d1504b7002c9900132a2b1c1d1504b6002f99000704a7000403ac0000000300e00000000500021c400100de0000000600010000002400df0000003400050000001e001b001c00000000001e0030003100010000001e0032003300020000001e0034003300030000001e003500330004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockNTMFlower",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000001e2a2b1c1d1504b700459900132a2b1c1d1504b6004899000704a7000403ac00000003012a0000000500021c400101280000000600010000004601290000003400050000001e0028002900000000001e0032004900010000001e0034003500020000001e0036003500030000001e003700350004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockReeds",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00040006000000222b1c1d04641504b6003f3a051905b20045a5000b1905b20049a6000704a7000403ac0000000300830000000b0003fc001c07000403400100810000000a00020000002a000c002b00820000003e000600000022001a001b000000000022004a004b000100000022004c000e000200000022004d000e000300000022004e000e0004000c0016004f00430005"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockRubberCacti",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000001e2a2b1c1d1504b700239900132a2b1c1d1504b6002699000704a7000403ac00000003009a0000000500021c400100980000000600010000003100990000003400050000001e0016001700000000001e0027002800010000001e0029000a00020000001e002a000a00030000001e002b000a0004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockRubberPlant",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000001e2a2b1c1d1504b700199900132a2b1c1d1504b6001c99000704a7000403ac0000000300640000000500021c400100620000000600010000001c00630000003400050000001e0014001500000000001e001d001e00010000001e001f002000020000001e0021002000030000001e002200200004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockStalagmite",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050005000000292ab2003da6000e2b1c1d04641504b80043ac2ab20046a600112b1c1d04601504b2004cb60050ac04ac00000003006b000000040002121400690000000e00030000003c0012003d0027003f006a0000003400050000002900160017000000000029005100520001000000290053002c0002000000290054002c0003000000290055002c0004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockTallPlant",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "000500050000002b2a2b1c1d1504b700bc9900202a2b1c1d1504b600bf9900142b1c1d04601504b600c599000704a7000403ac0000000301b300000005000229400101b10000000600010000007d01b20000003400050000002b0034003500000000002b00b000b100010000002b00b2004500020000002b00b3004500030000002b00b400450004"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockTallPlantWater",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050005000000312a2b1c1d1504b700a89900262a2b1c1d1504b600a399001a2b1c1d04601504b60099b600aeb600b199000704a7000403ac00000003016b0000000500022f400101690000000600010000005f016a000000340005000000310034003500000000003100880089000100000031008a007e000200000031008b007e000300000031008c007e0004"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockOrbitalStation",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149742_c",
+      "descriptor": "(Lnet/minecraft/world/World;III)Z",
+      "code": "00050005000000132ab20159a6000503ac2a2b1c1d1504b7015bac0000000301650000000300010901630000000a0002000000d7000900d801640000003400050000001300130014000000000013015c00240001000000130095002600020000001300960026000300000013009700260004"
+    }
+  ],
+  "selected_owner_descendants": [
+    "com/hbm/blocks/BlockKelp",
+    "com/hbm/blocks/BlockVinylVine",
+    "com/hbm/blocks/BlockWaterPlant",
+    "com/hbm/blocks/bomb/DigammaFlame",
+    "com/hbm/blocks/bomb/Landmine",
+    "com/hbm/blocks/fluid/MeltedFlesh",
+    "com/hbm/blocks/generic/BlockDeadPlant",
+    "com/hbm/blocks/generic/BlockFallout",
+    "com/hbm/blocks/generic/BlockFenceGate",
+    "com/hbm/blocks/generic/BlockModDoor",
+    "com/hbm/blocks/generic/BlockMush",
+    "com/hbm/blocks/generic/BlockRubberPlant",
+    "com/hbm/blocks/generic/BlockStalagmite",
+    "com/hbm/blocks/generic/BlockTallPlant",
+    "com/hbm/blocks/generic/BlockTallPlantWater",
+    "com/hbm/blocks/machine/BlockOrbitalStation",
+    "com/hbm/blocks/machine/BlockOrbitalStationLauncher"
+  ],
+  "all_original_owner_descendants": [
+    "com/hbm/blocks/BlockCoral",
+    "com/hbm/blocks/BlockKelp",
+    "com/hbm/blocks/BlockVinylVine",
+    "com/hbm/blocks/BlockWaterPlant",
+    "com/hbm/blocks/bomb/DigammaFlame",
+    "com/hbm/blocks/bomb/Landmine",
+    "com/hbm/blocks/fluid/MeltedFlesh",
+    "com/hbm/blocks/generic/BlockChain",
+    "com/hbm/blocks/generic/BlockDeadPlant",
+    "com/hbm/blocks/generic/BlockFallout",
+    "com/hbm/blocks/generic/BlockFenceGate",
+    "com/hbm/blocks/generic/BlockHangingVine",
+    "com/hbm/blocks/generic/BlockLayering",
+    "com/hbm/blocks/generic/BlockModDoor",
+    "com/hbm/blocks/generic/BlockMush",
+    "com/hbm/blocks/generic/BlockNTMFlower",
+    "com/hbm/blocks/generic/BlockReeds",
+    "com/hbm/blocks/generic/BlockRubberCacti",
+    "com/hbm/blocks/generic/BlockRubberPlant",
+    "com/hbm/blocks/generic/BlockStalagmite",
+    "com/hbm/blocks/generic/BlockTallPlant",
+    "com/hbm/blocks/generic/BlockTallPlantWater",
+    "com/hbm/blocks/machine/BlockOrbitalStation",
+    "com/hbm/blocks/machine/BlockOrbitalStationLauncher"
+  ],
+  "native_placement_owners": [
+    {
+      "owner": "appeng/block/grindstone/BlockCrank",
+      "parent": "appeng/block/AEBaseTileBlock",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300030000000f2a2b2cb7006dc6000704a7000403ac0000000300cb0000002000030000000f0022002300000000000f0067004400010000000f00450046000200cc000000060001000000a000cd0000000500020d4001"
+    },
+    {
+      "owner": "appeng/block/misc/BlockLightDetector",
+      "parent": "appeng/block/AEBaseTileBlock",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000400070000002db200f54e2dbe360403360515051504a2001c2d1505323a062a2b2c1906b7009799000504ac840501a7ffe303ac00000003011b0000002a00040018000d00a4002800060000002d0048004900000000002d0078008b00010000002d007a007b0002011c000000160005000000a9001800ab002300ad002500a9002b00b0011d0000000e0003fe000b0700f6010119f80005"
+    },
+    {
+      "owner": "appeng/block/misc/BlockQuartzFixture",
+      "parent": "appeng/block/AEBaseBlock",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000400070000002db201284e2dbe360403360515051504a2001c2d1505323a062a2b2c1906b7008999000504ac840501a7ffe303ac00000003014b0000002a00040018000d0098002800060000002d004d004e00000000002d008a008b00010000002d006300640002014c000000160005000000b9001800bb002300bd002500b9002b00c0014d0000000e0003fe000b070129010119f80005"
+    },
+    {
+      "owner": "appeng/block/misc/BlockSkyCompass",
+      "parent": "appeng/block/AEBaseTileBlock",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000400070000002db200834e2dbe360403360515051504a2001c2d1505323a062a2b2c1906b7004b99000504ac840501a7ffe303ac0000000300cb0000002a00040018000d0061005100060000002d0022002300000000002d004c004d00010000002d004e004f000200cc00000016000500000065001800670023006900250065002b006c00cd0000000e0003fe000b070084010119f80005"
+    },
+    {
+      "owner": "appeng/block/spatial/BlockMatrixFrame",
+      "parent": "appeng/block/AEBaseBlock",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000100030000000203ac00000002006300000020000300000002002400250000000000020056003c000100000002003d003e000200640000000600010000004e"
+    },
+    {
+      "owner": "net/minecraft/block/Block",
+      "parent": "net/minecraftforge/registries/IForgeRegistryEntry$Impl",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000102b2cb603c3b900ac01002b2cb603c5ac000000020f0f0000002000030000001000fc00a400000000001003c6021100010000001003c7012700020f1000000006000100000294"
+    },
+    {
+      "owner": "net/minecraft/block/BlockBanner",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000182a2b2cb6008b9a00102a2b2cb7008d99000704a7000403ac0000000300e000000020000300000018001f0020000000000018008e0049000100000018008f0036000200e10000000600010000006400e3000000050002164001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockBasePressurePlate",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300030000000a2a2b2cb6005bb7005eac0000000201130000002000030000000a0015001600000000000a005f004000010000000a0060003a0002011400000006000100000050"
+    },
+    {
+      "owner": "net/minecraft/block/BlockBush",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000600040000002e2b2cb60038b6003e4e2a2b2cb7004099001d2db9004601002d2b2cb60038b2004c2ab6005099000704a7000403ac0000000301250000002a00040000002e0015001600000000002e0051005200010000002e0053005400020009002500550056000301260000000a00020000002b0009002c01270000000a0002fc002c0700424001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockButton",
+      "parent": "net/minecraft/block/BlockDirectional",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300070000002cb8007f4e2dbe360403360515051504a2001b2d1505323a062b2c1906b8007699000504ac840501a7ffe403ac0000000301e50000002a00040000002c005a005b00000000002c0082006c00010000002c0083006800020018000c00840035000601e600000016000500000051001800530022005500240051002a005901e80000000e0003fe000b070081010118f80005"
+    },
+    {
+      "owner": "net/minecraft/block/BlockCactus",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000142a2b2cb700b599000c2a2b2cb600b8a7000403ac000000030149000000200003000000140047004800000000001400b9008800010000001400ba008a0002014a00000006000100000061014b000000050002124001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockCake",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000122a2b2cb700a299000a2a2b2cb700a5ac03ac00000003012a000000200003000000120035003600000000001200a6006900010000001200a700480002012b0000000e00030000005a0009005b0010005e012c000000050001f80010"
+    },
+    {
+      "owner": "net/minecraft/block/BlockCarpet",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000182a2b2cb700639900102a2b2cb7006699000704a7000403ac0000000300ff0000002000030000001800400041000000000018006700680001000000180069004b00020100000000060001000000340101000000070002f800164001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockChest",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300080000009d033e2cb600853a042cb6008a3a052cb600713a062cb600803a072b1904b600b4b9007b01002aa600122a2b1904b7014399000503ac8403012b1905b600b4b9007b01002aa600122a2b1905b7014399000503ac8403012b1906b600b4b9007b01002aa600122a2b1906b7014399000503ac8403012b1907b600b4b9007b01002aa600122a2b1907b7014399000503ac8403011d04a3000704a7000403ac0000000302600000005200080000009d0052005300000000009d014400b600010000009d0145009500020002009b014600cf00030008009500ba00950004000e008f01100095000500140089011100950006001a008301120095000702610000005a0016000001400002014100080142000e014300140144001a0146002901480033014a0035014d003801500047015200510154005301570056015a0065015c006f015e007101610074016400830166008d0168008f016b0092016e026200000029000aff003500080700020700b307006d0107006d07006d07006d07006d0000021a021a021a02084001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockChorusFlower",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000182a2b2cb701049900102a2b2cb6005d99000704a7000403ac0000000301860000002000030000001800480049000000000018010500cc000100000018010600ce00020187000000060001000000be0188000000050002164001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockChorusPlant",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000122a2b2cb700ef99000a2a2b2cb600c7ac03ac000000030152000000200003000000120053005400000000001200f000b400010000001200f10086000201530000000e00030000008b0009008c0010008f0154000000050001f80010"
+    },
+    {
+      "owner": "net/minecraft/block/BlockDoor",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00040004000000502cb601872bb6018a0464a1000503ac2b2cb6010bb601154e2db9018d01009a00172d2b2cb6010bb20154b901910400b20197a6001c2a2b2cb701999900132a2b2cb60151b7019999000704a7000403ac00000003025b0000002a00040000005000580059000000000050019a012f000100000050019b0084000200180038019c00800003025c000000120004000000fa000d00fc000f010000180101025d0000000c00040ffc0025070039184001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockDoublePlant",
+      "parent": "net/minecraft/block/BlockBush",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300030000001a2a2b2cb7008d9900122b2cb60093b6009999000704a7000403ac0000000301d70000002000030000001a0068006900000000001a009a009b00010000001a009c0075000201d80000000600010000003e01d9000000050002184001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockEndRod",
+      "parent": "net/minecraft/block/BlockDirectional",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000100030000000204ac0000000201290000002000030000000200420043000000000002007e007f000100000002008000760002012a00000006000100000045"
+    },
+    {
+      "owner": "net/minecraft/block/BlockFenceGate",
+      "parent": "net/minecraft/block/BlockHorizontal",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300030000001e2b2cb600c1b600c4b900c80100b600cb99000c2a2b2cb700cda7000403ac0000000301950000002000030000001e0054005500000000001e00ce00cf00010000001e00d00081000201960000000600010000005201970000000500021c4001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockFire",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300030000001f2b2cb60019b6015cb9020801009a000c2a2b2cb7018c99000704a7000403ac0000000302be0000002000030000001f0067002f00000000001f0209013f00010000001f020a006d000202bf0000000600010000015e02c000000006000319034001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockFlowerPot",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00040004000000352b2cb60126b6012a4e2a2b2cb7012c9900242db9012f01009a00172d2b2cb60126b20134b901380400b2013ea6000704a7000403ac00000003026e0000002a00040000003500540055000000000035013f00c80001000000350140006900020009002c014100650003026f0000000a00020000009b0009009c02700000000b0003fc002f070043034001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockLever",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300070000002cb800754e2dbe360403360515051504a2001b2d1505323a062b2c1906b8006a99000504ac840501a7ffe403ac0000000301c50000002a00040000002c0053005400000000002c007c006c00010000002c007d006000020018000c007e006f000601c600000016000500000043001800440022004500240043002a004901c80000001d0003ff000b00060007007707007907007b0101000018ff000500000000"
+    },
+    {
+      "owner": "net/minecraft/block/BlockMushroom",
+      "parent": "net/minecraft/block/BlockBush",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000400030000001c2a2b2cb700709900142a2b2c2ab60058b6005c99000704a7000403ac0000000300f60000002000030000001c0017001800000000001c0071006200010000001c00720022000200f70000000600010000004400f80000000500021a4001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockPistonExtension",
+      "parent": "net/minecraft/block/BlockDirectional",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000100030000000203ac0000000201ae000000200003000000020069006a000000000002011a009a000100000002011b008a000201af0000000600010000009d"
+    },
+    {
+      "owner": "net/minecraft/block/BlockPistonMoving",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000100030000000203ac0000000201770000002000030000000200420043000000000002006f0048000100000002007000690002017800000006000100000046"
+    },
+    {
+      "owner": "net/minecraft/block/BlockPumpkin",
+      "parent": "net/minecraft/block/BlockHorizontal",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000262b2cb60129b9012d01002b2cb601319900152b2cb60134b20137b6013b99000704a7000403ac0000000301cd0000002000030000002600520053000000000026013c005d000100000026013d005f000201ce0000000600010000008b01cf000000050002244001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockRailBase",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00040003000000162b2cb6007ab6001a2b2cb6007ab2007fb900830400ac00000002015b00000020000300000016004200430000000000160084001f000100000016008500210002015c0000000600010000004c"
+    },
+    {
+      "owner": "net/minecraft/block/BlockRedstoneDiode",
+      "parent": "net/minecraft/block/BlockHorizontal",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00040004000000312b2cb60038b6003e4e2db9004401009a00172d2b2cb60038b20048b9004c0400b20052a6000c2a2b2cb70054a7000403ac0000000301d60000002a00040000003100210022000000000031005500560001000000310057002d00020009002800580029000301d70000000a00020000002a0009002b01d80000000b0003fc0026070040084001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockRedstoneWire",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000400040000003f2b2cb600aab600e34e2db900e601009a002a2d2b2cb600aab200b4b900ea0400b200f0a500162b2cb600aab600e3b900bc0100b200c2a6000704a7000403ac00000003028b0000002a00040000003f005f006000000000003f00f100f200010000003f00f3007200020009003600f4006e0003028c0000000a00020000009300090094028d0000000b0003fc0039070048034001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockReed",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00060009000000992b2cb6004fb600554e2db9005901003a0419042d2b2cb6004fb200972ab6009b99000504ac19042aa6000504ac1904b2009fa500151904b200a3a5000d1904b200a7a5000503ac2cb6004f3a05b200abb600af3a061906b900b5010099003b1906b900b90100c0000b3a072b19051907b600bdb600553a081908b900c10100b200c4a500101908b900590100b200c7a6000504aca7ffc103ac00000003014e00000052000800000099003c003d00000000009900c8008a00010000009900c9004700020009009000ca004300030011008800cb00a10004004d004c00cc00470005006b002900cd009500070078001c00ce00430008014f0000003a000e0000004e0009004f0011005000250052002b0054002d0056004500580047005c004d005e006b0060007800620092006400940066009700680150000000250007fd002507002f0700040719fd000d07004b0700b1fd003c07000b07002ff90001fa0002"
+    },
+    {
+      "owner": "net/minecraft/block/BlockSign",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00030003000000182a2b2cb6007f9a00102a2b2cb7008199000704a7000403ac00000003009b00000020000300000018001300140000000000180082003f0001000000180083001e0002009c00000006000100000061009e000000070002f800164001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockSnow",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00040006000000752b2cb600a4b600a74e2db900ab01003a041904b200b1a5005d1904b200b4a500551904b200b7a5004d2d2b2cb600a4b200bab900bd04003a051905b2006da5002f2db900ab01002d2b2cb600a4b600c19a001d19042aa6001b2db20020b900480200c00022b6004c1008a0000704a7000403ac03ac0000000301460000003e000600000075003f004000000000007500c200c300010000007500c4005200020009006c00c5004e00030011006400c600af00040039003a00c7006b000501470000001a000600000052000900530011005500290057003900580073005c0148000000140004fe006d070028070004070069034001fa0000"
+    },
+    {
+      "owner": "net/minecraft/block/BlockStairs",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000300030000000a2ab400642b2cb60196ac0000000202900000002000030000000a008c008d00000000000a019700b100010000000a019800b3000202910000000600010000010c"
+    },
+    {
+      "owner": "net/minecraft/block/BlockTorch",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "0004000500000032b20030b60094b9009a01004e2db900a0010099001e2db900a40100c0000d3a042a2b2c1904b700a899000504aca7ffdf03ac0000000301b30000002a000400000032004d004e00000000003200a9008b00010000003200aa006c00020020000d00ab0032000401b40000001600050000005b0020005d002b005f002d00610030006301b50000000c0003fc000c07009c20fa0002"
+    },
+    {
+      "owner": "net/minecraft/block/BlockTripWireHook",
+      "parent": "net/minecraft/block/Block",
+      "name": "canPlaceBlockAt",
+      "descriptor": "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000400050000002db200bfb600c34e2db900c8010099001e2db900cc0100c0000b3a042a2b2c1904b600ce99000504aca7ffdf03ac0000000302080000002a00040000002d0057005800000000002d00cf00b200010000002d00d000740002001b000d00b500320004020900000016000500000059001b005a0026005b0028005d002b005e020a000000100003fc00070700c520ff000200000000"
+    }
+  ],
+  "original_leaves_owners": [
+    {
+      "owner": "com/hbm/blocks/machine/BlockBeamBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "isLeaves",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;III)Z",
+      "code": "000100050000000204ac0000000200430000000600010000002500440000003400050000000200250026000000000002003700380001000000020039002f000200000002003a002f000300000002003b002f0004"
+    }
+  ],
+  "original_side_solid_owners": [
+    {
+      "owner": "com/hbm/blocks/generic/BlockGrate",
+      "parent": "net/minecraft/block/Block",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "000400070000002e2b1c1d1504b9005d040036061905b20095a6000a150610079f00101905b20098a6000c15069a000704a7000403ac0000000301290000000a0004fc001b010c03400101270000000a000200000059000c005a01280000004800070000002e0014001500000000002e0068006900010000002e006a000f00020000002e006b000f00030000002e006c000f00040000002e004800930005000c00220055000f0006"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockWoodStructure",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "000500070000002b12092b1c1d1504b900300400b80036c000093a061906190657b2003aa6000d1905b20040a6000504ac03ac0000000300f8000000080001fc002907000900f50000000e000300000030001400310029003200f60000004800070000002b0010001100000000002b0023002400010000002b0025001700020000002b0026001700030000002b0027001700040000002b0028003e000500140017004100380006"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/FoundryBasin",
+      "parent": "com/hbm/blocks/machine/FoundryCastingBase",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "000200060000000e1905b20099a5000704a7000403ac0000000300a40000000500020c400100a20000000600010000005f00a30000003e00060000000e001a001b00000000000e003d006e00010000000e005e001500020000000e005f001500030000000e0060001500040000000e0089008a0005"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/FoundryMold",
+      "parent": "com/hbm/blocks/machine/FoundryCastingBase",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "000200060000000e1905b2007aa6000704a7000403ac0000000300860000000500020c400100840000000600010000005900850000003e00060000000e0015001600000000000e0038006b00010000000e005b001000020000000e005c001000030000000e005d001000040000000e007b00780005"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/FoundryTank",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "000200060000000e1905b200f7a5000704a7000403ac0000000301020000000500020c400101000000000600010000008b01010000003e00060000000e0027002800000000000e0057005800010000000e0059001b00020000000e005a001b00030000000e005b001b00040000000e005c00730005"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineFan",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "00040007000000732b1c1d1504b90049040036061905b2004fa5000b1905b20052a60014150699000d1506049f000704a7000403ac1905b20055a5000b1905b20058a600151506059f000d1506069f000704a7000403ac1905b2005ba5000b1905b2005ea600151506079f000d1506089f000704a7000403ac03ac0000000300e200000014000cfc001c010e4001000f0f4001000f0f40010000e00000001600050000004b000c004d002d004e004f004f0071005100e100000048000700000073001d001e0000000000730023005f0001000000730035002600020000007300360026000300000073003700260004000000730060004d0005000c0067002500260006"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/PistonInserter",
+      "parent": "com/hbm/blocks/BlockContainerBase",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "00040007000000292b1c1d1504b900d30400360615061905b600719f001415061905b600d7b600719f000704a7000403ac000000030138000000080002fc002701400101360000000a000200000076000c007701370000004800070000002900160017000000000029001c00d80001000000290026001f0002000000290027001f0003000000290028001f00040000002900bb00650005000c001d001e001f0006"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/WatzPump",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "isSideSolid",
+      "descriptor": "(Lnet/minecraft/world/IBlockAccess;IIILnet/minecraftforge/common/util/ForgeDirection;)Z",
+      "code": "00040007000000202b1c1d1504b90029040036061905b2002fa6000d150604a0000704a7000403ac000000030038000000080002fc001e01400100360000000a000200000027000c002800370000004800070000002000140015000000000020001a00300001000000200031001d0002000000200032001d0003000000200033001d0004000000200034002d0005000c0014001c001d0006"
+    },
+    {
+      "owner": "com/hbm/wiaj/WorldInAJar",
+      "parent": "java/lang/Object",
+      "name": "isSideSolid",
+      "descriptor": "(IIILnet/minecraftforge/common/util/ForgeDirection;Z)Z",
+      "code": "00060006000000112a1b1c1db600502a1b1c1d1904b60065ac00000002006b0000000600010000007e006c0000003e0006000000110029002a000000000011002b0009000100000011002c0009000200000011002d000900030000001100660067000400000011006800690005"
+    }
+  ],
+  "original_opaque_owners": [
+    {
+      "owner": "com/hbm/blocks/BlockCoral",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200520000000600010000002400530000000c000100000002001600170000"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockDummyable",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000202c4000000060001000001b002c50000000c000100000002002e002f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockGeysierDCM",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001d00000006000100000021001e0000000c000100000002000d000e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockKelp",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200770000000600010000002600780000000c000100000002001700180000"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockRubberLeaves",
+      "parent": "net/minecraft/block/BlockLeaves",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008c00000006000100000020008d0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockVolcanoV2",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001d00000006000100000028001e0000000c000100000002000d000e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/BlockWaterPlant",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002004c0000000600010000001b004d0000000c000100000002001100120000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/BlockChargeBase",
+      "parent": "com/hbm/blocks/BlockContainerBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002013f0000000600010000003501400000000c000100000002002100220000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/BlockCrashedBomb",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002013e0000000600010000002f013f0000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/BombMulti",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201ab000000060001000000c501ac0000000c000100000002001f00200000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/CompactLauncher",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201420000000600010000002e01430000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/DetCord",
+      "parent": "com/hbm/blocks/bomb/BlockDetonatable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200540000000600010000001b00550000000c000100000002000f00100000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/DigammaFlame",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200580000000600010000002600590000000c0001000000020019001a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/DigammaMatter",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200680000000600010000001b00690000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/Landmine",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000202020000000600010000003902030000000c000100000002002300240000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/LaunchTable",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002013b0000000600010000002d013c0000000c000100000002001500160000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeAntimatter",
+      "parent": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008d00000006000100000027008e0000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeBalefire",
+      "parent": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008d00000006000100000026008e0000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeBoy",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002017b00000006000100000095017c0000000c000100000002001c001d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeCustom",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201cc000000060001000000e701cd0000000c000100000002001e001f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeFleija",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002016f0000000600010000009401700000000c000100000002002100220000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeGadget",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002015f0000000600010000009601600000000c000100000002002100220000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeMan",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002015f0000000600010000008f01600000000c000100000002002100220000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeMike",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201660000000600010000009601670000000c000100000002002100220000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeN2",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002015d0000000600010000008b015e0000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukePrototype",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201780000000600010000009f01790000000c000100000002002100220000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeSolinium",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201700000000600010000009201710000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/bomb/NukeTsar",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201660000000600010000009401670000000c000100000002002100220000"
+    },
+    {
+      "owner": "com/hbm/blocks/fluid/MeltedFlesh",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200a20000000600010000001c00a30000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/gas/BlockGasBase",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200f60000000600010000002800f70000000c000100000002002600270000"
+    },
+    {
+      "owner": "com/hbm/blocks/gas/BlockVacuum",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200aa0000000600010000001e00ab0000000c000100000002001800190000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BarbedWire",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b50000000600010000005100b60000000c000100000002000e000f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockAlgaeFilm",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200d50000000600010000002700d60000000c000100000002001500160000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockBarrier",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002010900000006000100000021010a0000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockBobble",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002011a00000006000100000032011b0000000c000100000002001b001c0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockCanCrate",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200d00000000600010000002000d10000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockChain",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b90000000600010000002200ba0000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockDeadPlant",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002006b0000000600010000003f006c0000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockDecoCRT",
+      "parent": "com/hbm/blocks/BlockMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008f0000000600010000002400900000000c000100000002002200230000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockDecoModel",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002009b0000000600010000001e009c0000000c000100000002002200230000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockDecoToaster",
+      "parent": "com/hbm/blocks/BlockMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200bc0000000600010000002600bd0000000c000100000002002000210000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockDynamicSlag",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201860000000600010000006701870000000c000100000002002600270000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockEmitter",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b20000000600010000002f00b30000000c000100000002001b001c0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockFallout",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200bf0000000600010000002500c00000000c000100000002002000210000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockGrate",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201270000000600010000003b01280000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockHangingVine",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200c00000000600010000005100c10000000c000100000002001800190000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockLayering",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200c80000000600010000002300c90000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockLoot",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200a30000000600010000002600a40000000c0001000000020019001a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockMetalFence",
+      "parent": "net/minecraft/block/BlockFence",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200cc0000000600010000002a00cd0000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockModDoor",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201570000000600010000006501580000000c000100000002001800190000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockMush",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200de0000000600010000006f00df0000000c000100000002001b001c0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockNTMFlower",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201280000000600010000006601290000000c000100000002002800290000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockOrrery",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200200000000600010000001700210000000c000100000002000d000e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockPedestal",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201750000000600010000004001760000000c000100000002002500260000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockPipe",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002007b0000000600010000003e007c0000000c000100000002002000210000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockPlasma",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200560000000600010000002600570000000c000100000002000f00100000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockPlushie",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002011b00000006000100000027011c0000000c000100000002001d001e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockRebar",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000202270000000600010000005202280000000c000100000002003100320000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockReeds",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200810000000600010000004b00820000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockRubberCacti",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200980000000600010000002700990000000c000100000002001600170000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockRubberPlant",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200620000000600010000003c00630000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockSandbags",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b10000000600010000001900b20000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockScaffold",
+      "parent": "com/hbm/blocks/BlockMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200dd0000000600010000002700de0000000c000100000002002700280000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockSkeletonHolder",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008b0000000600010000001e008c0000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockSnowglobe",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201150000000600010000002f01160000000c0001000000020019001a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockStalagmite",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200690000000600010000001b006a0000000c000100000002001600170000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockSupplyCrate",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200ef0000000600010000002100f00000000c000100000002000d000e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockTallPlant",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201b10000000600010000006e01b20000000c000100000002003400350000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockTallPlantWater",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201690000000600010000004b016a0000000c000100000002003400350000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockWand",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200440000000600010000001800450000000c000100000002001d001e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BlockWoodStructure",
+      "parent": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200f50000000600010000002500f60000000c000100000002001000110000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/BrownBarrel",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002009f0000000600010000003c00a00000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/DecoBlock",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200f80000000600010000005000f90000000c000100000002001e001f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/DecoBlockAlt",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b10000000600010000002f00b20000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/DecoPoleSatelliteReceiver",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002004900000006000100000020004a0000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/DecoPoleTop",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001f0000000600010000001600200000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/DecoSteelPoles",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002003c00000006000100000017003d0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/DecoTapeRecorder",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002004e00000006000100000022004f0000000c000100000002000e000f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/HEVBattery",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200a20000000600010000002000a30000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/RedBarrel",
+      "parent": "com/hbm/blocks/bomb/BlockDetonatable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002009900000006000100000020009a0000000c000100000002000d000e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/Spikes",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002004d00000006000100000015004e0000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/WasteLeaves",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002009d0000000600010000004b009e0000000c000100000002000e000f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/generic/YellowBarrel",
+      "parent": "com/hbm/blocks/bomb/BlockDetonatable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200c80000000600010000002b00c90000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlastDoor",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008e00000006000100000024008f0000000c000100000002001100120000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockBeamBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200430000000600010000001700440000000c000100000002002500260000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockCMGlass",
+      "parent": "com/hbm/blocks/machine/BlockCM",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200320000000600010000001100330000000c000100000002000b000c0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockFF",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001f0000000600010000001c00200000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockFluidBarrel",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002020b0000000600010000003e020c0000000c000100000002001f00200000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockFusionTorusStruct",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001c0000000600010000000f001d0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockICFStruct",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002003c00000006000100000011003d0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockRefueler",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200d60000000600010000002800d70000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockSoyuzStruct",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001c00000006000100000017001d0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockStruct",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001c00000006000100000017001d0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/BlockWatzStruct",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001c00000006000100000017001d0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/Charger",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200780000000600010000002200790000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/CombatDropPod",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002002a00000006000100000027002b0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/CoreComponent",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002006b00000006000100000030006c0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/CoreCore",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b50000000600010000002500b60000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/DemonLamp",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002002f0000000600010000001c00300000000c000100000002001100120000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/DummyBlockBlast",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200a70000000600010000003c00a80000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/DummyOldBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002006a0000000600010000003b006b0000000c000100000002001600170000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/Floodlight",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008a0000000600010000002b008b0000000c000100000002001400150000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/FoundryCastingBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002015b00000006000100000042015c0000000c0001000000020029002a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/FoundryChannel",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002017d0000000600010000009e017e0000000c000100000002002700280000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/FoundryOutlet",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac000000020182000000060001000000c101830000000c000100000002003200330000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/FoundryTank",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201000000000600010000005701010000000c000100000002002700280000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/GeigerCounter",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200a90000000600010000002300aa0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineAutosaw",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002010e0000000600010000002c010f0000000c000100000002001f00200000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineCapacitor",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201900000000600010000004e01910000000c000100000002002d002e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineCyclotron",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200950000000600010000004a00960000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineDiFurnaceExtension",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002008900000006000100000045008a0000000c000100000002001c001d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineDiesel",
+      "parent": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200cf0000000600010000002200d00000000c000100000002001e001f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineFan",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200e00000000600010000004100e10000000c000100000002001d001e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineForceField",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200e20000000600010000002b00e30000000c000100000002001500160000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineFunnel",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002011f0000000600010000002d01200000000c000100000002002400250000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineGasDock",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200d70000000600010000002700d80000000c000100000002001100120000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineIGenerator",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002006d0000000600010000002b006e0000000c000100000002001100120000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineMicrowave",
+      "parent": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200240000000600010000001c00250000000c000100000002000f00100000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineMiniRTG",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200240000000600010000001c00250000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineMissileAssembly",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200e60000000600010000002800e70000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachinePuF6Tank",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002005a00000006000100000021005b0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineRTG",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200cb0000000600010000002700cc0000000c000100000002001700180000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineRadar",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200750000000600010000002300760000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineRocketAssembly",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b60000000600010000002c00b70000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineSatDock",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002011b0000000600010000002d011c0000000c000100000002001500160000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineTesla",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002001f0000000600010000001c00200000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/MachineUF6Tank",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002005a00000006000100000021005b0000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/NTMAnvil",
+      "parent": "com/hbm/blocks/BlockFallingNT",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201840000000600010000007201850000000c000100000002006200630000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/PinkCloudBroadcaster",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200740000000600010000002000750000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/PistonInserter",
+      "parent": "com/hbm/blocks/BlockContainerBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac000000020136000000060001000000aa01370000000c000100000002001600170000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/RadioRec",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200a60000000600010000002900a70000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/Radiobox",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200c10000000600010000002500c20000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/SolarMirror",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200280000000600010000001f00290000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/SoyuzCapsule",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b70000000600010000002600b80000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/Spotlight",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002019e00000006000100000053019f0000000c000100000002003400350000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/StorageDrum",
+      "parent": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002004d0000000600010000001d004e0000000c000100000002000b000c0000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/rbmk/RBMKBase",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000204ac00000002019d0000000600010000003a019e0000000c000100000002004400450000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/rbmk/RBMKConsole",
+      "parent": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200fd0000000600010000002d00fe0000000c000100000002002400250000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/rbmk/RBMKDebris",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200230000000600010000001600240000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200bc0000000600010000001d00bd0000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/machine/rbmk/RBMKRod",
+      "parent": "com/hbm/blocks/machine/rbmk/RBMKBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200d90000000600010000002100da0000000c000100000002001200130000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/BlockCable",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200880000000600010000002700890000000c000100000002000d000e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/BlockConveyorBase",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201070000000600010000008a01080000000c000100000002001d001e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/BlockConveyorClassic",
+      "parent": "net/minecraft/block/Block",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200f00000000600010000007b00f10000000c0001000000020019001a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/CableDiode",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200f40000000600010000003700f50000000c000100000002002400250000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/CranePartitioner",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002016c00000006000100000054016d0000000c000100000002002e002f0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/DroneWaypoint",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201010000000600010000002e01020000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/DroneWaypointRequest",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200820000000600010000002300830000000c000100000002001100120000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/FluidDuctBox",
+      "parent": "com/hbm/blocks/network/FluidDuctBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201770000000600010000008e01780000000c000100000002002500260000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/FluidDuctStandard",
+      "parent": "com/hbm/blocks/network/FluidDuctBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002014c0000000600010000007a014d0000000c000100000002001c001d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/FluidPipeAnchor",
+      "parent": "com/hbm/blocks/network/FluidDuctBase",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201350000000600010000002601360000000c000100000002001a001b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/FluidPump",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201470000000600010000003f01480000000c000100000002001d001e0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/PneumoTube",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201d20000000600010000003e01d30000000c000100000002003100320000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/PowerCableBox",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000201200000000600010000008401210000000c0001000000020019001a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/PylonBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac00000002004e00000006000100000025004f0000000c000100000002000c000d0000"
+    },
+    {
+      "owner": "com/hbm/blocks/network/RadioTorchBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b90000000600010000002d00ba0000000c0001000000020019001a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/test/TestObjTester",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200540000000600010000001e00550000000c000100000002000a000b0000"
+    },
+    {
+      "owner": "com/hbm/blocks/turret/TurretBase",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200210000000600010000001800220000000c000100000002001300140000"
+    },
+    {
+      "owner": "com/hbm/blocks/turret/TurretSentry",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200b70000000600010000003200b80000000c0001000000020019001a0000"
+    },
+    {
+      "owner": "com/hbm/blocks/turret/TurretSentryDamaged",
+      "parent": "net/minecraft/block/BlockContainer",
+      "name": "func_149662_c",
+      "descriptor": "()Z",
+      "code": "000100010000000203ac0000000200290000000600010000001f002a0000000c000100000002001100120000"
+    }
+  ],
+  "native_leaves_owners": [
+    {
+      "owner": "net/minecraft/block/Block",
+      "parent": "net/minecraftforge/registries/IForgeRegistryEntry$Impl",
+      "name": "isLeaves",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "00020004000000122bb900f20100b2062ba6000704a7000403ac000000030f0f0000002a00040000001200fc00a4000000000012062c0086000100000012062d0125000200000012062e012700030f10000000060001000005be0f11000000050002104001"
+    },
+    {
+      "owner": "net/minecraft/block/BlockLeaves",
+      "parent": "net/minecraft/block/Block",
+      "name": "isLeaves",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z",
+      "code": "000100040000000204ac0000000201930000002a0004000000020045004600000000000201440077000100000002014501420002000000020146007500030194000000060001000000f6"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+Exact lines 4271-4287 of native World javap; context is updateEntities tile-error handling.
+     852: aload         4
+     854: ldc_w         #1627               // String Ticking block entity
+     857: invokestatic  #292                // Method net/minecraft/crash/CrashReport.makeCrashReport:(Ljava/lang/Throwable;Ljava/lang/String;)Lnet/minecraft/crash/CrashReport;
+     860: astore        5
+     862: aload         5
+     864: ldc_w         #1629               // String Block entity being ticked
+     867: invokevirtual #298                // Method net/minecraft/crash/CrashReport.makeCategory:(Ljava/lang/String;)Lnet/minecraft/crash/CrashReportCategory;
+     870: astore        6
+     872: aload_2
+     873: aload         6
+     875: invokevirtual #1632               // Method net/minecraft/tileentity/TileEntity.addInfoToCrashReport:(Lnet/minecraft/crash/CrashReportCategory;)V
+     878: getstatic     #1635               // Field net/minecraftforge/common/ForgeModContainer.removeErroringTileEntities:Z
+     881: ifeq          915
+     884: getstatic     #1491               // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+     887: ldc_w         #1493               // String {}
+     890: aload         5
+     892: invokevirtual #1497               // Method net/minecraft/crash/CrashReport.getCompleteReport:()Ljava/lang/String;

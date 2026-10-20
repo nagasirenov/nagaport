@@ -13,6 +13,15 @@ import net.minecraft.world.World;
 
 public class EntityGhost extends EntityCreature {
 
+	/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public boolean isInRangeToRenderDist(double distance) {
+		double range = this.getEntityBoundingBox().getAverageEdgeLength();
+		range *= 64.0D * 10.0D;
+		return distance < range * range;
+	}
+
 	public EntityGhost(World world) {
 		super(world);
 		this.tasks.addTask(0, new EntityAISwimming(this));
@@ -20,7 +29,6 @@ public class EntityGhost extends EntityCreature {
 		this.tasks.addTask(2, new EntityAILookIdle(this));
 		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 15.0F));
 		
-		this.renderDistanceWeight *= 10;
 	}
 
 	@Override

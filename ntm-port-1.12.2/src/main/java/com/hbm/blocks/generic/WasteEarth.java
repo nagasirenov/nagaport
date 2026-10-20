@@ -104,11 +104,11 @@ public class WasteEarth extends Block {
 		super.randomDisplayTick(world, x, y, z, rand);
 		
 		if(this == ModBlocks.waste_mycelium) {
-			world.spawnParticle("townaura", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 		if(this == ModBlocks.burning_earth) {
-			world.spawnParticle("flame", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
-			world.spawnParticle("smoke", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 
@@ -181,8 +181,9 @@ public class WasteEarth extends Block {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		
 		if(this == ModBlocks.burning_earth) {
-			Block b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
-			if(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {
+			net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);
+			Block b = nativeCubeState_b.getBlock();
+			if(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube(nativeCubeState_b)) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
 		}
@@ -197,4 +198,10 @@ public class WasteEarth extends Block {
 		
 		return false;
 	}
+	/** NTM construction hook for the native protected sound setter. */
+	public WasteEarth withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 }

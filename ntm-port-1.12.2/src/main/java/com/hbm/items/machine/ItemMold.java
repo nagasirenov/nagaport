@@ -188,7 +188,7 @@ public class ItemMold extends Item {
 				if(!ores.isEmpty()) {
 					//prioritize NTM items
 					for(ItemStack ore : ores) {
-						String registry = Item.itemRegistry.getNameForObject(ore.getItem());
+						String registry = java.util.Objects.toString(Item.REGISTRY.getNameForObject(ore.getItem()), null);
 						if(registry.startsWith(RefStrings.MODID)) {
 							if(registry.contains("fragment")) continue; // deprioritize fragments
 							ItemStack copy = ore.copy();

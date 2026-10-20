@@ -1,0 +1,839 @@
+SOURCE original-world
+  public void a(int, int, int, aji, int);
+    Code:
+       0: return
+
+
+SOURCE original-world
+  public boolean b(int, int, int, int, int, int);
+    Code:
+       0: iload         5
+       2: iflt          12
+       5: iload_2
+       6: sipush        256
+       9: if_icmplt     14
+      12: iconst_0
+      13: ireturn
+      14: iload_1
+      15: iconst_4
+      16: ishr
+      17: istore_1
+      18: iload_3
+      19: iconst_4
+      20: ishr
+      21: istore_3
+      22: iload         4
+      24: iconst_4
+      25: ishr
+      26: istore        4
+      28: iload         6
+      30: iconst_4
+      31: ishr
+      32: istore        6
+      34: iload_1
+      35: istore        7
+      37: iload         7
+      39: iload         4
+      41: if_icmpgt     79
+      44: iload_3
+      45: istore        8
+      47: iload         8
+      49: iload         6
+      51: if_icmpgt     73
+      54: aload_0
+      55: iload         7
+      57: iload         8
+      59: invokevirtual #344                // Method c:(II)Z
+      62: ifne          67
+      65: iconst_0
+      66: ireturn
+      67: iinc          8, 1
+      70: goto          47
+      73: iinc          7, 1
+      76: goto          37
+      79: iconst_1
+      80: ireturn
+
+
+SOURCE original-entry
+  public boolean equals(java.lang.Object);
+    Code:
+       0: aload_1
+       1: instanceof    #4                  // class ahs
+       4: ifeq          65
+       7: aload_1
+       8: checkcast     #4                  // class ahs
+      11: astore_2
+      12: aload_0
+      13: getfield      #9                  // Field a:I
+      16: aload_2
+      17: getfield      #9                  // Field a:I
+      20: if_icmpne     63
+      23: aload_0
+      24: getfield      #10                 // Field b:I
+      27: aload_2
+      28: getfield      #10                 // Field b:I
+      31: if_icmpne     63
+      34: aload_0
+      35: getfield      #11                 // Field c:I
+      38: aload_2
+      39: getfield      #11                 // Field c:I
+      42: if_icmpne     63
+      45: aload_0
+      46: getfield      #15                 // Field g:Laji;
+      49: aload_2
+      50: getfield      #15                 // Field g:Laji;
+      53: invokestatic  #18                 // Method aji.a:(Laji;Laji;)Z
+      56: ifeq          63
+      59: iconst_1
+      60: goto          64
+      63: iconst_0
+      64: ireturn
+      65: iconst_0
+      66: ireturn
+
+
+SOURCE original-entry
+  public int a(ahs);
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field d:J
+       4: aload_1
+       5: getfield      #12                 // Field d:J
+       8: lcmp
+       9: ifge          14
+      12: iconst_m1
+      13: ireturn
+      14: aload_0
+      15: getfield      #12                 // Field d:J
+      18: aload_1
+      19: getfield      #12                 // Field d:J
+      22: lcmp
+      23: ifle          28
+      26: iconst_1
+      27: ireturn
+      28: aload_0
+      29: getfield      #13                 // Field e:I
+      32: aload_1
+      33: getfield      #13                 // Field e:I
+      36: if_icmpeq     49
+      39: aload_0
+      40: getfield      #13                 // Field e:I
+      43: aload_1
+      44: getfield      #13                 // Field e:I
+      47: isub
+      48: ireturn
+      49: aload_0
+      50: getfield      #16                 // Field h:J
+      53: aload_1
+      54: getfield      #16                 // Field h:J
+      57: lcmp
+      58: ifge          63
+      61: iconst_m1
+      62: ireturn
+      63: aload_0
+      64: getfield      #16                 // Field h:J
+      67: aload_1
+      68: getfield      #16                 // Field h:J
+      71: lcmp
+      72: ifle          77
+      75: iconst_1
+      76: ireturn
+      77: iconst_0
+      78: ireturn
+
+
+SOURCE original-worldserver
+  public void a(int, int, int, aji, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: iload_3
+       4: aload         4
+       6: iload         5
+       8: iconst_0
+       9: invokevirtual #329                // Method a:(IIILaji;II)V
+      12: return
+
+
+SOURCE original-worldserver
+  public void a(int, int, int, aji, int, int);
+    Code:
+       0: new           #39                 // class ahs
+       3: dup
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: aload         4
+       9: invokespecial #228                // Method ahs."<init>":(IIILaji;)V
+      12: astore        7
+      14: iconst_0
+      15: istore        8
+      17: aload_0
+      18: getfield      #174                // Field d:Z
+      21: ifeq          173
+      24: aload         4
+      26: invokevirtual #241                // Method aji.o:()Lawt;
+      29: getstatic     #149                // Field awt.a:Lawt;
+      32: if_acmpeq     173
+      35: aload         4
+      37: invokevirtual #236                // Method aji.L:()Z
+      40: ifeq          170
+      43: bipush        8
+      45: istore        8
+      47: aload_0
+      48: aload         7
+      50: getfield      #133                // Field ahs.a:I
+      53: iload         8
+      55: isub
+      56: aload         7
+      58: getfield      #134                // Field ahs.b:I
+      61: iload         8
+      63: isub
+      64: aload         7
+      66: getfield      #135                // Field ahs.c:I
+      69: iload         8
+      71: isub
+      72: aload         7
+      74: getfield      #133                // Field ahs.a:I
+      77: iload         8
+      79: iadd
+      80: aload         7
+      82: getfield      #134                // Field ahs.b:I
+      85: iload         8
+      87: iadd
+      88: aload         7
+      90: getfield      #135                // Field ahs.c:I
+      93: iload         8
+      95: iadd
+      96: invokevirtual #334                // Method b:(IIIIII)Z
+      99: ifeq          169
+     102: aload_0
+     103: aload         7
+     105: getfield      #133                // Field ahs.a:I
+     108: aload         7
+     110: getfield      #134                // Field ahs.b:I
+     113: aload         7
+     115: getfield      #135                // Field ahs.c:I
+     118: invokevirtual #327                // Method a:(III)Laji;
+     121: astore        9
+     123: aload         9
+     125: invokevirtual #241                // Method aji.o:()Lawt;
+     128: getstatic     #149                // Field awt.a:Lawt;
+     131: if_acmpeq     169
+     134: aload         9
+     136: aload         7
+     138: invokevirtual #229                // Method ahs.a:()Laji;
+     141: if_acmpne     169
+     144: aload         9
+     146: aload_0
+     147: aload         7
+     149: getfield      #133                // Field ahs.a:I
+     152: aload         7
+     154: getfield      #134                // Field ahs.b:I
+     157: aload         7
+     159: getfield      #135                // Field ahs.c:I
+     162: aload_0
+     163: getfield      #184                // Field s:Ljava/util/Random;
+     166: invokevirtual #238                // Method aji.a:(Lahb;IIILjava/util/Random;)V
+     169: return
+     170: iconst_1
+     171: istore        5
+     173: aload_0
+     174: iload_1
+     175: iload         8
+     177: isub
+     178: iload_2
+     179: iload         8
+     181: isub
+     182: iload_3
+     183: iload         8
+     185: isub
+     186: iload_1
+     187: iload         8
+     189: iadd
+     190: iload_2
+     191: iload         8
+     193: iadd
+     194: iload_3
+     195: iload         8
+     197: iadd
+     198: invokevirtual #334                // Method b:(IIIIII)Z
+     201: ifeq          275
+     204: aload         4
+     206: invokevirtual #241                // Method aji.o:()Lawt;
+     209: getstatic     #149                // Field awt.a:Lawt;
+     212: if_acmpeq     239
+     215: aload         7
+     217: iload         5
+     219: i2l
+     220: aload_0
+     221: getfield      #188                // Field x:Lays;
+     224: invokevirtual #268                // Method ays.f:()J
+     227: ladd
+     228: invokevirtual #231                // Method ahs.a:(J)Lahs;
+     231: pop
+     232: aload         7
+     234: iload         6
+     236: invokevirtual #230                // Method ahs.a:(I)V
+     239: aload_0
+     240: getfield      #161                // Field M:Ljava/util/Set;
+     243: aload         7
+     245: invokeinterface #408,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     250: ifne          275
+     253: aload_0
+     254: getfield      #161                // Field M:Ljava/util/Set;
+     257: aload         7
+     259: invokeinterface #407,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     264: pop
+     265: aload_0
+     266: getfield      #162                // Field N:Ljava/util/TreeSet;
+     269: aload         7
+     271: invokevirtual #297                // Method java/util/TreeSet.add:(Ljava/lang/Object;)Z
+     274: pop
+     275: return
+
+
+SOURCE original-worldserver
+  public void b(int, int, int, aji, int, int);
+    Code:
+       0: new           #39                 // class ahs
+       3: dup
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: aload         4
+       9: invokespecial #228                // Method ahs."<init>":(IIILaji;)V
+      12: astore        7
+      14: aload         7
+      16: iload         6
+      18: invokevirtual #230                // Method ahs.a:(I)V
+      21: aload         4
+      23: invokevirtual #241                // Method aji.o:()Lawt;
+      26: getstatic     #149                // Field awt.a:Lawt;
+      29: if_acmpeq     49
+      32: aload         7
+      34: iload         5
+      36: i2l
+      37: aload_0
+      38: getfield      #188                // Field x:Lays;
+      41: invokevirtual #268                // Method ays.f:()J
+      44: ladd
+      45: invokevirtual #231                // Method ahs.a:(J)Lahs;
+      48: pop
+      49: aload_0
+      50: getfield      #161                // Field M:Ljava/util/Set;
+      53: aload         7
+      55: invokeinterface #408,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      60: ifne          85
+      63: aload_0
+      64: getfield      #161                // Field M:Ljava/util/Set;
+      67: aload         7
+      69: invokeinterface #407,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      74: pop
+      75: aload_0
+      76: getfield      #162                // Field N:Ljava/util/TreeSet;
+      79: aload         7
+      81: invokevirtual #297                // Method java/util/TreeSet.add:(Ljava/lang/Object;)Z
+      84: pop
+      85: return
+
+
+SOURCE native-worldserver
+  public void scheduleUpdate(net.minecraft.util.math.BlockPos, net.minecraft.block.Block, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: iload_3
+       4: iconst_0
+       5: invokevirtual #1056               // Method updateBlockTick:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;II)V
+       8: return
+
+
+SOURCE native-worldserver
+  public void updateBlockTick(net.minecraft.util.math.BlockPos, net.minecraft.block.Block, int, int);
+    Code:
+       0: aload_2
+       1: invokevirtual #919                // Method net/minecraft/block/Block.getDefaultState:()Lnet/minecraft/block/state/IBlockState;
+       4: invokeinterface #722,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+       9: astore        5
+      11: aload_0
+      12: getfield      #1062               // Field scheduledUpdatesAreImmediate:Z
+      15: ifeq          145
+      18: aload         5
+      20: getstatic     #728                // Field net/minecraft/block/material/Material.AIR:Lnet/minecraft/block/material/Material;
+      23: if_acmpeq     145
+      26: aload_2
+      27: invokevirtual #1065               // Method net/minecraft/block/Block.requiresUpdates:()Z
+      30: ifeq          143
+      33: aload_0
+      34: invokevirtual #1069               // Method getPersistentChunks:()Lcom/google/common/collect/ImmutableSetMultimap;
+      37: new           #1071               // class net/minecraft/util/math/ChunkPos
+      40: dup
+      41: aload_1
+      42: invokespecial #1074               // Method net/minecraft/util/math/ChunkPos."<init>":(Lnet/minecraft/util/math/BlockPos;)V
+      45: invokevirtual #1079               // Method com/google/common/collect/ImmutableSetMultimap.containsKey:(Ljava/lang/Object;)Z
+      48: istore        6
+      50: iload         6
+      52: ifeq          59
+      55: iconst_0
+      56: goto          61
+      59: bipush        8
+      61: istore        7
+      63: aload_0
+      64: aload_1
+      65: iload         7
+      67: ineg
+      68: iload         7
+      70: ineg
+      71: iload         7
+      73: ineg
+      74: invokevirtual #1083               // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+      77: aload_1
+      78: iload         7
+      80: iload         7
+      82: iload         7
+      84: invokevirtual #1083               // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+      87: invokevirtual #1086               // Method isAreaLoaded:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)Z
+      90: ifeq          142
+      93: aload_0
+      94: aload_1
+      95: invokevirtual #940                // Method getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      98: astore        8
+     100: aload         8
+     102: invokeinterface #722,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+     107: getstatic     #728                // Field net/minecraft/block/material/Material.AIR:Lnet/minecraft/block/material/Material;
+     110: if_acmpeq     142
+     113: aload         8
+     115: invokeinterface #944,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     120: aload_2
+     121: if_acmpne     142
+     124: aload         8
+     126: invokeinterface #944,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     131: aload_0
+     132: aload_1
+     133: aload         8
+     135: aload_0
+     136: getfield      #597                // Field rand:Ljava/util/Random;
+     139: invokevirtual #1089               // Method net/minecraft/block/Block.updateTick:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Ljava/util/Random;)V
+     142: return
+     143: iconst_1
+     144: istore_3
+     145: new           #1037               // class net/minecraft/world/NextTickListEntry
+     148: dup
+     149: aload_1
+     150: aload_2
+     151: invokespecial #1040               // Method net/minecraft/world/NextTickListEntry."<init>":(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;)V
+     154: astore        6
+     156: aload_0
+     157: aload_1
+     158: invokevirtual #1092               // Method isBlockLoaded:(Lnet/minecraft/util/math/BlockPos;)Z
+     161: ifeq          231
+     164: aload         5
+     166: getstatic     #728                // Field net/minecraft/block/material/Material.AIR:Lnet/minecraft/block/material/Material;
+     169: if_acmpeq     195
+     172: aload         6
+     174: iload_3
+     175: i2l
+     176: aload_0
+     177: getfield      #337                // Field worldInfo:Lnet/minecraft/world/storage/WorldInfo;
+     180: invokevirtual #492                // Method net/minecraft/world/storage/WorldInfo.getWorldTotalTime:()J
+     183: ladd
+     184: invokevirtual #1096               // Method net/minecraft/world/NextTickListEntry.setScheduledTime:(J)Lnet/minecraft/world/NextTickListEntry;
+     187: pop
+     188: aload         6
+     190: iload         4
+     192: invokevirtual #1099               // Method net/minecraft/world/NextTickListEntry.setPriority:(I)V
+     195: aload_0
+     196: getfield      #89                 // Field pendingTickListEntriesHashSet:Ljava/util/Set;
+     199: aload         6
+     201: invokeinterface #1048,  2         // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     206: ifne          231
+     209: aload_0
+     210: getfield      #89                 // Field pendingTickListEntriesHashSet:Ljava/util/Set;
+     213: aload         6
+     215: invokeinterface #1101,  2         // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     220: pop
+     221: aload_0
+     222: getfield      #96                 // Field pendingTickListEntriesTreeSet:Ljava/util/TreeSet;
+     225: aload         6
+     227: invokevirtual #1102               // Method java/util/TreeSet.add:(Ljava/lang/Object;)Z
+     230: pop
+     231: return
+
+
+SOURCE native-worldserver
+  public void scheduleBlockUpdate(net.minecraft.util.math.BlockPos, net.minecraft.block.Block, int, int);
+    Code:
+       0: aload_2
+       1: ifnonnull     5
+       4: return
+       5: new           #1037               // class net/minecraft/world/NextTickListEntry
+       8: dup
+       9: aload_1
+      10: aload_2
+      11: invokespecial #1040               // Method net/minecraft/world/NextTickListEntry."<init>":(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;)V
+      14: astore        5
+      16: aload         5
+      18: iload         4
+      20: invokevirtual #1099               // Method net/minecraft/world/NextTickListEntry.setPriority:(I)V
+      23: aload_2
+      24: invokevirtual #919                // Method net/minecraft/block/Block.getDefaultState:()Lnet/minecraft/block/state/IBlockState;
+      27: invokeinterface #722,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+      32: astore        6
+      34: aload         6
+      36: getstatic     #728                // Field net/minecraft/block/material/Material.AIR:Lnet/minecraft/block/material/Material;
+      39: if_acmpeq     58
+      42: aload         5
+      44: iload_3
+      45: i2l
+      46: aload_0
+      47: getfield      #337                // Field worldInfo:Lnet/minecraft/world/storage/WorldInfo;
+      50: invokevirtual #492                // Method net/minecraft/world/storage/WorldInfo.getWorldTotalTime:()J
+      53: ladd
+      54: invokevirtual #1096               // Method net/minecraft/world/NextTickListEntry.setScheduledTime:(J)Lnet/minecraft/world/NextTickListEntry;
+      57: pop
+      58: aload_0
+      59: getfield      #89                 // Field pendingTickListEntriesHashSet:Ljava/util/Set;
+      62: aload         5
+      64: invokeinterface #1048,  2         // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      69: ifne          94
+      72: aload_0
+      73: getfield      #89                 // Field pendingTickListEntriesHashSet:Ljava/util/Set;
+      76: aload         5
+      78: invokeinterface #1101,  2         // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      83: pop
+      84: aload_0
+      85: getfield      #96                 // Field pendingTickListEntriesTreeSet:Ljava/util/TreeSet;
+      88: aload         5
+      90: invokevirtual #1102               // Method java/util/TreeSet.add:(Ljava/lang/Object;)Z
+      93: pop
+      94: return
+
+
+SOURCE native-worldserver
+  protected boolean isChunkLoaded(int, int, boolean);
+    Code:
+       0: aload_0
+       1: invokevirtual #578                // Method getChunkProvider:()Lnet/minecraft/world/gen/ChunkProviderServer;
+       4: iload_1
+       5: iload_2
+       6: invokevirtual #747                // Method net/minecraft/world/gen/ChunkProviderServer.chunkExists:(II)Z
+       9: ireturn
+
+
+SOURCE native-worldserver
+  public boolean tickUpdates(boolean);
+    Code:
+       0: aload_0
+       1: getfield      #337                // Field worldInfo:Lnet/minecraft/world/storage/WorldInfo;
+       4: invokevirtual #477                // Method net/minecraft/world/storage/WorldInfo.getTerrainType:()Lnet/minecraft/world/WorldType;
+       7: getstatic     #483                // Field net/minecraft/world/WorldType.DEBUG_ALL_BLOCK_STATES:Lnet/minecraft/world/WorldType;
+      10: if_acmpne     15
+      13: iconst_0
+      14: ireturn
+      15: aload_0
+      16: getfield      #96                 // Field pendingTickListEntriesTreeSet:Ljava/util/TreeSet;
+      19: invokevirtual #1213               // Method java/util/TreeSet.size:()I
+      22: istore_2
+      23: iload_2
+      24: aload_0
+      25: getfield      #89                 // Field pendingTickListEntriesHashSet:Ljava/util/Set;
+      28: invokeinterface #1214,  1         // InterfaceMethod java/util/Set.size:()I
+      33: if_icmpeq     47
+      36: new           #1216               // class java/lang/IllegalStateException
+      39: dup
+      40: ldc_w         #1218               // String TickNextTick list out of synch
+      43: invokespecial #1220               // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      46: athrow
+      47: iload_2
+      48: ldc_w         #1221               // int 65536
+      51: if_icmple     58
+      54: ldc_w         #1221               // int 65536
+      57: istore_2
+      58: aload_0
+      59: getfield      #463                // Field profiler:Lnet/minecraft/profiler/Profiler;
+      62: ldc_w         #1223               // String cleaning
+      65: invokevirtual #471                // Method net/minecraft/profiler/Profiler.startSection:(Ljava/lang/String;)V
+      68: iconst_0
+      69: istore_3
+      70: iload_3
+      71: iload_2
+      72: if_icmpge     150
+      75: aload_0
+      76: getfield      #96                 // Field pendingTickListEntriesTreeSet:Ljava/util/TreeSet;
+      79: invokevirtual #1226               // Method java/util/TreeSet.first:()Ljava/lang/Object;
+      82: checkcast     #1037               // class net/minecraft/world/NextTickListEntry
+      85: astore        4
+      87: iload_1
+      88: ifne          110
+      91: aload         4
+      93: getfield      #1229               // Field net/minecraft/world/NextTickListEntry.scheduledTime:J
+      96: aload_0
+      97: getfield      #337                // Field worldInfo:Lnet/minecraft/world/storage/WorldInfo;
+     100: invokevirtual #492                // Method net/minecraft/world/storage/WorldInfo.getWorldTotalTime:()J
+     103: lcmp
+     104: ifle          110
+     107: goto          150
+     110: aload_0
+     111: getfield      #96                 // Field pendingTickListEntriesTreeSet:Ljava/util/TreeSet;
+     114: aload         4
+     116: invokevirtual #1230               // Method java/util/TreeSet.remove:(Ljava/lang/Object;)Z
+     119: pop
+     120: aload_0
+     121: getfield      #89                 // Field pendingTickListEntriesHashSet:Ljava/util/Set;
+     124: aload         4
+     126: invokeinterface #1231,  2         // InterfaceMethod java/util/Set.remove:(Ljava/lang/Object;)Z
+     131: pop
+     132: aload_0
+     133: getfield      #129                // Field pendingTickListEntriesThisTick:Ljava/util/List;
+     136: aload         4
+     138: invokeinterface #1232,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     143: pop
+     144: iinc          3, 1
+     147: goto          70
+     150: aload_0
+     151: getfield      #463                // Field profiler:Lnet/minecraft/profiler/Profiler;
+     154: invokevirtual #564                // Method net/minecraft/profiler/Profiler.endSection:()V
+     157: aload_0
+     158: getfield      #463                // Field profiler:Lnet/minecraft/profiler/Profiler;
+     161: ldc_w         #1234               // String ticking
+     164: invokevirtual #471                // Method net/minecraft/profiler/Profiler.startSection:(Ljava/lang/String;)V
+     167: aload_0
+     168: getfield      #129                // Field pendingTickListEntriesThisTick:Ljava/util/List;
+     171: invokeinterface #552,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     176: astore_3
+     177: aload_3
+     178: invokeinterface #557,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     183: ifeq          367
+     186: aload_3
+     187: invokeinterface #561,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     192: checkcast     #1037               // class net/minecraft/world/NextTickListEntry
+     195: astore        4
+     197: aload_3
+     198: invokeinterface #1236,  1         // InterfaceMethod java/util/Iterator.remove:()V
+     203: iconst_0
+     204: istore        5
+     206: aload_0
+     207: aload         4
+     209: getfield      #1239               // Field net/minecraft/world/NextTickListEntry.position:Lnet/minecraft/util/math/BlockPos;
+     212: iconst_0
+     213: iconst_0
+     214: iconst_0
+     215: invokevirtual #1083               // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+     218: aload         4
+     220: getfield      #1239               // Field net/minecraft/world/NextTickListEntry.position:Lnet/minecraft/util/math/BlockPos;
+     223: iconst_0
+     224: iconst_0
+     225: iconst_0
+     226: invokevirtual #1083               // Method net/minecraft/util/math/BlockPos.add:(III)Lnet/minecraft/util/math/BlockPos;
+     229: invokevirtual #1086               // Method isAreaLoaded:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)Z
+     232: ifeq          349
+     235: aload_0
+     236: aload         4
+     238: getfield      #1239               // Field net/minecraft/world/NextTickListEntry.position:Lnet/minecraft/util/math/BlockPos;
+     241: invokevirtual #940                // Method getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     244: astore        6
+     246: aload         6
+     248: invokeinterface #722,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+     253: getstatic     #728                // Field net/minecraft/block/material/Material.AIR:Lnet/minecraft/block/material/Material;
+     256: if_acmpeq     346
+     259: aload         6
+     261: invokeinterface #944,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     266: aload         4
+     268: invokevirtual #1240               // Method net/minecraft/world/NextTickListEntry.getBlock:()Lnet/minecraft/block/Block;
+     271: invokestatic  #1244               // Method net/minecraft/block/Block.isEqualTo:(Lnet/minecraft/block/Block;Lnet/minecraft/block/Block;)Z
+     274: ifeq          346
+     277: aload         6
+     279: invokeinterface #944,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     284: aload_0
+     285: aload         4
+     287: getfield      #1239               // Field net/minecraft/world/NextTickListEntry.position:Lnet/minecraft/util/math/BlockPos;
+     290: aload         6
+     292: aload_0
+     293: getfield      #597                // Field rand:Ljava/util/Random;
+     296: invokevirtual #1089               // Method net/minecraft/block/Block.updateTick:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Ljava/util/Random;)V
+     299: goto          346
+     302: astore        7
+     304: aload         7
+     306: ldc_w         #1246               // String Exception while ticking a block
+     309: invokestatic  #1161               // Method net/minecraft/crash/CrashReport.makeCrashReport:(Ljava/lang/Throwable;Ljava/lang/String;)Lnet/minecraft/crash/CrashReport;
+     312: astore        8
+     314: aload         8
+     316: ldc_w         #1248               // String Block being ticked
+     319: invokevirtual #1167               // Method net/minecraft/crash/CrashReport.makeCategory:(Ljava/lang/String;)Lnet/minecraft/crash/CrashReportCategory;
+     322: astore        9
+     324: aload         9
+     326: aload         4
+     328: getfield      #1239               // Field net/minecraft/world/NextTickListEntry.position:Lnet/minecraft/util/math/BlockPos;
+     331: aload         6
+     333: invokestatic  #1254               // Method net/minecraft/crash/CrashReportCategory.addBlockInfo:(Lnet/minecraft/crash/CrashReportCategory;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;)V
+     336: new           #1173               // class net/minecraft/util/ReportedException
+     339: dup
+     340: aload         8
+     342: invokespecial #1176               // Method net/minecraft/util/ReportedException."<init>":(Lnet/minecraft/crash/CrashReport;)V
+     345: athrow
+     346: goto          364
+     349: aload_0
+     350: aload         4
+     352: getfield      #1239               // Field net/minecraft/world/NextTickListEntry.position:Lnet/minecraft/util/math/BlockPos;
+     355: aload         4
+     357: invokevirtual #1240               // Method net/minecraft/world/NextTickListEntry.getBlock:()Lnet/minecraft/block/Block;
+     360: iconst_0
+     361: invokevirtual #1256               // Method scheduleUpdate:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;I)V
+     364: goto          177
+     367: aload_0
+     368: getfield      #463                // Field profiler:Lnet/minecraft/profiler/Profiler;
+     371: invokevirtual #564                // Method net/minecraft/profiler/Profiler.endSection:()V
+     374: aload_0
+     375: getfield      #129                // Field pendingTickListEntriesThisTick:Ljava/util/List;
+     378: invokeinterface #1259,  1         // InterfaceMethod java/util/List.clear:()V
+     383: aload_0
+     384: getfield      #96                 // Field pendingTickListEntriesTreeSet:Ljava/util/TreeSet;
+     387: invokevirtual #1260               // Method java/util/TreeSet.isEmpty:()Z
+     390: ifne          397
+     393: iconst_1
+     394: goto          398
+     397: iconst_0
+     398: ireturn
+    Exception table:
+       from    to  target type
+         277   299   302   Class java/lang/Throwable
+
+
+SOURCE native-world
+  public void scheduleUpdate(net.minecraft.util.math.BlockPos, net.minecraft.block.Block, int);
+    Code:
+       0: return
+
+
+SOURCE native-world
+  public boolean isBlockLoaded(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iconst_1
+       3: invokevirtual #411                // Method isBlockLoaded:(Lnet/minecraft/util/math/BlockPos;Z)Z
+       6: ireturn
+
+
+SOURCE native-world
+  public boolean isBlockLoaded(net.minecraft.util.math.BlockPos, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #366                // Method net/minecraft/util/math/BlockPos.getX:()I
+       5: iconst_4
+       6: ishr
+       7: aload_1
+       8: invokevirtual #372                // Method net/minecraft/util/math/BlockPos.getZ:()I
+      11: iconst_4
+      12: ishr
+      13: iload_2
+      14: invokevirtual #416                // Method isChunkLoaded:(IIZ)Z
+      17: ireturn
+
+
+SOURCE native-world
+  private boolean isAreaLoaded(int, int, int, int, int, int, boolean);
+    Code:
+       0: iload         5
+       2: iflt          81
+       5: iload_2
+       6: sipush        256
+       9: if_icmpge     81
+      12: iload_1
+      13: iconst_4
+      14: ishr
+      15: istore_1
+      16: iload_3
+      17: iconst_4
+      18: ishr
+      19: istore_3
+      20: iload         4
+      22: iconst_4
+      23: ishr
+      24: istore        4
+      26: iload         6
+      28: iconst_4
+      29: ishr
+      30: istore        6
+      32: iload_1
+      33: istore        8
+      35: iload         8
+      37: iload         4
+      39: if_icmpgt     79
+      42: iload_3
+      43: istore        9
+      45: iload         9
+      47: iload         6
+      49: if_icmpgt     73
+      52: aload_0
+      53: iload         8
+      55: iload         9
+      57: iload         7
+      59: invokevirtual #416                // Method isChunkLoaded:(IIZ)Z
+      62: ifne          67
+      65: iconst_0
+      66: ireturn
+      67: iinc          9, 1
+      70: goto          45
+      73: iinc          8, 1
+      76: goto          35
+      79: iconst_1
+      80: ireturn
+      81: iconst_0
+      82: ireturn
+
+
+SOURCE native-provider
+  public boolean chunkExists(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #47                 // Field loadedChunks:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;
+       4: iload_1
+       5: iload_2
+       6: invokestatic  #97                 // Method net/minecraft/util/math/ChunkPos.asLong:(II)J
+       9: invokeinterface #488,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ObjectMap.containsKey:(J)Z
+      14: ireturn
+
+
+SOURCE native-provider
+  public net.minecraft.world.chunk.Chunk getLoadedChunk(int, int);
+    Code:
+       0: iload_1
+       1: iload_2
+       2: invokestatic  #97                 // Method net/minecraft/util/math/ChunkPos.asLong:(II)J
+       5: lstore_3
+       6: aload_0
+       7: getfield      #47                 // Field loadedChunks:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;
+      10: lload_3
+      11: invokeinterface #144,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ObjectMap.get:(J)Ljava/lang/Object;
+      16: checkcast     #78                 // class net/minecraft/world/chunk/Chunk
+      19: astore        5
+      21: aload         5
+      23: ifnull        32
+      26: aload         5
+      28: iconst_0
+      29: putfield      #113                // Field net/minecraft/world/chunk/Chunk.unloadQueued:Z
+      32: aload         5
+      34: areturn
+
+
+SOURCE Forge 1614 conf/methods.csv:
+func_147454_a,scheduleBlockUpdateWithPriority,2,
+func_147464_a,scheduleBlockUpdate,2,Schedules a tick to a block with a delay (Most commonly the tick rate)
+
+SOURCE Forge 1614 WorldServer patch (scheduling hunk):
+
+     public void func_147454_a(int p_147454_1_, int p_147454_2_, int p_147454_3_, Block p_147454_4_, int p_147454_5_, int p_147454_6_)
+     {
+         NextTickListEntry nextticklistentry = new NextTickListEntry(p_147454_1_, p_147454_2_, p_147454_3_, p_147454_4_);
++        //Keeping here as a note for future when it may be restored.
++        //boolean isForced = getPersistentChunks().containsKey(new ChunkCoordIntPair(nextticklistentry.xCoord >> 4, nextticklistentry.zCoord >> 4));
++        //byte b0 = isForced ? 0 : 8;
+         byte b0 = 0;
+
+         if (this.field_72999_e && p_147454_4_.func_149688_o() != Material.field_151579_a)

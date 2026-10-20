@@ -121,7 +121,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	}
 
 	public ItemToolAbility(float damage, double movement, ToolMaterial material, EnumToolType type) {
-		super(0, material, type.blocks);
+		super(material, type.blocks);
 		this.damage = damage;
 		this.movement = movement;
 		this.toolType = type;
@@ -266,11 +266,12 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	}
 
 	@Override
-	public Multimap getItemAttributeModifiers() {
+	public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
 
 		Multimap multimap = HashMultimap.create();
-		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Tool modifier", (double) this.damage, 0));
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Tool modifier", movement, 1));
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", (double) this.damage, 0));
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", movement, 1));
 		return multimap;
 	}
 
@@ -292,7 +293,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 	public void breakExtraBlock(World world, int x, int y, int z, EntityPlayer playerEntity, int refX, int refY, int refZ) {
 
-		if(world.isAirBlock(x, y, z))
+		if(world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z)))
 			return;
 
 		if(!(playerEntity instanceof EntityPlayerMP))
@@ -638,7 +639,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		Minecraft.getMinecraft().renderEngine.bindTexture(GUIScreenToolAbility.texture);
 		GL11.glEnable(GL11.GL_BLEND);
 		OpenGlHelper.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE_MINUS_SRC_COLOR, 1, 0);
-		gui.drawTexturedModalRect(event.resolution.getScaledWidth() / 2 - size - 8 + ox, event.resolution.getScaledHeight() / 2 + 8 + oy, uv.key, uv.value, size, size);
+		gui.drawTexturedModalRect(event.getResolution().getScaledWidth() / 2 - size - 8 + ox, event.getResolution().getScaledHeight() / 2 + 8 + oy, uv.key, uv.value, size, size);
 		OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
 		GL11.glDisable(GL11.GL_BLEND);
 		GL11.glPopMatrix();

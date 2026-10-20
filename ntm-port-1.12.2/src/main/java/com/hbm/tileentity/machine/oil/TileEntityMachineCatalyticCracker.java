@@ -37,16 +37,16 @@ public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase impl
 
 		if(!this.world.isRemote) {
 
-			this.world.theProfiler.startSection("catalyticCracker_setup_tanks");
+			this.world.profiler.startSection("catalyticCracker_setup_tanks");
 			setupTanks();
-			this.world.theProfiler.endStartSection("catalyticCracker_update_connections");
+			this.world.profiler.endStartSection("catalyticCracker_update_connections");
 			updateConnections();
 
-			this.world.theProfiler.endStartSection("catalyticCracker_do_recipe");
+			this.world.profiler.endStartSection("catalyticCracker_do_recipe");
 			if(this.world.getTotalWorldTime() % 5 == 0)
 				crack();
 
-			this.world.theProfiler.endStartSection("catalyticCracker_send_fluid");
+			this.world.profiler.endStartSection("catalyticCracker_send_fluid");
 			if(this.world.getTotalWorldTime() % 10 == 0) {
 
 				for(DirPos pos : getConPos()) {
@@ -56,7 +56,7 @@ public class TileEntityMachineCatalyticCracker extends TileEntityLoadedBase impl
 				}
 
 			}
-			this.world.theProfiler.endSection();
+			this.world.profiler.endSection();
 			networkPackNT(25);
 		}
 	}

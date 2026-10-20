@@ -1,0 +1,39 @@
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java:9:import com.hbm.blocks.generic.BlockOreFluid.ReserveType;
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java:1551:		ore_oil = new BlockOreFluid(Material.ROCK, ore_oil_empty, ReserveType.OIL).setTranslationKey("ore_oil").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java:1553:		ore_bedrock_oil = new BlockOreFluid(Material.ROCK, null, ReserveType.OIL).setTranslationKey("ore_bedrock_oil").setCreativeTab(MainRegistry.blockTab).setBlockUnbreakable().setResistance(1_000_000);
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java:1555:		ore_gas = new BlockOreFluid(Material.ROCK, ore_gas_empty, ReserveType.GAS).setTranslationKey("ore_gas").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java:1558:		ore_brine = new BlockOreFluid(Material.ROCK, ore_brine_empty, ReserveType.BRINE).setTranslationKey("ore_brine").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java:1561:		ore_tekto = new BlockOreFluid(Material.ROCK, ore_tekto_empty, ReserveType.OIL).setTranslationKey("ore_tekto").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOreFluid.java:15:public class BlockOreFluid extends BlockOre {
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOreFluid.java:30:	public BlockOreFluid(Material mat, Block empty, ReserveType type) {
+ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockLore.java:6:import com.hbm.blocks.generic.BlockOreFluid;
+ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockLore.java:45:		if(this.block instanceof BlockOreFluid) {
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemOilDetector.java:6:import com.hbm.blocks.generic.BlockOreFluid;
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemOilDetector.java:48:			if(reserve instanceof BlockOreFluid)
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemOilDetector.java:49:				reserveType = ((BlockOreFluid) reserve).getUnlocalizedReserveType();
+ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemOilDetector.java:90:			if(block instanceof BlockOreFluid) return block;
+ntm-port-1.12.2/src/main/java/com/hbm/main/MultipassModelHandler.java:84:        add("ore_oil","com.hbm.blocks.generic.BlockOreFluid",Kind.ORE,"ore_oil");
+ntm-port-1.12.2/src/main/java/com/hbm/main/MultipassModelHandler.java:85:        add("ore_bedrock_oil","com.hbm.blocks.generic.BlockOreFluid",Kind.ORE,"ore_bedrock_oil");
+ntm-port-1.12.2/src/main/java/com/hbm/main/MultipassModelHandler.java:87:        add("ore_gas","com.hbm.blocks.generic.BlockOreFluid",Kind.ORE,"ore_gas");
+ntm-port-1.12.2/src/main/java/com/hbm/main/MultipassModelHandler.java:89:        add("ore_brine","com.hbm.blocks.generic.BlockOreFluid",Kind.ORE,"ore_brine");
+ntm-port-1.12.2/src/main/java/com/hbm/main/MultipassModelHandler.java:91:        add("ore_tekto","com.hbm.blocks.generic.BlockOreFluid",Kind.ORE,"ore_tekto");
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:12:import com.hbm.blocks.generic.BlockOreFluid;
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:402:				if(block instanceof BlockOreFluid) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:405:					BlockOreFluid oreFluid = (BlockOreFluid) block;
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFrackingTower.java:9:import com.hbm.blocks.generic.BlockOreFluid;
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineFrackingTower.java:90:	public void onSuck(BlockOreFluid block, int x, int y, int z) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java:9:import com.hbm.blocks.generic.BlockOreFluid;
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java:88:	public void onSuck(BlockOreFluid block, int x, int y, int z) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java:10:import com.hbm.blocks.generic.BlockOreFluid;
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java:96:	protected int getPrimaryFluidAmount(BlockOreFluid block, int meta) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java:101:	protected int getSecondaryFluidAmount(BlockOreFluid block, int meta) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java:106:	protected void attemptDrain(BlockOreFluid block, int x, int y, int z, int meta) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:7:import com.hbm.blocks.generic.BlockOreFluid;
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:236:		return (b instanceof BlockOreFluid && b != ModBlocks.ore_bedrock_oil) || BlockOreFluid.getFullBlock(b) != null;
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:255:		if(b instanceof BlockOreFluid) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:256:			onSuck((BlockOreFluid) b, x, y, z);
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:260:		if(BlockOreFluid.getFullBlock(b) != null) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:272:	public void onSuck(BlockOreFluid block, int x, int y, int z) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:285:	protected int getPrimaryFluidAmount(BlockOreFluid block, int meta) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:289:	protected int getSecondaryFluidAmount(BlockOreFluid block, int meta) {
+ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java:293:	protected void attemptDrain(BlockOreFluid block, int x, int y, int z, int meta) {

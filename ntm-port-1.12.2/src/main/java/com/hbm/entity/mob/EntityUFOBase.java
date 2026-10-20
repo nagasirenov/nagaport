@@ -12,8 +12,16 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 
 public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffocationImmune {
+	private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);
+
 
 	protected int scanCooldown;
 	protected int courseChangeCooldown;
@@ -27,9 +35,9 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 	protected void entityInit() {
 		super.entityInit();
 		//XYZ
-		this.getDataWatcher().addObject(17, 0);
-		this.getDataWatcher().addObject(18, 0);
-		this.getDataWatcher().addObject(19, 0);
+		this.getDataManager().register(WAYPOINT_X, 0);
+		this.getDataManager().register(WAYPOINT_Y, 0);
+		this.getDataManager().register(WAYPOINT_Z, 0);
 	}
 
 	@Override
@@ -186,20 +194,20 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 	}
 
 	public void setWaypoint(int x, int y, int z) {
-		this.dataWatcher.updateObject(17, x);
-		this.dataWatcher.updateObject(18, y);
-		this.dataWatcher.updateObject(19, z);
+		this.dataManager.set(WAYPOINT_X, x);
+		this.dataManager.set(WAYPOINT_Y, y);
+		this.dataManager.set(WAYPOINT_Z, z);
 	}
 
 	public int getX() {
-		return this.dataWatcher.getWatchableObjectInt(17);
+		return this.dataManager.get(WAYPOINT_X);
 	}
 
 	public int getY() {
-		return this.dataWatcher.getWatchableObjectInt(18);
+		return this.dataManager.get(WAYPOINT_Y);
 	}
 
 	public int getZ() {
-		return this.dataWatcher.getWatchableObjectInt(19);
+		return this.dataManager.get(WAYPOINT_Z);
 	}
 }

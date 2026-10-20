@@ -1,0 +1,15 @@
+ 
+     public void func_147457_a(TileEntity p_147457_1_)
+@@ -2453,8 +2624,7 @@
+     public static boolean func_147466_a(IBlockAccess p_147466_0_, int p_147466_1_, int p_147466_2_, int p_147466_3_)
+     {
+         Block block = p_147466_0_.func_147439_a(p_147466_1_, p_147466_2_, p_147466_3_);
+-        int l = p_147466_0_.func_72805_g(p_147466_1_, p_147466_2_, p_147466_3_);
+-        return block.func_149688_o().func_76218_k() && block.func_149686_d() ? true : (block instanceof BlockStairs ? (l & 4) == 4 : (block instanceof BlockSlab ? (l & 8) == 8 : (block instanceof BlockHopper ? true : (block instanceof BlockSnow ? (l & 7) == 7 : false))));
++        return block.isSideSolid(p_147466_0_, p_147466_1_, p_147466_2_, p_147466_3_, ForgeDirection.UP);
+     }
+ 
+     public boolean func_147445_c(int p_147445_1_, int p_147445_2_, int p_147445_3_, boolean p_147445_4_)
+@@ -2466,7 +2636,7 @@
+             if (chunk != null && !chunk.func_76621_g())
+             {

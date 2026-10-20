@@ -25,6 +25,7 @@ public class ItemPancake extends ItemFood {
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
     	
     	for(ItemStack st : player.inventory.armorInventory) {
+    		if (st == ItemStack.EMPTY) st = null;
     		
     		if(st == null)
     			continue;
@@ -38,7 +39,7 @@ public class ItemPancake extends ItemFood {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
     	
-    	if(ArmorFSB.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory[3].getItem() == ModItems.bj_helmet) {
+    	if(ArmorFSB.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItem() == ModItems.bj_helmet) {
         	return super.onItemRightClick(stack, world, player);
     	}
     	

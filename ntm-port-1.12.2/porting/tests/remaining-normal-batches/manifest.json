@@ -1,0 +1,2723 @@
+{
+  "base": "0675e599e5ee31a60776b560af792372df191790",
+  "files": {
+    "src/main/java/com/hbm/render/tileentity/RenderExcavator.java": {
+      "before_sha256": "1a370e5ec2e70b256a7cbd1c25ea75e82884b31fafbd5bffd5820c9bff6ae715",
+      "after_sha256": "7ccc3137b97703bd1503606a8701307174b447530e477c31da735b522d4ae261",
+      "scopes": {
+        "render": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0F",
+                    "0F",
+                    "1F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "3",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "3",
+                    "2.5 + widthZ",
+                    "1",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "1",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0F",
+                    "0F",
+                    "-1F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "3",
+                    "2.5 - widthZ",
+                    "1",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "3",
+                    "2.5 - widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "1",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "-1F",
+                    "0F",
+                    "0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "3",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "3",
+                    "2.5 - widthZ",
+                    "1",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "1",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "1F",
+                    "0F",
+                    "0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "3",
+                    "2.5 - widthZ",
+                    "1",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "3",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "1",
+                    "dropL"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0F",
+                    "0F",
+                    "1F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "uU",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "1",
+                    "2.5 + widthZ",
+                    "uU",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "1",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0F",
+                    "0F",
+                    "-1F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "uU",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "1",
+                    "2.5 - widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "1",
+                    "2.5 - widthZ",
+                    "uU",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "-1F",
+                    "0F",
+                    "0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "uL",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "1",
+                    "2.5 - widthZ",
+                    "uL",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-widthX",
+                    "1",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "1F",
+                    "0F",
+                    "0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 - widthZ",
+                    "uL",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "2",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropU"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "1",
+                    "2.5 + widthZ",
+                    "0",
+                    "dropL"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "widthX",
+                    "1",
+                    "2.5 - widthZ",
+                    "uL",
+                    "dropL"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            }
+          ],
+          "setters": [],
+          "normals": [
+            [
+              "0F",
+              "0F",
+              "1F"
+            ],
+            [
+              "0F",
+              "0F",
+              "-1F"
+            ],
+            [
+              "-1F",
+              "0F",
+              "0F"
+            ],
+            [
+              "1F",
+              "0F",
+              "0F"
+            ],
+            [
+              "0F",
+              "0F",
+              "1F"
+            ],
+            [
+              "0F",
+              "0F",
+              "-1F"
+            ],
+            [
+              "-1F",
+              "0F",
+              "0F"
+            ],
+            [
+              "1F",
+              "0F",
+              "0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "widthX",
+              "3",
+              "2.5 + widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "3",
+              "2.5 + widthZ",
+              "1",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 + widthZ",
+              "1",
+              "dropL"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 + widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "3",
+              "2.5 - widthZ",
+              "1",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "3",
+              "2.5 - widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 - widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 - widthZ",
+              "1",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "3",
+              "2.5 + widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "3",
+              "2.5 - widthZ",
+              "1",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 - widthZ",
+              "1",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 + widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "widthX",
+              "3",
+              "2.5 - widthZ",
+              "1",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "3",
+              "2.5 + widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 + widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 - widthZ",
+              "1",
+              "dropL"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 + widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 + widthZ",
+              "uU",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "1",
+              "2.5 + widthZ",
+              "uU",
+              "dropL"
+            ],
+            [
+              "widthX",
+              "1",
+              "2.5 + widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 - widthZ",
+              "uU",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 - widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "1",
+              "2.5 - widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "1",
+              "2.5 - widthZ",
+              "uU",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 + widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "2",
+              "2.5 - widthZ",
+              "uL",
+              "dropU"
+            ],
+            [
+              "-widthX",
+              "1",
+              "2.5 - widthZ",
+              "uL",
+              "dropL"
+            ],
+            [
+              "-widthX",
+              "1",
+              "2.5 + widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 - widthZ",
+              "uL",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "2",
+              "2.5 + widthZ",
+              "0",
+              "dropU"
+            ],
+            [
+              "widthX",
+              "1",
+              "2.5 + widthZ",
+              "0",
+              "dropL"
+            ],
+            [
+              "widthX",
+              "1",
+              "2.5 - widthZ",
+              "uL",
+              "dropL"
+            ]
+          ],
+          "reset_setters": 0
+        }
+      },
+      "edits": [
+        {
+          "old_start": 11,
+          "new_start": 11,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 80,
+          "new_start": 82,
+          "old": [
+            "\t\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.setNormal(0F, 0F, 1F);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 + widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 + widthZ, 1, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, 1, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropL);\n"
+          ],
+          "new": [
+            "\t\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\t\tfloat tessNormal0X = 0F, tessNormal0Y = 0F, tessNormal0Z = 1F;\n",
+            "\t\t\ttessBuffer.pos(widthX, 3, 2.5 + widthZ).tex(0, dropU).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 3, 2.5 + widthZ).tex(1, dropU).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(1, dropL).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropL).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 88,
+          "new_start": 91,
+          "old": [
+            "\t\t\ttess.setNormal(0F, 0F, -1F);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 - widthZ, 1, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 - widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, 0, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, 1, dropL);\n"
+          ],
+          "new": [
+            "\t\t\tfloat tessNormal1X = 0F, tessNormal1Y = 0F, tessNormal1Z = -1F;\n",
+            "\t\t\ttessBuffer.pos(-widthX, 3, 2.5 - widthZ).tex(1, dropU).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 3, 2.5 - widthZ).tex(0, dropU).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(0, dropL).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(1, dropL).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 94,
+          "new_start": 97,
+          "old": [
+            "\t\t\ttess.setNormal(-1F, 0F, 0F);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 + widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 3, 2.5 - widthZ, 1, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, 1, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, 0, dropL);\n"
+          ],
+          "new": [
+            "\t\t\tfloat tessNormal2X = -1F, tessNormal2Y = 0F, tessNormal2Z = 0F;\n",
+            "\t\t\ttessBuffer.pos(-widthX, 3, 2.5 + widthZ).tex(0, dropU).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 3, 2.5 - widthZ).tex(1, dropU).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(1, dropL).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(0, dropL).normal(tessNormal2X, tessNormal2Y, tessNormal2Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 100,
+          "new_start": 103,
+          "old": [
+            "\t\t\ttess.setNormal(1F, 0F, 0F);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 - widthZ, 1, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 3, 2.5 + widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, 1, dropL);\n"
+          ],
+          "new": [
+            "\t\t\tfloat tessNormal3X = 1F, tessNormal3Y = 0F, tessNormal3Z = 0F;\n",
+            "\t\t\ttessBuffer.pos(widthX, 3, 2.5 - widthZ).tex(1, dropU).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 3, 2.5 + widthZ).tex(0, dropU).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropL).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(1, dropL).normal(tessNormal3X, tessNormal3Y, tessNormal3Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 113,
+          "new_start": 116,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.setNormal(0F, 0F, 1F);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, uU, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 + widthZ, uU, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 + widthZ, 0, dropL);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\t\tfloat tessNormal4X = 0F, tessNormal4Y = 0F, tessNormal4Z = 1F;\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropU).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(uU, dropU).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 1, 2.5 + widthZ).tex(uU, dropL).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 1, 2.5 + widthZ).tex(0, dropL).normal(tessNormal4X, tessNormal4Y, tessNormal4Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 120,
+          "new_start": 123,
+          "old": [
+            "\t\t\ttess.setNormal(0F, 0F, -1F);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, uU, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 - widthZ, 0, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 - widthZ, uU, dropL);\n"
+          ],
+          "new": [
+            "\t\t\tfloat tessNormal5X = 0F, tessNormal5Y = 0F, tessNormal5Z = -1F;\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(uU, dropU).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(0, dropU).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 1, 2.5 - widthZ).tex(0, dropL).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 1, 2.5 - widthZ).tex(uU, dropL).normal(tessNormal5X, tessNormal5Y, tessNormal5Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 126,
+          "new_start": 129,
+          "old": [
+            "\t\t\ttess.setNormal(-1F, 0F, 0F);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 + widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 2, 2.5 - widthZ, uL, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 - widthZ, uL, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(-widthX, 1, 2.5 + widthZ, 0, dropL);\n"
+          ],
+          "new": [
+            "\t\t\tfloat tessNormal6X = -1F, tessNormal6Y = 0F, tessNormal6Z = 0F;\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 + widthZ).tex(0, dropU).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 2, 2.5 - widthZ).tex(uL, dropU).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 1, 2.5 - widthZ).tex(uL, dropL).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-widthX, 1, 2.5 + widthZ).tex(0, dropL).normal(tessNormal6X, tessNormal6Y, tessNormal6Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 132,
+          "new_start": 135,
+          "old": [
+            "\t\t\ttess.setNormal(1F, 0F, 0F);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 - widthZ, uL, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 2, 2.5 + widthZ, 0, dropU);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 + widthZ, 0, dropL);\n",
+            "\t\t\ttess.addVertexWithUV(widthX, 1, 2.5 - widthZ, uL, dropL);\n"
+          ],
+          "new": [
+            "\t\t\tfloat tessNormal7X = 1F, tessNormal7Y = 0F, tessNormal7Z = 0F;\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 - widthZ).tex(uL, dropU).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 2, 2.5 + widthZ).tex(0, dropU).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 1, 2.5 + widthZ).tex(0, dropL).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(widthX, 1, 2.5 - widthZ).tex(uL, dropL).normal(tessNormal7X, tessNormal7Y, tessNormal7Z).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java": {
+      "before_sha256": "60aea99fa48386b4c54d82675489a6434e263d31f1f7c20355ac795dbd099bec",
+      "after_sha256": "0fcc08962d093c69ae9e3860546cd0a8d36bff0d031f2bce8612b11d5b79314c",
+      "scopes": {
+        "renderAmatBeam": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "o"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "0",
+                    "-size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "0",
+                    "-size"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "length",
+                    "-size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "length",
+                    "-size"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "o"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "0",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "0",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "length",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "length",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "o"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "0",
+                    "-size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "0",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "length",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-size",
+                    "length",
+                    "-size"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "o"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "0",
+                    "-size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "0",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "1F",
+                    "1F",
+                    "1F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "length",
+                    "size"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "size",
+                    "length",
+                    "-size"
+                  ]
+                }
+              ],
+              "format": "POSITION_COLOR"
+            }
+          ],
+          "setters": [
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "o"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "0.0F"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "o"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "0.0F"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "o"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "0.0F"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "o"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "1F",
+                "1F",
+                "1F",
+                "0.0F"
+              ]
+            }
+          ],
+          "normals": [],
+          "vertices": [
+            [
+              "-size",
+              "0",
+              "-size"
+            ],
+            [
+              "size",
+              "0",
+              "-size"
+            ],
+            [
+              "size",
+              "length",
+              "-size"
+            ],
+            [
+              "-size",
+              "length",
+              "-size"
+            ],
+            [
+              "-size",
+              "0",
+              "size"
+            ],
+            [
+              "size",
+              "0",
+              "size"
+            ],
+            [
+              "size",
+              "length",
+              "size"
+            ],
+            [
+              "-size",
+              "length",
+              "size"
+            ],
+            [
+              "-size",
+              "0",
+              "-size"
+            ],
+            [
+              "-size",
+              "0",
+              "size"
+            ],
+            [
+              "-size",
+              "length",
+              "size"
+            ],
+            [
+              "-size",
+              "length",
+              "-size"
+            ],
+            [
+              "size",
+              "0",
+              "-size"
+            ],
+            [
+              "size",
+              "0",
+              "size"
+            ],
+            [
+              "size",
+              "length",
+              "size"
+            ],
+            [
+              "size",
+              "length",
+              "-size"
+            ]
+          ],
+          "reset_setters": 0
+        },
+        "renderGasCloud": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0.0F",
+                    "1.0F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_I",
+                  "arguments": [
+                    "color",
+                    "(int) Math.max(127 * (1 - exp), 0)"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-size",
+                    "-size",
+                    "0.0D",
+                    "1 - i",
+                    "1 - j"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "size",
+                    "-size",
+                    "0.0D",
+                    "i",
+                    "1 - j"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "size",
+                    "size",
+                    "0.0D",
+                    "i",
+                    "j"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-size",
+                    "size",
+                    "0.0D",
+                    "1 - i",
+                    "j"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_COLOR_NORMAL"
+            }
+          ],
+          "setters": [
+            {
+              "call": "setColorRGBA_I",
+              "arguments": [
+                "color",
+                "(int) Math.max(127 * (1 - exp), 0)"
+              ]
+            }
+          ],
+          "normals": [
+            [
+              "0.0F",
+              "1.0F",
+              "0.0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "-size",
+              "-size",
+              "0.0D",
+              "1 - i",
+              "1 - j"
+            ],
+            [
+              "size",
+              "-size",
+              "0.0D",
+              "i",
+              "1 - j"
+            ],
+            [
+              "size",
+              "size",
+              "0.0D",
+              "i",
+              "j"
+            ],
+            [
+              "-size",
+              "size",
+              "0.0D",
+              "1 - i",
+              "j"
+            ]
+          ],
+          "reset_setters": 0
+        },
+        "renderGasFire": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0.0F",
+                    "1.0F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_I",
+                  "arguments": [
+                    "color.getRGB()",
+                    "(int) Math.max(255 * (1 - exp), 0)"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-size",
+                    "-size",
+                    "0.0D",
+                    "1",
+                    "1"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "size",
+                    "-size",
+                    "0.0D",
+                    "0",
+                    "1"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "size",
+                    "size",
+                    "0.0D",
+                    "0",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-size",
+                    "size",
+                    "0.0D",
+                    "1",
+                    "0"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_COLOR_NORMAL"
+            }
+          ],
+          "setters": [
+            {
+              "call": "setColorRGBA_I",
+              "arguments": [
+                "color.getRGB()",
+                "(int) Math.max(255 * (1 - exp), 0)"
+              ]
+            }
+          ],
+          "normals": [
+            [
+              "0.0F",
+              "1.0F",
+              "0.0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "-size",
+              "-size",
+              "0.0D",
+              "1",
+              "1"
+            ],
+            [
+              "size",
+              "-size",
+              "0.0D",
+              "0",
+              "1"
+            ],
+            [
+              "size",
+              "size",
+              "0.0D",
+              "0",
+              "0"
+            ],
+            [
+              "-size",
+              "size",
+              "0.0D",
+              "1",
+              "0"
+            ]
+          ],
+          "reset_setters": 0
+        }
+      },
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 64,
+          "new_start": 66,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 67,
+          "new_start": 70,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n",
+            "\t\ttess.setColorRGBA_I(color.getRGB(), (int) Math.max(255 * (1 - exp), 0));\n",
+            "\t\ttess.addVertexWithUV(-size, -size, 0.0D, 1, 1);\n",
+            "\t\ttess.addVertexWithUV(size, -size, 0.0D, 0, 1);\n",
+            "\t\ttess.addVertexWithUV(size, size, 0.0D, 0, 0);\n",
+            "\t\ttess.addVertexWithUV(-size, size, 0.0D, 1, 0);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n",
+            "\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n",
+            "\t\tint tessColor0Packed = color.getRGB();\n",
+            "\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) Math.max(255 * (1 - exp), 0)));\n",
+            "\t\ttessBuffer.pos(-size, -size, 0.0D).tex(1, 1).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(size, -size, 0.0D).tex(0, 1).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(size, size, 0.0D).tex(0, 0).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(-size, size, 0.0D).tex(1, 0).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 94,
+          "new_start": 98,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 102,
+          "new_start": 107,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n",
+            "\t\ttess.setColorRGBA_I(color, (int) Math.max(127 * (1 - exp), 0));\n",
+            "\t\ttess.addVertexWithUV(-size, -size, 0.0D, 1 - i, 1 - j);\n",
+            "\t\ttess.addVertexWithUV(size, -size, 0.0D, i, 1 - j);\n",
+            "\t\ttess.addVertexWithUV(size, size, 0.0D, i, j);\n",
+            "\t\ttess.addVertexWithUV(-size, size, 0.0D, 1 - i, j);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n",
+            "\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n",
+            "\t\tint tessColor0Packed = color;\n",
+            "\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) Math.max(127 * (1 - exp), 0)));\n",
+            "\t\ttessBuffer.pos(-size, -size, 0.0D).tex(1 - i, 1 - j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(size, -size, 0.0D).tex(i, 1 - j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(size, size, 0.0D).tex(i, j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(-size, size, 0.0D).tex(1 - i, j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 140,
+          "new_start": 146,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\ttess.startDrawingQuads();\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+          ]
+        },
+        {
+          "old_start": 143,
+          "new_start": 150,
+          "old": [
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n",
+            "\t\ttess.addVertex(-size, 0, -size);\n",
+            "\t\ttess.addVertex(size, 0, -size);\n",
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n",
+            "\t\ttess.addVertex(size, length, -size);\n",
+            "\t\ttess.addVertex(-size, length, -size);\n"
+          ],
+          "new": [
+            "\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(-size, 0, -size).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(size, 0, -size).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(size, length, -size).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(-size, length, -size).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 150,
+          "new_start": 163,
+          "old": [
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n",
+            "\t\ttess.addVertex(-size, 0, size);\n",
+            "\t\ttess.addVertex(size, 0, size);\n",
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n",
+            "\t\ttess.addVertex(size, length, size);\n",
+            "\t\ttess.addVertex(-size, length, size);\n"
+          ],
+          "new": [
+            "\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(-size, 0, size).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(size, 0, size).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n",
+            "\t\tint tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor3Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor3Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(size, length, size).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(-size, length, size).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 157,
+          "new_start": 176,
+          "old": [
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n",
+            "\t\ttess.addVertex(-size, 0, -size);\n",
+            "\t\ttess.addVertex(-size, 0, size);\n",
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n",
+            "\t\ttess.addVertex(-size, length, size);\n",
+            "\t\ttess.addVertex(-size, length, -size);\n"
+          ],
+          "new": [
+            "\t\tint tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor4Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor4Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(-size, 0, -size).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(-size, 0, size).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n",
+            "\t\tint tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor5Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor5Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(-size, length, size).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(-size, length, -size).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 164,
+          "new_start": 189,
+          "old": [
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, o);\n",
+            "\t\ttess.addVertex(size, 0, -size);\n",
+            "\t\ttess.addVertex(size, 0, size);\n",
+            "\t\ttess.setColorRGBA_F(1F, 1F, 1F, 0.0F);\n",
+            "\t\ttess.addVertex(size, length, size);\n",
+            "\t\ttess.addVertex(size, length, -size);\n"
+          ],
+          "new": [
+            "\t\tint tessColor6Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor6Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor6Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor6Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(size, 0, -size).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(size, 0, size).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n",
+            "\t\tint tessColor7Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor7Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor7Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\tint tessColor7Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(size, length, size).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(size, length, -size).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java": {
+      "before_sha256": "676284149d489c2ffc6933d348da9c5383e96d415193dee16f61a1edb5291f64",
+      "after_sha256": "9cd192b802dcfe0c4d3f63439ee4ccefaa9185feac2cd7c58352f3d682bec922",
+      "scopes": {
+        "render": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setColorRGBA_I",
+                  "arguments": [
+                    "0x00ff00",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "0.38",
+                    "2 - offset",
+                    "1.375"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "0.38",
+                    "2 - offset",
+                    "-0.375"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_I",
+                  "arguments": [
+                    "0x00ff00",
+                    "50"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "0.38",
+                    "2 - offset - 0.125",
+                    "-0.375"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "0.38",
+                    "2 - offset - 0.125",
+                    "1.375"
+                  ]
+                }
+              ],
+              "format": "POSITION_COLOR"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0F",
+                    "1F",
+                    "0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "1 - sZ + size",
+                    "0.5 - sX + size",
+                    "216D / 256D",
+                    "(entry.blipLevel * 8F + 8F) / 256F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "1 - sZ + size",
+                    "0.5 - sX - size",
+                    "224D / 256D",
+                    "(entry.blipLevel * 8F + 8F) / 256F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "1 - sZ - size",
+                    "0.5 - sX - size",
+                    "224D / 256D",
+                    "entry.blipLevel * 8F / 256F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "1 - sZ - size",
+                    "0.5 - sX + size",
+                    "216D / 256D",
+                    "entry.blipLevel * 8F / 256F"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setColorOpaque_I",
+                  "arguments": [
+                    "0xffffff"
+                  ]
+                },
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0F",
+                    "1F",
+                    "0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "1.875",
+                    "1.375",
+                    "216D / 256D",
+                    "(offset + 40F) / 256F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "1.875",
+                    "-0.375",
+                    "256D / 256D",
+                    "(offset + 40F) / 256F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "0.125",
+                    "-0.375",
+                    "256D / 256D",
+                    "offset / 256F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.38",
+                    "0.125",
+                    "1.375",
+                    "216D / 256D",
+                    "offset / 256F"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_COLOR_NORMAL"
+            }
+          ],
+          "setters": [
+            {
+              "call": "setColorRGBA_I",
+              "arguments": [
+                "0x00ff00",
+                "0"
+              ]
+            },
+            {
+              "call": "setColorRGBA_I",
+              "arguments": [
+                "0x00ff00",
+                "50"
+              ]
+            },
+            {
+              "call": "setColorOpaque_I",
+              "arguments": [
+                "0xffffff"
+              ]
+            }
+          ],
+          "normals": [
+            [
+              "0F",
+              "1F",
+              "0F"
+            ],
+            [
+              "0F",
+              "1F",
+              "0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "0.38",
+              "2 - offset",
+              "1.375"
+            ],
+            [
+              "0.38",
+              "2 - offset",
+              "-0.375"
+            ],
+            [
+              "0.38",
+              "2 - offset - 0.125",
+              "-0.375"
+            ],
+            [
+              "0.38",
+              "2 - offset - 0.125",
+              "1.375"
+            ],
+            [
+              "0.38",
+              "1 - sZ + size",
+              "0.5 - sX + size",
+              "216D / 256D",
+              "(entry.blipLevel * 8F + 8F) / 256F"
+            ],
+            [
+              "0.38",
+              "1 - sZ + size",
+              "0.5 - sX - size",
+              "224D / 256D",
+              "(entry.blipLevel * 8F + 8F) / 256F"
+            ],
+            [
+              "0.38",
+              "1 - sZ - size",
+              "0.5 - sX - size",
+              "224D / 256D",
+              "entry.blipLevel * 8F / 256F"
+            ],
+            [
+              "0.38",
+              "1 - sZ - size",
+              "0.5 - sX + size",
+              "216D / 256D",
+              "entry.blipLevel * 8F / 256F"
+            ],
+            [
+              "0.38",
+              "1.875",
+              "1.375",
+              "216D / 256D",
+              "(offset + 40F) / 256F"
+            ],
+            [
+              "0.38",
+              "1.875",
+              "-0.375",
+              "256D / 256D",
+              "(offset + 40F) / 256F"
+            ],
+            [
+              "0.38",
+              "0.125",
+              "-0.375",
+              "256D / 256D",
+              "offset / 256F"
+            ],
+            [
+              "0.38",
+              "0.125",
+              "1.375",
+              "216D / 256D",
+              "offset / 256F"
+            ]
+          ],
+          "reset_setters": 0
+        }
+      },
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 41,
+          "new_start": 43,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 45,
+          "new_start": 48,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+          ]
+        },
+        {
+          "old_start": 48,
+          "new_start": 51,
+          "old": [
+            "\t\t\ttess.setColorRGBA_I(0x00ff00, 0);\n",
+            "\t\t\ttess.addVertex(0.38, 2 - offset, 1.375);\n",
+            "\t\t\ttess.addVertex(0.38, 2 - offset, -0.375);\n",
+            "\t\t\ttess.setColorRGBA_I(0x00ff00, 50);\n",
+            "\t\t\ttess.addVertex(0.38, 2 - offset - 0.125, -0.375);\n",
+            "\t\t\ttess.addVertex(0.38, 2 - offset - 0.125, 1.375);\n"
+          ],
+          "new": [
+            "\t\t\tint tessColor0Packed = 0x00ff00;\n",
+            "\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, 0));\n",
+            "\t\t\ttessBuffer.pos(0.38, 2 - offset, 1.375).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.38, 2 - offset, -0.375).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).endVertex();\n",
+            "\t\t\tint tessColor1Packed = 0x00ff00;\n",
+            "\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, 50));\n",
+            "\t\t\ttessBuffer.pos(0.38, 2 - offset - 0.125, -0.375).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.38, 2 - offset - 0.125, 1.375).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 67,
+          "new_start": 72,
+          "old": [
+            "\t\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\t\ttess.setNormal(0F, 1F, 0F);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\t\t\tfloat tessNormal0X = 0F, tessNormal0Y = 1F, tessNormal0Z = 0F;\n"
+          ]
+        },
+        {
+          "old_start": 75,
+          "new_start": 80,
+          "old": [
+            "\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ + size, 0.5 - sX + size, 216D / 256D, (entry.blipLevel * 8F + 8F) / 256F);\n",
+            "\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ + size, 0.5 - sX - size, 224D / 256D, (entry.blipLevel * 8F + 8F) / 256F);\n",
+            "\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ - size, 0.5 - sX - size, 224D / 256D, entry.blipLevel * 8F / 256F);\n",
+            "\t\t\t\t\ttess.addVertexWithUV(0.38, 1 - sZ - size, 0.5 - sX + size, 216D / 256D, entry.blipLevel * 8F / 256F);\n"
+          ],
+          "new": [
+            "\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ + size, 0.5 - sX + size).tex(216D / 256D, (entry.blipLevel * 8F + 8F) / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ + size, 0.5 - sX - size).tex(224D / 256D, (entry.blipLevel * 8F + 8F) / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ - size, 0.5 - sX - size).tex(224D / 256D, entry.blipLevel * 8F / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\t\t\ttessBuffer.pos(0.38, 1 - sZ - size, 0.5 - sX + size).tex(216D / 256D, entry.blipLevel * 8F / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 85,
+          "new_start": 90,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.setColorOpaque_I(0xffffff);\n",
+            "\t\t\ttess.setNormal(0F, 1F, 0F);\n",
+            "\t\t\ttess.addVertexWithUV(0.38, 1.875, 1.375, 216D / 256D, (offset + 40F) / 256F);\n",
+            "\t\t\ttess.addVertexWithUV(0.38, 1.875, -0.375, 256D / 256D, (offset + 40F) / 256F);\n",
+            "\t\t\ttess.addVertexWithUV(0.38, 0.125, -0.375, 256D / 256D, offset / 256F);\n",
+            "\t\t\ttess.addVertexWithUV(0.38, 0.125, 1.375, 216D / 256D, offset / 256F);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);\n",
+            "\t\t\tint tessColor2Packed = 0xffffff;\n",
+            "\t\t\tfloat tessNormal1X = 0F, tessNormal1Y = 1F, tessNormal1Z = 0F;\n",
+            "\t\t\ttessBuffer.pos(0.38, 1.875, 1.375).tex(216D / 256D, (offset + 40F) / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.38, 1.875, -0.375).tex(256D / 256D, (offset + 40F) / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.38, 0.125, -0.375).tex(256D / 256D, offset / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.38, 0.125, 1.375).tex(216D / 256D, offset / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java": {
+      "before_sha256": "2133ba896f6af07a88cca04f3a3c3bd7035929e384ab4fdfbd46ed865afeeaca",
+      "after_sha256": "e04b6dc47753fc9599f06dbe7c52521f170e3bbda8caa78bde8ff42aefddc049",
+      "scopes": {
+        "renderGlow": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0.0F",
+                    "1.0F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "1",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "0",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "0",
+                    "1"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "1",
+                    "1"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            }
+          ],
+          "setters": [],
+          "normals": [
+            [
+              "0.0F",
+              "1.0F",
+              "0.0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "0.0F - f5",
+              "0.0F - f6",
+              "0.0D",
+              "1",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "0.0F - f6",
+              "0.0D",
+              "0",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "f4 - f6",
+              "0.0D",
+              "0",
+              "1"
+            ],
+            [
+              "0.0F - f5",
+              "f4 - f6",
+              "0.0D",
+              "1",
+              "1"
+            ]
+          ],
+          "reset_setters": 0
+        },
+        "renderSmoke": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0.0F",
+                    "1.0F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "1",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "0",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "0",
+                    "1"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "1",
+                    "1"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            }
+          ],
+          "setters": [],
+          "normals": [
+            [
+              "0.0F",
+              "1.0F",
+              "0.0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "0.0F - f5",
+              "0.0F - f6",
+              "0.0D",
+              "1",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "0.0F - f6",
+              "0.0D",
+              "0",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "f4 - f6",
+              "0.0D",
+              "0",
+              "1"
+            ],
+            [
+              "0.0F - f5",
+              "f4 - f6",
+              "0.0D",
+              "1",
+              "1"
+            ]
+          ],
+          "reset_setters": 0
+        }
+      },
+      "edits": [
+        {
+          "old_start": 354,
+          "new_start": 354,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 356,
+          "new_start": 357,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n",
+            "\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 384,
+          "new_start": 385,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 386,
+          "new_start": 388,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n",
+            "\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "c311b2992a771318f8e13fde124759bf9317ee3915a86ebbb4cf3daf253abce5",
+      "after_sha256": "9f6e6f07e6da02bf886fd3a4d1072c71eb4220b73267615267565812900fd182",
+      "scopes": {
+        "renderGlow": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0.0F",
+                    "1.0F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "1",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "0",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "0",
+                    "1"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "1",
+                    "1"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            }
+          ],
+          "setters": [],
+          "normals": [
+            [
+              "0.0F",
+              "1.0F",
+              "0.0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "0.0F - f5",
+              "0.0F - f6",
+              "0.0D",
+              "1",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "0.0F - f6",
+              "0.0D",
+              "0",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "f4 - f6",
+              "0.0D",
+              "0",
+              "1"
+            ],
+            [
+              "0.0F - f5",
+              "f4 - f6",
+              "0.0D",
+              "1",
+              "1"
+            ]
+          ],
+          "reset_setters": 0
+        },
+        "renderSmoke": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0.0F",
+                    "1.0F",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "1",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "0.0F - f6",
+                    "0.0D",
+                    "0",
+                    "0"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "f4 - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "0",
+                    "1"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.0F - f5",
+                    "f4 - f6",
+                    "0.0D",
+                    "1",
+                    "1"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            }
+          ],
+          "setters": [],
+          "normals": [
+            [
+              "0.0F",
+              "1.0F",
+              "0.0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "0.0F - f5",
+              "0.0F - f6",
+              "0.0D",
+              "1",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "0.0F - f6",
+              "0.0D",
+              "0",
+              "0"
+            ],
+            [
+              "f4 - f5",
+              "f4 - f6",
+              "0.0D",
+              "0",
+              "1"
+            ],
+            [
+              "0.0F - f5",
+              "f4 - f6",
+              "0.0D",
+              "1",
+              "1"
+            ]
+          ],
+          "reset_setters": 0
+        }
+      },
+      "edits": [
+        {
+          "old_start": 1311,
+          "new_start": 1311,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 1313,
+          "new_start": 1314,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n",
+            "\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 1341,
+          "new_start": 1342,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 1343,
+          "new_start": 1345,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setNormal(0.0F, 1.0F, 0.0F);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);\n",
+            "\t\ttess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);\n",
+            "\t\ttess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\tfloat tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;\n",
+            "\t\ttessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\ttessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java": {
+      "before_sha256": "a997f9c17051f0f8874469c25710abc9ed128f540dc226ac46dc2dfd9a5a3648",
+      "after_sha256": "165276244d605e4c5dc4d6f5ff1ccfbd665989c82b18a4bd8e730450e2796371",
+      "scopes": {
+        "renderFirstPerson": {
+          "name": "tess",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setNormal",
+                  "arguments": [
+                    "0F",
+                    "1F",
+                    "0F"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-0.5",
+                    "-0.5F",
+                    "-0.5",
+                    "maxU",
+                    "maxV"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.5F",
+                    "-0.5F",
+                    "-0.5",
+                    "minU",
+                    "maxV"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "0.5F",
+                    "0.5F",
+                    "-0.5",
+                    "minU",
+                    "minV"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-0.5",
+                    "0.5F",
+                    "-0.5",
+                    "maxU",
+                    "minV"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX_NORMAL"
+            }
+          ],
+          "setters": [],
+          "normals": [
+            [
+              "0F",
+              "1F",
+              "0F"
+            ]
+          ],
+          "vertices": [
+            [
+              "-0.5",
+              "-0.5F",
+              "-0.5",
+              "maxU",
+              "maxV"
+            ],
+            [
+              "0.5F",
+              "-0.5F",
+              "-0.5",
+              "minU",
+              "maxV"
+            ],
+            [
+              "0.5F",
+              "0.5F",
+              "-0.5",
+              "minU",
+              "minV"
+            ],
+            [
+              "-0.5",
+              "0.5F",
+              "-0.5",
+              "maxU",
+              "minV"
+            ]
+          ],
+          "reset_setters": 0
+        }
+      },
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 152,
+          "new_start": 154,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 160,
+          "new_start": 163,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.setNormal(0F, 1F, 0F);\n",
+            "\t\t\ttess.addVertexWithUV(-0.5, -0.5F, -0.5, maxU, maxV);\n",
+            "\t\t\ttess.addVertexWithUV(0.5F, -0.5F, -0.5, minU, maxV);\n",
+            "\t\t\ttess.addVertexWithUV(0.5F, 0.5F, -0.5, minU, minV);\n",
+            "\t\t\ttess.addVertexWithUV(-0.5, 0.5F, -0.5, maxU, minV);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);\n",
+            "\t\t\tfloat tessNormal0X = 0F, tessNormal0Y = 1F, tessNormal0Z = 0F;\n",
+            "\t\t\ttessBuffer.pos(-0.5, -0.5F, -0.5).tex(maxU, maxV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.5F, -0.5F, -0.5).tex(minU, maxV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.5F, 0.5F, -0.5).tex(minU, minV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-0.5, 0.5F, -0.5).tex(maxU, minV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();\n"
+          ]
+        }
+      ]
+    }
+  }
+}

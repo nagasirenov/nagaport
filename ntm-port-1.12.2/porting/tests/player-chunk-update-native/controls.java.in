@@ -1,0 +1,17 @@
+import net.minecraft.world.*;
+class Controls {
+    static class Foreign { Foreign getPlayerManager() { return this; } void markBlockForUpdate(int x,int y,int z) {} }
+    static abstract class Subtype extends WorldServer { Subtype() { super(null,null,null,0,null); } }
+    void check(WorldServer server, World world, Foreign foreign, Subtype sub, Integer boxed, int x) {
+        server.getPlayerManager().markBlockForUpdate(x, 2, 3);
+        ((WorldServer) world).getPlayerManager().markBlockForUpdate(x + 1, 2, 3);
+        foreign.getPlayerManager().markBlockForUpdate(1, 2, 3);
+        world.getPlayerManager().markBlockForUpdate(1, 2, 3);
+        sub.getPlayerManager().markBlockForUpdate(1, 2, 3);
+        server.getPlayerManager().markBlockForUpdate(boxed, 2, 3);
+        server.getPlayerManager().markBlockForUpdate(1L, 2, 3);
+        server.getPlayerManager().markBlockForUpdate(1, 2);
+        server.getPlayerManager().markBlockForUpdate(missing, 2, 3);
+        server.getPlayerManager().markBlockForUpdate(missing + 1, 2, 3);
+    }
+}

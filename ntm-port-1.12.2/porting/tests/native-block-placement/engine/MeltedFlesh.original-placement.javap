@@ -1,0 +1,56 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iconst_1
+       4: isub
+       5: iload         4
+       7: invokevirtual #61                 // Method net/minecraft/world/World.func_147439_a:(III)Lnet/minecraft/block/Block;
+      10: astore        5
+      12: aload         5
+      14: getstatic     #66                 // Field net/minecraft/init/Blocks.field_150432_aD:Lnet/minecraft/block/Block;
+      17: if_acmpeq     102
+      20: aload         5
+      22: getstatic     #69                 // Field net/minecraft/init/Blocks.field_150403_cj:Lnet/minecraft/block/Block;
+      25: if_acmpeq     102
+      28: aload         5
+      30: aload_1
+      31: iload_2
+      32: iload_3
+      33: iconst_1
+      34: isub
+      35: iload         4
+      37: invokevirtual #73                 // Method net/minecraft/block/Block.isLeaves:(Lnet/minecraft/world/IBlockAccess;III)Z
+      40: ifeq          47
+      43: iconst_1
+      44: goto          103
+      47: aload         5
+      49: aload_0
+      50: if_acmpne     75
+      53: aload_1
+      54: iload_2
+      55: iload_3
+      56: iconst_1
+      57: isub
+      58: iload         4
+      60: invokevirtual #77                 // Method net/minecraft/world/World.func_72805_g:(III)I
+      63: bipush        7
+      65: iand
+      66: bipush        7
+      68: if_icmpne     75
+      71: iconst_1
+      72: goto          103
+      75: aload         5
+      77: invokevirtual #79                 // Method net/minecraft/block/Block.func_149662_c:()Z
+      80: ifeq          98
+      83: aload         5
+      85: invokevirtual #83                 // Method net/minecraft/block/Block.func_149688_o:()Lnet/minecraft/block/material/Material;
+      88: invokevirtual #88                 // Method net/minecraft/block/material/Material.func_76230_c:()Z
+      91: ifeq          98
+      94: iconst_1
+      95: goto          103
+      98: iconst_0
+      99: goto          103
+     102: iconst_0
+     103: ireturn

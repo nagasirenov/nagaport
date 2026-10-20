@@ -27,6 +27,17 @@ import net.minecraft.world.World;
 public class EntityExplosiveBeam extends Entity implements IProjectile
 {
 
+	private double renderRangeWeight = 1.0D;
+
+	/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public boolean isInRangeToRenderDist(double distance) {
+		double range = this.getEntityBoundingBox().getAverageEdgeLength();
+		range *= 64.0D * this.renderRangeWeight;
+		return distance < range * range;
+	}
+
 	private static final DataParameter<Byte> CRITICAL_FLAGS = EntityDataManager.createKey(EntityExplosiveBeam.class, DataSerializers.BYTE);
     private int field_145791_d = -1;
     private int field_145792_e = -1;
@@ -47,14 +58,14 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
     public EntityExplosiveBeam(World p_i1753_1_)
     {
         super(p_i1753_1_);
-        this.renderDistanceWeight = 10.0D;
+        this.renderRangeWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
     }
 
     public EntityExplosiveBeam(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_)
     {
         super(p_i1754_1_);
-        this.renderDistanceWeight = 10.0D;
+        this.renderRangeWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
         this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
         this.yOffset = 0.0F;
@@ -63,7 +74,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
     public EntityExplosiveBeam(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)
     {
         super(p_i1755_1_);
-        this.renderDistanceWeight = 10.0D;
+        this.renderRangeWeight = 10.0D;
         this.shootingEntity = p_i1755_2_;
 
         if (p_i1755_2_ instanceof EntityPlayer)
@@ -86,13 +97,13 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
             this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
             this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
-            this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
+            this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
         }
     }
 	
 	public EntityExplosiveBeam(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax, EntityGrenadeZOMG grenade) {
 		super(p_i1756_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.shootingEntity = p_i1756_2_;
 
 		this.setSize(0.5F, 0.5F);
@@ -108,13 +119,13 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
 	}
 
     public EntityExplosiveBeam(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_)
     {
         super(p_i1756_1_);
-        this.renderDistanceWeight = 10.0D;
+        this.renderRangeWeight = 10.0D;
         this.shootingEntity = p_i1756_2_;
 
         this.setSize(0.5F, 0.5F);
@@ -127,7 +138,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
         this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+        this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
     }
 
     public EntityExplosiveBeam(World world, int x, int y, int z, double mx, double my, double mz, double grav) {
@@ -153,7 +164,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
      * Similar to setArrowHeading, it's point the throwable entity to a x, y, z direction.
      */
     @Override
-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
+	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
     {
         float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
         p_70186_1_ /= f2;

@@ -31,29 +31,29 @@ public class ItemStarterKit extends Item {
 
 		for(int i = 0; i < 4; i++) {
 
-			if(p.inventory.armorInventory[i] != null && !world.isRemote) {
-				world.spawnEntity(new EntityItem(world, p.posX, p.posY + p.eyeHeight, p.posZ, p.inventory.armorInventory[i]));
+			if(com.hbm.util.PlayerInventoryRead.get(p.inventory.armorInventory, i) != null && !world.isRemote) {
+				world.spawnEntity(new EntityItem(world, p.posX, p.posY + p.eyeHeight, p.posZ, com.hbm.util.PlayerInventoryRead.get(p.inventory.armorInventory, i)));
 			}
 		}
 
 		switch(tier) {
 		case 0:
-			p.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet);
-			p.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate);
-			p.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs);
-			p.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots);
+			p.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet));
+			p.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate));
+			p.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs));
+			p.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots));
 			break;
 		case 1:
-			p.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet_red);
-			p.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate_red);
-			p.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs_red);
-			p.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots_red);
+			p.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet_red));
+			p.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate_red));
+			p.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs_red));
+			p.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots_red));
 			break;
 		case 2:
-			p.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet_grey);
-			p.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate_grey);
-			p.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs_grey);
-			p.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots_grey);
+			p.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet_grey));
+			p.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate_grey));
+			p.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs_grey));
+			p.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots_grey));
 			break;
 		}
 	}

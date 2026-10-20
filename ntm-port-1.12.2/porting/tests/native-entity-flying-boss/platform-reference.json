@@ -1,0 +1,10 @@
+{
+  "directory": "native-entity-cart-siege",
+  "sha256": {
+    "platform-manifest.json": "c3ed28ff2e829ced67551ce77abb7fe15f2e4a8437ecf094d714ce4b218973cc",
+    "legacy-bytecode.txt": "4c2766d2613a968fc07a941175b27114352689c11812e67677486b0605e7e1e7",
+    "native-bytecode.txt": "b868ab83fe2d675d71e2fb15b29fcf13c76166a1cb709b5fb5df86e1aa2612f5",
+    "legacy-mappings.txt": "dc4f08200251cade29412dd0841ba0d0b2c0d633e9d12ceee1c646e3ef3a7019",
+    "forge1614-parent-patches.txt": "7d43f87e86c11e59b88e00b89ab3130a390e6307378095c8ad845614812aba5e"
+  }
+}

@@ -31,7 +31,7 @@ public class ArmorBJ extends ArmorFSBPowered implements IItemRendererProvider {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(models == null) {
 			models = new ModelArmorBJ[4];
@@ -40,7 +40,7 @@ public class ArmorBJ extends ArmorFSBPowered implements IItemRendererProvider {
 				models[i] = new ModelArmorBJ(i);
 		}
 
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
@@ -49,12 +49,12 @@ public class ArmorBJ extends ArmorFSBPowered implements IItemRendererProvider {
 
 		if(this == ModItems.bj_helmet && ArmorFSB.hasFSBArmorIgnoreCharge(player) && !ArmorFSB.hasFSBArmor(player)) {
 
-			ItemStack helmet = player.inventory.armorInventory[3];
+			ItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);
 
 			if(!player.inventory.addItemStackToInventory(helmet))
 				player.dropPlayerItemWithRandomChoice(helmet, false);
 
-			player.inventory.armorInventory[3] = null;
+			player.inventory.armorInventory.set(3, ItemStack.EMPTY);
 
 			player.attackEntityFrom(ModDamageSource.lunar, 1000);
 		}
@@ -69,14 +69,14 @@ public class ArmorBJ extends ArmorFSBPowered implements IItemRendererProvider {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				if(armorType == 1) {
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) {
 					if(ArmorBJ.this == ModItems.bj_plate_jetpack) {
 						GL11.glScaled(0.6875, 0.6875, 0.6875);
 					} else {
 						GL11.glScaled(0.875, 0.875, 0.875);
 					}
 				}
-				renderStandard(ResourceManager.armor_bj, armorType,
+				renderStandard(ResourceManager.armor_bj, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.bj_eyepatch, ResourceManager.bj_chest, ResourceManager.bj_arm, ResourceManager.bj_leg,
 						"Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftFoot", "RightFoot");
 				if(ArmorBJ.this == ModItems.bj_plate_jetpack) {

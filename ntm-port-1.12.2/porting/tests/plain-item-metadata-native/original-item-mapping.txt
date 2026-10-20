@@ -1,0 +1,9 @@
+CL: adb net/minecraft/item/Item
+CL: rf net/minecraft/util/IIcon
+CL: rg net/minecraft/client/renderer/texture/IIconRegister
+FD: adb/l net/minecraft/item/Item/field_111218_cA
+FD: adb/k net/minecraft/item/Item/field_77791_bV
+MD: adb/b_ (I)Lrf; net/minecraft/item/Item/func_77617_a (I)Lnet/minecraft/util/IIcon;
+MD: adb/a (II)Lrf; net/minecraft/item/Item/func_77618_c (II)Lnet/minecraft/util/IIcon;
+MD: adb/a (Lrg;)V net/minecraft/item/Item/func_94581_a (Lnet/minecraft/client/renderer/texture/IIconRegister;)V
+MD: adb/f (Ljava/lang/String;)Ladb; net/minecraft/item/Item/func_111206_d (Ljava/lang/String;)Lnet/minecraft/item/Item;

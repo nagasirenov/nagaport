@@ -1,0 +1,213 @@
+{
+  "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+    "sha256": "c6e5616738c9b6db37c94fd3f54d1b744d756d150371d95442a6745b1f5f3852",
+    "original_name_call_lines": [
+      {
+        "line": 80,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"DNT SPEED\", 0.25, 0));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ArmorDesh.java": {
+    "sha256": "7af3ba0e6acada4e9a47f8390b76b0ac020a559ab8c34c256866add517286965",
+    "original_name_call_lines": [
+      {
+        "line": 32,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.025D, 1));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+    "sha256": "9a326f2d8838cf709008a112617e311f2c5be9322c2b6286fc4c286f86f7d59d",
+    "original_name_call_lines": [
+      {
+        "line": 66,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"SQUIRREL SPEED\", 0.1, 0));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": {
+    "sha256": "cc22e8e5fd4b07e6982f3e6c2c9c6c964f3622f837ffc76562fbe95fcb657e4b",
+    "original_name_call_lines": [
+      {
+        "line": 56,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.1D, 1));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": {
+    "sha256": "b89b6daac0b95b7faa1d731d6b84d77853fa2116b399e231b7a9bab7096320b0",
+    "original_name_call_lines": [
+      {
+        "line": 60,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"NCRPA SPEED\", 0.1, 0));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ItemModHealth.java": {
+    "sha256": "df4c3c4dae8e3d0c5ce20f2f51bff9254c005b5053457acdbe93fdbc16be3db3",
+    "original_name_call_lines": [
+      {
+        "line": 53,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.maxHealth.getAttributeUnlocalizedName(),"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ItemModInsert.java": {
+    "sha256": "a94db493a007067d5eaf9ffb01dd483063f7a1963ba2d47dd2a55d4210253ca6",
+    "original_name_call_lines": [
+      {
+        "line": 133,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ItemModServos.java": {
+    "sha256": "624cac723e94050b13e09834afa5d9fc44ddab8db034176f415ebf1856f62aa2",
+    "original_name_call_lines": [
+      {
+        "line": 100,
+        "text": "\t\t\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),"
+      },
+      {
+        "line": 104,
+        "text": "\t\t\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),"
+      },
+      {
+        "line": 110,
+        "text": "\t\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),"
+      },
+      {
+        "line": 114,
+        "text": "\t\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ItemModV1.java": {
+    "sha256": "bdafd23986e2d0d07ad626cc0ed2af494b3af22466ff5bac6d6c9e0df5439c54",
+    "original_name_call_lines": [
+      {
+        "line": 27,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"V1 SPEED\", 0.5, 2));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/armor/ItemModWD40.java": {
+    "sha256": "744ad3573bdabb865e79914a132a402dbf5f267ade04eb650ead6ebf7b03384c",
+    "original_name_call_lines": [
+      {
+        "line": 55,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.maxHealth.getAttributeUnlocalizedName(),"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/tool/ItemMirrorTool.java": {
+    "sha256": "7419f9e51f24cf08dd8cab6d0c2ed4838e68e165833943838878dfc28ae49955",
+    "original_name_call_lines": [
+      {
+        "line": 83,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/tool/ItemRBMKTool.java": {
+    "sha256": "cf18cc9a1c6a781afc407e1dc2c243e04059ecf67ed252b9dde3b44d2ddd57a3",
+    "original_name_call_lines": [
+      {
+        "line": 116,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/tool/ItemSwordAbility.java": {
+    "sha256": "4ef7cb90164a311b1d574ce5ba7cdc5ca57e1aa103fcfdcf6bf8da19b458b87c",
+    "original_name_call_lines": [
+      {
+        "line": 72,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));"
+      },
+      {
+        "line": 73,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+    "sha256": "dcb91ceae7833fbc2928bac9c6f1918842e2e0a90ed8626c8f8bc4e0a01b128f",
+    "original_name_call_lines": [
+      {
+        "line": 271,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));"
+      },
+      {
+        "line": 272,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java": {
+    "sha256": "a5c2d65f8832448b6a093c76a48c66acc37a8ef0af3e232ad9472ba41a850a70",
+    "original_name_call_lines": [
+      {
+        "line": 49,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", damage, 0));"
+      },
+      {
+        "line": 52,
+        "text": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Wrench modifier\", -0.1, 1));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+    "sha256": "179939ce40cd230e8824a8ae0fa6a2a270e8ad89d352e8ebe0a54c5608475c98",
+    "original_name_call_lines": [
+      {
+        "line": 222,
+        "text": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.5, 1));"
+      },
+      {
+        "line": 225,
+        "text": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.2, 1));"
+      },
+      {
+        "line": 228,
+        "text": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.1, 1));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/weapon/GunB92.java": {
+    "sha256": "d5b2eb2b94cddd704506436b8e1b287b697e0aaea0e398aec8c4673a48064b6b",
+    "original_name_call_lines": [
+      {
+        "line": 210,
+        "text": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/items/weapon/ItemCrucible.java": {
+    "sha256": "73dec661af86e968f9d10c3ae0d45beecec8979695349af80583b4c4914582b6",
+    "original_name_call_lines": [
+      {
+        "line": 115,
+        "text": "\t\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));"
+      },
+      {
+        "line": 116,
+        "text": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));"
+      }
+    ]
+  },
+  "src/main/java/com/hbm/main/ModEventHandler.java": {
+    "sha256": "cbe943e70b2b1e29fec9a354fa51e144a529cdcd34d40a760cfea3c74a309335",
+    "original_name_call_lines": [
+      {
+        "line": 1105,
+        "text": "\t\t\tif(player.getHeldItem() != null && player.getHeldItem().getAttributeModifiers().containsKey(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName())) return;"
+      },
+      {
+        "line": 1312,
+        "text": "\t\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(fopSpeed, \"FOP SPEED\", 0.5, 1));"
+      }
+    ]
+  }
+}

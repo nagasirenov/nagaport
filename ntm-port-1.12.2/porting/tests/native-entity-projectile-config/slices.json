@@ -1,0 +1,218 @@
+{
+  "EntityThrowableNT.key": {
+    "sha256": "596fb94f59c70b94925f5b2345936e92d21fab99444e8965e0fc85dad338f578",
+    "source": "private static final DataParameter<Byte> STUCK_FACE = EntityDataManager.createKey(EntityThrowableNT.class, DataSerializers.BYTE);"
+  },
+  "EntityThrowableNT.constructor": {
+    "sha256": "97d634964f8c2b3121296d4e854a52c7a442600982a2d2c20c87ec498863ade9",
+    "source": "public EntityThrowableNT(World world) {\n\t\tsuper(world);\n\t\tthis.setSize(0.25F, 0.25F);\n\t}"
+  },
+  "EntityThrowableNT.entityInit": {
+    "sha256": "9e85b25e14f0e3660503e1dc816a40545144ac757245857acb07808087930b2e",
+    "source": "protected void entityInit() {\n\t\tthis.dataManager.register(STUCK_FACE, Byte.valueOf((byte)0));\n\t}"
+  },
+  "EntityThrowableNT.setStuckIn": {
+    "sha256": "6323746f3f360f14e9c45f21b97579d552bfde0a37cbe4bd332b500850e35bfa",
+    "source": "public void setStuckIn(int side) {\n\t\tthis.dataManager.set(STUCK_FACE, (byte) side);\n\t}"
+  },
+  "EntityThrowableNT.getStuckIn": {
+    "sha256": "066e8c2ca710ec7179c552af54fcd13709f17929f51bf5d00457f203d3c15f12",
+    "source": "public int getStuckIn() {\n\t\treturn this.dataManager.get(STUCK_FACE);\n\t}"
+  },
+  "EntityThrowableInterp.constructor": {
+    "sha256": "dd67617951bc576a9d98e86e4700a63cd95cb0aaf50df07ec8e7f57bae71637b",
+    "source": "public EntityThrowableInterp(World world) {\n\t\tsuper(world);\n\t}"
+  },
+  "EntityBulletBaseMK4.key0": {
+    "sha256": "e3aad579f2f2a21e6b274af0eaf0711a558d8691cc79f0083fa43fd6acc2facb",
+    "source": "private static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBaseMK4.class, DataSerializers.VARINT);"
+  },
+  "EntityBulletBaseMK4.entityInit": {
+    "sha256": "053618a7f236538c09f2205a2bd1f2a6ee392004e237940ff765ba3515928df7",
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.dataManager.register(BULLET_CONFIG, Integer.valueOf(0));\n\t}"
+  },
+  "EntityBulletBaseMK4.config-field": {
+    "sha256": "f7816d5dee65f7bc1716e41a9144f5cd1b787642ef567c2b2208f4abb08c98f4",
+    "source": "public BulletConfig config;"
+  },
+  "EntityBulletBaseMK4.setBulletConfig": {
+    "sha256": "218388b1aab921ae3eb3c470562cbcc0f7239c20ecdfc307dcc09be72421f7a9",
+    "source": "public void setBulletConfig(BulletConfig config) {\n\t\tthis.config = config;\n\t\tthis.dataManager.set(BULLET_CONFIG, config.id);\n\t}"
+  },
+  "EntityBulletBaseMK4.getBulletConfig": {
+    "sha256": "de0b8e3a6eface855d85b43bffd92d7a3f9dd963311fcb52105148677fb9b8d7",
+    "source": "public BulletConfig getBulletConfig() {\n\t\tint id = this.dataManager.get(BULLET_CONFIG);\n\t\tif(id < 0 || id > BulletConfig.configs.size()) return null;\n\t\treturn BulletConfig.configs.get(id);\n\t}"
+  },
+  "EntityBulletBaseMK4.lazy-resolution": {
+    "sha256": "8741851d18e8f029e037b2dfa63760157731656979fb0f0515f1f6fbf2e4ac57",
+    "source": "if(config == null) config = this.getBulletConfig();"
+  },
+  "EntityBulletBaseMK4.writeSpawnData": {
+    "sha256": "f2b62a4dce05a6e1341b450f69c720ea7bbf97c335ea684890152889c9e2e7ed",
+    "source": "public void writeSpawnData(ByteBuf buf) {\n\t\tbuf.writeInt(this.thrower != null ? thrower.getEntityId() : -1);\n\t}"
+  },
+  "EntityBulletBeamBase.key0": {
+    "sha256": "ca62ac1cc74c8cebce23a8776d08b22ad84db8abbe0964a8a19f803c35fc4d07",
+    "source": "private static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBeamBase.class, DataSerializers.VARINT);"
+  },
+  "EntityBulletBeamBase.entityInit": {
+    "sha256": "c59d2740cc304c1c88fda6e00aac6f9c591613db8ab4d860fe0b9e2044809a78",
+    "source": "protected void entityInit() {\n\t\tthis.dataManager.register(BULLET_CONFIG, Integer.valueOf(0));\n\t}"
+  },
+  "EntityBulletBeamBase.config-field": {
+    "sha256": "f7816d5dee65f7bc1716e41a9144f5cd1b787642ef567c2b2208f4abb08c98f4",
+    "source": "public BulletConfig config;"
+  },
+  "EntityBulletBeamBase.setBulletConfig": {
+    "sha256": "218388b1aab921ae3eb3c470562cbcc0f7239c20ecdfc307dcc09be72421f7a9",
+    "source": "public void setBulletConfig(BulletConfig config) {\n\t\tthis.config = config;\n\t\tthis.dataManager.set(BULLET_CONFIG, config.id);\n\t}"
+  },
+  "EntityBulletBeamBase.getBulletConfig": {
+    "sha256": "de0b8e3a6eface855d85b43bffd92d7a3f9dd963311fcb52105148677fb9b8d7",
+    "source": "public BulletConfig getBulletConfig() {\n\t\tint id = this.dataManager.get(BULLET_CONFIG);\n\t\tif(id < 0 || id > BulletConfig.configs.size()) return null;\n\t\treturn BulletConfig.configs.get(id);\n\t}"
+  },
+  "EntityBulletBeamBase.lazy-resolution": {
+    "sha256": "8741851d18e8f029e037b2dfa63760157731656979fb0f0515f1f6fbf2e4ac57",
+    "source": "if(config == null) config = this.getBulletConfig();"
+  },
+  "EntityBulletBeamBase.readEntityFromNBT": {
+    "sha256": "71044c7b94bc6021eef964377e20521371d5d0f2060c2fe229cfc33832212b84",
+    "source": "public void readEntityFromNBT(NBTTagCompound nbt) { this.setDead(); }"
+  },
+  "EntityBulletBeamBase.writeEntityToNBT": {
+    "sha256": "c8f530d511b74e83804cfaaf94fe4dc5f133a2222405ad163f418045f6280e3c",
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) { }"
+  },
+  "EntityBulletBeamBase.writeToNBTOptional": {
+    "sha256": "29f637fccac093e2c75636b8dcba5a2240a348156af137d79b5367623538e936",
+    "source": "public boolean writeToNBTOptional(NBTTagCompound nbt) { return false; }"
+  },
+  "EntityBulletBeamBase.writeSpawnData": {
+    "sha256": "618e48d47944de1698534ced1938114dd015bf15cf71de7bf431a7559c3a8357",
+    "source": "public void writeSpawnData(ByteBuf buf) {\n\t\tbuf.writeDouble(beamLength);\n\t\tbuf.writeFloat(rotationYaw);\n\t\tbuf.writeFloat(rotationPitch);\n\t}"
+  },
+  "EntityBulletBeamBase.readSpawnData": {
+    "sha256": "af9940f59cbe95b114c0ca1887fd83d30507aec74926f08149314592f569943b",
+    "source": "public void readSpawnData(ByteBuf buf) {\n\t\tthis.beamLength = buf.readDouble();\n\t\tthis.rotationYaw = buf.readFloat();\n\t\tthis.rotationPitch = buf.readFloat();\n\t}"
+  },
+  "EntityArtilleryRocket.key0": {
+    "sha256": "b4946ae6d67a6647436d912e8032b207f24fe514bd1131a14bf8466f5a1c3553",
+    "source": "private static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryRocket.class, DataSerializers.VARINT);"
+  },
+  "EntityArtilleryRocket.entityInit": {
+    "sha256": "1b6cb3589dea441a4a8c692a6a971ef07670fff35b288a024ef0c49873e73493",
+    "source": "protected void entityInit() {\n\t\tinit(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));\n\t\tthis.dataManager.register(AMMO_TYPE, new Integer(0));\n\t}"
+  },
+  "EntityArtilleryRocket.setType": {
+    "sha256": "8a2c95534ed425c4f3c8604558cdc9d3db3abc740d8904dc5c40ba2849f3289e",
+    "source": "public EntityArtilleryRocket setType(int type) {\n\t\tthis.dataManager.set(AMMO_TYPE, type);\n\t\treturn this;\n\t}"
+  },
+  "EntityArtilleryRocket.getType": {
+    "sha256": "bcca9b19d92a1804f453b1e10fa222934d404ed97105810321ad1d701747aff6",
+    "source": "public HIMARSRocket getType() {\n\t\ttry {\n\t\t\treturn ItemAmmoHIMARS.itemTypes[this.dataManager.get(AMMO_TYPE)];\n\t\t} catch(Exception ex) {\n\t\t\treturn ItemAmmoHIMARS.itemTypes[0];\n\t\t}\n\t}"
+  },
+  "EntityArtilleryRocket.getTypeId": {
+    "sha256": "15c8662a04709c7924a5b79bb4237cbaa3dbc44a7bec12487265c2fc562a1228",
+    "source": "public int getTypeId() {\n\t\treturn this.dataManager.get(AMMO_TYPE);\n\t}"
+  },
+  "EntityArtilleryRocket.read-scalar-tail": {
+    "sha256": "dd60810257244b26f459a0d54c3e9f5efe0c6ac8b73ca31dc8e739130ac65117",
+    "source": "\n\n\t\tthis.lastTargetPos = new Vec3d(nbt.getDouble(\"targetX\"), nbt.getDouble(\"targetY\"), nbt.getDouble(\"targetZ\"));\n\n\t\tthis.dataManager.set(AMMO_TYPE, nbt.getInteger(\"type\"));\n\t}"
+  },
+  "EntityArtilleryRocket.write-scalar-tail": {
+    "sha256": "f66ea39bdc4f7cc61c942b9f068422ea5d0808b238798311ecd78d9f2d50ef4e",
+    "source": "\n\n\t\tif(this.lastTargetPos == null) {\n\t\t\tthis.lastTargetPos = new Vec3d(posX, posY, posZ);\n\t\t}\n\n\t\tnbt.setDouble(\"targetX\", this.lastTargetPos.x);\n\t\tnbt.setDouble(\"targetY\", this.lastTargetPos.y);\n\t\tnbt.setDouble(\"targetZ\", this.lastTargetPos.z);\n\n\t\tnbt.setInteger(\"type\", this.dataManager.get(AMMO_TYPE));\n\t}"
+  },
+  "EntityArtilleryShell.key0": {
+    "sha256": "fb7555b8601d4e954ad32cd82ec7fb468909732994a650716aff691bd39dcef5",
+    "source": "private static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryShell.class, DataSerializers.VARINT);"
+  },
+  "EntityArtilleryShell.entityInit": {
+    "sha256": "00d8a27396380886ece76173eeac3a7f7ef9c3520b0b1add01ffd471c0b2dbd6",
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tinit(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));\n\t\tthis.dataManager.register(AMMO_TYPE, new Integer(0));\n\t}"
+  },
+  "EntityArtilleryShell.constructor": {
+    "sha256": "5d5c7afd919691ca5a413eb1f5f6aa9e852867982870b17b169b147377c073dc",
+    "source": "public EntityArtilleryShell(World world) {\n\t\tsuper(world);\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.setSize(0.5F, 0.5F);\n\t}"
+  },
+  "EntityArtilleryShell.setType": {
+    "sha256": "79d21ff26f8e76c3d270eb35b50dede0de0c43fcf583da9d695ad4ad9a6af839",
+    "source": "public EntityArtilleryShell setType(int type) {\n\t\tthis.dataManager.set(AMMO_TYPE, type);\n\t\treturn this;\n\t}"
+  },
+  "EntityArtilleryShell.getType": {
+    "sha256": "9570012b7bd7c3c10932292333107d72bf98fb44d35ac2b49d1a938fbf1adc35",
+    "source": "public ArtilleryShell getType() {\n\t\ttry {\n\t\t\treturn ItemAmmoArty.itemTypes[this.dataManager.get(AMMO_TYPE)];\n\t\t} catch(Exception ex) {\n\t\t\treturn ItemAmmoArty.itemTypes[0];\n\t\t}\n\t}"
+  },
+  "EntityArtilleryShell.field-targetX": {
+    "sha256": "d8c8d825f21fea83c51292354deb83ce3f356bfe32b32de1fe39a21af501687f",
+    "source": "private double targetX;"
+  },
+  "EntityArtilleryShell.field-targetY": {
+    "sha256": "74cdf770c0980eea8335677e59b4acf31ca0b779a1c46af6512975295e47e11c",
+    "source": "private double targetY;"
+  },
+  "EntityArtilleryShell.field-targetZ": {
+    "sha256": "63eed712363323a007b12822cf938626f7b6d19e61595b0b8c20976dd9dff08d",
+    "source": "private double targetZ;"
+  },
+  "EntityArtilleryShell.field-shouldWhistle": {
+    "sha256": "f075597bfd18a98d4f1a369308946ee46e2d0c940a4db4f76c54af704bd96c27",
+    "source": "private boolean shouldWhistle = false;"
+  },
+  "EntityArtilleryShell.field-didWhistle": {
+    "sha256": "f355edfc78a8dbbe758c5e853b589fe545ca445131fa4e3e64f55e2a7db6c39e",
+    "source": "private boolean didWhistle = false;"
+  },
+  "EntityArtilleryShell.getTarget": {
+    "sha256": "e14d0eeaf6bad0e1b98bc9f4beb6c8a33367744f8b88c08bc117782c76389ea3",
+    "source": "public double[] getTarget() {\n\t\treturn new double[] { this.targetX, this.targetY, this.targetZ };\n\t}"
+  },
+  "EntityArtilleryShell.setTarget": {
+    "sha256": "d577b4c7eb38fd47bd716ff296ae04ccaafb461aea45d234d0115ed9eb57788e",
+    "source": "public void setTarget(double x, double y, double z) {\n\t\tthis.targetX = x;\n\t\tthis.targetY = y;\n\t\tthis.targetZ = z;\n\t}"
+  },
+  "EntityArtilleryShell.setWhistle": {
+    "sha256": "4442e556818f71b62127e6f60c32416c221e11971d7ed01024d00be06a5f1ab1",
+    "source": "public void setWhistle(boolean whistle) {\n\t\tthis.shouldWhistle = whistle;\n\t}"
+  },
+  "EntityArtilleryShell.getWhistle": {
+    "sha256": "3e42f28c34fe600d2d10ccdb43a16395e10c9d3b7938bd273326c21b85899c39",
+    "source": "public boolean getWhistle() {\n\t\treturn this.shouldWhistle;\n\t}"
+  },
+  "EntityArtilleryShell.didWhistle": {
+    "sha256": "e2beb7f5b6051efd96f7b0218a7a7096e065caec87028653236b415494a3a1c6",
+    "source": "public boolean didWhistle() {\n\t\treturn this.didWhistle;\n\t}"
+  },
+  "EntityArtilleryShell.read-scalar-tail": {
+    "sha256": "e4573ec59ab4288198d88d10418f40431f1a2c2b9c548dea9532958f7e06d83c",
+    "source": "\n\n\t\tthis.dataManager.set(AMMO_TYPE, nbt.getInteger(\"type\"));\n\t\tthis.shouldWhistle = nbt.getBoolean(\"shouldWhistle\");\n\t\tthis.didWhistle = nbt.getBoolean(\"didWhistle\");\n\t\tthis.targetX = nbt.getDouble(\"targetX\");\n\t\tthis.targetY = nbt.getDouble(\"targetY\");\n\t\tthis.targetZ = nbt.getDouble(\"targetZ\");\n\n\t\t}"
+  },
+  "EntityArtilleryShell.write-scalar-tail": {
+    "sha256": "2027e7800ca867ea75b21ea6bf26d966791574844cbfe2b6b27fd05668952ab3",
+    "source": "\n\t\t\n\t\tnbt.setInteger(\"type\", this.dataManager.get(AMMO_TYPE));\n\t\tnbt.setBoolean(\"shouldWhistle\", this.shouldWhistle);\n\t\tnbt.setBoolean(\"didWhistle\", this.didWhistle);\n\t\tnbt.setDouble(\"targetX\", this.targetX);\n\t\tnbt.setDouble(\"targetY\", this.targetY);\n\t\tnbt.setDouble(\"targetZ\", this.targetZ);\n\n\t\t}"
+  },
+  "EntityBulletBaseMK4CL.entityInit": {
+    "sha256": "c59a4881cc4a92265986e95ca0b8fe04e609a269283a4dae9ef1dc2a2d71179e",
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tinit(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));\n\t}"
+  },
+  "EntityBulletBaseMK4CL.constructor": {
+    "sha256": "c3e7e21285bcf8505c0048c7952804a12cf48a8727ce089b8c0ec63371d535e9",
+    "source": "public EntityBulletBaseMK4CL(World world) {\n\t\tsuper(world);\n\t}"
+  },
+  "BulletConfig.configs": {
+    "sha256": "65c0d0e1b7616770f3843286d3460796d6c03e3541e4a8be596633157537f8e5",
+    "source": "public static List<BulletConfig> configs = new ArrayList();"
+  },
+  "BulletConfig.id": {
+    "sha256": "df4bfbc5cef0c867f29209784f5dff952da0da1cb040404e3df4504a5ce71469",
+    "source": "public int id;"
+  },
+  "BulletConfig.constructor": {
+    "sha256": "b843b5258a8897b1065f400b504b98c1c008faa71365df68df6428157351e8dc",
+    "source": "public BulletConfig() {\n\t\tthis.id = configs.size();\n\t\tconfigs.add(this);\n\t}"
+  },
+  "RenderArtilleryRocket.getEntityTexture": {
+    "sha256": "e4f58415a14febca6ef98cc88fbcda51c338d41c0bab2d850d9dad7ebc5f0d40",
+    "source": "protected ResourceLocation getEntityTexture(Entity entity) {\n\t\tEntityArtilleryRocket rocket = (EntityArtilleryRocket) entity;\n\t\treturn ItemAmmoHIMARS.itemTypes[rocket.getTypeId()].texture;\n\t}"
+  }
+}

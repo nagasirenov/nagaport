@@ -41,7 +41,7 @@ public class EntityShrapnel extends EntityThrowable {
 		super.onUpdate();
 
 		if(this.world.isRemote && this.dataManager.get(SHRAPNEL_TYPE) == 1)
-			this.world.spawnParticle("flame", posX, posY, posZ, 0.0, 0.0, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, posX, posY, posZ, 0.0, 0.0, 0.0);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class EntityShrapnel extends EntityThrowable {
 				if(!this.world.isRemote) {
 					if(motionY < -0.2D) {
 						
-						if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, blockX, blockY + 1, blockZ))
+						if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ)))
 							this.world.setBlock(blockX, blockY + 1, blockZ, b == 2 ? ModBlocks.volcanic_lava_block : ModBlocks.rad_lava_block);
 						
 						for(int x = blockX - 1; x <= blockX + 1; x++) {
@@ -92,13 +92,13 @@ public class EntityShrapnel extends EntityThrowable {
 				
 			} else if(this.dataManager.get(SHRAPNEL_TYPE) == 3) {
 				
-				if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, blockX, blockY + 1, blockZ)) {
+				if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ))) {
 					this.world.setBlock(blockX, blockY + 1, blockZ, ModBlocks.mud_block);
 				}
 				
 			} else {
 				
-				for(int i = 0; i < 5; i++) this.world.spawnParticle("lava", posX, posY, posZ, 0.0, 0.0, 0.0);
+				for(int i = 0; i < 5; i++) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, posX, posY, posZ, 0.0, 0.0, 0.0);
 			}
 
 			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, "random.fizz", 1.0F, 1.0F);

@@ -1,0 +1,73 @@
+{
+  "baseline": "f44d3ffc5ad3bfa0afcfd93d035e51bdecde2de4",
+  "scope": "CP97 aggregate pillar source boundary, exact historical composition and current pillar texture source guard only",
+  "files_written": {
+    "porting/checkpoint97/generate-source-boundary.py": "673092581920ddcc025a255bc653360f041c2c390061fe59a4a25bf4b5d5ad5d",
+    "porting/checkpoint97/cp96-source-boundary.py": "a5787a452c4fdab48e1ad4d589d009a31c0330cd563ac7b146df43a9134b6696",
+    "porting/checkpoint97/check-historical-composition.py": "1c8f9e9c8601378c0ce84018ba45792e9e63c0f8ac387276c98271382fafd1e5",
+    "porting/checkpoint97/historical-composition.json": "ea84946fea5a7d5cc8c08e62f634798c8b4ca7faf59eda560dbacb5d8d05d21e",
+    "porting/checkpoint97/source-guards.log": "dc56b89b5f9a6e3f668b58f8f19bc3c0aa9445e71a0b0ac6b351d3c87f649090",
+    "porting/checkpoint97/historical-composed.log": "810b4f64c33c2ca4cb421d3f35de13e16f1ee835939a86df80eb13f51395384c",
+    "porting/checkpoint97/pillar-integrated-source.log": "5611dff1621e1f38b1f0eb0375012393c5ed2844a41d7347c840031d72627669",
+    "porting/tests/check-native-pillar-model-source.py": "1e451bbe9cfb128b3d3a8e92bdd26b01f2427c0ccca891d82f8589e88202d32c",
+    "porting/tests/native-pillar-model-source-manifest.json": "e235e37c50b448d116bd86b5809b001dd5e2cf50ece8ab4477c3deebf299fafd",
+    "porting/tests/check-native-box-waste-crane-source.py": "7ce065c3c2d77e85745fdec2ea3823b911e708f4c47a2b9cff5b1bd9c6abae3e"
+  },
+  "current_pillar_evidence_pins": {
+    "check-source.py": "d33eadf6ae0dc8fd59fc8cf09d17a4dc259b81f75297969153cd2229a240b42a",
+    "source-manifest.json": "e396e0dcfa7936a4e59d7371429cf8453784d41af25555d2e61a1bf692cc4bc1",
+    "production.patch": "4d885d15dc471f76f1519a4981eae4124b55a951ee213acb270eeb3ad33717bc",
+    "completed-run-receipt.json": "3500f2a752582191b0db3cac4fc78f680ede466219fd124fd25fd7905ba03c12",
+    "evidence-sha256.json": "678705137b188864774600bf0f33d78a1dea106ee11a15b00a0f188ff620adb7"
+  },
+  "results": {
+    "aggregate_boundary": {
+      "existing_sources": 2,
+      "new_sources": 1,
+      "deleted_sources": 0,
+      "binary_paths": 0,
+      "rejected_mutations": 9,
+      "status": "PASS"
+    },
+    "thermal_family_source": "PASS complete historical composition",
+    "historical_cp96_runner": "PASS immutable CP96 runner and all prior CP95/CP94/CP93/CP92 normal-stream, air, press-cache, normal-cube, item-inventory and CP94 sound checks",
+    "historical_cp96_waste_sound": {
+      "complete_file_inverses": 4,
+      "fresh_owner_casts": 7,
+      "status": "PASS"
+    },
+    "current_pillar_texture_source": {
+      "aggregate_family_source_hashes_match": true,
+      "complete_existing_file_inverses": 2,
+      "verified_new_helper": 1,
+      "construction_chains": 11,
+      "unchanged_original_texture_pngs": 22,
+      "unchanged_excluded_descendants": 5,
+      "retained_native_run_assertions_verified_not_rerun": 18631,
+      "status": "PASS"
+    },
+    "exact_intersections": {
+      "cp94_sound": 1,
+      "cp96_waste_sound": 1,
+      "historical_inventory": 0,
+      "historical_press_cache": 0,
+      "historical_normal_cube": 0
+    },
+    "current_source_java_files_unchanged": 4074,
+    "historical_source_java_files": 4073,
+    "verified_new_helper_omitted_only_from_historical_view": "src/main/java/com/hbm/main/PillarModelHandler.java"
+  },
+  "limitations": [
+    "Static source evidence only; no runtime, GL, build or gameplay acceptance claimed.",
+    "No production changes, builds, runtime reruns, commits or network operations performed by this source-guard task.",
+    "CP97 is reversed before CP96 and all older layers; its new helper is SHA-verified before its absent historical representation is checked.",
+    "The CP96 ItemInventoryTransfer helper remains present in the CP96 view until that older layer separately verifies its absence in the CP95 view.",
+    "Original CP96 checker retained byte-for-byte; all prior checkers, manifests and historical pins remain unchanged."
+  ],
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-native-pillar-model-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-thermal-family-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 -u porting/checkpoint97/check-historical-composition.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 -u porting/tests/native-pillar-textures/check-source.py"
+  ]
+}

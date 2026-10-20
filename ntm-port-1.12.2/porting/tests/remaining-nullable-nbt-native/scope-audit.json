@@ -1,0 +1,120 @@
+{
+  "base": "89b6bfc71a8b532c2fe7cdbd43bb66b7991ee365",
+  "baseline_calls": 22,
+  "selected_calls": 19,
+  "deferred_calls": 3,
+  "owners": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+      "before_sha256": "95f4e275f16d9ab270df23e468db6056742c4786a595a6db139ecc88e6add50a",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "before_sha256": "4e03c62b8362aa45555b848ddfbb33686ff18f091fb6872ad0dbb30d1c91717a",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "before_sha256": "947da1e1bd9840c74792567f3bde845fa627344c6fcbb50ca0500ddc0c00baaf",
+      "selected_calls": 1,
+      "deferred_calls": 1,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only. Custom-tag-only network deserialize remains deferred."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java",
+      "before_sha256": "db03e4a572246dabdfa64c0e236ce0753db483105a6689b692646f6a9cf0e670",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "before_sha256": "a23963599d9b7a780cd3fa64a171362634deb43b95893c5f782b6139e78b2918",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+      "before_sha256": "3c88644a3a544da06d2dadb02a3cd83f21490763f91e7549d3fd95a5b0041a5a",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCBlastFurnace.java",
+      "before_sha256": "ce64d450276d73d76d36af6cf3a79cb6bd376ea83bc91980d96dfe1a61273fa9",
+      "selected_calls": 3,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCCentrifuge.java",
+      "before_sha256": "dac7b863037ea69a26b6c055723acf483c5295d7b406e8273e7ba1b36d2f0046",
+      "selected_calls": 2,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCCrystallizer.java",
+      "before_sha256": "f46f3570a4e7faf840a6bd5903939ae61b3500439036241d0b43a0c133077d64",
+      "selected_calls": 2,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+      "before_sha256": "135aa7d7a3bf4803f5d1af6b68e6aaf276ba8f13ce7741959eb9b5bff9acf4c1",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java",
+      "before_sha256": "e668eff894e59b6e14820f003db65a1dbba414dcff00397610e3e29e184d669d",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "before_sha256": "1646752b7ffad771c13ce7e9b6bf9c6dcf569cc742f2d4aef6518c863acf7241",
+      "selected_calls": 0,
+      "deferred_calls": 1,
+      "reason": "Deferred: serializer sends custom item tag, not a full ItemStack record; wire schema repair is not authorized by loader mapping."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      "before_sha256": "80a702e310e94bbdb05ce6fac1aaf829411fed0855b4ef692de68498dd93f451",
+      "selected_calls": 2,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      "before_sha256": "37ee8d3de0826f9147f1c5291f0120b1f20f212c17dcc52b68375b33418f21d0",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java",
+      "before_sha256": "e38925e2cd5c0e215b5d6809ee73d2a625361aa590ee58282d7f099ff4e7c08f",
+      "selected_calls": 1,
+      "deferred_calls": 0,
+      "reason": "Selected original nullable full-stack record boundary; native named IDs only."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/Compat.java",
+      "before_sha256": "389c40912225ec5a83690aeba41f61874b9bc0a7f5ecc4210fd107f559437fe4",
+      "selected_calls": 0,
+      "deferred_calls": 1,
+      "reason": "Deferred: external AE2 storage record format plus separate integer count override; native importer contract not proven."
+    }
+  ]
+}

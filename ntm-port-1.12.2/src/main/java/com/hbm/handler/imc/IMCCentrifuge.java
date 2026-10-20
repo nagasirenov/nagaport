@@ -7,6 +7,7 @@ import com.hbm.inventory.RecipesCommon.AStack;
 import com.hbm.inventory.RecipesCommon.OreDictStack;
 
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCMessage;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -24,7 +25,7 @@ public class IMCCentrifuge extends IMCHandler {
 		for(int i = 0; i < 4; i++) {
 			
 			NBTTagCompound output = data.getCompoundTag("output" + (i + 1));
-			ItemStack out = ItemStack.loadItemStackFromNBT(output);
+			ItemStack out = NullableInventoryStackNbt.read(output);
 			
 			if(out == null) {
 				this.printError(message, "Output stack could not be read!");
@@ -35,7 +36,7 @@ public class IMCCentrifuge extends IMCHandler {
 		}
 		
 		NBTTagCompound input = data.getCompoundTag("input");
-		ItemStack in = ItemStack.loadItemStackFromNBT(input);
+		ItemStack in = NullableInventoryStackNbt.read(input);
 		
 		if(in != null) {
 			buffer.put(new RecipesCommon.ComparableStack(in), outs);

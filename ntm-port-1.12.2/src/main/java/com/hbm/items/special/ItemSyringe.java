@@ -118,11 +118,11 @@ public class ItemSyringe extends Item {
 
 				player.removePotionEffect(net.minecraft.init.MobEffects.BLINDNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.NAUSEA);
-				player.removePotionEffect(Potion.digSlowdown.id);
-				player.removePotionEffect(Potion.hunger.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.MINING_FATIGUE);
+				player.removePotionEffect(net.minecraft.init.MobEffects.HUNGER);
 				player.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.POISON);
-				player.removePotionEffect(Potion.weakness.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.WEAKNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.WITHER);
 				player.removePotionEffect(HbmPotion.radiation.id);
 
@@ -186,23 +186,23 @@ public class ItemSyringe extends Item {
 			}
 		}
 
-		if(this == ModItems.gas_mask_filter_mono && player.inventory.armorInventory[3] != null && player.inventory.armorInventory[3].getItem() == ModItems.gas_mask_mono) {
+		if(this == ModItems.gas_mask_filter_mono && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItem() == ModItems.gas_mask_mono) {
 			if(!world.isRemote) {
-				if(player.inventory.armorInventory[3].getItemDamage() == 0)
+				if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItemDamage() == 0)
 					return stack;
 
-				player.inventory.armorInventory[3].setItemDamage(0);
+				com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).setItemDamage(0);
 
 				world.playSoundAtEntity(player, "hbm:item.gasmaskScrew", 1.0F, 1.0F);
 				stack.stackSize--;
 			}
 		}
 
-		if(this == ModItems.jetpack_tank && player.inventory.armorInventory[2] != null) {
+		if(this == ModItems.jetpack_tank && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null) {
 
 			if(!world.isRemote) {
 
-				ItemStack jetpack = player.inventory.armorInventory[2];
+				ItemStack jetpack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 
 				if(jetpack == null)
 					return stack;
@@ -224,14 +224,14 @@ public class ItemSyringe extends Item {
 					stack.stackSize--;
 				}
 
-				if(jetpack.getItem() != player.inventory.armorInventory[2].getItem())
-					ArmorModHandler.applyMod(player.inventory.armorInventory[2], jetpack);
+				if(jetpack.getItem() != com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem())
+					ArmorModHandler.applyMod(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2), jetpack);
 			}
 		}
 
-		if(this == ModItems.lox_tank && player.inventory.armorInventory[3] != null) {
+		if(this == ModItems.lox_tank && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3) != null) {
 			if(!world.isRemote) {
-				ItemStack helmet = player.inventory.armorInventory[3];
+				ItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);
 
 				if(ArmorModHandler.hasMods(helmet)) {
 					ItemStack tankStack = ArmorModHandler.pryMods(helmet)[ArmorModHandler.plate_only];
@@ -248,7 +248,7 @@ public class ItemSyringe extends Item {
 						stack.stackSize--;
 					}
 
-					ArmorModHandler.applyMod(player.inventory.armorInventory[3], tankStack);
+					ArmorModHandler.applyMod(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3), tankStack);
 				}
 			}
 		}

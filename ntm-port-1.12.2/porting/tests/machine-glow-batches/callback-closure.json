@@ -1,0 +1,14 @@
+{
+  "registry": "src/main/java/com/hbm/main/ClientProxy.java",
+  "bindings": [
+    "ClientRegistry.bindTileEntitySpecialRenderer(TileEntityReactorResearch.class, new RenderSmallReactor());",
+    "ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySolarBoiler.class, new RenderSolarBoiler());",
+    "ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonLamp.class, new RenderDemonLamp());",
+    "ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBatteryREDD.class, new RenderBatteryREDD());"
+  ],
+  "scope": "Source closure of four directly registered native TESR callbacks and their owned, non-escaping Tessellator locals. Existing external mesh/helper paths and native seven-argument callback signatures are unchanged, not independently runtime-executed by this extracted-batch suite.",
+  "unchanged_battery_helpers": [
+    "renderSparkle(TileEntity tile)",
+    "renderZaps(TileEntity tile)"
+  ]
+}

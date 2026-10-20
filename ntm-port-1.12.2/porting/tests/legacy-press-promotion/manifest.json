@@ -1,0 +1,34 @@
+{
+  "base": "42dea8e6e3241d0c4ce4ba9c5459fab2bdfdc99b",
+  "baseline_zip_sha256": "803f4c99d158916a5b80ffdf3c2ad5ccb920a27e682c8db54698ea45268f7ad8",
+  "files": {
+    "src/main/java/com/hbm/blocks/machine/MachinePress.java": {
+      "baseline_sha256": "94d9b4506c58b955e1929a664a720bf46198eb1e61351adf0c6e1d885d7f4e60",
+      "after_sha256": "7d21ed61223f8d70cad598d0818f0e971ef439e8d7b6c01d6fe9a23bed36723b",
+      "start": 868,
+      "inserted": "\t@Override\n\tprotected void fixLegacyMonoblock(World world, int x, int y, int z) {\n\t\tnet.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(x, y, z);\n\t\tTileEntity tile = world.getTileEntity(pos);\n\t\tif (tile instanceof TileEntityMachinePress) {\n\t\t\t((TileEntityMachinePress) tile).withLegacyPromotion(this, world, pos,\n\t\t\t\t\t() -> super.fixLegacyMonoblock(world, x, y, z));\n\t\t} else {\n\t\t\tsuper.fixLegacyMonoblock(world, x, y, z);\n\t\t}\n\t}\n\n"
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineEPress.java": {
+      "baseline_sha256": "372010791c1c50ab243ae22b95bbc1d7eaa83f08b1e20485a318e9fb954df9ef",
+      "after_sha256": "fa76116c59bed70cad6e6b4123cd389fb785b4af914d3895760df3b766e282fb",
+      "start": 955,
+      "inserted": "\t@Override\n\tprotected void fixLegacyMonoblock(World world, int x, int y, int z) {\n\t\tnet.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(x, y, z);\n\t\tTileEntity tile = world.getTileEntity(pos);\n\t\tif (tile instanceof TileEntityMachineEPress) {\n\t\t\t((TileEntityMachineEPress) tile).withLegacyPromotion(this, world, pos,\n\t\t\t\t\t() -> super.fixLegacyMonoblock(world, x, y, z));\n\t\t} else {\n\t\t\tsuper.fixLegacyMonoblock(world, x, y, z);\n\t\t}\n\t}\n\n"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": {
+      "baseline_sha256": "a8123649315e01a2149c3df38ccd3ce393e42c25f7151a0a0a16d0c9babb16cf",
+      "after_sha256": "abbb6e6d355c292938d82e28bd252d1ab073e9940db75b32c6aebd8a17daa8a6",
+      "start": 1404,
+      "inserted": "\tprivate final com.hbm.tileentity.LegacyPressMetadataUpgrade legacyMetadataUpgrade =\n\t\t\tnew com.hbm.tileentity.LegacyPressMetadataUpgrade();\n\n\tpublic void withLegacyPromotion(net.minecraft.block.Block owner, World world,\n\t\t\tnet.minecraft.util.math.BlockPos pos, Runnable promotion) {\n\t\tlegacyMetadataUpgrade.run(this, owner, world, pos, promotion);\n\t}\n\n\t@Override\n\tpublic boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos,\n\t\t\tnet.minecraft.block.state.IBlockState before, net.minecraft.block.state.IBlockState after) {\n\t\tif (legacyMetadataUpgrade.consume(this, world, pos, before, after)) return false;\n\t\treturn super.shouldRefresh(world, pos, before, after);\n\t}\n\n"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": {
+      "baseline_sha256": "6767d807eb966bf02557ed12dd92758d1462984d23a9a2409f52c77f0a143755",
+      "after_sha256": "82dc2c4bc9fc0fd764a93f58ede06244fa6238e2ff7d62be54f568c9e4d51527",
+      "start": 1850,
+      "inserted": "\tprivate final com.hbm.tileentity.LegacyPressMetadataUpgrade legacyMetadataUpgrade =\n\t\t\tnew com.hbm.tileentity.LegacyPressMetadataUpgrade();\n\n\tpublic void withLegacyPromotion(net.minecraft.block.Block owner, World world,\n\t\t\tnet.minecraft.util.math.BlockPos pos, Runnable promotion) {\n\t\tlegacyMetadataUpgrade.run(this, owner, world, pos, promotion);\n\t}\n\n\t@Override\n\tpublic boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos,\n\t\t\tnet.minecraft.block.state.IBlockState before, net.minecraft.block.state.IBlockState after) {\n\t\tif (legacyMetadataUpgrade.consume(this, world, pos, before, after)) return false;\n\t\treturn super.shouldRefresh(world, pos, before, after);\n\t}\n\n"
+    }
+  },
+  "added": {
+    "src/main/java/com/hbm/tileentity/LegacyPressMetadataUpgrade.java": "ed5d26945fbea09076e988bcda1abfb4fcc6fafb06e13201dddab476ad26d2a4"
+  },
+  "compatible_base": "0be133c9fb9f07053e26f081371487e641c95214"
+}

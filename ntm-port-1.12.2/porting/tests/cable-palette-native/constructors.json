@@ -1,0 +1,5 @@
+{
+  "red_cable": "red_cable = new BlockCable(Material.IRON).setTranslationKey(\"red_cable\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+  "red_wire_coated": "red_wire_coated = new WireCoated(Material.IRON).setTranslationKey(\"red_wire_coated\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+  "deco_steel": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);"
+}

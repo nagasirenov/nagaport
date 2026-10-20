@@ -1,0 +1,6 @@
+PASS 5 actual original/native knockback-name and map-key identity controls; existing 100D preserved, no modifier application or clamping
+PASS 3 exact byte inverses and 6 whole-file/token drift negatives; no historical baseline hashes refreshed
+Isolated-owner attribution only; expected unrelated incomplete-owner errors: 66
+Isolated-owner attribution only; expected unrelated incomplete-owner errors: 63
+PASS three genuine public static final IAttribute field owners and exact native name getter bindings; full containing classes remain unported
+PASS primary 19-file exact inverses after composing the three-getter suffix inverse

@@ -1,0 +1,3 @@
+PASS compile-time domain negative control: ProtectedSetter
+PASS compile-time domain negative control: NoForeignBuilder
+PASS unchanged native protected setter and native superclass bindings; authentic original Forge1614 public setter access confirmed without transformation.

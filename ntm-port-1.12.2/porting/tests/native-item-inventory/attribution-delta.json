@@ -1,0 +1,112 @@
+{
+  "before": 10583,
+  "after": 10562,
+  "removed": [
+    [
+      "src/main/java/com/hbm/items/tool/ItemLeadBox.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemLeadBox.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.report.access",
+      "stackSize has private access in net.minecraft.item.ItemStack"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.report.access",
+      "stackSize has private access in net.minecraft.item.ItemStack"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.report.access",
+      "stackSize has private access in net.minecraft.item.ItemStack"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.report.access",
+      "stackSize has private access in net.minecraft.item.ItemStack"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.report.access",
+      "stackSize has private access in net.minecraft.item.ItemStack"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.report.access",
+      "stackSize has private access in net.minecraft.item.ItemStack"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.cant.resolve.location.args",
+      "cannot find symbol\\n  symbol:   method hasNoTags()\\n  location: variable nbt of type net.minecraft.nbt.NBTTagCompound"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.cant.resolve.location.args",
+      "cannot find symbol\\n  symbol:   method compress(net.minecraft.nbt.NBTTagCompound)\\n  location: class net.minecraft.nbt.CompressedStreamTools"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.cant.resolve.location.args",
+      "cannot find symbol\\n  symbol:   method getEntityItem()\\n  location: variable entityitem of type net.minecraft.entity.item.EntityItem"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.cant.resolve.location.args",
+      "cannot find symbol\\n  symbol:   method spawnEntityInWorld(net.minecraft.entity.item.EntityItem)\\n  location: variable world of type net.minecraft.world.World"
+    ],
+    [
+      "src/main/java/com/hbm/items/ItemInventory.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemLeadBox.java",
+      "compiler.err.does.not.override.abstract",
+      "com.hbm.items.tool.ItemLeadBox.InventoryLeadBox is not abstract and does not override abstract method clear() in net.minecraft.inventory.IInventory"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolBox.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolBox.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemToolBox.java",
+      "compiler.err.does.not.override.abstract",
+      "com.hbm.items.tool.ItemToolBox.InventoryToolBox is not abstract and does not override abstract method clear() in net.minecraft.inventory.IInventory"
+    ],
+    [
+      "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "compiler.err.does.not.override.abstract",
+      "com.hbm.items.block.ItemBlockStorageCrate.InventoryCrate is not abstract and does not override abstract method clear() in net.minecraft.inventory.IInventory"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+      "compiler.err.does.not.override.abstract",
+      "com.hbm.items.tool.ItemRebarPlacer.InventoryRebar is not abstract and does not override abstract method clear() in net.minecraft.inventory.IInventory"
+    ]
+  ],
+  "added": []
+}

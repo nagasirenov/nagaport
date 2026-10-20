@@ -1,0 +1,123 @@
+CL: abc net/minecraft/item/ItemArmor$1
+CL: yy net/minecraft/entity/player/InventoryPlayer$1
+CL: aap net/minecraft/inventory/ContainerPlayer
+CL: abd net/minecraft/item/ItemArmor$ArmorMaterial
+CL: aaq net/minecraft/inventory/ContainerPlayer$1
+CL: abb net/minecraft/item/ItemArmor
+CL: yx net/minecraft/entity/player/InventoryPlayer
+FD: abb/b net/minecraft/item/ItemArmor/field_77881_a
+FD: aap/a net/minecraft/inventory/ContainerPlayer/field_75181_e
+FD: yx/c net/minecraft/entity/player/InventoryPlayer/field_70461_c
+FD: abd/f net/minecraft/item/ItemArmor$ArmorMaterial/field_78048_f
+FD: abb/q net/minecraft/item/ItemArmor/field_94605_cw
+FD: aaq/a net/minecraft/inventory/ContainerPlayer$1/field_75236_a
+FD: abd/b net/minecraft/item/ItemArmor$ArmorMaterial/CHAIN
+FD: abb/a net/minecraft/item/ItemArmor/field_94603_a
+FD: yx/b net/minecraft/entity/player/InventoryPlayer/field_70460_b
+FD: abd/e net/minecraft/item/ItemArmor$ArmorMaterial/DIAMOND
+FD: abb/p net/minecraft/item/ItemArmor/field_77878_bZ
+FD: yy/b net/minecraft/entity/player/InventoryPlayer$1/field_96633_b
+FD: abd/a net/minecraft/item/ItemArmor$ArmorMaterial/CLOTH
+FD: yx/g net/minecraft/entity/player/InventoryPlayer/field_70457_g
+FD: yx/a net/minecraft/entity/player/InventoryPlayer/field_70462_a
+FD: abb/o net/minecraft/item/ItemArmor/field_96605_cw
+FD: yy/a net/minecraft/entity/player/InventoryPlayer$1/field_96634_a
+FD: aap/h net/minecraft/inventory/ContainerPlayer/field_82862_h
+FD: yx/f net/minecraft/entity/player/InventoryPlayer/field_70456_f
+FD: abd/i net/minecraft/item/ItemArmor$ArmorMaterial/$VALUES
+FD: abb/r net/minecraft/item/ItemArmor/field_94604_cx
+FD: abb/n net/minecraft/item/ItemArmor/field_94606_cu
+FD: aap/g net/minecraft/inventory/ContainerPlayer/field_75180_g
+FD: abb/d net/minecraft/item/ItemArmor/field_77880_c
+FD: yx/e net/minecraft/entity/player/InventoryPlayer/field_70459_e
+FD: abd/h net/minecraft/item/ItemArmor$ArmorMaterial/field_78055_h
+FD: abd/d net/minecraft/item/ItemArmor$ArmorMaterial/GOLD
+FD: abb/m net/minecraft/item/ItemArmor/field_77882_bY
+FD: aap/f net/minecraft/inventory/ContainerPlayer/field_75179_f
+FD: abb/c net/minecraft/item/ItemArmor/field_77879_b
+FD: yx/d net/minecraft/entity/player/InventoryPlayer/field_70458_d
+FD: abd/g net/minecraft/item/ItemArmor$ArmorMaterial/field_78049_g
+FD: aaq/b net/minecraft/inventory/ContainerPlayer$1/field_75235_b
+FD: abd/c net/minecraft/item/ItemArmor$ArmorMaterial/IRON
+MD: yx/c (Ladb;I)I net/minecraft/entity/player/InventoryPlayer/func_146024_c (Lnet/minecraft/item/Item;I)I
+MD: abb/b (Ladd;)I net/minecraft/item/ItemArmor/func_82814_b (Lnet/minecraft/item/ItemStack;)I
+MD: yx/d (Ladd;)I net/minecraft/entity/player/InventoryPlayer/func_70432_d (Lnet/minecraft/item/ItemStack;)I
+MD: abc/b (Lck;Ladd;)Ladd; net/minecraft/item/ItemArmor$1/func_82487_b (Lnet/minecraft/dispenser/IBlockSource;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+MD: yx/b ()Ljava/lang/String; net/minecraft/entity/player/InventoryPlayer/func_145825_b ()Ljava/lang/String;
+MD: aap/b (Lyz;)V net/minecraft/inventory/ContainerPlayer/func_75134_a (Lnet/minecraft/entity/player/EntityPlayer;)V
+MD: abd/values ()[Labd; net/minecraft/item/ItemArmor$ArmorMaterial/values ()[Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+MD: aap/a (Lrb;)V net/minecraft/inventory/ContainerPlayer/func_75130_a (Lnet/minecraft/inventory/IInventory;)V
+MD: abb/c ()I net/minecraft/item/ItemArmor/func_77619_b ()I
+MD: abb/a (Ladd;Lahb;Lyz;)Ladd; net/minecraft/item/ItemArmor/func_77659_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;)Lnet/minecraft/item/ItemStack;
+MD: yx/a (II)Ladd; net/minecraft/entity/player/InventoryPlayer/func_70298_a (II)Lnet/minecraft/item/ItemStack;
+MD: bnw/a (Labb;ILjava/lang/String;)Lbqx; net/minecraft/client/renderer/entity/RenderBiped/func_110858_a (Lnet/minecraft/item/ItemArmor;ILjava/lang/String;)Lnet/minecraft/util/ResourceLocation;
+MD: yx/h ()Ladd; net/minecraft/entity/player/InventoryPlayer/func_70448_g ()Lnet/minecraft/item/ItemStack;
+MD: yx/k ()V net/minecraft/entity/player/InventoryPlayer/func_70429_k ()V
+MD: yx/a_ (I)Ladd; net/minecraft/entity/player/InventoryPlayer/func_70304_b (I)Lnet/minecraft/item/ItemStack;
+MD: yx/c (I)V net/minecraft/entity/player/InventoryPlayer/func_70453_c (I)V
+MD: yx/a (Ladb;I)I net/minecraft/entity/player/InventoryPlayer/func_146027_a (Lnet/minecraft/item/Item;I)I
+MD: yy/call ()Ljava/lang/Object; net/minecraft/entity/player/InventoryPlayer$1/call ()Ljava/lang/Object;
+MD: yx/a (Lyz;)Z net/minecraft/entity/player/InventoryPlayer/func_70300_a (Lnet/minecraft/entity/player/EntityPlayer;)Z
+MD: aap/a (Lyz;)Z net/minecraft/inventory/ContainerPlayer/func_75145_c (Lnet/minecraft/entity/player/EntityPlayer;)Z
+MD: abb/c_ (Ladd;)Z net/minecraft/item/ItemArmor/func_82816_b_ (Lnet/minecraft/item/ItemStack;)Z
+MD: abb/e ()[I net/minecraft/item/ItemArmor/access$000 ()[I
+MD: yx/e (Ladd;)I net/minecraft/entity/player/InventoryPlayer/func_70452_e (Lnet/minecraft/item/ItemStack;)I
+MD: yx/e ()V net/minecraft/entity/player/InventoryPlayer/func_70296_d ()V
+MD: aap/a (Ladd;Laay;)Z net/minecraft/inventory/ContainerPlayer/func_94530_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/inventory/Slot;)Z
+MD: yx/a (Laji;)F net/minecraft/entity/player/InventoryPlayer/func_146023_a (Lnet/minecraft/block/Block;)F
+MD: yx/c (Ladb;)I net/minecraft/entity/player/InventoryPlayer/func_146029_c (Lnet/minecraft/item/Item;)I
+MD: abb/b (Ladd;I)V net/minecraft/item/ItemArmor/func_82813_b (Lnet/minecraft/item/ItemStack;I)V
+MD: aap/b (Lyz;I)Ladd; net/minecraft/inventory/ContainerPlayer/func_82846_b (Lnet/minecraft/entity/player/EntityPlayer;I)Lnet/minecraft/item/ItemStack;
+MD: abd/a (I)I net/minecraft/item/ItemArmor$ArmorMaterial/func_78046_a (I)I
+MD: abb/b (I)Lrf; net/minecraft/item/ItemArmor/func_94602_b (I)Lnet/minecraft/util/IIcon;
+MD: yx/i ()I net/minecraft/entity/player/InventoryPlayer/func_70451_h ()I
+MD: yx/l ()I net/minecraft/entity/player/InventoryPlayer/func_70430_l ()I
+MD: yx/a (I)Ladd; net/minecraft/entity/player/InventoryPlayer/func_70301_a (I)Lnet/minecraft/item/ItemStack;
+MD: yx/c (Ladd;)Z net/minecraft/entity/player/InventoryPlayer/func_70431_c (Lnet/minecraft/item/ItemStack;)Z
+MD: yx/d (I)Ladd; net/minecraft/entity/player/InventoryPlayer/func_70440_f (I)Lnet/minecraft/item/ItemStack;
+MD: yx/k_ ()Z net/minecraft/entity/player/InventoryPlayer/func_145818_k_ ()Z
+MD: zs/a (Lyx;)S net/minecraft/inventory/Container/func_75136_a (Lnet/minecraft/entity/player/InventoryPlayer;)S
+MD: yx/o ()Ladd; net/minecraft/entity/player/InventoryPlayer/func_70445_o ()Lnet/minecraft/item/ItemStack;
+MD: yx/a (Ladb;)Z net/minecraft/entity/player/InventoryPlayer/func_146026_a (Lnet/minecraft/item/Item;)Z
+MD: abb/c (Ladd;)V net/minecraft/item/ItemArmor/func_82815_c (Lnet/minecraft/item/ItemStack;)V
+MD: abb/a (Ladd;Ladd;)Z net/minecraft/item/ItemArmor/func_82789_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+MD: yx/b (Ldq;)V net/minecraft/entity/player/InventoryPlayer/func_70443_b (Lnet/minecraft/nbt/NBTTagList;)V
+MD: yx/b (Ladd;)V net/minecraft/entity/player/InventoryPlayer/func_70437_b (Lnet/minecraft/item/ItemStack;)V
+MD: abb/b ()Z net/minecraft/item/ItemArmor/func_77623_v ()Z
+MD: abb/a (II)Lrf; net/minecraft/item/ItemArmor/func_77618_c (II)Lnet/minecraft/util/IIcon;
+MD: abd/b ()Ladb; net/minecraft/item/ItemArmor$ArmorMaterial/func_151685_b ()Lnet/minecraft/item/Item;
+MD: abb/m_ ()Labd; net/minecraft/item/ItemArmor/func_82812_d ()Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+MD: yx/a (F)V net/minecraft/entity/player/InventoryPlayer/func_70449_g (F)V
+MD: yx/f ()V net/minecraft/entity/player/InventoryPlayer/func_70295_k_ ()V
+MD: yx/a (Ladb;IZZ)V net/minecraft/entity/player/InventoryPlayer/func_146030_a (Lnet/minecraft/item/Item;IZZ)V
+MD: yx/b (Lyx;)V net/minecraft/entity/player/InventoryPlayer/func_70455_b (Lnet/minecraft/entity/player/InventoryPlayer;)V
+MD: abd/b (I)I net/minecraft/item/ItemArmor$ArmorMaterial/func_78044_b (I)I
+MD: yx/a (Ldq;)Ldq; net/minecraft/entity/player/InventoryPlayer/func_70442_a (Lnet/minecraft/nbt/NBTTagList;)Lnet/minecraft/nbt/NBTTagList;
+MD: yx/j ()I net/minecraft/entity/player/InventoryPlayer/func_70447_i ()I
+MD: yx/b (Laji;)Z net/minecraft/entity/player/InventoryPlayer/func_146025_b (Lnet/minecraft/block/Block;)Z
+MD: abd/valueOf (Ljava/lang/String;)Labd; net/minecraft/item/ItemArmor$ArmorMaterial/valueOf (Ljava/lang/String;)Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+MD: yx/a (Ladd;)Z net/minecraft/entity/player/InventoryPlayer/func_70441_a (Lnet/minecraft/item/ItemStack;)Z
+MD: yx/b (ILadd;)Z net/minecraft/entity/player/InventoryPlayer/func_94041_b (ILnet/minecraft/item/ItemStack;)Z
+MD: abb/a (Lrg;)V net/minecraft/item/ItemArmor/func_94581_a (Lnet/minecraft/client/renderer/texture/IIconRegister;)V
+MD: yx/b (Ladb;)Z net/minecraft/entity/player/InventoryPlayer/func_146028_b (Lnet/minecraft/item/Item;)Z
+MD: yx/b (Ladb;I)V net/minecraft/entity/player/InventoryPlayer/func_70439_a (Lnet/minecraft/item/Item;I)V
+MD: yx/a (ILadd;)V net/minecraft/entity/player/InventoryPlayer/func_70299_a (ILnet/minecraft/item/ItemStack;)V
+MD: abd/a ()I net/minecraft/item/ItemArmor$ArmorMaterial/func_78045_a ()I
+MD: yx/l_ ()V net/minecraft/entity/player/InventoryPlayer/func_70305_f ()V
+MD: aaq/a (Ladd;)Z net/minecraft/inventory/ContainerPlayer$1/func_75214_a (Lnet/minecraft/item/ItemStack;)Z
+MD: yx/a ()I net/minecraft/entity/player/InventoryPlayer/func_70302_i_ ()I
+MD: aaq/c ()Lrf; net/minecraft/inventory/ContainerPlayer$1/func_75212_b ()Lnet/minecraft/util/IIcon;
+MD: yx/d ()I net/minecraft/entity/player/InventoryPlayer/func_70297_j_ ()I
+MD: yx/m ()V net/minecraft/entity/player/InventoryPlayer/func_70436_m ()V
+MD: bnw/a (Labb;I)Lbqx; net/minecraft/client/renderer/entity/RenderBiped/func_110857_a (Lnet/minecraft/item/ItemArmor;I)Lnet/minecraft/util/ResourceLocation;
+MD: abb/a (Ladd;I)I net/minecraft/item/ItemArmor/func_82790_a (Lnet/minecraft/item/ItemStack;I)I
+MD: yy/a ()Ljava/lang/String; net/minecraft/entity/player/InventoryPlayer$1/call ()Ljava/lang/String;
+MD: aaq/a ()I net/minecraft/inventory/ContainerPlayer$1/func_75219_a ()I
+conf/fields.csv: field_70460_b,armorInventory,2,An array of 4 item stacks containing the currently worn armor pieces.
+conf/fields.csv: field_77879_b,damageReduceAmount,2,Holds the amount of damage that the armor reduces at full durability.
+conf/fields.csv: field_77881_a,armorType,2,"Stores the armor type: 0 is helmet, 1 is plate, 2 is legs and 3 is boots"
+conf/fields.csv: field_77882_bY,maxDamageArray,2,Holds the 'base' maxDamage that each armorType have.
+conf/methods.csv: func_70301_a,getStackInSlot,2,Returns the stack in slot i
+conf/methods.csv: func_70302_i_,getSizeInventory,2,Returns the number of slots in the inventory.
+conf/methods.csv: func_78044_b,getDamageReductionAmount,2,"Return the damage reduction (each 1 point is a half a shield on gui) of the piece index passed (0 = helmet, 1 = plate, 2 = legs and 3 = boots)"
+conf/methods.csv: func_78046_a,getDurability,2,Returns the durability for a armor slot of for this type.

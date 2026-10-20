@@ -1,0 +1,214 @@
+Compiled from "SourceFile"
+public final class net.minecraft.inventory.EntityEquipmentSlot extends java.lang.Enum<net.minecraft.inventory.EntityEquipmentSlot> {
+  public static final net.minecraft.inventory.EntityEquipmentSlot MAINHAND;
+
+  public static final net.minecraft.inventory.EntityEquipmentSlot OFFHAND;
+
+  public static final net.minecraft.inventory.EntityEquipmentSlot FEET;
+
+  public static final net.minecraft.inventory.EntityEquipmentSlot LEGS;
+
+  public static final net.minecraft.inventory.EntityEquipmentSlot CHEST;
+
+  public static final net.minecraft.inventory.EntityEquipmentSlot HEAD;
+
+  private final net.minecraft.inventory.EntityEquipmentSlot$Type slotType;
+
+  private final int index;
+
+  private final int slotIndex;
+
+  private final java.lang.String name;
+
+  private static final net.minecraft.inventory.EntityEquipmentSlot[] $VALUES;
+
+  public static net.minecraft.inventory.EntityEquipmentSlot[] values();
+    Code:
+       0: getstatic     #29                 // Field $VALUES:[Lnet/minecraft/inventory/EntityEquipmentSlot;
+       3: invokevirtual #34                 // Method "[Lnet/minecraft/inventory/EntityEquipmentSlot;".clone:()Ljava/lang/Object;
+       6: checkcast     #30                 // class "[Lnet/minecraft/inventory/EntityEquipmentSlot;"
+       9: areturn
+
+  public static net.minecraft.inventory.EntityEquipmentSlot valueOf(java.lang.String);
+    Code:
+       0: ldc           #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+       2: aload_0
+       3: invokestatic  #39                 // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+       6: checkcast     #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+       9: areturn
+
+  private net.minecraft.inventory.EntityEquipmentSlot(net.minecraft.inventory.EntityEquipmentSlot$Type, int, int, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokespecial #45                 // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+       6: aload_0
+       7: aload_3
+       8: putfield      #47                 // Field slotType:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      11: aload_0
+      12: iload         4
+      14: putfield      #49                 // Field index:I
+      17: aload_0
+      18: iload         5
+      20: putfield      #51                 // Field slotIndex:I
+      23: aload_0
+      24: aload         6
+      26: putfield      #53                 // Field name:Ljava/lang/String;
+      29: return
+
+  public net.minecraft.inventory.EntityEquipmentSlot$Type getSlotType();
+    Code:
+       0: aload_0
+       1: getfield      #47                 // Field slotType:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+       4: areturn
+
+  public int getIndex();
+    Code:
+       0: aload_0
+       1: getfield      #49                 // Field index:I
+       4: ireturn
+
+  public int getSlotIndex();
+    Code:
+       0: aload_0
+       1: getfield      #51                 // Field slotIndex:I
+       4: ireturn
+
+  public java.lang.String getName();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field name:Ljava/lang/String;
+       4: areturn
+
+  public static net.minecraft.inventory.EntityEquipmentSlot fromString(java.lang.String);
+    Code:
+       0: invokestatic  #70                 // Method values:()[Lnet/minecraft/inventory/EntityEquipmentSlot;
+       3: astore_1
+       4: aload_1
+       5: arraylength
+       6: istore_2
+       7: iconst_0
+       8: istore_3
+       9: iload_3
+      10: iload_2
+      11: if_icmpge     40
+      14: aload_1
+      15: iload_3
+      16: aaload
+      17: astore        4
+      19: aload         4
+      21: invokevirtual #72                 // Method getName:()Ljava/lang/String;
+      24: aload_0
+      25: invokevirtual #78                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      28: ifeq          34
+      31: aload         4
+      33: areturn
+      34: iinc          3, 1
+      37: goto          9
+      40: new           #80                 // class java/lang/IllegalArgumentException
+      43: dup
+      44: new           #82                 // class java/lang/StringBuilder
+      47: dup
+      48: invokespecial #85                 // Method java/lang/StringBuilder."<init>":()V
+      51: ldc           #87                 // String Invalid slot '
+      53: invokevirtual #91                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      56: aload_0
+      57: invokevirtual #91                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      60: ldc           #93                 // String '
+      62: invokevirtual #91                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      65: invokevirtual #96                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      68: invokespecial #99                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      71: athrow
+
+  static {};
+    Code:
+       0: new           #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+       3: dup
+       4: ldc           #103                // String MAINHAND
+       6: iconst_0
+       7: getstatic     #106                // Field net/minecraft/inventory/EntityEquipmentSlot$Type.HAND:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      10: iconst_0
+      11: iconst_0
+      12: ldc           #108                // String mainhand
+      14: invokespecial #110                // Method "<init>":(Ljava/lang/String;ILnet/minecraft/inventory/EntityEquipmentSlot$Type;IILjava/lang/String;)V
+      17: putstatic     #112                // Field MAINHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+      20: new           #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+      23: dup
+      24: ldc           #113                // String OFFHAND
+      26: iconst_1
+      27: getstatic     #106                // Field net/minecraft/inventory/EntityEquipmentSlot$Type.HAND:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      30: iconst_1
+      31: iconst_5
+      32: ldc           #115                // String offhand
+      34: invokespecial #110                // Method "<init>":(Ljava/lang/String;ILnet/minecraft/inventory/EntityEquipmentSlot$Type;IILjava/lang/String;)V
+      37: putstatic     #117                // Field OFFHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+      40: new           #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+      43: dup
+      44: ldc           #118                // String FEET
+      46: iconst_2
+      47: getstatic     #121                // Field net/minecraft/inventory/EntityEquipmentSlot$Type.ARMOR:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      50: iconst_0
+      51: iconst_1
+      52: ldc           #123                // String feet
+      54: invokespecial #110                // Method "<init>":(Ljava/lang/String;ILnet/minecraft/inventory/EntityEquipmentSlot$Type;IILjava/lang/String;)V
+      57: putstatic     #125                // Field FEET:Lnet/minecraft/inventory/EntityEquipmentSlot;
+      60: new           #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+      63: dup
+      64: ldc           #126                // String LEGS
+      66: iconst_3
+      67: getstatic     #121                // Field net/minecraft/inventory/EntityEquipmentSlot$Type.ARMOR:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      70: iconst_1
+      71: iconst_2
+      72: ldc           #128                // String legs
+      74: invokespecial #110                // Method "<init>":(Ljava/lang/String;ILnet/minecraft/inventory/EntityEquipmentSlot$Type;IILjava/lang/String;)V
+      77: putstatic     #130                // Field LEGS:Lnet/minecraft/inventory/EntityEquipmentSlot;
+      80: new           #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+      83: dup
+      84: ldc           #131                // String CHEST
+      86: iconst_4
+      87: getstatic     #121                // Field net/minecraft/inventory/EntityEquipmentSlot$Type.ARMOR:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+      90: iconst_2
+      91: iconst_3
+      92: ldc           #133                // String chest
+      94: invokespecial #110                // Method "<init>":(Ljava/lang/String;ILnet/minecraft/inventory/EntityEquipmentSlot$Type;IILjava/lang/String;)V
+      97: putstatic     #135                // Field CHEST:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     100: new           #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+     103: dup
+     104: ldc           #136                // String HEAD
+     106: iconst_5
+     107: getstatic     #121                // Field net/minecraft/inventory/EntityEquipmentSlot$Type.ARMOR:Lnet/minecraft/inventory/EntityEquipmentSlot$Type;
+     110: iconst_3
+     111: iconst_4
+     112: ldc           #138                // String head
+     114: invokespecial #110                // Method "<init>":(Ljava/lang/String;ILnet/minecraft/inventory/EntityEquipmentSlot$Type;IILjava/lang/String;)V
+     117: putstatic     #140                // Field HEAD:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     120: bipush        6
+     122: anewarray     #2                  // class net/minecraft/inventory/EntityEquipmentSlot
+     125: dup
+     126: iconst_0
+     127: getstatic     #112                // Field MAINHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     130: aastore
+     131: dup
+     132: iconst_1
+     133: getstatic     #117                // Field OFFHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     136: aastore
+     137: dup
+     138: iconst_2
+     139: getstatic     #125                // Field FEET:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     142: aastore
+     143: dup
+     144: iconst_3
+     145: getstatic     #130                // Field LEGS:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     148: aastore
+     149: dup
+     150: iconst_4
+     151: getstatic     #135                // Field CHEST:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     154: aastore
+     155: dup
+     156: iconst_5
+     157: getstatic     #140                // Field HEAD:Lnet/minecraft/inventory/EntityEquipmentSlot;
+     160: aastore
+     161: putstatic     #29                 // Field $VALUES:[Lnet/minecraft/inventory/EntityEquipmentSlot;
+     164: return
+}

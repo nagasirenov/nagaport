@@ -1,0 +1,4 @@
+PASS 67035 actual native/projection assertions, 5580 differential range rows; static bits, isolated weights, one-read evaluation, strict boundaries, NaN and infinities.
+PASS actual original Entity constructor, instance default/isolation, Ghost multiplication and 5580 original binary render-range rows.
+PASS rejected private native direct-field write; no reflection, access transformer or global setter used in production.
+PASS 39 constructor paths, 9 exact complete range-method projections, actual native and original range decisions match byte-for-byte (c528cbfb9e7483247d4c3462921ce3567b2adf86ead2ab5977043544b62a8cb0).

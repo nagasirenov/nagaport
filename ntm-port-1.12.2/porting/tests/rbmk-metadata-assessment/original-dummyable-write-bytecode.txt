@@ -1,0 +1,97 @@
+  protected void fixLegacyMonoblock(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iload         4
+       5: bipush        10
+       7: aload_1
+       8: iload_2
+       9: iload_3
+      10: iload         4
+      12: invokevirtual #122                // Method net/minecraft/world/World.func_72805_g:(III)I
+      15: iadd
+      16: iconst_3
+      17: invokevirtual #170                // Method net/minecraft/world/World.func_72921_c:(IIIII)Z
+      20: pop
+      21: return
+
+
+  public void makeExtra(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iload         4
+       5: invokevirtual #145                // Method net/minecraft/world/World.func_147439_a:(III)Lnet/minecraft/block/Block;
+       8: aload_0
+       9: if_acmpeq     13
+      12: return
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iload         4
+      18: invokevirtual #122                // Method net/minecraft/world/World.func_72805_g:(III)I
+      21: istore        5
+      23: iload         5
+      25: iconst_5
+      26: if_icmple     30
+      29: return
+      30: iconst_1
+      31: putstatic     #61                 // Field safeRem:Z
+      34: aload_1
+      35: iload_2
+      36: iload_3
+      37: iload         4
+      39: aload_0
+      40: iload         5
+      42: bipush        6
+      44: iadd
+      45: iconst_3
+      46: invokevirtual #318                // Method net/minecraft/world/World.func_147465_d:(IIILnet/minecraft/block/Block;II)Z
+      49: pop
+      50: iconst_0
+      51: putstatic     #61                 // Field safeRem:Z
+      54: return
+
+
+  public void removeExtra(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iload         4
+       5: invokevirtual #145                // Method net/minecraft/world/World.func_147439_a:(III)Lnet/minecraft/block/Block;
+       8: aload_0
+       9: if_acmpeq     13
+      12: return
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iload         4
+      18: invokevirtual #122                // Method net/minecraft/world/World.func_72805_g:(III)I
+      21: istore        5
+      23: iload         5
+      25: iconst_5
+      26: if_icmple     36
+      29: iload         5
+      31: bipush        12
+      33: if_icmplt     37
+      36: return
+      37: iconst_1
+      38: putstatic     #61                 // Field safeRem:Z
+      41: aload_1
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: aload_0
+      47: iload         5
+      49: bipush        6
+      51: isub
+      52: iconst_3
+      53: invokevirtual #318                // Method net/minecraft/world/World.func_147465_d:(IIILnet/minecraft/block/Block;II)Z
+      56: pop
+      57: iconst_0
+      58: putstatic     #61                 // Field safeRem:Z
+      61: return
+

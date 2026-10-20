@@ -1,0 +1,301 @@
+{
+  "baseline": "f5ce86cd607379cc9810896cf91d1fee86ce6331",
+  "files": {
+    "src/main/java/com/hbm/items/ItemInventory.java": {
+      "before_sha256": "b41934e72e7728f2c1b45566e34e752c7e8207ec3ae4502fb7346b4367934e4c",
+      "after_sha256": "5843ef1ba3614b4076daa2531f2788c88806b3a310ed86e6ee318bdd3e10b270",
+      "rules": [
+        [
+          "import com.hbm.util.ItemStackUtil;",
+          "import com.hbm.util.NullableInventoryStackNbt;",
+          1
+        ],
+        [
+          "getStackInSlot(i) != null && getStackInSlot(i).stackSize == 0",
+          "getStackInSlotNullable(i) != null && quantity(getStackInSlotNullable(i)) == 0",
+          1
+        ],
+        [
+          "ItemStackUtil.addStacksToNBT(target, slots)",
+          "writeStacksToNBT(target, slots)",
+          1
+        ],
+        [
+          "nbt.hasNoTags()",
+          "nbt.isEmpty()",
+          1
+        ],
+        [
+          "byte[] abyte = CompressedStreamTools.compress(nbt);",
+          "java.io.ByteArrayOutputStream compressed = new java.io.ByteArrayOutputStream();\r\n\t\t\tCompressedStreamTools.writeCompressed(nbt, compressed);\r\n\t\t\tbyte[] abyte = compressed.toByteArray();",
+          1
+        ],
+        [
+          "this.getStackInSlot(i1)",
+          "this.getStackInSlotNullable(i1)",
+          1
+        ],
+        [
+          "itemstack.stackSize > 0",
+          "quantity(itemstack) > 0",
+          1
+        ],
+        [
+          "j1 > itemstack.stackSize",
+          "j1 > quantity(itemstack)",
+          1
+        ],
+        [
+          "j1 = itemstack.stackSize;",
+          "j1 = quantity(itemstack);",
+          1
+        ],
+        [
+          "itemstack.stackSize -= j1;",
+          "net.minecraft.item.Item item = itemstack.getItem();\r\n\t\t\t\t\t\t\tint damage = itemstack.getItemDamage();\r\n\t\t\t\t\t\t\tNBTTagCompound tag = itemstack.getTagCompound();\r\n\t\t\t\t\t\t\titemstack.shrink(j1);",
+          1
+        ],
+        [
+          "new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage())",
+          "new ItemStack(item, j1, damage)",
+          1
+        ],
+        [
+          "int damage = itemstack.getItemDamage();",
+          "int damage = itemstack.getItemDamage();\r\n\t\t\t\t\t\t\t// Native empty masking must not replace a registered raw item with AIR.\r\n\t\t\t\t\t\t\t// Edge-only public snapshot; its capability serialization follows native rules.\r\n\t\t\t\t\t\t\tif(item == net.minecraft.init.Items.AIR) {\r\n\t\t\t\t\t\t\t\tNBTTagCompound identity = itemstack.writeToNBT(new NBTTagCompound());\r\n\t\t\t\t\t\t\t\titem = net.minecraft.item.Item.getByNameOrId(identity.getString(\"id\"));\r\n\t\t\t\t\t\t\t\tdamage = item.getDamage(itemstack);\r\n\t\t\t\t\t\t\t}",
+          1
+        ],
+        [
+          "if (itemstack.hasTagCompound()) {",
+          "if (tag != null) {",
+          1
+        ],
+        [
+          "entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());",
+          "entityitem.getItem().setTagCompound(tag.copy());",
+          1
+        ],
+        [
+          "player.world.spawnEntityInWorld(entityitem);",
+          "player.world.spawnEntity(entityitem);",
+          1
+        ],
+        [
+          "ItemStack stack = getStackInSlot(slot);",
+          "ItemStack stack = getStackInSlotNullable(slot);",
+          2
+        ],
+        [
+          "stack.stackSize > amount",
+          "quantity(stack) > amount",
+          1
+        ],
+        [
+          "return stack;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void setInventorySlotContents",
+          "return stack == null ? ItemStack.EMPTY : stack;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void setInventorySlotContents",
+          1
+        ],
+        [
+          "stack = stack == null || stack.isEmpty() ? null : stack;",
+          "stack = stack == ItemStack.EMPTY ? null : stack;",
+          1
+        ],
+        [
+          "stack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));",
+          "stack.setCount(Math.min(quantity(stack), this.getInventoryStackLimit()));",
+          1
+        ],
+        [
+          "return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\r\n\t}\r\n\r\n\t@Override public ItemStack getStackInSlot",
+          "return stack == null ? ItemStack.EMPTY : stack;\r\n\t}\r\n\r\n\t@Override public ItemStack getStackInSlot",
+          1
+        ],
+        [
+          "@Override public ItemStack getStackInSlot(int slot) { return slots[slot]; }",
+          "public ItemStack getStackInSlotNullable(int slot) { return slots[slot]; }\r\n\t@Override public ItemStack getStackInSlot(int slot) { ItemStack stack = getStackInSlotNullable(slot); return stack == null ? ItemStack.EMPTY : stack; }",
+          1
+        ],
+        [
+          "isUseableByPlayer",
+          "isUsableByPlayer",
+          1
+        ],
+        [
+          "\r\n}",
+          "\r\n\t/** Native boundary: internal vacancy remains null; non-null raw stacks retain identity. */\r\n\t@Override public boolean isEmpty() {\r\n\t\tfor(ItemStack stack : slots) if(stack != null && !stack.isEmpty()) return false;\r\n\t\treturn true;\r\n\t}\r\n\t@Override public void clear() { java.util.Arrays.fill(slots, null); markDirty(); }\r\n\t@Override public int getField(int id) { return 0; }\r\n\t@Override public void setField(int id, int value) { }\r\n\t@Override public int getFieldCount() { return 0; }\r\n\t@Override public net.minecraft.util.text.ITextComponent getDisplayName() {\r\n\t\treturn hasCustomName() ? new TextComponentString(target.getDisplayName()) : new net.minecraft.util.text.TextComponentTranslation(getName());\r\n\t}\r\n\r\n\t/** Raw quantity is necessary for the original signed clamp and exactly-zero cleanup.\r\n\t * Read-only, mapped access; no furnace-specific empty admission policy applies here. */\r\n\tprotected static int quantity(ItemStack stack) {\r\n\t\tint count = stack.getCount();\r\n\t\tif(count != 0) return count;\r\n\t\ttry { return QuantityField.FIELD.getInt(stack); }\r\n\t\tcatch(IllegalAccessException failure) { throw new IllegalStateException(\"Cannot read item inventory stack quantity\", failure); }\r\n\t}\r\n\tprivate static final class QuantityField {\r\n\t\tprivate static final java.lang.reflect.Field FIELD = net.minecraftforge.fml.relauncher.ReflectionHelper.findField(ItemStack.class, \"stackSize\", \"field_77994_a\");\r\n\t}\r\n\r\n\t/** Original nullable item-inventory list schema, deliberately local to this domain. */\r\n\tprotected static void writeStacksToNBT(ItemStack owner, ItemStack[] stacks) {\r\n\t\tif(owner.getTagCompound() == null) owner.setTagCompound(new NBTTagCompound());\r\n\t\tnet.minecraft.nbt.NBTTagList tags = new net.minecraft.nbt.NBTTagList();\r\n\t\tfor(int i = 0; i < stacks.length; i++) {\r\n\t\t\tif(stacks[i] != null) {\r\n\t\t\t\tNBTTagCompound slot = new NBTTagCompound();\r\n\t\t\t\tslot.setByte(\"slot\", (byte) i);\r\n\t\t\t\tstacks[i].writeToNBT(slot);\r\n\t\t\t\ttags.appendTag(slot);\r\n\t\t\t}\r\n\t\t}\r\n\t\towner.getTagCompound().setTag(\"items\", tags);\r\n\t}\r\n\tprotected static ItemStack[] readStacksFromNBT(ItemStack owner, int count) {\r\n\t\tif(owner.getTagCompound() == null) return null;\r\n\t\tnet.minecraft.nbt.NBTTagList tags = owner.getTagCompound().getTagList(\"items\", 10);\r\n\t\tif(count == 0) count = tags.tagCount();\r\n\t\tItemStack[] stacks = new ItemStack[count];\r\n\t\tfor(int i = 0; i < count; i++) {\r\n\t\t\tNBTTagCompound slot = tags.getCompoundTagAt(i);\r\n\t\t\tbyte index = slot.getByte(\"slot\");\r\n\t\t\tItemStack loaded = NullableInventoryStackNbt.read(slot);\r\n\t\t\tif(index >= 0 && index < stacks.length && loaded != null) stacks[index] = loaded;\r\n\t\t}\r\n\t\treturn stacks;\r\n\t}\r\n\r\n}",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemLeadBox.java": {
+      "before_sha256": "ea2382d1eb2cbc59f8fc262b8d4f2ba33e2e842019dc114474230a36cac15b8d",
+      "after_sha256": "6c46417c97a1472a9c0656e2ed4c2728f313fafb83d73698c07bab6da3d047ae",
+      "rules": [
+        [
+          "ItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);",
+          "ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);",
+          1
+        ],
+        [
+          "if(!box.hasTagCompound())\n\t\t\t\tbox.setTagCompound",
+          "if(box.getTagCompound() == null)\n\t\t\t\tbox.setTagCompound",
+          1
+        ],
+        [
+          "getInventoryName()",
+          "getName()",
+          1
+        ],
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java": {
+      "before_sha256": "5c63e6639e458f5bdcd8c21b3a80027cb874346ef3e15b467ab726594b060d18",
+      "after_sha256": "c1f21456f82c753e5d9f88bf00c80b69ff77676fb2fd45e7c5cf47f94fa9370a",
+      "rules": [
+        [
+          "ItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);",
+          "ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);",
+          1
+        ],
+        [
+          "if(!box.hasTagCompound())\n\t\t\t\tbox.setTagCompound",
+          "if(box.getTagCompound() == null)\n\t\t\t\tbox.setTagCompound",
+          1
+        ],
+        [
+          "getInventoryName()",
+          "getName()",
+          1
+        ],
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "before_sha256": "d17cdda4cda17e35046e615f72e4572cc555c7dea864984a9d0c533fd069755e",
+      "after_sha256": "7a5342e8c1dd1b148dab579163b87eaf9fecce3f5dd78afebd5107627f66fe5d",
+      "rules": [
+        [
+          "ItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);",
+          "ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);",
+          1
+        ],
+        [
+          "if(!box.hasTagCompound()) box.setTagCompound",
+          "if(box.getTagCompound() == null) box.setTagCompound",
+          1
+        ],
+        [
+          "getInventoryName()",
+          "getName()",
+          2
+        ],
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          2
+        ],
+        [
+          "rebar.isUseableByPlayer(player)",
+          "rebar.isUsableByPlayer(player)",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": {
+      "before_sha256": "09bec0a536a7857111fd5dbf34f70f0839624a1aae1da59d3e8913ee520df9d0",
+      "after_sha256": "c636aa3a84777d6cc135804975cf88944c9e88359c0958653d9b24628c00a50d",
+      "rules": [
+        [
+          "isUseableByPlayer",
+          "isUsableByPlayer",
+          1
+        ],
+        [
+          "this.getStackInSlot(i)",
+          "this.getStackInSlotNullable(i)",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java": {
+      "before_sha256": "c13c533e0823c027d3a7d8e339ebc037d13c6b27bbfbc570a1d1147f5cab6463",
+      "after_sha256": "05825f5d620c43e160eb00e56abc969af93bb114131d3450fd59ad95ecf7c586",
+      "rules": [
+        [
+          "box.isUseableByPlayer(player)",
+          "box.isUsableByPlayer(player)",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUILeadBox.java": {
+      "before_sha256": "0c6aa9b5e23548c9e031a678326865ab9742498409b6ae72fded4bc61e62d6a5",
+      "after_sha256": "d4542a5f57e809137b01c440ae1bf5b94c19e3bd592edc5b38ef17229f95e820",
+      "rules": [
+        [
+          "getInventoryName()",
+          "getName()",
+          1
+        ],
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java": {
+      "before_sha256": "3cc3f2987900bebd7e6f1b7e7463bdc559c8a8739b301a7557721028a23f2d6d",
+      "after_sha256": "c71d446900239629f1b4eeed35517917b73726991d4e18959911f5335dab764f",
+      "rules": [
+        [
+          "box.isUseableByPlayer(player)",
+          "box.isUsableByPlayer(player)",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIToolBox.java": {
+      "before_sha256": "709abc18b4e436e31d03c1849a9e465427c67278df6a26c22dcf00a32639d9b9",
+      "after_sha256": "2749cbe9873d3d2617dede00cb51ac23cd7be9a5c23c5f7658ddc68d75965d17",
+      "rules": [
+        [
+          "getInventoryName()",
+          "getName()",
+          1
+        ],
+        [
+          "hasCustomInventoryName()",
+          "hasCustomName()",
+          1
+        ]
+      ]
+    }
+  },
+  "protected": {
+    "src/main/java/com/hbm/util/ItemStackUtil.java": "91d4772513c195e82949f693b14bbde7103002c1bf929a8f33023a04d947fa04",
+    "src/main/java/com/hbm/util/NullableInventoryStackNbt.java": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+    "src/main/java/com/hbm/items/tool/ItemAmmoBag.java": "43018a444df344841f11c9bf93e8d0eff55ba71bad667bcb5d9eef04ba38d04b",
+    "src/main/java/com/hbm/items/tool/ItemCasingBag.java": "738626280db16261d3913f227e9fe386c0c93ba3e0716dcee5827d22b199c229",
+    "src/main/java/com/hbm/items/tool/ItemPlasticBag.java": "e8f55fd28fc2b36e6dbf3b3938a7d4515f0142590cf9b176ca71dcef0f346f7c",
+    "src/main/java/com/hbm/util/NativeHeldItem.java": "c9cc68d6853ca7f9d080914452b5d7592a90a4cfb4ce86f447099113089b2692",
+    "src/main/java/com/hbm/sound/WorldSoundEffects.java": "444bdd41794f26b37d368f85691ba611b3648a62b096491ba62a5d95648c8d1e",
+    "src/main/java/com/hbm/main/ModSoundEvents.java": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+    "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateIron.java": "9103dc1fb6c6f9323fd67ec6e560496036f921467a9ca33b047ab65520ba4b7d",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateSteel.java": "836c960eec7452d1eacfc09ddf20eef1ec294a22099658611b3ee31b820b8fc3",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateDesh.java": "2ab2ebc89a6a5399d4b0e103ec4fe42a155262b35c1571659739fe3352468675",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java": "b16fb5665dedcf58ee444fae0ca8508d26763e9c362f152c5ed2129c024e7210",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTemplate.java": "94d1937d55c143128dc2506cc1227926da26e03f9e994ed74ff00d9d07c599a2",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntitySafe.java": "1bb81bb2cc256403027574b8791c2dbb1895f79e5826177f468b984805f4f488"
+  }
+}

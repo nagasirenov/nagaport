@@ -42,8 +42,8 @@ public class ItemFluidSiphon extends Item {
 				if(tankType.hasTrait(FT_Unsiphonable.class))
 					continue;
 
-				for(int j = 0; j < player.inventory.mainInventory.length; j++) {
-					ItemStack inventoryStack = player.inventory.mainInventory[j];
+				for(int j = 0; j < player.inventory.mainInventory.size(); j++) {
+					ItemStack inventoryStack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j);
 					if(inventoryStack == null)
 						continue;
 
@@ -66,7 +66,7 @@ public class ItemFluidSiphon extends Item {
 
 						inventoryStack.stackSize--;
 						if(inventoryStack.stackSize <= 0) {
-							player.inventory.mainInventory[j] = null;
+							player.inventory.mainInventory.set(j, ItemStack.EMPTY);
 						}
 
 						ItemStack filledContainer = full.copy();

@@ -1,0 +1,12 @@
+[
+  [
+    "src/main/java/com/hbm/render/block/RenderConveyorLift.java",
+    35,
+    "IIcon iconConcrete = ModBlocks.concrete_smooth.getIcon(0, 0);"
+  ],
+  [
+    "src/main/java/com/hbm/render/block/RenderConveyorChute.java",
+    193,
+    "IIcon iconSteel = ModBlocks.concrete_smooth.getIcon(0, 0);"
+  ]
+]

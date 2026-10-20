@@ -1,0 +1,7 @@
+{
+  "net/minecraft/util/math/AxisAlignedBB.class": "a43248adf1787a46eb412b63d60d2b33f158011a3da3d9dfa6e01f568f7717fa",
+  "net/minecraft/tileentity/TileEntity.class": "3db45ea140f01c39aefc02f0e65e522d6117910dfadd0b7aff86c005895876c5",
+  "net/minecraft/util/math/Vec3i.class": "a6363b876c70b65d0d8929bb75aad0f0f91806388fc4c0f3ad60320bbd967d51",
+  "net/minecraft/util/math/BlockPos.class": "64dea3b52874529a2af3b449e1fd96662bc5bc7be5b80b57243228315940bc9e",
+  "net/minecraft/util/math/BlockPos$MutableBlockPos.class": "f3735197efa2cb4e2fd14cf70d247653a34475e62ab51c5206ce1f7f1a30e145"
+}

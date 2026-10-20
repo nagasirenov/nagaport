@@ -1,0 +1,371 @@
+{
+  "base": "df18fc077648dd18e6d0c1055d82c11dc2ebdb78",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "before_sha256": "a5e3baf54787788bb244109717c6c256dff2d90310f25532556bd30ca7cf885b",
+      "original_sha256": "5954b7fc9da7c00da8e2b4d874c632c9437b5470044dcc20bbdd9670d889494c",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\tprivate static final DataParameter<Integer> FLUID_ID = EntityDataManager.createKey(EntityChemical.class, DataSerializers.VARINT);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(10, new Integer(0))",
+          "after": "this.dataManager.register(FLUID_ID, new Integer(0))",
+          "before_offset": 2828,
+          "owner": "EntityChemical",
+          "key": "FLUID_ID",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "legacy_id": 10,
+          "after_offset": 3125,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before": "this.dataWatcher.updateObject(10, fluid.getID())",
+          "after": "this.dataManager.set(FLUID_ID, fluid.getID())",
+          "before_offset": 2933,
+          "owner": "EntityChemical",
+          "key": "FLUID_ID",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "legacy_id": 10,
+          "after_offset": 3235,
+          "method": "public EntityChemical setFluid(FluidType fluid) {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(FLUID_ID)",
+          "before_offset": 3055,
+          "owner": "EntityChemical",
+          "key": "FLUID_ID",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "legacy_id": 10,
+          "after_offset": 3354,
+          "method": "public FluidType getType() {"
+        }
+      ],
+      "after_sha256": "fa821e2db4392a3d7a74ab84054e7ca8486ded815791d7663e499deb49e364da",
+      "pristine_calls": [
+        "this.dataWatcher.addObject(10, new Integer(0))",
+        "this.dataWatcher.updateObject(10, fluid.getID())",
+        "this.dataWatcher.getWatchableObjectInt(10)"
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java",
+      "before_sha256": "586fc06ba1ccc97a1c34208612042ed7e7789f0d371662c6fd5161e730bb690e",
+      "original_sha256": "e12a2f0e615bc8d1effa3738ef3e486c622e16ecdfdd804a7ecea280ce502c46",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\tprivate static final DataParameter<Byte> BLOCK_METADATA = EntityDataManager.createKey(EntityFallingNuke.class, DataSerializers.BYTE);\n",
+        "\n\tpublic void setBlockMetadata(byte metadata) {\n\t\tthis.dataManager.set(BLOCK_METADATA, metadata);\n\t}\n\n\tpublic byte getBlockMetadata() {\n\t\treturn this.dataManager.get(BLOCK_METADATA);\n\t}\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(20, Byte.valueOf((byte)0))",
+          "after": "this.dataManager.register(BLOCK_METADATA, Byte.valueOf((byte)0))",
+          "before_offset": 1219,
+          "owner": "EntityFallingNuke",
+          "key": "BLOCK_METADATA",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "legacy_id": 20,
+          "after_offset": 1706,
+          "method": "protected void entityInit() {"
+        }
+      ],
+      "after_sha256": "9d839efc70efab2df0660d2026a3efb40eadcc13120f65a34d026479fc1cd576",
+      "pristine_calls": [
+        "this.dataWatcher.addObject(20, Byte.valueOf((byte)0))"
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java",
+      "before_sha256": "7116c3ad069a5c629a6b40c9d4111b71590bb2197ff92ded1d0116706c47e0f8",
+      "original_sha256": "ce5c9846583f21d1860719fac41d5dcdd92ce342d902669682718ccccb2bbbc5",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\tprivate static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityDepress.class, DataSerializers.BYTE);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.updateObject(10, (byte)dir.ordinal())",
+          "after": "this.dataManager.set(DIRECTION, (byte)dir.ordinal())",
+          "before_offset": 935,
+          "owner": "EntityDepress",
+          "key": "DIRECTION",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "legacy_id": 10,
+          "after_offset": 1227,
+          "method": "protected void setDir(ForgeDirection dir) {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(10)",
+          "after": "this.dataManager.get(DIRECTION)",
+          "before_offset": 1071,
+          "owner": "EntityDepress",
+          "key": "DIRECTION",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "legacy_id": 10,
+          "after_offset": 1361,
+          "method": "protected ForgeDirection getDir() {"
+        },
+        {
+          "before": "this.dataWatcher.addObject(10, new Byte((byte)0))",
+          "after": "this.dataManager.register(DIRECTION, new Byte((byte)0))",
+          "before_offset": 1165,
+          "owner": "EntityDepress",
+          "key": "DIRECTION",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "legacy_id": 10,
+          "after_offset": 1443,
+          "method": "protected void entityInit() {"
+        }
+      ],
+      "after_sha256": "a8b3ef266332b2b2e762012112e82813c027b3215560b34dd8b403593e26890d",
+      "pristine_calls": [
+        "this.dataWatcher.updateObject(10, (byte)dir.ordinal())",
+        "this.dataWatcher.getWatchableObjectByte(10)",
+        "this.dataWatcher.addObject(10, new Byte((byte)0))"
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "before_sha256": "96ca61bdafa17929e7c49fcc184c42a2934e16bfcdad7f8983f64fe6bdc32632",
+      "original_sha256": "35d82f536aba7024fbb1f7e72caf8bf1711d719b640c906d8f5210b0f6e25f3c",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\tprivate static final DataParameter<Float> SCALE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Integer> COLOR_TYPE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.VARINT);\n",
+        "\n\t/** Updates synchronized scale only, without resizing local simulation fields. */\n\tpublic void setSynchronizedScale(float scale) {\n\t\tthis.dataManager.set(SCALE, scale);\n\t}\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(10, new Float(1))",
+          "after": "this.dataManager.register(SCALE, new Float(1))",
+          "before_offset": 1541,
+          "owner": "EntityNukeTorex",
+          "key": "SCALE",
+          "type": "Float",
+          "serializer": "FLOAT",
+          "legacy_id": 10,
+          "after_offset": 1967,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before": "this.dataWatcher.addObject(11, new Integer(0))",
+          "after": "this.dataManager.register(COLOR_TYPE, new Integer(0))",
+          "before_offset": 1589,
+          "owner": "EntityNukeTorex",
+          "key": "COLOR_TYPE",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "legacy_id": 11,
+          "after_offset": 2017,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before": "getDataWatcher().updateObject(10, scale)",
+          "after": "getDataManager().set(SCALE, scale)",
+          "before_offset": 7799,
+          "owner": "EntityNukeTorex",
+          "key": "SCALE",
+          "type": "Float",
+          "serializer": "FLOAT",
+          "legacy_id": 10,
+          "after_offset": 8234,
+          "method": "public EntityNukeTorex setScale(float scale) {"
+        },
+        {
+          "before": "this.dataWatcher.updateObject(11, type)",
+          "after": "this.dataManager.set(COLOR_TYPE, type)",
+          "before_offset": 8126,
+          "owner": "EntityNukeTorex",
+          "key": "COLOR_TYPE",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "legacy_id": 11,
+          "after_offset": 8729,
+          "method": "public EntityNukeTorex setType(int type) {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(10)",
+          "after": "this.dataManager.get(SCALE)",
+          "before_offset": 8563,
+          "owner": "EntityNukeTorex",
+          "key": "SCALE",
+          "type": "Float",
+          "serializer": "FLOAT",
+          "legacy_id": 10,
+          "after_offset": 9165,
+          "method": "public double getScale() {"
+        },
+        {
+          "before": "EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11)",
+          "after": "EntityNukeTorex.this.dataManager.get(COLOR_TYPE)",
+          "before_offset": 17108,
+          "owner": "EntityNukeTorex",
+          "key": "COLOR_TYPE",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "legacy_id": 11,
+          "after_offset": 17693,
+          "method": "private void updateColor() {"
+        }
+      ],
+      "after_sha256": "5107687e043d295a4e46f24de2752b67d6dea288910b1798fa4d827bdd7de8cc",
+      "pristine_calls": [
+        "this.dataWatcher.addObject(10, new Float(1))",
+        "this.dataWatcher.addObject(11, new Integer(0))",
+        "getDataWatcher().updateObject(10, scale)",
+        "this.dataWatcher.updateObject(11, type)",
+        "this.dataWatcher.getWatchableObjectFloat(10)",
+        "EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11)"
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "before_sha256": "1728f0357c57a60b44ab80ff732eb3516ba7bd79c513c4d4d6e66082e5e784dc",
+      "original_sha256": "c188fe62734d8cba1a456210dca3aee921c05867729c0eb822850514619f5bf7",
+      "after_sha256": "cb984a0c2b97fdf98c04b6b3cddb8a18aea64f649a1501a5f1edd97229892304",
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "torex.getDataWatcher().updateObject(10, 1.5F)",
+          "after": "torex.setSynchronizedScale(1.5F)",
+          "before_offset": 5608,
+          "after_offset": 5608,
+          "owner": "EntityNukeTorex",
+          "key": "SCALE",
+          "type": "Float",
+          "serializer": "FLOAT",
+          "legacy_id": 10,
+          "method": "public boolean igniteTestBomb(World world, int x, int y, int z) {"
+        }
+      ],
+      "pristine_calls": [
+        "torex.getDataWatcher().updateObject(10, 1.5F)"
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "before_sha256": "010a8b4417c239460af053f9ce5d3a880e8d5d94be074c350d7293fa31fdd056",
+      "original_sha256": "0184305be69c014a38ebb9bcbc3adcc0932eb67bdf6b4b77dccf7c996e4ff48f",
+      "after_sha256": "af8d5b7265347ec2e4131c7ff326f70d3fc195dd1d67749e4e499d9ff2e512e7",
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "bomb.getDataWatcher().updateObject(20, (byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ))",
+          "after": "bomb.setBlockMetadata((byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ))",
+          "before_offset": 10248,
+          "after_offset": 10248,
+          "owner": "EntityFallingNuke",
+          "key": "BLOCK_METADATA",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "legacy_id": 20,
+          "method": "public BombReturnCode explode(World world, int x, int y, int z) {"
+        }
+      ],
+      "pristine_calls": [
+        "bomb.getDataWatcher().updateObject(20, (byte)world.getBlockMetadata(x, y, z))"
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+      "before_sha256": "28cccae8270bd32e02fb92070a6d3625f3fd5f28055b029721c4110c02af8413",
+      "original_sha256": "1e3120997890d84f56921fbc5f6d3ad89e64cfb8676b8b2c3c1080facd8fbc4e",
+      "after_sha256": "9cb6a624d7f387cc2583df9fc4160d48bbdf8e86c3892c7dcc5426130b11cd28",
+      "insertions": [
+        "import com.hbm.entity.projectile.EntityFallingNuke;\n"
+      ],
+      "transformations": [
+        {
+          "before": "p_76986_1_.getDataWatcher().getWatchableObjectByte(20)",
+          "after": "((EntityFallingNuke) p_76986_1_).getBlockMetadata()",
+          "before_offset": 989,
+          "after_offset": 1041,
+          "owner": "EntityFallingNuke",
+          "key": "BLOCK_METADATA",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "legacy_id": 20,
+          "method": "public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {"
+        }
+      ],
+      "pristine_calls": [
+        "p_76986_1_.getDataWatcher().getWatchableObjectByte(20)"
+      ]
+    }
+  ],
+  "keys": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "owner": "EntityChemical",
+      "key": "FLUID_ID",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 10,
+      "default": "new Integer(0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java",
+      "owner": "EntityFallingNuke",
+      "key": "BLOCK_METADATA",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "legacy_id": 20,
+      "default": "Byte.valueOf((byte)0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java",
+      "owner": "EntityDepress",
+      "key": "DIRECTION",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "legacy_id": 10,
+      "default": "new Byte((byte)0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "owner": "EntityNukeTorex",
+      "key": "SCALE",
+      "type": "Float",
+      "serializer": "FLOAT",
+      "legacy_id": 10,
+      "default": "new Float(1)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "owner": "EntityNukeTorex",
+      "key": "COLOR_TYPE",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 11,
+      "default": "new Integer(0)"
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityChemical",
+      "parent": "EntityThrowableNT"
+    },
+    {
+      "class_name": "EntityFallingNuke",
+      "parent": "EntityThrowable"
+    },
+    {
+      "class_name": "EntityDepress",
+      "parent": "Entity"
+    },
+    {
+      "class_name": "EntityNukeTorex",
+      "parent": "Entity"
+    }
+  ]
+}

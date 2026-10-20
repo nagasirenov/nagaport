@@ -36,7 +36,7 @@ public class ItemDiscord extends Item {
 			}
 
 			for(int i = 0; i < 32; ++i)
-				world.spawnParticle("portal", player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());
 		}
 
 		return stack;

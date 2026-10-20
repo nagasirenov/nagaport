@@ -1,0 +1,1068 @@
+{
+  "scope": "Only clean tracked byte-identical large historical compile-log copies in six inactive worktrees. Canonical main, unique/dirty/untracked files, source and all dependency caches untouched. Git sparse exclusions make exact restoration available from recorded commit.",
+  "worktrees": [
+    {
+      "path": "/workspace/shared/nagaport-equipment-reads-cp87",
+      "head": "afb2bb453d2385eaebded2e77806b7e49313d57e",
+      "files": [
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log",
+          "bytes": 8146854,
+          "sha256": "50cca6a59ded390e388a03ad3ce1949e30c39823e49a7f4b60263f27625d8619",
+          "git_blob": "f7d07f804ae5dfffd01ff569156f7572b1d24b67"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log",
+          "bytes": 6955574,
+          "sha256": "98b8824faca381d33cc282da4330d26eaf262655947a6abe34819880d8f9bfd3",
+          "git_blob": "69c743ff12aa5425007587e518826e1fb7b48301"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log",
+          "bytes": 16275549,
+          "sha256": "cc7132037da6d47a1889d51e843dcd121b2b5a721935d02767b363f4d371a944",
+          "git_blob": "cf6150d32912a603e8633810c3c0e7bad7e7b16c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log",
+          "bytes": 2184278,
+          "sha256": "efb515a6984734b4a6616785fe20149deb8117b605bccace7dc209fad9a8e7ca",
+          "git_blob": "ec8bf229ba3729449cb8aa15124b5b321ea5b8ae"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log",
+          "bytes": 11512590,
+          "sha256": "13961e486c222c2b24733a030f0c17e2483dd32c61b021f477430c9eacb31b2b",
+          "git_blob": "4ba7567af6dcd88ab6e0713199e065ed3d12b42f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log",
+          "bytes": 9995617,
+          "sha256": "1c076737297cb77bbaaf34dcd42385cea3ef88996954bceb654424f24dbd0e44",
+          "git_blob": "7f2cf9dce2eb1c5ab5a5029deb5d77a58daae487"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log",
+          "bytes": 9357520,
+          "sha256": "d4e2d80f1b0ae75b99b7635ce7a7434adce015a22e763df1b63efc19b0fdf265",
+          "git_blob": "f21aae627d160954beb24f013cdf7e0760960b66"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log",
+          "bytes": 8770910,
+          "sha256": "2b9d716d791ad70bbd60bc59a2f9c8a95f3e031cf7bbcc803bce4891517fe0c8",
+          "git_blob": "d933d5f21b20d1667bec356536bd59a189548e3f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log",
+          "bytes": 7649495,
+          "sha256": "d752bc26bc1d8d6685610fe039f3e8782668f1cb0ffff47b4407dc874fdfaf67",
+          "git_blob": "8a80a22c0c2f00c555db8d9b858429591092e5fa"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log",
+          "bytes": 7276321,
+          "sha256": "5e6c13374ac3db86b591f2d50042895f6a37bfd11c005cf6fc013a4746d30876",
+          "git_blob": "5546cdfcd44eca39dd3501a4bc398415c35c6a31"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log",
+          "bytes": 6954705,
+          "sha256": "a6d936a26b221293d3c733396d034b31cea149a79b36385a33cc94268b6c5ee9",
+          "git_blob": "8287f88e54e403e57e8942c175b851062210428b"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log",
+          "bytes": 6177642,
+          "sha256": "da456ba059fab1a9073c94b0da92654981f683338dd8aa6d1354dbda9b7eb7fa",
+          "git_blob": "764d75d760b9913472705bd2ded4d3cd47f4c233"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log",
+          "bytes": 6069672,
+          "sha256": "204c1ef0790a302a9b9b3679ea275f968963a6f8393fc4458894804a777ea01b",
+          "git_blob": "e6973ea382f9ca862a78912f5b8877740d7b9916"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log",
+          "bytes": 5874311,
+          "sha256": "a1bf6a4ed168631e78e4654f3b21198537102d8540cb00a3af45c7bfed32e122",
+          "git_blob": "43c43915b403b718681eea44fadb207b6a9ce516"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log",
+          "bytes": 5857281,
+          "sha256": "9ab2d71dbeaaa7b47f6221573c98bf9f70f0989108cab0ac1b3d395e8b71bb71",
+          "git_blob": "6b70d8458bc49a155cf75cbbc3f61be43b0cf182"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log",
+          "bytes": 5665743,
+          "sha256": "e3d02e5415905c8494e47b0de608d813c5527d948e650b2a9006ba4d77993595",
+          "git_blob": "53fb2ec7869a9fb3e641103109641900b91e96bf"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log",
+          "bytes": 5644413,
+          "sha256": "1283ea856a801bf5ac5444b867afb756cb46a8077c63c5b95cbdb017f4b87909",
+          "git_blob": "5332ee261e5a926fb415a28be78bcae3146c629c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log",
+          "bytes": 5530301,
+          "sha256": "591f9d976019990d21d08ca585ce5467ebd930df444671a6c2ea463559f0a16e",
+          "git_blob": "ecaabfff2613ce96f5f36632488b4122c3f90acb"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log",
+          "bytes": 5451928,
+          "sha256": "41e54479ce35bbfccf3c7123f15e057588d4d2bf528a162e906cd7d85115b141",
+          "git_blob": "d1e2e8a9dff5660a3ab5d63fd5c3ab0b9ecd9fa4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log",
+          "bytes": 5396482,
+          "sha256": "dbf6368dc764af1d181a934995152d79de19257da825d4cc45038ef83b32937f",
+          "git_blob": "61db397dde9be9af434d3ba900de3d68b916e267"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log",
+          "bytes": 5304269,
+          "sha256": "ab0e3347c53c4845623c46305f62d9669deae1d250c4fe5d16f16f6820522435",
+          "git_blob": "cc0d56ef1f558ad58501d41e8df3e192989081e4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log",
+          "bytes": 5261142,
+          "sha256": "3a1b8d10b7feba1371dafb58afbc261c9c46a461b2a173927b4616a2bf7acda4",
+          "git_blob": "29debfbfd626e6d083d66ea876ecc512648a2bbe"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log",
+          "bytes": 5219992,
+          "sha256": "a85e0ed816abffa17d630e7d5a8fd95719e0f7fcbd8e5ab7efacc263e9343557",
+          "git_blob": "0092c1d9361a146ccabf5b809b92b2e4545767b3"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log",
+          "bytes": 5032504,
+          "sha256": "a96ee95670c345b6d5a18e5935f6837216cf58ad7214d73a87d169708081df0d",
+          "git_blob": "d0b272f40b651c315d817ca77de023a0b7fca4e8"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log",
+          "bytes": 4980575,
+          "sha256": "e2f96455e1dd6fe5839fe0a92d99cc7dcd8f0beb542cf610432106ae02dfcb05",
+          "git_blob": "a8710b25eb38823aaf563054ebc82098371cc952"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log",
+          "bytes": 4940991,
+          "sha256": "9a4b81ca8a88a7f418e232ba226795715fe7b28d78bbcc72e4a7d7fb61c1d05c",
+          "git_blob": "c0d22d8246d89998a15dd2ddefd34fac02812d9f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log",
+          "bytes": 4828231,
+          "sha256": "c25a02fbbb918ac37588a51225d2f6e47140b145e79ec3a79b3af3c95380c7e2",
+          "git_blob": "fbafbd7a9ce2402fcb01a00d222aafd9b5b8b59c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log",
+          "bytes": 4787536,
+          "sha256": "3cedb67b9c56b28c0ec38226dcd5951633e10e1ecff2a1f7a4a061d482c0b9b0",
+          "git_blob": "af88a0f57ea49a922514c1780b8f8c1613e0a613"
+        }
+      ],
+      "before_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n",
+      "after_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log\n",
+      "bytes": 187102426
+    },
+    {
+      "path": "/workspace/shared/nagaport-equipment-writes-cp87",
+      "head": "d7f44e52b0e84889d36f353d0054a119718101de",
+      "files": [
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log",
+          "bytes": 8146854,
+          "sha256": "50cca6a59ded390e388a03ad3ce1949e30c39823e49a7f4b60263f27625d8619",
+          "git_blob": "f7d07f804ae5dfffd01ff569156f7572b1d24b67"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log",
+          "bytes": 6955574,
+          "sha256": "98b8824faca381d33cc282da4330d26eaf262655947a6abe34819880d8f9bfd3",
+          "git_blob": "69c743ff12aa5425007587e518826e1fb7b48301"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log",
+          "bytes": 16275549,
+          "sha256": "cc7132037da6d47a1889d51e843dcd121b2b5a721935d02767b363f4d371a944",
+          "git_blob": "cf6150d32912a603e8633810c3c0e7bad7e7b16c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log",
+          "bytes": 2184278,
+          "sha256": "efb515a6984734b4a6616785fe20149deb8117b605bccace7dc209fad9a8e7ca",
+          "git_blob": "ec8bf229ba3729449cb8aa15124b5b321ea5b8ae"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log",
+          "bytes": 11512590,
+          "sha256": "13961e486c222c2b24733a030f0c17e2483dd32c61b021f477430c9eacb31b2b",
+          "git_blob": "4ba7567af6dcd88ab6e0713199e065ed3d12b42f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log",
+          "bytes": 9995617,
+          "sha256": "1c076737297cb77bbaaf34dcd42385cea3ef88996954bceb654424f24dbd0e44",
+          "git_blob": "7f2cf9dce2eb1c5ab5a5029deb5d77a58daae487"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log",
+          "bytes": 9357520,
+          "sha256": "d4e2d80f1b0ae75b99b7635ce7a7434adce015a22e763df1b63efc19b0fdf265",
+          "git_blob": "f21aae627d160954beb24f013cdf7e0760960b66"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log",
+          "bytes": 8770910,
+          "sha256": "2b9d716d791ad70bbd60bc59a2f9c8a95f3e031cf7bbcc803bce4891517fe0c8",
+          "git_blob": "d933d5f21b20d1667bec356536bd59a189548e3f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log",
+          "bytes": 7649495,
+          "sha256": "d752bc26bc1d8d6685610fe039f3e8782668f1cb0ffff47b4407dc874fdfaf67",
+          "git_blob": "8a80a22c0c2f00c555db8d9b858429591092e5fa"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log",
+          "bytes": 7276321,
+          "sha256": "5e6c13374ac3db86b591f2d50042895f6a37bfd11c005cf6fc013a4746d30876",
+          "git_blob": "5546cdfcd44eca39dd3501a4bc398415c35c6a31"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log",
+          "bytes": 6954705,
+          "sha256": "a6d936a26b221293d3c733396d034b31cea149a79b36385a33cc94268b6c5ee9",
+          "git_blob": "8287f88e54e403e57e8942c175b851062210428b"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log",
+          "bytes": 6177642,
+          "sha256": "da456ba059fab1a9073c94b0da92654981f683338dd8aa6d1354dbda9b7eb7fa",
+          "git_blob": "764d75d760b9913472705bd2ded4d3cd47f4c233"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log",
+          "bytes": 6069672,
+          "sha256": "204c1ef0790a302a9b9b3679ea275f968963a6f8393fc4458894804a777ea01b",
+          "git_blob": "e6973ea382f9ca862a78912f5b8877740d7b9916"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log",
+          "bytes": 5874311,
+          "sha256": "a1bf6a4ed168631e78e4654f3b21198537102d8540cb00a3af45c7bfed32e122",
+          "git_blob": "43c43915b403b718681eea44fadb207b6a9ce516"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log",
+          "bytes": 5857281,
+          "sha256": "9ab2d71dbeaaa7b47f6221573c98bf9f70f0989108cab0ac1b3d395e8b71bb71",
+          "git_blob": "6b70d8458bc49a155cf75cbbc3f61be43b0cf182"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log",
+          "bytes": 5665743,
+          "sha256": "e3d02e5415905c8494e47b0de608d813c5527d948e650b2a9006ba4d77993595",
+          "git_blob": "53fb2ec7869a9fb3e641103109641900b91e96bf"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log",
+          "bytes": 5644413,
+          "sha256": "1283ea856a801bf5ac5444b867afb756cb46a8077c63c5b95cbdb017f4b87909",
+          "git_blob": "5332ee261e5a926fb415a28be78bcae3146c629c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log",
+          "bytes": 5530301,
+          "sha256": "591f9d976019990d21d08ca585ce5467ebd930df444671a6c2ea463559f0a16e",
+          "git_blob": "ecaabfff2613ce96f5f36632488b4122c3f90acb"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log",
+          "bytes": 5451928,
+          "sha256": "41e54479ce35bbfccf3c7123f15e057588d4d2bf528a162e906cd7d85115b141",
+          "git_blob": "d1e2e8a9dff5660a3ab5d63fd5c3ab0b9ecd9fa4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log",
+          "bytes": 5396482,
+          "sha256": "dbf6368dc764af1d181a934995152d79de19257da825d4cc45038ef83b32937f",
+          "git_blob": "61db397dde9be9af434d3ba900de3d68b916e267"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log",
+          "bytes": 5304269,
+          "sha256": "ab0e3347c53c4845623c46305f62d9669deae1d250c4fe5d16f16f6820522435",
+          "git_blob": "cc0d56ef1f558ad58501d41e8df3e192989081e4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log",
+          "bytes": 5261142,
+          "sha256": "3a1b8d10b7feba1371dafb58afbc261c9c46a461b2a173927b4616a2bf7acda4",
+          "git_blob": "29debfbfd626e6d083d66ea876ecc512648a2bbe"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log",
+          "bytes": 5219992,
+          "sha256": "a85e0ed816abffa17d630e7d5a8fd95719e0f7fcbd8e5ab7efacc263e9343557",
+          "git_blob": "0092c1d9361a146ccabf5b809b92b2e4545767b3"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log",
+          "bytes": 5032504,
+          "sha256": "a96ee95670c345b6d5a18e5935f6837216cf58ad7214d73a87d169708081df0d",
+          "git_blob": "d0b272f40b651c315d817ca77de023a0b7fca4e8"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log",
+          "bytes": 4980575,
+          "sha256": "e2f96455e1dd6fe5839fe0a92d99cc7dcd8f0beb542cf610432106ae02dfcb05",
+          "git_blob": "a8710b25eb38823aaf563054ebc82098371cc952"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log",
+          "bytes": 4940991,
+          "sha256": "9a4b81ca8a88a7f418e232ba226795715fe7b28d78bbcc72e4a7d7fb61c1d05c",
+          "git_blob": "c0d22d8246d89998a15dd2ddefd34fac02812d9f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log",
+          "bytes": 4828231,
+          "sha256": "c25a02fbbb918ac37588a51225d2f6e47140b145e79ec3a79b3af3c95380c7e2",
+          "git_blob": "fbafbd7a9ce2402fcb01a00d222aafd9b5b8b59c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log",
+          "bytes": 4787536,
+          "sha256": "3cedb67b9c56b28c0ec38226dcd5951633e10e1ecff2a1f7a4a061d482c0b9b0",
+          "git_blob": "af88a0f57ea49a922514c1780b8f8c1613e0a613"
+        }
+      ],
+      "before_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n",
+      "after_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log\n",
+      "bytes": 187102426
+    },
+    {
+      "path": "/workspace/shared/nagaport-player-updates-cp89",
+      "head": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+      "files": [
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log",
+          "bytes": 8146854,
+          "sha256": "50cca6a59ded390e388a03ad3ce1949e30c39823e49a7f4b60263f27625d8619",
+          "git_blob": "f7d07f804ae5dfffd01ff569156f7572b1d24b67"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log",
+          "bytes": 6955574,
+          "sha256": "98b8824faca381d33cc282da4330d26eaf262655947a6abe34819880d8f9bfd3",
+          "git_blob": "69c743ff12aa5425007587e518826e1fb7b48301"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log",
+          "bytes": 16275549,
+          "sha256": "cc7132037da6d47a1889d51e843dcd121b2b5a721935d02767b363f4d371a944",
+          "git_blob": "cf6150d32912a603e8633810c3c0e7bad7e7b16c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log",
+          "bytes": 2184278,
+          "sha256": "efb515a6984734b4a6616785fe20149deb8117b605bccace7dc209fad9a8e7ca",
+          "git_blob": "ec8bf229ba3729449cb8aa15124b5b321ea5b8ae"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log",
+          "bytes": 11512590,
+          "sha256": "13961e486c222c2b24733a030f0c17e2483dd32c61b021f477430c9eacb31b2b",
+          "git_blob": "4ba7567af6dcd88ab6e0713199e065ed3d12b42f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log",
+          "bytes": 9995617,
+          "sha256": "1c076737297cb77bbaaf34dcd42385cea3ef88996954bceb654424f24dbd0e44",
+          "git_blob": "7f2cf9dce2eb1c5ab5a5029deb5d77a58daae487"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log",
+          "bytes": 9357520,
+          "sha256": "d4e2d80f1b0ae75b99b7635ce7a7434adce015a22e763df1b63efc19b0fdf265",
+          "git_blob": "f21aae627d160954beb24f013cdf7e0760960b66"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log",
+          "bytes": 8770910,
+          "sha256": "2b9d716d791ad70bbd60bc59a2f9c8a95f3e031cf7bbcc803bce4891517fe0c8",
+          "git_blob": "d933d5f21b20d1667bec356536bd59a189548e3f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log",
+          "bytes": 7649495,
+          "sha256": "d752bc26bc1d8d6685610fe039f3e8782668f1cb0ffff47b4407dc874fdfaf67",
+          "git_blob": "8a80a22c0c2f00c555db8d9b858429591092e5fa"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log",
+          "bytes": 7276321,
+          "sha256": "5e6c13374ac3db86b591f2d50042895f6a37bfd11c005cf6fc013a4746d30876",
+          "git_blob": "5546cdfcd44eca39dd3501a4bc398415c35c6a31"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log",
+          "bytes": 6954705,
+          "sha256": "a6d936a26b221293d3c733396d034b31cea149a79b36385a33cc94268b6c5ee9",
+          "git_blob": "8287f88e54e403e57e8942c175b851062210428b"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log",
+          "bytes": 6177642,
+          "sha256": "da456ba059fab1a9073c94b0da92654981f683338dd8aa6d1354dbda9b7eb7fa",
+          "git_blob": "764d75d760b9913472705bd2ded4d3cd47f4c233"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log",
+          "bytes": 6069672,
+          "sha256": "204c1ef0790a302a9b9b3679ea275f968963a6f8393fc4458894804a777ea01b",
+          "git_blob": "e6973ea382f9ca862a78912f5b8877740d7b9916"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log",
+          "bytes": 5874311,
+          "sha256": "a1bf6a4ed168631e78e4654f3b21198537102d8540cb00a3af45c7bfed32e122",
+          "git_blob": "43c43915b403b718681eea44fadb207b6a9ce516"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log",
+          "bytes": 5857281,
+          "sha256": "9ab2d71dbeaaa7b47f6221573c98bf9f70f0989108cab0ac1b3d395e8b71bb71",
+          "git_blob": "6b70d8458bc49a155cf75cbbc3f61be43b0cf182"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log",
+          "bytes": 5665743,
+          "sha256": "e3d02e5415905c8494e47b0de608d813c5527d948e650b2a9006ba4d77993595",
+          "git_blob": "53fb2ec7869a9fb3e641103109641900b91e96bf"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log",
+          "bytes": 5644413,
+          "sha256": "1283ea856a801bf5ac5444b867afb756cb46a8077c63c5b95cbdb017f4b87909",
+          "git_blob": "5332ee261e5a926fb415a28be78bcae3146c629c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log",
+          "bytes": 5530301,
+          "sha256": "591f9d976019990d21d08ca585ce5467ebd930df444671a6c2ea463559f0a16e",
+          "git_blob": "ecaabfff2613ce96f5f36632488b4122c3f90acb"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log",
+          "bytes": 5451928,
+          "sha256": "41e54479ce35bbfccf3c7123f15e057588d4d2bf528a162e906cd7d85115b141",
+          "git_blob": "d1e2e8a9dff5660a3ab5d63fd5c3ab0b9ecd9fa4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log",
+          "bytes": 5396482,
+          "sha256": "dbf6368dc764af1d181a934995152d79de19257da825d4cc45038ef83b32937f",
+          "git_blob": "61db397dde9be9af434d3ba900de3d68b916e267"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log",
+          "bytes": 5304269,
+          "sha256": "ab0e3347c53c4845623c46305f62d9669deae1d250c4fe5d16f16f6820522435",
+          "git_blob": "cc0d56ef1f558ad58501d41e8df3e192989081e4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log",
+          "bytes": 5261142,
+          "sha256": "3a1b8d10b7feba1371dafb58afbc261c9c46a461b2a173927b4616a2bf7acda4",
+          "git_blob": "29debfbfd626e6d083d66ea876ecc512648a2bbe"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log",
+          "bytes": 5219992,
+          "sha256": "a85e0ed816abffa17d630e7d5a8fd95719e0f7fcbd8e5ab7efacc263e9343557",
+          "git_blob": "0092c1d9361a146ccabf5b809b92b2e4545767b3"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log",
+          "bytes": 5032504,
+          "sha256": "a96ee95670c345b6d5a18e5935f6837216cf58ad7214d73a87d169708081df0d",
+          "git_blob": "d0b272f40b651c315d817ca77de023a0b7fca4e8"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log",
+          "bytes": 4980575,
+          "sha256": "e2f96455e1dd6fe5839fe0a92d99cc7dcd8f0beb542cf610432106ae02dfcb05",
+          "git_blob": "a8710b25eb38823aaf563054ebc82098371cc952"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log",
+          "bytes": 4940991,
+          "sha256": "9a4b81ca8a88a7f418e232ba226795715fe7b28d78bbcc72e4a7d7fb61c1d05c",
+          "git_blob": "c0d22d8246d89998a15dd2ddefd34fac02812d9f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log",
+          "bytes": 4828231,
+          "sha256": "c25a02fbbb918ac37588a51225d2f6e47140b145e79ec3a79b3af3c95380c7e2",
+          "git_blob": "fbafbd7a9ce2402fcb01a00d222aafd9b5b8b59c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log",
+          "bytes": 4787536,
+          "sha256": "3cedb67b9c56b28c0ec38226dcd5951633e10e1ecff2a1f7a4a061d482c0b9b0",
+          "git_blob": "af88a0f57ea49a922514c1780b8f8c1613e0a613"
+        }
+      ],
+      "before_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/src/\n!/ntm-port-1.12.2/src/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/main/\n",
+      "after_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/src/\n!/ntm-port-1.12.2/src/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/main/\n\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log\n",
+      "bytes": 187102426
+    },
+    {
+      "path": "/workspace/shared/nagaport-cp90-armor-slots",
+      "head": "42dea8e6e3241d0c4ce4ba9c5459fab2bdfdc99b",
+      "files": [
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log",
+          "bytes": 8146854,
+          "sha256": "50cca6a59ded390e388a03ad3ce1949e30c39823e49a7f4b60263f27625d8619",
+          "git_blob": "f7d07f804ae5dfffd01ff569156f7572b1d24b67"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log",
+          "bytes": 6955574,
+          "sha256": "98b8824faca381d33cc282da4330d26eaf262655947a6abe34819880d8f9bfd3",
+          "git_blob": "69c743ff12aa5425007587e518826e1fb7b48301"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log",
+          "bytes": 16275549,
+          "sha256": "cc7132037da6d47a1889d51e843dcd121b2b5a721935d02767b363f4d371a944",
+          "git_blob": "cf6150d32912a603e8633810c3c0e7bad7e7b16c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log",
+          "bytes": 2184278,
+          "sha256": "efb515a6984734b4a6616785fe20149deb8117b605bccace7dc209fad9a8e7ca",
+          "git_blob": "ec8bf229ba3729449cb8aa15124b5b321ea5b8ae"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log",
+          "bytes": 11512590,
+          "sha256": "13961e486c222c2b24733a030f0c17e2483dd32c61b021f477430c9eacb31b2b",
+          "git_blob": "4ba7567af6dcd88ab6e0713199e065ed3d12b42f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log",
+          "bytes": 9995617,
+          "sha256": "1c076737297cb77bbaaf34dcd42385cea3ef88996954bceb654424f24dbd0e44",
+          "git_blob": "7f2cf9dce2eb1c5ab5a5029deb5d77a58daae487"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log",
+          "bytes": 9357520,
+          "sha256": "d4e2d80f1b0ae75b99b7635ce7a7434adce015a22e763df1b63efc19b0fdf265",
+          "git_blob": "f21aae627d160954beb24f013cdf7e0760960b66"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log",
+          "bytes": 8770910,
+          "sha256": "2b9d716d791ad70bbd60bc59a2f9c8a95f3e031cf7bbcc803bce4891517fe0c8",
+          "git_blob": "d933d5f21b20d1667bec356536bd59a189548e3f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log",
+          "bytes": 7649495,
+          "sha256": "d752bc26bc1d8d6685610fe039f3e8782668f1cb0ffff47b4407dc874fdfaf67",
+          "git_blob": "8a80a22c0c2f00c555db8d9b858429591092e5fa"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log",
+          "bytes": 7276321,
+          "sha256": "5e6c13374ac3db86b591f2d50042895f6a37bfd11c005cf6fc013a4746d30876",
+          "git_blob": "5546cdfcd44eca39dd3501a4bc398415c35c6a31"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log",
+          "bytes": 6954705,
+          "sha256": "a6d936a26b221293d3c733396d034b31cea149a79b36385a33cc94268b6c5ee9",
+          "git_blob": "8287f88e54e403e57e8942c175b851062210428b"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log",
+          "bytes": 6177642,
+          "sha256": "da456ba059fab1a9073c94b0da92654981f683338dd8aa6d1354dbda9b7eb7fa",
+          "git_blob": "764d75d760b9913472705bd2ded4d3cd47f4c233"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log",
+          "bytes": 6069672,
+          "sha256": "204c1ef0790a302a9b9b3679ea275f968963a6f8393fc4458894804a777ea01b",
+          "git_blob": "e6973ea382f9ca862a78912f5b8877740d7b9916"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log",
+          "bytes": 5874311,
+          "sha256": "a1bf6a4ed168631e78e4654f3b21198537102d8540cb00a3af45c7bfed32e122",
+          "git_blob": "43c43915b403b718681eea44fadb207b6a9ce516"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log",
+          "bytes": 5857281,
+          "sha256": "9ab2d71dbeaaa7b47f6221573c98bf9f70f0989108cab0ac1b3d395e8b71bb71",
+          "git_blob": "6b70d8458bc49a155cf75cbbc3f61be43b0cf182"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log",
+          "bytes": 5665743,
+          "sha256": "e3d02e5415905c8494e47b0de608d813c5527d948e650b2a9006ba4d77993595",
+          "git_blob": "53fb2ec7869a9fb3e641103109641900b91e96bf"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log",
+          "bytes": 5644413,
+          "sha256": "1283ea856a801bf5ac5444b867afb756cb46a8077c63c5b95cbdb017f4b87909",
+          "git_blob": "5332ee261e5a926fb415a28be78bcae3146c629c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log",
+          "bytes": 5530301,
+          "sha256": "591f9d976019990d21d08ca585ce5467ebd930df444671a6c2ea463559f0a16e",
+          "git_blob": "ecaabfff2613ce96f5f36632488b4122c3f90acb"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log",
+          "bytes": 5451928,
+          "sha256": "41e54479ce35bbfccf3c7123f15e057588d4d2bf528a162e906cd7d85115b141",
+          "git_blob": "d1e2e8a9dff5660a3ab5d63fd5c3ab0b9ecd9fa4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log",
+          "bytes": 5396482,
+          "sha256": "dbf6368dc764af1d181a934995152d79de19257da825d4cc45038ef83b32937f",
+          "git_blob": "61db397dde9be9af434d3ba900de3d68b916e267"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log",
+          "bytes": 5304269,
+          "sha256": "ab0e3347c53c4845623c46305f62d9669deae1d250c4fe5d16f16f6820522435",
+          "git_blob": "cc0d56ef1f558ad58501d41e8df3e192989081e4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log",
+          "bytes": 5261142,
+          "sha256": "3a1b8d10b7feba1371dafb58afbc261c9c46a461b2a173927b4616a2bf7acda4",
+          "git_blob": "29debfbfd626e6d083d66ea876ecc512648a2bbe"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log",
+          "bytes": 5219992,
+          "sha256": "a85e0ed816abffa17d630e7d5a8fd95719e0f7fcbd8e5ab7efacc263e9343557",
+          "git_blob": "0092c1d9361a146ccabf5b809b92b2e4545767b3"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log",
+          "bytes": 5032504,
+          "sha256": "a96ee95670c345b6d5a18e5935f6837216cf58ad7214d73a87d169708081df0d",
+          "git_blob": "d0b272f40b651c315d817ca77de023a0b7fca4e8"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log",
+          "bytes": 4980575,
+          "sha256": "e2f96455e1dd6fe5839fe0a92d99cc7dcd8f0beb542cf610432106ae02dfcb05",
+          "git_blob": "a8710b25eb38823aaf563054ebc82098371cc952"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log",
+          "bytes": 4940991,
+          "sha256": "9a4b81ca8a88a7f418e232ba226795715fe7b28d78bbcc72e4a7d7fb61c1d05c",
+          "git_blob": "c0d22d8246d89998a15dd2ddefd34fac02812d9f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log",
+          "bytes": 4828231,
+          "sha256": "c25a02fbbb918ac37588a51225d2f6e47140b145e79ec3a79b3af3c95380c7e2",
+          "git_blob": "fbafbd7a9ce2402fcb01a00d222aafd9b5b8b59c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log",
+          "bytes": 4787536,
+          "sha256": "3cedb67b9c56b28c0ec38226dcd5951633e10e1ecff2a1f7a4a061d482c0b9b0",
+          "git_blob": "af88a0f57ea49a922514c1780b8f8c1613e0a613"
+        }
+      ],
+      "before_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n",
+      "after_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log\n",
+      "bytes": 187102426
+    },
+    {
+      "path": "/workspace/shared/nagaport-cp91-armor-attributes",
+      "head": "0be133c9fb9f07053e26f081371487e641c95214",
+      "files": [
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log",
+          "bytes": 8146854,
+          "sha256": "50cca6a59ded390e388a03ad3ce1949e30c39823e49a7f4b60263f27625d8619",
+          "git_blob": "f7d07f804ae5dfffd01ff569156f7572b1d24b67"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log",
+          "bytes": 6955574,
+          "sha256": "98b8824faca381d33cc282da4330d26eaf262655947a6abe34819880d8f9bfd3",
+          "git_blob": "69c743ff12aa5425007587e518826e1fb7b48301"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log",
+          "bytes": 16275549,
+          "sha256": "cc7132037da6d47a1889d51e843dcd121b2b5a721935d02767b363f4d371a944",
+          "git_blob": "cf6150d32912a603e8633810c3c0e7bad7e7b16c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log",
+          "bytes": 2184278,
+          "sha256": "efb515a6984734b4a6616785fe20149deb8117b605bccace7dc209fad9a8e7ca",
+          "git_blob": "ec8bf229ba3729449cb8aa15124b5b321ea5b8ae"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log",
+          "bytes": 11512590,
+          "sha256": "13961e486c222c2b24733a030f0c17e2483dd32c61b021f477430c9eacb31b2b",
+          "git_blob": "4ba7567af6dcd88ab6e0713199e065ed3d12b42f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log",
+          "bytes": 9995617,
+          "sha256": "1c076737297cb77bbaaf34dcd42385cea3ef88996954bceb654424f24dbd0e44",
+          "git_blob": "7f2cf9dce2eb1c5ab5a5029deb5d77a58daae487"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log",
+          "bytes": 9357520,
+          "sha256": "d4e2d80f1b0ae75b99b7635ce7a7434adce015a22e763df1b63efc19b0fdf265",
+          "git_blob": "f21aae627d160954beb24f013cdf7e0760960b66"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log",
+          "bytes": 8770910,
+          "sha256": "2b9d716d791ad70bbd60bc59a2f9c8a95f3e031cf7bbcc803bce4891517fe0c8",
+          "git_blob": "d933d5f21b20d1667bec356536bd59a189548e3f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log",
+          "bytes": 7649495,
+          "sha256": "d752bc26bc1d8d6685610fe039f3e8782668f1cb0ffff47b4407dc874fdfaf67",
+          "git_blob": "8a80a22c0c2f00c555db8d9b858429591092e5fa"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log",
+          "bytes": 7276321,
+          "sha256": "5e6c13374ac3db86b591f2d50042895f6a37bfd11c005cf6fc013a4746d30876",
+          "git_blob": "5546cdfcd44eca39dd3501a4bc398415c35c6a31"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log",
+          "bytes": 6954705,
+          "sha256": "a6d936a26b221293d3c733396d034b31cea149a79b36385a33cc94268b6c5ee9",
+          "git_blob": "8287f88e54e403e57e8942c175b851062210428b"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log",
+          "bytes": 6177642,
+          "sha256": "da456ba059fab1a9073c94b0da92654981f683338dd8aa6d1354dbda9b7eb7fa",
+          "git_blob": "764d75d760b9913472705bd2ded4d3cd47f4c233"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log",
+          "bytes": 6069672,
+          "sha256": "204c1ef0790a302a9b9b3679ea275f968963a6f8393fc4458894804a777ea01b",
+          "git_blob": "e6973ea382f9ca862a78912f5b8877740d7b9916"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log",
+          "bytes": 5874311,
+          "sha256": "a1bf6a4ed168631e78e4654f3b21198537102d8540cb00a3af45c7bfed32e122",
+          "git_blob": "43c43915b403b718681eea44fadb207b6a9ce516"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log",
+          "bytes": 5857281,
+          "sha256": "9ab2d71dbeaaa7b47f6221573c98bf9f70f0989108cab0ac1b3d395e8b71bb71",
+          "git_blob": "6b70d8458bc49a155cf75cbbc3f61be43b0cf182"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log",
+          "bytes": 5665743,
+          "sha256": "e3d02e5415905c8494e47b0de608d813c5527d948e650b2a9006ba4d77993595",
+          "git_blob": "53fb2ec7869a9fb3e641103109641900b91e96bf"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log",
+          "bytes": 5644413,
+          "sha256": "1283ea856a801bf5ac5444b867afb756cb46a8077c63c5b95cbdb017f4b87909",
+          "git_blob": "5332ee261e5a926fb415a28be78bcae3146c629c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log",
+          "bytes": 5530301,
+          "sha256": "591f9d976019990d21d08ca585ce5467ebd930df444671a6c2ea463559f0a16e",
+          "git_blob": "ecaabfff2613ce96f5f36632488b4122c3f90acb"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log",
+          "bytes": 5451928,
+          "sha256": "41e54479ce35bbfccf3c7123f15e057588d4d2bf528a162e906cd7d85115b141",
+          "git_blob": "d1e2e8a9dff5660a3ab5d63fd5c3ab0b9ecd9fa4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log",
+          "bytes": 5396482,
+          "sha256": "dbf6368dc764af1d181a934995152d79de19257da825d4cc45038ef83b32937f",
+          "git_blob": "61db397dde9be9af434d3ba900de3d68b916e267"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log",
+          "bytes": 5304269,
+          "sha256": "ab0e3347c53c4845623c46305f62d9669deae1d250c4fe5d16f16f6820522435",
+          "git_blob": "cc0d56ef1f558ad58501d41e8df3e192989081e4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log",
+          "bytes": 5261142,
+          "sha256": "3a1b8d10b7feba1371dafb58afbc261c9c46a461b2a173927b4616a2bf7acda4",
+          "git_blob": "29debfbfd626e6d083d66ea876ecc512648a2bbe"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log",
+          "bytes": 5219992,
+          "sha256": "a85e0ed816abffa17d630e7d5a8fd95719e0f7fcbd8e5ab7efacc263e9343557",
+          "git_blob": "0092c1d9361a146ccabf5b809b92b2e4545767b3"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log",
+          "bytes": 5032504,
+          "sha256": "a96ee95670c345b6d5a18e5935f6837216cf58ad7214d73a87d169708081df0d",
+          "git_blob": "d0b272f40b651c315d817ca77de023a0b7fca4e8"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log",
+          "bytes": 4980575,
+          "sha256": "e2f96455e1dd6fe5839fe0a92d99cc7dcd8f0beb542cf610432106ae02dfcb05",
+          "git_blob": "a8710b25eb38823aaf563054ebc82098371cc952"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log",
+          "bytes": 4940991,
+          "sha256": "9a4b81ca8a88a7f418e232ba226795715fe7b28d78bbcc72e4a7d7fb61c1d05c",
+          "git_blob": "c0d22d8246d89998a15dd2ddefd34fac02812d9f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log",
+          "bytes": 4828231,
+          "sha256": "c25a02fbbb918ac37588a51225d2f6e47140b145e79ec3a79b3af3c95380c7e2",
+          "git_blob": "fbafbd7a9ce2402fcb01a00d222aafd9b5b8b59c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log",
+          "bytes": 4787536,
+          "sha256": "3cedb67b9c56b28c0ec38226dcd5951633e10e1ecff2a1f7a4a061d482c0b9b0",
+          "git_blob": "af88a0f57ea49a922514c1780b8f8c1613e0a613"
+        }
+      ],
+      "before_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n",
+      "after_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log\n",
+      "bytes": 187102426
+    },
+    {
+      "path": "/workspace/shared/nagaport-cp92-tool-attributes",
+      "head": "f5ce86cd607379cc9810896cf91d1fee86ce6331",
+      "files": [
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log",
+          "bytes": 8146854,
+          "sha256": "50cca6a59ded390e388a03ad3ce1949e30c39823e49a7f4b60263f27625d8619",
+          "git_blob": "f7d07f804ae5dfffd01ff569156f7572b1d24b67"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log",
+          "bytes": 6955574,
+          "sha256": "98b8824faca381d33cc282da4330d26eaf262655947a6abe34819880d8f9bfd3",
+          "git_blob": "69c743ff12aa5425007587e518826e1fb7b48301"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log",
+          "bytes": 16275549,
+          "sha256": "cc7132037da6d47a1889d51e843dcd121b2b5a721935d02767b363f4d371a944",
+          "git_blob": "cf6150d32912a603e8633810c3c0e7bad7e7b16c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log",
+          "bytes": 2184278,
+          "sha256": "efb515a6984734b4a6616785fe20149deb8117b605bccace7dc209fad9a8e7ca",
+          "git_blob": "ec8bf229ba3729449cb8aa15124b5b321ea5b8ae"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log",
+          "bytes": 11512590,
+          "sha256": "13961e486c222c2b24733a030f0c17e2483dd32c61b021f477430c9eacb31b2b",
+          "git_blob": "4ba7567af6dcd88ab6e0713199e065ed3d12b42f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log",
+          "bytes": 9995617,
+          "sha256": "1c076737297cb77bbaaf34dcd42385cea3ef88996954bceb654424f24dbd0e44",
+          "git_blob": "7f2cf9dce2eb1c5ab5a5029deb5d77a58daae487"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log",
+          "bytes": 9357520,
+          "sha256": "d4e2d80f1b0ae75b99b7635ce7a7434adce015a22e763df1b63efc19b0fdf265",
+          "git_blob": "f21aae627d160954beb24f013cdf7e0760960b66"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log",
+          "bytes": 8770910,
+          "sha256": "2b9d716d791ad70bbd60bc59a2f9c8a95f3e031cf7bbcc803bce4891517fe0c8",
+          "git_blob": "d933d5f21b20d1667bec356536bd59a189548e3f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log",
+          "bytes": 7649495,
+          "sha256": "d752bc26bc1d8d6685610fe039f3e8782668f1cb0ffff47b4407dc874fdfaf67",
+          "git_blob": "8a80a22c0c2f00c555db8d9b858429591092e5fa"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log",
+          "bytes": 7276321,
+          "sha256": "5e6c13374ac3db86b591f2d50042895f6a37bfd11c005cf6fc013a4746d30876",
+          "git_blob": "5546cdfcd44eca39dd3501a4bc398415c35c6a31"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log",
+          "bytes": 6954705,
+          "sha256": "a6d936a26b221293d3c733396d034b31cea149a79b36385a33cc94268b6c5ee9",
+          "git_blob": "8287f88e54e403e57e8942c175b851062210428b"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log",
+          "bytes": 6177642,
+          "sha256": "da456ba059fab1a9073c94b0da92654981f683338dd8aa6d1354dbda9b7eb7fa",
+          "git_blob": "764d75d760b9913472705bd2ded4d3cd47f4c233"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log",
+          "bytes": 6069672,
+          "sha256": "204c1ef0790a302a9b9b3679ea275f968963a6f8393fc4458894804a777ea01b",
+          "git_blob": "e6973ea382f9ca862a78912f5b8877740d7b9916"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log",
+          "bytes": 5874311,
+          "sha256": "a1bf6a4ed168631e78e4654f3b21198537102d8540cb00a3af45c7bfed32e122",
+          "git_blob": "43c43915b403b718681eea44fadb207b6a9ce516"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log",
+          "bytes": 5857281,
+          "sha256": "9ab2d71dbeaaa7b47f6221573c98bf9f70f0989108cab0ac1b3d395e8b71bb71",
+          "git_blob": "6b70d8458bc49a155cf75cbbc3f61be43b0cf182"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log",
+          "bytes": 5665743,
+          "sha256": "e3d02e5415905c8494e47b0de608d813c5527d948e650b2a9006ba4d77993595",
+          "git_blob": "53fb2ec7869a9fb3e641103109641900b91e96bf"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log",
+          "bytes": 5644413,
+          "sha256": "1283ea856a801bf5ac5444b867afb756cb46a8077c63c5b95cbdb017f4b87909",
+          "git_blob": "5332ee261e5a926fb415a28be78bcae3146c629c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log",
+          "bytes": 5530301,
+          "sha256": "591f9d976019990d21d08ca585ce5467ebd930df444671a6c2ea463559f0a16e",
+          "git_blob": "ecaabfff2613ce96f5f36632488b4122c3f90acb"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log",
+          "bytes": 5451928,
+          "sha256": "41e54479ce35bbfccf3c7123f15e057588d4d2bf528a162e906cd7d85115b141",
+          "git_blob": "d1e2e8a9dff5660a3ab5d63fd5c3ab0b9ecd9fa4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log",
+          "bytes": 5396482,
+          "sha256": "dbf6368dc764af1d181a934995152d79de19257da825d4cc45038ef83b32937f",
+          "git_blob": "61db397dde9be9af434d3ba900de3d68b916e267"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log",
+          "bytes": 5304269,
+          "sha256": "ab0e3347c53c4845623c46305f62d9669deae1d250c4fe5d16f16f6820522435",
+          "git_blob": "cc0d56ef1f558ad58501d41e8df3e192989081e4"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log",
+          "bytes": 5261142,
+          "sha256": "3a1b8d10b7feba1371dafb58afbc261c9c46a461b2a173927b4616a2bf7acda4",
+          "git_blob": "29debfbfd626e6d083d66ea876ecc512648a2bbe"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log",
+          "bytes": 5219992,
+          "sha256": "a85e0ed816abffa17d630e7d5a8fd95719e0f7fcbd8e5ab7efacc263e9343557",
+          "git_blob": "0092c1d9361a146ccabf5b809b92b2e4545767b3"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log",
+          "bytes": 5032504,
+          "sha256": "a96ee95670c345b6d5a18e5935f6837216cf58ad7214d73a87d169708081df0d",
+          "git_blob": "d0b272f40b651c315d817ca77de023a0b7fca4e8"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log",
+          "bytes": 4980575,
+          "sha256": "e2f96455e1dd6fe5839fe0a92d99cc7dcd8f0beb542cf610432106ae02dfcb05",
+          "git_blob": "a8710b25eb38823aaf563054ebc82098371cc952"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log",
+          "bytes": 4940991,
+          "sha256": "9a4b81ca8a88a7f418e232ba226795715fe7b28d78bbcc72e4a7d7fb61c1d05c",
+          "git_blob": "c0d22d8246d89998a15dd2ddefd34fac02812d9f"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log",
+          "bytes": 4828231,
+          "sha256": "c25a02fbbb918ac37588a51225d2f6e47140b145e79ec3a79b3af3c95380c7e2",
+          "git_blob": "fbafbd7a9ce2402fcb01a00d222aafd9b5b8b59c"
+        },
+        {
+          "path": "ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log",
+          "bytes": 4787536,
+          "sha256": "3cedb67b9c56b28c0ec38226dcd5951633e10e1ecff2a1f7a4a061d482c0b9b0",
+          "git_blob": "af88a0f57ea49a922514c1780b8f8c1613e0a613"
+        }
+      ],
+      "before_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n",
+      "after_sparse_patterns": "/*\n!/*/\n/ntm-port-1.12.2/\n!/ntm-port-1.12.2/*/\n/ntm-port-1.12.2/porting/\n/ntm-port-1.12.2/src/\n\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint56-pre-accessors.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/checkpoint58-initial-sound-compile.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-expanded.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint51-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint52-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint53-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint54-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint55-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint56-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint57-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint58-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint59-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint60-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint61-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint62-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint63-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint64-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint65-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint66-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint67-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint68-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint69-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint70-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint71-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint72-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint73-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint74-frozen.log\n!/ntm-port-1.12.2/porting/continuation-2026-10-19/compile-checkpoint75-frozen.log\n",
+      "bytes": 187102426
+    }
+  ],
+  "reclaimed_bytes": 1122614556
+}

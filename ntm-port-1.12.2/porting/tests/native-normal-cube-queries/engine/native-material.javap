@@ -1,0 +1,447 @@
+Compiled from "SourceFile"
+public class net.minecraft.block.material.Material {
+  public static final net.minecraft.block.material.Material AIR;
+
+  public static final net.minecraft.block.material.Material GRASS;
+
+  public static final net.minecraft.block.material.Material GROUND;
+
+  public static final net.minecraft.block.material.Material WOOD;
+
+  public static final net.minecraft.block.material.Material ROCK;
+
+  public static final net.minecraft.block.material.Material IRON;
+
+  public static final net.minecraft.block.material.Material ANVIL;
+
+  public static final net.minecraft.block.material.Material WATER;
+
+  public static final net.minecraft.block.material.Material LAVA;
+
+  public static final net.minecraft.block.material.Material LEAVES;
+
+  public static final net.minecraft.block.material.Material PLANTS;
+
+  public static final net.minecraft.block.material.Material VINE;
+
+  public static final net.minecraft.block.material.Material SPONGE;
+
+  public static final net.minecraft.block.material.Material CLOTH;
+
+  public static final net.minecraft.block.material.Material FIRE;
+
+  public static final net.minecraft.block.material.Material SAND;
+
+  public static final net.minecraft.block.material.Material CIRCUITS;
+
+  public static final net.minecraft.block.material.Material CARPET;
+
+  public static final net.minecraft.block.material.Material GLASS;
+
+  public static final net.minecraft.block.material.Material REDSTONE_LIGHT;
+
+  public static final net.minecraft.block.material.Material TNT;
+
+  public static final net.minecraft.block.material.Material CORAL;
+
+  public static final net.minecraft.block.material.Material ICE;
+
+  public static final net.minecraft.block.material.Material PACKED_ICE;
+
+  public static final net.minecraft.block.material.Material SNOW;
+
+  public static final net.minecraft.block.material.Material CRAFTED_SNOW;
+
+  public static final net.minecraft.block.material.Material CACTUS;
+
+  public static final net.minecraft.block.material.Material CLAY;
+
+  public static final net.minecraft.block.material.Material GOURD;
+
+  public static final net.minecraft.block.material.Material DRAGON_EGG;
+
+  public static final net.minecraft.block.material.Material PORTAL;
+
+  public static final net.minecraft.block.material.Material CAKE;
+
+  public static final net.minecraft.block.material.Material WEB;
+
+  public static final net.minecraft.block.material.Material PISTON;
+
+  public static final net.minecraft.block.material.Material BARRIER;
+
+  public static final net.minecraft.block.material.Material STRUCTURE_VOID;
+
+  private boolean canBurn;
+
+  private boolean replaceable;
+
+  private boolean isTranslucent;
+
+  private final net.minecraft.block.material.MapColor materialMapColor;
+
+  private boolean requiresNoTool;
+
+  private net.minecraft.block.material.EnumPushReaction pushReaction;
+
+  private boolean isAdventureModeExempt;
+
+  public net.minecraft.block.material.Material(net.minecraft.block.material.MapColor);
+    Code:
+       0: aload_0
+       1: invokespecial #59                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iconst_1
+       6: putfield      #61                 // Field requiresNoTool:Z
+       9: aload_0
+      10: getstatic     #66                 // Field net/minecraft/block/material/EnumPushReaction.NORMAL:Lnet/minecraft/block/material/EnumPushReaction;
+      13: putfield      #68                 // Field pushReaction:Lnet/minecraft/block/material/EnumPushReaction;
+      16: aload_0
+      17: aload_1
+      18: putfield      #70                 // Field materialMapColor:Lnet/minecraft/block/material/MapColor;
+      21: return
+
+  public boolean isLiquid();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean isSolid();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean blocksLight();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean blocksMovement();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private net.minecraft.block.material.Material setTranslucent();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #81                 // Field isTranslucent:Z
+       5: aload_0
+       6: areturn
+
+  protected net.minecraft.block.material.Material setRequiresTool();
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: putfield      #61                 // Field requiresNoTool:Z
+       5: aload_0
+       6: areturn
+
+  protected net.minecraft.block.material.Material setBurning();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #85                 // Field canBurn:Z
+       5: aload_0
+       6: areturn
+
+  public boolean getCanBurn();
+    Code:
+       0: aload_0
+       1: getfield      #85                 // Field canBurn:Z
+       4: ireturn
+
+  public net.minecraft.block.material.Material setReplaceable();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #89                 // Field replaceable:Z
+       5: aload_0
+       6: areturn
+
+  public boolean isReplaceable();
+    Code:
+       0: aload_0
+       1: getfield      #89                 // Field replaceable:Z
+       4: ireturn
+
+  public boolean isOpaque();
+    Code:
+       0: aload_0
+       1: getfield      #81                 // Field isTranslucent:Z
+       4: ifeq          9
+       7: iconst_0
+       8: ireturn
+       9: aload_0
+      10: invokevirtual #93                 // Method blocksMovement:()Z
+      13: ireturn
+
+  public boolean isToolNotRequired();
+    Code:
+       0: aload_0
+       1: getfield      #61                 // Field requiresNoTool:Z
+       4: ireturn
+
+  public net.minecraft.block.material.EnumPushReaction getPushReaction();
+    Code:
+       0: aload_0
+       1: getfield      #68                 // Field pushReaction:Lnet/minecraft/block/material/EnumPushReaction;
+       4: areturn
+
+  protected net.minecraft.block.material.Material setNoPushMobility();
+    Code:
+       0: aload_0
+       1: getstatic     #100                // Field net/minecraft/block/material/EnumPushReaction.DESTROY:Lnet/minecraft/block/material/EnumPushReaction;
+       4: putfield      #68                 // Field pushReaction:Lnet/minecraft/block/material/EnumPushReaction;
+       7: aload_0
+       8: areturn
+
+  protected net.minecraft.block.material.Material setImmovableMobility();
+    Code:
+       0: aload_0
+       1: getstatic     #104                // Field net/minecraft/block/material/EnumPushReaction.BLOCK:Lnet/minecraft/block/material/EnumPushReaction;
+       4: putfield      #68                 // Field pushReaction:Lnet/minecraft/block/material/EnumPushReaction;
+       7: aload_0
+       8: areturn
+
+  protected net.minecraft.block.material.Material setAdventureModeExempt();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #107                // Field isAdventureModeExempt:Z
+       5: aload_0
+       6: areturn
+
+  public net.minecraft.block.material.MapColor getMaterialMapColor();
+    Code:
+       0: aload_0
+       1: getfield      #70                 // Field materialMapColor:Lnet/minecraft/block/material/MapColor;
+       4: areturn
+
+  static {};
+    Code:
+       0: new           #112                // class net/minecraft/block/material/MaterialTransparent
+       3: dup
+       4: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+       7: invokespecial #118                // Method net/minecraft/block/material/MaterialTransparent."<init>":(Lnet/minecraft/block/material/MapColor;)V
+      10: putstatic     #120                // Field AIR:Lnet/minecraft/block/material/Material;
+      13: new           #2                  // class net/minecraft/block/material/Material
+      16: dup
+      17: getstatic     #122                // Field net/minecraft/block/material/MapColor.GRASS:Lnet/minecraft/block/material/MapColor;
+      20: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+      23: putstatic     #125                // Field GRASS:Lnet/minecraft/block/material/Material;
+      26: new           #2                  // class net/minecraft/block/material/Material
+      29: dup
+      30: getstatic     #128                // Field net/minecraft/block/material/MapColor.DIRT:Lnet/minecraft/block/material/MapColor;
+      33: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+      36: putstatic     #130                // Field GROUND:Lnet/minecraft/block/material/Material;
+      39: new           #2                  // class net/minecraft/block/material/Material
+      42: dup
+      43: getstatic     #132                // Field net/minecraft/block/material/MapColor.WOOD:Lnet/minecraft/block/material/MapColor;
+      46: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+      49: invokevirtual #134                // Method setBurning:()Lnet/minecraft/block/material/Material;
+      52: putstatic     #136                // Field WOOD:Lnet/minecraft/block/material/Material;
+      55: new           #2                  // class net/minecraft/block/material/Material
+      58: dup
+      59: getstatic     #139                // Field net/minecraft/block/material/MapColor.STONE:Lnet/minecraft/block/material/MapColor;
+      62: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+      65: invokevirtual #141                // Method setRequiresTool:()Lnet/minecraft/block/material/Material;
+      68: putstatic     #143                // Field ROCK:Lnet/minecraft/block/material/Material;
+      71: new           #2                  // class net/minecraft/block/material/Material
+      74: dup
+      75: getstatic     #145                // Field net/minecraft/block/material/MapColor.IRON:Lnet/minecraft/block/material/MapColor;
+      78: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+      81: invokevirtual #141                // Method setRequiresTool:()Lnet/minecraft/block/material/Material;
+      84: putstatic     #147                // Field IRON:Lnet/minecraft/block/material/Material;
+      87: new           #2                  // class net/minecraft/block/material/Material
+      90: dup
+      91: getstatic     #145                // Field net/minecraft/block/material/MapColor.IRON:Lnet/minecraft/block/material/MapColor;
+      94: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+      97: invokevirtual #141                // Method setRequiresTool:()Lnet/minecraft/block/material/Material;
+     100: invokevirtual #149                // Method setImmovableMobility:()Lnet/minecraft/block/material/Material;
+     103: putstatic     #151                // Field ANVIL:Lnet/minecraft/block/material/Material;
+     106: new           #153                // class net/minecraft/block/material/MaterialLiquid
+     109: dup
+     110: getstatic     #155                // Field net/minecraft/block/material/MapColor.WATER:Lnet/minecraft/block/material/MapColor;
+     113: invokespecial #156                // Method net/minecraft/block/material/MaterialLiquid."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     116: invokevirtual #158                // Method net/minecraft/block/material/MaterialLiquid.setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     119: putstatic     #160                // Field WATER:Lnet/minecraft/block/material/Material;
+     122: new           #153                // class net/minecraft/block/material/MaterialLiquid
+     125: dup
+     126: getstatic     #162                // Field net/minecraft/block/material/MapColor.TNT:Lnet/minecraft/block/material/MapColor;
+     129: invokespecial #156                // Method net/minecraft/block/material/MaterialLiquid."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     132: invokevirtual #158                // Method net/minecraft/block/material/MaterialLiquid.setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     135: putstatic     #164                // Field LAVA:Lnet/minecraft/block/material/Material;
+     138: new           #2                  // class net/minecraft/block/material/Material
+     141: dup
+     142: getstatic     #167                // Field net/minecraft/block/material/MapColor.FOLIAGE:Lnet/minecraft/block/material/MapColor;
+     145: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     148: invokevirtual #134                // Method setBurning:()Lnet/minecraft/block/material/Material;
+     151: invokespecial #169                // Method setTranslucent:()Lnet/minecraft/block/material/Material;
+     154: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     157: putstatic     #172                // Field LEAVES:Lnet/minecraft/block/material/Material;
+     160: new           #174                // class net/minecraft/block/material/MaterialLogic
+     163: dup
+     164: getstatic     #167                // Field net/minecraft/block/material/MapColor.FOLIAGE:Lnet/minecraft/block/material/MapColor;
+     167: invokespecial #175                // Method net/minecraft/block/material/MaterialLogic."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     170: invokevirtual #176                // Method net/minecraft/block/material/MaterialLogic.setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     173: putstatic     #178                // Field PLANTS:Lnet/minecraft/block/material/Material;
+     176: new           #174                // class net/minecraft/block/material/MaterialLogic
+     179: dup
+     180: getstatic     #167                // Field net/minecraft/block/material/MapColor.FOLIAGE:Lnet/minecraft/block/material/MapColor;
+     183: invokespecial #175                // Method net/minecraft/block/material/MaterialLogic."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     186: invokevirtual #179                // Method net/minecraft/block/material/MaterialLogic.setBurning:()Lnet/minecraft/block/material/Material;
+     189: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     192: invokevirtual #181                // Method setReplaceable:()Lnet/minecraft/block/material/Material;
+     195: putstatic     #183                // Field VINE:Lnet/minecraft/block/material/Material;
+     198: new           #2                  // class net/minecraft/block/material/Material
+     201: dup
+     202: getstatic     #186                // Field net/minecraft/block/material/MapColor.YELLOW:Lnet/minecraft/block/material/MapColor;
+     205: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     208: putstatic     #188                // Field SPONGE:Lnet/minecraft/block/material/Material;
+     211: new           #2                  // class net/minecraft/block/material/Material
+     214: dup
+     215: getstatic     #190                // Field net/minecraft/block/material/MapColor.CLOTH:Lnet/minecraft/block/material/MapColor;
+     218: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     221: invokevirtual #134                // Method setBurning:()Lnet/minecraft/block/material/Material;
+     224: putstatic     #192                // Field CLOTH:Lnet/minecraft/block/material/Material;
+     227: new           #112                // class net/minecraft/block/material/MaterialTransparent
+     230: dup
+     231: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     234: invokespecial #118                // Method net/minecraft/block/material/MaterialTransparent."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     237: invokevirtual #193                // Method net/minecraft/block/material/MaterialTransparent.setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     240: putstatic     #195                // Field FIRE:Lnet/minecraft/block/material/Material;
+     243: new           #2                  // class net/minecraft/block/material/Material
+     246: dup
+     247: getstatic     #197                // Field net/minecraft/block/material/MapColor.SAND:Lnet/minecraft/block/material/MapColor;
+     250: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     253: putstatic     #199                // Field SAND:Lnet/minecraft/block/material/Material;
+     256: new           #174                // class net/minecraft/block/material/MaterialLogic
+     259: dup
+     260: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     263: invokespecial #175                // Method net/minecraft/block/material/MaterialLogic."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     266: invokevirtual #176                // Method net/minecraft/block/material/MaterialLogic.setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     269: putstatic     #201                // Field CIRCUITS:Lnet/minecraft/block/material/Material;
+     272: new           #174                // class net/minecraft/block/material/MaterialLogic
+     275: dup
+     276: getstatic     #190                // Field net/minecraft/block/material/MapColor.CLOTH:Lnet/minecraft/block/material/MapColor;
+     279: invokespecial #175                // Method net/minecraft/block/material/MaterialLogic."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     282: invokevirtual #179                // Method net/minecraft/block/material/MaterialLogic.setBurning:()Lnet/minecraft/block/material/Material;
+     285: putstatic     #203                // Field CARPET:Lnet/minecraft/block/material/Material;
+     288: new           #2                  // class net/minecraft/block/material/Material
+     291: dup
+     292: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     295: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     298: invokespecial #169                // Method setTranslucent:()Lnet/minecraft/block/material/Material;
+     301: invokevirtual #205                // Method setAdventureModeExempt:()Lnet/minecraft/block/material/Material;
+     304: putstatic     #207                // Field GLASS:Lnet/minecraft/block/material/Material;
+     307: new           #2                  // class net/minecraft/block/material/Material
+     310: dup
+     311: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     314: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     317: invokevirtual #205                // Method setAdventureModeExempt:()Lnet/minecraft/block/material/Material;
+     320: putstatic     #209                // Field REDSTONE_LIGHT:Lnet/minecraft/block/material/Material;
+     323: new           #2                  // class net/minecraft/block/material/Material
+     326: dup
+     327: getstatic     #162                // Field net/minecraft/block/material/MapColor.TNT:Lnet/minecraft/block/material/MapColor;
+     330: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     333: invokevirtual #134                // Method setBurning:()Lnet/minecraft/block/material/Material;
+     336: invokespecial #169                // Method setTranslucent:()Lnet/minecraft/block/material/Material;
+     339: putstatic     #211                // Field TNT:Lnet/minecraft/block/material/Material;
+     342: new           #2                  // class net/minecraft/block/material/Material
+     345: dup
+     346: getstatic     #167                // Field net/minecraft/block/material/MapColor.FOLIAGE:Lnet/minecraft/block/material/MapColor;
+     349: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     352: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     355: putstatic     #213                // Field CORAL:Lnet/minecraft/block/material/Material;
+     358: new           #2                  // class net/minecraft/block/material/Material
+     361: dup
+     362: getstatic     #215                // Field net/minecraft/block/material/MapColor.ICE:Lnet/minecraft/block/material/MapColor;
+     365: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     368: invokespecial #169                // Method setTranslucent:()Lnet/minecraft/block/material/Material;
+     371: invokevirtual #205                // Method setAdventureModeExempt:()Lnet/minecraft/block/material/Material;
+     374: putstatic     #217                // Field ICE:Lnet/minecraft/block/material/Material;
+     377: new           #2                  // class net/minecraft/block/material/Material
+     380: dup
+     381: getstatic     #215                // Field net/minecraft/block/material/MapColor.ICE:Lnet/minecraft/block/material/MapColor;
+     384: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     387: invokevirtual #205                // Method setAdventureModeExempt:()Lnet/minecraft/block/material/Material;
+     390: putstatic     #219                // Field PACKED_ICE:Lnet/minecraft/block/material/Material;
+     393: new           #174                // class net/minecraft/block/material/MaterialLogic
+     396: dup
+     397: getstatic     #221                // Field net/minecraft/block/material/MapColor.SNOW:Lnet/minecraft/block/material/MapColor;
+     400: invokespecial #175                // Method net/minecraft/block/material/MaterialLogic."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     403: invokevirtual #222                // Method net/minecraft/block/material/MaterialLogic.setReplaceable:()Lnet/minecraft/block/material/Material;
+     406: invokespecial #169                // Method setTranslucent:()Lnet/minecraft/block/material/Material;
+     409: invokevirtual #141                // Method setRequiresTool:()Lnet/minecraft/block/material/Material;
+     412: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     415: putstatic     #224                // Field SNOW:Lnet/minecraft/block/material/Material;
+     418: new           #2                  // class net/minecraft/block/material/Material
+     421: dup
+     422: getstatic     #221                // Field net/minecraft/block/material/MapColor.SNOW:Lnet/minecraft/block/material/MapColor;
+     425: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     428: invokevirtual #141                // Method setRequiresTool:()Lnet/minecraft/block/material/Material;
+     431: putstatic     #226                // Field CRAFTED_SNOW:Lnet/minecraft/block/material/Material;
+     434: new           #2                  // class net/minecraft/block/material/Material
+     437: dup
+     438: getstatic     #167                // Field net/minecraft/block/material/MapColor.FOLIAGE:Lnet/minecraft/block/material/MapColor;
+     441: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     444: invokespecial #169                // Method setTranslucent:()Lnet/minecraft/block/material/Material;
+     447: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     450: putstatic     #228                // Field CACTUS:Lnet/minecraft/block/material/Material;
+     453: new           #2                  // class net/minecraft/block/material/Material
+     456: dup
+     457: getstatic     #230                // Field net/minecraft/block/material/MapColor.CLAY:Lnet/minecraft/block/material/MapColor;
+     460: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     463: putstatic     #232                // Field CLAY:Lnet/minecraft/block/material/Material;
+     466: new           #2                  // class net/minecraft/block/material/Material
+     469: dup
+     470: getstatic     #167                // Field net/minecraft/block/material/MapColor.FOLIAGE:Lnet/minecraft/block/material/MapColor;
+     473: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     476: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     479: putstatic     #234                // Field GOURD:Lnet/minecraft/block/material/Material;
+     482: new           #2                  // class net/minecraft/block/material/Material
+     485: dup
+     486: getstatic     #167                // Field net/minecraft/block/material/MapColor.FOLIAGE:Lnet/minecraft/block/material/MapColor;
+     489: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     492: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     495: putstatic     #236                // Field DRAGON_EGG:Lnet/minecraft/block/material/Material;
+     498: new           #238                // class net/minecraft/block/material/MaterialPortal
+     501: dup
+     502: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     505: invokespecial #239                // Method net/minecraft/block/material/MaterialPortal."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     508: invokevirtual #240                // Method net/minecraft/block/material/MaterialPortal.setImmovableMobility:()Lnet/minecraft/block/material/Material;
+     511: putstatic     #242                // Field PORTAL:Lnet/minecraft/block/material/Material;
+     514: new           #2                  // class net/minecraft/block/material/Material
+     517: dup
+     518: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     521: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     524: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     527: putstatic     #244                // Field CAKE:Lnet/minecraft/block/material/Material;
+     530: new           #7                  // class net/minecraft/block/material/Material$1
+     533: dup
+     534: getstatic     #190                // Field net/minecraft/block/material/MapColor.CLOTH:Lnet/minecraft/block/material/MapColor;
+     537: invokespecial #245                // Method net/minecraft/block/material/Material$1."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     540: invokevirtual #246                // Method net/minecraft/block/material/Material$1.setRequiresTool:()Lnet/minecraft/block/material/Material;
+     543: invokevirtual #170                // Method setNoPushMobility:()Lnet/minecraft/block/material/Material;
+     546: putstatic     #248                // Field WEB:Lnet/minecraft/block/material/Material;
+     549: new           #2                  // class net/minecraft/block/material/Material
+     552: dup
+     553: getstatic     #139                // Field net/minecraft/block/material/MapColor.STONE:Lnet/minecraft/block/material/MapColor;
+     556: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     559: invokevirtual #149                // Method setImmovableMobility:()Lnet/minecraft/block/material/Material;
+     562: putstatic     #250                // Field PISTON:Lnet/minecraft/block/material/Material;
+     565: new           #2                  // class net/minecraft/block/material/Material
+     568: dup
+     569: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     572: invokespecial #123                // Method "<init>":(Lnet/minecraft/block/material/MapColor;)V
+     575: invokevirtual #141                // Method setRequiresTool:()Lnet/minecraft/block/material/Material;
+     578: invokevirtual #149                // Method setImmovableMobility:()Lnet/minecraft/block/material/Material;
+     581: putstatic     #252                // Field BARRIER:Lnet/minecraft/block/material/Material;
+     584: new           #112                // class net/minecraft/block/material/MaterialTransparent
+     587: dup
+     588: getstatic     #116                // Field net/minecraft/block/material/MapColor.AIR:Lnet/minecraft/block/material/MapColor;
+     591: invokespecial #118                // Method net/minecraft/block/material/MaterialTransparent."<init>":(Lnet/minecraft/block/material/MapColor;)V
+     594: putstatic     #254                // Field STRUCTURE_VOID:Lnet/minecraft/block/material/Material;
+     597: return
+}

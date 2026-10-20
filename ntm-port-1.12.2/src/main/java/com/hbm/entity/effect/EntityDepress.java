@@ -9,12 +9,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class EntityDepress extends Entity {
+	private static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityDepress.class, DataSerializers.BYTE);
+
 
 	public int timeToLive;
 
@@ -35,16 +40,16 @@ public class EntityDepress extends Entity {
 	}
 
 	protected void setDir(ForgeDirection dir) {
-		this.dataWatcher.updateObject(10, (byte)dir.ordinal());
+		this.dataManager.set(DIRECTION, (byte)dir.ordinal());
 	}
 
 	protected ForgeDirection getDir() {
-		return ForgeDirection.getOrientation(this.dataWatcher.getWatchableObjectByte(10));
+		return ForgeDirection.getOrientation(this.dataManager.get(DIRECTION));
 	}
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(10, new Byte((byte)0));
+		this.dataManager.register(DIRECTION, new Byte((byte)0));
 	}
 
 	@SuppressWarnings("unchecked")

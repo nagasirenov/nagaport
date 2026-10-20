@@ -1,0 +1,206 @@
+{
+  "EntityPlaneBase.constructor": {
+    "sha256": "0f2c3da4a4a841af838c5ae8042105b70d0257b0724cf120ec4cee5cafa45a80",
+    "source": "public EntityPlaneBase(World world) { super(world); }"
+  },
+  "EntityPlaneBase.private Ticket loaderTicket;": {
+    "sha256": "17cf7ed1de1562cba9f960439eef77fa9fddd6ccd618ee7baeefff60b6c0dbba",
+    "source": "private Ticket loaderTicket;"
+  },
+  "EntityPlaneBase.private List<ChunkPos> loadedChunks = [^;]+;": {
+    "sha256": "abff7f8a5f4e55b9dee24698a3f64a240edc8fbaa6382c37cd00251bde1ecdd8",
+    "source": "private List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();"
+  },
+  "EntityPlaneBase.public float health = getMaxHealth\\(\\);": {
+    "sha256": "f873fcf6a711976162688d5659e4a2cabda47313c225a857402fd20b276fb8bf",
+    "source": "public float health = getMaxHealth();"
+  },
+  "EntityPlaneBase.public int timer = getLifetime\\(\\);": {
+    "sha256": "88c75211954dc1f9f2bcb75c70b0c6f54a94ae34d0c857fc5fbd0d55777072b0",
+    "source": "public int timer = getLifetime();"
+  },
+  "EntityPlaneBase.key": {
+    "sha256": "67edf8ee83a690711fa525565ef507dd6b46c603f7c7ff0248ebd04aec123ff9",
+    "source": "protected static final DataParameter<Float> PLANE_HEALTH = EntityDataManager.createKey(EntityPlaneBase.class, DataSerializers.FLOAT);"
+  },
+  "EntityPlaneBase.getMaxHealth": {
+    "sha256": "b9f8fc665da801561c9d12e104e0ab672abfa60f00ac5e79c276b0804a9a959c",
+    "source": "public float getMaxHealth() { return 50F; }"
+  },
+  "EntityPlaneBase.getLifetime": {
+    "sha256": "8b59687d2c7dd10acf7e7f66ad0dcbf4f24ec964bc06d003bd83040224084276",
+    "source": "public int getLifetime() { return 200; }"
+  },
+  "EntityPlaneBase.entityInit": {
+    "sha256": "f33de5d5f886c903a48c7d35b612791e028ea7810e5c459017ca3b9e4d25acaa",
+    "source": "protected void entityInit() {\n\t\tinit(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));\n\t\tthis.dataManager.register(PLANE_HEALTH, 50F);\n\t}"
+  },
+  "EntityPlaneBase.init": {
+    "sha256": "c4628acae2118ef1f18b4182653df89c4d6dce86f4bdef648e95c6c71420de22",
+    "source": "public void init(Ticket ticket) {\n\t\tif(!this.world.isRemote && ticket != null) {\n\t\t\tif(loaderTicket == null) {\n\t\t\t\tloaderTicket = ticket;\n\t\t\t\tloaderTicket.bindEntity(this);\n\t\t\t\tloaderTicket.getModData();\n\t\t\t}\n\t\t\tForgeChunkManager.forceChunk(loaderTicket, new ChunkPos(chunkCoordX, chunkCoordZ));\n\t\t}\n\t}"
+  },
+  "EntityPlaneBase.rotation": {
+    "sha256": "6f57db2661662daa01e22cea6c27b3b559d51607dff766e30aef8c119471da3b",
+    "source": "protected void rotation() {\n\t\tfloat motionHorizontal = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);\n\t\tthis.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);\n\t\tfor(this.rotationPitch = (float) (Math.atan2(this.motionY, motionHorizontal) * 180.0D / Math.PI) - 90; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);\n\t\twhile(this.rotationPitch - this.prevRotationPitch >= 180.0F) this.prevRotationPitch += 360.0F;\n\t\twhile(this.rotationYaw - this.prevRotationYaw < -180.0F) this.prevRotationYaw -= 360.0F;\n\t\twhile(this.rotationYaw - this.prevRotationYaw >= 180.0F) this.prevRotationYaw += 360.0F;\n\t}"
+  },
+  "EntityPlaneBase.loadNeighboringChunks": {
+    "sha256": "f1e75b6a4985138aa7d21f7c988923744430133fbbc8637dd8c172e17248d884",
+    "source": "public void loadNeighboringChunks(int newChunkX, int newChunkZ) {\n\t\tif(!this.world.isRemote && loaderTicket != null) {\n\t\t\tfor(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {\n\t\t\t\tForgeChunkManager.unforceChunk(loaderTicket, chunk);\n\t\t\t}\n\t\t\tloadedChunks.clear();\n\t\t\tloadedChunks.add(new ChunkPos(newChunkX, newChunkZ));\n\t\t\tfor(ChunkPos chunk : loadedChunks) ForgeChunkManager.forceChunk(loaderTicket, chunk);\n\t\t}\n\t}"
+  },
+  "EntityPlaneBase.clearChunkLoader": {
+    "sha256": "fabe50e6df213d1388f194e8edf032239ae34b82d6f6009eb08ffa25e4ff2812",
+    "source": "public void clearChunkLoader() {\n\t\tif(!this.world.isRemote && loaderTicket != null) {\n\t\t\tForgeChunkManager.releaseTicket(loaderTicket);\n\t\t\tthis.loaderTicket = null;\n\t\t}\n\t}"
+  },
+  "EntityPlaneBase.setDead": {
+    "sha256": "24178c8742b27d1230bc876fce95af1e4e2db8c8c30f96f7619720ac5b4feb0f",
+    "source": "public void setDead() {\n\t\tsuper.setDead();\n\t\tthis.clearChunkLoader();\n\t}"
+  },
+  "EntityPlaneBase.readEntityFromNBT": {
+    "sha256": "d77f34610bc51624f4e139b37312983c5dbb982220dc8c490921f90b9b7e4716",
+    "source": "protected void readEntityFromNBT(NBTTagCompound nbt) {\n\t\tticksExisted = nbt.getInteger(\"ticksExisted\");\n\t\tthis.dataManager.set(PLANE_HEALTH, nbt.getFloat(\"health\"));\n\t}"
+  },
+  "EntityPlaneBase.writeEntityToNBT": {
+    "sha256": "2b760043e2e3d0f5b1b90ba80a429ae9009d8e8fb5f3ecd1eccdeaa6da04fd44",
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tnbt.setInteger(\"ticksExisted\", ticksExisted);\n\t\tnbt.setFloat(\"health\", this.dataManager.get(PLANE_HEALTH));\n\t}"
+  },
+  "EntityPlaneBase.exact-health-update-prefix": {
+    "sha256": "e30ff0e97ad73eb103d1ceb2832c9f38e816cce2ef8a038b45a6c5779d9ceaa7",
+    "source": "\n\t\t\n\t\tif(!this.world.isRemote) {\n\t\t\tthis.dataManager.set(PLANE_HEALTH, health);\n\t\t} else {\n\t\t\thealth = this.dataManager.get(PLANE_HEALTH);\n\t\t}"
+  },
+  "EntityBomber.constructor": {
+    "sha256": "a891a9ce58b52553144e30771ae905b38b948c61912c64ab038ed21f070ef8a5",
+    "source": "public EntityBomber(World world) {\n\t\tsuper(world);\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.setSize(8.0F, 4.0F);\n\t}"
+  },
+  "EntityBomber.int bombStart = 75;": {
+    "sha256": "7aa8626accefdd270eadf9cfb5729c240cccf3a5d9efc6336ab91e017a64a315",
+    "source": "int bombStart = 75;"
+  },
+  "EntityBomber.int bombStop = 125;": {
+    "sha256": "61638b4dc17996748af236b2b63fbdf5ccea9637531e066add3e65c7cdeb6aa7",
+    "source": "int bombStop = 125;"
+  },
+  "EntityBomber.int bombRate = 3;": {
+    "sha256": "d76f19ccc77828301144122e0d7b887f13f513732f168c54c455b0c162b6a923",
+    "source": "int bombRate = 3;"
+  },
+  "EntityBomber.int type = 0;": {
+    "sha256": "bb8d2eb7fad52e777fab24f7aa927284dedf97601a4499685d9765a2f81be75b",
+    "source": "int type = 0;"
+  },
+  "EntityBomber.protected AudioWrapper audio;": {
+    "sha256": "6ebf6f723a65eaae5b6cb7324681ddaec60ab572cfab3bd2c1ded1c21eb03772",
+    "source": "protected AudioWrapper audio;"
+  },
+  "EntityBomber.key": {
+    "sha256": "a0e54ec194324f02f1345db0d590984e611fa576f06e41b65c2064034dc95b9d",
+    "source": "private static final DataParameter<Byte> BOMBER_STYLE = EntityDataManager.createKey(EntityBomber.class, DataSerializers.BYTE);"
+  },
+  "EntityBomber.entityInit": {
+    "sha256": "53d8d53e175735b303a8ea5e6e0f9fe424d262f19b902374ada6da8916562385",
+    "source": "public void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.dataManager.register(BOMBER_STYLE, Byte.valueOf((byte) 0));\n\t}"
+  },
+  "EntityBomber.getBomberStyle": {
+    "sha256": "63a6e50c35ea0e64bc06fa93d1d471ef9b66a3be3c807256ce430ad996b4c7ea",
+    "source": "public byte getBomberStyle() {\n\t\treturn this.dataManager.get(BOMBER_STYLE);\n\t}"
+  },
+  "EntityBomber.fac": {
+    "sha256": "d8afe65e7a9088d9b6144a9b301f2366ab6cfc7d20f62352f7dfc6b9e7771a39",
+    "source": "public void fac(World world, double x, double y, double z) {\n\n\t\tVec3d vector = new Vec3d(world.rand.nextDouble() - 0.5, 0, world.rand.nextDouble() - 0.5);\n\t\tvector = vector.normalize();\n\t\tdouble scale = GeneralConfig.enableBomberShortMode ? 1 : 2;\n\t\tvector = new Vec3d(vector.x * scale, vector.y, vector.z * scale);\n\n\t\tthis.setLocationAndAngles(x - vector.x * 100, y + 50, z - vector.z * 100, 0.0F, 0.0F);\n\t\tthis.loadNeighboringChunks((int) (x / 16), (int) (z / 16));\n\n\t\tthis.motionX = vector.x;\n\t\tthis.motionZ = vector.z;\n\t\tthis.motionY = 0.0D;\n\t\t\t\n\t\tif(type == 9) {\n\t\t\tthis.motionX = vector.x * 1.5;\n\t\t\tthis.motionZ = vector.z * 1.5;\n\t\t}\n\t\t\n\t\tthis.rotation();\n\n\t\tint i = 1;\n\n\t\tint rand = world.rand.nextInt(7);\n\n\t\tswitch(rand) {\n\t\tcase 0: case 1: i = 1; break;\n\t\tcase 2: case 3: i = 2; break;\n\t\tcase 4: i = 5; break;\n\t\tcase 5: i = 6; break;\n\t\tcase 6: i = 7; break;\n\t\t}\n\n\t\tif(world.rand.nextInt(100) == 0) {\n\t\t\trand = world.rand.nextInt(4);\n\t\t\tswitch(rand) {\n\t\t\tcase 0: i = 0; break;\n\t\t\tcase 1: i = 3; break;\n\t\t\tcase 2: i = 4; break;\n\t\t\tcase 3: i = 8; break;\n\t\t\t}\n\t\t}\n\n\t\tthis.dataManager.set(BOMBER_STYLE, (byte) i);\n\t\tthis.setSize(8.0F, 4.0F);\n\t}"
+  },
+  "EntityBomber.statFacCarpet": {
+    "sha256": "fabe83983989b1c37f4fd13257279bbf50de7e0f4b8413bb87091e7cbc0dbaca",
+    "source": "public static EntityBomber statFacCarpet(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 50;\n\t\tbomber.bombStop = 100;\n\t\tbomber.bombRate = 2;\n\t\tbomber.fac(world, x, y, z);\n\t\tbomber.type = 0;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacNapalm": {
+    "sha256": "a93ea41b0dff676fec481fe1b685200f12166d8133eae2512be8c6c452163d44",
+    "source": "public static EntityBomber statFacNapalm(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 50;\n\t\tbomber.bombStop = 100;\n\t\tbomber.bombRate = 5;\n\t\tbomber.fac(world, x, y, z);\n\t\tbomber.type = 1;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacChlorine": {
+    "sha256": "964aecb550235dfb9f41b3c554f5f5c4a67f23a6740f249570384448ca04f20b",
+    "source": "public static EntityBomber statFacChlorine(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 50;\n\t\tbomber.bombStop = 100;\n\t\tbomber.bombRate = 4;\n\t\tbomber.fac(world, x, y, z);\n\t\tbomber.type = 2;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacOrange": {
+    "sha256": "6f5a792aeaecd301a447d20e1d8a86c994d59b4fa524b6ca246bd45bf335c840",
+    "source": "public static EntityBomber statFacOrange(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 75;\n\t\tbomber.bombStop = 125;\n\t\tbomber.bombRate = 1;\n\t\tbomber.fac(world, x, y, z);\n\t\tbomber.type = 3;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacABomb": {
+    "sha256": "4a6225a8dbc1547806dd317423d3e9c2621c4e093350000c83ab26bffa38149a",
+    "source": "public static EntityBomber statFacABomb(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 60;\n\t\tbomber.bombStop = 70;\n\t\tbomber.bombRate = 65;\n\t\tbomber.fac(world, x, y, z);\n\t\tint i = 1;\n\n\t\tint rand = world.rand.nextInt(3);\n\n\t\tswitch(rand) {\n\t\tcase 0: i = 5; break;\n\t\tcase 1: i = 6; break;\n\t\tcase 2: i = 7; break;\n\t\t}\n\t\tif(world.rand.nextInt(100) == 0) i = 8;\n\n\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) i);\n\t\tbomber.type = 4;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacStinger": {
+    "sha256": "1893e6a5919e8b7fb3f53e51113b87a0dca82693904dc5a76490de6936b0433e",
+    "source": "public static EntityBomber statFacStinger(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 50;\n\t\tbomber.bombStop = 150;\n\t\tbomber.bombRate = 10;\n\t\tbomber.fac(world, x, y, z);\n\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) 4);\n\t\tbomber.type = 5;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacBoxcar": {
+    "sha256": "b761159381b8fdfa658af1c9ba4b87bc3bca9bde94bcc80dca392152755a0e2f",
+    "source": "public static EntityBomber statFacBoxcar(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 50;\n\t\tbomber.bombStop = 150;\n\t\tbomber.bombRate = 10;\n\t\tbomber.fac(world, x, y, z);\n\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) 6);\n\t\tbomber.type = 6;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacPC": {
+    "sha256": "204c7aef1fe0c69f0a944d9d3a59e698487580c7913be3286bc08e3dfcc169d0",
+    "source": "public static EntityBomber statFacPC(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\t\tbomber.timer = 200;\n\t\tbomber.bombStart = 75;\n\t\tbomber.bombStop = 125;\n\t\tbomber.bombRate = 1;\n\t\tbomber.fac(world, x, y, z);\n\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) 6);\n\t\tbomber.type = 7;\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.statFacCV": {
+    "sha256": "a9d9c0a2ec59be6c49b27c6a5d451a44cad08bc13734c032c8cddf234ce5666e",
+    "source": "public static EntityBomber statFacCV(World world, double x, double y, double z) {\n    \tEntityBomber bomber = new EntityBomber(world);\n    \t\n    \tbomber.timer = 200;\n    \tbomber.bombStart = 75;\n    \tbomber.bombStop = 125;\n    \tbomber.bombRate = 90000;\n\n    \tbomber.fac(world, x, y+16, z); //adding the y value breaks things, sorry bluehat\n    \t\n    \tbomber.dataManager.set(BOMBER_STYLE, (byte)9);\n    \t\n    \tbomber.type = 8;\n    \t\n    \treturn bomber;\n    }"
+  },
+  "EntityBomber.statFacCarpetJet": {
+    "sha256": "144d6d342c95b61c5ea369061327fd987033703685546bf0bb7aeda7ff858380",
+    "source": "public static EntityBomber statFacCarpetJet(World world, double x, double y, double z) {\n\t\tEntityBomber bomber = new EntityBomber(world);\n\n\t\tbomber.timer = 150;\n\t\tbomber.bombStart = 10;\n\t\tbomber.bombStop = 70;\n\t\tbomber.bombRate = 3;\n\t\tbomber.type = 9;\n\n\t\tbomber.fac(world, x, y, z);\n\t\t//bomber.addVelocity(0.6, 0, 0.6);\n\n    \tbomber.dataManager.set(BOMBER_STYLE, (byte)10);\n\t\treturn bomber;\n\t}"
+  },
+  "EntityBomber.readEntityFromNBT": {
+    "sha256": "2e8ff38e8501a773ab2285961e915a496b58ad40f21abc6bf396546dbef69eae",
+    "source": "protected void readEntityFromNBT(NBTTagCompound nbt) {\n\t\tsuper.readEntityFromNBT(nbt);\n\t\tbombStart = nbt.getInteger(\"bombStart\");\n\t\tbombStop = nbt.getInteger(\"bombStop\");\n\t\tbombRate = nbt.getInteger(\"bombRate\");\n\t\ttype = nbt.getInteger(\"type\");\n\t\tthis.dataManager.set(BOMBER_STYLE, nbt.getByte(\"style\"));\n\t\tthis.setSize(8.0F, 4.0F);\n\t}"
+  },
+  "EntityBomber.writeEntityToNBT": {
+    "sha256": "c70a14d50ef7bd4ff3fce52a88d3f1852a8569eb77a2c598a667d81e54259402",
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeEntityToNBT(nbt);\n\t\tnbt.setInteger(\"bombStart\", bombStart);\n\t\tnbt.setInteger(\"bombStop\", bombStop);\n\t\tnbt.setInteger(\"bombRate\", bombRate);\n\t\tnbt.setInteger(\"type\", type);\n\t\tnbt.setByte(\"style\", this.dataManager.get(BOMBER_STYLE));\n\t}"
+  },
+  "EntityBomber.exact-audio-consumer-block": {
+    "sha256": "3c8a007e0e03d893ec81190e23e458f81aa52aa7688518f3bf379cc84180afb6",
+    "source": "if(this.world.isRemote) {\n\t\t\tif(this.dataManager.get(PLANE_HEALTH) > 0) {\n\t\t\t\tif(audio == null || !audio.isPlaying()) {\n\t\t\t\t\tint bomberType = this.dataManager.get(BOMBER_STYLE);\n\t\t\t\t\tSystem.out.println();\n\t\t\t\t\tif (bomberType >= 9) {\n\t\t\t\t\t    audio = MainRegistry.proxy.getLoopedSound(\"hbm:entity.jetloopbomb\", (float) posX, (float) posY, (float) posZ, 2F, 250F, 1F, 20);\n\t\t\t\t\t} else {\n\t\t\t\t\t    audio = MainRegistry.proxy.getLoopedSound(bomberType <= 4 ? \"hbm:entity.bomberSmallLoop\" : \"hbm:entity.bomberLoop\", (float) posX, (float) posY, (float) posZ, 2F, 250F, 1F, 20);\n\t\t\t\t\t}\n\t\t\t\taudio.startSound();\n\t\t\t\t}\n\t\t\t\taudio.keepAlive();\n\t\t\t\taudio.updatePosition((float) posX, (float) posY, (float) posZ);\n\t\t\t} else {\n\t\t\t\tif(audio != null && audio.isPlaying()) {\n\t\t\t\t\taudio.stopSound();\n\t\t\t\t\taudio = null;\n\t\t\t\t}\n\t\t\t}\n\t\t}"
+  },
+  "EntityC130.constructor": {
+    "sha256": "74d75a6faa9f3913f533b56d03a8d4fc0c071c661685c80a27dfd6cbd8abfb74",
+    "source": "public EntityC130(World world) {\n\t\tsuper(world);\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.setSize(8.0F, 4.0F);\n\t}"
+  },
+  "EntityC130.protected AudioWrapper audio;": {
+    "sha256": "6ebf6f723a65eaae5b6cb7324681ddaec60ab572cfab3bd2c1ded1c21eb03772",
+    "source": "protected AudioWrapper audio;"
+  },
+  "EntityC130.public C130PayloadType payload = C130PayloadType.SUPPLIES;": {
+    "sha256": "55a17c5aa36f6eb2072c96aa8c7c0dcc2d4180de74717bc6863d30d8f250d7dc",
+    "source": "public C130PayloadType payload = C130PayloadType.SUPPLIES;"
+  },
+  "EntityC130.readEntityFromNBT": {
+    "sha256": "e129a08f071a8af9f6826ed0a7e89a032fed2bd3e7ce92e42c498620d9226469",
+    "source": "protected void readEntityFromNBT(NBTTagCompound nbt) {\n\t\tsuper.readEntityFromNBT(nbt);\n\t\tthis.payload = EnumUtil.grabEnumSafely(C130PayloadType.class, nbt.getInteger(\"payload\"));\n\t}"
+  },
+  "EntityC130.writeEntityToNBT": {
+    "sha256": "ce66e4bc983c36ff2fed39c192e2a0152022d0b0d33acde3d97b8cf447e260ac",
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeEntityToNBT(nbt);\n\t\tnbt.setInteger(\"payload\", this.payload.ordinal());\n\t}"
+  },
+  "EntityC130.fac": {
+    "sha256": "2e85a0dcad737d5fc3da9b283bac5a6d43e063f0c0c382b5ed8932e80f293dc5",
+    "source": "public void fac(World world, double x, double y, double z, C130PayloadType payload) {\n\n\t\tVec3d vector = new Vec3d(world.rand.nextDouble() - 0.5, 0, world.rand.nextDouble() - 0.5);\n\t\tvector = vector.normalize();\n\t\tvector = new Vec3d(vector.x * 2, vector.y, vector.z * 2);\n\t\t\n\t\tthis.payload = payload;\n\n\t\tthis.setLocationAndAngles(x - vector.x * 100, y + 100, z - vector.z * 100, 0.0F, 0.0F);\n\t\tthis.loadNeighboringChunks((int) (x / 16), (int) (z / 16));\n\n\t\tthis.motionX = vector.x;\n\t\tthis.motionZ = vector.z;\n\t\tthis.motionY = 0.0D;\n\n\t\tthis.rotation();\n\t}"
+  },
+  "EntityC130.exact-audio-consumer-block": {
+    "sha256": "9527e159fb707543b5cc599a2ac6383de5d2ebbcc2021ca4196fbe146639b47d",
+    "source": "if(this.world.isRemote) {\n\t\t\tif(this.dataManager.get(PLANE_HEALTH) > 0) {\n\t\t\t\tif(audio == null || !audio.isPlaying()) {\n\t\t\t\t\taudio = MainRegistry.proxy.getLoopedSound(\"hbm:entity.bomberLoop\", (float) posX, (float) posY, (float) posZ, 2F, 250F, 1F, 20);\n\t\t\t\t\taudio.startSound();\n\t\t\t\t}\n\t\t\t\taudio.keepAlive();\n\t\t\t\taudio.updatePosition((float) posX, (float) posY, (float) posZ);\n\t\t\t} else {\n\t\t\t\tif(audio != null && audio.isPlaying()) {\n\t\t\t\t\taudio.stopSound();\n\t\t\t\t\taudio = null;\n\t\t\t\t}\n\t\t\t}\n\t\t}"
+  },
+  "EntityC130.payload-enum": {
+    "sha256": "5b48059efe2b0b0730c05abacfd392a8604100798f5e0cee732204d5b30ee165",
+    "source": "public static enum C130PayloadType {\n\t\tSUPPLIES,\n\t\tWEAPONS,\n\t\tA_FUCKING_FUEL_TRUCK\n\t}"
+  },
+  "entity/logic/IChunkLoader.java.full-baseline-helper": {
+    "sha256": "57fd004bbc52e03dee821880f63ac2ec3ec761be563d68e1dd21970f44251a57",
+    "source": "package com.hbm.entity.logic;\n\nimport net.minecraftforge.common.ForgeChunkManager.Ticket;\n\npublic interface IChunkLoader {\n\n\tpublic void init(Ticket ticket);\n}\n"
+  },
+  "util/EnumUtil.java.full-baseline-helper": {
+    "sha256": "7fd70aab941e36a7d79eb369f88c12da0e95afafa597875eb97d8e776698d107",
+    "source": "package com.hbm.util;\n\npublic class EnumUtil {\n\n\tpublic static <T extends Enum> T grabEnumSafely(Class<? extends Enum> theEnum, int index) {\n\t\tEnum[] values = theEnum.getEnumConstants();\n\t\tindex = Math.abs(index % values.length);\n\t\treturn (T)values[index];\n\t}\n}\n"
+  },
+  "RenderBomber.style-lookup": {
+    "sha256": "c62da7bab3a07fff9dd6b877b09c54c990fb886ff9955a9e0529a7e8550fffca",
+    "source": "int i = ((EntityBomber) entity).getBomberStyle();"
+  }
+}

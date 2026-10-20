@@ -1,0 +1,316 @@
+{
+  "base_commit": "abe006a0845275e8be52417967ac8ebf6f283a52",
+  "files": {
+    "src/main/java/com/hbm/entity/mob/EntityGhost.java": {
+      "before_sha256": "1ffb62f882e6e638ec74509c4bee8b6e6ef7ce8ed3661ea772dbc6a53b5b11e8",
+      "after_sha256": "33161038693deecc909e1e6ecd0d160b793f21e1586a454da9893ea5178fd944",
+      "edits": [
+        {
+          "before": "\t\tthis.renderDistanceWeight *= 10;\n",
+          "after": "",
+          "line": 23
+        },
+        {
+          "before": "public class EntityGhost extends EntityCreature {\n",
+          "after": "public class EntityGhost extends EntityCreature {\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 10.0D;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 14
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 10.0D;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "10.0D",
+      "migrated_assignments": 1,
+      "variable_weight": false
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTankbot.java": {
+      "before_sha256": "9ef12504e94f095af0e4eadd64a7178d234bafc3bd6499a23bfc0420e1e1a241",
+      "after_sha256": "5449179f175f059689721f7ccf97a759767aec2d641555f83b06060ec137fd01",
+      "edits": [
+        {
+          "before": "        this.renderDistanceWeight = 24.0D;\n",
+          "after": "",
+          "line": 59
+        },
+        {
+          "before": "public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, IAnimals, ISuffocationImmune {\n",
+          "after": "public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, IAnimals, ISuffocationImmune {\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 24.0D;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 40
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 24.0D;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "24.0D",
+      "migrated_assignments": 1,
+      "variable_weight": false
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBase.java": {
+      "before_sha256": "73b255b2ba152d633b7a8e0dabf0456037925ce2331cdcb961bcd4bb9c9acddf",
+      "after_sha256": "dbbd61493a84259ce282a2f5a44639b16779ae80a4a832864109140c9f0d232b",
+      "edits": [
+        {
+          "before": "\t\tthis.renderDistanceWeight = 15.0D;\n",
+          "after": "",
+          "line": 37
+        }
+      ],
+      "range_method": null,
+      "effective_weight": null,
+      "migrated_assignments": 1,
+      "variable_weight": false
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java": {
+      "before_sha256": "ef44d49922e0f08bb57489a80f92f0ec70961b3d92798d3b42b3a7f76b764b04",
+      "after_sha256": "e87faa38a142ace99df89c93306935813ee4ff0ea0bd1752d25bcf036113c324",
+      "edits": [
+        {
+          "before": "\t\tthis.renderDistanceWeight = 15.0D;\n",
+          "after": "",
+          "line": 53
+        },
+        {
+          "before": "public abstract class EntityWormBaseNT extends EntityBurrowingNT {\n",
+          "after": "public abstract class EntityWormBaseNT extends EntityBurrowingNT {\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 15.0D;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 16
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 15.0D;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "15.0D",
+      "migrated_assignments": 1,
+      "variable_weight": false
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "387e44d6b3edcdc83c68c45f60f8b6069eb9f55499af9e22ed5c0718464c3d65",
+      "after_sha256": "ffb072d4dd139cdd9851215031f64d2cc36a5b853eeb599daad3d460bbbd295a",
+      "edits": [
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 77
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 83
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 92
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 120
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 150
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 176
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 205
+        },
+        {
+          "before": "public class EntityBullet extends Entity implements IProjectile {\n",
+          "after": "public class EntityBullet extends Entity implements IProjectile {\n\n\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 46
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "10.0D",
+      "migrated_assignments": 7,
+      "variable_weight": true
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java": {
+      "before_sha256": "b44685f2fd7b95c161aae61cd08c055c1cc756f7fecd1b64d4a1b64bb52c7887",
+      "after_sha256": "27381ea60623d0275bd4042fc034f0af01c5424b90b4d2030f6a6e6d89caa1e1",
+      "edits": [
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "",
+          "line": 40
+        }
+      ],
+      "range_method": null,
+      "effective_weight": null,
+      "migrated_assignments": 1,
+      "variable_weight": false
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "eed53cad8a79c8dbf4d139a4ffd493baf3a4df22e2236058305b475121c06cf2",
+      "after_sha256": "9bd2764705e95966fd2176bb4a31e4ba0b5f96a3c54d90dcb3c35903fb5293c6",
+      "edits": [
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "",
+          "line": 91
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "",
+          "line": 101
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "",
+          "line": 139
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "",
+          "line": 154
+        }
+      ],
+      "range_method": null,
+      "effective_weight": null,
+      "migrated_assignments": 4,
+      "variable_weight": false
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java": {
+      "before_sha256": "c9e75c6187c5a6b13ab6f4c29bc28e60fcd867182807e19d1840f9493a72dd7e",
+      "after_sha256": "d7892341cbbecd1e485b47ba1faeaa7efaae8666d8aa234f9a925da6438292c2",
+      "edits": [
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "",
+          "line": 44
+        },
+        {
+          "before": "public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpawnData {\n",
+          "after": "public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpawnData {\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 10.0D;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 29
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * 10.0D;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "10.0D",
+      "migrated_assignments": 1,
+      "variable_weight": false
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "2e20450b36307da7f064c2bfbdc89a1c8540a60a0d0244f6cd2553ee14b13172",
+      "after_sha256": "0549d61174ce07e685156b3a035be9d628035374966d5fe6e9048482a07a9907",
+      "edits": [
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 50
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 57
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 66
+        },
+        {
+          "before": "\t\tthis.renderDistanceWeight = 10.0D;\n",
+          "after": "\t\tthis.renderRangeWeight = 10.0D;\n",
+          "line": 95
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 117
+        },
+        {
+          "before": "public class EntityExplosiveBeam extends Entity implements IProjectile\n{\n",
+          "after": "public class EntityExplosiveBeam extends Entity implements IProjectile\n{\n\n\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 27
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "10.0D",
+      "migrated_assignments": 5,
+      "variable_weight": true
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "f7923b214d9ea2788d52d5a1e84a2b5173630f5003a39fe2031e65b50032a612",
+      "after_sha256": "7a478d12ef4cfd57c702e6fc49f9bafd480665c094089edd32f6a3eb9707665f",
+      "edits": [
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 56
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 63
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 72
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 102
+        },
+        {
+          "before": "public class EntityRocket extends Entity implements IProjectile\n{\n",
+          "after": "public class EntityRocket extends Entity implements IProjectile\n{\n\n\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 31
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "10.0D",
+      "migrated_assignments": 4,
+      "variable_weight": true
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "369a18b96e17284454623abb59d21373fea8f59d9e9548c655a54cf1baf63a97",
+      "after_sha256": "5c96cb88527e71a9896057821961b030855d769ef603257f9f957917bbc60949",
+      "edits": [
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 57
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 64
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 73
+        },
+        {
+          "before": "        this.renderDistanceWeight = 10.0D;\n",
+          "after": "        this.renderRangeWeight = 10.0D;\n",
+          "line": 103
+        },
+        {
+          "before": "public class EntitySchrab extends Entity implements IProjectile\n{\n",
+          "after": "public class EntitySchrab extends Entity implements IProjectile\n{\n\n\tprivate double renderRangeWeight = 1.0D;\n\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+          "line": 32
+        }
+      ],
+      "range_method": "\n\t/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */\n\t@Override\n\t@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)\n\tpublic boolean isInRangeToRenderDist(double distance) {\n\t\tdouble range = this.getEntityBoundingBox().getAverageEdgeLength();\n\t\trange *= 64.0D * this.renderRangeWeight;\n\t\treturn distance < range * range;\n\t}\n",
+      "effective_weight": "10.0D",
+      "migrated_assignments": 4,
+      "variable_weight": true
+    }
+  },
+  "closure_sha256": {
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBody.java": "8719078f77588aa116d16913e729d15ed296e4d7cbc4d1fb6e2172daff6a2ff2",
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java": "480e5c61b5407c611aa3428219014a2e53670d734959ade8a5c4928049e5a977",
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBurrowingNT.java": "b405c359c7be9934bf33c4f4c9428d935481f3e259f83f20dad9dc25fa21c995",
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4CL.java": "426e3d86b6c141db7b3942f04a6f8cdfadeb8dd05dadfd484864f8edc4c827b0",
+    "src/main/java/com/hbm/entity/projectile/EntityCombineBallNT.java": "48c19de1a69d04836a22ba3892dace629c3cfd3aa562ba843faf3d24b0595741",
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableInterp.java": "1727ed3a0643fbcbeaf22366ac1daad67ec69857672e99f5182a2632d6b61cf9",
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": "7eb3c8094aa6927cf8d5993e70718c2a5415668877ed949d91b7d361b6fa9a71"
+  },
+  "migrated_assignment_count": 30,
+  "owner_override_count": 8
+}

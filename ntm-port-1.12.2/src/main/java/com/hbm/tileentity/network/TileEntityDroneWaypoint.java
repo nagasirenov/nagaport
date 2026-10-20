@@ -43,7 +43,7 @@ public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDr
 				double y = this.pos.getY() + height * dir.offsetY + 0.5;
 				double z = this.pos.getZ() + height * dir.offsetZ + 0.5;
 
-				this.world.spawnParticle("reddust", x, y, z, 0, 0, 0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, x, y, z, 0, 0, 0);
 
 				ParticleUtil.spawnDroneLine(this.world,
 				pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,

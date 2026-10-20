@@ -1,0 +1,113 @@
+/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks;
+                      ^
+/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/util/EnumUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS: eight actual supplied original owner/interface classfiles symbol-remapped; no method instructions removed or replaced
+PASS: 72 exact call regenerations/inverses; original bytes preserved outside calls; 32 exact constructor assignments and frozen state/lifecycle/range dependencies
+PASS: original classfile/dependency SHA-256 provenance
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.block_foam`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.brick_concrete_mossy`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.brick_jungle`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.brick_jungle_cracked`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.concrete`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.crystal_hardened`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.ore_nether_schrabidium`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.ore_tektite_osmiridium`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.reinforced_stone`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.rubber_silt`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.stone_gneiss`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[10:54:53] [main/WARN]: Potentially Dangerous alternative prefix `hbm` for name `tile.tektite`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS: 38495 genuine original/native owner/root state, real World/Chunk/storage, all flags, falling callback, bounds and return assertions; incomplete target lifecycles NOT certified
+Read-only reviewed conversion method: com/hbm/blocks/BlockMulti.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: com/hbm/blocks/generic/BlockDecoCT.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/Block.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/Block.getDefaultState()Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/state/BlockStateContainer$StateImplementation.withProperty(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+PASS: 5 owned state conversion methods have no field/array writes, monitors, dynamic invocation or unreviewed calls; all sixteen states tested separately
+PASS: 15 generated production-template order/bounds/null/conversion/subclass-dispatch assertions
+/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/porting/tests/registered-state-writes/OriginalRegisteredEvaluation.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                           ^
+/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/porting/tests/registered-state-writes/OriginalRegisteredEvaluation.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                     ^
+/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/porting/tests/registered-state-writes/OriginalRegisteredEvaluation.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                                        ^
+3 warnings
+PASS: 8 original owned-write null-field/null-world/argument-failure/evaluation cases
+PASS: two typed positive and eleven receiver/alias/type/result/comment negative attribution controls
+PASS: field initializer, aliased reassignment and anonymous-subclass constructor controls rejected
+FIELD	ore_nether_schrabidium	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	58177	58431
+FIELD	stone_gneiss	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	58582	58808
+FIELD	ore_gneiss_schrabidium	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	60661	60926
+FIELD	stone_biome	com.hbm.blocks.generic.BlockBiomeStone	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	66283	66423
+FIELD	ore_basalt	com.hbm.blocks.generic.BlockOreBasalt	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	66663	66868
+FIELD	block_foam	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	92693	92953
+FIELD	deco_steel	com.hbm.blocks.generic.BlockDecoCT	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	97842	98006
+FIELD	reinforced_stone	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	108161	108397
+FIELD	concrete	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	109144	109361
+FIELD	concrete_super_broken	net.minecraft.block.BlockFalling	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	110002	110262
+FIELD	brick_concrete_mossy	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	110787	111035
+FIELD	block_meteor_cobble	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	121692	121956
+FIELD	brick_jungle	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	129606	129830
+FIELD	brick_jungle_cracked	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	129835	130083
+FIELD	brick_jungle_ooze	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	130617	130891
+FIELD	brick_jungle_mystic	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	130896	131176
+FIELD	sand_mix	com.hbm.blocks.generic.BlockNTMSand	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	141014	141182
+FIELD	plant_tall	com.hbm.blocks.generic.BlockTallPlant	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	144642	144802
+FIELD	plant_dead	com.hbm.blocks.generic.BlockDeadPlant	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	144807	144967
+FIELD	waste_trinitite	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	148625	148930
+FIELD	waste_trinitite_red	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	148935	149252
+FIELD	waste_planks	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	149665	149949
+FIELD	frozen_dirt	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	149954	150238
+FIELD	frozen_planks	com.hbm.blocks.generic.BlockStepEffect	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	150624	150912
+FIELD	tektite	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	152599	152828
+FIELD	ore_tektite_osmiridium	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	152833	153107
+FIELD	crashed_balefire	com.hbm.blocks.bomb.BlockCrashedBomb	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	163149	163382
+FIELD	oil_pipe	com.hbm.blocks.generic.BlockNoDrop	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	242560	242762
+FIELD	barricade	com.hbm.blocks.generic.BlockNoDrop	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	247235	247439
+FIELD	crystal_hardened	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	264004	264240
+FIELD	rubber_silt	com.hbm.blocks.generic.BlockGeneric	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	278808	279071
+FIELD	rubber_plant	com.hbm.blocks.generic.BlockRubberPlant	/workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	279076	279242
+ALIAS	Block4	com.hbm.blocks.ModBlocks.crashed_balefire
+Attribution diagnostics, NOT whole-source compile success: 12066
+PASS: all 72 original invocation receiver/target/argument positions and 32 exact constructor assignments attributed; sole Block4 initializer verified
+Unrelated unfinished-port diagnostics: 11994
+PASS: all 72 exact new native IBlockState boundary positions resolve; NOT whole-mod compilation
+Note: /tmp/registered-state-writes-p6uvkzbf/BlockMulti.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockMulti.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/registered-state-writes-p6uvkzbf/BlockMulti.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockMulti.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/registered-state-writes-p6uvkzbf/BlockDecoCT.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-ownedwrites-cp85/ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockDecoCT.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS: zeroed Multi, creative-count normalized Multi and zeroed CT production-codec mutants rejected
+Note: /tmp/registered-state-writes-p6uvkzbf/CapturedRegisteredWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/registered-state-writes-p6uvkzbf/CapturedRegisteredWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/registered-state-writes-p6uvkzbf/CapturedRegisteredWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/registered-state-writes-p6uvkzbf/CapturedRegisteredWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/registered-state-writes-p6uvkzbf/CapturedRegisteredWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS: five generated capture bounds/null/metadata/flags/eager-conversion mutants rejected
+PASS: every one of 72 production-call deletion mutants violates exact-source regeneration
+PASS: bounded registered-state write proof complete, not full mod compilation

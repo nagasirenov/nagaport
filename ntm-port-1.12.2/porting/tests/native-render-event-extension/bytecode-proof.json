@@ -1,0 +1,30 @@
+[
+  {
+    "owner": "net.minecraftforge.client.event.RenderPlayerEvent",
+    "field": "renderer",
+    "getter": "getRenderer",
+    "original": "Compiled from \"RenderPlayerEvent.java\"\npublic abstract class net.minecraftforge.client.event.RenderPlayerEvent extends net.minecraftforge.event.entity.player.PlayerEvent {\n  public final bop renderer;\n\n  public final float partialRenderTick;\n\n  public net.minecraftforge.client.event.RenderPlayerEvent(yz, bop, float);\n    Code:\n       0: aload_0\n       1: aload_1\n       2: invokespecial #26                 // Method net/minecraftforge/event/entity/player/PlayerEvent.\"<init>\":(Lyz;)V\n       5: aload_0\n       6: aload_2\n       7: putfield      #28                 // Field renderer:Lbop;\n      10: aload_0\n      11: fload_3\n      12: putfield      #30                 // Field partialRenderTick:F\n      15: return\n}\n",
+    "native_getter": "public net.minecraft.client.renderer.entity.RenderPlayer getRenderer();\n    Code:\n       0: aload_0\n       1: getfield      #32                 // Field renderer:Lnet/minecraft/client/renderer/entity/RenderPlayer;\n       4: areturn"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.RenderPlayerEvent",
+    "field": "partialRenderTick",
+    "getter": "getPartialRenderTick",
+    "original": "Compiled from \"RenderPlayerEvent.java\"\npublic abstract class net.minecraftforge.client.event.RenderPlayerEvent extends net.minecraftforge.event.entity.player.PlayerEvent {\n  public final bop renderer;\n\n  public final float partialRenderTick;\n\n  public net.minecraftforge.client.event.RenderPlayerEvent(yz, bop, float);\n    Code:\n       0: aload_0\n       1: aload_1\n       2: invokespecial #26                 // Method net/minecraftforge/event/entity/player/PlayerEvent.\"<init>\":(Lyz;)V\n       5: aload_0\n       6: aload_2\n       7: putfield      #28                 // Field renderer:Lbop;\n      10: aload_0\n      11: fload_3\n      12: putfield      #30                 // Field partialRenderTick:F\n      15: return\n}\n",
+    "native_getter": "public float getPartialRenderTick();\n    Code:\n       0: aload_0\n       1: getfield      #34                 // Field partialRenderTick:F\n       4: freturn"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.RenderHandEvent",
+    "field": "partialTicks",
+    "getter": "getPartialTicks",
+    "original": "Compiled from \"RenderHandEvent.java\"\npublic class net.minecraftforge.client.event.RenderHandEvent extends cpw.mods.fml.common.eventhandler.Event {\n  public final bma context;\n\n  public final float partialTicks;\n\n  public final int renderPass;\n\n  public net.minecraftforge.client.event.RenderHandEvent(bma, float, int);\n    Code:\n       0: aload_0\n       1: invokespecial #17                 // Method cpw/mods/fml/common/eventhandler/Event.\"<init>\":()V\n       4: aload_0\n       5: aload_1\n       6: putfield      #19                 // Field context:Lbma;\n       9: aload_0\n      10: fload_2\n      11: putfield      #21                 // Field partialTicks:F\n      14: aload_0\n      15: iload_3\n      16: putfield      #23                 // Field renderPass:I\n      19: return\n}\n",
+    "native_getter": "public float getPartialTicks();\n    Code:\n       0: aload_0\n       1: getfield      #21                 // Field partialTicks:F\n       4: freturn"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.RenderItemInFrameEvent",
+    "field": "item",
+    "getter": "getItem",
+    "original": "Compiled from \"RenderItemInFrameEvent.java\"\npublic class net.minecraftforge.client.event.RenderItemInFrameEvent extends cpw.mods.fml.common.eventhandler.Event {\n  public final add item;\n\n  public final st entityItemFrame;\n\n  public final bnx renderer;\n\n  public net.minecraftforge.client.event.RenderItemInFrameEvent(st, bnx);\n    Code:\n       0: aload_0\n       1: invokespecial #17                 // Method cpw/mods/fml/common/eventhandler/Event.\"<init>\":()V\n       4: aload_0\n       5: aload_1\n       6: invokevirtual #23                 // Method st.j:()Ladd;\n       9: putfield      #25                 // Field item:Ladd;\n      12: aload_0\n      13: aload_1\n      14: putfield      #27                 // Field entityItemFrame:Lst;\n      17: aload_0\n      18: aload_2\n      19: putfield      #29                 // Field renderer:Lbnx;\n      22: return\n}\n",
+    "native_getter": "public net.minecraft.item.ItemStack getItem();\n    Code:\n       0: aload_0\n       1: getfield      #25                 // Field item:Lnet/minecraft/item/ItemStack;\n       4: areturn"
+  }
+]

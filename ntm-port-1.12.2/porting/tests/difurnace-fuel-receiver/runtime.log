@@ -1,0 +1,4 @@
+PASS 50 native positive-entry fuel/callback/alias checks
+PASS rejected mutation: depleted receiver
+PASS rejected mutation: absent residue
+PASS complete-source reverse proof; native extracted block; full machine compilation NOT claimed

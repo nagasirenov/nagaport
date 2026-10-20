@@ -1,0 +1,1 @@
+PASS 32 exact file forward/inverses; 7 complete callback body inverses; 32 invocation-token-only edits; 96 drift rejections; historical Javadoc exclusion unchanged

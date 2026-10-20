@@ -95,10 +95,10 @@ public abstract class EntityDroneBase extends Entity {
 				this.setPosition(this.posX, this.posY, this.posZ);
 			}
 
-			this.world.spawnParticle("smoke", posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);
-			this.world.spawnParticle("smoke", posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);
-			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);
-			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);
 		} else {
 
 			this.motionX = 0;
@@ -115,7 +115,7 @@ public abstract class EntityDroneBase extends Entity {
 				this.motionY = dist.y * speed;
 				this.motionZ = dist.z * speed;
 			}
-			if(isCollidedHorizontally){
+			if(this.collidedHorizontally){
 				motionY += 1;
 			}
 			this.loadNeighboringChunks();

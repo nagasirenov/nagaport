@@ -17,6 +17,8 @@ import com.hbm.util.Vec3NT;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -75,8 +77,9 @@ public class RenderBatteryREDD extends TileEntitySpecialRenderer {
 		
 		Vec3NT vec = new Vec3NT(0, 0, 4);
 		
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawingQuads();
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
 		
 		double len = 4.25D;
 		double width = 0.125D;
@@ -88,29 +91,47 @@ public class RenderBatteryREDD extends TileEntitySpecialRenderer {
 				vec.setComponents(0, 1, 0);
 				vec.rotateAroundXDeg(i * 45D);
 				
-				tess.setColorRGBA_F(1F, 1F, 0F, 0.75F);
-				tess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);
-				tess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);
+				int tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor0Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));
+				tessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 				vec.rotateAroundXDeg(span);
-				tess.setColorRGBA_F(1F, 1F, 0F, 0.5F);
-				tess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);
-				tess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);
+				int tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor1Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));
+				tessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+				tessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 				
-				tess.setColorRGBA_F(1F, 1F, 0F, 0.5F);
-				tess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);
-				tess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);
+				int tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor2Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor2Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));
+				tessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();
+				tessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();
 				vec.rotateAroundXDeg(span);
-				tess.setColorRGBA_F(1F, 1F, 0F, 0.25F);
-				tess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);
-				tess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);
+				int tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor3Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor3Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));
+				tessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();
+				tessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();
 				
-				tess.setColorRGBA_F(1F, 1F, 0F, 0.25F);
-				tess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);
-				tess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);
+				int tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor4Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor4Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));
+				tessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();
+				tessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();
 				vec.rotateAroundXDeg(span);
-				tess.setColorRGBA_F(1F, 1F, 0F, 0F);
-				tess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);
-				tess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);
+				int tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor5Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor5Alpha = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				tessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();
+				tessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();
 			}
 		}
 		tess.draw();

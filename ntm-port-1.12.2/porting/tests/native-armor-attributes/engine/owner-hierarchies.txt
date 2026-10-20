@@ -1,0 +1,57 @@
+public class com.hbm.items.armor.ArmorNCRPA extends com.hbm.items.armor.ArmorFSBPowered implements com.hbm.render.tileentity.IItemRendererProvider,com.hbm.items.armor.IPAWeaponsProvider {
+  Native source hook declarations: none; sha256 b193b68cb66a311655ae194980c5602bc0a313341d5380a6c8436cd9248992e7
+public class com.hbm.items.armor.ArmorEnvsuit extends com.hbm.items.armor.ArmorFSBPowered implements com.hbm.render.tileentity.IItemRendererProvider {
+  Native source hook declarations: none; sha256 15731ac646fefe6b643f671f7d06d1a969055777c9be3220e2293703872dde1a
+public class com.hbm.items.armor.ArmorDNT extends com.hbm.items.armor.ArmorFSBPowered implements com.hbm.render.tileentity.IItemRendererProvider {
+  Native source hook declarations: none; sha256 25709b450819617e7530c800faceac2b77ba7c40ebe866e6cf48b7d2f61c383e
+public class com.hbm.items.armor.ArmorFSBPowered extends com.hbm.items.armor.ArmorFSB implements api.hbm.energymk2.IBatteryItem {
+  Native source hook declarations: none; sha256 8dbc48ef29c45c58e6d3c5b20c12e109184db7659fc3a001905dffb9989d3954
+public class com.hbm.items.armor.ArmorFSB extends net.minecraft.item.ItemArmor implements com.hbm.items.armor.IArmorDisableModel {
+  Native source hook declarations: none; sha256 7534b4f05cea812e7ad647865cc74ff85da3740bc5864665f59aaf7a974597cc
+public class com.hbm.items.armor.ItemModWD40 extends com.hbm.items.armor.ItemArmorMod {
+  Native source hook declarations: none; sha256 9fe44848204963b30398af0446e5304a8c5713729db7834efae317d360845ca8
+public class com.hbm.items.armor.ItemModInsert extends com.hbm.items.armor.ItemArmorMod {
+  Native source hook declarations: none; sha256 f03d4490e6b942db7e17d6346932752084386377a7904c44075e46b702f5618d
+public class com.hbm.items.armor.ItemModHealth extends com.hbm.items.armor.ItemArmorMod {
+  Native source hook declarations: none; sha256 08928f655ec2a76bd9990d18b47ce5f009ce5cb7552e3159253f2b66e5f91de1
+public class com.hbm.items.armor.ItemModIron extends com.hbm.items.armor.ItemArmorMod {
+  Native source hook declarations: none; sha256 d1885b95318d3e8ea153e580e7e9c87d16886ef9867006858cfc6c6607828386
+public class com.hbm.items.armor.ItemModServos extends com.hbm.items.armor.ItemArmorMod {
+  Native source hook declarations: none; sha256 be5f2cfdfe9b7761f8acc1dd37d97ae390973755016b394cf81d27e85227967a
+public class com.hbm.items.armor.ItemModV1 extends com.hbm.items.armor.ItemArmorMod implements com.hbm.interfaces.IArmorModDash {
+  Native source hook declarations: none; sha256 77acba5b34c5e74a8eb4ad06fae0354d29078b6e44e0b60c3fd65d2a054cd437
+public class com.hbm.items.armor.ItemArmorMod extends net.minecraft.item.Item {
+  Native source hook declarations: none; sha256 1d7e5f90bf792cdf03c4ac2cb65b8428f1b28b97e59da3370c1b25a090276350
+All twelve original declarations above have no getAttributeModifiers/func_111205_h declarations; the filtered outputs would include any such declaration.
+
+Complete legacy ItemArmor declaration (abb):
+Compiled from "SourceFile"
+public class abb extends adb {
+  private static final int[] m;
+  private static final java.lang.String[] n;
+  public static final java.lang.String[] a;
+  private static final cp o;
+  public final int b;
+  public final int c;
+  public final int d;
+  private final abd p;
+  private rf q;
+  private rf r;
+  public abb(abd, int, int);
+  public int a(add, int);
+  public boolean b();
+  public int c();
+  public abd m_();
+  public boolean c_(add);
+  public int b(add);
+  public rf a(int, int);
+  public void c(add);
+  public void b(add, int);
+  public boolean a(add, add);
+  public void a(rg);
+  public add a(add, ahb, yz);
+  public static rf b(int);
+  static int[] e();
+  static {};
+}
+

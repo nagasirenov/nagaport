@@ -1,0 +1,6 @@
+PASS 24 exact replacements / 15 whole-file inverses; 30 source mutations rejected; all 4065 production inputs preserved
+PASS 24 exact native (DDDDDD)V bindings; javac attribution errors 12169 -> 12145; exactly 24 selected factory diagnostics removed, 0 added; all unrelated line/code/message diagnostic multiplicities equal (not a full build)
+Attribution only; production inputs=4065; unfinished-port errors=12169
+Native TileEntity position source writes=0; setPos overrides=0
+Attribution only; production inputs=4065; unfinished-port errors=12145
+Native TileEntity position source writes=0; setPos overrides=0

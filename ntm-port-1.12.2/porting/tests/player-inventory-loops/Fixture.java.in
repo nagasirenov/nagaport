@@ -1,0 +1,11 @@
+import net.minecraft.entity.player.InventoryPlayer;import net.minecraft.item.ItemStack;
+class Fixture {
+ void a(InventoryPlayer inv){for(ItemStack stack:inv.mainInventory){}}
+ void b(InventoryPlayer inv){for(ItemStack stack:inv.armorInventory){}}
+ static class Shadow extends InventoryPlayer {ItemStack[] mainInventory=new ItemStack[1];Shadow(){super(null);}}
+ void c(Shadow inv){for(ItemStack stack:inv.mainInventory){}}
+ void d(Unknown inv){for(ItemStack stack:inv.mainInventory){}}
+ void e(){for(ItemStack stack:InventoryPlayer.mainInventory){}}
+ void f(InventoryPlayer inv){for(Object stack:inv.mainInventory){}}
+ String text="for(ItemStack stack:inv.mainInventory){}";
+}

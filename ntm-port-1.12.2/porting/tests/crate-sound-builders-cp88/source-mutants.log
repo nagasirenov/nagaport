@@ -1,0 +1,10 @@
+PASS source negative control: drop crate sound assignment
+PASS source negative control: substitute storage sound argument
+PASS source negative control: null crate builder return
+PASS source negative control: substitute registry legacyMetal
+PASS source negative control: move sound before name
+PASS source negative control: invalid foreign-owner cast
+PASS source negative control: change crate constructor material
+PASS source negative control: change unrelated crate gameplay
+PASS source negative control: change unrelated storage gameplay
+PASS source negative control: change sound definition

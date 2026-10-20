@@ -1,0 +1,1 @@
+PASS 22 real javac ownership fixtures: player/mob/base distinction, owned overloads and overrides, interfaces, static/super/unknown/generic exclusions, Unicode positions, and package shadow rejection

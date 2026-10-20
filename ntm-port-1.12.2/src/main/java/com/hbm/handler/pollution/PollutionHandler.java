@@ -370,11 +370,11 @@ public class PollutionHandler {
 		
 		if(!RadiationConfig.enablePollution) return;
 		
-		World world = event.world;
+		World world = event.getWorld();
 		if(world.isRemote) return;
 		EntityLivingBase living = event.getEntityLiving();
 		
-		PollutionData data = getPollutionData(world, (int) Math.floor(event.x), (int) Math.floor(event.y), (int) Math.floor(event.z));
+		PollutionData data = getPollutionData(world, (int) Math.floor(event.getX()), (int) Math.floor(event.getY()), (int) Math.floor(event.getZ()));
 		if(data == null) return;
 		
 		if(living instanceof IMob && !(living instanceof EntityGlyphid)) {

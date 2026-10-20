@@ -1,0 +1,1469 @@
+{
+  "boundary": "Real ItemArmor / Item native receivers, not actual NTM constructors. Exact production registration statements and ArmorFSB constructor tail. Inventory-only runtime proof.",
+  "items": [
+    {
+      "field": "goggles",
+      "owner": "ArmorModel",
+      "translation": "goggles",
+      "texture": "hbm:goggles",
+      "atlas": "hbm:items/goggles",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "ashglasses",
+      "owner": "ArmorAshGlasses",
+      "translation": "ashglasses",
+      "texture": "hbm:ashglasses",
+      "atlas": "hbm:items/ashglasses",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "gas_mask",
+      "owner": "ArmorGasMask",
+      "translation": "gas_mask",
+      "texture": "hbm:gas_mask",
+      "atlas": "hbm:items/gas_mask",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "gas_mask_m65",
+      "owner": "ArmorGasMask",
+      "translation": "gas_mask_m65",
+      "texture": "hbm:gas_mask_m65",
+      "atlas": "hbm:items/gas_mask_m65",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "gas_mask_mono",
+      "owner": "ArmorGasMask",
+      "translation": "gas_mask_mono",
+      "texture": "hbm:gas_mask_mono",
+      "atlas": "hbm:items/gas_mask_mono",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "gas_mask_olde",
+      "owner": "ArmorGasMask",
+      "translation": "gas_mask_olde",
+      "texture": "hbm:gas_mask_olde",
+      "atlas": "hbm:items/gas_mask_olde",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "mask_rag",
+      "owner": "ModArmor",
+      "translation": "mask_rag",
+      "texture": "hbm:mask_rag",
+      "atlas": "hbm:items/mask_rag",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "mask_piss",
+      "owner": "ModArmor",
+      "translation": "mask_piss",
+      "texture": "hbm:mask_piss",
+      "atlas": "hbm:items/mask_piss",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "hat",
+      "owner": "ArmorHat",
+      "translation": "nossy_hat",
+      "texture": "hbm:hat",
+      "atlas": "hbm:items/hat",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "euphemium_helmet",
+      "owner": "ArmorEuphemium",
+      "translation": "euphemium_helmet",
+      "texture": "hbm:euphemium_helmet",
+      "atlas": "hbm:items/euphemium_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "euphemium_plate",
+      "owner": "ArmorEuphemium",
+      "translation": "euphemium_plate",
+      "texture": "hbm:euphemium_plate",
+      "atlas": "hbm:items/euphemium_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "euphemium_legs",
+      "owner": "ArmorEuphemium",
+      "translation": "euphemium_legs",
+      "texture": "hbm:euphemium_legs",
+      "atlas": "hbm:items/euphemium_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "euphemium_boots",
+      "owner": "ArmorEuphemium",
+      "translation": "euphemium_boots",
+      "texture": "hbm:euphemium_boots",
+      "atlas": "hbm:items/euphemium_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "schrabidium_plate",
+      "owner": "ArmorFSB",
+      "translation": "schrabidium_plate",
+      "texture": "hbm:schrabidium_plate",
+      "atlas": "hbm:items/schrabidium_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "schrabidium_legs",
+      "owner": "ArmorFSB",
+      "translation": "schrabidium_legs",
+      "texture": "hbm:schrabidium_legs",
+      "atlas": "hbm:items/schrabidium_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "schrabidium_boots",
+      "owner": "ArmorFSB",
+      "translation": "schrabidium_boots",
+      "texture": "hbm:schrabidium_boots",
+      "atlas": "hbm:items/schrabidium_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "bismuth_plate",
+      "owner": "ArmorBismuth",
+      "translation": "bismuth_plate",
+      "texture": "hbm:bismuth_plate",
+      "atlas": "hbm:items/bismuth_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "bismuth_legs",
+      "owner": "ArmorBismuth",
+      "translation": "bismuth_legs",
+      "texture": "hbm:bismuth_legs",
+      "atlas": "hbm:items/bismuth_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "bismuth_boots",
+      "owner": "ArmorBismuth",
+      "translation": "bismuth_boots",
+      "texture": "hbm:bismuth_boots",
+      "atlas": "hbm:items/bismuth_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "titanium_helmet",
+      "owner": "ArmorFSB",
+      "translation": "titanium_helmet",
+      "texture": "hbm:titanium_helmet",
+      "atlas": "hbm:items/titanium_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "titanium_plate",
+      "owner": "ArmorFSB",
+      "translation": "titanium_plate",
+      "texture": "hbm:titanium_plate",
+      "atlas": "hbm:items/titanium_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "titanium_legs",
+      "owner": "ArmorFSB",
+      "translation": "titanium_legs",
+      "texture": "hbm:titanium_legs",
+      "atlas": "hbm:items/titanium_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "titanium_boots",
+      "owner": "ArmorFSB",
+      "translation": "titanium_boots",
+      "texture": "hbm:titanium_boots",
+      "atlas": "hbm:items/titanium_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "steel_helmet",
+      "owner": "ArmorFSB",
+      "translation": "steel_helmet",
+      "texture": "hbm:steel_helmet",
+      "atlas": "hbm:items/steel_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "steel_plate",
+      "owner": "ArmorFSB",
+      "translation": "steel_plate",
+      "texture": "hbm:steel_plate",
+      "atlas": "hbm:items/steel_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "steel_legs",
+      "owner": "ArmorFSB",
+      "translation": "steel_legs",
+      "texture": "hbm:steel_legs",
+      "atlas": "hbm:items/steel_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "steel_boots",
+      "owner": "ArmorFSB",
+      "translation": "steel_boots",
+      "texture": "hbm:steel_boots",
+      "atlas": "hbm:items/steel_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "alloy_helmet",
+      "owner": "ArmorFSB",
+      "translation": "alloy_helmet",
+      "texture": "hbm:alloy_helmet",
+      "atlas": "hbm:items/alloy_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "alloy_plate",
+      "owner": "ArmorFSB",
+      "translation": "alloy_plate",
+      "texture": "hbm:alloy_plate",
+      "atlas": "hbm:items/alloy_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "alloy_legs",
+      "owner": "ArmorFSB",
+      "translation": "alloy_legs",
+      "texture": "hbm:alloy_legs",
+      "atlas": "hbm:items/alloy_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "alloy_boots",
+      "owner": "ArmorFSB",
+      "translation": "alloy_boots",
+      "texture": "hbm:alloy_boots",
+      "atlas": "hbm:items/alloy_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "cmb_plate",
+      "owner": "ArmorFSB",
+      "translation": "cmb_plate",
+      "texture": "hbm:cmb_plate",
+      "atlas": "hbm:items/cmb_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "cmb_legs",
+      "owner": "ArmorFSB",
+      "translation": "cmb_legs",
+      "texture": "hbm:cmb_legs",
+      "atlas": "hbm:items/cmb_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "cmb_boots",
+      "owner": "ArmorFSB",
+      "translation": "cmb_boots",
+      "texture": "hbm:cmb_boots",
+      "atlas": "hbm:items/cmb_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "paa_legs",
+      "owner": "ArmorFSB",
+      "translation": "paa_legs",
+      "texture": "hbm:paa_legs",
+      "atlas": "hbm:items/paa_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "paa_boots",
+      "owner": "ArmorFSB",
+      "translation": "paa_boots",
+      "texture": "hbm:paa_boots",
+      "atlas": "hbm:items/paa_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "asbestos_plate",
+      "owner": "ArmorFSB",
+      "translation": "asbestos_plate",
+      "texture": "hbm:asbestos_plate",
+      "atlas": "hbm:items/asbestos_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "asbestos_legs",
+      "owner": "ArmorFSB",
+      "translation": "asbestos_legs",
+      "texture": "hbm:asbestos_legs",
+      "atlas": "hbm:items/asbestos_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "asbestos_boots",
+      "owner": "ArmorFSB",
+      "translation": "asbestos_boots",
+      "texture": "hbm:asbestos_boots",
+      "atlas": "hbm:items/asbestos_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "security_helmet",
+      "owner": "ArmorFSB",
+      "translation": "security_helmet",
+      "texture": "hbm:security_helmet",
+      "atlas": "hbm:items/security_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "security_plate",
+      "owner": "ArmorFSB",
+      "translation": "security_plate",
+      "texture": "hbm:security_plate",
+      "atlas": "hbm:items/security_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "security_legs",
+      "owner": "ArmorFSB",
+      "translation": "security_legs",
+      "texture": "hbm:security_legs",
+      "atlas": "hbm:items/security_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "security_boots",
+      "owner": "ArmorFSB",
+      "translation": "security_boots",
+      "texture": "hbm:security_boots",
+      "atlas": "hbm:items/security_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "cobalt_helmet",
+      "owner": "ArmorFSB",
+      "translation": "cobalt_helmet",
+      "texture": "hbm:cobalt_helmet",
+      "atlas": "hbm:items/cobalt_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "cobalt_plate",
+      "owner": "ArmorFSB",
+      "translation": "cobalt_plate",
+      "texture": "hbm:cobalt_plate",
+      "atlas": "hbm:items/cobalt_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "cobalt_legs",
+      "owner": "ArmorFSB",
+      "translation": "cobalt_legs",
+      "texture": "hbm:cobalt_legs",
+      "atlas": "hbm:items/cobalt_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "cobalt_boots",
+      "owner": "ArmorFSB",
+      "translation": "cobalt_boots",
+      "texture": "hbm:cobalt_boots",
+      "atlas": "hbm:items/cobalt_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "starmetal_helmet",
+      "owner": "ArmorFSB",
+      "translation": "starmetal_helmet",
+      "texture": "hbm:starmetal_helmet",
+      "atlas": "hbm:items/starmetal_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "starmetal_plate",
+      "owner": "ArmorFSB",
+      "translation": "starmetal_plate",
+      "texture": "hbm:starmetal_plate",
+      "atlas": "hbm:items/starmetal_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "starmetal_legs",
+      "owner": "ArmorFSB",
+      "translation": "starmetal_legs",
+      "texture": "hbm:starmetal_legs",
+      "atlas": "hbm:items/starmetal_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "starmetal_boots",
+      "owner": "ArmorFSB",
+      "translation": "starmetal_boots",
+      "texture": "hbm:starmetal_boots",
+      "atlas": "hbm:items/starmetal_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "robes_helmet",
+      "owner": "ArmorFSB",
+      "translation": "robes_helmet",
+      "texture": "hbm:robes_helmet",
+      "atlas": "hbm:items/robes_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "robes_plate",
+      "owner": "ArmorFSB",
+      "translation": "robes_plate",
+      "texture": "hbm:robes_plate",
+      "atlas": "hbm:items/robes_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "robes_legs",
+      "owner": "ArmorFSB",
+      "translation": "robes_legs",
+      "texture": "hbm:robes_legs",
+      "atlas": "hbm:items/robes_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "robes_boots",
+      "owner": "ArmorFSB",
+      "translation": "robes_boots",
+      "texture": "hbm:robes_boots",
+      "atlas": "hbm:items/robes_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "zirconium_legs",
+      "owner": "ArmorFSB",
+      "translation": "zirconium_legs",
+      "texture": "hbm:zirconium_legs",
+      "atlas": "hbm:items/zirconium_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "dnt_helmet",
+      "owner": "ArmorFSB",
+      "translation": "dnt_helmet",
+      "texture": "hbm:dnt_helmet",
+      "atlas": "hbm:items/dnt_helmet",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "dnt_plate",
+      "owner": "ArmorFSB",
+      "translation": "dnt_plate",
+      "texture": "hbm:dnt_plate",
+      "atlas": "hbm:items/dnt_plate",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "dnt_legs",
+      "owner": "ArmorFSB",
+      "translation": "dnt_legs",
+      "texture": "hbm:dnt_legs",
+      "atlas": "hbm:items/dnt_legs",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "dnt_boots",
+      "owner": "ArmorFSB",
+      "translation": "dnt_boots",
+      "texture": "hbm:dnt_boots",
+      "atlas": "hbm:items/dnt_boots",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "t51_plate",
+      "owner": "ArmorT51",
+      "translation": "t51_plate",
+      "texture": "hbm:armor",
+      "atlas": "hbm:items/armor",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "t51_legs",
+      "owner": "ArmorT51",
+      "translation": "t51_legs",
+      "texture": "hbm:armor",
+      "atlas": "hbm:items/armor",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "t51_boots",
+      "owner": "ArmorT51",
+      "translation": "t51_boots",
+      "texture": "hbm:armor",
+      "atlas": "hbm:items/armor",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "steamsuit_plate",
+      "owner": "ArmorDesh",
+      "translation": "steamsuit_plate",
+      "texture": "hbm:steamsuit_plate",
+      "atlas": "hbm:items/steamsuit_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "steamsuit_legs",
+      "owner": "ArmorDesh",
+      "translation": "steamsuit_legs",
+      "texture": "hbm:steamsuit_legs",
+      "atlas": "hbm:items/steamsuit_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "steamsuit_boots",
+      "owner": "ArmorDesh",
+      "translation": "steamsuit_boots",
+      "texture": "hbm:steamsuit_boots",
+      "atlas": "hbm:items/steamsuit_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "dieselsuit_plate",
+      "owner": "ArmorDiesel",
+      "translation": "dieselsuit_plate",
+      "texture": "hbm:dieselsuit_plate",
+      "atlas": "hbm:items/dieselsuit_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "dieselsuit_legs",
+      "owner": "ArmorDiesel",
+      "translation": "dieselsuit_legs",
+      "texture": "hbm:dieselsuit_legs",
+      "atlas": "hbm:items/dieselsuit_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "dieselsuit_boots",
+      "owner": "ArmorDiesel",
+      "translation": "dieselsuit_boots",
+      "texture": "hbm:dieselsuit_boots",
+      "atlas": "hbm:items/dieselsuit_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ajr_plate",
+      "owner": "ArmorAJR",
+      "translation": "ajr_plate",
+      "texture": "hbm:ajr_plate",
+      "atlas": "hbm:items/ajr_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ajr_legs",
+      "owner": "ArmorAJR",
+      "translation": "ajr_legs",
+      "texture": "hbm:ajr_legs",
+      "atlas": "hbm:items/ajr_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ajr_boots",
+      "owner": "ArmorAJR",
+      "translation": "ajr_boots",
+      "texture": "hbm:ajr_boots",
+      "atlas": "hbm:items/ajr_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ajro_plate",
+      "owner": "ArmorAJRO",
+      "translation": "ajro_plate",
+      "texture": "hbm:ajro_plate",
+      "atlas": "hbm:items/ajro_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ajro_legs",
+      "owner": "ArmorAJRO",
+      "translation": "ajro_legs",
+      "texture": "hbm:ajro_legs",
+      "atlas": "hbm:items/ajro_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ajro_boots",
+      "owner": "ArmorAJRO",
+      "translation": "ajro_boots",
+      "texture": "hbm:ajro_boots",
+      "atlas": "hbm:items/ajro_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "rpa_plate",
+      "owner": "ArmorRPA",
+      "translation": "rpa_plate",
+      "texture": "hbm:rpa_plate",
+      "atlas": "hbm:items/rpa_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "rpa_legs",
+      "owner": "ArmorRPA",
+      "translation": "rpa_legs",
+      "texture": "hbm:rpa_legs",
+      "atlas": "hbm:items/rpa_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "rpa_boots",
+      "owner": "ArmorRPA",
+      "translation": "rpa_boots",
+      "texture": "hbm:rpa_boots",
+      "atlas": "hbm:items/rpa_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ncrpa_plate",
+      "owner": "ArmorNCRPA",
+      "translation": "ncrpa_plate",
+      "texture": "hbm:rpa_plate",
+      "atlas": "hbm:items/rpa_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ncrpa_legs",
+      "owner": "ArmorNCRPA",
+      "translation": "ncrpa_legs",
+      "texture": "hbm:rpa_legs",
+      "atlas": "hbm:items/rpa_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "ncrpa_boots",
+      "owner": "ArmorNCRPA",
+      "translation": "ncrpa_boots",
+      "texture": "hbm:rpa_boots",
+      "atlas": "hbm:items/rpa_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "bj_plate",
+      "owner": "ArmorBJ",
+      "translation": "bj_plate",
+      "texture": "hbm:bj_plate",
+      "atlas": "hbm:items/bj_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "bj_plate_jetpack",
+      "owner": "ArmorBJJetpack",
+      "translation": "bj_plate_jetpack",
+      "texture": "hbm:bj_plate_jetpack",
+      "atlas": "hbm:items/bj_plate_jetpack",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "bj_legs",
+      "owner": "ArmorBJ",
+      "translation": "bj_legs",
+      "texture": "hbm:bj_legs",
+      "atlas": "hbm:items/bj_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "bj_boots",
+      "owner": "ArmorBJ",
+      "translation": "bj_boots",
+      "texture": "hbm:bj_boots",
+      "atlas": "hbm:items/bj_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "envsuit_plate",
+      "owner": "ArmorEnvsuit",
+      "translation": "envsuit_plate",
+      "texture": "hbm:envsuit_plate",
+      "atlas": "hbm:items/envsuit_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "envsuit_legs",
+      "owner": "ArmorEnvsuit",
+      "translation": "envsuit_legs",
+      "texture": "hbm:envsuit_legs",
+      "atlas": "hbm:items/envsuit_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "envsuit_boots",
+      "owner": "ArmorEnvsuit",
+      "translation": "envsuit_boots",
+      "texture": "hbm:envsuit_boots",
+      "atlas": "hbm:items/envsuit_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "hev_plate",
+      "owner": "ArmorHEV",
+      "translation": "hev_plate",
+      "texture": "hbm:hev_plate",
+      "atlas": "hbm:items/hev_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "hev_legs",
+      "owner": "ArmorHEV",
+      "translation": "hev_legs",
+      "texture": "hbm:hev_legs",
+      "atlas": "hbm:items/hev_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "hev_boots",
+      "owner": "ArmorHEV",
+      "translation": "hev_boots",
+      "texture": "hbm:hev_boots",
+      "atlas": "hbm:items/hev_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "jackt",
+      "owner": "ModArmor",
+      "translation": "jackt",
+      "texture": "hbm:jackt",
+      "atlas": "hbm:items/jackt",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "jackt2",
+      "owner": "ModArmor",
+      "translation": "jackt2",
+      "texture": "hbm:jackt2",
+      "atlas": "hbm:items/jackt2",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "fau_boots",
+      "owner": "ArmorDigamma",
+      "translation": "fau_boots",
+      "texture": "hbm:fau_boots",
+      "atlas": "hbm:items/fau_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "dns_plate",
+      "owner": "ArmorDNT",
+      "translation": "dns_plate",
+      "texture": "hbm:dns_plate",
+      "atlas": "hbm:items/dns_plate",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "dns_legs",
+      "owner": "ArmorDNT",
+      "translation": "dns_legs",
+      "texture": "hbm:dns_legs",
+      "atlas": "hbm:items/dns_legs",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "dns_boots",
+      "owner": "ArmorDNT",
+      "translation": "dns_boots",
+      "texture": "hbm:dns_boots",
+      "atlas": "hbm:items/dns_boots",
+      "callback": true,
+      "damageable": true
+    },
+    {
+      "field": "taurun_plate",
+      "owner": "ArmorTaurun",
+      "translation": "taurun_plate",
+      "texture": "hbm:taurun_plate",
+      "atlas": "hbm:items/taurun_plate",
+      "callback": true,
+      "damageable": false
+    },
+    {
+      "field": "taurun_legs",
+      "owner": "ArmorTaurun",
+      "translation": "taurun_legs",
+      "texture": "hbm:taurun_legs",
+      "atlas": "hbm:items/taurun_legs",
+      "callback": true,
+      "damageable": false
+    },
+    {
+      "field": "taurun_boots",
+      "owner": "ArmorTaurun",
+      "translation": "taurun_boots",
+      "texture": "hbm:taurun_boots",
+      "atlas": "hbm:items/taurun_boots",
+      "callback": true,
+      "damageable": false
+    },
+    {
+      "field": "trenchmaster_plate",
+      "owner": "ArmorTrenchmaster",
+      "translation": "trenchmaster_plate",
+      "texture": "hbm:trenchmaster_plate",
+      "atlas": "hbm:items/trenchmaster_plate",
+      "callback": true,
+      "damageable": false
+    },
+    {
+      "field": "trenchmaster_legs",
+      "owner": "ArmorTrenchmaster",
+      "translation": "trenchmaster_legs",
+      "texture": "hbm:trenchmaster_legs",
+      "atlas": "hbm:items/trenchmaster_legs",
+      "callback": true,
+      "damageable": false
+    },
+    {
+      "field": "trenchmaster_boots",
+      "owner": "ArmorTrenchmaster",
+      "translation": "trenchmaster_boots",
+      "texture": "hbm:trenchmaster_boots",
+      "atlas": "hbm:items/trenchmaster_boots",
+      "callback": true,
+      "damageable": false
+    },
+    {
+      "field": "jackt",
+      "owner": "ModArmor",
+      "translation": "jackt",
+      "texture": "hbm:jackt",
+      "atlas": "hbm:items/jackt",
+      "callback": false,
+      "damageable": true
+    },
+    {
+      "field": "jackt2",
+      "owner": "ModArmor",
+      "translation": "jackt2",
+      "texture": "hbm:jackt2",
+      "atlas": "hbm:items/jackt2",
+      "callback": false,
+      "damageable": true
+    }
+  ],
+  "registration_order": [
+    "goggles",
+    "ashglasses",
+    "gas_mask",
+    "gas_mask_m65",
+    "gas_mask_mono",
+    "gas_mask_olde",
+    "mask_rag",
+    "mask_piss",
+    "hat",
+    "steel_helmet",
+    "steel_plate",
+    "steel_legs",
+    "steel_boots",
+    "titanium_helmet",
+    "titanium_plate",
+    "titanium_legs",
+    "titanium_boots",
+    "alloy_helmet",
+    "alloy_plate",
+    "alloy_legs",
+    "alloy_boots",
+    "steamsuit_plate",
+    "steamsuit_legs",
+    "steamsuit_boots",
+    "dieselsuit_plate",
+    "dieselsuit_legs",
+    "dieselsuit_boots",
+    "t51_plate",
+    "t51_legs",
+    "t51_boots",
+    "ajr_plate",
+    "ajr_legs",
+    "ajr_boots",
+    "ajro_plate",
+    "ajro_legs",
+    "ajro_boots",
+    "rpa_plate",
+    "rpa_legs",
+    "rpa_boots",
+    "ncrpa_plate",
+    "ncrpa_legs",
+    "ncrpa_boots",
+    "bj_plate",
+    "bj_plate_jetpack",
+    "bj_legs",
+    "bj_boots",
+    "envsuit_plate",
+    "envsuit_legs",
+    "envsuit_boots",
+    "hev_plate",
+    "hev_legs",
+    "hev_boots",
+    "fau_boots",
+    "dns_plate",
+    "dns_legs",
+    "dns_boots",
+    "taurun_plate",
+    "taurun_legs",
+    "taurun_boots",
+    "trenchmaster_plate",
+    "trenchmaster_legs",
+    "trenchmaster_boots",
+    "cmb_plate",
+    "cmb_legs",
+    "cmb_boots",
+    "paa_legs",
+    "paa_boots",
+    "asbestos_plate",
+    "asbestos_legs",
+    "asbestos_boots",
+    "security_helmet",
+    "security_plate",
+    "security_legs",
+    "security_boots",
+    "cobalt_helmet",
+    "cobalt_plate",
+    "cobalt_legs",
+    "cobalt_boots",
+    "starmetal_helmet",
+    "starmetal_plate",
+    "starmetal_legs",
+    "starmetal_boots",
+    "zirconium_legs",
+    "dnt_helmet",
+    "dnt_plate",
+    "dnt_legs",
+    "dnt_boots",
+    "schrabidium_plate",
+    "schrabidium_legs",
+    "schrabidium_boots",
+    "bismuth_plate",
+    "bismuth_legs",
+    "bismuth_boots",
+    "euphemium_helmet",
+    "euphemium_plate",
+    "euphemium_legs",
+    "euphemium_boots",
+    "robes_helmet",
+    "robes_plate",
+    "robes_legs",
+    "robes_boots",
+    "jackt",
+    "jackt2"
+  ],
+  "registration_statements": {
+    "goggles": {
+      "statement": "GameRegistry.registerItem(goggles, goggles.getTranslationKey());",
+      "offset": 620030
+    },
+    "ashglasses": {
+      "statement": "GameRegistry.registerItem(ashglasses, ashglasses.getTranslationKey());",
+      "offset": 620097
+    },
+    "gas_mask": {
+      "statement": "GameRegistry.registerItem(gas_mask, gas_mask.getTranslationKey());",
+      "offset": 620170
+    },
+    "gas_mask_m65": {
+      "statement": "GameRegistry.registerItem(gas_mask_m65, gas_mask_m65.getTranslationKey());",
+      "offset": 620239
+    },
+    "gas_mask_mono": {
+      "statement": "GameRegistry.registerItem(gas_mask_mono, gas_mask_mono.getTranslationKey());",
+      "offset": 620316
+    },
+    "gas_mask_olde": {
+      "statement": "GameRegistry.registerItem(gas_mask_olde, gas_mask_olde.getTranslationKey());",
+      "offset": 620395
+    },
+    "mask_rag": {
+      "statement": "GameRegistry.registerItem(mask_rag, mask_rag.getTranslationKey());",
+      "offset": 620474
+    },
+    "mask_piss": {
+      "statement": "GameRegistry.registerItem(mask_piss, mask_piss.getTranslationKey());",
+      "offset": 620543
+    },
+    "hat": {
+      "statement": "GameRegistry.registerItem(hat, hat.getTranslationKey());",
+      "offset": 620614
+    },
+    "euphemium_helmet": {
+      "statement": "GameRegistry.registerItem(euphemium_helmet, euphemium_helmet.getTranslationKey());",
+      "offset": 632205
+    },
+    "euphemium_plate": {
+      "statement": "GameRegistry.registerItem(euphemium_plate, euphemium_plate.getTranslationKey());",
+      "offset": 632290
+    },
+    "euphemium_legs": {
+      "statement": "GameRegistry.registerItem(euphemium_legs, euphemium_legs.getTranslationKey());",
+      "offset": 632373
+    },
+    "euphemium_boots": {
+      "statement": "GameRegistry.registerItem(euphemium_boots, euphemium_boots.getTranslationKey());",
+      "offset": 632454
+    },
+    "schrabidium_plate": {
+      "statement": "GameRegistry.registerItem(schrabidium_plate, schrabidium_plate.getTranslationKey());",
+      "offset": 631630
+    },
+    "schrabidium_legs": {
+      "statement": "GameRegistry.registerItem(schrabidium_legs, schrabidium_legs.getTranslationKey());",
+      "offset": 631717
+    },
+    "schrabidium_boots": {
+      "statement": "GameRegistry.registerItem(schrabidium_boots, schrabidium_boots.getTranslationKey());",
+      "offset": 631802
+    },
+    "bismuth_plate": {
+      "statement": "GameRegistry.registerItem(bismuth_plate, bismuth_plate.getTranslationKey());",
+      "offset": 631970
+    },
+    "bismuth_legs": {
+      "statement": "GameRegistry.registerItem(bismuth_legs, bismuth_legs.getTranslationKey());",
+      "offset": 632049
+    },
+    "bismuth_boots": {
+      "statement": "GameRegistry.registerItem(bismuth_boots, bismuth_boots.getTranslationKey());",
+      "offset": 632126
+    },
+    "titanium_helmet": {
+      "statement": "GameRegistry.registerItem(titanium_helmet, titanium_helmet.getTranslationKey());",
+      "offset": 621094
+    },
+    "titanium_plate": {
+      "statement": "GameRegistry.registerItem(titanium_plate, titanium_plate.getTranslationKey());",
+      "offset": 621177
+    },
+    "titanium_legs": {
+      "statement": "GameRegistry.registerItem(titanium_legs, titanium_legs.getTranslationKey());",
+      "offset": 621258
+    },
+    "titanium_boots": {
+      "statement": "GameRegistry.registerItem(titanium_boots, titanium_boots.getTranslationKey());",
+      "offset": 621337
+    },
+    "steel_helmet": {
+      "statement": "GameRegistry.registerItem(steel_helmet, steel_helmet.getTranslationKey());",
+      "offset": 620793
+    },
+    "steel_plate": {
+      "statement": "GameRegistry.registerItem(steel_plate, steel_plate.getTranslationKey());",
+      "offset": 620871
+    },
+    "steel_legs": {
+      "statement": "GameRegistry.registerItem(steel_legs, steel_legs.getTranslationKey());",
+      "offset": 620946
+    },
+    "steel_boots": {
+      "statement": "GameRegistry.registerItem(steel_boots, steel_boots.getTranslationKey());",
+      "offset": 621019
+    },
+    "alloy_helmet": {
+      "statement": "GameRegistry.registerItem(alloy_helmet, alloy_helmet.getTranslationKey());",
+      "offset": 621418
+    },
+    "alloy_plate": {
+      "statement": "GameRegistry.registerItem(alloy_plate, alloy_plate.getTranslationKey());",
+      "offset": 621495
+    },
+    "alloy_legs": {
+      "statement": "GameRegistry.registerItem(alloy_legs, alloy_legs.getTranslationKey());",
+      "offset": 621570
+    },
+    "alloy_boots": {
+      "statement": "GameRegistry.registerItem(alloy_boots, alloy_boots.getTranslationKey());",
+      "offset": 621643
+    },
+    "cmb_plate": {
+      "statement": "GameRegistry.registerItem(cmb_plate, cmb_plate.getTranslationKey());",
+      "offset": 629466
+    },
+    "cmb_legs": {
+      "statement": "GameRegistry.registerItem(cmb_legs, cmb_legs.getTranslationKey());",
+      "offset": 629537
+    },
+    "cmb_boots": {
+      "statement": "GameRegistry.registerItem(cmb_boots, cmb_boots.getTranslationKey());",
+      "offset": 629606
+    },
+    "paa_legs": {
+      "statement": "GameRegistry.registerItem(paa_legs, paa_legs.getTranslationKey());",
+      "offset": 629748
+    },
+    "paa_boots": {
+      "statement": "GameRegistry.registerItem(paa_boots, paa_boots.getTranslationKey());",
+      "offset": 629817
+    },
+    "asbestos_plate": {
+      "statement": "GameRegistry.registerItem(asbestos_plate, asbestos_plate.getTranslationKey());",
+      "offset": 629971
+    },
+    "asbestos_legs": {
+      "statement": "GameRegistry.registerItem(asbestos_legs, asbestos_legs.getTranslationKey());",
+      "offset": 630052
+    },
+    "asbestos_boots": {
+      "statement": "GameRegistry.registerItem(asbestos_boots, asbestos_boots.getTranslationKey());",
+      "offset": 630131
+    },
+    "security_helmet": {
+      "statement": "GameRegistry.registerItem(security_helmet, security_helmet.getTranslationKey());",
+      "offset": 630212
+    },
+    "security_plate": {
+      "statement": "GameRegistry.registerItem(security_plate, security_plate.getTranslationKey());",
+      "offset": 630295
+    },
+    "security_legs": {
+      "statement": "GameRegistry.registerItem(security_legs, security_legs.getTranslationKey());",
+      "offset": 630376
+    },
+    "security_boots": {
+      "statement": "GameRegistry.registerItem(security_boots, security_boots.getTranslationKey());",
+      "offset": 630455
+    },
+    "cobalt_helmet": {
+      "statement": "GameRegistry.registerItem(cobalt_helmet, cobalt_helmet.getTranslationKey());",
+      "offset": 630536
+    },
+    "cobalt_plate": {
+      "statement": "GameRegistry.registerItem(cobalt_plate, cobalt_plate.getTranslationKey());",
+      "offset": 630615
+    },
+    "cobalt_legs": {
+      "statement": "GameRegistry.registerItem(cobalt_legs, cobalt_legs.getTranslationKey());",
+      "offset": 630692
+    },
+    "cobalt_boots": {
+      "statement": "GameRegistry.registerItem(cobalt_boots, cobalt_boots.getTranslationKey());",
+      "offset": 630767
+    },
+    "starmetal_helmet": {
+      "statement": "GameRegistry.registerItem(starmetal_helmet, starmetal_helmet.getTranslationKey());",
+      "offset": 630844
+    },
+    "starmetal_plate": {
+      "statement": "GameRegistry.registerItem(starmetal_plate, starmetal_plate.getTranslationKey());",
+      "offset": 630929
+    },
+    "starmetal_legs": {
+      "statement": "GameRegistry.registerItem(starmetal_legs, starmetal_legs.getTranslationKey());",
+      "offset": 631012
+    },
+    "starmetal_boots": {
+      "statement": "GameRegistry.registerItem(starmetal_boots, starmetal_boots.getTranslationKey());",
+      "offset": 631093
+    },
+    "robes_helmet": {
+      "statement": "GameRegistry.registerItem(robes_helmet, robes_helmet.getTranslationKey());",
+      "offset": 632537
+    },
+    "robes_plate": {
+      "statement": "GameRegistry.registerItem(robes_plate, robes_plate.getTranslationKey());",
+      "offset": 632614
+    },
+    "robes_legs": {
+      "statement": "GameRegistry.registerItem(robes_legs, robes_legs.getTranslationKey());",
+      "offset": 632689
+    },
+    "robes_boots": {
+      "statement": "GameRegistry.registerItem(robes_boots, robes_boots.getTranslationKey());",
+      "offset": 632762
+    },
+    "zirconium_legs": {
+      "statement": "GameRegistry.registerItem(zirconium_legs, zirconium_legs.getTranslationKey());",
+      "offset": 631176
+    },
+    "dnt_helmet": {
+      "statement": "GameRegistry.registerItem(dnt_helmet, dnt_helmet.getTranslationKey());",
+      "offset": 631257
+    },
+    "dnt_plate": {
+      "statement": "GameRegistry.registerItem(dnt_plate, dnt_plate.getTranslationKey());",
+      "offset": 631330
+    },
+    "dnt_legs": {
+      "statement": "GameRegistry.registerItem(dnt_legs, dnt_legs.getTranslationKey());",
+      "offset": 631401
+    },
+    "dnt_boots": {
+      "statement": "GameRegistry.registerItem(dnt_boots, dnt_boots.getTranslationKey());",
+      "offset": 631470
+    },
+    "t51_plate": {
+      "statement": "GameRegistry.registerItem(t51_plate, t51_plate.getTranslationKey());",
+      "offset": 623028
+    },
+    "t51_legs": {
+      "statement": "GameRegistry.registerItem(t51_legs, t51_legs.getTranslationKey());",
+      "offset": 623099
+    },
+    "t51_boots": {
+      "statement": "GameRegistry.registerItem(t51_boots, t51_boots.getTranslationKey());",
+      "offset": 623168
+    },
+    "steamsuit_plate": {
+      "statement": "GameRegistry.registerItem(steamsuit_plate, steamsuit_plate.getTranslationKey());",
+      "offset": 622368
+    },
+    "steamsuit_legs": {
+      "statement": "GameRegistry.registerItem(steamsuit_legs, steamsuit_legs.getTranslationKey());",
+      "offset": 622451
+    },
+    "steamsuit_boots": {
+      "statement": "GameRegistry.registerItem(steamsuit_boots, steamsuit_boots.getTranslationKey());",
+      "offset": 622532
+    },
+    "dieselsuit_plate": {
+      "statement": "GameRegistry.registerItem(dieselsuit_plate, dieselsuit_plate.getTranslationKey());",
+      "offset": 622702
+    },
+    "dieselsuit_legs": {
+      "statement": "GameRegistry.registerItem(dieselsuit_legs, dieselsuit_legs.getTranslationKey());",
+      "offset": 622787
+    },
+    "dieselsuit_boots": {
+      "statement": "GameRegistry.registerItem(dieselsuit_boots, dieselsuit_boots.getTranslationKey());",
+      "offset": 622870
+    },
+    "ajr_plate": {
+      "statement": "GameRegistry.registerItem(ajr_plate, ajr_plate.getTranslationKey());",
+      "offset": 623312
+    },
+    "ajr_legs": {
+      "statement": "GameRegistry.registerItem(ajr_legs, ajr_legs.getTranslationKey());",
+      "offset": 623383
+    },
+    "ajr_boots": {
+      "statement": "GameRegistry.registerItem(ajr_boots, ajr_boots.getTranslationKey());",
+      "offset": 623452
+    },
+    "ajro_plate": {
+      "statement": "GameRegistry.registerItem(ajro_plate, ajro_plate.getTranslationKey());",
+      "offset": 623598
+    },
+    "ajro_legs": {
+      "statement": "GameRegistry.registerItem(ajro_legs, ajro_legs.getTranslationKey());",
+      "offset": 623671
+    },
+    "ajro_boots": {
+      "statement": "GameRegistry.registerItem(ajro_boots, ajro_boots.getTranslationKey());",
+      "offset": 623742
+    },
+    "rpa_plate": {
+      "statement": "GameRegistry.registerItem(rpa_plate, rpa_plate.getTranslationKey());",
+      "offset": 623888
+    },
+    "rpa_legs": {
+      "statement": "GameRegistry.registerItem(rpa_legs, rpa_legs.getTranslationKey());",
+      "offset": 623959
+    },
+    "rpa_boots": {
+      "statement": "GameRegistry.registerItem(rpa_boots, rpa_boots.getTranslationKey());",
+      "offset": 624028
+    },
+    "ncrpa_plate": {
+      "statement": "GameRegistry.registerItem(ncrpa_plate, ncrpa_plate.getTranslationKey());",
+      "offset": 624176
+    },
+    "ncrpa_legs": {
+      "statement": "GameRegistry.registerItem(ncrpa_legs, ncrpa_legs.getTranslationKey());",
+      "offset": 624251
+    },
+    "ncrpa_boots": {
+      "statement": "GameRegistry.registerItem(ncrpa_boots, ncrpa_boots.getTranslationKey());",
+      "offset": 624324
+    },
+    "bj_plate": {
+      "statement": "GameRegistry.registerItem(bj_plate, bj_plate.getTranslationKey());",
+      "offset": 624470
+    },
+    "bj_plate_jetpack": {
+      "statement": "GameRegistry.registerItem(bj_plate_jetpack, bj_plate_jetpack.getTranslationKey());",
+      "offset": 624539
+    },
+    "bj_legs": {
+      "statement": "GameRegistry.registerItem(bj_legs, bj_legs.getTranslationKey());",
+      "offset": 624624
+    },
+    "bj_boots": {
+      "statement": "GameRegistry.registerItem(bj_boots, bj_boots.getTranslationKey());",
+      "offset": 624691
+    },
+    "envsuit_plate": {
+      "statement": "GameRegistry.registerItem(envsuit_plate, envsuit_plate.getTranslationKey());",
+      "offset": 624841
+    },
+    "envsuit_legs": {
+      "statement": "GameRegistry.registerItem(envsuit_legs, envsuit_legs.getTranslationKey());",
+      "offset": 624920
+    },
+    "envsuit_boots": {
+      "statement": "GameRegistry.registerItem(envsuit_boots, envsuit_boots.getTranslationKey());",
+      "offset": 624997
+    },
+    "hev_plate": {
+      "statement": "GameRegistry.registerItem(hev_plate, hev_plate.getTranslationKey());",
+      "offset": 625149
+    },
+    "hev_legs": {
+      "statement": "GameRegistry.registerItem(hev_legs, hev_legs.getTranslationKey());",
+      "offset": 625220
+    },
+    "hev_boots": {
+      "statement": "GameRegistry.registerItem(hev_boots, hev_boots.getTranslationKey());",
+      "offset": 625289
+    },
+    "jackt": {
+      "statement": "GameRegistry.registerItem(jackt, jackt.getTranslationKey());",
+      "offset": 633064
+    },
+    "jackt2": {
+      "statement": "GameRegistry.registerItem(jackt2, jackt2.getTranslationKey());",
+      "offset": 633127
+    },
+    "fau_boots": {
+      "statement": "GameRegistry.registerItem(fau_boots, fau_boots.getTranslationKey());",
+      "offset": 625573
+    },
+    "dns_plate": {
+      "statement": "GameRegistry.registerItem(dns_plate, dns_plate.getTranslationKey());",
+      "offset": 625717
+    },
+    "dns_legs": {
+      "statement": "GameRegistry.registerItem(dns_legs, dns_legs.getTranslationKey());",
+      "offset": 625788
+    },
+    "dns_boots": {
+      "statement": "GameRegistry.registerItem(dns_boots, dns_boots.getTranslationKey());",
+      "offset": 625857
+    },
+    "taurun_plate": {
+      "statement": "GameRegistry.registerItem(taurun_plate, taurun_plate.getTranslationKey());",
+      "offset": 626007
+    },
+    "taurun_legs": {
+      "statement": "GameRegistry.registerItem(taurun_legs, taurun_legs.getTranslationKey());",
+      "offset": 626084
+    },
+    "taurun_boots": {
+      "statement": "GameRegistry.registerItem(taurun_boots, taurun_boots.getTranslationKey());",
+      "offset": 626159
+    },
+    "trenchmaster_plate": {
+      "statement": "GameRegistry.registerItem(trenchmaster_plate, trenchmaster_plate.getTranslationKey());",
+      "offset": 626327
+    },
+    "trenchmaster_legs": {
+      "statement": "GameRegistry.registerItem(trenchmaster_legs, trenchmaster_legs.getTranslationKey());",
+      "offset": 626416
+    },
+    "trenchmaster_boots": {
+      "statement": "GameRegistry.registerItem(trenchmaster_boots, trenchmaster_boots.getTranslationKey());",
+      "offset": 626503
+    }
+  }
+}

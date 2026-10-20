@@ -32,7 +32,7 @@ public class EntityBeamVortex extends EntityBeamBase {
 		
 		int range = 100;
 		
-		EntityPlayer player = this.world.getPlayerEntityByName(this.dataWatcher.getWatchableObjectString(20));
+		EntityPlayer player = this.world.getPlayerEntityByName(this.dataManager.get(PLAYER_NAME));
 		
 		if(player != null) {
 			
@@ -41,7 +41,7 @@ public class EntityBeamVortex extends EntityBeamBase {
 			if(pos == null)
 				return;
 			
-			this.world.spawnParticle("cloud", pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);
 			this.world.playSound(pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, "random.fizz", 1, 1, true);
 			
 			List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(pos.hitVec.x - 1, pos.hitVec.y - 1, pos.hitVec.z - 1, pos.hitVec.x + 1, pos.hitVec.y + 1, pos.hitVec.z + 1));

@@ -390,7 +390,7 @@ public class DesertAtom003
 		if(tank3 instanceof TileEntityMachinePuF6Tank)
 		{
 		}
-		world.setBlock(x + 32, y + 4, z + 7, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 4, z + 7, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 4, z + 7, Block22);
 		world.setBlock(x + 34, y + 4, z + 7, Block23, 0, 3);
 		world.setBlock(x + 35, y + 4, z + 7, Block23, 0, 3);
@@ -410,7 +410,7 @@ public class DesertAtom003
 		{ BlockPos dungeonPos = new BlockPos(x + 26, y + 4, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.UNPOWERED_REPEATER.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 27, y + 4, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.UNPOWERED_REPEATER.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 31, y + 4, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.UNPOWERED_REPEATER.getStateFromMeta(0), 3); }
-		world.setBlock(x + 32, y + 4, z + 8, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 4, z + 8, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 4, z + 8, Block22);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 4, z + 8, Block22);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 4, z + 8, Block22);
@@ -418,9 +418,9 @@ public class DesertAtom003
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 37; int nativePlacementY = y + 4; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 4, z + 8, Block5);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 9, Block5);
-		world.setBlock(x + 6, y + 4, z + 9, Block2, 0, 3);
-		world.setBlock(x + 7, y + 4, z + 9, Block2, 0, 3);
-		world.setBlock(x + 10, y + 4, z + 9, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 4, z + 9, Block2);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 4, z + 9, Block2);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 4, z + 9, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 9, Block5);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 16; int nativePlacementY = y + 4; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 17, y + 4, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(2), 3); }
@@ -446,8 +446,8 @@ public class DesertAtom003
         { net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 37; int nativePlacementY = y + 4; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 4, z + 9, Block5);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 10, Block5);
-		world.setBlock(x + 5, y + 4, z + 10, Block2, 0, 3);
-		world.setBlock(x + 11, y + 4, z + 10, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 10, Block2);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 10, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 10, Block5);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 16; int nativePlacementY = y + 4; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 17, y + 4, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(7), 3); }
@@ -465,8 +465,8 @@ public class DesertAtom003
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 37; int nativePlacementY = y + 4; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 40, y + 4, z + 10, Block5);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 11, Block5);
-		world.setBlock(x + 5, y + 4, z + 11, Block2, 0, 3);
-		world.setBlock(x + 11, y + 4, z + 11, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 11, Block2);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 11, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 11, Block5);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 16; int nativePlacementY = y + 4; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 22, y + 4, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.VINE.getStateFromMeta(8), 3); }
@@ -480,7 +480,7 @@ public class DesertAtom003
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 37; int nativePlacementY = y + 4; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 12, Block5);
 		world.setBlock(x + 8, y + 4, z + 12, Block14, 0, 3);
-		world.setBlock(x + 11, y + 4, z + 12, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 12, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 12, Block5);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 16; int nativePlacementY = y + 4; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 12, ModBlocks.fence_metal);
@@ -496,7 +496,7 @@ public class DesertAtom003
 		{ BlockPos dungeonPos = new BlockPos(x + 36, y + 4, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.VINE.getStateFromMeta(8), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 37; int nativePlacementY = y + 4; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + 4, z + 13, Block5);
-		world.setBlock(x + 5, y + 4, z + 13, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 13, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + 4, z + 13, Block5);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 16; int nativePlacementY = y + 4; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 17, y + 4, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.VINE.getStateFromMeta(2), 3); }
@@ -527,9 +527,9 @@ public class DesertAtom003
 		{ BlockPos dungeonPos = new BlockPos(x + 31, y + 4, z + 14); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.REDSTONE_WIRE.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 37; int nativePlacementY = y + 4; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 15, Block5);
-		world.setBlock(x + 8, y + 4, z + 15, Block2, 0, 3);
-		world.setBlock(x + 9, y + 4, z + 15, Block2, 0, 3);
-		world.setBlock(x + 10, y + 4, z + 15, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 4, z + 15, Block2);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 4, z + 15, Block2);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 4, z + 15, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 15, Block5);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 16; int nativePlacementY = y + 4; int nativePlacementZ = z + 15; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 4, z + 15, ModBlocks.fence_metal);
@@ -667,7 +667,7 @@ public class DesertAtom003
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 23; int nativePlacementY = y + 5; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		world.setBlock(x + 25, y + 5, z + 7, Block8, 3, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 30, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.VINE.getStateFromMeta(4), 3); }
-		world.setBlock(x + 32, y + 5, z + 7, Block2, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 5, z + 7, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 5, z + 7, Block11);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 37; int nativePlacementY = y + 5; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 5, z + 8, Block5);

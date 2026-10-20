@@ -1,0 +1,14 @@
+import net.minecraft.world.World;
+class Controls {
+ World w;int x,y,z;boolean b;Integer boxed;Foreign foreign;Child child;
+ World dynamic(){return w;}
+ void test(){
+  w.markBlockForUpdate(x,y,z);this.w.markBlockForUpdate(x,y,z);
+  foreign.markBlockForUpdate(x,y,z);child.markBlockForUpdate(x,y,z);
+  w.markBlockForUpdate(boxed,y,z);w.markBlockForUpdate(1L,y,z);
+  w.markBlockForUpdate(x,y);w.markBlockForUpdate(x,y,z,b);
+  w.markBlockForUpdate(missing+1,y,z);dynamic().markBlockForUpdate(x,y,z);
+ }
+ static class Foreign{void markBlockForUpdate(int x,int y,int z){}}
+ abstract static class Child extends World {Child(){super(null,null,null,null,false);}}
+}

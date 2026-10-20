@@ -133,7 +133,7 @@ public class Guide extends Block implements ILookOverlay {
 	public void printHook(Pre event, World world, int x, int y, int z) {
 
 		Minecraft mc = Minecraft.getMinecraft();
-		ScaledResolution resolution = event.resolution;
+		ScaledResolution resolution = event.getResolution();
 
 		int pX = resolution.getScaledWidth() / 2 + 8;
 		int pZ = resolution.getScaledHeight() / 2;

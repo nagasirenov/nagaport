@@ -1,0 +1,6 @@
+PASS exact CP84 source inverses: 23 complete renderer files; all original draw bodies and constructor assignments retained; 24 exact ordered factories, derived Quasar closure, 29 existing direct resource hashes, unchanged model/mesh sources.
+PASS CP84 typed attribution: 19 direct Render constructor + 3 RenderChicken constructor + 2 typed-override diagnostics. Quasar is required dependent closure, not an extra claimed error.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[10:53:00] [main/INFO]: Setting user: AtlasProbe
+[10:53:01] [main/INFO]: Reloading ResourceManager: minecraft-1.12.2-client.jar, resources
+PASS 232 native factory/constructor/ownership/bridge/EGL phase checks. Seven complete production renderer classes, sixteen constructor+field projections; no full ClientProxy, entity simulation, client boot, or visual-parity claim.

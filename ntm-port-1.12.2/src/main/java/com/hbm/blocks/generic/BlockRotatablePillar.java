@@ -27,6 +27,12 @@ public class BlockRotatablePillar extends BlockRotatedPillar implements ITooltip
 		textureTop = top;
 	}
 
+	/** NTM construction hook for the native protected sound setter. */
+	public BlockRotatablePillar withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 

@@ -1,0 +1,32 @@
+// net/minecraft/block/Block.java.patch
++     * @param y The y position of this block instance
++     * @param z The z position of this block instance
++     * @param side The INPUT side of the block to be powered - ie the opposite of this block's output side
++     * @return Whether Block#isProvidingWeakPower should be called when determining indirect power
++     */
++    public boolean shouldCheckWeakPower(IBlockAccess world, int x, int y, int z, int side)
++    {
++        return func_149721_r();
++    }
++
++    /**
++     * If this block should be notified of weak changes.
++     * Weak changes are changes 1 block away through a solid block.
++     * Similar to comparators.
++     *
+// net/minecraft/world/World.java.patch
+
+     public int func_72878_l(int p_72878_1_, int p_72878_2_, int p_72878_3_, int p_72878_4_)
+     {
+-        return this.func_147439_a(p_72878_1_, p_72878_2_, p_72878_3_).func_149721_r() ? this.func_94577_B(p_72878_1_, p_72878_2_, p_72878_3_) : this.func_147439_a(p_72878_1_, p_72878_2_, p_72878_3_).func_149709_b(this, p_72878_1_, p_72878_2_, p_72878_3_, p_72878_4_);
++        Block block = this.func_147439_a(p_72878_1_, p_72878_2_, p_72878_3_);
++        return block.shouldCheckWeakPower(this, p_72878_1_, p_72878_2_, p_72878_3_, p_72878_4_) ? this.func_94577_B(p_72878_1_, p_72878_2_, p_72878_3_) : block.func_149709_b(this, p_72878_1_, p_72878_2_, p_72878_3_, p_72878_4_);
+     }
+
+     public boolean func_72864_z(int p_72864_1_, int p_72864_2_, int p_72864_3_)
+@@ -3374,7 +3569,7 @@
+
+     public long func_72905_C()
+     {
+-        return this.field_72986_A.func_76063_b();
++        return field_73011_w.getSeed();

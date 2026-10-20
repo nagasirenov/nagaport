@@ -1,0 +1,333 @@
+{
+  "baseline_commit": "abe006a0845275e8be52417967ac8ebf6f283a52",
+  "scope": "21 statement-only native InventoryPlayer main/armor writes; only literal null becomes ItemStack.EMPTY",
+  "files": {
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before_sha256": "675202fd449d5d7c0687129bed445e18a9667c14357c50952b67cf25f4c1d483",
+      "after_sha256": "f5e0b7c23094650587ebe9e0fc2e66913e247250893be3dbc0d6da3c16d935d8",
+      "edits": [
+        {
+          "start": 2582,
+          "end": 2649,
+          "line": 54,
+          "old": "player.inventory.mainInventory[player.inventory.currentItem] = null",
+          "new": "player.inventory.mainInventory.set(player.inventory.currentItem, ItemStack.EMPTY)",
+          "kind": "statement-write",
+          "field": "mainInventory",
+          "rhs_kind": "NULL_LITERAL",
+          "list": "player.inventory.mainInventory",
+          "index": "player.inventory.currentItem",
+          "rhs": "null"
+        },
+        {
+          "start": 2878,
+          "end": 2961,
+          "line": 60,
+          "old": "player.inventory.mainInventory[player.inventory.currentItem] = pedestal.item.copy()",
+          "new": "player.inventory.mainInventory.set(player.inventory.currentItem, pedestal.item.copy())",
+          "kind": "statement-write",
+          "field": "mainInventory",
+          "rhs_kind": "METHOD_INVOCATION",
+          "list": "player.inventory.mainInventory",
+          "index": "player.inventory.currentItem",
+          "rhs": "pedestal.item.copy()"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "a1539318e126682278c6aa7a162d172ba81a3a1b7bf3b0945a4732d9f7d49db9",
+      "after_sha256": "2ba6d0dff361d346b689ca12c847672a4b2bbaa2801682e0714930933a167347",
+      "edits": [
+        {
+          "start": 3081,
+          "end": 3155,
+          "line": 113,
+          "old": "pl.inventory.mainInventory[pl.inventory.currentItem] = new ItemStack(this)",
+          "new": "pl.inventory.mainInventory.set(pl.inventory.currentItem, new ItemStack(this))",
+          "kind": "statement-write",
+          "field": "mainInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "pl.inventory.mainInventory",
+          "index": "pl.inventory.currentItem",
+          "rhs": "new ItemStack(this)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java": {
+      "before_sha256": "642bc95accb35b038d94e02ea404f2fe759fe6e53349e6f5aa7f9b64100cd68a",
+      "after_sha256": "d3b6a7472640af374d435391aa0d34814e7894114e8c622de44be234cd785072",
+      "edits": [
+        {
+          "start": 2718,
+          "end": 2792,
+          "line": 94,
+          "old": "pl.inventory.mainInventory[pl.inventory.currentItem] = new ItemStack(this)",
+          "new": "pl.inventory.mainInventory.set(pl.inventory.currentItem, new ItemStack(this))",
+          "kind": "statement-write",
+          "field": "mainInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "pl.inventory.mainInventory",
+          "index": "pl.inventory.currentItem",
+          "rhs": "new ItemStack(this)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/HazardSystem.java": {
+      "before_sha256": "74ad11a3b550b627a93329988911044df3d80aff77b27fd0fcb6df8908811d7b",
+      "after_sha256": "aa1d370f8bd6bed629e5a1db79236c34e174f73e7db3ffea0c06370ab7f991c0",
+      "edits": [
+        {
+          "start": 6246,
+          "end": 6286,
+          "line": 206,
+          "old": "player.inventory.mainInventory[i] = null",
+          "new": "player.inventory.mainInventory.set(i, ItemStack.EMPTY)",
+          "kind": "statement-write",
+          "field": "mainInventory",
+          "rhs_kind": "NULL_LITERAL",
+          "list": "player.inventory.mainInventory",
+          "index": "i",
+          "rhs": "null"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorBJ.java": {
+      "before_sha256": "3cc4c1b66dab338b2c3aed7400b382e84dad3d63880feda2730439d71be065f0",
+      "after_sha256": "a7681720ef9a95cf1e1b880f9e617d31c143643f602d041be1e139a5c65a7278",
+      "edits": [
+        {
+          "start": 1751,
+          "end": 1792,
+          "line": 57,
+          "old": "player.inventory.armorInventory[3] = null",
+          "new": "player.inventory.armorInventory.set(3, ItemStack.EMPTY)",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NULL_LITERAL",
+          "list": "player.inventory.armorInventory",
+          "index": "3",
+          "rhs": "null"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidSiphon.java": {
+      "before_sha256": "41034dd4ec3cdd868ecc9f4de184976b3a4dec7aa90d2f99bd41206203c67021",
+      "after_sha256": "df2e0f592b53730a5a9653304b2d71944133232e415377405359ec23c7fc60a6",
+      "edits": [
+        {
+          "start": 2530,
+          "end": 2570,
+          "line": 69,
+          "old": "player.inventory.mainInventory[j] = null",
+          "new": "player.inventory.mainInventory.set(j, ItemStack.EMPTY)",
+          "kind": "statement-write",
+          "field": "mainInventory",
+          "rhs_kind": "NULL_LITERAL",
+          "list": "player.inventory.mainInventory",
+          "index": "j",
+          "rhs": "null"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarterKit.java": {
+      "before_sha256": "f1075dea4875f1be41d53567103c1f319d8045835fd57116151fb163c0dd4a61",
+      "after_sha256": "8fa9bed35b124d92a9b5cff800cdcd320507b1eca26edabf742b62390acdc6ca",
+      "edits": [
+        {
+          "start": 1369,
+          "end": 1438,
+          "line": 41,
+          "old": "p.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet)",
+          "new": "p.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "3",
+          "rhs": "new ItemStack(ModItems.hazmat_helmet)"
+        },
+        {
+          "start": 1443,
+          "end": 1511,
+          "line": 42,
+          "old": "p.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate)",
+          "new": "p.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "2",
+          "rhs": "new ItemStack(ModItems.hazmat_plate)"
+        },
+        {
+          "start": 1516,
+          "end": 1583,
+          "line": 43,
+          "old": "p.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs)",
+          "new": "p.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "1",
+          "rhs": "new ItemStack(ModItems.hazmat_legs)"
+        },
+        {
+          "start": 1588,
+          "end": 1656,
+          "line": 44,
+          "old": "p.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots)",
+          "new": "p.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "0",
+          "rhs": "new ItemStack(ModItems.hazmat_boots)"
+        },
+        {
+          "start": 1681,
+          "end": 1754,
+          "line": 47,
+          "old": "p.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet_red)",
+          "new": "p.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet_red))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "3",
+          "rhs": "new ItemStack(ModItems.hazmat_helmet_red)"
+        },
+        {
+          "start": 1759,
+          "end": 1831,
+          "line": 48,
+          "old": "p.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate_red)",
+          "new": "p.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate_red))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "2",
+          "rhs": "new ItemStack(ModItems.hazmat_plate_red)"
+        },
+        {
+          "start": 1836,
+          "end": 1907,
+          "line": 49,
+          "old": "p.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs_red)",
+          "new": "p.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs_red))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "1",
+          "rhs": "new ItemStack(ModItems.hazmat_legs_red)"
+        },
+        {
+          "start": 1912,
+          "end": 1984,
+          "line": 50,
+          "old": "p.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots_red)",
+          "new": "p.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots_red))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "0",
+          "rhs": "new ItemStack(ModItems.hazmat_boots_red)"
+        },
+        {
+          "start": 2009,
+          "end": 2083,
+          "line": 53,
+          "old": "p.inventory.armorInventory[3] = new ItemStack(ModItems.hazmat_helmet_grey)",
+          "new": "p.inventory.armorInventory.set(3, new ItemStack(ModItems.hazmat_helmet_grey))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "3",
+          "rhs": "new ItemStack(ModItems.hazmat_helmet_grey)"
+        },
+        {
+          "start": 2088,
+          "end": 2161,
+          "line": 54,
+          "old": "p.inventory.armorInventory[2] = new ItemStack(ModItems.hazmat_plate_grey)",
+          "new": "p.inventory.armorInventory.set(2, new ItemStack(ModItems.hazmat_plate_grey))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "2",
+          "rhs": "new ItemStack(ModItems.hazmat_plate_grey)"
+        },
+        {
+          "start": 2166,
+          "end": 2238,
+          "line": 55,
+          "old": "p.inventory.armorInventory[1] = new ItemStack(ModItems.hazmat_legs_grey)",
+          "new": "p.inventory.armorInventory.set(1, new ItemStack(ModItems.hazmat_legs_grey))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "1",
+          "rhs": "new ItemStack(ModItems.hazmat_legs_grey)"
+        },
+        {
+          "start": 2243,
+          "end": 2316,
+          "line": 56,
+          "old": "p.inventory.armorInventory[0] = new ItemStack(ModItems.hazmat_boots_grey)",
+          "new": "p.inventory.armorInventory.set(0, new ItemStack(ModItems.hazmat_boots_grey))",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "p.inventory.armorInventory",
+          "index": "0",
+          "rhs": "new ItemStack(ModItems.hazmat_boots_grey)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/packet/toserver/ItemFolderPacket.java": {
+      "before_sha256": "6c64ef420a7c9bb69c7039996b11fd8168d787d003d6b5fd216e08d840efbb06",
+      "after_sha256": "b1adc749d373b975b0841d35e54fb080b0d84c1d2a2cb072c0fd6c9471d216da",
+      "edits": [
+        {
+          "start": 4530,
+          "end": 4627,
+          "line": 150,
+          "old": "player.inventory.mainInventory[i] = new ItemStack(result, stack.stackSize, stack.getItemDamage())",
+          "new": "player.inventory.mainInventory.set(i, new ItemStack(result, stack.stackSize, stack.getItemDamage()))",
+          "kind": "statement-write",
+          "field": "mainInventory",
+          "rhs_kind": "NEW_CLASS",
+          "list": "player.inventory.mainInventory",
+          "index": "i",
+          "rhs": "new ItemStack(result, stack.stackSize, stack.getItemDamage())"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/ArmorUtil.java": {
+      "before_sha256": "fb624945810ce9c5a8bdcec0fb3276f9faa5a984ecabb74826cfb700be9db41d",
+      "after_sha256": "a185ac7f1a78063355b05268bce4ee6d96de80b2d2b313e3acc9e7fd481fd2df",
+      "edits": [
+        {
+          "start": 13334,
+          "end": 13375,
+          "line": 303,
+          "old": "player.inventory.armorInventory[i] = null",
+          "new": "player.inventory.armorInventory.set(i, ItemStack.EMPTY)",
+          "kind": "statement-write",
+          "field": "armorInventory",
+          "rhs_kind": "NULL_LITERAL",
+          "list": "player.inventory.armorInventory",
+          "index": "i",
+          "rhs": "null"
+        }
+      ]
+    }
+  }
+}

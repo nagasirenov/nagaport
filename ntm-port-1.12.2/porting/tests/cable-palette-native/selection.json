@@ -1,0 +1,794 @@
+[
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "start": 2530,
+    "end": 2594,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 0",
+      "z + 1",
+      "ModBlocks.deco_steel",
+      "0",
+      "3"
+    ],
+    "block": "deco_steel",
+    "old": "world.setBlock(x + 1, y + 0, z + 1, ModBlocks.deco_steel, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 0, z + 1, ModBlocks.deco_steel);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "start": 3663,
+    "end": 3727,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 1",
+      "z + 1",
+      "ModBlocks.deco_steel",
+      "0",
+      "3"
+    ],
+    "block": "deco_steel",
+    "old": "world.setBlock(x + 1, y + 1, z + 1, ModBlocks.deco_steel, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 1, z + 1, ModBlocks.deco_steel);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "start": 4354,
+    "end": 4418,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 2",
+      "z + 0",
+      "ModBlocks.deco_steel",
+      "0",
+      "3"
+    ],
+    "block": "deco_steel",
+    "old": "world.setBlock(x + 1, y + 2, z + 0, ModBlocks.deco_steel, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 2, z + 0, ModBlocks.deco_steel);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "start": 4583,
+    "end": 4647,
+    "receiver": "world",
+    "args": [
+      "x + 0",
+      "y + 2",
+      "z + 1",
+      "ModBlocks.deco_steel",
+      "0",
+      "3"
+    ],
+    "block": "deco_steel",
+    "old": "world.setBlock(x + 0, y + 2, z + 1, ModBlocks.deco_steel, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 0, y + 2, z + 1, ModBlocks.deco_steel);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "start": 4650,
+    "end": 4714,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 2",
+      "z + 1",
+      "ModBlocks.deco_steel",
+      "0",
+      "3"
+    ],
+    "block": "deco_steel",
+    "old": "world.setBlock(x + 1, y + 2, z + 1, ModBlocks.deco_steel, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 2, z + 1, ModBlocks.deco_steel);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "start": 4717,
+    "end": 4781,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + 2",
+      "z + 1",
+      "ModBlocks.deco_steel",
+      "0",
+      "3"
+    ],
+    "block": "deco_steel",
+    "old": "world.setBlock(x + 2, y + 2, z + 1, ModBlocks.deco_steel, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 2, z + 1, ModBlocks.deco_steel);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "start": 4946,
+    "end": 5010,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 2",
+      "z + 2",
+      "ModBlocks.deco_steel",
+      "0",
+      "3"
+    ],
+    "block": "deco_steel",
+    "old": "world.setBlock(x + 1, y + 2, z + 2, ModBlocks.deco_steel, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 2, z + 2, ModBlocks.deco_steel);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin001.java",
+    "start": 122845,
+    "end": 122908,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 3",
+      "z + 6",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 3, z + 6, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 3, z + 6, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin001.java",
+    "start": 168910,
+    "end": 168973,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 4",
+      "z + 6",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 4, z + 6, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 4, z + 6, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin001.java",
+    "start": 179722,
+    "end": 179786,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 4",
+      "z + 10",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 4, z + 10, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 4, z + 10, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 13500,
+    "end": 13563,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 5",
+      "z + 6",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 5, z + 6, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 5, z + 6, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 24409,
+    "end": 24473,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 5",
+      "z + 10",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 5, z + 10, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 5, z + 10, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 59554,
+    "end": 59617,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 6",
+      "z + 6",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 6, z + 6, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 6, z + 6, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 62697,
+    "end": 62760,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 6",
+      "z + 7",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 6, z + 7, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 6, z + 7, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 65840,
+    "end": 65903,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 6",
+      "z + 8",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 6, z + 8, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 6, z + 8, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 72130,
+    "end": 72194,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 6",
+      "z + 10",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 6, z + 10, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 6, z + 10, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 72197,
+    "end": 72261,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + 6",
+      "z + 10",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 2, y + 6, z + 10, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 6, z + 10, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 75190,
+    "end": 75254,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 6",
+      "z + 11",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 6, z + 11, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 6, z + 11, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 78346,
+    "end": 78410,
+    "receiver": "world",
+    "args": [
+      "x + 1",
+      "y + 6",
+      "z + 12",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 1, y + 6, z + 12, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 6, z + 12, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 78413,
+    "end": 78477,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + 6",
+      "z + 12",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 2, y + 6, z + 12, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 6, z + 12, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 143328,
+    "end": 143392,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + 7",
+      "z + 10",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 2, y + 7, z + 10, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 7, z + 10, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 154493,
+    "end": 154557,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + 7",
+      "z + 12",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 2, y + 7, z + 12, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 7, z + 12, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 194769,
+    "end": 194833,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + 8",
+      "z + 10",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 2, y + 8, z + 10, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 8, z + 10, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Ruin002.java",
+    "start": 198712,
+    "end": 198776,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + 8",
+      "z + 12",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 2, y + 8, z + 12, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + 8, z + 12, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 21177,
+    "end": 21248,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + -3",
+      "z + 30",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 2, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -3, z + 30, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 21251,
+    "end": 21316,
+    "receiver": "world",
+    "args": [
+      "x + 3",
+      "y + -3",
+      "z + 30",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 3, y + -3, z + 30, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -3, z + 30, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 21319,
+    "end": 21390,
+    "receiver": "world",
+    "args": [
+      "x + 4",
+      "y + -3",
+      "z + 30",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 4, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -3, z + 30, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 21833,
+    "end": 21904,
+    "receiver": "world",
+    "args": [
+      "x + 9",
+      "y + -3",
+      "z + 30",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 9, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -3, z + 30, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 21907,
+    "end": 21973,
+    "receiver": "world",
+    "args": [
+      "x + 10",
+      "y + -3",
+      "z + 30",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 10, y + -3, z + 30, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -3, z + 30, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 21976,
+    "end": 22048,
+    "receiver": "world",
+    "args": [
+      "x + 11",
+      "y + -3",
+      "z + 30",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 11, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + -3, z + 30, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 25246,
+    "end": 25317,
+    "receiver": "world",
+    "args": [
+      "x + 5",
+      "y + -3",
+      "z + 36",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 5, y + -3, z + 36, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -3, z + 36, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 25540,
+    "end": 25611,
+    "receiver": "world",
+    "args": [
+      "x + 8",
+      "y + -3",
+      "z + 36",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 8, y + -3, z + 36, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -3, z + 36, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 63570,
+    "end": 63635,
+    "receiver": "world",
+    "args": [
+      "x + 4",
+      "y + -2",
+      "z + 30",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 4, y + -2, z + 30, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -2, z + 30, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 64294,
+    "end": 64359,
+    "receiver": "world",
+    "args": [
+      "x + 9",
+      "y + -2",
+      "z + 30",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 9, y + -2, z + 30, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -2, z + 30, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 72207,
+    "end": 72278,
+    "receiver": "world",
+    "args": [
+      "x + 2",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 2, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -2, z + 36, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 72281,
+    "end": 72346,
+    "receiver": "world",
+    "args": [
+      "x + 3",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 3, y + -2, z + 36, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -2, z + 36, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 72349,
+    "end": 72420,
+    "receiver": "world",
+    "args": [
+      "x + 4",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 4, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -2, z + 36, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 72423,
+    "end": 72488,
+    "receiver": "world",
+    "args": [
+      "x + 5",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 5, y + -2, z + 36, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -2, z + 36, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 72819,
+    "end": 72884,
+    "receiver": "world",
+    "args": [
+      "x + 8",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 8, y + -2, z + 36, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -2, z + 36, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 72887,
+    "end": 72958,
+    "receiver": "world",
+    "args": [
+      "x + 9",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 9, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -2, z + 36, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 72961,
+    "end": 73027,
+    "receiver": "world",
+    "args": [
+      "x + 10",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 10, y + -2, z + 36, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -2, z + 36, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 73030,
+    "end": 73102,
+    "receiver": "world",
+    "args": [
+      "x + 11",
+      "y + -2",
+      "z + 36",
+      "ModBlocks.red_wire_coated",
+      "0",
+      "3"
+    ],
+    "block": "red_wire_coated",
+    "old": "world.setBlock(x + 11, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + -2, z + 36, ModBlocks.red_wire_coated);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 114829,
+    "end": 114894,
+    "receiver": "world",
+    "args": [
+      "x + 4",
+      "y + -1",
+      "z + 30",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 4, y + -1, z + 30, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 30, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Spaceship.java",
+    "start": 115553,
+    "end": 115618,
+    "receiver": "world",
+    "args": [
+      "x + 9",
+      "y + -1",
+      "z + 30",
+      "ModBlocks.red_cable",
+      "0",
+      "3"
+    ],
+    "block": "red_cable",
+    "old": "world.setBlock(x + 9, y + -1, z + 30, ModBlocks.red_cable, 0, 3);",
+    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 30, ModBlocks.red_cable);",
+    "recovery_basis": "Exact retained whole-file before/after hashes; current native attribution pending."
+  }
+]

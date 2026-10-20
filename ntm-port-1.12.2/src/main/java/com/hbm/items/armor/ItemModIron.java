@@ -32,10 +32,10 @@ public class ItemModIron extends ItemArmorMod {
 	
 	@Override
 	public Multimap getModifiers(ItemStack armor) {
-		Multimap multimap = super.getAttributeModifiers(armor);
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
 		
-		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(),
-				new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Knockback", 0.5, 0));
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(),
+				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Knockback", 0.5, 0));
 		
 		return multimap;
 	}

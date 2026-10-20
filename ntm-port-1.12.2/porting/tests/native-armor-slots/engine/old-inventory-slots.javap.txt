@@ -1,0 +1,240 @@
+  public aap(yx, boolean, yz);
+    Code:
+       0: aload_0
+       1: invokespecial #46                 // Method zs."<init>":()V
+       4: aload_0
+       5: new           #1                  // class aae
+       8: dup
+       9: aload_0
+      10: iconst_2
+      11: iconst_2
+      12: invokespecial #25                 // Method aae."<init>":(Lzs;II)V
+      15: putfield      #15                 // Field a:Laae;
+      18: aload_0
+      19: new           #4                  // class aaw
+      22: dup
+      23: invokespecial #31                 // Method aaw."<init>":()V
+      26: putfield      #17                 // Field f:Lrb;
+      29: aload_0
+      30: iload_2
+      31: putfield      #18                 // Field g:Z
+      34: aload_0
+      35: aload_3
+      36: putfield      #19                 // Field h:Lyz;
+      39: aload_0
+      40: new           #5                  // class aax
+      43: dup
+      44: aload_1
+      45: getfield      #23                 // Field yx.d:Lyz;
+      48: aload_0
+      49: getfield      #15                 // Field a:Laae;
+      52: aload_0
+      53: getfield      #17                 // Field f:Lrb;
+      56: iconst_0
+      57: sipush        144
+      60: bipush        36
+      62: invokespecial #32                 // Method aax."<init>":(Lyz;Lrb;Lrb;III)V
+      65: invokevirtual #27                 // Method a:(Laay;)Laay;
+      68: pop
+      69: iconst_0
+      70: istore        4
+      72: iload         4
+      74: iconst_2
+      75: if_icmpge     138
+      78: iconst_0
+      79: istore        5
+      81: iload         5
+      83: iconst_2
+      84: if_icmpge     132
+      87: aload_0
+      88: new           #6                  // class aay
+      91: dup
+      92: aload_0
+      93: getfield      #15                 // Field a:Laae;
+      96: iload         5
+      98: iload         4
+     100: iconst_2
+     101: imul
+     102: iadd
+     103: bipush        88
+     105: iload         5
+     107: bipush        18
+     109: imul
+     110: iadd
+     111: bipush        26
+     113: iload         4
+     115: bipush        18
+     117: imul
+     118: iadd
+     119: invokespecial #33                 // Method aay."<init>":(Lrb;III)V
+     122: invokevirtual #27                 // Method a:(Laay;)Laay;
+     125: pop
+     126: iinc          5, 1
+     129: goto          81
+     132: iinc          4, 1
+     135: goto          72
+     138: iconst_0
+     139: istore        4
+     141: iload         4
+     143: iconst_4
+     144: if_icmpge     192
+     147: iload         4
+     149: istore        5
+     151: aload_0
+     152: new           #3                  // class aaq
+     155: dup
+     156: aload_0
+     157: aload_1
+     158: aload_1
+     159: invokevirtual #44                 // Method yx.a:()I
+     162: iconst_1
+     163: isub
+     164: iload         4
+     166: isub
+     167: bipush        8
+     169: bipush        8
+     171: iload         4
+     173: bipush        18
+     175: imul
+     176: iadd
+     177: iload         5
+     179: invokespecial #30                 // Method aaq."<init>":(Laap;Lrb;IIII)V
+     182: invokevirtual #27                 // Method a:(Laay;)Laay;
+     185: pop
+     186: iinc          4, 1
+     189: goto          141
+     192: iconst_0
+     193: istore        4
+     195: iload         4
+     197: iconst_3
+     198: if_icmpge     262
+     201: iconst_0
+     202: istore        5
+     204: iload         5
+     206: bipush        9
+     208: if_icmpge     256
+     211: aload_0
+     212: new           #6                  // class aay
+     215: dup
+     216: aload_1
+     217: iload         5
+     219: iload         4
+     221: iconst_1
+     222: iadd
+     223: bipush        9
+     225: imul
+     226: iadd
+     227: bipush        8
+     229: iload         5
+     231: bipush        18
+     233: imul
+     234: iadd
+     235: bipush        84
+     237: iload         4
+     239: bipush        18
+     241: imul
+     242: iadd
+     243: invokespecial #33                 // Method aay."<init>":(Lrb;III)V
+     246: invokevirtual #27                 // Method a:(Laay;)Laay;
+     249: pop
+     250: iinc          5, 1
+     253: goto          204
+     256: iinc          4, 1
+     259: goto          195
+     262: iconst_0
+     263: istore        4
+     265: iload         4
+     267: bipush        9
+     269: if_icmpge     304
+     272: aload_0
+     273: new           #6                  // class aay
+     276: dup
+     277: aload_1
+     278: iload         4
+     280: bipush        8
+     282: iload         4
+     284: bipush        18
+     286: imul
+     287: iadd
+     288: sipush        142
+     291: invokespecial #33                 // Method aay."<init>":(Lrb;III)V
+     294: invokevirtual #27                 // Method a:(Laay;)Laay;
+     297: pop
+     298: iinc          4, 1
+     301: goto          265
+     304: aload_0
+     305: aload_0
+     306: getfield      #15                 // Field a:Laae;
+     309: invokevirtual #29                 // Method a:(Lrb;)V
+     312: return
+
+  public boolean a(add);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: iconst_0
+       5: ireturn
+       6: aload_1
+       7: invokevirtual #16                 // Method add.b:()Ladb;
+      10: instanceof    #3                  // class abb
+      13: ifeq          39
+      16: aload_1
+      17: invokevirtual #16                 // Method add.b:()Ladb;
+      20: checkcast     #3                  // class abb
+      23: getfield      #10                 // Field abb.b:I
+      26: aload_0
+      27: getfield      #8                  // Field a:I
+      30: if_icmpne     37
+      33: iconst_1
+      34: goto          38
+      37: iconst_0
+      38: ireturn
+      39: aload_1
+      40: invokevirtual #16                 // Method add.b:()Ladb;
+      43: getstatic     #12                 // Field ajn.aK:Laji;
+      46: invokestatic  #15                 // Method adb.a:(Laji;)Ladb;
+      49: if_acmpeq     62
+      52: aload_1
+      53: invokevirtual #16                 // Method add.b:()Ladb;
+      56: getstatic     #11                 // Field ade.bL:Ladb;
+      59: if_acmpne     75
+      62: aload_0
+      63: getfield      #8                  // Field a:I
+      66: ifne          73
+      69: iconst_1
+      70: goto          74
+      73: iconst_0
+      74: ireturn
+      75: iconst_0
+      76: ireturn
+
+  public int a();
+    Code:
+       0: aload_0
+       1: getfield      #35                 // Field a:[Ladd;
+       4: arraylength
+       5: iconst_4
+       6: iadd
+       7: ireturn
+
+  public add a(int);
+    Code:
+       0: aload_0
+       1: getfield      #35                 // Field a:[Ladd;
+       4: astore_2
+       5: iload_1
+       6: aload_2
+       7: arraylength
+       8: if_icmplt     21
+      11: iload_1
+      12: aload_2
+      13: arraylength
+      14: isub
+      15: istore_1
+      16: aload_0
+      17: getfield      #36                 // Field b:[Ladd;
+      20: astore_2
+      21: aload_2
+      22: iload_1
+      23: aaload
+      24: areturn

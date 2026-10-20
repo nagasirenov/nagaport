@@ -45,12 +45,12 @@ public class WeaponizedCell extends Item {
 			randy = 1;
 
 		if(item.world.rand.nextInt(50 * 20) >= randy)
-			world.spawnParticle("reddust", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
 		else
-			world.spawnParticle("smoke", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
 
 		if(randy < 100)
-			world.spawnParticle("lava", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
 
 		return false;
 	}

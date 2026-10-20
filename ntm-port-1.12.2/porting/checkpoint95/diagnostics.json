@@ -1,0 +1,5180 @@
+{
+  "before": 10061,
+  "after": 10014,
+  "categories": [
+    [
+      "cannot find symbol",
+      6594
+    ],
+    [
+      "method does not override or implement a method from a supertype",
+      1455
+    ],
+    [
+      "stackSize has private access in ItemStack",
+      807
+    ],
+    [
+      "incompatible types: String cannot be converted to SoundEvent",
+      28
+    ],
+    [
+      "method dropBlockAsItem in class Block cannot be applied to given types;",
+      25
+    ],
+    [
+      "setSoundType(SoundType) has protected access in Block",
+      25
+    ],
+    [
+      "incompatible types: int cannot be converted to ClickType",
+      25
+    ],
+    [
+      "no suitable method found for breakBlock(World,int,int,int,Block,int)",
+      24
+    ],
+    [
+      "method isAir in class Block cannot be applied to given types;",
+      24
+    ],
+    [
+      "method getBlockHardness in class Block cannot be applied to given types;",
+      17
+    ],
+    [
+      "incompatible types: int cannot be converted to IBlockState",
+      16
+    ],
+    [
+      "exploder has private access in Explosion",
+      16
+    ],
+    [
+      "method isEntityInvulnerable in class Entity cannot be applied to given types;",
+      16
+    ],
+    [
+      "splashText has private access in GuiMainMenu",
+      15
+    ],
+    [
+      "method getMaterial in class Block cannot be applied to given types;",
+      15
+    ],
+    [
+      "constructor RenderLiving in class RenderLiving<T> cannot be applied to given types;",
+      15
+    ],
+    [
+      "no suitable method found for playSound(String,float,float)",
+      14
+    ],
+    [
+      "method removeTileEntity in class World cannot be applied to given types;",
+      14
+    ],
+    [
+      "no suitable method found for renderItemAndEffectIntoGUI(FontRenderer,TextureManager,ItemStack,int,int)",
+      14
+    ],
+    [
+      "method breakBlock in class Block cannot be applied to given types;",
+      13
+    ],
+    [
+      "incompatible types: EntityPlayer cannot be converted to World",
+      12
+    ],
+    [
+      "method isReplaceableOreGen in class Block cannot be applied to given types;",
+      12
+    ],
+    [
+      "no suitable method found for getTileEntity(int,int,int)",
+      12
+    ],
+    [
+      "method randomDisplayTick in class Block cannot be applied to given types;",
+      11
+    ],
+    [
+      "method onBlockAdded in class Block cannot be applied to given types;",
+      11
+    ],
+    [
+      "lastDamage has protected access in EntityLivingBase",
+      11
+    ],
+    [
+      "no suitable method found for playSound(double,double,double,String,float,float,boolean)",
+      11
+    ],
+    [
+      "no suitable method found for getDrops(World,int,int,int,int,int)",
+      10
+    ],
+    [
+      "method isOpaqueCube in class Block cannot be applied to given types;",
+      10
+    ],
+    [
+      "furnaceItemStacks has private access in TileEntityFurnace",
+      10
+    ],
+    [
+      "array required, but NonNullList<ItemStack> found",
+      10
+    ],
+    [
+      "constructor ScaledResolution in class ScaledResolution cannot be applied to given types;",
+      9
+    ],
+    [
+      "no suitable method found for updateTick(World,int,int,int,Random)",
+      9
+    ],
+    [
+      "no suitable constructor found for Fluid(String)",
+      9
+    ],
+    [
+      "renderViewEntity has private access in Minecraft",
+      9
+    ],
+    [
+      "furnaceBurnTime has private access in TileEntityFurnace",
+      9
+    ],
+    [
+      "incompatible types: int cannot be converted to BlockPos",
+      8
+    ],
+    [
+      "method canPlayerEdit in class EntityPlayer cannot be applied to given types;",
+      8
+    ],
+    [
+      "incompatible types: int cannot be converted to boolean",
+      8
+    ],
+    [
+      "method renderItemOverlayIntoGUI in class RenderItem cannot be applied to given types;",
+      8
+    ],
+    [
+      "incompatible types: PropertyBool cannot be converted to ForgeDirection",
+      8
+    ],
+    [
+      "non-static method getServer() cannot be referenced from a static context",
+      8
+    ],
+    [
+      "incompatible types: Block cannot be converted to IBlockState",
+      7
+    ],
+    [
+      "skylightSubtracted has private access in World",
+      7
+    ],
+    [
+      "blockMetadata has private access in TileEntity",
+      7
+    ],
+    [
+      "method dropBlockAsItemWithChance in class Block cannot be applied to given types;",
+      6
+    ],
+    [
+      "incompatible types: ITextComponent cannot be converted to String",
+      6
+    ],
+    [
+      "method generate in class WorldGenerator cannot be applied to given types;",
+      6
+    ],
+    [
+      "method getSubItems in class Item cannot be applied to given types;",
+      5
+    ],
+    [
+      "method getPickBlock in class Block cannot be applied to given types;",
+      5
+    ],
+    [
+      "replacement has private access in GetVillageBlockID",
+      5
+    ],
+    [
+      "right has private access in AnvilRepairEvent",
+      5
+    ],
+    [
+      "no suitable method found for playSound(int,int,int,String,float,float,boolean)",
+      5
+    ],
+    [
+      "constructor EntityLightningBolt in class EntityLightningBolt cannot be applied to given types;",
+      5
+    ],
+    [
+      "method canDisplace in class BlockFluidBase cannot be applied to given types;",
+      5
+    ],
+    [
+      "method displaceIfPossible in class BlockFluidBase cannot be applied to given types;",
+      5
+    ],
+    [
+      "method getTileEntity in interface IBlockAccess cannot be applied to given types;",
+      5
+    ],
+    [
+      "lightmapColors has private access in EntityRenderer",
+      5
+    ],
+    [
+      "heightVariation has private access in Biome",
+      5
+    ],
+    [
+      "method getTileEntity in class World cannot be applied to given types;",
+      5
+    ],
+    [
+      "pressed has private access in KeyBinding",
+      4
+    ],
+    [
+      "pressTime has private access in KeyBinding",
+      4
+    ],
+    [
+      "method getPlayerRelativeBlockHardness in class Block cannot be applied to given types;",
+      4
+    ],
+    [
+      "illegal start of type",
+      4
+    ],
+    [
+      "method getTopSolidOrLiquidBlock in class World cannot be applied to given types;",
+      4
+    ],
+    [
+      "tagList has private access in NBTTagList",
+      4
+    ],
+    [
+      "method drawButton in class GuiButton cannot be applied to given types;",
+      4
+    ],
+    [
+      "method onBlockPlacedBy in class Block cannot be applied to given types;",
+      4
+    ],
+    [
+      "recentlyHit has protected access in EntityLivingBase",
+      4
+    ],
+    [
+      "attackingPlayer has protected access in EntityLivingBase",
+      4
+    ],
+    [
+      "incompatible types: EntityLivingBase cannot be converted to String",
+      4
+    ],
+    [
+      "incompatible types: NonNullList<ItemStack> cannot be converted to ItemStack[]",
+      4
+    ],
+    [
+      "no suitable method found for onItemRightClick(ItemStack,World,EntityPlayer)",
+      4
+    ],
+    [
+      "incompatible types: ICommandSender cannot be converted to String",
+      4
+    ],
+    [
+      "no suitable method found for getClosestPlayer(int,int,int,int)",
+      4
+    ],
+    [
+      "highlightingItemStack has protected access in GuiIngame",
+      3
+    ],
+    [
+      "method onBlockHarvested in class Block cannot be applied to given types;",
+      3
+    ],
+    [
+      "method setTileEntity in class World cannot be applied to given types;",
+      3
+    ],
+    [
+      "method isVecInside in class StructureBoundingBox cannot be applied to given types;",
+      3
+    ],
+    [
+      "EntityArrow is abstract; cannot be instantiated",
+      3
+    ],
+    [
+      "no suitable method found for getExplosionResistance(Entity,World,int,int,int,double,double,double)",
+      3
+    ],
+    [
+      "method getBlockLightOpacity in class World cannot be applied to given types;",
+      3
+    ],
+    [
+      "rotationX has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationZ has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationYZ has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationXY has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "rotationXZ has private access in ActiveRenderInfo",
+      3
+    ],
+    [
+      "incompatible types: Class<CAP#1> cannot be converted to Class<? extends EntityLivingBase>",
+      3
+    ],
+    [
+      "incompatible types: NonNullList<ItemStack> cannot be converted to ArrayList<ItemStack>",
+      3
+    ],
+    [
+      "no suitable method found for onBlockActivated(World,int,int,int,EntityPlayer,int,float,float,float)",
+      3
+    ],
+    [
+      "incompatible types: boolean cannot be converted to Material",
+      3
+    ],
+    [
+      "running is not public in Minecraft; cannot be accessed from outside package",
+      3
+    ],
+    [
+      "method enableLightmap in class EntityRenderer cannot be applied to given types;",
+      2
+    ],
+    [
+      "method disableLightmap in class EntityRenderer cannot be applied to given types;",
+      2
+    ],
+    [
+      "method isLadder in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "method isShearable in interface IShearable cannot be applied to given types;",
+      2
+    ],
+    [
+      "method blockStrength in class ForgeHooks cannot be applied to given types;",
+      2
+    ],
+    [
+      "method canHarvestBlock in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "method removedByPlayer in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "no suitable constructor found for Explosion(World,Entity,double,double,double,float)",
+      2
+    ],
+    [
+      "method onBlockExploded in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "isJumping has protected access in EntityLivingBase",
+      2
+    ],
+    [
+      "incompatible types: List<StructureComponent> cannot be converted to LinkedList<StructureComponent>",
+      2
+    ],
+    [
+      "constructor RenderMinecart in class RenderMinecart<T> cannot be applied to given types;",
+      2
+    ],
+    [
+      "reference to ParticleSplash is ambiguous",
+      2
+    ],
+    [
+      "thirdPersonDistance has private access in EntityRenderer",
+      2
+    ],
+    [
+      "original has private access in GetVillageBlockID",
+      2
+    ],
+    [
+      "inPortal has protected access in Entity",
+      2
+    ],
+    [
+      "portalCounter has protected access in Entity",
+      2
+    ],
+    [
+      "output has private access in AnvilRepairEvent",
+      2
+    ],
+    [
+      "incompatible types: boolean cannot be converted to ITooltipFlag",
+      2
+    ],
+    [
+      "method addGameRule in class GameRules cannot be applied to given types;",
+      2
+    ],
+    [
+      "no suitable method found for getExplosionResistance(<null>,World,int,int,int,double,double,double)",
+      2
+    ],
+    [
+      "constructor ArrowLooseEvent in class ArrowLooseEvent cannot be applied to given types;",
+      2
+    ],
+    [
+      "constructor ArrowNockEvent in class ArrowNockEvent cannot be applied to given types;",
+      2
+    ],
+    [
+      "method fall in class Entity cannot be applied to given types;",
+      2
+    ],
+    [
+      "lastLightningBolt has private access in World",
+      2
+    ],
+    [
+      "fuseTime has private access in EntityCreeper",
+      2
+    ],
+    [
+      "constructor MinecartInteractEvent in class MinecartInteractEvent cannot be applied to given types;",
+      2
+    ],
+    [
+      "no suitable method found for getExplosionResistance(<null>,World,int,int,int,int,int,int)",
+      2
+    ],
+    [
+      "resourcePackFile has protected access in AbstractResourcePack",
+      2
+    ],
+    [
+      "method isSourceBlock in class BlockFluidClassic cannot be applied to given types;",
+      2
+    ],
+    [
+      "method canPlaceBlockOnSide in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "no suitable method found for onBlockAdded(World,int,int,int)",
+      2
+    ],
+    [
+      "method updateTick in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "no suitable method found for getPosition(float)",
+      2
+    ],
+    [
+      "no suitable method found for getLightValue(no arguments)",
+      2
+    ],
+    [
+      "method canPlaceTorchOnTop in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "method isReplaceable in class Block cannot be applied to given types;",
+      2
+    ],
+    [
+      "method getPlant in interface IPlantable cannot be applied to given types;",
+      2
+    ],
+    [
+      "incompatible types: ModelBiped cannot be converted to RenderManager",
+      2
+    ],
+    [
+      "TileEntityNukeCustom is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "incompatible types: GuiContainer cannot be converted to String",
+      1
+    ],
+    [
+      "incompatible types: Vec3NT cannot be converted to Vec3d",
+      1
+    ],
+    [
+      "no suitable method found for onBlockDestroyed(ItemStack,World,Block,int,int,int,EntityLivingBase)",
+      1
+    ],
+    [
+      "method canHarvestBlock in class ForgeHooks cannot be applied to given types;",
+      1
+    ],
+    [
+      "incompatible types: String[] cannot be converted to String",
+      1
+    ],
+    [
+      "no suitable constructor found for EntityFallingBlock(World,double,double,double,BlockNTMSand,int)",
+      1
+    ],
+    [
+      "cannot assign a value to final variable minY",
+      1
+    ],
+    [
+      "method getEntitiesWithinAABBExcludingEntity in class World cannot be applied to given types;",
+      1
+    ],
+    [
+      "heightMap has private access in Chunk",
+      1
+    ],
+    [
+      "no suitable method found for getLightOpacity(World,int,int,int)",
+      1
+    ],
+    [
+      "TileEntityPistonInserter is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityFluidPump is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "no suitable constructor found for PositionedSoundRecord(ResourceLocation,float,float,float,float,float)",
+      1
+    ],
+    [
+      "BlockTallPlant is not abstract and does not override abstract method getPlant(IBlockAccess,BlockPos) in IPlantable",
+      1
+    ],
+    [
+      "BlockNTMFlower is not abstract and does not override abstract method getPlant(IBlockAccess,BlockPos) in IPlantable",
+      1
+    ],
+    [
+      "incompatible types: BlockSand cannot be converted to IBlockState",
+      1
+    ],
+    [
+      "incompatible types: BlockGrass cannot be converted to IBlockState",
+      1
+    ],
+    [
+      "left has private access in AnvilRepairEvent",
+      1
+    ],
+    [
+      "NTMWorldGenerator is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityHunterChopper cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityHunterChopper cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "method getBrightnessForRender in class Entity cannot be applied to given types;",
+      1
+    ],
+    [
+      "method getBrightness in class Entity cannot be applied to given types;",
+      1
+    ],
+    [
+      "no suitable constructor found for PotionEffect(int,int,int,boolean)",
+      1
+    ],
+    [
+      "no suitable method found for countAStackMatches(NonNullList<ItemStack>,AStack,boolean)",
+      1
+    ],
+    [
+      "no suitable method found for isNormalCube(no arguments)",
+      1
+    ],
+    [
+      "constructor ItemSlab in class ItemSlab cannot be applied to given types;",
+      1
+    ],
+    [
+      "InventoryAmmoBag is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "incompatible types: ItemStack cannot be converted to World",
+      1
+    ],
+    [
+      "incompatible types: Integer cannot be converted to Potion",
+      1
+    ],
+    [
+      "InventoryPlasticBag is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "incompatible types: Block cannot be converted to BlockPos",
+      1
+    ],
+    [
+      "InventoryCasingBag is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "constructor ItemRecord in class ItemRecord cannot be applied to given types;",
+      1
+    ],
+    [
+      "method onItemUse in class Item cannot be applied to given types;",
+      1
+    ],
+    [
+      "TileEntityBlockPWR is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityPWRController is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "method registerFloppy in class Items cannot be applied to given types;",
+      1
+    ],
+    [
+      "method updateFallState in class Entity cannot be applied to given types;",
+      1
+    ],
+    [
+      "TileEntityRBMKControlManual is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKConsole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "method getRailMaxSpeed in class BlockRailBase cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor MinecartUpdateEvent in class MinecartUpdateEvent cannot be applied to given types;",
+      1
+    ],
+    [
+      "method onMinecartPass in class BlockRailBase cannot be applied to given types;",
+      1
+    ],
+    [
+      "EntityMinecartTest is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityDeliveryDrone is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "EntityMagnusCartus is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartBogie is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityGlyphid cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "no suitable method found for playSound(double,double,double,String,int,int,boolean)",
+      1
+    ],
+    [
+      "writeToNBT(NBTTagCompound) in EntityFireLingering cannot override writeToNBT(NBTTagCompound) in Entity",
+      1
+    ],
+    [
+      "incompatible types: EntityFish cannot be converted to EntityCreature",
+      1
+    ],
+    [
+      "EntityFBI is not abstract and does not override abstract method setSwingingArms(boolean) in IRangedAttackMob",
+      1
+    ],
+    [
+      "no suitable method found for getHurtSound(no arguments)",
+      1
+    ],
+    [
+      "getDeathSound() in EntityUndeadSoldier cannot override getDeathSound() in EntityMob",
+      1
+    ],
+    [
+      "incompatible types: SoundEvent cannot be converted to String",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityWormBaseNT cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "incompatible types: inference variable T has incompatible bounds",
+      1
+    ],
+    [
+      "getDeathSound() in EntityBOTPrimeBase cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "getDeathSound() in EntityRADBeast cannot override getDeathSound() in EntityMob",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityUFO cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityUFO cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "getDeathSound() in EntityDuck cannot override getDeathSound() in EntityChicken",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityUFOBase cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntitySiegeCraft cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntitySiegeUFO cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityBurrowingBase cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityBurrowingSwingingBase cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "EntityCyberCrab is not abstract and does not override abstract method setSwingingArms(boolean) in IRangedAttackMob",
+      1
+    ],
+    [
+      "getDeathSound() in EntityCyberCrab cannot override getDeathSound() in EntityMob",
+      1
+    ],
+    [
+      "no suitable method found for getExplosionResistance(EntityGlyphidDigger,World,int,int,int,double,double,double)",
+      1
+    ],
+    [
+      "getDeathSound() in EntityPlasticBag cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityPlasticBag cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityPigeon cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityBFAngel cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "getDeathSound() in EntityBFAngel cannot override getDeathSound() in EntityLivingBase",
+      1
+    ],
+    [
+      "getDeathSound() in EntityQuackos cannot override getDeathSound() in EntityChicken",
+      1
+    ],
+    [
+      "updateEntityActionState() in EntityFBIDrone cannot override updateEntityActionState() in EntityLiving",
+      1
+    ],
+    [
+      "bindEntityTexture(Entity) in RenderNeoCart cannot override bindEntityTexture(T) in Render",
+      1
+    ],
+    [
+      "EntityMinecartCrate is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartSemtex is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartPowder is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartDestroyer is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "EntityMinecartOre is not abstract and does not override abstract method getType() in EntityMinecart",
+      1
+    ],
+    [
+      "constructor Potion in class Potion cannot be applied to given types;",
+      1
+    ],
+    [
+      "TileEntityMassStorage is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$1> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$2> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$3> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$4> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$5> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$6> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$7> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$8> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$9> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$10> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$11> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$12> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$13> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$14> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$15> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$16> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$17> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$18> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$19> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$20> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$21> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$22> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$23> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$24> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$25> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$26> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$27> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$28> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$29> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$30> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$31> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$32> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$33> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$34> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$35> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$36> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$37> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$38> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$39> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$40> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$41> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$42> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$43> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$44> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "<anonymous com.hbm.handler.DispenserBehaviorHandler$45> is not abstract and does not override abstract method getProjectileEntity(World,IPosition,ItemStack) in BehaviorProjectileDispense",
+      1
+    ],
+    [
+      "TestCraftingHandler is not abstract and does not override abstract method canFit(int,int) in IRecipe",
+      1
+    ],
+    [
+      "scheduledUpdatesAreImmediate has protected access in World",
+      1
+    ],
+    [
+      "BlockRubberLeaves is not abstract and does not override abstract method getWoodType(int) in BlockLeaves",
+      1
+    ],
+    [
+      "no suitable method found for dropBlockAsItemWithChance(World,int,int,int,int,float,int)",
+      1
+    ],
+    [
+      "TileEntityNukeMan is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "no suitable constructor found for EntityFallingBlock(World,double,double,double,BlockTaint,int)",
+      1
+    ],
+    [
+      "TileEntityNukeBoy is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeMike is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeTsar is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeFleija is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukePrototype is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeGadget is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "BlockCrop is not abstract and does not override abstract method grow(World,Random,BlockPos,IBlockState) in IGrowable",
+      1
+    ],
+    [
+      "TileEntityCapacitor is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "RailHighspeed is not abstract and does not override abstract method getShapeProperty() in BlockRailBase",
+      1
+    ],
+    [
+      "method shouldSideBeRendered in class Block cannot be applied to given types;",
+      1
+    ],
+    [
+      "RailGeneric is not abstract and does not override abstract method getShapeProperty() in BlockRailBase",
+      1
+    ],
+    [
+      "TileEntityCableGauge is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPipeGauge is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityOpenComputersCablePaintable is not abstract and does not override abstract method controlsConnectivity() in Colored",
+      1
+    ],
+    [
+      "method setBlockBounds in class FluidPipeAnchor cannot be applied to given types;",
+      1
+    ],
+    [
+      "method setBlockBounds in class ConnectorRedWireSuper cannot be applied to given types;",
+      1
+    ],
+    [
+      "method setBlockBounds in class ConnectorRedWire cannot be applied to given types;",
+      1
+    ],
+    [
+      "method canCreatureSpawn in class Block cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor BlockPane in class BlockPane cannot be applied to given types;",
+      1
+    ],
+    [
+      "method canPaneConnectTo in class BlockPane cannot be applied to given types;",
+      1
+    ],
+    [
+      "Row is not abstract and does not override abstract method drawEntry(int,int,int,int,int,int,int,boolean,float) in IGuiListEntry",
+      1
+    ],
+    [
+      "BlockMultiSlab is not abstract and does not override abstract method getTypeForItem(ItemStack) in BlockSlab",
+      1
+    ],
+    [
+      "method canProvidePower in class Block cannot be applied to given types;",
+      1
+    ],
+    [
+      "method setBlockBoundsBasedOnState in class BlockModDoor cannot be applied to given types;",
+      1
+    ],
+    [
+      "no suitable method found for randomDisplayTick(World,int,int,int,Random)",
+      1
+    ],
+    [
+      "BlockMush is not abstract and does not override abstract method grow(World,Random,BlockPos,IBlockState) in IGrowable",
+      1
+    ],
+    [
+      "constructor BlockStairs in class BlockStairs cannot be applied to given types;",
+      1
+    ],
+    [
+      "BlockTallPlantWater is not abstract and does not override abstract method getPlant(IBlockAccess,BlockPos) in IPlantable",
+      1
+    ],
+    [
+      "BlockPinkSlab is not abstract and does not override abstract method getTypeForItem(ItemStack) in BlockSlab",
+      1
+    ],
+    [
+      "WorldGeneratorCelestial is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "type has private access in GenerateMinable",
+      1
+    ],
+    [
+      "no suitable constructor found for WorldGenMinable(Block,int,int,Block)",
+      1
+    ],
+    [
+      "no suitable method found for generate(World,Random,int,int,int)",
+      1
+    ],
+    [
+      "non-static method getMetaFromState(IBlockState) cannot be referenced from a static context",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseTekto cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorTekto is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "TTree is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "method getModdedNoiseGenerators in class TerrainGen cannot be applied to given types;",
+      1
+    ],
+    [
+      "WorldProviderOrbit is not abstract and does not override abstract method getDimensionType() in WorldProvider",
+      1
+    ],
+    [
+      "lightmapTexture has private access in EntityRenderer",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenIke cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorIke is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "method generateOres in class BiomeDecorator cannot be applied to given types;",
+      1
+    ],
+    [
+      "WorldGenRubberPlant is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "WorldGeneratorThatmo is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseDres cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorDres is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseEve cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorEve is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldGenElectricVolcano is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "WorldGenEveSpike is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseLaythe cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorLaythe is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseMinmus cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorMinmus is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseMoho cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorMoho is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "createBiomeDecorator() in BiomeGenBaseDuna cannot override createBiomeDecorator() in Biome",
+      1
+    ],
+    [
+      "WorldGeneratorDuna is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "WorldGeneratorMoon is not abstract and does not override abstract method generate(Random,int,int,World,IChunkGenerator,IChunkProvider) in IWorldGenerator",
+      1
+    ],
+    [
+      "CommandRadiation is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandDebugChunkLoad is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandReloadClient is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandCustomize is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandReloadRecipes is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandReapNetworks is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandLocate is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "no suitable constructor found for PlayerNotFoundException(no arguments)",
+      1
+    ],
+    [
+      "CommandReloadServer is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "SuicideThreadDump is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandSatellites is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandPacketInfo is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandStations is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "CommandTotalTime is not abstract and does not override abstract method execute(MinecraftServer,ICommandSender,String[]) in ICommand",
+      1
+    ],
+    [
+      "incompatible types: int cannot be converted to DimensionType",
+      1
+    ],
+    [
+      "MapGenNTMFeatures is not abstract and does not override abstract method getNearestStructurePos(World,BlockPos,boolean) in MapGenStructure",
+      1
+    ],
+    [
+      "DesertAtom001 is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Silo is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Barrel is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Ruin001 is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Spaceship is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Antenna is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "LibraryDungeon is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "incompatible types: ResourceLocation cannot be converted to String",
+      1
+    ],
+    [
+      "HugeMush is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "GeyserLarge is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Dud is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "Geyser is not abstract and does not override abstract method generate(World,Random,BlockPos) in WorldGenerator",
+      1
+    ],
+    [
+      "ConsumableTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "BlockTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "MachineTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "WeaponTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "ControlTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "NukeTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "PartsTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "TemplateTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "MissileTab is not abstract and does not override abstract method createIcon() in CreativeTabs",
+      1
+    ],
+    [
+      "TileEntityTurretJeremy is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretChekhov is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretBrandon is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretSentry is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretHoward is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretMaxwell is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretFritz is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretArty is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretTauon is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretRichard is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityTurretHIMARS is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityProxyInventory is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityLaunchPad is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityNukeSolinium is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityNukeN2 is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityLaunchTable is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityLaunchPadLarge is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityLaunchPadRocket is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityBombMulti is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCompactLauncher is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityProxyCombo is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "reference to canConnectNode is ambiguous",
+      1
+    ],
+    [
+      "TileEntityCoreEmitter is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineMissileAssembly is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKOutgasser is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCraneConsole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityRBMKStorage is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKRod is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKBoiler is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKHeater is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRBMKCooler is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityRBMKControlAuto is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "no suitable method found for getClosestPlayer(double,int,double,int)",
+      1
+    ],
+    [
+      "TileEntityChungus is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "incompatible types: Block cannot be converted to String",
+      1
+    ],
+    [
+      "TileEntityMachineStardar is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineCoker is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineCombustionEngine is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityAirPump is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityICF is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityReactorControl is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityReactorResearch is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionKlystron is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionMHDT is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionTorus is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionBreeder is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFusionBoiler is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineLargeTurbine is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineShredder is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineRadarNT is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineReactorBreeding is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityReactorZirnox is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityWasteDrum is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "no suitable method found for isNormalCube(World,int,int,int)",
+      1
+    ],
+    [
+      "TileEntityGeiger is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "package worldObj does not exist",
+      1
+    ],
+    [
+      "TileEntityCoreStabilizer is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineTurbineGas is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCoreReceiver is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineSatLinker is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineKeyForge is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRtgFurnace is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityPASource is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPAQuadrupole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPADetector is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPARFC is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityPADipole is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateTungsten is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineBattery is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityBarrel is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateDesh is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntitySafe is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityFileCabinet is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityBatterySocket is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateIron is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCrateTemplate is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineFluidTank is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityCrateSteel is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityBatteryREDD is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityForceField is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "currentItemBurnTime has private access in TileEntityFurnace",
+      1
+    ],
+    [
+      "TileEntityMicrowave is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityMachineSatDock is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityCoreInjector is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "method getPlantType in interface IPlantable cannot be applied to given types;",
+      1
+    ],
+    [
+      "TileEntityMachineTurbine is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityMachineSiren is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRadioTorchBase is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityDroneRequester is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "TileEntityRadioTelex is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityFluidCounterValve is not abstract and does not override abstract method canConnectNode(EnumFacing) in SidedComponent",
+      1
+    ],
+    [
+      "TileEntityDroneProvider is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "incompatible types: ForgeDirection cannot be converted to EnumFacing",
+      1
+    ],
+    [
+      "TileEntityDroneDock is not abstract and does not override abstract method clear() in IInventory",
+      1
+    ],
+    [
+      "FauxWorld is not abstract and does not override abstract method isChunkLoaded(int,int,boolean) in World",
+      1
+    ],
+    [
+      "incompatible types: String cannot be converted to WorldInfo",
+      1
+    ],
+    [
+      "method getRenderType in class Block cannot be applied to given types;",
+      1
+    ],
+    [
+      "method getPrecipitationHeight in class World cannot be applied to given types;",
+      1
+    ],
+    [
+      "constructor RenderBiped in class RenderBiped<T> cannot be applied to given types;",
+      1
+    ],
+    [
+      "incompatible types: ModelFBI cannot be converted to RenderManager",
+      1
+    ],
+    [
+      "constructor RenderCreeper in class RenderCreeper cannot be applied to given types;",
+      1
+    ],
+    [
+      "no suitable constructor found for ModelZombie(float,float,int,int)",
+      1
+    ],
+    [
+      "no suitable method found for renderSky(float)",
+      1
+    ],
+    [
+      "dimensionId has private access in WorldProvider",
+      1
+    ],
+    [
+      "method resetEquippedProgress in class ItemRenderer cannot be applied to given types;",
+      1
+    ],
+    [
+      "method addBlockDestroyEffects in class ParticleManager cannot be applied to given types;",
+      1
+    ]
+  ],
+  "symbols": [
+    [
+      "method setBlock(int,int,int,Block,int,int)",
+      584
+    ],
+    [
+      "method playSoundAtEntity(EntityLivingBase,String,float,float)",
+      409
+    ],
+    [
+      "method setBlockTextureName(String)",
+      373
+    ],
+    [
+      "method setBlockMetadataWithNotify(int,int,int,int,int)",
+      265
+    ],
+    [
+      "method setBlock(int,int,int,Block)",
+      219
+    ],
+    [
+      "method getBoundingBox(int,int,int,int,int,int)",
+      171
+    ],
+    [
+      "variable blockIcon",
+      126
+    ],
+    [
+      "method setBlockBounds(float,float,float,float,float,float)",
+      117
+    ],
+    [
+      "method addVertex(double,double,double)",
+      93
+    ],
+    [
+      "method playSoundAtEntity(EntityPlayer,String,float,float)",
+      84
+    ],
+    [
+      "variable dataWatcher",
+      76
+    ],
+    [
+      "method setStepSound(SoundType)",
+      75
+    ],
+    [
+      "method getBlockMetadata(int,int,int)",
+      71
+    ],
+    [
+      "variable instance",
+      68
+    ],
+    [
+      "variable id",
+      65
+    ],
+    [
+      "method getBoundingBox(double,double,double,double,double,double)",
+      60
+    ],
+    [
+      "method setColorOpaque_I(int)",
+      59
+    ],
+    [
+      "method getHeightValue(int,int)",
+      57
+    ],
+    [
+      "variable riddenByEntity",
+      57
+    ],
+    [
+      "variable yOffset",
+      50
+    ],
+    [
+      "method addVertexWithUV(double,double,double,int,int)",
+      48
+    ],
+    [
+      "method dropPlayerItemWithRandomChoice(ItemStack,boolean)",
+      38
+    ],
+    [
+      "method markBlockForUpdate(int,int,int)",
+      38
+    ],
+    [
+      "variable maxY",
+      36
+    ],
+    [
+      "variable maxHealth",
+      36
+    ],
+    [
+      "method addVertexWithUV(double,double,double,double,double)",
+      32
+    ],
+    [
+      "method playSoundEffect(double,double,double,String,float,float)",
+      32
+    ],
+    [
+      "method getCommandSenderName()",
+      32
+    ],
+    [
+      "method getDataWatcher()",
+      32
+    ],
+    [
+      "method setUnlocalizedName(String)",
+      32
+    ],
+    [
+      "method addVertexWithUV(float,float,float,float,float)",
+      32
+    ],
+    [
+      "variable damageBoost",
+      31
+    ],
+    [
+      "method getBlock(int,int,int)",
+      30
+    ],
+    [
+      "variable movementSpeed",
+      29
+    ],
+    [
+      "method onBlockDestroyedByPlayer(World,int,int,int,int)",
+      27
+    ],
+    [
+      "method startDrawingQuads()",
+      26
+    ],
+    [
+      "method setColorRGBA_F(float,float,float,float)",
+      26
+    ],
+    [
+      "variable minX",
+      26
+    ],
+    [
+      "variable minY",
+      26
+    ],
+    [
+      "variable minZ",
+      26
+    ],
+    [
+      "variable maxX",
+      26
+    ],
+    [
+      "variable maxZ",
+      26
+    ],
+    [
+      "method chunkExists(int,int)",
+      26
+    ],
+    [
+      "method getBoundingBox(double,int,double,double,int,double)",
+      26
+    ],
+    [
+      "method func_146110_a(int,int,int,int,int,int,int,int)",
+      26
+    ],
+    [
+      "variable itemRegistry",
+      25
+    ],
+    [
+      "method spawnEntityInWorld(EntityNukeExplosionMK5)",
+      23
+    ],
+    [
+      "method getUnlocalizedName()",
+      23
+    ],
+    [
+      "method playSoundAtEntity(Entity,String,float,float)",
+      22
+    ],
+    [
+      "variable fence",
+      22
+    ],
+    [
+      "variable attackDamage",
+      22
+    ],
+    [
+      "variable y",
+      22
+    ],
+    [
+      "method getEntityItem()",
+      22
+    ],
+    [
+      "method swingItem()",
+      21
+    ],
+    [
+      "variable jump",
+      21
+    ],
+    [
+      "method addVertex(int,int,int)",
+      20
+    ],
+    [
+      "method getIsKeyPressed()",
+      20
+    ],
+    [
+      "method func_149730_j()",
+      20
+    ],
+    [
+      "variable x",
+      20
+    ],
+    [
+      "variable z",
+      20
+    ],
+    [
+      "method addVertex(int,double,double)",
+      20
+    ],
+    [
+      "variable MathHelper",
+      19
+    ],
+    [
+      "method addVector(double,double,double)",
+      19
+    ],
+    [
+      "method func_147453_f(int,int,int,Block)",
+      19
+    ],
+    [
+      "method getFrontOffsetX()",
+      19
+    ],
+    [
+      "method getFrontOffsetY()",
+      19
+    ],
+    [
+      "method getFrontOffsetZ()",
+      19
+    ],
+    [
+      "variable digSpeed",
+      19
+    ],
+    [
+      "method registerIcons(IIconRegister)",
+      18
+    ],
+    [
+      "variable explosionSize",
+      18
+    ],
+    [
+      "method hasItem(Item)",
+      17
+    ],
+    [
+      "method setStepSound(ModSoundType)",
+      17
+    ],
+    [
+      "variable stepSound",
+      17
+    ],
+    [
+      "variable TextFormatting",
+      17
+    ],
+    [
+      "variable entityToAttack",
+      16
+    ],
+    [
+      "method setColorOpaque_F(float,float,float)",
+      15
+    ],
+    [
+      "variable wood",
+      15
+    ],
+    [
+      "method getIconFromDamageForRenderPass(int,int)",
+      15
+    ],
+    [
+      "method moveEntity(double,double,double)",
+      15
+    ],
+    [
+      "variable fall",
+      15
+    ],
+    [
+      "variable block",
+      15
+    ],
+    [
+      "method func_151601_a(double,double)",
+      15
+    ],
+    [
+      "method spawnEntityInWorld(EntityNukeExplosionMK3)",
+      15
+    ],
+    [
+      "method getTextureName()",
+      15
+    ],
+    [
+      "variable itemIcon",
+      14
+    ],
+    [
+      "variable weakness",
+      14
+    ],
+    [
+      "method getChunkFromChunkCoords(int,int)",
+      14
+    ],
+    [
+      "method addVertex(double,double,int)",
+      14
+    ],
+    [
+      "method getGameRuleBooleanValue(String)",
+      14
+    ],
+    [
+      "method spawnEntityInWorld(EntityBulletBaseMK4)",
+      14
+    ],
+    [
+      "variable potionitem",
+      14
+    ],
+    [
+      "method getIcon(int,int)",
+      14
+    ],
+    [
+      "variable mineBlockStatArray",
+      13
+    ],
+    [
+      "variable rare",
+      13
+    ],
+    [
+      "variable explosionX",
+      13
+    ],
+    [
+      "variable explosionY",
+      13
+    ],
+    [
+      "variable explosionZ",
+      13
+    ],
+    [
+      "variable difficultySetting",
+      13
+    ],
+    [
+      "method playSoundEffect(int,int,int,String,float,float)",
+      13
+    ],
+    [
+      "method setBrightness(int)",
+      12
+    ],
+    [
+      "method setTextureName(String)",
+      12
+    ],
+    [
+      "method addCoord(double,double,double)",
+      12
+    ],
+    [
+      "method spawnEntityInWorld(EntityBulletBaseNT)",
+      12
+    ],
+    [
+      "variable blockRegistry",
+      12
+    ],
+    [
+      "variable Sky",
+      12
+    ],
+    [
+      "method getBlockByExtId(int,int,int)",
+      12
+    ],
+    [
+      "method hasNoTags()",
+      12
+    ],
+    [
+      "variable wooden_door",
+      12
+    ],
+    [
+      "method renderAsNormalBlock()",
+      12
+    ],
+    [
+      "method addVertexWithUV(double,int,double,double,double)",
+      12
+    ],
+    [
+      "variable playerEntity",
+      12
+    ],
+    [
+      "variable common",
+      11
+    ],
+    [
+      "method smelting()",
+      11
+    ],
+    [
+      "method onNeighborBlockChange(World,int,int,int,Block)",
+      11
+    ],
+    [
+      "method func_150051_a(Block)",
+      11
+    ],
+    [
+      "variable air",
+      11
+    ],
+    [
+      "method getIconString()",
+      11
+    ],
+    [
+      "method setNormal(float,float,float)",
+      11
+    ],
+    [
+      "method getDistanceSqToEntity(Entity)",
+      11
+    ],
+    [
+      "method startDrawing(int)",
+      11
+    ],
+    [
+      "variable delayBeforeCanPickup",
+      10
+    ],
+    [
+      "method playAuxSFX(int,int,int,int,int)",
+      10
+    ],
+    [
+      "method setItemInUse(ItemStack,int)",
+      10
+    ],
+    [
+      "variable onFire",
+      10
+    ],
+    [
+      "method spawnEntityInWorld(EntityMist)",
+      10
+    ],
+    [
+      "method getEntityToAttack()",
+      10
+    ],
+    [
+      "method getChunkFromBlockCoords(int,int)",
+      10
+    ],
+    [
+      "method placeDoorBlock(World,int,int,int,int,BlockDoor)",
+      10
+    ],
+    [
+      "variable modelBipedMain",
+      9
+    ],
+    [
+      "variable fortune",
+      9
+    ],
+    [
+      "method spawnEntityInWorld(EntityRubble)",
+      9
+    ],
+    [
+      "variable uncommon",
+      9
+    ],
+    [
+      "variable generateLakes",
+      9
+    ],
+    [
+      "variable modelArmor",
+      8
+    ],
+    [
+      "variable field_150939_a",
+      8
+    ],
+    [
+      "method copy()",
+      8
+    ],
+    [
+      "method determineOrientation(World,int,int,int,EntityLivingBase)",
+      8
+    ],
+    [
+      "method spawnEntityInWorld(EntityCloudFleija)",
+      8
+    ],
+    [
+      "method spawnEntityInWorld(EntityBulletBeamBase)",
+      8
+    ],
+    [
+      "method getLightBrightnessForSkyBlocks(int,int,int,int)",
+      8
+    ],
+    [
+      "method func_150049_b_(World,int,int,int)",
+      8
+    ],
+    [
+      "method addVertexWithUV(double,double,int,int,int)",
+      8
+    ],
+    [
+      "method addVertex(double,float,float)",
+      8
+    ],
+    [
+      "method addVertex(int,double,int)",
+      8
+    ],
+    [
+      "method getCurrentEquippedItem()",
+      7
+    ],
+    [
+      "method spawnEntityInWorld(EntityBalefire)",
+      7
+    ],
+    [
+      "method func_150818_a(int,int,int,Block)",
+      7
+    ],
+    [
+      "method func_145775_I()",
+      7
+    ],
+    [
+      "method getPotionID()",
+      7
+    ],
+    [
+      "method getIconFromDamage(int)",
+      7
+    ],
+    [
+      "variable digSlowdown",
+      7
+    ],
+    [
+      "variable Block",
+      7
+    ],
+    [
+      "variable epic",
+      7
+    ],
+    [
+      "variable field_70135_K",
+      7
+    ],
+    [
+      "method spawnEntityInWorld(EntityCloudFleijaRainbow)",
+      7
+    ],
+    [
+      "method spawnEntityInWorld(EntityWaypoint)",
+      7
+    ],
+    [
+      "method blockExists(int,int,int)",
+      7
+    ],
+    [
+      "method onSpawnWithEgg(IEntityLivingData)",
+      7
+    ],
+    [
+      "method canBlockSeeTheSky(int,int,int)",
+      7
+    ],
+    [
+      "method getStackInSlotOnClosing(int)",
+      7
+    ],
+    [
+      "method getCollisionBoundingBoxFromPool(World,int,int,int)",
+      6
+    ],
+    [
+      "variable tabTransport",
+      6
+    ],
+    [
+      "method spawnEntityInWorld(EntityVortex)",
+      6
+    ],
+    [
+      "variable drown",
+      6
+    ],
+    [
+      "method loadChunk(int,int)",
+      6
+    ],
+    [
+      "method mountEntity(<null>)",
+      6
+    ],
+    [
+      "method spawnEntityInWorld(EntityZombie)",
+      6
+    ],
+    [
+      "variable objectUseStats",
+      6
+    ],
+    [
+      "variable entityAge",
+      6
+    ],
+    [
+      "method spawnEntityInWorld(EntityShrapnel)",
+      6
+    ],
+    [
+      "variable potionTypes",
+      6
+    ],
+    [
+      "method getXInt()",
+      6
+    ],
+    [
+      "method getYInt()",
+      6
+    ],
+    [
+      "method getZInt()",
+      6
+    ],
+    [
+      "variable fire",
+      6
+    ],
+    [
+      "method func_150296_c()",
+      6
+    ],
+    [
+      "method getBoundingBox(int,int,int,int,double,int)",
+      6
+    ],
+    [
+      "variable textureName",
+      6
+    ],
+    [
+      "method registerBlockIcons(IIconRegister)",
+      6
+    ],
+    [
+      "method spawnEntityInWorld(EntityMovingItem)",
+      6
+    ],
+    [
+      "method func_150515_a(World,int,int,int,Block)",
+      6
+    ],
+    [
+      "variable locationItemsTexture",
+      6
+    ],
+    [
+      "method setColorRGBA_I(int,int)",
+      6
+    ],
+    [
+      "method spawnEntityInWorld(EntityItem)",
+      5
+    ],
+    [
+      "variable icons",
+      5
+    ],
+    [
+      "variable mcDataDir",
+      5
+    ],
+    [
+      "method getBoundingBox(double,double,double,double,int,double)",
+      5
+    ],
+    [
+      "method spawnEntityInWorld(Entity)",
+      5
+    ],
+    [
+      "method getInstance()",
+      5
+    ],
+    [
+      "variable isHellWorld",
+      5
+    ],
+    [
+      "method spawnEntityInWorld(EntityBullet)",
+      5
+    ],
+    [
+      "method spawnEntityInWorld(EntityChopperMine)",
+      5
+    ],
+    [
+      "method isVecInside(Vec3d)",
+      5
+    ],
+    [
+      "method setCurrentItemOrArmor(int,ItemStack)",
+      5
+    ],
+    [
+      "variable objectCraftStats",
+      5
+    ],
+    [
+      "variable drink",
+      5
+    ],
+    [
+      "method spawnEntityInWorld(EntityFallingBlockNT)",
+      5
+    ],
+    [
+      "method notifyBlocksOfNeighborChange(int,int,int,Block)",
+      5
+    ],
+    [
+      "method func_145772_a(Explosion,World,int,int,int,Block)",
+      5
+    ],
+    [
+      "method func_145774_a(Explosion,World,int,int,int,Block,float)",
+      5
+    ],
+    [
+      "method setEntityItemStack(ItemStack)",
+      5
+    ],
+    [
+      "variable ySize",
+      5
+    ],
+    [
+      "variable hunger",
+      5
+    ],
+    [
+      "method spawnEntityInWorld(EntityFireLingering)",
+      5
+    ],
+    [
+      "method getBlockLightValue(int,int,int)",
+      5
+    ],
+    [
+      "variable attackTime",
+      5
+    ],
+    [
+      "method func_95999_t()",
+      5
+    ],
+    [
+      "method hasCustomInventoryName()",
+      5
+    ],
+    [
+      "method canLightningStrikeAt(int,int,int)",
+      5
+    ],
+    [
+      "variable worldServers",
+      5
+    ],
+    [
+      "variable chunkX",
+      5
+    ],
+    [
+      "variable chunkZ",
+      5
+    ],
+    [
+      "variable locationBlocksTexture",
+      5
+    ],
+    [
+      "method addVertex(float,int,int)",
+      4
+    ],
+    [
+      "method addVertexWithUV(int,int,int,int,int)",
+      4
+    ],
+    [
+      "variable ground",
+      4
+    ],
+    [
+      "variable theItemInWorldManager",
+      4
+    ],
+    [
+      "method func_92092_a(Entity,double)",
+      4
+    ],
+    [
+      "method spawnEntityInWorld(EntityFallingBlock)",
+      4
+    ],
+    [
+      "method getResourcePath()",
+      4
+    ],
+    [
+      "variable cloth",
+      4
+    ],
+    [
+      "method canBlockStay(World,int,int,int)",
+      4
+    ],
+    [
+      "method func_150807_a(int,int,int,Block,int)",
+      4
+    ],
+    [
+      "method playSoundAtEntity(EntityHunterChopper,String,float,float)",
+      4
+    ],
+    [
+      "method setBlockBoundsBasedOnState(World,int,int,int)",
+      4
+    ],
+    [
+      "variable objectBreakStats",
+      4
+    ],
+    [
+      "variable prevHealth",
+      4
+    ],
+    [
+      "method getGameRuleStringValue(String)",
+      4
+    ],
+    [
+      "variable bow",
+      4
+    ],
+    [
+      "method spawnEntityInWorld(EntityBoxcar)",
+      4
+    ],
+    [
+      "method getDistanceToEntity(Entity)",
+      4
+    ],
+    [
+      "variable EMERALD",
+      4
+    ],
+    [
+      "method setBeenAttacked()",
+      4
+    ],
+    [
+      "method isAnyLiquid(AxisAlignedBB)",
+      4
+    ],
+    [
+      "method setAvoidsWater(boolean)",
+      4
+    ],
+    [
+      "method func_70495_a(double,double,double,double)",
+      4
+    ],
+    [
+      "variable isModified",
+      4
+    ],
+    [
+      "method doesBlockHaveSolidTopSurface(World,int,int,int)",
+      4
+    ],
+    [
+      "method getRandomIntegerInRange(Random,int,int)",
+      4
+    ],
+    [
+      "variable hasNoSky",
+      4
+    ],
+    [
+      "method abs_int(int)",
+      4
+    ],
+    [
+      "method getCommandUsage(ICommandSender)",
+      4
+    ],
+    [
+      "method func_145881_a()",
+      4
+    ],
+    [
+      "method getInventoryName()",
+      4
+    ],
+    [
+      "variable xCoord",
+      4
+    ],
+    [
+      "variable yCoord",
+      4
+    ],
+    [
+      "variable zCoord",
+      4
+    ],
+    [
+      "variable furnaceCookTime",
+      4
+    ],
+    [
+      "method addVertexWithUV(double,int,double,float,float)",
+      4
+    ],
+    [
+      "method addVertexWithUV(float,float,double,float,float)",
+      4
+    ],
+    [
+      "method writeNBTTagCompoundToBuffer(NBTTagCompound)",
+      4
+    ],
+    [
+      "method readNBTTagCompoundFromBuffer()",
+      4
+    ],
+    [
+      "variable snow_layer",
+      3
+    ],
+    [
+      "variable magic",
+      3
+    ],
+    [
+      "method func_149831_e(World,int,int,int)",
+      3
+    ],
+    [
+      "variable lastYaw",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityRideableRocket)",
+      3
+    ],
+    [
+      "method func_150287_d()",
+      3
+    ],
+    [
+      "method mouseMovedOrUp(int,int,int)",
+      3
+    ],
+    [
+      "method loadItemStackFromNBT(NBTTagCompound)",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityBlackHole)",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityEMPBlast)",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityTNTPrimedBase)",
+      3
+    ],
+    [
+      "method func_73046_m()",
+      3
+    ],
+    [
+      "method func_151384_a(EntityLivingBase,Entity)",
+      3
+    ],
+    [
+      "method func_151385_b(EntityLivingBase,EntityLivingBase)",
+      3
+    ],
+    [
+      "variable objectMineStats",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityArrow)",
+      3
+    ],
+    [
+      "variable sponge",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityCaveSpider)",
+      3
+    ],
+    [
+      "method getBlockMetadata()",
+      3
+    ],
+    [
+      "method compress(NBTTagCompound)",
+      3
+    ],
+    [
+      "method func_149851_a(World,int,int,int,boolean)",
+      3
+    ],
+    [
+      "variable glass",
+      3
+    ],
+    [
+      "method intersectsWith(AxisAlignedBB)",
+      3
+    ],
+    [
+      "method getOffsetBoundingBox(double,double,double)",
+      3
+    ],
+    [
+      "variable dir",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityArtilleryShell)",
+      3
+    ],
+    [
+      "method getBasicRailMetadata(World,EntityMinecartModBase,int,int,int)",
+      3
+    ],
+    [
+      "method isPowered()",
+      3
+    ],
+    [
+      "variable inWall",
+      3
+    ],
+    [
+      "method getId()",
+      3
+    ],
+    [
+      "method setPathToEntity(Path)",
+      3
+    ],
+    [
+      "class AxisAlignedBB",
+      3
+    ],
+    [
+      "variable AxisAlignedBB",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityNukeTorex)",
+      3
+    ],
+    [
+      "method moveEntityWithHeading(float,float)",
+      3
+    ],
+    [
+      "method handleLavaMovement()",
+      3
+    ],
+    [
+      "method getAITarget()",
+      3
+    ],
+    [
+      "variable monster",
+      3
+    ],
+    [
+      "variable waterCreature",
+      3
+    ],
+    [
+      "method setBlock(int,int,int,Balefire,int,int)",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntityMovingPackage)",
+      3
+    ],
+    [
+      "method getNextAvailableRenderId()",
+      3
+    ],
+    [
+      "method worldServerForDimension(int)",
+      3
+    ],
+    [
+      "variable worldObj",
+      3
+    ],
+    [
+      "method getPlayerCoordinates()",
+      3
+    ],
+    [
+      "variable currentChunkLoader",
+      3
+    ],
+    [
+      "method spawnEntityInWorld(EntitySkeleton)",
+      3
+    ],
+    [
+      "method placeDoorBlock(World,int,int,int,int,Block)",
+      3
+    ],
+    [
+      "method setRenderPassModel(ModelBase)",
+      3
+    ],
+    [
+      "method getIconIndex()",
+      3
+    ],
+    [
+      "method floor_double(int)",
+      3
+    ],
+    [
+      "variable field_147501_a",
+      3
+    ],
+    [
+      "method isUseableByPlayer(EntityPlayer)",
+      3
+    ],
+    [
+      "method addVertex(int,double,float)",
+      3
+    ],
+    [
+      "variable showAdvancedItemTooltips",
+      2
+    ],
+    [
+      "variable stone",
+      2
+    ],
+    [
+      "variable dirt",
+      2
+    ],
+    [
+      "method getDigSpeed(ItemStack,Block,int)",
+      2
+    ],
+    [
+      "variable isSmoking",
+      2
+    ],
+    [
+      "method checkChunksExist(int,int,int,int,int,int)",
+      2
+    ],
+    [
+      "method func_150315_a(String)",
+      2
+    ],
+    [
+      "variable silkTouch",
+      2
+    ],
+    [
+      "method setInPortal()",
+      2
+    ],
+    [
+      "method mountEntity(EntityRideableRocket)",
+      2
+    ],
+    [
+      "method interactFirst(EntityPlayer)",
+      2
+    ],
+    [
+      "method getResourceDomain()",
+      2
+    ],
+    [
+      "method findUniqueIdentifierFor(Block)",
+      2
+    ],
+    [
+      "method getCenterX()",
+      2
+    ],
+    [
+      "method getCenterZ()",
+      2
+    ],
+    [
+      "variable field_150922_c",
+      2
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityFloodlight)",
+      2
+    ],
+    [
+      "variable isBlockContainer",
+      2
+    ],
+    [
+      "method getBiomeGenForCoords(int,int)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityTom)",
+      2
+    ],
+    [
+      "method getDistanceSqToEntity(EntityLivingBase)",
+      2
+    ],
+    [
+      "method travelToDimension(int)",
+      2
+    ],
+    [
+      "method addVector(int,float,int)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityCreeperNuclear)",
+      2
+    ],
+    [
+      "variable effectId",
+      2
+    ],
+    [
+      "variable playerNetServerHandler",
+      2
+    ],
+    [
+      "variable itemStats",
+      2
+    ],
+    [
+      "variable allStats",
+      2
+    ],
+    [
+      "variable obsidian",
+      2
+    ],
+    [
+      "method func_110142_aN()",
+      2
+    ],
+    [
+      "variable outOfWorld",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityModFX)",
+      2
+    ],
+    [
+      "variable web",
+      2
+    ],
+    [
+      "method consumeInventoryItem(Item)",
+      2
+    ],
+    [
+      "variable field_71091_bM",
+      2
+    ],
+    [
+      "variable field_71096_bN",
+      2
+    ],
+    [
+      "variable field_71097_bO",
+      2
+    ],
+    [
+      "method setMinecartName(String)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityMinecart)",
+      2
+    ],
+    [
+      "method playSoundAtEntity(EntityRubble,String,float,float)",
+      2
+    ],
+    [
+      "method func_149852_a(World,Random,int,int,int)",
+      2
+    ],
+    [
+      "method func_149853_b(World,Random,int,int,int)",
+      2
+    ],
+    [
+      "variable jukebox",
+      2
+    ],
+    [
+      "method playAuxSFXAtEntity(EntityPlayer,int,int,int,int,int)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityMeteor)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityRagingVortex)",
+      2
+    ],
+    [
+      "variable paper",
+      2
+    ],
+    [
+      "method setBB(AxisAlignedBB)",
+      2
+    ],
+    [
+      "variable itemInUseCount",
+      2
+    ],
+    [
+      "method onEaten(ItemStack,World,EntityPlayer)",
+      2
+    ],
+    [
+      "variable glass_bottle",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityChemical)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeStrong)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeSmart)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeBreach)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityItemBuoyant)",
+      2
+    ],
+    [
+      "method kill()",
+      2
+    ],
+    [
+      "method travelToDimension(byte)",
+      2
+    ],
+    [
+      "method setPathToEntity(<null>)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityParasiteMaggot)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityFalloutRain)",
+      2
+    ],
+    [
+      "method getDistanceToEntity(EntityChemical)",
+      2
+    ],
+    [
+      "method getCollidingBoundingBoxes(Entity,AxisAlignedBB)",
+      2
+    ],
+    [
+      "method playSoundAtEntity(EntityBulletBaseNT,String,float,float)",
+      2
+    ],
+    [
+      "method getDistanceToEntity(EntityNukeTorex)",
+      2
+    ],
+    [
+      "method setCanSwim(boolean)",
+      2
+    ],
+    [
+      "method moveFlying(float,float,float)",
+      2
+    ],
+    [
+      "method getDistanceSqToEntity(EntityBOTPrimeHead)",
+      2
+    ],
+    [
+      "method playSoundAtEntity(EntityUFO,String,float,float)",
+      2
+    ],
+    [
+      "method getBoundingBox(double,int,double,double,double,double)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityGlyphid)",
+      2
+    ],
+    [
+      "method interact(EntityPlayer)",
+      2
+    ],
+    [
+      "method playSoundAtEntity(EntityBFAngel,String,float,float)",
+      2
+    ],
+    [
+      "method destroyBlockInWorldPartially(int,int,int,int,int)",
+      2
+    ],
+    [
+      "variable update",
+      2
+    ],
+    [
+      "method getBiomesForType(Type)",
+      2
+    ],
+    [
+      "method func_70489_a(double,double,double)",
+      2
+    ],
+    [
+      "method func_147099_x()",
+      2
+    ],
+    [
+      "method getDistanceSqToEntity(EntityBulletBaseNT)",
+      2
+    ],
+    [
+      "variable theChunkProviderServer",
+      2
+    ],
+    [
+      "method getBlockLSBArray()",
+      2
+    ],
+    [
+      "method setBlock(int,int,int,LaunchPadRocket,int,int)",
+      2
+    ],
+    [
+      "method setBlockBounds(int,int,int,int,int,int)",
+      2
+    ],
+    [
+      "method getBlockTextureFromSide(int)",
+      2
+    ],
+    [
+      "method getBoundingBox(int,int,int,int,float,int)",
+      2
+    ],
+    [
+      "variable field_149934_M",
+      2
+    ],
+    [
+      "method setBlockMetadataWithNotify(int,int,int,byte,int)",
+      2
+    ],
+    [
+      "variable inFire",
+      2
+    ],
+    [
+      "method setBlock(int,int,int,MachineStardar,int,int)",
+      2
+    ],
+    [
+      "method setBlock(int,int,int,MachineITER,int,int)",
+      2
+    ],
+    [
+      "variable renderID",
+      2
+    ],
+    [
+      "method getBoundingBox(int,int,int,float,float,float)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityUndeadSoldier)",
+      2
+    ],
+    [
+      "variable field_145812_b",
+      2
+    ],
+    [
+      "variable field_145813_c",
+      2
+    ],
+    [
+      "variable field_150167_a",
+      2
+    ],
+    [
+      "variable field_150166_b",
+      2
+    ],
+    [
+      "method denormalizeClamp(double,double,double)",
+      2
+    ],
+    [
+      "method drawClouds(float)",
+      2
+    ],
+    [
+      "method createEntityByName(String,WorldServer)",
+      2
+    ],
+    [
+      "method copyDataFrom(Entity,boolean)",
+      2
+    ],
+    [
+      "method mountEntity(Entity)",
+      2
+    ],
+    [
+      "method getListOfStringsFromIterableMatchingLastWord(String[],List<String>)",
+      2
+    ],
+    [
+      "method parseIntWithMin(ICommandSender,String,int)",
+      2
+    ],
+    [
+      "method func_152373_a(ICommandSender,CommandTotalTime,String,Object[])",
+      2
+    ],
+    [
+      "method incrementTotalWorldTime(long)",
+      2
+    ],
+    [
+      "method getMetadataWithOffset(BlockChest,int)",
+      2
+    ],
+    [
+      "variable loadedChunkHashMap",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityMissileCustom)",
+      2
+    ],
+    [
+      "method spawnEntityInWorld(EntityBobmazon)",
+      2
+    ],
+    [
+      "method canSmelt()",
+      2
+    ],
+    [
+      "method addVector(int,int,int)",
+      2
+    ],
+    [
+      "method disableColor()",
+      2
+    ],
+    [
+      "method setTranslation(double,double,double)",
+      2
+    ],
+    [
+      "variable field_82423_g",
+      2
+    ],
+    [
+      "variable field_82425_h",
+      2
+    ],
+    [
+      "variable newRotationYaw",
+      2
+    ],
+    [
+      "method func_78104_a()",
+      2
+    ],
+    [
+      "variable heldItemRight",
+      2
+    ],
+    [
+      "method addVertex(double,int,int)",
+      2
+    ],
+    [
+      "method addVertexWithUV(double,int,int,float,float)",
+      2
+    ],
+    [
+      "method addVertexWithUV(double,double,int,float,float)",
+      2
+    ],
+    [
+      "method setNormal(int,int,int)",
+      2
+    ],
+    [
+      "method func_94530_a(ItemStack,Slot)",
+      2
+    ],
+    [
+      "variable xPosition",
+      2
+    ],
+    [
+      "variable yPosition",
+      2
+    ],
+    [
+      "method addVertex(double,double,float)",
+      2
+    ],
+    [
+      "method toLowerCase(Locale)",
+      1
+    ],
+    [
+      "method func_152121_a(Type,ResourceLocation)",
+      1
+    ],
+    [
+      "variable modelArmorChestplate",
+      1
+    ],
+    [
+      "method clamp_double(Double,int,int)",
+      1
+    ],
+    [
+      "variable keybindArray",
+      1
+    ],
+    [
+      "variable hash",
+      1
+    ],
+    [
+      "variable cobblestone",
+      1
+    ],
+    [
+      "variable double_stone_slab",
+      1
+    ],
+    [
+      "variable stone_slab",
+      1
+    ],
+    [
+      "variable sandstone",
+      1
+    ],
+    [
+      "variable mossy_cobblestone",
+      1
+    ],
+    [
+      "variable iron_ore",
+      1
+    ],
+    [
+      "variable iron_block",
+      1
+    ],
+    [
+      "variable coal_ore",
+      1
+    ],
+    [
+      "variable gold_block",
+      1
+    ],
+    [
+      "variable gold_ore",
+      1
+    ],
+    [
+      "variable diamond_ore",
+      1
+    ],
+    [
+      "variable diamond_block",
+      1
+    ],
+    [
+      "variable ice",
+      1
+    ],
+    [
+      "variable netherrack",
+      1
+    ],
+    [
+      "variable lapis_ore",
+      1
+    ],
+    [
+      "variable lapis_block",
+      1
+    ],
+    [
+      "variable redstone_ore",
+      1
+    ],
+    [
+      "variable lit_redstone_ore",
+      1
+    ],
+    [
+      "variable rail",
+      1
+    ],
+    [
+      "variable detector_rail",
+      1
+    ],
+    [
+      "variable golden_rail",
+      1
+    ],
+    [
+      "variable activator_rail",
+      1
+    ],
+    [
+      "variable planks",
+      1
+    ],
+    [
+      "variable bookshelf",
+      1
+    ],
+    [
+      "variable log",
+      1
+    ],
+    [
+      "variable log2",
+      1
+    ],
+    [
+      "variable chest",
+      1
+    ],
+    [
+      "variable pumpkin",
+      1
+    ],
+    [
+      "variable lit_pumpkin",
+      1
+    ],
+    [
+      "variable grass",
+      1
+    ],
+    [
+      "variable sand",
+      1
+    ],
+    [
+      "variable gravel",
+      1
+    ],
+    [
+      "variable snow",
+      1
+    ],
+    [
+      "variable clay",
+      1
+    ],
+    [
+      "variable farmland",
+      1
+    ],
+    [
+      "variable soul_sand",
+      1
+    ],
+    [
+      "variable mycelium",
+      1
+    ],
+    [
+      "variable efficiencyOnProperMaterial",
+      1
+    ],
+    [
+      "method playAuxSFXAtEntity(EntityPlayerMP,int,int,int,int,int)",
+      1
+    ],
+    [
+      "method func_150999_a(World,Block,int,int,int,EntityPlayerMP)",
+      1
+    ],
+    [
+      "method destroyCurrentEquippedItem()",
+      1
+    ],
+    [
+      "variable iconString",
+      1
+    ],
+    [
+      "method setBlockName(String)",
+      1
+    ],
+    [
+      "method registerTileEntityWithAlternatives(Class<CAP#1>,String,String[])",
+      1
+    ],
+    [
+      "method getSkeletonType()",
+      1
+    ],
+    [
+      "method func_145772_a(ExplosionNT,World,int,int,int,Block)",
+      1
+    ],
+    [
+      "method func_145774_a(ExplosionNT,World,int,int,int,Block,float)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockOrbitalStation,int,int)",
+      1
+    ],
+    [
+      "method playSoundEffect(double,double,double,String,int,float)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityRideableRocketDummy)",
+      1
+    ],
+    [
+      "method findUniqueIdentifierFor(Item)",
+      1
+    ],
+    [
+      "method createAndLoadEntity(NBTTagCompound)",
+      1
+    ],
+    [
+      "method isBlockSolid(World,int,int,int,int)",
+      1
+    ],
+    [
+      "variable eat",
+      1
+    ],
+    [
+      "method func_148179_a(int,int,int)",
+      1
+    ],
+    [
+      "method func_148181_b(int,int,int)",
+      1
+    ],
+    [
+      "method onBlockEventReceived(World,int,int,int,int,int)",
+      1
+    ],
+    [
+      "method getIndirectPowerOutput(int,int,int,int)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityEMP)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(BoundingBoxDummyEntity)",
+      1
+    ],
+    [
+      "method mountEntity(EntityRailCarRidable)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(SeatDummyEntity)",
+      1
+    ],
+    [
+      "method mountEntity(SeatDummyEntity)",
+      1
+    ],
+    [
+      "variable cactus",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityBulletBaseMK4,String,float,float)",
+      1
+    ],
+    [
+      "method getDistanceToEntity(EntityCoin)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockTallPlant,int,int)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGlyphidScout)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGlyphidDigger)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityBurningFOEQ)",
+      1
+    ],
+    [
+      "variable itemInHand",
+      1
+    ],
+    [
+      "variable previousEquipment",
+      1
+    ],
+    [
+      "method canCommandSenderUseCommand(ICommandSender)",
+      1
+    ],
+    [
+      "method processCommand(ICommandSender,String[])",
+      1
+    ],
+    [
+      "method func_143031_a(Class<SiloComponent>,String)",
+      1
+    ],
+    [
+      "variable chunkProvider",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityBedrockOre)",
+      1
+    ],
+    [
+      "variable FLOWER_FOREST",
+      1
+    ],
+    [
+      "method getDistanceSqToEntity(EntityHunterChopper)",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(EntityHunterChopper,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityChopperMine,String,float,float)",
+      1
+    ],
+    [
+      "method onEntityCollidedWithBlock(World,int,int,int,EntityBullet)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityGrenadeBouncyBase,String,float,float)",
+      1
+    ],
+    [
+      "method setCurrentItemOrArmor(int,<null>)",
+      1
+    ],
+    [
+      "variable generalStats",
+      1
+    ],
+    [
+      "variable anvil",
+      1
+    ],
+    [
+      "variable fallingBlock",
+      1
+    ],
+    [
+      "method getLastActiveItems()",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityRocket)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySchrab)",
+      1
+    ],
+    [
+      "method setExtBlockMetadata(int,int,int,int)",
+      1
+    ],
+    [
+      "method setChunkModified()",
+      1
+    ],
+    [
+      "method setExplosionSource(Explosion)",
+      1
+    ],
+    [
+      "variable carpet",
+      1
+    ],
+    [
+      "variable regeneration",
+      1
+    ],
+    [
+      "variable resistance",
+      1
+    ],
+    [
+      "variable fireResistance",
+      1
+    ],
+    [
+      "variable field_76443_y",
+      1
+    ],
+    [
+      "variable end_portal_frame",
+      1
+    ],
+    [
+      "variable field_71094_bP",
+      1
+    ],
+    [
+      "variable field_71095_bQ",
+      1
+    ],
+    [
+      "variable field_71085_bR",
+      1
+    ],
+    [
+      "variable bipedCloak",
+      1
+    ],
+    [
+      "variable onGround",
+      1
+    ],
+    [
+      "variable yellow_flower",
+      1
+    ],
+    [
+      "variable red_flower",
+      1
+    ],
+    [
+      "variable nightVision",
+      1
+    ],
+    [
+      "variable redstone_wire",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(EntityBoatRubber,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityBoatRubber)",
+      1
+    ],
+    [
+      "variable tabRedstone",
+      1
+    ],
+    [
+      "variable tabTools",
+      1
+    ],
+    [
+      "method func_149926_b(World,int,int,int,ItemStack)",
+      1
+    ],
+    [
+      "variable record_11",
+      1
+    ],
+    [
+      "variable dye",
+      1
+    ],
+    [
+      "variable tnt",
+      1
+    ],
+    [
+      "variable gunpowder",
+      1
+    ],
+    [
+      "variable invisibility",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityQuasar)",
+      1
+    ],
+    [
+      "variable stick",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityRailCarBase)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityBlockPWR)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityRBMKBase)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityRBMKDebris)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySpear)",
+      1
+    ],
+    [
+      "method clearItemInUse()",
+      1
+    ],
+    [
+      "variable bowl",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityParachuteCrate)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityTorpedo)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityBuilding)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityPlayerMP,String,float,float)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityBulletBaseMK4CL)",
+      1
+    ],
+    [
+      "variable water",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCoin)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityDuchessGambit)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeGeneric)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeFrag)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeFire)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeCluster)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeFlare)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeElectric)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadePoison)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeGas)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeSchrabidium)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeNuke)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeNuclear)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadePulse)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadePlasma)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeTau)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeLemon)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeMk2)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeASchrab)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeZOMG)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeShrapnel)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeBlackHole)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeGascan)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeCloud)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadePC)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeMIRV)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeBurst)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFGeneric)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFHE)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFBouncy)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFSticky)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFImpact)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFIncendiary)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFToxic)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFConcussion)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFBrimstone)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFMystery)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFSpark)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFHopwire)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeIFNull)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityWastePearl)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeDynamite)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeImpactGeneric)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityGrenadeBouncyGeneric)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityDisperserCanister)",
+      1
+    ],
+    [
+      "variable redstone_block",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityExplosiveBeam)",
+      1
+    ],
+    [
+      "method mountEntity(EntityMinecartModBase)",
+      1
+    ],
+    [
+      "method handleHealthUpdate(byte)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityMinecartTest,String,float,float)",
+      1
+    ],
+    [
+      "method mountEntity(EntityMinecartDeobf)",
+      1
+    ],
+    [
+      "method createVectorHelper(double,double,double)",
+      1
+    ],
+    [
+      "method isAABBInMaterial(AxisAlignedBB,Material)",
+      1
+    ],
+    [
+      "method mountEntity(EntityBoatRubber)",
+      1
+    ],
+    [
+      "method func_145778_a(Item,int,float)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityMinecartBogie)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySoyuzCapsule)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityBombletZeta)",
+      1
+    ],
+    [
+      "method getClosestVulnerablePlayerToEntity(EntityGlyphid,double)",
+      1
+    ],
+    [
+      "method updateWanderPath()",
+      1
+    ],
+    [
+      "method setTarget(EntityWaypoint)",
+      1
+    ],
+    [
+      "variable fleeingTick",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityGlyphid,String,float,float)",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(EntityGlyphid,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method onEntityCollidedWithBlock(World,int,int,int,EntityRocket)",
+      1
+    ],
+    [
+      "method onEntityCollidedWithBlock(World,int,int,int,EntitySchrab)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityTomBlast)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCloudTom)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,b == 2 ? M[...]block)",
+      1
+    ],
+    [
+      "method func_145805_f()",
+      1
+    ],
+    [
+      "variable field_145814_a",
+      1
+    ],
+    [
+      "method clamp_double(double,int,int)",
+      1
+    ],
+    [
+      "method setBreakDoors(boolean)",
+      1
+    ],
+    [
+      "method getClosestVulnerablePlayerToEntity(EntityFBI,double)",
+      1
+    ],
+    [
+      "method getLivingSound()",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(EntityUndeadSoldier,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method getDistanceSqToEntity(EntityWormBaseNT)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityBOTPrimeBody)",
+      1
+    ],
+    [
+      "variable hasAttacked",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(EntityUFO,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(EntityUFOBase,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntitySiegeCraft,String,float,float)",
+      1
+    ],
+    [
+      "method setThrowableHeading(double,double,double,float,float)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySiegeLaser)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntitySiegeUFO,String,float,float)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityBurrowingSwingingBase,String,float,float)",
+      1
+    ],
+    [
+      "method getDistanceSqToEntity(EntityBurrowingSwingingBase)",
+      1
+    ],
+    [
+      "variable generic",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityAcidBomb)",
+      1
+    ],
+    [
+      "method getClosestVulnerablePlayerToEntity(EntityGlyphidScout,int)",
+      1
+    ],
+    [
+      "method moveEntity(double,int,double)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityTankbot,String,float,float)",
+      1
+    ],
+    [
+      "method getClosestVulnerablePlayerToEntity(EntityTankbot,double)",
+      1
+    ],
+    [
+      "method getClosestVulnerablePlayerToEntity(EntityParasiteMaggot,int)",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(EntityBFAngel,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method mountEntity(EntityQuackos)",
+      1
+    ],
+    [
+      "method updateRiderPosition()",
+      1
+    ],
+    [
+      "method getDistanceToEntity(EntityItem)",
+      1
+    ],
+    [
+      "method getDistanceToEntity(EntityLivingBase)",
+      1
+    ],
+    [
+      "method clearPathEntity()",
+      1
+    ],
+    [
+      "method getDistanceToEntity(EntityPlayer)",
+      1
+    ],
+    [
+      "method getAge()",
+      1
+    ],
+    [
+      "method getValuesCollection()",
+      1
+    ],
+    [
+      "variable creature",
+      1
+    ],
+    [
+      "method getDistanceSqToEntity(EntityMinecartContainerBase)",
+      1
+    ],
+    [
+      "method setTextureUV(float,float)",
+      1
+    ],
+    [
+      "method addVertex(float,float,float)",
+      1
+    ],
+    [
+      "variable moveSlowdown",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityLiving)",
+      1
+    ],
+    [
+      "method onSpawnWithEgg(<null>)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityMooshroom)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityQuackos)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityMassStorage)",
+      1
+    ],
+    [
+      "method clamp_float(Float,int,float)",
+      1
+    ],
+    [
+      "method getCollisionBoundingBoxFromPool(<null>,int,int,int)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityDepress)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockGasBase)",
+      1
+    ],
+    [
+      "method getBlockBoundsMinX()",
+      1
+    ],
+    [
+      "method getBlockBoundsMinY()",
+      1
+    ],
+    [
+      "method getBlockBoundsMinZ()",
+      1
+    ],
+    [
+      "method getBlockBoundsMaxX()",
+      1
+    ],
+    [
+      "method getBlockBoundsMaxY()",
+      1
+    ],
+    [
+      "method getBlockBoundsMaxZ()",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityTNTPrimedBase,String,float,float)",
+      1
+    ],
+    [
+      "variable grayColor",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockTaint,int,int)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCreeperTainted)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityTaintCrab)",
+      1
+    ],
+    [
+      "method func_149825_a(Block)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,DigammaMatter,int,int)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCloudSolinium)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityFallingNuke)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,b.isNormal[...]s.AIR)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,CheaterVirus,int,int)",
+      1
+    ],
+    [
+      "method getFullBlockLightValue(int,int,int)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockNTSapling,int,int)",
+      1
+    ],
+    [
+      "variable airColor",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityBlockICF)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,MachineChungus,int,int)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,MachineFusionTorus,int,int)",
+      1
+    ],
+    [
+      "method onBlockDestroyedByExplosion(World,int,int,int,Explosion)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,SoyuzLauncher,int,int)",
+      1
+    ],
+    [
+      "method getBlockPowerInput(int,int,int)",
+      1
+    ],
+    [
+      "method getBoundingBox(int,float,int,int,int,int)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityCraneRouter)",
+      1
+    ],
+    [
+      "method addCollisionBoxesToList(World,int,int,int,AxisAlignedBB,List,Entity)",
+      1
+    ],
+    [
+      "variable field_150164_N",
+      1
+    ],
+    [
+      "variable opaque",
+      1
+    ],
+    [
+      "method getIcon(IBlockAccess,int,int,int,int)",
+      1
+    ],
+    [
+      "method getDamageValue(World,int,int,int)",
+      1
+    ],
+    [
+      "method getSelectedBoundingBoxFromPool(World,int,int,int)",
+      1
+    ],
+    [
+      "method func_150118_d(int)",
+      1
+    ],
+    [
+      "method getBoundingBox(int,int,float,float,float,float)",
+      1
+    ],
+    [
+      "method getBoundingBox(float,int,int,float,float,float)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockMush,int,int)",
+      1
+    ],
+    [
+      "variable tabBlock",
+      1
+    ],
+    [
+      "variable field_150921_b",
+      1
+    ],
+    [
+      "method getMapColorForBlockColored(int)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockTallPlantWater,int,int)",
+      1
+    ],
+    [
+      "method func_145806_a(boolean)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityBOTPrimeHead)",
+      1
+    ],
+    [
+      "variable ForgeDirection",
+      1
+    ],
+    [
+      "variable rootHeight",
+      1
+    ],
+    [
+      "variable LAKE",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCombatDropPod)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySiegeCraft)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySiegeUFO)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityUFO)",
+      1
+    ],
+    [
+      "method parseDoubleBounded(ICommandSender,String,double,double)",
+      1
+    ],
+    [
+      "variable isChunkLoaded",
+      1
+    ],
+    [
+      "method registerProviderType(int,Class<CAP#1>,boolean)",
+      1
+    ],
+    [
+      "method unregisterProviderType(int)",
+      1
+    ],
+    [
+      "method registerProviderType(int,Class<WorldProviderEarth>,boolean)",
+      1
+    ],
+    [
+      "method setTarget(EntityPlayer)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityLightningBolt)",
+      1
+    ],
+    [
+      "method generateStructureChestContents(World,StructureBoundingBox,Random,int,int,int,WeightedRandomChestContent[],int)",
+      1
+    ],
+    [
+      "method getMetadataWithOffset(Block,int)",
+      1
+    ],
+    [
+      "method func_143036_a(StructureComponent)",
+      1
+    ],
+    [
+      "variable plants",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,BlockChest,int,int)",
+      1
+    ],
+    [
+      "method getID(BiomeGenBaseCelestial)",
+      1
+    ],
+    [
+      "method getID(BiomeGenOrbit)",
+      1
+    ],
+    [
+      "method getID(Biome)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,world.rand[...]_dead)",
+      1
+    ],
+    [
+      "method setBlock(int,int,int,rand.nextI[...]_base,int,int)",
+      1
+    ],
+    [
+      "method func_145903_a(int)",
+      1
+    ],
+    [
+      "variable chunksToUnload",
+      1
+    ],
+    [
+      "method getCollidingBoundingBoxes(<null>,AxisAlignedBB)",
+      1
+    ],
+    [
+      "method displayAllReleventItems(List)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityDeathBlast)",
+      1
+    ],
+    [
+      "method scale(int)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityArtilleryRocket)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityMissileDoomsdayRusted)",
+      1
+    ],
+    [
+      "variable ambient",
+      1
+    ],
+    [
+      "method getDistanceFrom(double,double,double)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityFireworks)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityFireworks,String,float,float)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityWaterSplash)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityOrangeFX)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityChlorineFX)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCloudFX)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityPinkCloudFX)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCyberCrab)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityMachineGasFlare)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntity)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySawblade)",
+      1
+    ],
+    [
+      "variable lava",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityZirnoxDebris)",
+      1
+    ],
+    [
+      "method getPlantMetadata(World,int,int,int)",
+      1
+    ],
+    [
+      "method getIndirectPowerLevelTo(int,int,int,int)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityMachineStrandCaster)",
+      1
+    ],
+    [
+      "method addVector(double,int,double)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityMachineHephaestus)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntitySoyuz)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityCog)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityMinerRocket)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityRequestNetworkContainer)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityConverterHeRf)",
+      1
+    ],
+    [
+      "method markTileEntityChunkModified(int,int,int,TileEntityConverterRfHe)",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityRequestDrone)",
+      1
+    ],
+    [
+      "method setColorOpaque(int,int,int)",
+      1
+    ],
+    [
+      "method getSpriteNumber()",
+      1
+    ],
+    [
+      "method func_145820_n()",
+      1
+    ],
+    [
+      "method getDisplayTileData()",
+      1
+    ],
+    [
+      "variable creeperModel",
+      1
+    ],
+    [
+      "method setRenderPassModel(ModelM65Blaze)",
+      1
+    ],
+    [
+      "method shouldRenderPass(EntityLivingBase,int,float)",
+      1
+    ],
+    [
+      "variable aimedBow",
+      1
+    ],
+    [
+      "variable field_78145_g",
+      1
+    ],
+    [
+      "variable field_78151_h",
+      1
+    ],
+    [
+      "method getRenderPasses(int)",
+      1
+    ],
+    [
+      "method getIcon(ItemStack,int)",
+      1
+    ],
+    [
+      "method getColorFromItemStack(ItemStack,int)",
+      1
+    ],
+    [
+      "method func_94602_b(int)",
+      1
+    ],
+    [
+      "variable optionsBackground",
+      1
+    ],
+    [
+      "method func_147120_f()",
+      1
+    ],
+    [
+      "method func_147953_a(int[],int,int)",
+      1
+    ],
+    [
+      "method playSoundAtEntity(EntityPlayerSP,String,float,float)",
+      1
+    ],
+    [
+      "method addVertex(int,int,float)",
+      1
+    ],
+    [
+      "method func_150905_g(ItemStack)",
+      1
+    ],
+    [
+      "method func_150906_h(ItemStack)",
+      1
+    ],
+    [
+      "variable BUCKET_mud",
+      1
+    ],
+    [
+      "variable BUCKET_schrabidic_acid",
+      1
+    ],
+    [
+      "variable BUCKET_sulfuric_acid",
+      1
+    ],
+    [
+      "variable BUCKET_mercury",
+      1
+    ],
+    [
+      "variable BUCKET_bromine",
+      1
+    ],
+    [
+      "variable BUCKET_ccl",
+      1
+    ],
+    [
+      "method spawnEntityInWorld(EntityDuck)",
+      1
+    ],
+    [
+      "variable itemToRender",
+      1
+    ]
+  ]
+}

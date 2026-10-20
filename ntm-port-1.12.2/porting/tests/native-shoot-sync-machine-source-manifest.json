@@ -1,0 +1,856 @@
+{
+  "baseline": "c2f60149e9a9fb836bade505fe566d40a54ef3cc",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "b57b04a9b863e28406c5119171187ac26f152d3384c4262a26e2616246244831",
+      "after_sha256": "51b16ab84ae4057aedc9193dbcd5e582f0ed06d1f3a5328ee14b5c5375ac5dc1",
+      "edits": [
+        {
+          "before_offset": 237906,
+          "after_offset": 237906,
+          "old": "\t\tcrate = new BlockCrate(Material.WOOD).setTranslationKey(\"crate\").setStepSound(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate\");\r\n\t\tcrate_weapon = new BlockCrate(Material.WOOD).setTranslationKey(\"crate_weapon\").setStepSound(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_weapon\");\r\n\t\tcrate_lead = new BlockCrate(Material.IRON).setTranslationKey(\"crate_lead\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_lead\");\r\n\t\tcrate_metal = new BlockCrate(Material.IRON).setTranslationKey(\"crate_metal\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_metal\");\r\n\t\tcrate_red = new BlockCrate(Material.IRON).setTranslationKey(\"crate_red\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":crate_red\");\r\n",
+          "new": "\t\tcrate = ((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey(\"crate\")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate\");\r\n\t\tcrate_weapon = ((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey(\"crate_weapon\")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_weapon\");\r\n\t\tcrate_lead = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey(\"crate_lead\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_lead\");\r\n\t\tcrate_metal = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey(\"crate_metal\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_metal\");\r\n\t\tcrate_red = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey(\"crate_red\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":crate_red\");\r\n"
+        },
+        {
+          "before_offset": 239749,
+          "after_offset": 239829,
+          "old": "\t\tcrate_iron = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_iron\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_steel = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_steel\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_desh = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_desh\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_tungsten = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_tungsten\").setStepSound(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_template = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_template\").setStepSound(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tsafe = new BlockStorageCrate(Material.IRON).setTranslationKey(\"safe\").setStepSound(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(10000.0F).setCreativeTab(MainRegistry.machineTab);\r\n",
+          "new": "\t\tcrate_iron = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_iron\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_steel = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_steel\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_desh = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_desh\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_tungsten = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_tungsten\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tcrate_template = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_template\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);\r\n\t\tsafe = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"safe\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(10000.0F).setCreativeTab(MainRegistry.machineTab);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockCrate.java": {
+      "before_sha256": "d3bc14dc17f8579d8417f83759eb749f486eb4952445356bf3485c0531a7e162",
+      "after_sha256": "73d614ab9403fdf52d6998d80845f22dc9359ab77fde6a149e3e4c58665b9854",
+      "edits": [
+        {
+          "before_offset": 1029,
+          "after_offset": 1029,
+          "old": "",
+          "new": "\t}\n\n\t/** NTM construction hook for the native protected sound setter. */\n\tpublic BlockCrate withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+      "before_sha256": "594c4ead980df4270d7416e4470fe382ff57f259b8159f0798919cad04add276",
+      "after_sha256": "a1236629b140d590206283b4600089d915815baf7951642c79d0703813922761",
+      "edits": [
+        {
+          "before_offset": 1923,
+          "after_offset": 1923,
+          "old": "",
+          "new": "\t/** NTM construction hook for the native protected sound setter. */\n\tpublic BlockStorageCrate withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java": {
+      "before_sha256": "39f0322200f8f041bbd53a2358cf78627c039fb5d53c7a86b8b198bb16730c26",
+      "after_sha256": "4272bf4b61d8968c8cf491c1743e6e57734534a799842970d8f3c9ea1a6c81fb",
+      "edits": [
+        {
+          "before_offset": 4572,
+          "after_offset": 4572,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\r\n",
+          "new": "\t\t\t\tcom.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": {
+      "before_sha256": "fdeb02a440b4005494fde2418575172b69367626ef41a6484164a51a8c710fc8",
+      "after_sha256": "b8e351798e95dd8cf7b1faaba4d2d2ed318480ff614d255d5e0b6ba4637243fd",
+      "edits": [
+        {
+          "before_offset": 5626,
+          "after_offset": 5626,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\r\n",
+          "new": "\t\t\t\tcom.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java": {
+      "before_sha256": "967f988f6e8dc69554447a03b59ca8908adeb4a3b4243d4b62eae9f826edfc91",
+      "after_sha256": "80f0ea8495d1d7ef83ffeb64181f74b04e2f1219217a5a50d23d9fc94b58126c",
+      "edits": [
+        {
+          "before_offset": 4365,
+          "after_offset": 4365,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\n",
+          "new": "\t\t\t\tcom.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": {
+      "before_sha256": "86b7dab72347123b5a14e2bd296c53169f810da3f1ba16a2c1e06d94d79a8d4e",
+      "after_sha256": "d92d02ffaf0265eb381ed3daee2938399d8753639c059c24bb7963e3894332da",
+      "edits": [
+        {
+          "before_offset": 3716,
+          "after_offset": 3716,
+          "old": "\t\t\t\tworld.markBlockForUpdate(x, y, z);\r\n",
+          "new": "\t\t\t\tcom.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": {
+      "before_sha256": "2bf055c7bf669c90a7c5d044a6bcb9636f789b4b95019b6a867e0645c9359b82",
+      "after_sha256": "8a227986128c75bf5b56337b0090ab8c2bebf89b9ea34dac6fc3d4d3660edf7d",
+      "edits": [
+        {
+          "before_offset": 3823,
+          "after_offset": 3823,
+          "old": "\t\t\t\t\tworld.markBlockForUpdate(x, y, z);\r\n",
+          "new": "\t\t\t\t\tcom.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java": {
+      "before_sha256": "72a2107194024c677a3f431f7d3e12fe1974ceefcc7cb3cc5c509bb073f1ca70",
+      "after_sha256": "6ab28a27f120959e8c770521cb3636431f288cf3c606db797255b072249d9e81",
+      "edits": [
+        {
+          "before_offset": 517,
+          "after_offset": 517,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 585,
+          "after_offset": 751,
+          "old": "\tpublic static final int cart_base_id = 23;\n",
+          "new": "\tprivate static final DataParameter<Integer> CART_BASE = EntityDataManager.createKey(EntityMinecartNTM.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 907,
+          "after_offset": 1164,
+          "old": "\t\tthis.dataWatcher.addObject(cart_base_id, new Integer(0)); //EnumCartBase\n",
+          "new": "\t\tthis.dataManager.register(CART_BASE, new Integer(0)); //EnumCartBase\n"
+        },
+        {
+          "before_offset": 1029,
+          "after_offset": 1282,
+          "old": "\t\tthis.dataWatcher.updateObject(cart_base_id, type.ordinal());\n",
+          "new": "\t\tthis.dataManager.set(CART_BASE, type.ordinal());\n"
+        },
+        {
+          "before_offset": 1130,
+          "after_offset": 1371,
+          "old": "\t\treturn EnumCartBase.values()[this.dataWatcher.getWatchableObjectInt(cart_base_id)];\n",
+          "new": "\t\treturn EnumCartBase.values()[this.dataManager.get(CART_BASE)];\n"
+        },
+        {
+          "before_offset": 1912,
+          "after_offset": 2132,
+          "old": "\t\tnbt.setInteger(\"base\", this.dataWatcher.getWatchableObjectInt(cart_base_id));\n",
+          "new": "\t\tnbt.setInteger(\"base\", this.dataManager.get(CART_BASE));\n"
+        },
+        {
+          "before_offset": 2095,
+          "after_offset": 2294,
+          "old": "\t\tthis.dataWatcher.updateObject(23, nbt.getInteger(\"base\"));\n",
+          "new": "\t\tthis.dataManager.set(CART_BASE, nbt.getInteger(\"base\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java": {
+      "before_sha256": "555a41de85acb6e01e685a9dfe2136f6eccb5cecb6062be47d204571ac221eef",
+      "after_sha256": "2aeafcb4a2d1f9210218885232c8bbc608ecbb635be80433820722a08bb75f29",
+      "edits": [
+        {
+          "before_offset": 2024,
+          "after_offset": 2024,
+          "old": "        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, this.func_70182_d(), 1.0F);\n",
+          "new": "        this.shoot(this.motionX, this.motionY, this.motionZ, this.func_70182_d(), 1.0F);\n"
+        },
+        {
+          "before_offset": 2935,
+          "after_offset": 2921,
+          "old": "    public void setThrowableHeading(double motionX, double motionY, double motionZ, float f0, float f1)\n",
+          "new": "    public void shoot(double motionX, double motionY, double motionZ, float f0, float f1)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMagnusCartus.java": {
+      "before_sha256": "108eb38197599afb327c50f337d3d3e0c779a35019315feb71b06585b4963270",
+      "after_sha256": "50c1ed34b844b47c9c9b91028893d2ce53f9bb4337d571086a8282974983e840",
+      "edits": [
+        {
+          "before_offset": 453,
+          "after_offset": 453,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 511,
+          "after_offset": 677,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> BOGIE_ID = EntityDataManager.createKey(EntityMagnusCartus.class, DataSerializers.VARINT);\n\n"
+        },
+        {
+          "before_offset": 899,
+          "after_offset": 1201,
+          "old": "\t\tthis.dataWatcher.addObject(25, new Integer(0));\n",
+          "new": "\t\tthis.dataManager.register(BOGIE_ID, new Integer(0));\n"
+        },
+        {
+          "before_offset": 1026,
+          "after_offset": 1333,
+          "old": "\t\tthis.dataWatcher.updateObject(25, bogie.getEntityId());\n",
+          "new": "\t\tthis.dataManager.set(BOGIE_ID, bogie.getEntityId());\n"
+        },
+        {
+          "before_offset": 1115,
+          "after_offset": 1419,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(25);\n",
+          "new": "\t\treturn this.dataManager.get(BOGIE_ID);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "d256ec3dade2660f0e81dbd6bd887f033aad8414a0a584237b5f0127b3b52c00",
+      "after_sha256": "6a5070e4cd36045f2c0f62ccb43d156efa53b6ffe94455e52f54a384bf4587a7",
+      "edits": [
+        {
+          "before_offset": 9723,
+          "after_offset": 9723,
+          "old": "\t\tbullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);\n",
+          "new": "\t\tbullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);\n"
+        },
+        {
+          "before_offset": 10268,
+          "after_offset": 10254,
+          "old": "\t\tbullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);\n",
+          "new": "\t\tbullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFOBase.java": {
+      "before_sha256": "89daba58b83842806c3bd9bd0a6390f363f5dff19b6e831e2f30f7ba8efb8b2a",
+      "after_sha256": "854c3312e964718acbe0dd1d099811fbfdc70aa1a09708bbd495f4452ad09941",
+      "edits": [
+        {
+          "before_offset": 461,
+          "after_offset": 461,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 557,
+          "after_offset": 723,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);\n\n"
+        },
+        {
+          "before_offset": 780,
+          "after_offset": 1343,
+          "old": "\t\tthis.getDataWatcher().addObject(17, 0);\n\t\tthis.getDataWatcher().addObject(18, 0);\n\t\tthis.getDataWatcher().addObject(19, 0);\n",
+          "new": "\t\tthis.getDataManager().register(WAYPOINT_X, 0);\n\t\tthis.getDataManager().register(WAYPOINT_Y, 0);\n\t\tthis.getDataManager().register(WAYPOINT_Z, 0);\n"
+        },
+        {
+          "before_offset": 4999,
+          "after_offset": 5583,
+          "old": "\t\tthis.dataWatcher.updateObject(17, x);\n\t\tthis.dataWatcher.updateObject(18, y);\n\t\tthis.dataWatcher.updateObject(19, z);\n",
+          "new": "\t\tthis.dataManager.set(WAYPOINT_X, x);\n\t\tthis.dataManager.set(WAYPOINT_Y, y);\n\t\tthis.dataManager.set(WAYPOINT_Z, z);\n"
+        },
+        {
+          "before_offset": 5144,
+          "after_offset": 5725,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(17);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_X);\n"
+        },
+        {
+          "before_offset": 5222,
+          "after_offset": 5793,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(18);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_Y);\n"
+        },
+        {
+          "before_offset": 5300,
+          "after_offset": 5861,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(19);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_Z);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java": {
+      "before_sha256": "808ce7d8c33b5e26715cdfca58c0ea6fe2727a716b8ad00321cb7c85f833bc65",
+      "after_sha256": "d22a7011b1e5f424d5f174b6f4664c62ec4ac00b62aa0faeb9aaf34897ab6480",
+      "edits": [
+        {
+          "before_offset": 3672,
+          "after_offset": 3672,
+          "old": "\t\t\tgrenade.setThrowableHeading(grenade.motionX , grenade.motionY * 6, grenade.motionZ , 5F, 0);\n",
+          "new": "\t\t\tgrenade.shoot(grenade.motionX , grenade.motionY * 6, grenade.motionZ , 5F, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBombardier.java": {
+      "before_sha256": "91f5f705fe589e2a50caa67e617a4b1060b851616e42c9ba80e529ae7b39b2de",
+      "after_sha256": "2bfb2522071d898b5bd6b5578a597394e35ff23a1c84f0610c7cd814d32f9ccc",
+      "edits": [
+        {
+          "before_offset": 3087,
+          "after_offset": 3087,
+          "old": "\t\t\t\t\t\tbomb.setThrowableHeading(fireVec.x, fireVec.y, fireVec.z, (float) v0, i * getSpreadMult());\n",
+          "new": "\t\t\t\t\t\tbomb.shoot(fireVec.x, fireVec.y, fireVec.z, (float) v0, i * getSpreadMult());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java": {
+      "before_sha256": "42708dac9794ca1f5c9644ca5fbcb71fed0c067c0dec969d79e27163fb8ae938",
+      "after_sha256": "9b6c9b7ade01df52c8896ff05a33bb89407082cf6f538b63716a91e184324227",
+      "edits": [
+        {
+          "before_offset": 4344,
+          "after_offset": 4344,
+          "old": "\t\t\t\t\t\trubble.setThrowableHeading(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());\n",
+          "new": "\t\t\t\t\t\trubble.shoot(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java": {
+      "before_sha256": "84a8f4df0feea14638100f52ad82c458e37f0627875ee0b947eb9ae815e626c3",
+      "after_sha256": "3165bb0760530bd7a9f28a6e986aa087ca24ba7b2f51633467b4da4a57e1fe52",
+      "edits": [
+        {
+          "before_offset": 1067,
+          "after_offset": 1067,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 1149,
+          "after_offset": 1315,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Float> LOCKON_X = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> LOCKON_Y = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> LOCKON_Z = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.BYTE);\n\n"
+        },
+        {
+          "before_offset": 2809,
+          "after_offset": 3625,
+          "old": "\t\tthis.getDataWatcher().addObject(12, (int) 0);\n\t\tthis.getDataWatcher().addObject(13, 0F);\n\t\tthis.getDataWatcher().addObject(14, 0F);\n\t\tthis.getDataWatcher().addObject(15, 0F);\n\t\tthis.getDataWatcher().addObject(16, (byte) 0);\n",
+          "new": "\t\tthis.getDataManager().register(SIEGE_TIER, (int) 0);\n\t\tthis.getDataManager().register(LOCKON_X, 0F);\n\t\tthis.getDataManager().register(LOCKON_Y, 0F);\n\t\tthis.getDataManager().register(LOCKON_Z, 0F);\n\t\tthis.getDataManager().register(BEAM, (byte) 0);\n"
+        },
+        {
+          "before_offset": 3078,
+          "after_offset": 3917,
+          "old": "\t\tthis.getDataWatcher().updateObject(12, tier.id);\n",
+          "new": "\t\tthis.getDataManager().set(SIEGE_TIER, tier.id);\n"
+        },
+        {
+          "before_offset": 3390,
+          "after_offset": 4228,
+          "old": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];\n",
+          "new": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];\n"
+        },
+        {
+          "before_offset": 3563,
+          "after_offset": 4391,
+          "old": "\t\tthis.getDataWatcher().updateObject(16, beam ? (byte) 1 : (byte) 0);\n",
+          "new": "\t\tthis.getDataManager().set(BEAM, beam ? (byte) 1 : (byte) 0);\n"
+        },
+        {
+          "before_offset": 3665,
+          "after_offset": 4486,
+          "old": "\t\treturn this.getDataWatcher().getWatchableObjectByte(16) == 1;\n",
+          "new": "\t\treturn this.getDataManager().get(BEAM) == 1;\n"
+        },
+        {
+          "before_offset": 3788,
+          "after_offset": 4592,
+          "old": "\t\tthis.getDataWatcher().updateObject(13, (float) x);\n\t\tthis.getDataWatcher().updateObject(14, (float) y);\n\t\tthis.getDataWatcher().updateObject(15, (float) z);\n",
+          "new": "\t\tthis.getDataManager().set(LOCKON_X, (float) x);\n\t\tthis.getDataManager().set(LOCKON_Y, (float) y);\n\t\tthis.getDataManager().set(LOCKON_Z, (float) z);\n"
+        },
+        {
+          "before_offset": 3999,
+          "after_offset": 4794,
+          "old": "\t\t\t\tthis.getDataWatcher().getWatchableObjectFloat(13),\n\t\t\t\tthis.getDataWatcher().getWatchableObjectFloat(14),\n\t\t\t\tthis.getDataWatcher().getWatchableObjectFloat(15)\n",
+          "new": "\t\t\t\tthis.getDataManager().get(LOCKON_X),\n\t\t\t\tthis.getDataManager().get(LOCKON_Y),\n\t\t\t\tthis.getDataManager().get(LOCKON_Z)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java": {
+      "before_sha256": "385c4026fc28f0ee28f54bee4a7dbab2fafee2498ce69e589767ca00e241b3cc",
+      "after_sha256": "c01d831f41221ec6ff0ef79f6f9f288bea33ffc28cc29da35b550fb8aa38e74b",
+      "edits": [
+        {
+          "before_offset": 554,
+          "after_offset": 554,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 1219,
+          "after_offset": 1385,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeTunneler.class, DataSerializers.VARINT);\n\n"
+        },
+        {
+          "before_offset": 2160,
+          "after_offset": 2465,
+          "old": "\t\tthis.getDataWatcher().addObject(12, (int) 0);\n",
+          "new": "\t\tthis.getDataManager().register(SIEGE_TIER, (int) 0);\n"
+        },
+        {
+          "before_offset": 2679,
+          "after_offset": 2991,
+          "old": "\t\tthis.getDataWatcher().updateObject(12, tier.id);\n",
+          "new": "\t\tthis.getDataManager().set(SIEGE_TIER, tier.id);\n"
+        },
+        {
+          "before_offset": 3039,
+          "after_offset": 3350,
+          "old": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];\n",
+          "new": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java": {
+      "before_sha256": "4339334451452567cb09ee6caf111c63a45adecd3029dc0091ced61f7256d0ed",
+      "after_sha256": "77d859a71f2faa7247bacc32cbbd5634b02e2be76bce60702d021b7ccf1d40aa",
+      "edits": [
+        {
+          "before_offset": 615,
+          "after_offset": 615,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+        },
+        {
+          "before_offset": 696,
+          "after_offset": 862,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeUFO.class, DataSerializers.VARINT);\n\n"
+        },
+        {
+          "before_offset": 1085,
+          "after_offset": 1385,
+          "old": "\t\tthis.getDataWatcher().addObject(12, (int) 0);\n",
+          "new": "\t\tthis.getDataManager().register(SIEGE_TIER, (int) 0);\n"
+        },
+        {
+          "before_offset": 1177,
+          "after_offset": 1484,
+          "old": "\t\tthis.getDataWatcher().updateObject(12, tier.id);\n",
+          "new": "\t\tthis.getDataManager().set(SIEGE_TIER, tier.id);\n"
+        },
+        {
+          "before_offset": 1492,
+          "after_offset": 1798,
+          "old": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];\n",
+          "new": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "ffb072d4dd139cdd9851215031f64d2cc36a5b853eeb599daad3d460bbbd295a",
+      "after_sha256": "16cd23dab71affc0720c6b0b55d2cd7e9132c698ee8365cc64c7fdf782f13fa7",
+      "edits": [
+        {
+          "before_offset": 4807,
+          "after_offset": 4807,
+          "old": "\t\t\tthis.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n",
+          "new": "\t\t\tthis.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n"
+        },
+        {
+          "before_offset": 6047,
+          "after_offset": 6033,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 8634,
+          "after_offset": 8606,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 10016,
+          "after_offset": 9974,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 10820,
+          "after_offset": 10764,
+          "old": "\tpublic void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,\n",
+          "new": "\tpublic void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java": {
+      "before_sha256": "27381ea60623d0275bd4042fc034f0af01c5424b90b4d2030f6a6e6d89caa1e1",
+      "after_sha256": "9cd4d51cba766c1edcad763dec9dc3143b2eccaf9cb771632b9447677032e70b",
+      "edits": [
+        {
+          "before_offset": 2055,
+          "after_offset": 2055,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread + gunSpread);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread + gunSpread);\n"
+        },
+        {
+          "before_offset": 3394,
+          "after_offset": 3380,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);\n"
+        },
+        {
+          "before_offset": 4309,
+          "after_offset": 4281,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "03b09776ed0e77544c4fb9865353daedc7c034fb969f341103893422c7a6db91",
+      "after_sha256": "d7b1ece6cc30ece3753941537db562a09821d0091a87a03f115f5302293d9ee3",
+      "edits": [
+        {
+          "before_offset": 5719,
+          "after_offset": 5719,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread * (accuracyBoost ? 0.25F : 1F));\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread * (accuracyBoost ? 0.25F : 1F));\n"
+        },
+        {
+          "before_offset": 6899,
+          "after_offset": 6885,
+          "old": "\t\t\tthis.setThrowableHeading(d0, d1, d2, motion, deviation);\n",
+          "new": "\t\t\tthis.shoot(d0, d1, d2, motion, deviation);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChopperMine.java": {
+      "before_sha256": "3fa4ac36d36582600226f885864e77ce3926faee94468dba9506e99a51b93237",
+      "after_sha256": "3d56e6b40d7a2f950f532b36e0e69b09040d3e8ca3d17f5b9d9197fa7e9b8358",
+      "edits": [
+        {
+          "before_offset": 1004,
+          "after_offset": 1004,
+          "old": "\tpublic void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,\n",
+          "new": "\tpublic void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "0549d61174ce07e685156b3a035be9d628035374966d5fe6e9048482a07a9907",
+      "after_sha256": "900b96555ce0842147f13da459c64cb2965ab0160a07449b4da2a33f0e1d601e",
+      "edits": [
+        {
+          "before_offset": 3826,
+          "after_offset": 3826,
+          "old": "            this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n",
+          "new": "            this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n"
+        },
+        {
+          "before_offset": 4990,
+          "after_offset": 4976,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 6189,
+          "after_offset": 6161,
+          "old": "        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n",
+          "new": "        this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 6881,
+          "after_offset": 6839,
+          "old": "\tpublic void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)\n",
+          "new": "\tpublic void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "7a478d12ef4cfd57c702e6fc49f9bafd480665c094089edd32f6a3eb9707665f",
+      "after_sha256": "25fc97059fcf3d951bf33f9cc81f3363a786d57a50480da03d068c1ee22fc534",
+      "edits": [
+        {
+          "before_offset": 4127,
+          "after_offset": 4127,
+          "old": "            this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n",
+          "new": "            this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n"
+        },
+        {
+          "before_offset": 5421,
+          "after_offset": 5407,
+          "old": "        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n",
+          "new": "        this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 6106,
+          "after_offset": 6078,
+          "old": "\tpublic void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)\n",
+          "new": "\tpublic void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "5c96cb88527e71a9896057821961b030855d769ef603257f9f957917bbc60949",
+      "after_sha256": "9e321fd6d2e2e87d540e995820546e352b94ca96788dbbf2f205abfb509b504b",
+      "edits": [
+        {
+          "before_offset": 4146,
+          "after_offset": 4146,
+          "old": "            this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n",
+          "new": "            this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);\n"
+        },
+        {
+          "before_offset": 5440,
+          "after_offset": 5426,
+          "old": "        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n",
+          "new": "        this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);\n"
+        },
+        {
+          "before_offset": 6125,
+          "after_offset": 6097,
+          "old": "\tpublic void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)\n",
+          "new": "\tpublic void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "before_sha256": "7eb3c8094aa6927cf8d5993e70718c2a5415668877ed949d91b7d361b6fa9a71",
+      "after_sha256": "fe40e6d090fe21491cf17d239659edee80fd384dc4916368f20d8b40557ce4db",
+      "edits": [
+        {
+          "before_offset": 3110,
+          "after_offset": 3110,
+          "old": "\t\tthis.setThrowableHeading(this.motionX, this.motionY, this.motionZ, this.throwForce(), 1.0F);\n",
+          "new": "\t\tthis.shoot(this.motionX, this.motionY, this.motionZ, this.throwForce(), 1.0F);\n"
+        },
+        {
+          "before_offset": 3634,
+          "after_offset": 3620,
+          "old": "\tpublic void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {\n",
+          "new": "\tpublic void shoot(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java": {
+      "before_sha256": "813c81f031f3e3e5d59260339552a783ee026b1b4e7fc22fa9c2ef70934458bb",
+      "after_sha256": "fd47efdf30d8aff3121da5ebfac3116e84f7d9123db716e9c7755bae887480a4",
+      "edits": [
+        {
+          "before_offset": 2356,
+          "after_offset": 2356,
+          "old": "\t\t\t\tbolt.setThrowableHeading(motion.x, motion.y, motion.z, 0.5F, 0.05F);\n",
+          "new": "\t\t\t\tbolt.shoot(motion.x, motion.y, motion.z, 0.5F, 0.05F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java": {
+      "before_sha256": "08d8e1a9a463ba2aa901dd7b880a01c8e757fc90217cee2d781fb7381d3a3063",
+      "after_sha256": "ae791a92c84ed13fcf6c14b697e31c227999a1fa21331db2d398d447e88ef943",
+      "edits": [
+        {
+          "before_offset": 598,
+          "after_offset": 598,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 2489,
+          "after_offset": 2607,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawingQuads();\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 2829,
+          "after_offset": 3031,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.75F);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n",
+          "new": "\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3079,
+          "after_offset": 3711,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.5F);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n",
+          "new": "\t\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3301,
+          "after_offset": 4363,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.5F);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n",
+          "new": "\t\t\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3550,
+          "after_offset": 5042,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.25F);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n",
+          "new": "\t\t\t\tint tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor3Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor3Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3773,
+          "after_offset": 5695,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.25F);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n",
+          "new": "\t\t\t\tint tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor4Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor4Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 4023,
+          "after_offset": 6375,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0F);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n",
+          "new": "\t\t\t\tint tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor5Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor5Alpha = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDemonLamp.java": {
+      "before_sha256": "f44a4a0e536cbb3125b33f6770fe92184f46ce85256221b35116f8c1907a9a28",
+      "after_sha256": "9c1b72f7b83b7da4f8ddab00bf6cf6e4dd6355389dff8c2a3a7910508b6da40f",
+      "edits": [
+        {
+          "before_offset": 198,
+          "after_offset": 198,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1568,
+          "after_offset": 1686,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawingQuads();\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 2146,
+          "after_offset": 2348,
+          "old": "\t\t\t\ttess.setColorRGBA_F(0F, 0.75F, 1F, 0.25F);\n\t\t\t\ttess.addVertex(vec.x * near, 0.5D + j * 0.125D, vec.z * near);\n\t\t\t\ttess.setColorRGBA_F(0F, 0.75F, 1F, 0F);\n\t\t\t\ttess.addVertex(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far);\n",
+          "new": "\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(vec.x * near, 0.5D + j * 0.125D, vec.z * near).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n\t\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2439,
+          "after_offset": 3335,
+          "old": "\t\t\t\ttess.addVertex(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far);\n\t\t\t\ttess.setColorRGBA_F(0F, 0.75F, 1F, 0.25F);\n\t\t\t\ttess.addVertex(vec.x * near, 0.5D + j * 0.125D, vec.z * near);\n",
+          "new": "\t\t\t\ttessBuffer.pos(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\t\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n\t\t\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n\t\t\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(vec.x * near, 0.5D + j * 0.125D, vec.z * near).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSmallReactor.java": {
+      "before_sha256": "fc403ecc22adf067fb8a313791fe4cba538e448f944462bf97ea87568679e083",
+      "after_sha256": "b028dbe701e30d94bc415de25c4c395182cc2d9b3a41769306f10f68ab21d1c7",
+      "edits": [
+        {
+          "before_offset": 216,
+          "after_offset": 216,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1440,
+          "after_offset": 1558,
+          "old": "\t\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\t\tTessellator tess = Tessellator.getInstance();\n\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 1534,
+          "after_offset": 1705,
+          "old": "\t\t\t\ttess.startDrawingQuads();\n\t\t\t\ttess.setColorRGBA_F(0.4F, 0.9F, 1.0F, 0.025F + (float) (Math.random() * 0.015F) + (0.125F * reactor.totalFlux / 1000F));\n",
+          "new": "\t\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0.4F) * 255.0F)));\n\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.9F) * 255.0F)));\n\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.025F + (float) (Math.random() * 0.015F) + (0.125F * reactor.totalFlux / 1000F)) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 1742,
+          "after_offset": 2209,
+          "old": "\t\t\t\ttess.addVertex(d, bottom - d, -d);\n\t\t\t\ttess.addVertex(d, top + d, -d);\n\t\t\t\ttess.addVertex(d, top + d, d);\n\t\t\t\ttess.addVertex(d, bottom - d, d);\n",
+          "new": "\t\t\t\ttessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 1891,
+          "after_offset": 2690,
+          "old": "\t\t\t\ttess.addVertex(-d, bottom - d, -d);\n\t\t\t\ttess.addVertex(-d, top + d, -d);\n\t\t\t\ttess.addVertex(-d, top + d, d);\n\t\t\t\ttess.addVertex(-d, bottom - d, d);\n",
+          "new": "\t\t\t\ttessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2044,
+          "after_offset": 3175,
+          "old": "\t\t\t\ttess.addVertex(-d, bottom - d, d);\n\t\t\t\ttess.addVertex(-d, top + d, d);\n\t\t\t\ttess.addVertex(d, top + d, d);\n\t\t\t\ttess.addVertex(d, bottom - d, d);\n",
+          "new": "\t\t\t\ttessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2193,
+          "after_offset": 3656,
+          "old": "\t\t\t\ttess.addVertex(-d, bottom - d, -d);\n\t\t\t\ttess.addVertex(-d, top + d, -d);\n\t\t\t\ttess.addVertex(d, top + d, -d);\n\t\t\t\ttess.addVertex(d, bottom - d, -d);\n",
+          "new": "\t\t\t\ttessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2346,
+          "after_offset": 4141,
+          "old": "\t\t\t\ttess.addVertex(-d, top + d, -d);\n\t\t\t\ttess.addVertex(-d, top + d, d);\n\t\t\t\ttess.addVertex(d, top + d, d);\n\t\t\t\ttess.addVertex(d, top + d, -d);\n",
+          "new": "\t\t\t\ttessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2491,
+          "after_offset": 4618,
+          "old": "\t\t\t\ttess.addVertex(-d, bottom - d, -d);\n\t\t\t\ttess.addVertex(-d, bottom - d, d);\n\t\t\t\ttess.addVertex(d, bottom - d, d);\n\t\t\t\ttess.addVertex(d, bottom - d, -d);\n",
+          "new": "\t\t\t\ttessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java": {
+      "before_sha256": "4414e9549a04ae33661ceae73f444ac5e10cee6b2431ce56199e239f76d78c84",
+      "after_sha256": "a1fa536b73becf5ab6c27e103510f187b65820d682e329b885022954655c5143",
+      "edits": [
+        {
+          "before_offset": 325,
+          "after_offset": 325,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1478,
+          "after_offset": 1596,
+          "old": "\t\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\t\tTessellator tess = Tessellator.getInstance();\n\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 2617,
+          "after_offset": 2788,
+          "old": "\t\t\t\ttess.startDrawingQuads();\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n\t\t\t\ttess.addVertex(0.5, 1.0625, 0.5);\n\t\t\t\ttess.addVertex(0.5, 1.0625, -0.5);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n\t\t\t\ttess.addVertex(0.5, dist, -0.5);\n\t\t\t\ttess.addVertex(0.5, dist, 0.5);\n",
+          "new": "\t\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n\t\t\t\ttessBuffer.pos(0.5, 1.0625, 0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(0.5, 1.0625, -0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n\t\t\t\ttessBuffer.pos(0.5, dist, -0.5).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(0.5, dist, 0.5).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2882,
+          "after_offset": 3945,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n\t\t\t\ttess.addVertex(-0.5, 1.0625, 0.5);\n\t\t\t\ttess.addVertex(-0.5, 1.0625, -0.5);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n\t\t\t\ttess.addVertex(-0.5, dist, -0.5);\n\t\t\t\ttess.addVertex(-0.5, dist, 0.5);\n",
+          "new": "\t\t\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n\t\t\t\ttessBuffer.pos(-0.5, 1.0625, 0.5).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-0.5, 1.0625, -0.5).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n\t\t\t\tint tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor3Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor3Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n\t\t\t\ttessBuffer.pos(-0.5, dist, -0.5).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-0.5, dist, 0.5).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3121,
+          "after_offset": 5044,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n\t\t\t\ttess.addVertex(0.5, 1.0625, 0.5);\n\t\t\t\ttess.addVertex(-0.5, 1.0625, 0.5);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n\t\t\t\ttess.addVertex(-0.5, dist, 0.5);\n\t\t\t\ttess.addVertex(0.5, dist, 0.5);\n",
+          "new": "\t\t\t\tint tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor4Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor4Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n\t\t\t\ttessBuffer.pos(0.5, 1.0625, 0.5).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-0.5, 1.0625, 0.5).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n\t\t\t\tint tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor5Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor5Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n\t\t\t\ttessBuffer.pos(-0.5, dist, 0.5).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(0.5, dist, 0.5).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3356,
+          "after_offset": 6139,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n\t\t\t\ttess.addVertex(0.5, 1.0625, -0.5);\n\t\t\t\ttess.addVertex(-0.5, 1.0625, -0.5);\n\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n\t\t\t\ttess.addVertex(-0.5, dist, -0.5);\n\t\t\t\ttess.addVertex(0.5, dist, -0.5);\n",
+          "new": "\t\t\t\tint tessColor6Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor6Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor6Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor6Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n\t\t\t\ttessBuffer.pos(0.5, 1.0625, -0.5).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(-0.5, 1.0625, -0.5).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n\t\t\t\tint tessColor7Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor7Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor7Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n\t\t\t\tint tessColor7Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n\t\t\t\ttessBuffer.pos(-0.5, dist, -0.5).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n\t\t\t\ttessBuffer.pos(0.5, dist, -0.5).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": {
+      "before_sha256": "70a44f4c4f5d83f7a368bd9e8797320b59499c9cb845e54234712534d090e57c",
+      "after_sha256": "0615fb04fe7d221c50907e7e4d514214957e9eae5c68ec5c29bbf734d425d28b",
+      "edits": [
+        {
+          "before_offset": 5295,
+          "after_offset": 5295,
+          "old": "\t\tproj.setThrowableHeading(vec.x, vec.y, vec.z, (float) getV0(), 0.0F);\n",
+          "new": "\t\tproj.shoot(vec.x, vec.y, vec.z, (float) getV0(), 0.0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java": {
+      "before_sha256": "89c554b6c3d2b7164f2b804441abd58ea0b974943de6c58aa34d1ccaa641156b",
+      "after_sha256": "ceb71a33f09b6ba5ca64c2d09457c04660b5a50d0970b3e17b557f4c37b7641f",
+      "edits": [
+        {
+          "before_offset": 7425,
+          "after_offset": 7425,
+          "old": "\t\tproj.setThrowableHeading(vec.x, vec.y, vec.z, 25F, 0.0F);\n",
+          "new": "\t\tproj.shoot(vec.x, vec.y, vec.z, 25F, 0.0F);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/world/TileEntityBlockUpdate.java": "c4d73e269aaeed14fe6983381b6079fbfaf0fad6915b08e8c11f346a134d9745"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

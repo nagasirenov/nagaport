@@ -1,0 +1,62 @@
+[
+  {
+    "path": "src/main/java/com/hbm/items/armor/ItemModV1.java",
+    "line": 26,
+    "source": "Multimap multimap = super.getAttributeModifiers(armor);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+    "line": 94,
+    "source": "Multimap multimap = super.getAttributeModifiers(armor);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ItemModIron.java",
+    "line": 35,
+    "source": "Multimap multimap = super.getAttributeModifiers(armor);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+    "line": 79,
+    "source": "Multimap multimap = super.getAttributeModifiers(stack);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ItemModHealth.java",
+    "line": 51,
+    "source": "Multimap multimap = super.getAttributeModifiers(armor);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+    "line": 29,
+    "source": "public Multimap getItemAttributeModifiers() {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+    "line": 54,
+    "source": "public Multimap getItemAttributeModifiers() {"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+    "line": 131,
+    "source": "Multimap multimap = super.getAttributeModifiers(armor);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+    "line": 65,
+    "source": "Multimap multimap = super.getAttributeModifiers(stack);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+    "line": 59,
+    "source": "Multimap multimap = super.getAttributeModifiers(stack);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ItemModWD40.java",
+    "line": 53,
+    "source": "Multimap multimap = super.getAttributeModifiers(armor);"
+  },
+  {
+    "path": "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+    "line": 39,
+    "source": "public Multimap getItemAttributeModifiers() {"
+  }
+]

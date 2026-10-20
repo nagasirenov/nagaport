@@ -1,0 +1,5 @@
+[
+  "com.hbm.blocks.machine.BlockBeamBase",
+  "com.hbm.blocks.machine.FloodlightBeam",
+  "com.hbm.blocks.machine.SpotlightBeam"
+]

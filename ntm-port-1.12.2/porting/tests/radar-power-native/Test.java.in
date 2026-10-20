@@ -1,0 +1,56 @@
+import java.util.*;import java.lang.reflect.*;import com.hbm.lib.ForgeDirection;
+import net.minecraft.block.*;import net.minecraft.block.material.Material;import net.minecraft.block.state.*;import net.minecraft.block.properties.*;import net.minecraft.util.*;import net.minecraft.util.math.*;import net.minecraft.world.*;import net.minecraft.world.chunk.IChunkProvider;import net.minecraft.world.storage.*;import net.minecraft.init.*;import net.minecraft.profiler.Profiler;import net.minecraft.nbt.*;import net.minecraft.tileentity.*;
+public class Test {
+ static int checks,cases;static void check(boolean v,String s){checks++;if(!v)throw new AssertionError(s);}
+ static class TileEntityMachineRadarNT extends TileEntity {int value,reads;int getRedPower(){reads++;return value;}}
+ static class TileEntityMachineRadarLarge extends TileEntityMachineRadarNT {}
+ static class Owner extends Block {
+  static final PropertyInteger META=PropertyInteger.create("metadata",0,15);Owner(){super(Material.IRON);}
+  protected BlockStateContainer createBlockState(){return new BlockStateContainer(this,META);}
+  public int getMetaFromState(IBlockState s){return s.getValue(META);}public IBlockState getStateFromMeta(int m){return getDefaultState().withProperty(META,m);}
+  public boolean isOpaqueCube(IBlockState s){return false;}public boolean isFullCube(IBlockState s){return false;}
+ }
+ interface LegacyAccess {int getBlockMetadata(int x,int y,int z);TileEntity getTileEntity(int x,int y,int z);}
+ static class RadarEntry {boolean redstone;int posX,posZ,blipLevel;}
+ static class ExactRadarTile extends TileEntityMachineRadarNT {List<RadarEntry> entries=new ArrayList<>();boolean redMode;int getRange(){return 100;}EXACT_TILE_POWER}
+ OWNER_METHODS
+ static class NativeWorld extends World {
+  BlockPos sourcePos=new BlockPos(-7,73,11);IBlockState source;Map<BlockPos,TileEntity> tiles=new HashMap<>();List<String> trace=new ArrayList<>();boolean fail;
+  NativeWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);}
+  protected IChunkProvider createChunkProvider(){return null;}protected boolean isChunkLoaded(int x,int z,boolean empty){return true;}
+  public IBlockState getBlockState(BlockPos p){trace.add("state:"+p);return p.equals(sourcePos)?source:Blocks.AIR.getDefaultState();}
+  public TileEntity getTileEntity(BlockPos p){trace.add("tile:"+p);if(fail)throw new IllegalStateException("lookup");return tiles.get(p);}
+
+ }
+ static class LegacyAdapter implements LegacyAccess {final NativeWorld world;LegacyAdapter(NativeWorld w){world=w;}
+  public TileEntity getTileEntity(int x,int y,int z){return world.getTileEntity(new BlockPos(x,y,z));}
+  public int getBlockMetadata(int x,int y,int z){IBlockState s=world.getBlockState(new BlockPos(x,y,z));return s.getBlock().getMetaFromState(s);}
+ }
+ static Object outcome(Owner owner,Object legacy,NativeWorld w,EnumFacing face,boolean strong,boolean engine)throws Exception {
+  try {if(legacy!=null)return legacy.getClass().getMethod(strong?"isProvidingStrongPower":"isProvidingWeakPower",LegacyAccess.class,int.class,int.class,int.class,int.class).invoke(legacy,new LegacyAdapter(w),w.sourcePos.getX(),w.sourcePos.getY(),w.sourcePos.getZ(),face.getIndex());
+   if(engine)return strong?w.getStrongPower(w.sourcePos,face):w.getRedstonePower(w.sourcePos,face);
+   return strong?w.source.getStrongPower(w,w.sourcePos,face):w.source.getWeakPower(w,w.sourcePos,face);
+  }catch(InvocationTargetException e){return e.getCause().getClass();}catch(RuntimeException e){return e.getClass();}
+ }
+ static void test(boolean large)throws Exception {
+  Owner owner=large?new NativeMachineRadarLarge():new NativeMachineRadar();Object legacy=large?new LegacyMachineRadarLarge():new LegacyMachineRadar();NativeWorld w=new NativeWorld();
+  for(int meta=0;meta<16;meta++)for(EnumFacing face:EnumFacing.values())for(int kind=0;kind<5;kind++)for(int power:new int[]{-1,0,1,7,15,16})for(boolean strong:new boolean[]{false,true}){
+   w.source=owner.getStateFromMeta(meta);w.tiles.clear();TileEntityMachineRadarNT radar=kind==3?new TileEntityMachineRadarLarge():new TileEntityMachineRadarNT();radar.value=power;TileEntity value=kind==0?null:kind==1?new TileEntityChest():radar;
+   BlockPos expected=large?w.sourcePos.offset(face):w.sourcePos;w.tiles.put(expected,value);TileEntityMachineRadarNT opposite=new TileEntityMachineRadarNT();opposite.value=power+29;w.tiles.put(large?w.sourcePos.offset(face.getOpposite()):w.sourcePos.offset(face),opposite);w.fail=kind==4;
+   check(w.source.canProvidePower(),"native capability");w.trace.clear();Object old=outcome(owner,legacy,w,face,strong,false);List<String> trace=new ArrayList<>(w.trace);int reads=radar.reads;radar.reads=0;w.trace.clear();Object now=outcome(owner,null,w,face,strong,false);check(now.equals(old),"value/exception "+large+"/"+meta+"/"+face);check(w.trace.equals(trace)&&radar.reads==reads,"exact state/tile effects and evaluation order");radar.reads=0;w.trace.clear();Object engine=outcome(owner,null,w,face,strong,true);check(engine.equals(old),"real native World weak/strong dispatch");check(w.trace.subList(1,w.trace.size()).equals(trace),"World adds exactly one source-state read");radar.reads=0;cases++;
+  }
+  // Native World neighbor scan uses the same facing index as the source's relative location.
+  for(EnumFacing face:EnumFacing.values()){w.fail=false;w.source=owner.getStateFromMeta(6);w.tiles.clear();TileEntityMachineRadarNT r=new TileEntityMachineRadarNT();r.value=11;w.tiles.put(large?w.sourcePos.offset(face):w.sourcePos,r);check(w.isBlockPowered(w.sourcePos.offset(face.getOpposite())),"real six-neighbor engine orientation "+face);}
+ }
+ static void tileValues()throws Exception {
+  for(boolean large:new boolean[]{false,true})for(boolean strong:new boolean[]{false,true})for(EnumFacing face:EnumFacing.values()){
+   Owner owner=large?new NativeMachineRadarLarge():new NativeMachineRadar();NativeWorld w=new NativeWorld();w.source=owner.getStateFromMeta(6);ExactRadarTile r=new ExactRadarTile();r.setPos(w.sourcePos);w.tiles.put(large?w.sourcePos.offset(face):w.sourcePos,r);
+   check(outcome(owner,null,w,face,strong,true).equals(0),"exact radar empty list");
+   RadarEntry e=new RadarEntry();e.redstone=true;e.blipLevel=6;e.posX=w.sourcePos.getX();e.posZ=w.sourcePos.getZ();r.entries.add(e);
+   check(outcome(owner,null,w,face,strong,true).equals(7),"exact tier level plus one");e.redstone=false;check(outcome(owner,null,w,face,strong,true).equals(0),"redstone false filter");e.redstone=true;r.redMode=true;
+   for(int[] vector:new int[][]{{0,0,15},{100,0,5},{141,0,1},{142,0,0},{100,100,0},{200,0,0}}){e.posX=w.sourcePos.getX()+vector[0];e.posZ=w.sourcePos.getZ()+vector[1];check(outcome(owner,null,w,face,strong,true).equals(vector[2]),"exact proximity rounding and range");}
+   r.redMode=false;RadarEntry other=new RadarEntry();other.redstone=true;other.blipLevel=11;r.entries.add(other);check(outcome(owner,null,w,face,strong,true).equals(12),"max across radar entries");
+  }
+ }
+ public static void main(String[] a)throws Exception {Bootstrap.register();for(EnumFacing f:EnumFacing.values()){ForgeDirection d=ForgeDirection.getOrientation(f.getIndex());check(d.toEnumFacing()==f,"native index corresponds original ordinal");}test(false);test(true);tileValues();System.out.println("PASS "+checks+" assertions, "+cases+" cases: exact complete weak/strong/capability bodies, native IBlockState/World dispatch, all six facings, metadata0–15, missing/wrong/subclass tiles, values and original exceptions. Owner/tile sinks and legacy-access oracle adapter are bounded fixtures, not gameplay.");}
+}

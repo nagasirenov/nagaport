@@ -39,7 +39,7 @@ public class AncientTomb {
 				for(int iz = -range; iz <= range; iz++) {
 					
 					if((ix <= -range + 1 || ix >= range - 1) && (iz <= -range + 1 || iz >= range - 1)) {
-						world.setBlock(x + ix, yOff + iy, z + iz, ModBlocks.reinforced_stone);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + ix; int nativeRegisteredWriteY = yOff + iy; int nativeRegisteredWriteZ = z + iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.reinforced_stone; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 						continue;
 					}
 					
@@ -86,7 +86,7 @@ public class AncientTomb {
 			int iy = world.getHeightValue(ix, iz) - 3;
 			
 			for(int j = iy; j < iy + 7; j++) {
-				world.setBlock(ix, j, iz, ModBlocks.deco_steel, 0, 2);
+				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = j; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			}
 		}
 		

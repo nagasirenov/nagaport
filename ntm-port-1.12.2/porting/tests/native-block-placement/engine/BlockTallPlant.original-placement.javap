@@ -1,0 +1,28 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: invokespecial #188                // Method com/hbm/blocks/BlockEnumMulti.func_149742_c:(Lnet/minecraft/world/World;III)Z
+       9: ifeq          41
+      12: aload_0
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iload         4
+      18: invokevirtual #191                // Method func_149718_j:(Lnet/minecraft/world/World;III)Z
+      21: ifeq          41
+      24: aload_1
+      25: iload_2
+      26: iload_3
+      27: iconst_1
+      28: iadd
+      29: iload         4
+      31: invokevirtual #197                // Method net/minecraft/world/World.func_147437_c:(III)Z
+      34: ifeq          41
+      37: iconst_1
+      38: goto          42
+      41: iconst_0
+      42: ireturn

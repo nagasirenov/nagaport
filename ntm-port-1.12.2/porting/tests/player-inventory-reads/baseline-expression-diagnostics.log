@@ -1,0 +1,345 @@
+<probe>/BaselineExpressions.java:5: error: array required, but NonNullList<ItemStack> found
+case 0: return pl.inventory.mainInventory[pl.inventory.currentItem];
+                                         ^
+<probe>/BaselineExpressions.java:6: error: array required, but NonNullList<ItemStack> found
+case 1: return pl.inventory.mainInventory[pl.inventory.currentItem];
+                                         ^
+<probe>/BaselineExpressions.java:7: error: cannot find symbol
+case 2: return player.inventory.mainInventory.length;
+                                             ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:8: error: array required, but NonNullList<ItemStack> found
+case 3: return player.inventory.armorInventory[2];
+                                              ^
+<probe>/BaselineExpressions.java:9: error: array required, but NonNullList<ItemStack> found
+case 4: return player.inventory.armorInventory[armorSlot];
+                                              ^
+<probe>/BaselineExpressions.java:10: error: array required, but NonNullList<ItemStack> found
+case 5: return player.inventory.armorInventory[i];
+                                              ^
+<probe>/BaselineExpressions.java:11: error: cannot find symbol
+case 6: return player.inventory.mainInventory.length;
+                                             ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:12: error: array required, but NonNullList<ItemStack> found
+case 7: return player.inventory.mainInventory[i];
+                                             ^
+<probe>/BaselineExpressions.java:13: error: cannot find symbol
+case 8: return player.inventory.mainInventory.length;
+                                             ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:14: error: cannot find symbol
+case 9: return player.inventory.armorInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable armorInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:15: error: cannot find symbol
+case 10: return inventory.mainInventory.length;
+                                       ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:16: error: array required, but NonNullList<ItemStack> found
+case 11: return inventory.mainInventory[i];
+                                       ^
+<probe>/BaselineExpressions.java:17: error: cannot find symbol
+case 12: return inventory.mainInventory.length;
+                                       ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:18: error: array required, but NonNullList<ItemStack> found
+case 13: return inventory.mainInventory[i];
+                                       ^
+<probe>/BaselineExpressions.java:19: error: array required, but NonNullList<ItemStack> found
+case 14: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:20: error: array required, but NonNullList<ItemStack> found
+case 15: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:21: error: array required, but NonNullList<ItemStack> found
+case 16: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:22: error: array required, but NonNullList<ItemStack> found
+case 17: return player.inventory.armorInventory[i];
+                                               ^
+<probe>/BaselineExpressions.java:23: error: array required, but NonNullList<ItemStack> found
+case 18: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:24: error: array required, but NonNullList<ItemStack> found
+case 19: return player.inventory.armorInventory[i];
+                                               ^
+<probe>/BaselineExpressions.java:25: error: array required, but NonNullList<ItemStack> found
+case 20: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:26: error: array required, but NonNullList<ItemStack> found
+case 21: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:27: error: array required, but NonNullList<ItemStack> found
+case 22: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:28: error: array required, but NonNullList<ItemStack> found
+case 23: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:29: error: array required, but NonNullList<ItemStack> found
+case 24: return player.inventory.armorInventory[i];
+                                               ^
+<probe>/BaselineExpressions.java:30: error: array required, but NonNullList<ItemStack> found
+case 25: return player.inventory.armorInventory[i];
+                                               ^
+<probe>/BaselineExpressions.java:31: error: array required, but NonNullList<ItemStack> found
+case 26: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:32: error: array required, but NonNullList<ItemStack> found
+case 27: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:33: error: array required, but NonNullList<ItemStack> found
+case 28: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:34: error: array required, but NonNullList<ItemStack> found
+case 29: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:35: error: array required, but NonNullList<ItemStack> found
+case 30: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:36: error: array required, but NonNullList<ItemStack> found
+case 31: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:37: error: array required, but NonNullList<ItemStack> found
+case 32: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:38: error: array required, but NonNullList<ItemStack> found
+case 33: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:39: error: array required, but NonNullList<ItemStack> found
+case 34: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:40: error: array required, but NonNullList<ItemStack> found
+case 35: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:41: error: array required, but NonNullList<ItemStack> found
+case 36: return player.inventory.armorInventory[i];
+                                               ^
+<probe>/BaselineExpressions.java:42: error: array required, but NonNullList<ItemStack> found
+case 37: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:43: error: cannot find symbol
+case 38: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:44: error: array required, but NonNullList<ItemStack> found
+case 39: return player.inventory.mainInventory[j];
+                                              ^
+<probe>/BaselineExpressions.java:45: error: array required, but NonNullList<ItemStack> found
+case 40: return p.inventory.armorInventory[i];
+                                          ^
+<probe>/BaselineExpressions.java:46: error: array required, but NonNullList<ItemStack> found
+case 41: return p.inventory.armorInventory[i];
+                                          ^
+<probe>/BaselineExpressions.java:47: error: array required, but NonNullList<ItemStack> found
+case 42: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:48: error: array required, but NonNullList<ItemStack> found
+case 43: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:49: error: array required, but NonNullList<ItemStack> found
+case 44: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:50: error: array required, but NonNullList<ItemStack> found
+case 45: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:51: error: array required, but NonNullList<ItemStack> found
+case 46: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:52: error: array required, but NonNullList<ItemStack> found
+case 47: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:53: error: array required, but NonNullList<ItemStack> found
+case 48: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:54: error: array required, but NonNullList<ItemStack> found
+case 49: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:55: error: array required, but NonNullList<ItemStack> found
+case 50: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:56: error: array required, but NonNullList<ItemStack> found
+case 51: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:57: error: array required, but NonNullList<ItemStack> found
+case 52: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:58: error: array required, but NonNullList<ItemStack> found
+case 53: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:59: error: cannot find symbol
+case 54: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:60: error: array required, but NonNullList<ItemStack> found
+case 55: return player.inventory.mainInventory[i];
+                                              ^
+<probe>/BaselineExpressions.java:61: error: cannot find symbol
+case 56: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:62: error: array required, but NonNullList<ItemStack> found
+case 57: return player.inventory.mainInventory[j];
+                                              ^
+<probe>/BaselineExpressions.java:63: error: array required, but NonNullList<ItemStack> found
+case 58: return player.inventory.mainInventory[j];
+                                              ^
+<probe>/BaselineExpressions.java:64: error: array required, but NonNullList<ItemStack> found
+case 59: return player.inventory.mainInventory[j];
+                                              ^
+<probe>/BaselineExpressions.java:65: error: array required, but NonNullList<ItemStack> found
+case 60: return player.inventory.mainInventory[j];
+                                              ^
+<probe>/BaselineExpressions.java:66: error: array required, but NonNullList<ItemStack> found
+case 61: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:67: error: array required, but NonNullList<ItemStack> found
+case 62: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:68: error: array required, but NonNullList<ItemStack> found
+case 63: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:69: error: array required, but NonNullList<ItemStack> found
+case 64: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:70: error: array required, but NonNullList<ItemStack> found
+case 65: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:71: error: array required, but NonNullList<ItemStack> found
+case 66: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:72: error: array required, but NonNullList<ItemStack> found
+case 67: return e.inventory.armorInventory[2];
+                                          ^
+<probe>/BaselineExpressions.java:73: error: array required, but NonNullList<ItemStack> found
+case 68: return e.inventory.armorInventory[2];
+                                          ^
+<probe>/BaselineExpressions.java:74: error: array required, but NonNullList<ItemStack> found
+case 69: return e.inventory.armorInventory[2];
+                                          ^
+<probe>/BaselineExpressions.java:75: error: array required, but NonNullList<ItemStack> found
+case 70: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:76: error: array required, but NonNullList<ItemStack> found
+case 71: return ((EntityPlayer)e).inventory.armorInventory[2];
+                                                          ^
+<probe>/BaselineExpressions.java:77: error: array required, but NonNullList<ItemStack> found
+case 72: return ((EntityPlayer)e).inventory.armorInventory[2];
+                                                          ^
+<probe>/BaselineExpressions.java:78: error: array required, but NonNullList<ItemStack> found
+case 73: return ((EntityPlayer)e).inventory.armorInventory[2];
+                                                          ^
+<probe>/BaselineExpressions.java:79: error: array required, but NonNullList<ItemStack> found
+case 74: return ((EntityPlayer)e).inventory.armorInventory[2];
+                                                          ^
+<probe>/BaselineExpressions.java:80: error: array required, but NonNullList<ItemStack> found
+case 75: return ((EntityPlayer)e).inventory.armorInventory[2];
+                                                          ^
+<probe>/BaselineExpressions.java:81: error: array required, but NonNullList<ItemStack> found
+case 76: return ((EntityPlayer)e).inventory.armorInventory[2];
+                                                          ^
+<probe>/BaselineExpressions.java:82: error: array required, but NonNullList<ItemStack> found
+case 77: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:83: error: array required, but NonNullList<ItemStack> found
+case 78: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:84: error: array required, but NonNullList<ItemStack> found
+case 79: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:85: error: cannot find symbol
+case 80: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:86: error: array required, but NonNullList<ItemStack> found
+case 81: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:87: error: array required, but NonNullList<ItemStack> found
+case 82: return player.inventory.armorInventory[3];
+                                               ^
+<probe>/BaselineExpressions.java:88: error: array required, but NonNullList<ItemStack> found
+case 83: return player.inventory.armorInventory[i];
+                                               ^
+<probe>/BaselineExpressions.java:89: error: array required, but NonNullList<ItemStack> found
+case 84: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:90: error: array required, but NonNullList<ItemStack> found
+case 85: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:91: error: array required, but NonNullList<ItemStack> found
+case 86: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:92: error: array required, but NonNullList<ItemStack> found
+case 87: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:93: error: array required, but NonNullList<ItemStack> found
+case 88: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:94: error: cannot find symbol
+case 89: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:95: error: array required, but NonNullList<ItemStack> found
+case 90: return player.inventory.mainInventory[i];
+                                              ^
+<probe>/BaselineExpressions.java:96: error: cannot find symbol
+case 91: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:97: error: cannot find symbol
+case 92: return player.inventory.armorInventory.length;
+                                               ^
+  symbol:   variable length
+  location: variable armorInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:98: error: cannot find symbol
+case 93: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:99: error: cannot find symbol
+case 94: return player.inventory.armorInventory.length;
+                                               ^
+  symbol:   variable length
+  location: variable armorInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:100: error: cannot find symbol
+case 95: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:101: error: cannot find symbol
+case 96: return player.inventory.armorInventory.length;
+                                               ^
+  symbol:   variable length
+  location: variable armorInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:102: error: array required, but NonNullList<ItemStack> found
+case 97: return player.inventory.armorInventory[2];
+                                               ^
+<probe>/BaselineExpressions.java:103: error: cannot find symbol
+case 98: return player.inventory.mainInventory.length;
+                                              ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:104: error: array required, but NonNullList<ItemStack> found
+case 99: return player.inventory.mainInventory[i];
+                                              ^
+<probe>/BaselineExpressions.java:105: error: cannot find symbol
+case 100: return player.inventory.mainInventory.length;
+                                               ^
+  symbol:   variable length
+  location: variable mainInventory of type NonNullList<ItemStack>
+<probe>/BaselineExpressions.java:106: error: array required, but NonNullList<ItemStack> found
+case 101: return player.inventory.mainInventory[i];
+                                               ^
+102 errors

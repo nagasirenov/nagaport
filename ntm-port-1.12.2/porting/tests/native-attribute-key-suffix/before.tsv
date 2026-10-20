@@ -1,0 +1,3 @@
+src/main/java/com/hbm/items/armor/ArmorLiquidator.java	1889	1916	getAttributeUnlocalizedName	getName
+src/main/java/com/hbm/items/armor/ArmorDiesel.java	1643	1670	getAttributeUnlocalizedName	getName
+src/main/java/com/hbm/items/armor/ItemModIron.java	1171	1198	getAttributeUnlocalizedName	getName

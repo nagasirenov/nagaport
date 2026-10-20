@@ -46,11 +46,11 @@ public class ItemPill extends ItemFood {
 			if(this == ModItems.pill_iodine) {
 				player.removePotionEffect(net.minecraft.init.MobEffects.BLINDNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.NAUSEA);
-				player.removePotionEffect(Potion.digSlowdown.id);
-				player.removePotionEffect(Potion.hunger.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.MINING_FATIGUE);
+				player.removePotionEffect(net.minecraft.init.MobEffects.HUNGER);
 				player.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.POISON);
-				player.removePotionEffect(Potion.weakness.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.WEAKNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.WITHER);
 				player.removePotionEffect(HbmPotion.radiation.id);
 			}

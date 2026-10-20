@@ -1,0 +1,131 @@
+{
+  "base": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "files": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java": {
+      "sha256_before": "d38694a0e8d739ec43cc1c4a9ee68ef8ad0aa04ad781067fcfdf3496fcd5ad4a",
+      "sha256_after": "b048a67e6cb04415f7cb5a9a95f323e09025efc115353d154b59906ec361e3c5",
+      "changes": [
+        {
+          "old": "\t\tprop.comment = comment;",
+          "new": "\t\tprop.setComment(comment);"
+        },
+        {
+          "old": "\t\tprop.comment = comment;",
+          "new": "\t\tprop.setComment(comment);"
+        },
+        {
+          "old": "\t\tprop.comment = comment;",
+          "new": "\t\tprop.setComment(comment);"
+        },
+        {
+          "old": "\t\tprop.comment = comment;",
+          "new": "\t\tprop.setComment(comment);"
+        },
+        {
+          "old": "\t\tprop.comment = comment;",
+          "new": "\t\tprop.setComment(comment);"
+        },
+        {
+          "old": "\t\tprop.comment = comment;",
+          "new": "\t\tprop.setComment(comment);"
+        },
+        {
+          "old": "\t\tprop.comment = comment;",
+          "new": "\t\tprop.setComment(comment);"
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java": {
+      "sha256_before": "89a284c1db3af745d5d09c008dcbfef8eda3ccec2b17a2632f1375a5ebb0bbb3",
+      "sha256_after": "f0ef19c1361712d69d95163f19bc135129f785fe93602933e3724647a03c19c0",
+      "changes": [
+        {
+          "old": "\t\tpropGadget.comment = \"Radius of the Gadget\";",
+          "new": "\t\tpropGadget.setComment(\"Radius of the Gadget\");"
+        },
+        {
+          "old": "\t\tpropBoy.comment = \"Radius of Little Boy\";",
+          "new": "\t\tpropBoy.setComment(\"Radius of Little Boy\");"
+        },
+        {
+          "old": "\t\tpropMan.comment = \"Radius of Fat Man\";",
+          "new": "\t\tpropMan.setComment(\"Radius of Fat Man\");"
+        },
+        {
+          "old": "\t\tpropMike.comment = \"Radius of Ivy Mike\";",
+          "new": "\t\tpropMike.setComment(\"Radius of Ivy Mike\");"
+        },
+        {
+          "old": "\t\tpropTsar.comment = \"Radius of the Tsar Bomba\";",
+          "new": "\t\tpropTsar.setComment(\"Radius of the Tsar Bomba\");"
+        },
+        {
+          "old": "\t\tpropPrototype.comment = \"Radius of the Prototype\";",
+          "new": "\t\tpropPrototype.setComment(\"Radius of the Prototype\");"
+        },
+        {
+          "old": "\t\tpropFleija.comment = \"Radius of F.L.E.I.J.A.\";",
+          "new": "\t\tpropFleija.setComment(\"Radius of F.L.E.I.J.A.\");"
+        },
+        {
+          "old": "\t\tpropMissile.comment = \"Radius of the nuclear missile\";",
+          "new": "\t\tpropMissile.setComment(\"Radius of the nuclear missile\");"
+        },
+        {
+          "old": "\t\tpropMirv.comment = \"Radius of a MIRV\";",
+          "new": "\t\tpropMirv.setComment(\"Radius of a MIRV\");"
+        },
+        {
+          "old": "\t\tpropFatman.comment = \"Radius of the Fatman Launcher\";",
+          "new": "\t\tpropFatman.setComment(\"Radius of the Fatman Launcher\");"
+        },
+        {
+          "old": "\t\tpropNuka.comment = \"Radius of the nuka grenade\";",
+          "new": "\t\tpropNuka.setComment(\"Radius of the nuka grenade\");"
+        },
+        {
+          "old": "\t\tpropASchrab.comment = \"Radius of dropped anti schrabidium\";",
+          "new": "\t\tpropASchrab.setComment(\"Radius of dropped anti schrabidium\");"
+        },
+        {
+          "old": "\t\tpropSolinium.comment = \"Radius of the blue rinse\";",
+          "new": "\t\tpropSolinium.setComment(\"Radius of the blue rinse\");"
+        },
+        {
+          "old": "\t\tpropN2.comment = \"Radius of the N2 mine\";",
+          "new": "\t\tpropN2.setComment(\"Radius of the N2 mine\");"
+        },
+        {
+          "old": "\t\tpropLimitExplosionLifespan.comment = \"How long an explosion can be unloaded until it dies in seconds. Based of system time. 0 disables the effect\";",
+          "new": "\t\tpropLimitExplosionLifespan.setComment(\"How long an explosion can be unloaded until it dies in seconds. Based of system time. 0 disables the effect\");"
+        },
+        {
+          "old": "\t\tpropBlastSpeed.comment = \"Base speed of MK3 system (old and schrabidium) detonations (Blocks / tick)\";",
+          "new": "\t\tpropBlastSpeed.setComment(\"Base speed of MK3 system (old and schrabidium) detonations (Blocks / tick)\");"
+        },
+        {
+          "old": "\t\tpropFalloutRange.comment = \"Minimum amount of milliseconds per tick allocated for mk5 chunk processing\";",
+          "new": "\t\tpropFalloutRange.setComment(\"Minimum amount of milliseconds per tick allocated for mk5 chunk processing\");"
+        },
+        {
+          "old": "\t\tfalloutRangeProp.comment = \"Radius of fallout area (base radius * value in percent)\";",
+          "new": "\t\tfalloutRangeProp.setComment(\"Radius of fallout area (base radius * value in percent)\");"
+        },
+        {
+          "old": "\t\tfalloutDelayProp.comment = \"How many ticks to wait for the next fallout chunk computation\";",
+          "new": "\t\tfalloutDelayProp.setComment(\"How many ticks to wait for the next fallout chunk computation\");"
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/config/WeaponConfig.java": {
+      "sha256_before": "dbd8ef708bbb8ea5c8f268b7d5384cb5a1c2514aa17329ad47a9608185b777a2",
+      "sha256_after": "f28419a14ef36016028ca4b9e2b7d681e2f89b2c78be678f891c319ef7eed87d",
+      "changes": [
+        {
+          "old": "\t\tpropCiwsHitrate.comment = \"Additional modifier for CIWS accuracy\";",
+          "new": "\t\tpropCiwsHitrate.setComment(\"Additional modifier for CIWS accuracy\");"
+        }
+      ]
+    }
+  }
+}

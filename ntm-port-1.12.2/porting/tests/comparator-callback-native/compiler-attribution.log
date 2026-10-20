@@ -1,0 +1,57 @@
+/tmp/comparator-native-a35op1rj/Test.java:19: error: method does not override or implement a method from a supertype
+ static class Native0 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                     ^
+/tmp/comparator-native-a35op1rj/Test.java:22: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+/tmp/comparator-native-a35op1rj/Test.java:31: error: method does not override or implement a method from a supertype
+static class Native1 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:34: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+/tmp/comparator-native-a35op1rj/Test.java:43: error: method does not override or implement a method from a supertype
+static class Native2 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:46: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+/tmp/comparator-native-a35op1rj/Test.java:71: error: method does not override or implement a method from a supertype
+static class Native3 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:74: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+/tmp/comparator-native-a35op1rj/Test.java:97: error: method does not override or implement a method from a supertype
+static class Native4 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:100: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+/tmp/comparator-native-a35op1rj/Test.java:139: error: method does not override or implement a method from a supertype
+static class Native5 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:142: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+/tmp/comparator-native-a35op1rj/Test.java:181: error: method does not override or implement a method from a supertype
+static class Native6 extends Owner {@Override public boolean hasComparatorInputOverride()
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:185: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int p_149736_5_)
+^
+/tmp/comparator-native-a35op1rj/Test.java:211: error: method does not override or implement a method from a supertype
+static class Native7 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:214: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+/tmp/comparator-native-a35op1rj/Test.java:225: error: method does not override or implement a method from a supertype
+static class Native8 extends Owner {@Override public boolean hasComparatorInputOverride() {
+                                    ^
+/tmp/comparator-native-a35op1rj/Test.java:228: error: method does not override or implement a method from a supertype
+@Override public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+^
+Note: /tmp/comparator-native-a35op1rj/Test.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+18 errors

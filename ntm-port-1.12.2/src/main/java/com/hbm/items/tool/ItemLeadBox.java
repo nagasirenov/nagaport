@@ -52,10 +52,10 @@ public class ItemLeadBox extends Item implements IGUIProvider {
 			this.target = box;
 			slots = new ItemStack[this.getSizeInventory()];
 
-			if(!box.hasTagCompound())
+			if(box.getTagCompound() == null)
 				box.setTagCompound(new NBTTagCompound());
 
-			ItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);
+			ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);
 
 			if(fromNBT != null) {
 				System.arraycopy(fromNBT, 0, slots, 0, slots.length);
@@ -68,12 +68,12 @@ public class ItemLeadBox extends Item implements IGUIProvider {
 		}
 
 		@Override
-		public String getInventoryName() {
+		public String getName() {
 			return "container.leadBox";
 		}
 
 		@Override
-		public boolean hasCustomInventoryName() {
+		public boolean hasCustomName() {
 			return target.hasDisplayName();
 		}
 

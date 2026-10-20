@@ -1,0 +1,6 @@
+PASS 29 byte-exact inverses and round trips; 31 placement calls and 15 native owner signatures with bounded body hooks; 87 rejected mutations
+PASS original 22 placement owners; exact 15 selected +2 descendants; actual BlockVine inherits Block placement in both engines; native placement/leaves inventory, original Forge base/support hooks and two-identity fence predicate; all inputs pinned
+PASS scoped native javac: full WorldBlockState, ForgeDirection, FacingCompat, BlockBeamBase, BlockHangingVine, PlantBlockState; exact 15 placement method projections and two inherited descendants, named fixture collaborators
+PASS 627 assertions; exact 15 owner-method projections and two inherited descendants, actual native World/Block/BlockVine hooks, full actual NTM Beam/HangingVine/PlantBlockState; scripted collaborator fixtures, not complete migrated owner classes
+PASS exact 22 native placement owners; zero legacy four-argument calls; current block inheritance and all leaves/opacity/replaceability/side/stay callback bodies pinned; all original NTM support/leaves hooks already native
+PASS bounded placement proof; inherited vanilla/Forge behavior is native platform behavior, not universal old/new world-read equivalence.

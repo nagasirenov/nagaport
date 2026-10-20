@@ -1,0 +1,1 @@
+PASS all 4071 production units parse/attribute, zero syntax errors; 10 exact native owner-builder bindings; 10 legacy sound failures removed, 3 pre-existing texture failures exposed; 10366 -> 10359, no other diagnostic-message changes. No full build/class generation.

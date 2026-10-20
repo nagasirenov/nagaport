@@ -297,15 +297,15 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 						//For every direction, get the block pos for the next sub chunk in that direction.
 						//If it's not loaded or it's out of bounds, do nothhing
 						BlockPos nPos = pos.offset(e, 16);
-						if(!p.parent.parent.chunk.worldObj.blockExists(nPos.getX(), nPos.getY(), nPos.getZ()) || nPos.getY() < 0 || nPos.getY() > 255)
+						if(!p.parent.parent.chunk.getWorld().blockExists(nPos.getX(), nPos.getY(), nPos.getZ()) || nPos.getY() < 0 || nPos.getY() > 255)
 							continue;
 						if(p.connectionIndices[e.ordinal()].size() == 1 && p.connectionIndices[e.ordinal()].get(0) == -1){
 							//If the chunk in this direction isn't loaded, load it
-							rebuildChunkPockets(p.parent.parent.chunk.worldObj.getChunkFromBlockCoords(nPos.getX(), nPos.getZ()), nPos.getY() >> 4);
+							rebuildChunkPockets(p.parent.parent.chunk.getWorld().getChunkFromBlockCoords(nPos.getX(), nPos.getZ()), nPos.getY() >> 4);
 						} else {
 							//Else, For every pocket this chunk is connected to in this direction, add radiation to it
 							//Also add those pockets to the active pockets set
-							SubChunkRadiationStorage sc2 = getSubChunkStorage(p.parent.parent.chunk.worldObj, nPos.getX(), nPos.getY(), nPos.getZ());
+							SubChunkRadiationStorage sc2 = getSubChunkStorage(p.parent.parent.chunk.getWorld(), nPos.getX(), nPos.getY(), nPos.getZ());
 							for(int idx : p.connectionIndices[e.ordinal()]){
 								//Only accumulated rads get updated so the system doesn't interfere with itself while working
 								sc2.pockets[idx].accumulatedRads += p.radiation*amountPer;
@@ -378,7 +378,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 		} else {
 			Arrays.fill(pocketsByBlock, null);
 		}
-		ChunkRadiationStorage st = getChunkStorage(chunk.worldObj, subChunkPos.getX(), subChunkPos.getY(), subChunkPos.getZ());
+		ChunkRadiationStorage st = getChunkStorage(chunk.getWorld(), subChunkPos.getX(), subChunkPos.getY(), subChunkPos.getZ());
 		SubChunkRadiationStorage subChunk = new SubChunkRadiationStorage(st, subChunkPos.getY(), null, null);
 		
 		if(blocks != null){
@@ -389,7 +389,7 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 							continue;
 						Block block = blocks.getBlockByExtId(x, y, z); // !!!
 						if(!(block instanceof IRadResistantBlock && ((IRadResistantBlock) block).getResistance() == 1)){
-							pockets.add(buildPocket(subChunk, chunk.worldObj, new BlockPos(x, y, z), subChunkPos, blocks, pocketsByBlock, pockets.size()));
+							pockets.add(buildPocket(subChunk, chunk.getWorld(), new BlockPos(x, y, z), subChunkPos, blocks, pocketsByBlock, pockets.size()));
 						}
 					}
 				}
@@ -418,15 +418,15 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 	private static void doEmptyChunk(Chunk chunk, BlockPos subChunkPos, BlockPos pos, RadPocket pocket, ForgeDirection facing){
 		BlockPos newPos = pos.offset(facing);
 		BlockPos outPos = newPos.add(subChunkPos);
-		Block block = chunk.worldObj.getBlock(outPos.getX(), outPos.getY(), outPos.getZ());
+		Block block = chunk.getWorld().getBlock(outPos.getX(), outPos.getY(), outPos.getZ());
 		if(!(block instanceof IRadResistantBlock && ((IRadResistantBlock) block).getResistance() == 1)){
-			if(!isSubChunkLoaded(chunk.worldObj, outPos.getX(), outPos.getY(), outPos.getZ())){
+			if(!isSubChunkLoaded(chunk.getWorld(), outPos.getX(), outPos.getY(), outPos.getZ())){
 				if(!pocket.connectionIndices[facing.ordinal()].contains(-1)){
 					pocket.connectionIndices[facing.ordinal()].add(-1);
 				}
 			} else {
 				
-				RadPocket outPocket = getPocket(chunk.worldObj, outPos.getX(), outPos.getY(), outPos.getZ());
+				RadPocket outPocket = getPocket(chunk.getWorld(), outPos.getX(), outPos.getY(), outPos.getZ());
 				if(!pocket.connectionIndices[facing.ordinal()].contains(Integer.valueOf(outPocket.index)))
 					pocket.connectionIndices[facing.ordinal()].add(outPocket.index);
 			}
@@ -610,12 +610,12 @@ public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {
 		
 		public void setForYLevel(int y, SubChunkRadiationStorage sc){
 			if(chunks[y >> 4] != null){
-				chunks[y >> 4].remove(chunk.worldObj, getWorldPos(y));
+				chunks[y >> 4].remove(chunk.getWorld(), getWorldPos(y));
 				if(sc != null)
 					sc.setRad(chunks[y >> 4]);
 			}
 			if(sc != null){
-				sc.add(chunk.worldObj, getWorldPos(y));
+				sc.add(chunk.getWorld(), getWorldPos(y));
 			}
 			chunks[y >> 4] = sc;
 		}

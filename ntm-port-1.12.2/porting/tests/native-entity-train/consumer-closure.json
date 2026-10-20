@@ -1,0 +1,534 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/rail/BlockRailWaypointSystem.java",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.train.EntityRailCarBase;"
+      },
+      {
+        "line": 102,
+        "source": "linkAngle = EntityRailCarBase.generateYaw(array[1], array[0]);"
+      },
+      {
+        "line": 145,
+        "source": "double newYaw = EntityRailCarBase.generateYaw(nextNode, currentPos);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "references": [
+      {
+        "line": 26,
+        "source": "import com.hbm.entity.train.EntityRailCarBase.BoundingBoxDummyEntity;"
+      },
+      {
+        "line": 27,
+        "source": "import com.hbm.entity.train.EntityRailCarRidable.SeatDummyEntity;"
+      },
+      {
+        "line": 215,
+        "source": "addEntity(SeatDummyEntity.class, \"entity_ntm_seat_dummy\", 250, false);"
+      },
+      {
+        "line": 216,
+        "source": "addEntity(BoundingBoxDummyEntity.class, \"entity_ntm_bounding_dummy\", 250, false);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarBase.java",
+    "references": [
+      {
+        "line": 34,
+        "source": "public abstract class EntityRailCarBase extends Entity implements ILookOverlay {"
+      },
+      {
+        "line": 60,
+        "source": "public EntityRailCarBase coupledFront;"
+      },
+      {
+        "line": 61,
+        "source": "public EntityRailCarBase coupledBack;"
+      },
+      {
+        "line": 64,
+        "source": "public BoundingBoxDummyEntity[] dummies = new BoundingBoxDummyEntity[0];"
+      },
+      {
+        "line": 66,
+        "source": "public EntityRailCarBase(World world) {"
+      },
+      {
+        "line": 79,
+        "source": "List<EntityRailCarBase> intersecting = this.world.getEntitiesWithinAABB(EntityRailCarBase.class, this.getEntityBoundingBox().grow(2D, 0D, 2D));"
+      },
+      {
+        "line": 81,
+        "source": "for(EntityRailCarBase neighbor : intersecting) {"
+      },
+      {
+        "line": 127,
+        "source": "for(EntityRailCarBase train : ltu.trains) {"
+      },
+      {
+        "line": 219,
+        "source": "this.dummies = new BoundingBoxDummyEntity[definitions.length];"
+      },
+      {
+        "line": 223,
+        "source": "BoundingBoxDummyEntity dummy = new BoundingBoxDummyEntity(this.world, this, def.width, def.height);"
+      },
+      {
+        "line": 240,
+        "source": "BoundingBoxDummyEntity dummy = dummies[i];"
+      },
+      {
+        "line": 323,
+        "source": "if(o instanceof EntityRailCarBase) {"
+      },
+      {
+        "line": 324,
+        "source": "EntityRailCarBase train = (EntityRailCarBase) o;"
+      },
+      {
+        "line": 341,
+        "source": "for(EntityRailCarBase car : ltu.trains) car.cachedSpeed = speed;"
+      },
+      {
+        "line": 345,
+        "source": "EntityRailCarBase train = ltu.trains[0];"
+      },
+      {
+        "line": 439,
+        "source": "public static class BoundingBoxDummyEntity extends Entity implements ILookOverlay {"
+      },
+      {
+        "line": 441,
+        "source": "private static final DataParameter<Integer> TRAIN_ID = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 442,
+        "source": "private static final DataParameter<Float> WIDTH = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.FLOAT);"
+      },
+      {
+        "line": 443,
+        "source": "private static final DataParameter<Float> HEIGHT = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.FLOAT);"
+      },
+      {
+        "line": 449,
+        "source": "public EntityRailCarBase train;"
+      },
+      {
+        "line": 451,
+        "source": "public BoundingBoxDummyEntity(World world) { this(world, null, 1F, 1F); }"
+      },
+      {
+        "line": 452,
+        "source": "public BoundingBoxDummyEntity(World world, EntityRailCarBase train, float width, float height) {"
+      },
+      {
+        "line": 511,
+        "source": "if(e instanceof EntityRailCarBase) {"
+      },
+      {
+        "line": 512,
+        "source": "((EntityRailCarBase) e).printHook(event, world, x, y, z);"
+      },
+      {
+        "line": 553,
+        "source": "public EntityRailCarBase getCoupledTo(TrainCoupling coupling) {"
+      },
+      {
+        "line": 557,
+        "source": "public TrainCoupling getCouplingFrom(EntityRailCarBase coupledTo) {"
+      },
+      {
+        "line": 561,
+        "source": "public void couple(TrainCoupling coupling, EntityRailCarBase to) {"
+      },
+      {
+        "line": 569,
+        "source": "protected EntityRailCarBase trains[];"
+      },
+      {
+        "line": 572,
+        "source": "public static LogicalTrainUnit generateTrain(EntityRailCarBase train) {"
+      },
+      {
+        "line": 573,
+        "source": "List<EntityRailCarBase> links = new ArrayList();"
+      },
+      {
+        "line": 574,
+        "source": "Set<EntityRailCarBase> brake = new HashSet();"
+      },
+      {
+        "line": 578,
+        "source": "ltu.trains = new EntityRailCarBase[] {train};"
+      },
+      {
+        "line": 584,
+        "source": "EntityRailCarBase current = train;"
+      },
+      {
+        "line": 585,
+        "source": "EntityRailCarBase next = null;"
+      },
+      {
+        "line": 600,
+        "source": "ltu.trains = new EntityRailCarBase[links.size()];"
+      },
+      {
+        "line": 612,
+        "source": "for(EntityRailCarBase train : trains) {"
+      },
+      {
+        "line": 625,
+        "source": "EntityRailCarBase center = trains[centerIndex];"
+      },
+      {
+        "line": 626,
+        "source": "EntityRailCarBase prev = center;"
+      },
+      {
+        "line": 629,
+        "source": "EntityRailCarBase next = trains[i];"
+      },
+      {
+        "line": 636,
+        "source": "EntityRailCarBase next = trains[i];"
+      },
+      {
+        "line": 643,
+        "source": "public void moveWagonTo(EntityRailCarBase moveTo, EntityRailCarBase moving) {"
+      },
+      {
+        "line": 654,
+        "source": "float yaw = EntityRailCarBase.generateYaw(prevLoc, nextLoc);"
+      },
+      {
+        "line": 655,
+        "source": "Vec3d newPos = EntityRailCarBase.getRelPosAlongRail(anchor, len, moving.getGauge(), moving.world, trainPos, yaw, new MoveContext(RailCheckType.CORE, 0));"
+      },
+      {
+        "line": 673,
+        "source": "EntityRailCarBase prev = trains[0];"
+      },
+      {
+        "line": 678,
+        "source": "for(EntityRailCarBase train : this.trains) {"
+      },
+      {
+        "line": 697,
+        "source": "for(EntityRailCarBase train : this.trains) {"
+      },
+      {
+        "line": 732,
+        "source": "EntityRailCarBase prev = trains[0];"
+      },
+      {
+        "line": 742,
+        "source": "for(EntityRailCarBase train : this.trains) {"
+      },
+      {
+        "line": 746,
+        "source": "EntityRailCarBase conFront = train.getCoupledTo(TrainCoupling.FRONT);"
+      },
+      {
+        "line": 747,
+        "source": "EntityRailCarBase conBack = train.getCoupledTo(TrainCoupling.BACK);"
+      },
+      {
+        "line": 779,
+        "source": "EntityRailCarBase previous = null;"
+      },
+      {
+        "line": 780,
+        "source": "EntityRailCarBase first = this.trains[0];"
+      },
+      {
+        "line": 785,
+        "source": "EntityRailCarBase current = this.trains[i];"
+      },
+      {
+        "line": 825,
+        "source": "public void setRenderPos(EntityRailCarBase current, Vec3d frontPos, Vec3d backPos) {"
+      },
+      {
+        "line": 839,
+        "source": "EntityRailCarBase collidingTrain = speed > 0 ? trains[0] : trains[trains.length - 1];"
+      },
+      {
+        "line": 840,
+        "source": "List<EntityRailCarBase> intersect = collidingTrain.world.getEntitiesWithinAABB(EntityRailCarBase.class, collidingTrain.getEntityBoundingBox().grow(1, 1, 1));"
+      },
+      {
+        "line": 841,
+        "source": "EntityRailCarBase collidesWith = null;"
+      },
+      {
+        "line": 843,
+        "source": "for(EntityRailCarBase train : intersect) {"
+      },
+      {
+        "line": 861,
+        "source": "EntityRailCarBase[][] whatever = new EntityRailCarBase[][] {{collidingTrain, collidesWith}, {collidesWith, collidingTrain}};"
+      },
+      {
+        "line": 862,
+        "source": "for(EntityRailCarBase[] array : whatever) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarCargo.java",
+    "references": [
+      {
+        "line": 13,
+        "source": "public abstract class EntityRailCarCargo extends EntityRailCarBase implements IInventory {"
+      },
+      {
+        "line": 15,
+        "source": "private static final DataParameter<Integer> OCCUPIED_SLOTS = EntityDataManager.createKey(EntityRailCarCargo.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 20,
+        "source": "public EntityRailCarCargo(World world) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarElectric.java",
+    "references": [
+      {
+        "line": 12,
+        "source": "public abstract class EntityRailCarElectric extends EntityRailCarRidable {"
+      },
+      {
+        "line": 14,
+        "source": "private static final DataParameter<Integer> POWER = EntityDataManager.createKey(EntityRailCarElectric.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 16,
+        "source": "public EntityRailCarElectric(World world) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java",
+    "references": [
+      {
+        "line": 21,
+        "source": "public abstract class EntityRailCarRidable extends EntityRailCarCargo {"
+      },
+      {
+        "line": 24,
+        "source": "public SeatDummyEntity[] passengerSeats;"
+      },
+      {
+        "line": 26,
+        "source": "public EntityRailCarRidable(World world) {"
+      },
+      {
+        "line": 28,
+        "source": "this.passengerSeats = new SeatDummyEntity[this.getPassengerSeats().length];"
+      },
+      {
+        "line": 95,
+        "source": "SeatDummyEntity dummySeat = new SeatDummyEntity(this.world, this, nearestSeat);"
+      },
+      {
+        "line": 167,
+        "source": "SeatDummyEntity seat = passengerSeats[i];"
+      },
+      {
+        "line": 205,
+        "source": "public static class SeatDummyEntity extends Entity {"
+      },
+      {
+        "line": 207,
+        "source": "private static final DataParameter<Integer> TRAIN_ID = EntityDataManager.createKey(SeatDummyEntity.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 208,
+        "source": "private static final DataParameter<Integer> SEAT_INDEX = EntityDataManager.createKey(SeatDummyEntity.class, DataSerializers.VARINT);"
+      },
+      {
+        "line": 214,
+        "source": "public EntityRailCarRidable train;"
+      },
+      {
+        "line": 216,
+        "source": "public SeatDummyEntity(World world) { super(world); this.setSize(0.5F, 0.1F);}"
+      },
+      {
+        "line": 217,
+        "source": "public SeatDummyEntity(World world, EntityRailCarRidable train, int index) {"
+      },
+      {
+        "line": 263,
+        "source": "if(entity instanceof EntityRailCarRidable) {"
+      },
+      {
+        "line": 264,
+        "source": "train = (EntityRailCarRidable) entity;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/TrainCargoTram.java",
+    "references": [
+      {
+        "line": 25,
+        "source": "public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvider {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java",
+    "references": [
+      {
+        "line": 26,
+        "source": "public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIProvider {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/extprop/HbmPlayerProps.java",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.train.EntityRailCarBase;"
+      },
+      {
+        "line": 126,
+        "source": "if(player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRailCarBase && player.getRidingEntity() instanceof IGUIProvider) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemTrain.java",
+    "references": [
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.train.EntityRailCarBase;"
+      },
+      {
+        "line": 52,
+        "source": "public Class<? extends EntityRailCarBase> train;"
+      },
+      {
+        "line": 59,
+        "source": "private EnumTrainType(Class<? extends EntityRailCarBase> train, String engine, String gauge, String maxSpeed, String acceleration, String brakeThreshold, String parkingBrake) {"
+      },
+      {
+        "line": 78,
+        "source": "EntityRailCarBase train = null;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "references": [
+      {
+        "line": 42,
+        "source": "import com.hbm.entity.train.EntityRailCarBase.BoundingBoxDummyEntity;"
+      },
+      {
+        "line": 43,
+        "source": "import com.hbm.entity.train.EntityRailCarRidable.SeatDummyEntity;"
+      },
+      {
+        "line": 864,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(SeatDummyEntity.class, renderManager -> new RenderEmpty(renderManager));"
+      },
+      {
+        "line": 865,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(BoundingBoxDummyEntity.class, renderManager -> new RenderEmpty(renderManager));"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+    "references": [
+      {
+        "line": 53,
+        "source": "import com.hbm.entity.train.EntityRailCarBase;"
+      },
+      {
+        "line": 914,
+        "source": "EntityRailCarBase.updateMotion(event.world);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java",
+    "references": [
+      {
+        "line": 22,
+        "source": "import com.hbm.entity.train.EntityRailCarRidable;"
+      },
+      {
+        "line": 1572,
+        "source": "if(player != null && player.getRidingEntity() instanceof EntityRailCarRidable && player instanceof EntityPlayerSP) {"
+      },
+      {
+        "line": 1573,
+        "source": "EntityRailCarRidable train = (EntityRailCarRidable) player.getRidingEntity();"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderTrainCargoTram.java",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.train.EntityRailCarBase;"
+      },
+      {
+        "line": 23,
+        "source": "EntityRailCarBase train = (EntityRailCarBase) entity;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderTrainCargoTramTrailer.java",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.train.EntityRailCarCargo;"
+      },
+      {
+        "line": 17,
+        "source": "public class RenderTrainCargoTramTrailer extends Render<EntityRailCarCargo> {"
+      },
+      {
+        "line": 26,
+        "source": "public void doRender(EntityRailCarCargo entity, double x, double y, double z, float swing, float interp) {"
+      },
+      {
+        "line": 30,
+        "source": "EntityRailCarCargo train = entity;"
+      },
+      {
+        "line": 140,
+        "source": "protected ResourceLocation getEntityTexture(EntityRailCarCargo entity) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+    "references": [
+      {
+        "line": 14,
+        "source": "import com.hbm.entity.train.EntityRailCarBase;"
+      },
+      {
+        "line": 642,
+        "source": "if(e instanceof EntityRailCarBase) return true;"
+      }
+    ]
+  }
+]

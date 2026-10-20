@@ -1,0 +1,4 @@
+CL: aoh net/minecraft/block/BlockVine
+FD: ajn/aJ net/minecraft/init/Blocks/field_150422_aJ
+FD: ajn/bk net/minecraft/init/Blocks/field_150386_bk
+MD: akz/a (Laji;)Z net/minecraft/block/BlockFence/func_149825_a (Lnet/minecraft/block/Block;)Z

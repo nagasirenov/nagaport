@@ -1,0 +1,32 @@
+// SOURCE: /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/sources.zip!/net/minecraftforge/client/ForgeHooksClient.java
+// EXCERPT containing public static ModelBiped getArmorModel; source lines 229-244
+    public static ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot slot, ModelBiped _default)
+    {
+        ModelBiped model = itemStack.func_77973_b().getArmorModel(entityLiving, itemStack, slot, _default);
+        return model == null ? _default : model;
+    }
+
+    //This properly moves the domain, if provided, to the front of the string before concatenating
+    public static String fixDomain(String base, String complex)
+    {
+        int idx = complex.indexOf(':');
+        if (idx == -1)
+        {
+            return base + complex;
+        }
+
+        String name = complex.substring(idx + 1, complex.length());
+
+// EXCERPT containing public static String getArmorTexture; source lines 155-166
+    public static String getArmorTexture(Entity entity, ItemStack armor, String _default, EntityEquipmentSlot slot, String type)
+    {
+        String result = armor.func_77973_b().getArmorTexture(armor, entity, slot, type);
+        return result != null ? result : _default;
+    }
+
+    //Optifine Helper Functions u.u, these are here specifically for Optifine
+    //Note: When using Optifine, these methods are invoked using reflection, which
+    //incurs a major performance penalty.
+    public static void orientBedCamera(IBlockAccess world, BlockPos pos, IBlockState state, Entity entity)
+    {
+        Block block = state.func_177230_c();

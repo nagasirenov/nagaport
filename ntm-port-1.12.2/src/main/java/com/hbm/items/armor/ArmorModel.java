@@ -41,26 +41,26 @@ public class ArmorModel extends ItemArmor {
 	private ResourceLocation[] gogglesBlurs;
 
 	public ArmorModel(ArmorMaterial armorMaterial, int armorType) {
-		super(armorMaterial, 0, armorType);
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		if(this == ModItems.goggles) {
-			if(armorSlot == 0) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
 				if(modelGoggles == null) modelGoggles = new ModelGoggles();
 				return modelGoggles;
 			}
 		}
 		if(this == ModItems.hat) {
-			if(armorSlot == 0) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
 				if(modelHat == null) modelHat = new ModelHat(0);
 				return modelHat;
 			}
 		}
 		if(this == ModItems.cape_radiation || this == ModItems.cape_gasmask || this == ModItems.cape_schrabidium || this == ModItems.cape_hidden) {
-			if(armorSlot == 1) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {
 				if(modelCloak == null) modelCloak = new ModelCloak();
 				return modelCloak;
 			}
@@ -69,7 +69,7 @@ public class ArmorModel extends ItemArmor {
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
 		if(stack.getItem() == ModItems.goggles) {
 			return "hbm:textures/models/Goggles.png";
 		}

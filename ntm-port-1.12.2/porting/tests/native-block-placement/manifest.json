@@ -1,0 +1,867 @@
+{
+  "baseline": "d2f171750be2f0d156a019f25fa781db39db308a",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockKelp.java": {
+      "before_sha256": "4664933b26d96eb31f7550b35f0e6ed76244ed501c4de1155176e133643174e0",
+      "after_sha256": "ab31affe4fa3db29c98e3d2445ba3915b89812a1970df0b6cd8a33551c30cdef",
+      "edits": [
+        {
+          "before_offset": 1529,
+          "after_offset": 1529,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\tBlock below = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn below == this || below == ModBlocks.laythe_silt;\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tBlock below = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn below == this || below == ModBlocks.laythe_silt;\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockVinylVine.java": {
+      "before_sha256": "b64420df9fefd98f759fe06debbc4efabca32eb2da3aa9ddf4120b20d3408cf5",
+      "after_sha256": "8b212cad9093b2c3853a2a596dd83be809ad0be960af284466cc9b02ad1d7759",
+      "edits": [
+        {
+          "before_offset": 525,
+          "after_offset": 525,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockWaterPlant.java": {
+      "before_sha256": "6c40b6fcd915c16e3154b147934525ad3d489451e35b8c048ed7cb858df1734b",
+      "after_sha256": "4f35e20f33f32a5b129651dc0dd38e9e458ab96fdd20097401d4f4157bad24a8",
+      "edits": [
+        {
+          "before_offset": 1162,
+          "after_offset": 1162,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Balefire.java": {
+      "before_sha256": "eaf533131222749da0e3e81a028914cca5a1d030d87e43e06ff2f130168b1685",
+      "after_sha256": "45f1689bc3add2ff41e726cff0a4d120902005e1d2a95981bc7a3de172318f2c",
+      "edits": [
+        {
+          "before_offset": 1742,
+          "after_offset": 1742,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java": {
+      "before_sha256": "c2cb89d6a08de14beac17054b0fa759c89ced5ea9f00840fd4c5e69bac48f1d4",
+      "after_sha256": "1b374d52d8c32d0e7b4d317e6ff4087403b1315bd0eef982e47c021a79fd245c",
+      "edits": [
+        {
+          "before_offset": 1482,
+          "after_offset": 1482,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn World.doesBlockHaveSolidTopSurface(world, x, y - 1, z);\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\treturn nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP);\n\t}"
+        },
+        {
+          "before_offset": 1746,
+          "after_offset": 2093,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before_sha256": "fde552d876c9106bae4e873f14ee41ffd4faa512cb4e980f68f923e0b2bf43eb",
+      "after_sha256": "0bbe71343b86fa1f68f995c028851e16adfe0ea55abbc28fcd5082d36fa0bfc6",
+      "edits": [
+        {
+          "before_offset": 3007,
+          "after_offset": 3007,
+          "old": "public boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) || BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock());\n\t}",
+          "new": "public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tif (nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP)) return true;\n\t\tBlock nativeFenceBlock = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn nativeFenceBlock == Blocks.OAK_FENCE || nativeFenceBlock == Blocks.NETHER_BRICK_FENCE;\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "956237fcef324a518333207f79a3adcfe81d0e7d650130b455512b0a50dca633",
+      "after_sha256": "02c9df31bc0150ca204c64825310d8747b9d9aab6ce7d0d65a2640f1ddf657eb",
+      "edits": [
+        {
+          "before_offset": 1308,
+          "after_offset": 1308,
+          "old": "public boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\tBlock block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(world, x, y - 1, z) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement())) : false;\n\t}",
+          "new": "public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeSupportState.getBlock();\n\t\treturn block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube(nativeSupportState) && block.getDefaultState().getMaterial().blocksMovement())) : false;\n\t}"
+        },
+        {
+          "before_offset": 2008,
+          "after_offset": 2296,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java": {
+      "before_sha256": "8cd887417724caa86f3dbc50a1c5168e44a019109faaa229ffb2bcb2d0a8e143",
+      "after_sha256": "4fc55a4640b4cd6db77835e3a556d8c27a8277fccb0440cb6e29bc38744efeae",
+      "edits": [
+        {
+          "before_offset": 2608,
+          "after_offset": 2608,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java": {
+      "before_sha256": "fa566c7166b81953dddec7b4689ef6ec8fdd6f8db959406728b93aab0744bbf9",
+      "after_sha256": "98142d4466eb975d986f9530dad1166b78a99429b0566d176669fb168b8ce8f4",
+      "edits": [
+        {
+          "before_offset": 603,
+          "after_offset": 603,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "8dd9e3a29415d9824b1e219dbfafa402187e7d4fb088af4445ac58d32e505001",
+      "after_sha256": "e22ff45cf57e19f9c6d9dcb6996e10b9cf1763ff5875c2dca01cfad3f8a49f05",
+      "edits": [
+        {
+          "before_offset": 1408,
+          "after_offset": 1408,
+          "old": "public boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeAirState.getBlock();\n\n\t\tif (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;\n\t\tif (block.isLeaves(world, x, y - 1, z) && !block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) return true;\n\t\tif (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7) return true;\n\n\t\treturn block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement();\n\t}",
+          "new": "public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeAirState.getBlock();\n\n\t\tif (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;\n\t\tif (block.isLeaves(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) && !block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) return true;\n\t\tif (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7) return true;\n\n\t\treturn block.isOpaqueCube(nativeAirState) && block.getDefaultState().getMaterial().blocksMovement();\n\t}"
+        },
+        {
+          "before_offset": 2943,
+          "after_offset": 3142,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockModDoor.java": {
+      "before_sha256": "9e0752b722ebe53671b5ac676b9fa05ee1d2ecce812f7bcbce0f27bd6445e9fe",
+      "after_sha256": "e76d612b4aa30b36bbcb3c3bac8064e3a581098a0f47bb38f6079cfd1dd1c77d",
+      "edits": [
+        {
+          "before_offset": 12226,
+          "after_offset": 12226,
+          "old": "public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {\n\t\treturn p_149742_3_ >= p_149742_1_.getHeight() - 1 ? false\n\t\t\t\t: World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_)\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_)\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_ + 1, p_149742_4_);\n\t}",
+          "new": "public boolean canPlaceBlockAt(World p_149742_1_, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint p_149742_2_ = nativePlacementPos.getX(), p_149742_3_ = nativePlacementPos.getY(), p_149742_4_ = nativePlacementPos.getZ();\n\t\tif (p_149742_3_ >= p_149742_1_.getHeight() - 1) return false;\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_);\n\t\treturn nativeSupportState.getBlock().isSideSolid(nativeSupportState, p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_ - 1, p_149742_4_), net.minecraft.util.EnumFacing.UP)\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_, p_149742_4_))\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_ + 1, p_149742_4_));\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java": {
+      "before_sha256": "b307fbce1969b232a8e8dd31791768d4cb63bd391c753f1c1154af9f128e2b1a",
+      "after_sha256": "ad795f3310d6cb9bd6e81e477b1c7e3298f8026e6de1a60bd12c69ddbac9565a",
+      "edits": [
+        {
+          "before_offset": 1080,
+          "after_offset": 1080,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java": {
+      "before_sha256": "f1514c2cd0463348d05f2797d5aba5ab0968ab7906394123dccbd2ef2065e25e",
+      "after_sha256": "8663234ebe5572ba5de0107c13d5679ad6c7df3c43835e41998c8e5b2e9dc8d4",
+      "edits": [
+        {
+          "before_offset": 549,
+          "after_offset": 549,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java": {
+      "before_sha256": "9a4edf283a984121558d7191a25912ee96e9308038e85a2729833f3821bb064e",
+      "after_sha256": "ed03fc87817692bf36694565cd2a3b530fbd032e5cf2f99976cf949964bc4934",
+      "edits": [
+        {
+          "before_offset": 1277,
+          "after_offset": 1277,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\n\t\tif(this == ModBlocks.stalagmite) return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z);\n\t\tif(this == ModBlocks.stalactite) return com.hbm.lib.FacingCompat.isWorldSideSolid(world, x, y + 1, z, ForgeDirection.DOWN);\n\t\t\n\t\treturn true;\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\n\t\tif(this == ModBlocks.stalagmite) {\n\t\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\t\treturn nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP);\n\t\t}\n\t\tif(this == ModBlocks.stalactite) return com.hbm.lib.FacingCompat.isWorldSideSolid(world, x, y + 1, z, ForgeDirection.DOWN);\n\t\t\n\t\treturn true;\n\t}"
+        },
+        {
+          "before_offset": 1719,
+          "after_offset": 2076,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before_sha256": "01de7dc0ead1a75597ebd45a3290b775412dcafaae56a62d6565eec05f27bd8c",
+      "after_sha256": "4124811a52251f0207367b96be7e7083882485d37325f25255c55291ffaa9da5",
+      "edits": [
+        {
+          "before_offset": 3329,
+          "after_offset": 3329,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java": {
+      "before_sha256": "c64e2a53ba520b095c1eee70d40bc2185bb53ffd613bf7473beb923b4b36b7b4",
+      "after_sha256": "e7432e8f95ebdfccb65341492069393eaf14b1a378d5770d929ec6b621129d3a",
+      "edits": [
+        {
+          "before_offset": 2819,
+          "after_offset": 2819,
+          "old": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}",
+          "new": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockOrbitalStation.java": {
+      "before_sha256": "4776262ad31f2f0787bb209636fa68a2f17d933b0f599f74ce636d2b540b9f59",
+      "after_sha256": "bdc1a6acc50dd41015bc3323755dd7b78cc0342f4b41ac405533d45510b7cbc0",
+      "edits": [
+        {
+          "before_offset": 6708,
+          "after_offset": 6708,
+          "old": "@Override\n    public boolean canPlaceBlockAt(World worldIn, int x, int y, int z) {\n\t\tif(this == ModBlocks.orbital_station) return false; // block placing of extra main ports (use the dedicated sub-ports!)\n\t\treturn super.canPlaceBlockAt(worldIn, x, y, z);\n\t}",
+          "new": "@Override\n    public boolean canPlaceBlockAt(World worldIn, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tif(this == ModBlocks.orbital_station) return false; // block placing of extra main ports (use the dedicated sub-ports!)\n\t\treturn super.canPlaceBlockAt(worldIn, new net.minecraft.util.math.BlockPos(x, y, z));\n\t}"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineChungus.java": {
+      "before_sha256": "1c9a57de26a843a24c887749e91d8a19ff196b94e282f262c45572f305df0a1d",
+      "after_sha256": "1edd5000cd868c34fe6a82fc64f7ff8440f8922226e328ab5d2c9dfdfd0e1685",
+      "edits": [
+        {
+          "before_offset": 6111,
+          "after_offset": 6111,
+          "old": "world, x + dir.offsetX, y + 2, z + dir.offsetZ",
+          "new": "world, new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + 2, z + dir.offsetZ)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "b176490de233a9d64bb4eca921775ca43184002e078139d6eecb50a3f0c369e0",
+      "after_sha256": "c7493f2168c024be36d72800997a1766e7ca57ec020d56c8c93d05ac2f26c895",
+      "edits": [
+        {
+          "before_offset": 4654,
+          "after_offset": 4654,
+          "old": "world, x + ex, y + iy, z + ez",
+          "new": "world, new net.minecraft.util.math.BlockPos(x + ex, y + iy, z + ez)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionTorus.java": {
+      "before_sha256": "40fd4a0b63f61024a0d2c7f9dc4f54516fd0210c9ed112b98e4bd10cccf4b51f",
+      "after_sha256": "be4b586c7d5fee23f080f728acbd13b2f31f1233f9d10fa549f0862b69043d11",
+      "edits": [
+        {
+          "before_offset": 4229,
+          "after_offset": 4229,
+          "old": "world, x + ex, y + iy, z + ez",
+          "new": "world, new net.minecraft.util.math.BlockPos(x + ex, y + iy, z + ez)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java": {
+      "before_sha256": "18141c0b41d1e687ddb393edd228c1d2ec171cf1b673ae92d470e11e693fd4f2",
+      "after_sha256": "08b242e91fcb453e2490a99edfa6b9f6357258069b1a942945bb8c65e4be613c",
+      "edits": [
+        {
+          "before_offset": 7551,
+          "after_offset": 7551,
+          "old": "this.world, x, y + 1, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)"
+        },
+        {
+          "before_offset": 7731,
+          "after_offset": 7769,
+          "old": "this.world, x, y + 1, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityWastePearl.java": {
+      "before_sha256": "edf7d56a2ef0c16ec6a5be4e678bd21427a76e6a3c811364b8e2ccd31379302a",
+      "after_sha256": "950add258909f17a19de50ce37941a8df130cf6ab7723c5d6ce324397f973159",
+      "edits": [
+        {
+          "before_offset": 1146,
+          "after_offset": 1146,
+          "old": "this.world, ix, iy, iz",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionThermo.java": {
+      "before_sha256": "77e10bbcdd5461b8ee3b3bd19632c744c71929ad30a2053b82e250eaf4917d80",
+      "after_sha256": "0df87767c8d53e9828b61aceeb051a51661726f96bacd3c2518a3e7f95840b03",
+      "edits": [
+        {
+          "before_offset": 1647,
+          "after_offset": 1647,
+          "old": "world, X, Y + 1, Z",
+          "new": "world, new net.minecraft.util.math.BlockPos(X, Y + 1, Z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModDoor.java": {
+      "before_sha256": "b49e7ba239deed5b233eed51688ee2b752d975d8a222e29452237510743097ce",
+      "after_sha256": "ed170c76acda0b02591a22ce14ad44f74ae87a021dfe8718313db1d10db35180",
+      "edits": [
+        {
+          "before_offset": 1237,
+          "after_offset": 1237,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": {
+      "before_sha256": "ab663416bde3308fd7d661d677f1ccc59a7b8edd25994fb88b0f75a9340f77f1",
+      "after_sha256": "18d3563082bf4edf94dd878ca1e54fd764d5a86aeb0757d7d5026fd7c076f332",
+      "edits": [
+        {
+          "before_offset": 6051,
+          "after_offset": 6051,
+          "old": "bullet.world, ix, iy, iz",
+          "new": "bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)"
+        },
+        {
+          "before_offset": 9005,
+          "after_offset": 9043,
+          "old": "bullet.world, ix, iy, iz",
+          "new": "bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "6335f19cf5014007b44872aafc5e1b1246a007183c80a0b248810740e5623050",
+      "after_sha256": "fbd5c058d2815363581b2d7c6db23a2f616754d117b50ba2920e167deda6b0d1",
+      "edits": [
+        {
+          "before_offset": 17521,
+          "after_offset": 17521,
+          "old": "event.getEntityLiving().world, (int)event.getEntityLiving().posX+i, (int)event.getEntityLiving().posY+j, (int)event.getEntityLiving().posZ+k",
+          "new": "event.getEntityLiving().world, new net.minecraft.util.math.BlockPos((int)event.getEntityLiving().posX+i, (int)event.getEntityLiving().posY+j, (int)event.getEntityLiving().posZ+k)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java": {
+      "before_sha256": "777bdbbece805e845cd37d696759122c0394926dafd89e1ce8a9c5f448a87030",
+      "after_sha256": "03ca5220cb3505423818d90b8d155b6439173c94d0e17d24c2d6242968431798",
+      "edits": [
+        {
+          "before_offset": 3522,
+          "after_offset": 3522,
+          "old": "this.world, x, y, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OilSpot.java": {
+      "before_sha256": "5bd235b676c0dac8891bf76ebd67ceb72753d75a246d700e7034e2563ffdf8fd",
+      "after_sha256": "52516524a7dfd31a546feb98a6a1a25bdf664c16758a2b330a4ff72007984874",
+      "edits": [
+        {
+          "before_offset": 8794,
+          "after_offset": 8794,
+          "old": "world, rX, y + 1, rZ",
+          "new": "world, new net.minecraft.util.math.BlockPos(rX, y + 1, rZ)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreCave.java": {
+      "before_sha256": "59c0a78271a4d6a07bdb5bc9d12674bdc202fcb167663b81187565eb7326cd94",
+      "after_sha256": "a472ce82ad3b5bd5165a3e0dcd2df9a81b7a577e7809b4f883cf3df0b104e85c",
+      "edits": [
+        {
+          "before_offset": 6583,
+          "after_offset": 6583,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        },
+        {
+          "before_offset": 6785,
+          "after_offset": 6823,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    }
+  },
+  "owners": [
+    {
+      "file": "src/main/java/com/hbm/blocks/BlockKelp.java",
+      "owner": "com.hbm.blocks.BlockKelp",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\tBlock below = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn below == this || below == ModBlocks.laythe_silt;\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tBlock below = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn below == this || below == ModBlocks.laythe_silt;\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/BlockVinylVine.java",
+      "owner": "com.hbm.blocks.BlockVinylVine",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+      "owner": "com.hbm.blocks.BlockWaterPlant",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+      "owner": "com.hbm.blocks.bomb.DigammaFlame",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn World.doesBlockHaveSolidTopSurface(world, x, y - 1, z);\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\treturn nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP);\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "owner": "com.hbm.blocks.bomb.Landmine",
+      "before_method": "public boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) || BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock());\n\t}",
+      "after_method": "public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tif (nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP)) return true;\n\t\tBlock nativeFenceBlock = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn nativeFenceBlock == Blocks.OAK_FENCE || nativeFenceBlock == Blocks.NETHER_BRICK_FENCE;\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+      "owner": "com.hbm.blocks.fluid.MeltedFlesh",
+      "before_method": "public boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\tBlock block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\treturn block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(world, x, y - 1, z) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement())) : false;\n\t}",
+      "after_method": "public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeSupportState.getBlock();\n\t\treturn block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube(nativeSupportState) && block.getDefaultState().getMaterial().blocksMovement())) : false;\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+      "owner": "com.hbm.blocks.generic.BlockDeadPlant",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+      "owner": "com.hbm.blocks.generic.BlockFallout",
+      "before_method": "public boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeAirState.getBlock();\n\n\t\tif (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;\n\t\tif (block.isLeaves(world, x, y - 1, z) && !block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) return true;\n\t\tif (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7) return true;\n\n\t\treturn block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement();\n\t}",
+      "after_method": "public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeAirState.getBlock();\n\n\t\tif (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;\n\t\tif (block.isLeaves(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) && !block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) return true;\n\t\tif (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7) return true;\n\n\t\treturn block.isOpaqueCube(nativeAirState) && block.getDefaultState().getMaterial().blocksMovement();\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+      "owner": "com.hbm.blocks.generic.BlockModDoor",
+      "before_method": "public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {\n\t\treturn p_149742_3_ >= p_149742_1_.getHeight() - 1 ? false\n\t\t\t\t: World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_)\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_)\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_ + 1, p_149742_4_);\n\t}",
+      "after_method": "public boolean canPlaceBlockAt(World p_149742_1_, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint p_149742_2_ = nativePlacementPos.getX(), p_149742_3_ = nativePlacementPos.getY(), p_149742_4_ = nativePlacementPos.getZ();\n\t\tif (p_149742_3_ >= p_149742_1_.getHeight() - 1) return false;\n\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_);\n\t\treturn nativeSupportState.getBlock().isSideSolid(nativeSupportState, p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_ - 1, p_149742_4_), net.minecraft.util.EnumFacing.UP)\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_, p_149742_4_))\n\t\t\t\t\t\t&& super.canPlaceBlockAt(p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_ + 1, p_149742_4_));\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+      "owner": "com.hbm.blocks.generic.BlockMush",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+      "owner": "com.hbm.blocks.generic.BlockRubberPlant",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+      "owner": "com.hbm.blocks.generic.BlockStalagmite",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\n\t\tif(this == ModBlocks.stalagmite) return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z);\n\t\tif(this == ModBlocks.stalactite) return com.hbm.lib.FacingCompat.isWorldSideSolid(world, x, y + 1, z, ForgeDirection.DOWN);\n\t\t\n\t\treturn true;\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\n\t\tif(this == ModBlocks.stalagmite) {\n\t\t\tnet.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\t\treturn nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP);\n\t\t}\n\t\tif(this == ModBlocks.stalactite) return com.hbm.lib.FacingCompat.isWorldSideSolid(world, x, y + 1, z, ForgeDirection.DOWN);\n\t\t\n\t\treturn true;\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+      "owner": "com.hbm.blocks.generic.BlockTallPlant",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "owner": "com.hbm.blocks.generic.BlockTallPlantWater",
+      "before_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\treturn super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}",
+      "after_method": "@Override\n\tpublic boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\treturn super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();\n\t}"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStation.java",
+      "owner": "com.hbm.blocks.machine.BlockOrbitalStation",
+      "before_method": "@Override\n    public boolean canPlaceBlockAt(World worldIn, int x, int y, int z) {\n\t\tif(this == ModBlocks.orbital_station) return false; // block placing of extra main ports (use the dedicated sub-ports!)\n\t\treturn super.canPlaceBlockAt(worldIn, x, y, z);\n\t}",
+      "after_method": "@Override\n    public boolean canPlaceBlockAt(World worldIn, net.minecraft.util.math.BlockPos nativePlacementPos) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n\t\tif(this == ModBlocks.orbital_station) return false; // block placing of extra main ports (use the dedicated sub-ports!)\n\t\treturn super.canPlaceBlockAt(worldIn, new net.minecraft.util.math.BlockPos(x, y, z));\n\t}"
+    }
+  ],
+  "already_native": [
+    {
+      "file": "src/main/java/com/hbm/blocks/BlockCoral.java",
+      "owner": "com.hbm.blocks.BlockCoral",
+      "signature": "World,BlockPos"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockChain.java",
+      "owner": "com.hbm.blocks.generic.BlockChain",
+      "signature": "World,BlockPos"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockHangingVine.java",
+      "owner": "com.hbm.blocks.generic.BlockHangingVine",
+      "signature": "World,BlockPos"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockLayering.java",
+      "owner": "com.hbm.blocks.generic.BlockLayering",
+      "signature": "World,BlockPos"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+      "owner": "com.hbm.blocks.generic.BlockNTMFlower",
+      "signature": "World,BlockPos"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockReeds.java",
+      "owner": "com.hbm.blocks.generic.BlockReeds",
+      "signature": "World,BlockPos"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockRubberCacti.java",
+      "owner": "com.hbm.blocks.generic.BlockRubberCacti",
+      "signature": "World,BlockPos"
+    }
+  ],
+  "callers": [
+    {
+      "file": "src/main/java/com/hbm/blocks/BlockVinylVine.java",
+      "before_line": 22,
+      "receiver": "super",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+      "before_line": 52,
+      "receiver": "super",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/Balefire.java",
+      "before_line": 59,
+      "receiver": "this",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+      "before_line": 68,
+      "receiver": "this",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+      "before_line": 57,
+      "receiver": "this",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java",
+      "before_line": 81,
+      "receiver": "ModBlocks.fallout",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+      "before_line": 31,
+      "receiver": "super",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+      "before_line": 84,
+      "receiver": "this",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+      "before_line": 353,
+      "receiver": "super",
+      "arguments": [
+        "p_149742_1_",
+        "p_149742_2_",
+        "p_149742_3_",
+        "p_149742_4_"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+      "before_line": 354,
+      "receiver": "super",
+      "arguments": [
+        "p_149742_1_",
+        "p_149742_2_",
+        "p_149742_3_ + 1",
+        "p_149742_4_"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+      "before_line": 39,
+      "receiver": "super",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+      "before_line": 28,
+      "receiver": "super",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+      "before_line": 68,
+      "receiver": "this",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+      "before_line": 125,
+      "receiver": "super",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "before_line": 95,
+      "receiver": "super",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/BlockOrbitalStation.java",
+      "before_line": 216,
+      "receiver": "super",
+      "arguments": [
+        "worldIn",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+      "before_line": 138,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + 2, z + dir.offsetZ).getBlock()",
+      "arguments": [
+        "world",
+        "x + dir.offsetX",
+        "y + 2",
+        "z + dir.offsetZ"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "before_line": 161,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + ex, y + iy, z + ez).getBlock()",
+      "arguments": [
+        "world",
+        "x + ex",
+        "y + iy",
+        "z + ez"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionTorus.java",
+      "before_line": 120,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x + ex, y + iy, z + ez).getBlock()",
+      "arguments": [
+        "world",
+        "x + ex",
+        "y + iy",
+        "z + ez"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+      "before_line": 184,
+      "receiver": "ModBlocks.fallout",
+      "arguments": [
+        "this.world",
+        "x",
+        "y + 1",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+      "before_line": 189,
+      "receiver": "ModBlocks.fallout",
+      "arguments": [
+        "this.world",
+        "x",
+        "y + 1",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/grenade/EntityWastePearl.java",
+      "before_line": 37,
+      "receiver": "ModBlocks.fallout",
+      "arguments": [
+        "this.world",
+        "ix",
+        "iy",
+        "iz"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/explosion/ExplosionThermo.java",
+      "before_line": 65,
+      "receiver": "Blocks.SNOW_LAYER",
+      "arguments": [
+        "world",
+        "X",
+        "Y + 1",
+        "Z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemModDoor.java",
+      "before_line": 37,
+      "receiver": "block",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+      "before_line": 126,
+      "receiver": "ModBlocks.foam_layer",
+      "arguments": [
+        "bullet.world",
+        "ix",
+        "iy",
+        "iz"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+      "before_line": 165,
+      "receiver": "ModBlocks.sand_boron_layer",
+      "arguments": [
+        "bullet.world",
+        "ix",
+        "iy",
+        "iz"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "before_line": 429,
+      "receiver": "ModBlocks.flesh_block",
+      "arguments": [
+        "event.getEntityLiving().world",
+        "(int)event.getEntityLiving().posX+i",
+        "(int)event.getEntityLiving().posY+j",
+        "(int)event.getEntityLiving().posZ+k"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+      "before_line": 74,
+      "receiver": "ModBlocks.oil_spill",
+      "arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OilSpot.java",
+      "before_line": 71,
+      "receiver": "ModBlocks.plant_flower",
+      "arguments": [
+        "world",
+        "rX",
+        "y + 1",
+        "rZ"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 198,
+      "receiver": "ModBlocks.stalactite",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/OreCave.java",
+      "before_line": 201,
+      "receiver": "ModBlocks.stalagmite",
+      "arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ]
+    }
+  ]
+}

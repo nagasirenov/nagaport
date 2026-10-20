@@ -28,7 +28,7 @@ public class ArmorHazmatMask extends ArmorHazmat implements IGasMask {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(this == ModItems.hazmat_helmet_red || this == ModItems.hazmat_helmet_grey) {
 			if (this.modelM65 == null) {

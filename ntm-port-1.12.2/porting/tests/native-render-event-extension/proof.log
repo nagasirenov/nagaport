@@ -1,0 +1,33 @@
+PASS 6 exact whole-file inverses and 27 source mutations
+/workspace/shared/nagaport-render-event-cp85/ntm-port-1.12.2/porting/tests/native-render-event-extension/NativeExtensionTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-render-event-cp85/ntm-port-1.12.2/porting/tests/native-render-event-extension/NativeExtensionTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-render-event-cp85/ntm-port-1.12.2/porting/tests/native-render-event-extension/NativeExtensionTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-render-event-cp85/ntm-port-1.12.2/porting/tests/native-render-event-extension/NativeExtensionTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+        ^
+/workspace/shared/nagaport-render-event-cp85/ntm-port-1.12.2/porting/tests/native-render-event-extension/NativeExtensionTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                ^
+/workspace/shared/nagaport-render-event-cp85/ntm-port-1.12.2/porting/tests/native-render-event-extension/NativeExtensionTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                                                                                         ^
+/workspace/shared/nagaport-render-event-cp85/ntm-port-1.12.2/porting/tests/native-render-event-extension/NativeExtensionTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe u=unsafe();RenderPlayer renderer=(RenderPlayer)u.allocateInstance(RenderPlayer.class);
+   ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+7 warnings
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[10:48:02] [main/INFO]: Setting user: AtlasProbe
+PASS 916 actual native event/accessor assertions; no complete handlers/event bus/game claim
+Note: /tmp/event-extension-ib5wrwz4/SelectedReads.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS wrong-value compiled getter mutant rejected
+PASS 10 typed scope controls including reachable override, writes and shadow
+PASS 4 immutable original fields and exact native direct-field getters; no handler/event-bus/game claim

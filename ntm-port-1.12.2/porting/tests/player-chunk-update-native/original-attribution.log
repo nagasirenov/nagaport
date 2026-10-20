@@ -1,0 +1,8 @@
+/tmp/player-chunk-update-z9m0n22t/original/src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java	4984	5052	net.minecraft.world.WorldServer	legacy getter absent; typed exact WorldServer/int arguments
+/tmp/player-chunk-update-z9m0n22t/original/src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java	2262	2356	net.minecraft.world.WorldServer	legacy getter absent; typed exact WorldServer/int arguments
+/tmp/player-chunk-update-z9m0n22t/original/src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java	1876	1970	net.minecraft.world.WorldServer	legacy getter absent; typed exact WorldServer/int arguments
+/tmp/player-chunk-update-z9m0n22t/original/src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java	2815	2936	net.minecraft.world.WorldServer	legacy getter absent; typed exact WorldServer/int arguments
+/tmp/player-chunk-update-z9m0n22t/original/src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java	1886	1980	net.minecraft.world.WorldServer	legacy getter absent; typed exact WorldServer/int arguments
+/tmp/player-chunk-update-z9m0n22t/original/src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java	2869	2963	net.minecraft.world.WorldServer	legacy getter absent; typed exact WorldServer/int arguments
+/tmp/player-chunk-update-z9m0n22t/original/src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java	3758	3870	net.minecraft.world.WorldServer	legacy getter absent; typed exact WorldServer/int arguments
+Attribution errors in unfinished source, not a successful full compilation: 11430

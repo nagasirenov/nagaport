@@ -1,0 +1,14 @@
+{
+  "pins": {
+    "porting/tests/check-native-normal-world-air-source.py": "63a7aea8157ea60c2e25974717e094e37648f293361e7040fe2f3d14d9cc332c",
+    "porting/tests/native-normal-world-air-source-manifest.json": "516ce9e9579be5477075bfef64416bc798cb250136d56c44c33d4d27f456cd8a"
+  },
+  "files": [
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+    "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java"
+  ]
+}

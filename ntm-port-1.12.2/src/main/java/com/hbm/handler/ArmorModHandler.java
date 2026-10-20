@@ -2,6 +2,7 @@ package com.hbm.handler;
 
 import com.hbm.items.armor.ItemArmorMod;
 import net.minecraft.item.ItemArmor;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -58,7 +59,7 @@ public class ArmorModHandler {
 		if(!(mod.getItem() instanceof ItemArmorMod))
 			return false;
 
-		int type = ((ItemArmor)armor.getItem()).armorType;
+		int type = com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType);
 
 		ItemArmorMod aMod = (ItemArmorMod)mod.getItem();
 
@@ -114,7 +115,7 @@ public class ArmorModHandler {
 		NBTTagCompound mods = nbt.getCompoundTag(MOD_COMPOUND_KEY);
 		mods.removeTag(MOD_SLOT_KEY + slot);
 
-		if(mods.hasNoTags())
+		if(mods.isEmpty())
 			clearMods(armor);
 	}
 
@@ -165,7 +166,7 @@ public class ArmorModHandler {
 
 			NBTTagCompound cmp = mods.getCompoundTag(MOD_SLOT_KEY + i);
 
-			ItemStack stack = ItemStack.loadItemStackFromNBT(cmp);
+			ItemStack stack = NullableInventoryStackNbt.read(cmp);
 
 			if(stack != null)
 				slots[i] = stack;
@@ -184,7 +185,7 @@ public class ArmorModHandler {
 		NBTTagCompound nbt = armor.getTagCompound();
 		NBTTagCompound mods = nbt.getCompoundTag(MOD_COMPOUND_KEY);
 		NBTTagCompound cmp = mods.getCompoundTag(MOD_SLOT_KEY + slot);
-		ItemStack stack = ItemStack.loadItemStackFromNBT(cmp);
+		ItemStack stack = NullableInventoryStackNbt.read(cmp);
 
 		if(stack != null)
 			return stack;

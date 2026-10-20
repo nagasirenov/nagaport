@@ -1,0 +1,435 @@
+{
+  "base": "df18fc077648dd18e6d0c1055d82c11dc2ebdb78",
+  "log_path": "ntm-port-1.12.2/porting/checkpoint82/full-compile.log",
+  "log_sha256": "1ffc68fc77dcc9babe745e50907a44a3542526566ff559f45d39280321c26296",
+  "watcher_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java",
+      "line": 47,
+      "message": "cannot find symbol",
+      "detail": "    \tthis.dataWatcher.addObject(20, Byte.valueOf((byte)0));\n    \t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 77,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 81,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(10, fluid.getID());\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 86,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn Fluids.fromID(this.dataWatcher.getWatchableObjectInt(10));\n\t\t                         ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 54,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(10, new Float(1));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 55,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(11, new Integer(0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 223,
+      "message": "cannot find symbol",
+      "detail": "\t\tif(!this.world.isRemote) getDataWatcher().updateObject(10, scale);\n\t\t                         ^\n  symbol:   method getDataWatcher()\n  location: class EntityNukeTorex"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 232,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(11, type);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 255,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectFloat(10);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 502,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tint type = EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11);\n\t\t\t                               ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java",
+      "line": 38,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(10, (byte)dir.ordinal());\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java",
+      "line": 42,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn ForgeDirection.getOrientation(this.dataWatcher.getWatchableObjectByte(10));\n\t\t                                         ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java",
+      "line": 47,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(10, new Byte((byte)0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 142,
+      "message": "cannot find symbol",
+      "detail": "\t\t\ttorex.getDataWatcher().updateObject(10, 1.5F);\n\t\t\t     ^\n  symbol:   method getDataWatcher()\n  location: variable torex of type EntityNukeTorex"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 282,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tbomb.getDataWatcher().updateObject(20, (byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));\n\t\t\t\t    ^\n  symbol:   method getDataWatcher()\n  location: variable bomb of type EntityFallingNuke"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+      "line": 30,
+      "message": "cannot find symbol",
+      "detail": "\t\tswitch(p_76986_1_.getDataWatcher().getWatchableObjectByte(20)) {\n\t\t                 ^\n  symbol:   method getDataWatcher()\n  location: variable p_76986_1_ of type Entity"
+    }
+  ],
+  "other_same_file_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 47,
+      "message": "EntityChemical is not abstract and does not override abstract method shoot(double,double,double,float,float) in IProjectile",
+      "detail": "public class EntityChemical extends EntityThrowableNT {\n       ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 117,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tif(MainRegistry.proxy.me().getDistanceToEntity(this) < 100)\n\t\t\t\t                          ^\n  symbol:   method getDistanceToEntity(EntityChemical)\n  location: class EntityPlayer"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 140,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tif(MainRegistry.proxy.me().getDistanceToEntity(this) < 100)\n\t\t\t\t                          ^\n  symbol:   method getDistanceToEntity(EntityChemical)\n  location: class EntityPlayer"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 168,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.weakness.id, 60, 9));\n\t\t\t\t                                              ^\n  symbol:   variable weakness\n  location: class Potion"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 272,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 2 * 60 * 20, 4));\n\t\t\t\t                                              ^\n  symbol:   variable digSpeed\n  location: class Potion"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 275,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 5 * 60 * 20, 4));\n\t\t\t\t\t                                              ^\n  symbol:   variable damageBoost\n  location: class Potion"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 280,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2 * 60 * 20, 2));\n\t\t\t\t\t                                              ^\n  symbol:   variable damageBoost\n  location: class Potion"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 338,
+      "message": "cannot find symbol",
+      "detail": "\t\tif(e.world.blockExists(i, j, k)) {\n\t\t          ^\n  symbol:   method blockExists(int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 355,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tif(e.world.getCollidingBoundingBoxes(e, e.getEntityBoundingBox()).isEmpty() && !e.world.isAnyLiquid(e.getEntityBoundingBox())) {\n\t\t\t\t          ^\n  symbol:   method getCollidingBoundingBoxes(Entity,AxisAlignedBB)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 355,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tif(e.world.getCollidingBoundingBoxes(e, e.getEntityBoundingBox()).isEmpty() && !e.world.isAnyLiquid(e.getEntityBoundingBox())) {\n\t\t\t\t                                                                                       ^\n  symbol:   method isAnyLiquid(AxisAlignedBB)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 379,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\t\te.playSound(\"mob.endermen.portal\", 1.0F, 1.0F);\n\t\t\t            ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 413,
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "detail": "\t\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {\n\t\t\t\t\t\t                                                                                                               ^\n  required: IBlockState,IBlockAccess,BlockPos\n  found: World,int,int,int\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 414,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\t\tthis.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);\n\t\t\t\t\t\t\t          ^\n  symbol:   method setBlock(int,int,int,Block)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 425,
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "detail": "\t\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {\n\t\t\t\t\t\t                                                                                                               ^\n  required: IBlockState,IBlockAccess,BlockPos\n  found: World,int,int,int\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 426,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\t\tthis.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);\n\t\t\t\t\t\t\t          ^\n  symbol:   method setBlock(int,int,int,Block)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 465,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tif(this.world.getBlockLightValue(x, y + 1, z) >= 9 && this.world.getBlockLightOpacity(x, y + 1, z) <= 2) {\n\t\t\t\t\t\t             ^\n  symbol:   method getBlockLightValue(int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 465,
+      "message": "method getBlockLightOpacity in class World cannot be applied to given types;",
+      "detail": "\t\t\t\t\t\tif(this.world.getBlockLightValue(x, y + 1, z) >= 9 && this.world.getBlockLightOpacity(x, y + 1, z) <= 2) {\n\t\t\t\t\t\t                                                                ^\n  required: BlockPos\n  found: int,int,int\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 477,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\t\t\tthis.world.playAuxSFX(2005, x, y + 1, z, 0);\n\t\t\t\t\t\t\t\t          ^\n  symbol:   method playAuxSFX(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 481,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tint meta = this.world.getBlockMetadata(x, y, z);\n\t\t\t\t\t                     ^\n  symbol:   method getBlockMetadata(int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 485,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tif(block == ModBlocks.brick_concrete) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy);\n\t\t\t\t\t                                                ^\n  symbol:   method setBlock(int,int,int,Block)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 486,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tif(block == ModBlocks.concrete_brick_slab && meta % 8 == 0) this.world.setBlock(x, y, z, ModBlocks.concrete_brick_slab, meta + 1, 3);\n\t\t\t\t\t                                                                      ^\n  symbol:   method setBlock(int,int,int,Block,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "line": 487,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tif(block == ModBlocks.brick_concrete_stairs) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy_stairs, meta, 3);\n\t\t\t\t\t                                                       ^\n  symbol:   method setBlock(int,int,int,Block,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 58,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override @SideOnly(Side.CLIENT) public int getBrightnessForRender(float interp) { return 15728880; }\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 59,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override public float getBrightness(float interp) { return 1.0F; }\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 76,
+      "message": "lastLightningBolt has private access in World",
+      "detail": "\t\t\tif(ticksExisted < 100) this.world.lastLightningBolt = 2;\n\t\t\t                                 ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 106,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tif(MainRegistry.proxy.me() != null && MainRegistry.proxy.me().getDistanceToEntity(this) < (ticksExisted * 1.5 + 1) * 1.5) {\n\t\t\t\t\t                                                             ^\n  symbol:   method getDistanceToEntity(EntityNukeTorex)\n  location: class EntityPlayer"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 156,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tif(MainRegistry.proxy.me() != null && MainRegistry.proxy.me().getDistanceToEntity(this) < (ticksExisted * 1.5 + 1) * 1.5) {\n\t\t\t\t\t                                                             ^\n  symbol:   method getDistanceToEntity(EntityNukeTorex)\n  location: class EntityPlayer"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 626,
+      "message": "cannot find symbol",
+      "detail": "\t\tworld.spawnEntityInWorld(torex);\n\t\t     ^\n  symbol:   method spawnEntityInWorld(EntityNukeTorex)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+      "line": 632,
+      "message": "cannot find symbol",
+      "detail": "\t\tworld.spawnEntityInWorld(torex);\n\t\t     ^\n  symbol:   method spawnEntityInWorld(EntityNukeTorex)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java",
+      "line": 70,
+      "message": "cannot find symbol",
+      "detail": "\t\tList<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(\n\t\t                                                                                           ^\n  symbol:   method getBoundingBox(double,double,double,double,double,double)\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 118,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 123,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\t    ^\n  symbol: method onBlockDestroyedByPlayer(World,int,int,int,int)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 137,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(world, BombConfig.boyRadius, x + 0.5, y + 0.5, z + 0.5));\n\t\t\t     ^\n  symbol:   method spawnEntityInWorld(EntityNukeExplosionMK5)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 143,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.spawnEntityInWorld(torex);\n\t\t\t     ^\n  symbol:   method spawnEntityInWorld(EntityNukeTorex)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 170,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 173,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 176,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 4, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 179,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 183,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tMainRegistry.logger.log(Level.INFO, \"[BOMBPL]\" + this.getLocalizedName() + \" placed at \" + x + \" / \" + y + \" / \" + z + \"! \" + \"by \"+ player.getCommandSenderName());\n\t\t\t\t                                                                                                                                           ^\n  symbol:   method getCommandSenderName()\n  location: variable player of type EntityLivingBase"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 195,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.onBlockDestroyedByPlayer(world, x, y, z, 1);\n\t\t\t\t    ^\n  symbol: method onBlockDestroyedByPlayer(World,int,int,int,int)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 162,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworldObj.spawnEntityInWorld(ex);\n\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityNukeExplosionMK3)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 170,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworldObj.spawnEntityInWorld(cloud);\n\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityCloudFleijaRainbow)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 180,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tworldObj.spawnEntityInWorld(ex);\n\t\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityNukeExplosionMK3)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 184,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tworldObj.spawnEntityInWorld(cloud);\n\t\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityCloudFleija)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 197,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworldObj.spawnEntityInWorld(bf);\n\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityBalefire)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 207,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, (int)hydro, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5).moreFallout((int)dirty));\n\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityNukeExplosionMK5)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 216,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, (int)nuke, xCoord + 0.5, yCoord + 5, zCoord + 0.5).moreFallout((int)dirty));\n\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityNukeExplosionMK5)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 224,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFacNoRad(worldObj, (int)tnt, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5));\n\t\t\t        ^\n  symbol:   method spawnEntityInWorld(EntityNukeExplosionMK5)\n  location: variable worldObj of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 253,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 5, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 256,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 3, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 259,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 4, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 262,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 2, 2);\n\t\t\t     ^\n  symbol:   method setBlockMetadataWithNotify(int,int,int,int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 275,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tworld.func_147480_a(x, y, z, false);\n\t\t\t\t     ^\n  symbol:   method func_147480_a(int,int,int,boolean)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 286,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tworld.spawnEntityInWorld(bomb);\n\t\t\t\t     ^\n  symbol:   method spawnEntityInWorld(EntityFallingNuke)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+      "line": 19,
+      "message": "constructor Render in class Render<T> cannot be applied to given types;",
+      "detail": "\tpublic RenderFallingNuke() {\n\t                           ^\n  required: RenderManager\n  found: no arguments\n  reason: actual and formal argument lists differ in length\n  where T is a type-variable:\n    T extends Entity declared in class Render"
+    }
+  ]
+}

@@ -112,10 +112,11 @@ public class MachineFan extends BlockContainer implements IToolable, ITooltipPro
 					double push = 0.1;
 
 					for(int i = 1; i <= range; i++) {
-						Block block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i).getBlock();
+						net.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i);
+						Block block = nativeCubeState_block.getBlock();
 						boolean blowable = block instanceof IBlowable;
 
-						if(block.isNormalCube() || blowable) {
+						if(block.isNormalCube(nativeCubeState_block) || blowable) {
 							if(!this.world.isRemote && blowable)
 								((IBlowable) block).applyFan(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY() + dir.offsetY * i, this.pos.getZ() + dir.offsetZ * i, dir, i);
 
@@ -147,7 +148,7 @@ public class MachineFan extends BlockContainer implements IToolable, ITooltipPro
 
 					if(this.world.isRemote && this.world.rand.nextInt(30) == 0) {
 						double speed = 0.2;
-						this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + dir.offsetX * 0.5, this.pos.getY() + 0.5 + dir.offsetY * 0.5, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5, dir.offsetX * speed, dir.offsetY * speed, dir.offsetZ * speed);
+						this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + dir.offsetX * 0.5, this.pos.getY() + 0.5 + dir.offsetY * 0.5, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5, dir.offsetX * speed, dir.offsetY * speed, dir.offsetZ * speed);
 					}
 				}
 

@@ -121,8 +121,9 @@ public class BlockTallPlant extends BlockEnumMulti implements IPlantable, IGrowa
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z) && world.isAirBlock(x, y + 1, z);
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
+		return super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));
 	}
 
 	protected boolean canPlaceBlockOn(Block block) {
@@ -212,7 +213,7 @@ public class BlockTallPlant extends BlockEnumMulti implements IPlantable, IGrowa
 		
 		if(!type.needsOil) {
 			if(onTop == ModBlocks.dirt_dead || onTop == ModBlocks.dirt_oily) {
-				world.setBlock(x, y, z, ModBlocks.plant_dead, EnumDeadPlantType.BIGFLOWER.ordinal(), 3);
+				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.BIGFLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				return;
 			}
 		}

@@ -1,0 +1,1052 @@
+{
+  "baseline": "242867906a53eb7da03c879f476ced61c1170e14",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "64014238c21ddfb1410290d043a71c838dbf6eaa1364227b11b93244351ca9ba",
+      "after_sha256": "b57b04a9b863e28406c5119171187ac26f152d3384c4262a26e2616246244831",
+      "edits": [
+        {
+          "before_offset": 55782,
+          "after_offset": 55782,
+          "old": "\t\tore_nether_coal = new BlockNetherCoal(Material.ROCK, false, 5, true).setTranslationKey(\"ore_nether_coal\").setCreativeTab(MainRegistry.blockTab).setLightLevel(10F/15F).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_coal\");\r\n",
+          "new": "\t\tore_nether_coal = com.hbm.blocks.PlainCubeTextures.bind(new BlockNetherCoal(Material.ROCK, false, 5, true).setTranslationKey(\"ore_nether_coal\").setCreativeTab(MainRegistry.blockTab).setLightLevel(10F/15F).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_coal\");\r\n"
+        },
+        {
+          "before_offset": 81629,
+          "after_offset": 81648,
+          "old": "\t\tblock_waste = new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_waste\");\r\n\t\tblock_waste_painted = new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_painted\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_waste_painted\");\r\n\t\tblock_waste_vitrified = new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_vitrified\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_waste_vitrified\");\r\n",
+          "new": "\t\tblock_waste = com.hbm.blocks.PlainCubeTextures.bind(new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_waste\");\r\n\t\tblock_waste_painted = com.hbm.blocks.PlainCubeTextures.bind(new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_painted\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_waste_painted\");\r\n\t\tblock_waste_vitrified = com.hbm.blocks.PlainCubeTextures.bind(new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_vitrified\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_waste_vitrified\");\r\n"
+        },
+        {
+          "before_offset": 89695,
+          "after_offset": 89771,
+          "old": "\t\tblock_yellowcake = ((BlockHazardFalling) new BlockHazardFalling().makeBeaconable().setTranslationKey(\"block_yellowcake\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.SAND).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_yellowcake\");\r\n",
+          "new": "\t\tblock_yellowcake = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazardFalling) new BlockHazardFalling().makeBeaconable().setTranslationKey(\"block_yellowcake\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.SAND).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_yellowcake\");\r\n"
+        },
+        {
+          "before_offset": 92015,
+          "after_offset": 92110,
+          "old": "\t\tblock_red_phosphorus = ((BlockHazardFalling) new BlockHazardFalling().makeBeaconable()).withSoundType(SoundType.SAND).setTranslationKey(\"block_red_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_red_phosphorus\");\r\n\t\tblock_fallout = ((BlockHazardFalling) new BlockHazardFalling()).withSoundType(SoundType.GROUND).setTranslationKey(\"block_fallout\").setCreativeTab(MainRegistry.blockTab).setHardness(0.2F).setBlockTextureName(RefStrings.MODID + \":ash\");\r\n",
+          "new": "\t\tblock_red_phosphorus = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazardFalling) new BlockHazardFalling().makeBeaconable()).withSoundType(SoundType.SAND).setTranslationKey(\"block_red_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_red_phosphorus\");\r\n\t\tblock_fallout = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazardFalling) new BlockHazardFalling()).withSoundType(SoundType.GROUND).setTranslationKey(\"block_fallout\").setCreativeTab(MainRegistry.blockTab).setHardness(0.2F), RefStrings.MODID + \":ash\");\r\n"
+        },
+        {
+          "before_offset": 101507,
+          "after_offset": 101640,
+          "old": "\t\tasphalt = new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(120.0F).setBlockTextureName(RefStrings.MODID + \":asphalt\");\r\n\t\tasphalt_light = new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt_light\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(15.0F).setResistance(120.0F).setBlockTextureName(RefStrings.MODID + \":asphalt_light\");\r\n",
+          "new": "\t\tasphalt = com.hbm.blocks.PlainCubeTextures.bind(new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(120.0F), RefStrings.MODID + \":asphalt\");\r\n\t\tasphalt_light = com.hbm.blocks.PlainCubeTextures.bind(new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt_light\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(15.0F).setResistance(120.0F), RefStrings.MODID + \":asphalt_light\");\r\n"
+        },
+        {
+          "before_offset": 108229,
+          "after_offset": 108400,
+          "old": "\t\tconcrete_smooth = new BlockRadResistant(Material.ROCK).setTranslationKey(\"concrete_smooth\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F).setBlockTextureName(RefStrings.MODID + \":concrete\");\r\n",
+          "new": "\t\tconcrete_smooth = com.hbm.blocks.PlainCubeTextures.bind(new BlockRadResistant(Material.ROCK).setTranslationKey(\"concrete_smooth\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F), RefStrings.MODID + \":concrete\");\r\n"
+        },
+        {
+          "before_offset": 109810,
+          "after_offset": 110000,
+          "old": "\t\tconcrete_super_broken = new BlockFalling(Material.ROCK).setTranslationKey(\"concrete_super_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":concrete_super_broken\");\r\n",
+          "new": "\t\tconcrete_super_broken = com.hbm.blocks.PlainCubeTextures.bind(new BlockFalling(Material.ROCK).setTranslationKey(\"concrete_super_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(20.0F), RefStrings.MODID + \":concrete_super_broken\");\r\n"
+        },
+        {
+          "before_offset": 122323,
+          "after_offset": 122532,
+          "old": "\t\tblock_meteor_treasure = new BlockMeteoriteTreasure(Material.ROCK).setTranslationKey(\"block_meteor_treasure\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor_treasure\");\r\n",
+          "new": "\t\tblock_meteor_treasure = com.hbm.blocks.PlainCubeTextures.bind(new BlockMeteoriteTreasure(Material.ROCK).setTranslationKey(\"block_meteor_treasure\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":meteor_treasure\");\r\n"
+        },
+        {
+          "before_offset": 129858,
+          "after_offset": 130086,
+          "old": "\t\tbrick_jungle_fragile = new FragileBrick(Material.ROCK).setTranslationKey(\"brick_jungle_fragile\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":brick_jungle_fragile\");\r\n",
+          "new": "\t\tbrick_jungle_fragile = com.hbm.blocks.PlainCubeTextures.bind(new FragileBrick(Material.ROCK).setTranslationKey(\"brick_jungle_fragile\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":brick_jungle_fragile\");\r\n"
+        },
+        {
+          "before_offset": 242311,
+          "after_offset": 242558,
+          "old": "\t\toil_pipe = new BlockNoDrop(Material.IRON).setTranslationKey(\"oil_pipe\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":oil_pipe\");\r\n",
+          "new": "\t\toil_pipe = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.IRON).setTranslationKey(\"oil_pipe\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + \":oil_pipe\");\r\n"
+        },
+        {
+          "before_offset": 246967,
+          "after_offset": 247233,
+          "old": "\t\tbarricade = new BlockNoDrop(Material.SAND).setTranslationKey(\"barricade\").setHardness(1.0F).setResistance(2.5F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":barricade\");\r\n",
+          "new": "\t\tbarricade = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.SAND).setTranslationKey(\"barricade\").setHardness(1.0F).setResistance(2.5F).setCreativeTab(null), RefStrings.MODID + \":barricade\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/PlainCubeTextures.java": {
+      "before_sha256": "14a20a8b6b87ceeb50ed1674f81c931084acdab20710518830f61626080b1080",
+      "after_sha256": "8df295598841ce9ddf1fbe99ea0ad52024887e52fe4891e63faed38db3fa0c2e",
+      "edits": [
+        {
+          "before_offset": 146,
+          "after_offset": 146,
+          "old": "/** Texture bindings for the audited plain Outgas/Smolder/StepEffect, Hazard/HotHazard and Depth/DepthOre cubes only.\n",
+          "new": "/** Texture bindings for the audited plain Outgas/Smolder/StepEffect, Hazard/HotHazard and Depth/DepthOre cubes, plus the explicitly audited remainder only.\n"
+        },
+        {
+          "before_offset": 1188,
+          "after_offset": 1227,
+          "old": "                !owner.equals(\"com.hbm.blocks.generic.BlockDepthOre\"))\n",
+          "new": "                !owner.equals(\"com.hbm.blocks.generic.BlockDepthOre\") &&\n                !owner.equals(\"net.minecraft.block.BlockFalling\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockHazardFalling\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockMeteoriteTreasure\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockNetherCoal\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockNoDrop\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockNuclearWaste\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockRadResistant\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockSpeedy\") &&\n                !owner.equals(\"com.hbm.blocks.generic.FragileBrick\"))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Floodlight.java": {
+      "before_sha256": "128a7cc3d14eb09e9c5daaf9e1b8d9add82316b585bb1548eec24fc8dcf936a8",
+      "after_sha256": "d9d01dc4f80df7e61ad859ecfef4adc1876c7884bf305faef1ae4f75de5fb52f",
+      "edits": [
+        {
+          "before_offset": 6729,
+          "after_offset": 6729,
+          "old": "\t\t\t\t\t\t\tthis.world.setBlock(oldPos.getX(), oldPos.getY(), oldPos.getZ(), Blocks.AIR, 0, 2);\r\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, oldPos.getX(), oldPos.getY(), oldPos.getZ(), Blocks.AIR.getStateFromMeta(0), 2);\r\n"
+        },
+        {
+          "before_offset": 9582,
+          "after_offset": 9627,
+          "old": "\t\t\t\t\tthis.world.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR, 0, 2);\r\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR.getStateFromMeta(0), 2);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityBlackHole.java": {
+      "before_sha256": "d22fcd64095587bbc1130880c6349420c77e65f402533acaf51b2d853e85d4f3",
+      "after_sha256": "7fb62e38d4fdb2f90ee085e1df5944e7188225a25ea5a3bf21ae8684bed21187",
+      "edits": [
+        {
+          "before_offset": 2446,
+          "after_offset": 2446,
+          "old": "\t\t\t\t\t\tthis.world.setBlock(x0, y0, z0, Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x0, y0, z0, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 2953,
+          "after_offset": 3004,
+          "old": "\t\t\t\t\t\tthis.world.setBlock(x0, y0, z0, Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x0, y0, z0, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityBomber.java": {
+      "before_sha256": "4a8750b55db3568bd394cbbbf613f85f2d4d5bf92a0b34afceeeb224f6085fa8",
+      "after_sha256": "0380fb9c40ba62c105f507645eb20cb4843ed10ad139e9f84b3b0ef5910a9979",
+      "edits": [
+        {
+          "before_offset": 362,
+          "after_offset": 362,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 504,
+          "after_offset": 669,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Byte> BOMBER_STYLE = EntityDataManager.createKey(EntityBomber.class, DataSerializers.BYTE);\n\n"
+        },
+        {
+          "before_offset": 937,
+          "after_offset": 1231,
+          "old": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n",
+          "new": "\t\tthis.dataManager.register(BOMBER_STYLE, Byte.valueOf((byte) 0));\n"
+        },
+        {
+          "before_offset": 1000,
+          "after_offset": 1303,
+          "old": "",
+          "new": "\tpublic byte getBomberStyle() {\n\t\treturn this.dataManager.get(BOMBER_STYLE);\n\t}\n\n"
+        },
+        {
+          "before_offset": 1123,
+          "after_offset": 1507,
+          "old": "\t\t\tif(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {\n",
+          "new": "\t\t\tif(this.dataManager.get(PLANE_HEALTH) > 0) {\n"
+        },
+        {
+          "before_offset": 1232,
+          "after_offset": 1601,
+          "old": "\t\t\t\t\tint bomberType = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "\t\t\t\t\tint bomberType = this.dataManager.get(BOMBER_STYLE);\n"
+        },
+        {
+          "before_offset": 5082,
+          "after_offset": 5442,
+          "old": "\t\tthis.getDataWatcher().updateObject(16, (byte) i);\n",
+          "new": "\t\tthis.dataManager.set(BOMBER_STYLE, (byte) i);\n"
+        },
+        {
+          "before_offset": 6819,
+          "after_offset": 7175,
+          "old": "\t\tbomber.getDataWatcher().updateObject(16, (byte) i);\n",
+          "new": "\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) i);\n"
+        },
+        {
+          "before_offset": 7176,
+          "after_offset": 7528,
+          "old": "\t\tbomber.getDataWatcher().updateObject(16, (byte) 4);\n",
+          "new": "\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) 4);\n"
+        },
+        {
+          "before_offset": 7532,
+          "after_offset": 7880,
+          "old": "\t\tbomber.getDataWatcher().updateObject(16, (byte) 6);\n",
+          "new": "\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) 6);\n"
+        },
+        {
+          "before_offset": 7883,
+          "after_offset": 8227,
+          "old": "\t\tbomber.getDataWatcher().updateObject(16, (byte) 6);\n",
+          "new": "\t\tbomber.dataManager.set(BOMBER_STYLE, (byte) 6);\n"
+        },
+        {
+          "before_offset": 8325,
+          "after_offset": 8665,
+          "old": "    \tbomber.getDataWatcher().updateObject(16, (byte)9);\n",
+          "new": "    \tbomber.dataManager.set(BOMBER_STYLE, (byte)9);\n"
+        },
+        {
+          "before_offset": 8768,
+          "after_offset": 9104,
+          "old": "    \tbomber.getDataWatcher().updateObject(16, (byte)10);\n",
+          "new": "    \tbomber.dataManager.set(BOMBER_STYLE, (byte)10);\n"
+        },
+        {
+          "before_offset": 9103,
+          "after_offset": 9435,
+          "old": "\t\tthis.getDataWatcher().updateObject(16, nbt.getByte(\"style\"));\n",
+          "new": "\t\tthis.dataManager.set(BOMBER_STYLE, nbt.getByte(\"style\"));\n"
+        },
+        {
+          "before_offset": 9450,
+          "after_offset": 9778,
+          "old": "\t\tnbt.setByte(\"style\", this.getDataWatcher().getWatchableObjectByte(16));\n",
+          "new": "\t\tnbt.setByte(\"style\", this.dataManager.get(BOMBER_STYLE));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityC130.java": {
+      "before_sha256": "17eb9c725660198abb35549c63eb134e3c7fcd45cbb79c47afaf8567708d1f49",
+      "after_sha256": "8a6608dc52825d9313919a76692dbbcebd04e648fb6c4969cf97345a92760924",
+      "edits": [
+        {
+          "before_offset": 715,
+          "after_offset": 715,
+          "old": "\t\t\tif(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {\n",
+          "new": "\t\t\tif(this.dataManager.get(PLANE_HEALTH) > 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/logic/EntityPlaneBase.java": {
+      "before_sha256": "b7ee548d33dadee2e72506bbed228471a25100f3e5e8ab69aec92a7bf4a4db83",
+      "after_sha256": "98e9148db123d60746353b951b1cbddc588ceca4b9101cbb06a3a575eb4eb0bc",
+      "edits": [
+        {
+          "before_offset": 578,
+          "after_offset": 578,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 909,
+          "after_offset": 1074,
+          "old": "public abstract class EntityPlaneBase extends Entity implements IChunkLoader {\r\n",
+          "new": "public abstract class EntityPlaneBase extends Entity implements IChunkLoader {\n\tprotected static final DataParameter<Float> PLANE_HEALTH = EntityDataManager.createKey(EntityPlaneBase.class, DataSerializers.FLOAT);\n\r\n"
+        },
+        {
+          "before_offset": 2455,
+          "after_offset": 2756,
+          "old": "\t\tthis.dataWatcher.addObject(17, new Float(50F));\r\n",
+          "new": "\t\tthis.dataManager.register(PLANE_HEALTH, 50F);\r\n"
+        },
+        {
+          "before_offset": 2913,
+          "after_offset": 3212,
+          "old": "\t\t\tthis.dataWatcher.updateObject(17, health);\r\n",
+          "new": "\t\t\tthis.dataManager.set(PLANE_HEALTH, health);\r\n"
+        },
+        {
+          "before_offset": 2972,
+          "after_offset": 3272,
+          "old": "\t\t\thealth = this.dataWatcher.getWatchableObjectFloat(17);\r\n",
+          "new": "\t\t\thealth = this.dataManager.get(PLANE_HEALTH);\r\n"
+        },
+        {
+          "before_offset": 6742,
+          "after_offset": 7032,
+          "old": "\t\tthis.getDataWatcher().updateObject(17, nbt.getFloat(\"health\"));\r\n",
+          "new": "\t\tthis.dataManager.set(PLANE_HEALTH, nbt.getFloat(\"health\"));\r\n"
+        },
+        {
+          "before_offset": 6932,
+          "after_offset": 7218,
+          "old": "\t\tnbt.setFloat(\"health\", this.getDataWatcher().getWatchableObjectFloat(17));\r\n",
+          "new": "\t\tnbt.setFloat(\"health\", this.dataManager.get(PLANE_HEALTH));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java": {
+      "before_sha256": "83c38d19c6f9c8ee26d33dc4573a05c8ef4c1bfc20e1f368f1fcf674cfc52282",
+      "after_sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986",
+      "edits": [
+        {
+          "before_offset": 2912,
+          "after_offset": 2912,
+          "old": "\t\t\t\t\t\t\tthis.world.setBlock(x + iX, y + iY, z + iZ, Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x + iX, y + iY, z + iZ, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java": {
+      "before_sha256": "4f91c6a3d2ba7f8ad3bb4e8d58d5b5678149561ec1053faab8b31094a546f7b1",
+      "after_sha256": "42708dac9794ca1f5c9644ca5fbcb71fed0c067c0dec969d79e27163fb8ae938",
+      "edits": [
+        {
+          "before_offset": 4487,
+          "after_offset": 4487,
+          "old": "\t\t\t\t\tthis.world.setBlock(x1, y1, z1, Blocks.AIR);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x1, y1, z1, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/particle/EntityOrangeFX.java": {
+      "before_sha256": "fc66acf216e06da34b2377b77eae3b5b4fbd9546af73e2a97ed8a1ce84499b78",
+      "after_sha256": "c1303cbe140f63a0b58f2a67e5fbdb621360b3e7778e81b8062ded466d2832fb",
+      "edits": [
+        {
+          "before_offset": 2473,
+          "after_offset": 2473,
+          "old": "\t\t\t\t\t\t\t\tthis.world.setBlock((int) posX + a, (int) posY + b, (int) posZ + c, Blocks.DIRT, 1, 3);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, (int) posX + a, (int) posY + b, (int) posZ + c, Blocks.DIRT.getStateFromMeta(1), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "b17d921cf1080150f97f809fef6e955a37409cbcba74b4a666bc23cee06cc282",
+      "after_sha256": "387e44d6b3edcdc83c68c45f60f8b6069eb9f55499af9e22ed5c0718464c3d65",
+      "edits": [
+        {
+          "before_offset": 15370,
+          "after_offset": 15370,
+          "old": "\t\t\t\tthis.world.setBlock(this.tileX, this.tileY, this.tileZ, Blocks.AIR);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.tileX, this.tileY, this.tileZ, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "2c5c89405f428c461fb68ab74bdecaf95ed148838f90916e7e582faa768b13c1",
+      "after_sha256": "eed53cad8a79c8dbf4d139a4ffd493baf3a4df22e2236058305b475121c06cf2",
+      "edits": [
+        {
+          "before_offset": 14486,
+          "after_offset": 14486,
+          "old": "\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY, (int)posZ, Blocks.FIRE);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX + 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX + 1, (int)posY, (int)posZ, Blocks.FIRE);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX - 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX - 1, (int)posY, (int)posZ, Blocks.FIRE);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY + 1, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY + 1, (int)posZ, Blocks.FIRE);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY - 1, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY - 1, (int)posZ, Blocks.FIRE);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ + 1).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY, (int)posZ + 1, Blocks.FIRE);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ - 1).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY, (int)posZ - 1, Blocks.FIRE);\n",
+          "new": "\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX + 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX + 1, (int)posY, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX - 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX - 1, (int)posY, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY + 1, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY + 1, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY - 1, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY - 1, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ + 1).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY, (int)posZ + 1, Blocks.FIRE.getStateFromMeta(0), 3);\n\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ - 1).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY, (int)posZ - 1, Blocks.FIRE.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "d66dda207b279d0eabcd02b960e9318f9a1b420905955e8468084eb135b0f29c",
+      "after_sha256": "a5e3baf54787788bb244109717c6c256dff2d90310f25532556bd30ca7cf885b",
+      "edits": [
+        {
+          "before_offset": 15380,
+          "after_offset": 15380,
+          "old": "\t\t\t\t\t\t\tthis.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 16075,
+          "after_offset": 16126,
+          "old": "\t\t\t\t\t\t\t\t\t\tthis.world.setBlock(x + i, y + j, z + k, Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x + i, y + j, z + k, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 16847,
+          "after_offset": 16949,
+          "old": "\t\t\t\t\t\t\t\tthis.world.setBlock(x, y, z, Blocks.GRASS);\n",
+          "new": "\t\t\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.GRASS.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 17458,
+          "after_offset": 17611,
+          "old": "\t\t\t\t\tif(block == Blocks.COBBLESTONE) this.world.setBlock(x, y, z, Blocks.MOSSY_COBBLESTONE);\n",
+          "new": "\t\t\t\t\tif(block == Blocks.COBBLESTONE) com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 18329,
+          "after_offset": 18533,
+          "old": "\t\t\t\t\tif(block == ModBlocks.waste_earth) this.world.setBlock(x, y, z, Blocks.GRASS);\n",
+          "new": "\t\t\t\t\tif(block == ModBlocks.waste_earth) com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.GRASS.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 18946,
+          "after_offset": 19201,
+          "old": "\t\t\t\t\t\tthis.world.setBlock(x, y, z, Blocks.DIRT);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.DIRT.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": {
+      "before_sha256": "3f86f70194ab7cf0bb9cfe0231301e220336a3f1c4b9e9cee5c43be7657f6f2f",
+      "after_sha256": "0851bbdfeeb297f10bd15200e8e3e2739eee91073b7ce08aaa99c8cd5789bff4",
+      "edits": [
+        {
+          "before_offset": 3135,
+          "after_offset": 3135,
+          "old": "\t\t\t\t\tthis.world.setBlock(x, y, z, Blocks.FIRE);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.FIRE.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeRayBatched.java": {
+      "before_sha256": "64024193aca41d9b53ebfe3d443b05387727ff84020d75a7c47acd9215ae0de9",
+      "after_sha256": "2c13cf4a68c9acadee088e951a1d4e21e3f1de499010dae91bb28b2b384bf466",
+      "edits": [
+        {
+          "before_offset": 6551,
+          "after_offset": 6551,
+          "old": "\t\t\t\tworld.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR, 0, 2);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockState.write(world, pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR.getStateFromMeta(0), 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/BlockMutatorFire.java": {
+      "before_sha256": "02443e4edf5acc2bca9892845b703ae91288d18ac8909d4871e08039fd5c784d",
+      "after_sha256": "7bf83b0f7b990e492c5f8723389773aa8f9e844af09088dbf4baf487a3ac6c53",
+      "edits": [
+        {
+          "before_offset": 831,
+          "after_offset": 831,
+          "old": "\t\t\texplosion.world.setBlock(x, y, z, Blocks.FIRE);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockState.write(explosion.world, x, y, z, Blocks.FIRE.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/SlotCraftingOutput.java": {
+      "before_sha256": "0392574c2308b719a49cdf215f5071ace3c08ac156591ed001aaa0b139e80e00",
+      "after_sha256": "56a2f031534aa8ad48e390b41ee7e31aa21c1d546c2a7e7d11f0a3594c383035",
+      "edits": [
+        {
+          "before_offset": 936,
+          "after_offset": 936,
+          "old": "\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n",
+          "new": "\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n"
+        },
+        {
+          "before_offset": 1032,
+          "after_offset": 1027,
+          "old": "\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\treturn super.onTake(player, stack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java": {
+      "before_sha256": "f608dc90d29f25a4f324368bc70a3c43c8f82e13cc844612a0450338486b05a6",
+      "after_sha256": "a9fbf559bd2f97f7c8acd1714980c43ade41ebde25fb24e6fb87b14c67f11768",
+      "edits": [
+        {
+          "before_offset": 1753,
+          "after_offset": 1753,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerAnvil.java": {
+      "before_sha256": "75779bb286b6ed2b9a66e30cdb05a512ae0c50784400469ce1f0fbb469338628",
+      "after_sha256": "c5827e6e9c8b2d53cba84437f272ed1391c40aa2393de34aa137a37a07199220",
+      "edits": [
+        {
+          "before_offset": 1130,
+          "after_offset": 1130,
+          "old": "\t\t\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\t\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 1428,
+          "after_offset": 1413,
+          "old": "\t\t\t\t\treturn;\n",
+          "new": "\t\t\t\t\treturn stack;\n"
+        },
+        {
+          "before_offset": 1827,
+          "after_offset": 1818,
+          "old": "\t\t\t\t\t\treturn;\n",
+          "new": "\t\t\t\t\t\treturn stack;\n"
+        },
+        {
+          "before_offset": 1854,
+          "after_offset": 1851,
+          "old": "",
+          "new": "\t\t\t\treturn stack;\n"
+        },
+        {
+          "before_offset": 2852,
+          "after_offset": 2867,
+          "old": "\t\t\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        },
+        {
+          "before_offset": 3109,
+          "after_offset": 3114,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        },
+        {
+          "before_offset": 3904,
+          "after_offset": 3899,
+          "old": "\t\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 4058,
+          "after_offset": 4038,
+          "old": "",
+          "new": "\t\t\treturn stack;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java": {
+      "before_sha256": "5fee56dd07ca2eba1dac205851c4f2ad557c66b2258278b70645a6c043266a45",
+      "after_sha256": "8a86262be3716637e638ddfcfae54847549de93413c8d6c0de56e97e2f9d1c31",
+      "edits": [
+        {
+          "before_offset": 2605,
+          "after_offset": 2605,
+          "old": "\t\t\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\t\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 3146,
+          "after_offset": 3131,
+          "old": "",
+          "new": "\t\t\t\treturn stack;\n"
+        },
+        {
+          "before_offset": 4762,
+          "after_offset": 4765,
+          "old": "\t\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        },
+        {
+          "before_offset": 6802,
+          "after_offset": 6795,
+          "old": "\t\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 6991,
+          "after_offset": 6969,
+          "old": "",
+          "new": "\t\t\treturn stack;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerBook.java": {
+      "before_sha256": "342c3f4d3435434b199ab99080e89dc0a218114e9e7d7b5be27d463619bc80cc",
+      "after_sha256": "abf94beb2935521a994c5678d5f4aba58db7f209e11cbf1e18ab842e6c1e9f28",
+      "edits": [
+        {
+          "before_offset": 2900,
+          "after_offset": 2900,
+          "old": "\t\t\tslot.onPickupFromSlot(p_82846_1_, itemstack1);\n",
+          "new": "\t\t\tslot.onTake(p_82846_1_, itemstack1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCasingBag.java": {
+      "before_sha256": "f5cc55233cf78cd2fbf660d493869a33497306eace02dfc872255dd33405488a",
+      "after_sha256": "687595a69c75b46b8855abe84a6626347eeb062886c76b5700d69fc613b1db34",
+      "edits": [
+        {
+          "before_offset": 1766,
+          "after_offset": 1766,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java": {
+      "before_sha256": "c30ed03c90aa4d44b89eefc63c8badc674d212109b40ad13a4809b2204bfca6c",
+      "after_sha256": "a0d2d4addcc4801edc295175a894d3f570667af2ecfdebeda6269c0d0abf7351",
+      "edits": [
+        {
+          "before_offset": 1625,
+          "after_offset": 1625,
+          "old": "\t\t\tvar4.onPickupFromSlot(player, var5);\n",
+          "new": "\t\t\tvar4.onTake(player, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCraneExtractor.java": {
+      "before_sha256": "d7d40f1c73fb8cf8c1555345d5075d44995bb7a5257a9cf1762d508a609fd9ab",
+      "after_sha256": "9f937b7370ecf3f1ddee7335a8f8c78cd1fc271bfb06abef47d5c315da63907a",
+      "edits": [
+        {
+          "before_offset": 2091,
+          "after_offset": 2091,
+          "old": "\t\t\tvar4.onPickupFromSlot(player, var5);\n",
+          "new": "\t\t\tvar4.onTake(player, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCraneGrabber.java": {
+      "before_sha256": "8da75d69ad40d3b63f348d619f8ced0bb205c868c297c5eecba9bed890f770db",
+      "after_sha256": "ab6b2f239fc06f8a6a6e2993b605adab58acee2ec815de8bb6e95ed2f53977ee",
+      "edits": [
+        {
+          "before_offset": 1904,
+          "after_offset": 1904,
+          "old": "\t\t\tvar4.onPickupFromSlot(player, var5);\n",
+          "new": "\t\t\tvar4.onTake(player, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java": {
+      "before_sha256": "f4367b299f752a6153af93e33f219ac41e207696abc55dd980dfc6f585dc790c",
+      "after_sha256": "d1d18eead3eeb16f612c992e418333b29472ab14a11cce0046e44326f7ac57bb",
+      "edits": [
+        {
+          "before_offset": 1632,
+          "after_offset": 1632,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java": {
+      "before_sha256": "4dd90b1ad7bb7112f03b9b6aef991869b9fa0ee56a821c977c8d0c6019d4adf7",
+      "after_sha256": "d404db752420783b69f435a9549cccac43de115aec6a690d2051be8ab31fdd4e",
+      "edits": [
+        {
+          "before_offset": 1805,
+          "after_offset": 1805,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java": {
+      "before_sha256": "b90af0955cf6664fffac741744d2c553d57655854f0634238d9c31f97e177f23",
+      "after_sha256": "f71c13d5df6c5f4ef0d27b06561b6371ae85cbe9c8e2bf279c37812ed4009080",
+      "edits": [
+        {
+          "before_offset": 1867,
+          "after_offset": 1867,
+          "old": "\t\t\tvar4.onPickupFromSlot(player, var5);\n",
+          "new": "\t\t\tvar4.onTake(player, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerDroneRequester.java": {
+      "before_sha256": "457ceba1061cd7295124ba39f8f0212a357ed8ff6c05e4ff4cc2f8e22fa42484",
+      "after_sha256": "5d484e438881539080797c5f8a2a87ffdb7344f5df5601a82e396499b06198b4",
+      "edits": [
+        {
+          "before_offset": 1556,
+          "after_offset": 1556,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java": {
+      "before_sha256": "670faed187ee7c63054d6862bd3813d4e75de72fd76f04cd4877778f3b2ebbb3",
+      "after_sha256": "c13c533e0823c027d3a7d8e339ebc037d13c6b27bbfbc570a1d1147f5cab6463",
+      "edits": [
+        {
+          "before_offset": 1754,
+          "after_offset": 1754,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerLemegeton.java": {
+      "before_sha256": "130b62134d746c68d799a6392c458554d8ff2f00c9bdefad88df2a198e5b00b3",
+      "after_sha256": "3bbf214250cb3d509870e4bea268c27b426a06998988de9ea3458ec2b5fb6ccd",
+      "edits": [
+        {
+          "before_offset": 2477,
+          "after_offset": 2477,
+          "old": "\t\t\tslot.onPickupFromSlot(p_82846_1_, itemstack1);\n",
+          "new": "\t\t\tslot.onTake(p_82846_1_, itemstack1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachineAnnihilator.java": {
+      "before_sha256": "c9e8600ed986c4a01c14d10e8251869d8d001657c75d18310841fa41a2e880a8",
+      "after_sha256": "be33e558b2c0ff40edd0ee769c4ec59ec9f87644440c55ddeab62ff43a49e805",
+      "edits": [
+        {
+          "before_offset": 2116,
+          "after_offset": 2116,
+          "old": "\t\t\tslot.onPickupFromSlot(player, slotStack);\n",
+          "new": "\t\t\tslot.onTake(player, slotStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyFactory.java": {
+      "before_sha256": "f8e2bd02e003079a1881a93c99009225ff23bbc8fea2e2cf21049248d6ccbeb9",
+      "after_sha256": "c16abd146b4322c16d94fa5cff3cb548ec6b3a04edf295f3f29f2e36c7e7f532",
+      "edits": [
+        {
+          "before_offset": 3190,
+          "after_offset": 3190,
+          "old": "\t\t\tslot.onPickupFromSlot(player, slotStack);\n",
+          "new": "\t\t\tslot.onTake(player, slotStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyMachine.java": {
+      "before_sha256": "7ecc1e3e3b43e09e001007c390284b998826f9e11af76dc69d80a2b8eee7bb35",
+      "after_sha256": "a6e5b8c46a3f548340f88979a34edd927543c133a9b73f55a1d2551b51e631ec",
+      "edits": [
+        {
+          "before_offset": 2350,
+          "after_offset": 2350,
+          "old": "\t\t\tslot.onPickupFromSlot(player, slotStack);\n",
+          "new": "\t\t\tslot.onTake(player, slotStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalFactory.java": {
+      "before_sha256": "4aa76fc42b4e4ce1b7ef27bb18776ab89768bce29a642345a173d1c7a4f47160",
+      "after_sha256": "3dec6e8f7b0d2ba24a9b51905023ade18325528c15e92851728792b6b339052d",
+      "edits": [
+        {
+          "before_offset": 3163,
+          "after_offset": 3163,
+          "old": "\t\t\tslot.onPickupFromSlot(player, slotStack);\n",
+          "new": "\t\t\tslot.onTake(player, slotStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalPlant.java": {
+      "before_sha256": "c2075f7c982c382bb0fb82f9e87fc5b312abfb266dde05e5772c7d2113c66cf7",
+      "after_sha256": "f60dfbbb5a9cc7af39698d28d4b3e280f86eaa35d988354ef61160ba33b1d3cd",
+      "edits": [
+        {
+          "before_offset": 2667,
+          "after_offset": 2667,
+          "old": "\t\t\tslot.onPickupFromSlot(player, slotStack);\n",
+          "new": "\t\t\tslot.onTake(player, slotStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachinePUREX.java": {
+      "before_sha256": "0fb92ee4ef3618ecddfa617b495935f9fb566949e9030390e7020df632e25d1c",
+      "after_sha256": "fc4172c9f0af2e88739ae801591e226e00ec94e89efad13a1436f1d8c80f2bc0",
+      "edits": [
+        {
+          "before_offset": 2394,
+          "after_offset": 2394,
+          "old": "\t\t\tslot.onPickupFromSlot(player, slotStack);\n",
+          "new": "\t\t\tslot.onTake(player, slotStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMachinePrecAss.java": {
+      "before_sha256": "f7e67ea75261c0bd1ffe4c3ee9f0e8748074f7b145c83c64a46a3aac4ef5bdda",
+      "after_sha256": "16d98f0a74824edf974bd1c5dc8b6a2a2473e11b0a2e4cd1ef8bd68d2faf357f",
+      "edits": [
+        {
+          "before_offset": 2312,
+          "after_offset": 2312,
+          "old": "\t\t\tslot.onPickupFromSlot(player, slotStack);\n",
+          "new": "\t\t\tslot.onTake(player, slotStack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMassStorage.java": {
+      "before_sha256": "dcff671d98ae230e2f94220ad9579a8a2c85fb6c35ff5282058b79426face582",
+      "after_sha256": "94f95babc3ee4b8310824aad6e247fc1c42995d50e73cbe2032bad1356aac44f",
+      "edits": [
+        {
+          "before_offset": 1778,
+          "after_offset": 1778,
+          "old": "\t\t\tslot.onPickupFromSlot(player, initial);\n",
+          "new": "\t\t\tslot.onTake(player, initial);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java": {
+      "before_sha256": "5ff4504dad32df3a06a8906f15446b759df3e3c24f6d8d2cb9014a716c50f4cc",
+      "after_sha256": "c36202139eb46c3ddeae3df7eadc574be3a88a3f9a089ec66065921b476ba44f",
+      "edits": [
+        {
+          "before_offset": 1617,
+          "after_offset": 1617,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerSILEX.java": {
+      "before_sha256": "59deaa4a73bacbac410f98299240025cdaaffea12eb03f945454acd1f85f1680",
+      "after_sha256": "720081499c14dcf82a02984bee2aee4e7c450322e55fadefd6c7700fe4bd49b2",
+      "edits": [
+        {
+          "before_offset": 2789,
+          "after_offset": 2789,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java": {
+      "before_sha256": "188c80082724a492307c3db2db206a4aef63dc4354b43445a15c5d0bceb8fb46",
+      "after_sha256": "aabccc8cd1779a26bc611fb2f30afb2ebc4364feb2e25d4b594b769003d00d08",
+      "edits": [
+        {
+          "before_offset": 1790,
+          "after_offset": 1790,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java": {
+      "before_sha256": "2cd2fabae7a28b6641d84f71bb77c6ea95e26a19c49dcd57a3f494e90fe91197",
+      "after_sha256": "3cc3f2987900bebd7e6f1b7e7463bdc559c8a8739b301a7557721028a23f2d6d",
+      "edits": [
+        {
+          "before_offset": 1747,
+          "after_offset": 1747,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerTransporterRocket.java": {
+      "before_sha256": "4b2edc25d09cf197020deda3ec03f3c4c611f8689f50325d961b5454d2d1e67c",
+      "after_sha256": "0fd4897798727ed58b2c2fcb4a22204130941abaa3d35768d0cd1d20a0186d62",
+      "edits": [
+        {
+          "before_offset": 2022,
+          "after_offset": 2022,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerTurretBase.java": {
+      "before_sha256": "7feb292e4460d4c036660a43da06d9f52e59219a4ed5f347e4d35064478e3327",
+      "after_sha256": "b86da1471c1841299365810130a181f20b0624a9edbd158111f1b4a82ed5d67d",
+      "edits": [
+        {
+          "before_offset": 1944,
+          "after_offset": 1944,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerWasteDrum.java": {
+      "before_sha256": "b5e5d985548bfcea238062f32fa4a9b76e57c9958dbb1012abf7a3465f65d663",
+      "after_sha256": "fa9768ab8bcb565855714afad3b18227a1d63a5cc7919f48db976cbc3e8c4622",
+      "edits": [
+        {
+          "before_offset": 2189,
+          "after_offset": 2189,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerWatz.java": {
+      "before_sha256": "a39f6fd47d645ce558b09a667d183635f813ba2985b1d893b466abf031197023",
+      "after_sha256": "c62193d777ab3f6ef977ee10feec7ace28070a3e9aaa22853de120bf13d11a6b",
+      "edits": [
+        {
+          "before_offset": 1808,
+          "after_offset": 1808,
+          "old": "\t\t\tvar4.onPickupFromSlot(p_82846_1_, var5);\n",
+          "new": "\t\t\tvar4.onTake(p_82846_1_, var5);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java": {
+      "before_sha256": "7aebf1dc4d56a70939b5e6de91438e0a34bf9145670508567b0608ab34e76eef",
+      "after_sha256": "ec9cb61f07e15c11458c86ad908e178fe35610e072862986113d5855cd3af6d9",
+      "edits": [
+        {
+          "before_offset": 1530,
+          "after_offset": 1530,
+          "old": "\t\t\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\t\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 2212,
+          "after_offset": 2197,
+          "old": "",
+          "new": "\t\t\t\treturn stack;\n"
+        },
+        {
+          "before_offset": 4954,
+          "after_offset": 4957,
+          "old": "\t\t\t\tslot.onPickupFromSlot(player, stack);\n",
+          "new": "\t\t\t\tslot.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 5857,
+          "after_offset": 5850,
+          "old": "\t\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onPickupFromSlot(player, stack);\n",
+          "new": "\t\tpublic ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onTake(player, stack);\n"
+        },
+        {
+          "before_offset": 5997,
+          "after_offset": 5975,
+          "old": "",
+          "new": "\t\t\treturn stack;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderBomber.java": {
+      "before_sha256": "6a1f1928ff01e11d05033e5102e2a4757f579d6c2d3a60eee47ec78c08967a59",
+      "after_sha256": "c3b39ba739cdab837077171ce738dc75ff1fcc861d6836c66cef8b2038ab3646",
+      "edits": [
+        {
+          "before_offset": 105,
+          "after_offset": 105,
+          "old": "",
+          "new": "import com.hbm.entity.logic.EntityBomber;\n"
+        },
+        {
+          "before_offset": 1011,
+          "after_offset": 1053,
+          "old": "\t\tint i = entity.getDataWatcher().getWatchableObjectByte(16);\n",
+          "new": "\t\tint i = ((EntityBomber) entity).getBomberStyle();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": {
+      "before_sha256": "d79637d7236560b91185f821b1a648db83b2ba307ae5f1498b20ae210f8e320e",
+      "after_sha256": "f9a20ab9b48360842b32102e68484def8de8409056582d5c85592213a304d6bd",
+      "edits": [
+        {
+          "before_offset": 10538,
+          "after_offset": 10538,
+          "old": "\t\t\tthis.world.setBlock(x, y, z, Blocks.AIR);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before_sha256": "f1a7f82de625268d893ea10d30013d6e58c19f6ff62869c67138b247e22a920e",
+      "after_sha256": "e64f8877eb0670a29546b80f7435a51b20695b090357e4221f970ed0c170727a",
+      "edits": [
+        {
+          "before_offset": 2744,
+          "after_offset": 2744,
+          "old": "\t\t\t\t\tthis.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java": {
+      "before_sha256": "a04dfcbdf071233d5b3db46361274c4bfa658a50f0a23121e504e421470ff517",
+      "after_sha256": "f66c32b21438995354785dbdb3da2bb355604d6823d61da80b75440de0ecd929",
+      "edits": [
+        {
+          "before_offset": 2262,
+          "after_offset": 2262,
+          "old": "\t\t\t\t\tthis.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA);\n",
+          "new": "\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMultiblock.java": {
+      "before_sha256": "1f8ca33708241757bf224e8f942a2f32ec85d11149d8282845ee2e143a1bcb41",
+      "after_sha256": "99ae1984dcd57e995c5447e3b2f8e0e4de197ff56b4455c4f22380ca67a05ce5",
+      "edits": [
+        {
+          "before_offset": 4423,
+          "after_offset": 4423,
+          "old": "\t\t\t\tthis.world.setBlock(this.getPos().getX() + 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.getPos().getX() + 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 5072,
+          "after_offset": 5123,
+          "old": "\t\t\t\tthis.world.setBlock(this.getPos().getX() - 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.getPos().getX() - 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 5721,
+          "after_offset": 5823,
+          "old": "\t\t\t\tthis.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() + 3, Blocks.AIR);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() + 3, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 6370,
+          "after_offset": 6523,
+          "old": "\t\t\t\tthis.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() - 3, Blocks.AIR);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() - 3, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWatz.java": {
+      "before_sha256": "56ef0eed51169853223b5b1212b4ad855928ab6a2ee165b5b2348df3527c115f",
+      "after_sha256": "1ece21e2eb5a11958aa4da1b9d952513bb85d6f885782841629aba4ea7206f09",
+      "edits": [
+        {
+          "before_offset": 5979,
+          "after_offset": 5979,
+          "old": "\t\t\t\t\t\t\tthis.world.setBlock(this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z, Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before_sha256": "049cbeaf0df4d9013504509ebeb8a04cb390fe49480bfa6389d0b6ab084ad15f",
+      "after_sha256": "16d7a23e345619ad3e3322d975f8b8735257aadb35f67ec583d53e72d0eb0a3c",
+      "edits": [
+        {
+          "before_offset": 10624,
+          "after_offset": 10624,
+          "old": "\t\t\tthis.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.LAVA);\n",
+          "new": "\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.LAVA.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 11441,
+          "after_offset": 11492,
+          "old": "\t\t\t\tthis.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.AIR);\n",
+          "new": "\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 15171,
+          "after_offset": 15273,
+          "old": "\t\t\t\t\t\tthis.world.setBlock(x, y, z, Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.AIR.getStateFromMeta(0), 3);\n"
+        },
+        {
+          "before_offset": 15640,
+          "after_offset": 15793,
+          "old": "\t\t\t\t\t\tthis.world.setBlock(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), Blocks.AIR);\n",
+          "new": "\t\t\t\t\t\tcom.hbm.world.WorldBlockState.write(this.world, tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), Blocks.AIR.getStateFromMeta(0), 3);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/WorldBlockState.java": {
+      "before_sha256": "3a8d62e0bf8fd086cb9e8d4ceed52aa35e6b670b942227a8b6f0a1018b0819f5",
+      "after_sha256": "554240513caba36cf5d1ab87850ba194967ead30fa25472393533dbdfb9dc718",
+      "edits": [
+        {
+          "before_offset": 206,
+          "after_offset": 206,
+          "old": "/** Native state reads within NTM's original integer-coordinate world domain. */\n",
+          "new": "/** Native states within NTM's original integer-coordinate world domain. */\n"
+        },
+        {
+          "before_offset": 862,
+          "after_offset": 857,
+          "old": "",
+          "new": "    /**\n     * Write an already resolved native state without expanding the original world domain.\n     * Callers supply states whose conversion is total and side-effect-free; this is not\n     * a legacy Block/metadata adapter.\n     */\n    public static boolean write(World world, int x, int y, int z, IBlockState state, int flags) {\n        Objects.requireNonNull(world);\n        if (x < -30000000 || z < -30000000 || x >= 30000000 || z >= 30000000 || y < 0 || y >= 256) {\n            return false;\n        }\n        return world.setBlockState(new BlockPos(x, y, z), state, flags);\n    }\n\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

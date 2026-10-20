@@ -1,0 +1,10 @@
+// SOURCE: /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/sources.zip!/net/minecraftforge/common/util/EnumHelper.java
+// EXCERPT containing public static ArmorMaterial addArmorMaterial; source lines 95-102
+    public static ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness)
+    {
+        return addEnum(ArmorMaterial.class, name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
+    }
+    @Nullable
+    public static EnumArt addArt(String name, String tile, int sizeX, int sizeY, int offsetX, int offsetY)
+    {
+        return addEnum(EnumArt.class, name, tile, sizeX, sizeY, offsetX, offsetY);

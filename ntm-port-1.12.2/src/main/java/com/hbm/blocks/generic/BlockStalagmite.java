@@ -55,9 +55,13 @@ public class BlockStalagmite extends BlockEnumMulti {
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 
-		if(this == ModBlocks.stalagmite) return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z);
+		if(this == ModBlocks.stalagmite) {
+			net.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
+			return nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP);
+		}
 		if(this == ModBlocks.stalactite) return com.hbm.lib.FacingCompat.isWorldSideSolid(world, x, y + 1, z, ForgeDirection.DOWN);
 		
 		return true;
@@ -65,8 +69,8 @@ public class BlockStalagmite extends BlockEnumMulti {
 
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(!canPlaceBlockAt(world, x, y, z)) {
-			world.func_147480_a(x, y, z, true);
+		if(!canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);
 		}
 	}
 

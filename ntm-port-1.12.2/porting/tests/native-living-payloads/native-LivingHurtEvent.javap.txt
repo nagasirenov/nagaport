@@ -1,0 +1,38 @@
+Compiled from "LivingHurtEvent.java"
+public class net.minecraftforge.event.entity.living.LivingHurtEvent extends net.minecraftforge.event.entity.living.LivingEvent {
+  private final net.minecraft.util.DamageSource source;
+
+  private float amount;
+
+  public net.minecraftforge.event.entity.living.LivingHurtEvent(net.minecraft.entity.EntityLivingBase, net.minecraft.util.DamageSource, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #15                 // Method net/minecraftforge/event/entity/living/LivingEvent."<init>":(Lnet/minecraft/entity/EntityLivingBase;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #17                 // Field source:Lnet/minecraft/util/DamageSource;
+      10: aload_0
+      11: fload_3
+      12: putfield      #19                 // Field amount:F
+      15: return
+
+  public net.minecraft.util.DamageSource getSource();
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field source:Lnet/minecraft/util/DamageSource;
+       4: areturn
+
+  public float getAmount();
+    Code:
+       0: aload_0
+       1: getfield      #19                 // Field amount:F
+       4: freturn
+
+  public void setAmount(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: putfield      #19                 // Field amount:F
+       5: return
+}

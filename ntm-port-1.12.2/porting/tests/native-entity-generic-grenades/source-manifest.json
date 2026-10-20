@@ -1,0 +1,152 @@
+{
+  "base": "77b595c32b46e2f9309bcf9924d654ddc29a3c95",
+  "group": "generic-grenades",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeImpactGeneric.java",
+      "class_name": "EntityGrenadeImpactGeneric",
+      "before_sha256": "d8148332b7f7b44359359a89eedcfa775973240493eed86027a906626a41d62c",
+      "after_sha256": "b50e437a32a60497f1650479dd553d25160828245830b06cc9d8c6141ae25dd4",
+      "original_sha256": "9184b6d82d5f23f9823ff77b966d81dc3c820b3fd417d153680172c952bcac8f",
+      "key": "GRENADE_ID",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\n\tprivate static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeImpactGeneric.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before_offset": 813,
+          "before": "this.dataWatcher.updateObject(12, Item.getIdFromItem(grenade))",
+          "after": "this.dataManager.set(GRENADE_ID, Item.getIdFromItem(grenade))",
+          "method": "public EntityGrenadeImpactGeneric setType(ItemGenericGrenade grenade) {",
+          "declaring_owner": "EntityGrenadeImpactGeneric",
+          "receiver_static_type": "EntityGrenadeImpactGeneric",
+          "legacy_slot": 12,
+          "after_offset": 1124
+        },
+        {
+          "before_offset": 952,
+          "before": "ItemGenericGrenade gren = (ItemGenericGrenade) Item.getItemById(this.dataWatcher.getWatchableObjectInt(12));",
+          "after": "int grenadeId = this.dataManager.get(GRENADE_ID);\n\t\tItemGenericGrenade gren = grenadeId == 0 ? null : (ItemGenericGrenade) Item.getItemById(grenadeId);",
+          "method": "public ItemGenericGrenade getGrenade() {",
+          "declaring_owner": "EntityGrenadeImpactGeneric",
+          "receiver_static_type": "EntityGrenadeImpactGeneric",
+          "legacy_slot": 12,
+          "native_item_zero_compatibility": "Original registry ID0 is null; native ItemAir at ID0 must retain original null fallback before cast.",
+          "after_offset": 1262
+        },
+        {
+          "before_offset": 1184,
+          "before": "this.dataWatcher.addObject(12, 0)",
+          "after": "this.dataManager.register(GRENADE_ID, 0)",
+          "method": "protected void entityInit() {",
+          "declaring_owner": "EntityGrenadeImpactGeneric",
+          "receiver_static_type": "EntityGrenadeImpactGeneric",
+          "legacy_slot": 12,
+          "after_offset": 1537
+        },
+        {
+          "before_offset": 1542,
+          "before": "this.dataWatcher.getWatchableObjectInt(12)",
+          "after": "this.dataManager.get(GRENADE_ID)",
+          "method": "public void writeEntityToNBT(NBTTagCompound nbt) {",
+          "declaring_owner": "EntityGrenadeImpactGeneric",
+          "receiver_static_type": "EntityGrenadeImpactGeneric",
+          "legacy_slot": 12,
+          "after_offset": 1902
+        },
+        {
+          "before_offset": 1689,
+          "before": "this.dataWatcher.updateObject(12, nbt.getInteger(\"grenade\"))",
+          "after": "this.dataManager.set(GRENADE_ID, nbt.getInteger(\"grenade\"))",
+          "method": "public void readEntityFromNBT(NBTTagCompound nbt) {",
+          "declaring_owner": "EntityGrenadeImpactGeneric",
+          "receiver_static_type": "EntityGrenadeImpactGeneric",
+          "legacy_slot": 12,
+          "after_offset": 2039
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java",
+      "class_name": "EntityGrenadeBouncyGeneric",
+      "before_sha256": "8d44ff26eea9d047276da1e92d509bbda23e5a2eedf8c378ac822c3d65327da8",
+      "after_sha256": "1de562b0daa6b8950d29e0170ee63597c2517220bc05f9ba72c3a01265309113",
+      "original_sha256": "c6eae9da803bc359354396f671453e8594eaab5fff8b96810c2d01404cf0aabc",
+      "key": "GRENADE_ID",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\n\tprivate static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeBouncyGeneric.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before_offset": 727,
+          "before": "this.dataWatcher.updateObject(12, Item.getIdFromItem(grenade))",
+          "after": "this.dataManager.set(GRENADE_ID, Item.getIdFromItem(grenade))",
+          "method": "public EntityGrenadeBouncyGeneric setType(ItemGenericGrenade grenade) {",
+          "declaring_owner": "EntityGrenadeBouncyGeneric",
+          "receiver_static_type": "EntityGrenadeBouncyGeneric",
+          "legacy_slot": 12,
+          "after_offset": 1038
+        },
+        {
+          "before_offset": 865,
+          "before": "ItemGenericGrenade gren = (ItemGenericGrenade) Item.getItemById(this.dataWatcher.getWatchableObjectInt(12));",
+          "after": "int grenadeId = this.dataManager.get(GRENADE_ID);\n\t\tItemGenericGrenade gren = grenadeId == 0 ? null : (ItemGenericGrenade) Item.getItemById(grenadeId);",
+          "method": "public ItemGenericGrenade getGrenade() {",
+          "declaring_owner": "EntityGrenadeBouncyGeneric",
+          "receiver_static_type": "EntityGrenadeBouncyGeneric",
+          "legacy_slot": 12,
+          "native_item_zero_compatibility": "Original registry ID0 is null; native ItemAir at ID0 must retain original null fallback before cast.",
+          "after_offset": 1175
+        },
+        {
+          "before_offset": 1097,
+          "before": "this.dataWatcher.addObject(12, 0)",
+          "after": "this.dataManager.register(GRENADE_ID, 0)",
+          "method": "protected void entityInit() {",
+          "declaring_owner": "EntityGrenadeBouncyGeneric",
+          "receiver_static_type": "EntityGrenadeBouncyGeneric",
+          "legacy_slot": 12,
+          "after_offset": 1450
+        },
+        {
+          "before_offset": 1398,
+          "before": "this.dataWatcher.getWatchableObjectInt(12)",
+          "after": "this.dataManager.get(GRENADE_ID)",
+          "method": "protected void writeEntityToNBT(NBTTagCompound nbt) {",
+          "declaring_owner": "EntityGrenadeBouncyGeneric",
+          "receiver_static_type": "EntityGrenadeBouncyGeneric",
+          "legacy_slot": 12,
+          "after_offset": 1758
+        },
+        {
+          "before_offset": 1548,
+          "before": "this.dataWatcher.updateObject(12, nbt.getInteger(\"grenade\"))",
+          "after": "this.dataManager.set(GRENADE_ID, nbt.getInteger(\"grenade\"))",
+          "method": "protected void readEntityFromNBT(NBTTagCompound nbt) {",
+          "declaring_owner": "EntityGrenadeBouncyGeneric",
+          "receiver_static_type": "EntityGrenadeBouncyGeneric",
+          "legacy_slot": 12,
+          "after_offset": 1898
+        }
+      ]
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityGrenadeBouncyGeneric",
+      "parent": "EntityGrenadeBouncyBase"
+    },
+    {
+      "class_name": "EntityGrenadeImpactGeneric",
+      "parent": "EntityGrenadeBase"
+    }
+  ]
+}

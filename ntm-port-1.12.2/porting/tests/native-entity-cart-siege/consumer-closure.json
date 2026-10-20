@@ -1,0 +1,570 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/trait/CBT_Invasion.java",
+    "sha256": "da0a0c58442a015ab611fad036b16332e3795f23763e2fb871a45f7c702d3b3e",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeCraft;"
+      },
+      {
+        "line": 4,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeUFO;"
+      },
+      {
+        "line": 267,
+        "source": "EntitySiegeCraft bigUfo = new EntitySiegeCraft(world);"
+      },
+      {
+        "line": 277,
+        "source": "EntitySiegeUFO smallUfo = new EntitySiegeUFO(world);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "sha256": "a9ffc8b3769b11f10244f8f609b869aeee081cf95aa8c6a86b65f3d5e5455ed6",
+    "references": [
+      {
+        "line": 22,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeCraft;"
+      },
+      {
+        "line": 23,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeUFO;"
+      },
+      {
+        "line": 179,
+        "source": "addMob(EntitySiegeUFO.class, \"entity_meme_ufo\", 0x303030, 0x800000);"
+      },
+      {
+        "line": 191,
+        "source": "addEntity(EntityMinecartCrate.class, \"entity_ntm_cart_crate\", 250, false);"
+      },
+      {
+        "line": 192,
+        "source": "addEntity(EntityMinecartDestroyer.class, \"entity_ntm_cart_crate\", 250, false);"
+      },
+      {
+        "line": 193,
+        "source": "addEntity(EntityMinecartOre.class, \"entity_ntm_cart_ore\", 250, false);"
+      },
+      {
+        "line": 195,
+        "source": "addEntity(EntityMagnusCartus.class, \"entity_ntm_cart_chungoid\", 250, false);"
+      },
+      {
+        "line": 196,
+        "source": "addEntity(EntityMinecartPowder.class, \"entity_ntm_cart_powder\", 250, false);"
+      },
+      {
+        "line": 197,
+        "source": "addEntity(EntityMinecartSemtex.class, \"entity_ntm_cart_semtex\", 250, false);"
+      },
+      {
+        "line": 250,
+        "source": "addMob(EntitySiegeCraft.class, \"entity_micro_ufo\", 0x5B963E, 0xC0B286);"
+      },
+      {
+        "line": 253,
+        "source": "addMob(EntityFBIDrone.class, \"entity_ntm_fbi_drone\", 0x008000, 0x404040);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/ModEntityList.java",
+    "sha256": "82360bd02e48d81a34124323540a9da69d70c42dec63a73f10c625a03e1866bf",
+    "references": [
+      {
+        "line": 119,
+        "source": "if(\"com.hbm.entity.cart.EntityMinecartDestroyer\".equals(entityClass.getName())"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java",
+    "sha256": "8b1799208cf87c488860a8e35b07cc9361aebb2900925fd37d9288b1b73de40e",
+    "references": [
+      {
+        "line": 19,
+        "source": "public abstract class EntityMinecartContainerBase extends EntityMinecartNTM implements IInventory {"
+      },
+      {
+        "line": 23,
+        "source": "public EntityMinecartContainerBase(World world) {"
+      },
+      {
+        "line": 27,
+        "source": "public EntityMinecartContainerBase(World world, double x, double y, double z, EnumCartBase type) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartCrate.java",
+    "sha256": "cea976cf944fce6a57f29278d413bea15202879a22ed60a0d5970bbe5ef12f6c",
+    "references": [
+      {
+        "line": 26,
+        "source": "public class EntityMinecartCrate extends EntityMinecartContainerBase implements IGUIProvider {"
+      },
+      {
+        "line": 28,
+        "source": "public EntityMinecartCrate(World world) {"
+      },
+      {
+        "line": 32,
+        "source": "public EntityMinecartCrate(World world, double x, double y, double z, EnumCartBase type, ItemStack stack) {"
+      },
+      {
+        "line": 108,
+        "source": "return new ContainerCrateSteel(player.inventory, (EntityMinecartCrate)player.world.getEntityByID(x));"
+      },
+      {
+        "line": 114,
+        "source": "return new GUICrateSteel(player.inventory, (EntityMinecartCrate) player.world.getEntityByID(x));"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartDestroyer.java",
+    "sha256": "fe038ea630ade9a7c9519b5b95021fd3bfc879acc9d648629e24ef2c17ab94de",
+    "references": [
+      {
+        "line": 28,
+        "source": "public class EntityMinecartDestroyer extends EntityMinecartContainerBase implements IGUIProvider {"
+      },
+      {
+        "line": 30,
+        "source": "public EntityMinecartDestroyer(World world) {"
+      },
+      {
+        "line": 34,
+        "source": "public EntityMinecartDestroyer(World world, double x, double y, double z, EnumCartBase type) {"
+      },
+      {
+        "line": 144,
+        "source": "return new ContainerCartDestroyer(player.inventory, (EntityMinecartDestroyer)player.world.getEntityByID(x));"
+      },
+      {
+        "line": 150,
+        "source": "return new GUICartDestroyer(player.inventory, (EntityMinecartDestroyer) player.world.getEntityByID(x));"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+    "sha256": "72a2107194024c677a3f431f7d3e12fe1974ceefcc7cb3cc5c509bb073f1ca70",
+    "references": [
+      {
+        "line": 16,
+        "source": "public abstract class EntityMinecartNTM extends EntityMinecart {"
+      },
+      {
+        "line": 20,
+        "source": "public EntityMinecartNTM(World p_i1712_1_) {"
+      },
+      {
+        "line": 24,
+        "source": "public EntityMinecartNTM(World world, double x, double y, double z, EnumCartBase type) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartOre.java",
+    "sha256": "658c09a7e46512e5f000e91dcc1a3d1af715cd6b8c1cec8701da05468a3c03a3",
+    "references": [
+      {
+        "line": 10,
+        "source": "public class EntityMinecartOre extends EntityMinecartNTM {"
+      },
+      {
+        "line": 12,
+        "source": "public EntityMinecartOre(World p_i1712_1_) {"
+      },
+      {
+        "line": 16,
+        "source": "public EntityMinecartOre(World world, double x, double y, double z, EnumCartBase type) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartPowder.java",
+    "sha256": "8cc6e2621bfd14e2d1f8ade3d1c006067ff2336f17c9177a16b90630caf35367",
+    "references": [
+      {
+        "line": 14,
+        "source": "public class EntityMinecartPowder extends EntityMinecartNTM {"
+      },
+      {
+        "line": 16,
+        "source": "public EntityMinecartPowder(World world) {"
+      },
+      {
+        "line": 20,
+        "source": "public EntityMinecartPowder(World world, double x, double y, double z, EnumCartBase type) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartSemtex.java",
+    "sha256": "26b170a2c5413dcae8ee1849ed4d34e8ef45e55f2280ef685b9f03b51b70733f",
+    "references": [
+      {
+        "line": 14,
+        "source": "public class EntityMinecartSemtex extends EntityMinecartNTM {"
+      },
+      {
+        "line": 16,
+        "source": "public EntityMinecartSemtex(World world) {"
+      },
+      {
+        "line": 20,
+        "source": "public EntityMinecartSemtex(World world, double x, double y, double z, EnumCartBase type) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+    "sha256": "108eb38197599afb327c50f337d3d3e0c779a35019315feb71b06585b4963270",
+    "references": [
+      {
+        "line": 14,
+        "source": "public class EntityMagnusCartus extends EntityMinecart {"
+      },
+      {
+        "line": 18,
+        "source": "public EntityMagnusCartus(World world) {"
+      },
+      {
+        "line": 22,
+        "source": "public EntityMagnusCartus(World p_i1713_1_, double p_i1713_2_, double p_i1713_4_, double p_i1713_6_) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityFBIDrone.java",
+    "sha256": "43628f9d0988c8372d3b5d4b95227473d3704cddede3d4b35d4b2c3d96764bec",
+    "references": [
+      {
+        "line": 9,
+        "source": "public class EntityFBIDrone extends EntityUFOBase {"
+      },
+      {
+        "line": 13,
+        "source": "public EntityFBIDrone(World world) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+    "sha256": "89daba58b83842806c3bd9bd0a6390f363f5dff19b6e831e2f30f7ba8efb8b2a",
+    "references": [
+      {
+        "line": 16,
+        "source": "public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffocationImmune {"
+      },
+      {
+        "line": 22,
+        "source": "public EntityUFOBase(World world) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+    "sha256": "84a8f4df0feea14638100f52ad82c458e37f0627875ee0b947eb9ae815e626c3",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.mob.EntityUFOBase;"
+      },
+      {
+        "line": 29,
+        "source": "public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {"
+      },
+      {
+        "line": 38,
+        "source": "public EntitySiegeCraft(World world) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+    "sha256": "385c4026fc28f0ee28f54bee4a7dbab2fafee2498ce69e589767ca00e241b3cc",
+    "references": [
+      {
+        "line": 26,
+        "source": "public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {"
+      },
+      {
+        "line": 28,
+        "source": "public EntitySiegeTunneler(World world) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+    "sha256": "4339334451452567cb09ee6caf111c63a45adecd3029dc0091ced61f7256d0ed",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.mob.EntityUFOBase;"
+      },
+      {
+        "line": 18,
+        "source": "public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {"
+      },
+      {
+        "line": 29,
+        "source": "public EntitySiegeUFO(World world) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/BossSpawnHandler.java",
+    "sha256": "11378e5a2520de2eac016ed9312068a133ee83796dfef759193861782c16bb23",
+    "references": [
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.mob.EntityFBIDrone;"
+      },
+      {
+        "line": 113,
+        "source": "trySpawn(world, (float)spawnX, (float)spawnY + 10, (float)spawnZ, new EntityFBIDrone(world));"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemModMinecart.java",
+    "sha256": "2e343d6d81d210aa4b20263237f7da37db4de400a39c0d276d9e5958146b1958",
+    "references": [
+      {
+        "line": 242,
+        "source": "case CRATE: return new EntityMinecartCrate(world, x, y, z, base, stack);"
+      },
+      {
+        "line": 243,
+        "source": "case DESTROYER: return new EntityMinecartDestroyer(world, x, y, z, base);"
+      },
+      {
+        "line": 244,
+        "source": "case EMPTY: return new EntityMinecartOre(world, x, y, z, base);"
+      },
+      {
+        "line": 245,
+        "source": "case POWDER: return new EntityMinecartPowder(world, x, y, z, base);"
+      },
+      {
+        "line": 246,
+        "source": "case SEMTEX: return new EntityMinecartSemtex(world, x, y, z, base);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java",
+    "sha256": "3db1ec305a1b1b4bfc74fa735578edcf238342e3f41e3f1ac9ba27f25a67e40b",
+    "references": [
+      {
+        "line": 64,
+        "source": "if(entity instanceof EntityFBIDrone) type = 2;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "sha256": "c4d91846df1aadac34fb08bcc8e2eda1a549d5443719a8205c388995e81b638c",
+    "references": [
+      {
+        "line": 22,
+        "source": "import com.hbm.entity.cart.EntityMinecartCrate;"
+      },
+      {
+        "line": 23,
+        "source": "import com.hbm.entity.cart.EntityMinecartNTM;"
+      },
+      {
+        "line": 839,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntitySiegeUFO.class, renderManager -> new RenderSiegeUFO(renderManager));"
+      },
+      {
+        "line": 863,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMinecartCrate.class, new RenderMinecart());"
+      },
+      {
+        "line": 864,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMinecartNTM.class, renderManager -> new RenderNeoCart(renderManager));"
+      },
+      {
+        "line": 865,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityMagnusCartus.class, renderManager -> new RenderMagnusCartus(renderManager));"
+      },
+      {
+        "line": 900,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntitySiegeCraft.class, renderManager -> new RenderSiegeCraft(renderManager));"
+      },
+      {
+        "line": 901,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntitySiegeTunneler.class, renderManager -> new RenderSiegeTunneler(renderManager));"
+      },
+      {
+        "line": 912,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityFBIDrone.class, renderManager -> new RenderDrone(renderManager));"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+    "sha256": "8f01b57095059874ebc6789abaf9a2e294fad8f30ff58223c87b08eab989092b",
+    "references": [
+      {
+        "line": 49,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeCraft;"
+      },
+      {
+        "line": 50,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeUFO;"
+      },
+      {
+        "line": 386,
+        "source": "if(event.getEntity() instanceof EntitySiegeUFO) {"
+      },
+      {
+        "line": 391,
+        "source": "}else if (event.getEntity() instanceof EntitySiegeCraft) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderMagnusCartus.java",
+    "sha256": "a238d2fad5d698eebd39e3371ac2e49a3c7882a760b2af025344449bc78a3138",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.item.EntityMagnusCartus;"
+      },
+      {
+        "line": 23,
+        "source": "EntityMagnusCartus cart = (EntityMagnusCartus) entity;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderNeoCart.java",
+    "sha256": "abb911113ee922ed002b79eb5648adfd0435a729e19ed895dcb8f927748693c1",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.cart.EntityMinecartNTM;"
+      },
+      {
+        "line": 23,
+        "source": "this.doRender((EntityMinecartNTM) entity, x, y, z, rot, interp);"
+      },
+      {
+        "line": 26,
+        "source": "public void doRender(EntityMinecartNTM cart, double x, double y, double z, float rot, float interp) {"
+      },
+      {
+        "line": 95,
+        "source": "return getEntityTexture((EntityMinecartNTM) entity);"
+      },
+      {
+        "line": 98,
+        "source": "protected ResourceLocation getEntityTexture(EntityMinecartNTM entity) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderDrone.java",
+    "sha256": "941f57f422bf6fdd9dfe97362d706bac1748fc2289605ab51ee0182217fd1eb9",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.mob.EntityFBIDrone;"
+      },
+      {
+        "line": 44,
+        "source": "return this.getEntityTexture((EntityFBIDrone) entity);"
+      },
+      {
+        "line": 47,
+        "source": "protected ResourceLocation getEntityTexture(EntityFBIDrone entity) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderSiegeCraft.java",
+    "sha256": "6d2438a7658039bb9a0e493981a18a7e791bdb167d49e8b0249aa048a5604c5f",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeCraft;"
+      },
+      {
+        "line": 36,
+        "source": "EntitySiegeCraft ufo = (EntitySiegeCraft) entity;"
+      },
+      {
+        "line": 106,
+        "source": "return this.getEntityTexture((EntitySiegeCraft) entity);"
+      },
+      {
+        "line": 109,
+        "source": "protected ResourceLocation getEntityTexture(EntitySiegeCraft entity) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderSiegeTunneler.java",
+    "sha256": "f2e2e20b319883ce646d6971f150895a6d03d225caacff8177cbdf18f1be8e5d",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeTunneler;"
+      },
+      {
+        "line": 48,
+        "source": "return this.getEntityTexture((EntitySiegeTunneler) entity);"
+      },
+      {
+        "line": 51,
+        "source": "protected ResourceLocation getEntityTexture(EntitySiegeTunneler entity) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderSiegeUFO.java",
+    "sha256": "4540eadbb0ea5a11f4d1132386163595f6040071fb8d292f6434280fca66b035",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.mob.siege.EntitySiegeUFO;"
+      },
+      {
+        "line": 27,
+        "source": "EntitySiegeUFO ufo = (EntitySiegeUFO) entity;"
+      },
+      {
+        "line": 53,
+        "source": "return this.getEntityTexture((EntitySiegeUFO) entity);"
+      },
+      {
+        "line": 56,
+        "source": "protected ResourceLocation getEntityTexture(EntitySiegeUFO entity) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityRadiobox.java",
+    "sha256": "48400c084cd51066ba6f31f160e84d178bc8a12560f17c4fb73b05ddc3ba6cad",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.mob.EntityFBIDrone;"
+      },
+      {
+        "line": 49,
+        "source": "if(entity instanceof EntityFBI || entity instanceof EntityFBIDrone) continue;"
+      }
+    ]
+  }
+]

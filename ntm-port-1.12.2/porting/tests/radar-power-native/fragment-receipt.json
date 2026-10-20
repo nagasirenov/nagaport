@@ -1,0 +1,21 @@
+{
+  "mode": "write",
+  "baseline": "a0dc7d14f453a1d6f01b0d5abdcd455358bf2714",
+  "operations": 9,
+  "files": [
+    {
+      "path": "com/hbm/blocks/machine/MachineRadar.java",
+      "calls": 4,
+      "before_sha256": "366767082787150404cea809ecb33a604c704e489b740a490d31e1b4789d12e7",
+      "after_sha256": "02dc21b68aeba10d8fa8668424721724bff0cc2b27a6be315141d12e455b88e8",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadarLarge.java",
+      "calls": 5,
+      "before_sha256": "f948f1683a4e12a2e6f80c1944993d43e3cc5eed453ad34113213f06f0bc2490",
+      "after_sha256": "7fed76db0dfb45661ce092ff53705af97a433866c516afd236be368d77702d86",
+      "exact_inverse": true
+    }
+  ]
+}

@@ -43,7 +43,7 @@ public class ItemCrayon extends ItemFood {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		Enum num = EnumUtil.grabEnumSafely(EnumChemDye.class, stack.getItemDamage());
 		return super.getTranslationKey() + "." + num.name().toLowerCase(Locale.US);
 	}

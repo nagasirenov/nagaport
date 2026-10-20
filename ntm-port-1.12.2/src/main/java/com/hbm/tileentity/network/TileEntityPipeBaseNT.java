@@ -72,7 +72,7 @@ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluid
 
 		if(this.world instanceof WorldServer) {
 			WorldServer world = (WorldServer) this.world;
-			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			world.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 		}
 		
 		UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), prev.getNetworkProvider());

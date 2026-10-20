@@ -1,0 +1,2 @@
+PASS byte-exact inverse: 31 material creations, 30 repair assignments, three complete registration owners; all other source bytes unchanged.
+PASS original/pristine closure: 138 custom-material constructor consumers, 28 concrete/ancestor owners, original texture callback bodies and renderIndex 0 preserved; Aus3 remains intentionally unused; exact creation/repair source and 12 mutation controls.

@@ -133,7 +133,7 @@ public class TileEntityFurnaceCombination extends TileEntityMachinePolluting imp
 		} else {
 			
 			if(this.wasOn && this.world.rand.nextInt(15) == 0) {
-				this.world.spawnParticle("lava", this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);
 			}
 		}
 	}

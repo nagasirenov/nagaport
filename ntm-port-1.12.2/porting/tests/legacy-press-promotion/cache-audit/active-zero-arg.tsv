@@ -1,0 +1,518 @@
+src/main/java/com/hbm/handler/DispenserBehaviorHandler.java	300	qualified	EnumFacing facing = BlockDispenser.func_149937_b(source.getBlockMetadata());
+src/main/java/com/hbm/handler/DispenserBehaviorHandler.java	324	qualified	EnumFacing facing = BlockDispenser.func_149937_b(source.getBlockMetadata());
+src/main/java/com/hbm/blocks/BlockVolcanoV2.java	64	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java	536	this	return (this.getBlockMetadata() >= 6 && this.getBlockMetadata() <= 11)
+src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java	536	this	return (this.getBlockMetadata() >= 6 && this.getBlockMetadata() <= 11)
+src/main/java/com/hbm/tileentity/TileEntityDoorGeneric.java	70	implicit_or_decl	ForgeDirection dir = ForgeDirection.getOrientation(getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/items/tool/ItemModMinecart.java	180	qualified	EnumFacing enumfacing = BlockDispenser.func_149937_b(source.getBlockMetadata());
+src/main/java/com/hbm/entity/projectile/EntityRubble.java	84	implicit_or_decl	public int getBlockMetadata() { return this.dataManager.get(BLOCK_META); }
+src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java	55	implicit_or_decl	public byte getBlockMetadata() {
+src/main/java/com/hbm/entity/mob/EntityBlockSpider.java	63	implicit_or_decl	public int getBlockMetadata() { return this.dataManager.get(BLOCK_META); }
+src/main/java/com/hbm/handler/neutron/PileNeutronHandler.java	81	qualified	int meta = tile.getBlockMetadata();
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	126	this	this.world.setBlock(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.getBlockType(), this.getBlockMetadata(), 3);
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	168	this	int meta = this.getBlockMetadata();
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	173	this	int meta = this.getBlockMetadata();
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	178	this	return this.getBlockMetadata() != META_SMOLDERING;
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	182	this	return this.getBlockMetadata() != META_SMOLDERING;
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	186	this	return this.getBlockMetadata() != META_SMOLDERING;
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	190	this	return this.getBlockMetadata() == META_SMOLDERING ? 15 : 0;
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	195	this	return this.getBlockMetadata() == META_SMOLDERING ? new Object[] {50, 50D, 10D} : null;
+src/main/java/com/hbm/blocks/bomb/BlockVolcano.java	199	this	switch(this.getBlockMetadata()) {
+src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java	87	qualified	ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata() - 10);
+src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java	85	qualified	ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata() - 10);
+src/main/java/com/hbm/blocks/machine/MachineTurbineGas.java	83	qualified	ForgeDirection dir = ForgeDirection.getOrientation(turbine.getBlockMetadata() - this.offset);
+src/main/java/com/hbm/blocks/machine/MachineCapacitor.java	187	this	ForgeDirection opp = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/MachineCapacitor.java	290	this	return dir == ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/MachineRotaryFurnace.java	81	qualified	ForgeDirection dir = ForgeDirection.getOrientation(furnace.getBlockMetadata() - offset);
+src/main/java/com/hbm/blocks/machine/MachineFan.java	108	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/BlockICF.java	99	this	this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/BlockICF.java	102	this	this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/BlockICF.java	164	this	if(this.getBlockMetadata() != 1) return 0;
+src/main/java/com/hbm/blocks/machine/BlockICF.java	173	this	if(this.getBlockMetadata() != 1) return;
+src/main/java/com/hbm/blocks/machine/BlockICF.java	180	this	if(this.getBlockMetadata() != 1) return 0;
+src/main/java/com/hbm/blocks/machine/BlockICF.java	203	this	if(this.getBlockMetadata() != 1) return false;
+src/main/java/com/hbm/blocks/machine/MachineChungus.java	60	qualified	ForgeDirection dir = ForgeDirection.getOrientation(entity.getBlockMetadata() - offset);
+src/main/java/com/hbm/blocks/machine/Floodlight.java	149	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() % 6).getOpposite();
+src/main/java/com/hbm/blocks/machine/Floodlight.java	222	this	int meta = this.getBlockMetadata();
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	105	this	this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	108	this	this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	170	this	if(this.getBlockMetadata() != 1) return fluid;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	180	this	if(this.getBlockMetadata() != 1) return 0;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	189	this	if(this.getBlockMetadata() != 1) return FluidTank.EMPTY_ARRAY;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	198	this	return this.getBlockMetadata() == 1;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	204	this	if(this.getBlockMetadata() != 1) return 0;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	219	this	if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	230	this	if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	241	this	if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	252	this	if(this.getBlockMetadata() != 1) return;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	261	this	if(this.getBlockMetadata() != 1) return 0;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	278	this	if(this.getBlockMetadata() != 1) return false;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	290	this	if(this.getBlockMetadata() != 1) return new int[0];
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	302	this	if(this.getBlockMetadata() != 1) return false;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	314	this	if(this.getBlockMetadata() != 1) return false;
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	337	this	if(this.getBlockMetadata() != 1) return new String[0];
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	345	this	if(this.getBlockMetadata() != 1) return "";
+src/main/java/com/hbm/blocks/machine/BlockPWR.java	353	this	if(this.getBlockMetadata() != 1) return "";
+src/main/java/com/hbm/blocks/machine/MachineDiesel.java	49	qualified	ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java	54	qualified	ForgeDirection dir = ForgeDirection.getOrientation(entity.getBlockMetadata() - this.offset);
+src/main/java/com/hbm/blocks/machine/PistonInserter.java	86	qualified	ForgeDirection dir = ForgeDirection.getOrientation(piston.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/PistonInserter.java	257	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/PistonInserter.java	348	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java	104	qualified	ForgeDirection dir = ForgeDirection.getOrientation(distill.getBlockMetadata() - offset);
+src/main/java/com/hbm/blocks/network/FluidPump.java	156	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/network/CraneSplitter.java	76	qualified	ForgeDirection rot = ForgeDirection.getOrientation(splitter.getBlockMetadata() - offset).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java	95	qualified	ForgeDirection dir = ForgeDirection.getOrientation(pipe.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/blocks/network/CableDiode.java	187	this	return ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/blocks/generic/BlockDoorGeneric.java	184	qualified	ForgeDirection dir = ForgeDirection.getOrientation(te2.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/blocks/generic/BlockDoorGeneric.java	188	qualified	switch(te2.getBlockMetadata() - offset){
+src/main/java/com/hbm/blocks/generic/BlockWandTandem.java	303	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/generic/BlockWandTandem.java	353	this	nbt.setInteger("direction", this.getBlockMetadata());
+src/main/java/com/hbm/blocks/generic/BlockEmitter.java	120	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/blocks/generic/BlockEmitter.java	157	this	if(this.getBlockMetadata() == 2) {
+src/main/java/com/hbm/blocks/generic/BlockEmitter.java	160	this	if(this.getBlockMetadata() == 3) {
+src/main/java/com/hbm/blocks/generic/BlockEmitter.java	163	this	if(this.getBlockMetadata() == 4) {
+src/main/java/com/hbm/blocks/generic/BlockEmitter.java	167	this	if(this.getBlockMetadata() == 5) {
+src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java	126	this	int subtype = this.getBlockMetadata();
+src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java	137	this	if(this.getBlockMetadata() == 1) scout.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_INFECTED);
+src/main/java/com/hbm/blocks/generic/BlockWandJigsaw.java	280	this	nbt.setInteger("direction", this.getBlockMetadata());
+src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java	71	qualified	switch(entity.getBlockMetadata() - this.offset) {
+src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java	234	qualified	int i = rbmk.getBlockMetadata();
+src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java	289	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java	759	this	int meta = this.getBlockMetadata() - BlockDummyable.offset;
+src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java	162	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseArtillery.java	64	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java	68	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPad.java	52	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java	217	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java	84	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java	252	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java	643	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/bomb/TileEntityCrashedBomb.java	26	this	EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java	347	this	missile.setDirection((byte) MathHelper.clamp(this.getBlockMetadata() - 10, 2, 5));
+src/main/java/com/hbm/tileentity/deco/TileEntityObjTester.java	11	implicit_or_decl	public int getBlockMetadata()
+src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java	46	this	Trap trap = Trap.get(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java	107	this	Trap trap = Trap.get(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java	103	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java	222	this	if(dir.getOpposite().ordinal() != this.getBlockMetadata())
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java	165	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java	548	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineDetector.java	19	this	int meta = this.getBlockMetadata();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java	102	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java	133	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java	211	this	return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;
+src/main/java/com/hbm/tileentity/machine/TileEntityICFStruct.java	21	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityICFStruct.java	38	this	this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.icf, this.getBlockMetadata() + BlockDummyable.offset, 3);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java	92	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java	159	this	this.getBlockMetadata();
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java	38	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java	70	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressor.java	58	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java	101	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java	263	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java	276	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java	98	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java	171	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java	184	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityFoundryOutlet.java	58	this	if(side != ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite()) return false;
+src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java	141	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java	92	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java	290	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java	300	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java	404	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java	135	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java	169	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java	277	this	ForgeDirection rot = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java	283	this	ForgeDirection rot = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityVaultDoorMigration.java	16	implicit_or_decl	int meta = getBlockMetadata();
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java	32	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java	207	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java	142	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java	170	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java	208	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java	198	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java	342	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java	580	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java	625	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java	86	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java	152	this	return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.WEST;
+src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java	42	this	ForgeDirection d = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java	151	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java	86	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java	165	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java	183	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java	194	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java	203	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineIntake.java	115	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java	64	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java	162	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityICF.java	165	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java	78	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java	137	this	ForgeDirection myDir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java	144	this	ForgeDirection myDir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java	201	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java	215	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java	107	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumTower.java	50	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java	216	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java	89	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java	169	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java	74	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityHeaterElectric.java	39	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java	119	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java	270	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java	306	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java	318	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java	458	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityRadiator.java	50	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityRadiator.java	61	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java	27	this	if(side != ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite()) return false;
+src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java	99	this	aabb = BlockDummyable.getAABBRotationOffset(aabb, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP));
+src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java	132	this	int orientation = this.getBlockMetadata() - BlockDummyable.offset;
+src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java	165	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java	187	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java	383	this	this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.zirnox_destroyed, this.getBlockMetadata(), 3);
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java	384	this	MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), dimensions, ModBlocks.zirnox_destroyed, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset));
+src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java	412	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java	96	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java	143	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java	41	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java	96	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java	176	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java	32	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java	256	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java	280	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java	292	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java	432	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java	145	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java	153	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java	66	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java	172	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java	195	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java	221	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java	145	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java	71	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorCompact.java	35	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java	118	this	if(dir.getOpposite().ordinal() == this.getBlockMetadata()) {
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java	64	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java	84	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java	109	this	ForgeDirection dir0 = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java	107	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java	137	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java	219	this	return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java	111	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java	131	this	if(this.getBlockMetadata() < 12) {
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java	133	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java	209	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java	355	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java	66	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java	127	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java	175	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java	88	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java	120	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java	133	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java	190	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java	384	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java	440	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java	117	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java	75	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java	142	qualified	int meta = silex.getBlockMetadata() - BlockDummyable.offset;
+src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java	143	this	if(rotationIsValid(meta, this.getBlockMetadata() - BlockDummyable.offset) && i >= 5 && silexSpacing == false	) {
+src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java	71	this	int orientation = this.getBlockMetadata() - BlockDummyable.offset;
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java	115	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java	215	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java	362	this	return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java	102	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java	140	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java	216	this	return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java	135	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java	139	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java	200	this	ForgeDirection facing = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java	128	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java	229	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java	122	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java	221	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java	321	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java	60	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java	77	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java	244	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java	90	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java	131	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java	137	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/TileEntityRadiobox.java	36	this	if(!this.world.isRemote && this.getBlockMetadata() > 5 && (power >= 25000 || infinite)) {
+src/main/java/com/hbm/tileentity/network/TileEntityPipeAnchor.java	32	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/network/TileEntityPipeAnchor.java	42	this	return ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite() == dir && type == this.type;
+src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java	45	implicit_or_decl	return ForgeDirection.getOrientation(getBlockMetadata());
+src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java	50	implicit_or_decl	return override != ForgeDirection.UNKNOWN ? override : ForgeDirection.getOrientation(getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java	26	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java	73	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java	50	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/network/TileEntityFluidValve.java	12	this	return this.getBlockMetadata() == 1;
+src/main/java/com/hbm/tileentity/network/TileEntityFluidValve.java	19	this	if(this.getBlockMetadata() == 0 && this.node != null) {
+src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchController.java	38	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/network/TileEntityConnector.java	31	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/network/TileEntityConnector.java	41	this	return ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite() == dir;
+src/main/java/com/hbm/tileentity/network/TileEntityConnectorSuper.java	10	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/network/TileEntityCableSwitch.java	11	this	if(this.getBlockMetadata() == 0 && this.node != null) {
+src/main/java/com/hbm/tileentity/network/TileEntityCableSwitch.java	19	this	return this.getBlockMetadata() == 1;
+src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java	37	this	return this.getBlockMetadata() == 1;
+src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java	43	this	if(this.getBlockMetadata() == 0 && this.node != null) {
+src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java	115	implicit_or_decl	return new Object[] {getBlockMetadata() == 1 ? 1 : 0};
+src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java	134	implicit_or_decl	return String.valueOf(getBlockMetadata() == 1 ? 1 : 0);
+src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchReader.java	37	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/network/TileEntitySubstation.java	26	implicit_or_decl	switch(getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/tileentity/network/TileEntityPylonLarge.java	21	implicit_or_decl	switch(getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java	89	this	if(this.getBlockMetadata() > 1) { //ignore if pointing up or down
+src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java	140	this	if(this.getBlockMetadata() > 1) { //ignore if pointing up or down
+src/main/java/com/hbm/tileentity/network/TileEntityPylonMedium.java	23	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/network/TileEntityPylonMedium.java	40	this	return this.hasTransformer() ? ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite() == dir : false;
+src/main/java/com/hbm/tileentity/network/TileEntityPylonMedium.java	49	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
+src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypointRequest.java	16	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
+src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchSender.java	13	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java	133	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java	227	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java	306	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java	461	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java	68	this	return this.getBlockMetadata() != RBMKBase.DIR_NO_LID.ordinal() + RBMKBase.offset;
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java	388	this	if(this.getBlockMetadata() == RBMKBase.DIR_NORMAL_LID.ordinal() + RBMKBase.offset)
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java	367	this	if(this.getBlockMetadata() == RBMKBase.DIR_NORMAL_LID.ordinal() + RBMKBase.offset)
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java	45	this	this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_plutonium, this.getBlockMetadata() & 7, 3);
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java	52	this	this.heat -= (this.getBlockMetadata() & 4) == 4 ? heat * 0.065 : heat * 0.05; //remove 5% of the stored heat per tick; 6.5% for windscale
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java	86	this	if((this.getBlockMetadata() & 8) == 8) {
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java	92	this	this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockMetadata() | 8, 3);
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileNeutronDetector.java	22	this	if(this.neutrons >= this.maxNeutrons && (this.getBlockMetadata() & 8) > 0)
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileNeutronDetector.java	24	this	if(this.neutrons < this.maxNeutrons && this.lastNeutrons < this.maxNeutrons && (this.getBlockMetadata() & 8) == 0)
+src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileBreedingFuel.java	22	this	this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_tritium, this.getBlockMetadata(), 3);
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java	110	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java	134	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java	142	this	if(this.getBlockMetadata() < 12) {
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java	143	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java	96	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java	130	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java	253	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java	164	this	this.getBlockMetadata();
+src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticCracker.java	144	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionCollector.java	25	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java	159	qualified	ForgeDirection dir = ForgeDirection.getOrientation(that.getBlockMetadata() - 10).getOpposite();
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java	201	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java	91	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java	151	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionCoupler.java	29	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java	86	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java	212	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java	56	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
+src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java	75	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java	51	this	ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java	80	this	ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java	121	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPABeamline.java	67	this	ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPABeamline.java	80	this	ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java	59	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java	118	this	ForgeDirection detectorDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java	132	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java	158	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java	188	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java	49	this	ForgeDirection rfcDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java	70	this	ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java	111	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java	133	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java	145	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java	44	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java	96	this	if(this.getBlockMetadata() < 12) {
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java	98	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.DOWN);
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java	205	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java	164	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java	178	this	ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
+src/main/java/com/hbm/wiaj/cannery/CanneryCrucible.java	221	implicit_or_decl	public int getBlockMetadata() {
+src/main/java/com/hbm/render/model/ModelBlockSpider.java	29	qualified	int meta = ((EntityBlockSpider) entity).getBlockMetadata();
+src/main/java/com/hbm/render/tileentity/RenderUF6Tank.java	18	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderICF.java	27	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java	52	qualified	switch(tileentity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java	62	qualified	switch(tileentity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java	72	qualified	switch(tileentity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java	89	qualified	if(b == ModBlocks.radiobox) this.model7.renderModel(0.0625F, tileentity.getBlockMetadata() > 5 ? 160 : 20);
+src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java	98	qualified	switch(tileentity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderWoodBurner.java	22	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPipeAnchor.java	28	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderRotationTester.java	27	qualified	switch(tileentity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderCharger.java	21	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderEmitter.java	28	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderChungus.java	29	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFEL.java	29	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFENSU.java	30	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderExplosiveCharge.java	21	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderBombMulti.java	21	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderAirScrubber.java	29	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPlushie.java	61	qualified	GL11.glRotated(22.5D * tile.getBlockMetadata() + 90, 0, -1, 0);
+src/main/java/com/hbm/render/tileentity/RenderIndustrialTurbine.java	26	qualified	switch(tile.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderPistonInserter.java	28	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderNukeFstbmb.java	25	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderOrbitalComputer.java	27	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAmmoPress.java	26	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAtmosphericCompressor.java	23	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderNukeTsar.java	21	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderFluidTank.java	34	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java	31	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderNukeMike.java	20	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderVacuumCircuit.java	32	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderElectrolyser.java	21	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderNukeSolinium.java	26	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderCraneConsole.java	26	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderTurbofan.java	25	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderDecoBlockAlt.java	40	qualified	switch(tileentity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderFurnaceSteel.java	24	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRotaryFurnace.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFusionBreeder.java	22	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderNukeBoy.java	19	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderPylonBase.java	54	qualified	(pyl.getBlockMetadata() - 10 == 5 && pylon.getBlockMetadata() - 10 == 2) ||
+src/main/java/com/hbm/render/tileentity/RenderPylonBase.java	54	qualified	(pyl.getBlockMetadata() - 10 == 5 && pylon.getBlockMetadata() - 10 == 2) ||
+src/main/java/com/hbm/render/tileentity/RenderPylonBase.java	55	qualified	(pyl.getBlockMetadata() - 10 == 2 && pylon.getBlockMetadata() - 10 == 5))) {
+src/main/java/com/hbm/render/tileentity/RenderPylonBase.java	55	qualified	(pyl.getBlockMetadata() - 10 == 2 && pylon.getBlockMetadata() - 10 == 5))) {
+src/main/java/com/hbm/render/tileentity/RenderZirnox.java	18	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderMagma.java	34	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderHTR3.java	31	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderHydroponic.java	29	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPAQuadrupole.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderConnectorSuper.java	25	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderCondenser.java	26	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderAtmosphericEmitter.java	23	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderXenonThruster.java	29	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCryoDistill.java	26	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSILEX.java	21	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderConveyorPress.java	23	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderBreeder.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset)
+src/main/java/com/hbm/render/tileentity/RenderOreSlopper.java	32	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderNukeGadget.java	24	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderMicrowave.java	19	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderTelex.java	22	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSolidifier.java	23	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFileCabinet.java	26	qualified	switch(tile.getBlockMetadata() >> 2) { //rotation
+src/main/java/com/hbm/render/tileentity/RenderFileCabinet.java	41	qualified	switch(tile.getBlockMetadata() & 3) {
+src/main/java/com/hbm/render/tileentity/RenderICFMultiblock.java	19	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderBobble.java	76	qualified	GL11.glRotated(22.5D * tile.getBlockMetadata() + 90, 0, -1, 0);
+src/main/java/com/hbm/render/tileentity/RenderNukeCustom.java	19	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderFurnaceIron.java	22	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderMassStorage.java	33	qualified	int dir = storage.getBlockMetadata() / 4;
+src/main/java/com/hbm/render/tileentity/RenderCompressor.java	24	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderEPress.java	29	qualified	switch(tileentity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderEPress.java	51	qualified	switch(tileentity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderEPress.java	78	qualified	switch(tileentity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderElectricHeater.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderLPW2.java	30	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderNukeMan.java	20	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderPuF6Tank.java	18	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderFusionKlystronCreative.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAshpit.java	23	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAssemblyMachine.java	38	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRadiolysis.java	20	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderBombMultiLarge.java	31	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderPylonMedium.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderChemicalPlant.java	33	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCrucible.java	33	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFloodlight.java	29	qualified	int meta = tileEntity.getBlockMetadata();
+src/main/java/com/hbm/render/tileentity/RenderFusionBoiler.java	22	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAnnihilator.java	25	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCapsule.java	22	qualified	if(te.getBlockMetadata() == 3)
+src/main/java/com/hbm/render/tileentity/RenderNukePrototype.java	21	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderDysonLauncher.java	27	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderOrbitalStation.java	44	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderBigTurbine.java	24	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset)
+src/main/java/com/hbm/render/tileentity/RenderAlkylation.java	23	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java	29	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDysonReceiver.java	32	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAtmoTower.java	20	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderPARFC.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPump.java	26	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderConnector.java	25	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderSnowglobe.java	36	qualified	GL11.glRotated(22.5D * tile.getBlockMetadata() + 90, 0, -1, 0);
+src/main/java/com/hbm/render/tileentity/RenderLaunchTable.java	28	qualified	switch(tileentity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderRadGen.java	26	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRBMKGauge.java	26	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderLaunchPadLarge.java	33	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderIGenerator.java	20	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPrecAss.java	38	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderStardar.java	32	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderBlastDoor.java	29	qualified	if(tileEntity.getBlockMetadata() == 2)
+src/main/java/com/hbm/render/tileentity/RenderVol2.java	26	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderHeaterHeatex.java	21	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderZirnoxDestroyed.java	17	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderFan.java	26	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderPoleSatelliteReceiver.java	28	qualified	switch(tileentity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderMissileAssembly.java	32	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderBoiler.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRBMKDisplay.java	22	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderBatterySocket.java	37	qualified	switch(tile.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderHTRF4.java	21	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderWandStructure.java	18	qualified	if(tile.getBlockMetadata() != 0) return;
+src/main/java/com/hbm/render/tileentity/RenderDysonConverterTU.java	24	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPlasmaHeater.java	23	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDoorGeneric.java	42	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderStrandCaster.java	35	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderMilkReformer.java	30	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPumpjack.java	23	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFusionCoupler.java	24	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderICFController.java	27	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderLaunchPad.java	27	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderLaunchPadRocket.java	28	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSteamEngine.java	26	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderIntake.java	23	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderFusionKlystron.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCoreComponent.java	37	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderHTRNeo.java	27	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAssemblyFactory.java	41	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPyroOven.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDriveProcessor.java	30	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRocketAssembly.java	34	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderCustomMachine.java	21	qualified	ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata());
+src/main/java/com/hbm/render/tileentity/RenderFusionMHDT.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFusionCollector.java	22	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFirebox.java	24	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderNukeN2.java	22	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderPADetector.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDishControl.java	28	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPABeamline.java	26	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderOrbus.java	25	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRadiator.java	22	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSubstation.java	18	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPylonLarge.java	19	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java	29	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderStirling.java	31	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderAntimatter.java	31	qualified	switch(te.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java	36	qualified	switch(tile.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderChemicalFactory.java	26	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderPASource.java	25	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCrashedBomb.java	42	qualified	EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, tile.getBlockMetadata());
+src/main/java/com/hbm/render/tileentity/RenderLaunchPadRusted.java	29	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderHeatingOven.java	24	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCentrifuge.java	26	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderDeuteriumTower.java	20	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderExposureChamber.java	31	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCompressorCompact.java	23	qualified	switch(tileEntity.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderPUREX.java	27	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDysonConverterHE.java	27	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDieselGen.java	24	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderDemonLamp.java	28	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderCatalyticCracker.java	21	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderFluidPump.java	21	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderDysonConverterAnatmogenesis.java	27	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRBMKKeyPad.java	25	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderTurbineGas.java	23	qualified	switch(turbinegas.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderArcWelder.java	28	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderDerrick.java	24	qualified	switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSolderingStation.java	28	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java	30	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderSawmill.java	26	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderArcFurnace.java	24	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderGeiger.java	19	qualified	switch(tileEntity.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderRBMKConsole.java	31	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderRefueler.java	32	qualified	switch(tile.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderNukeFleija.java	20	qualified	switch(tileEntity.getBlockMetadata())
+src/main/java/com/hbm/render/tileentity/RenderSkeletonHolder.java	30	qualified	switch(te.getBlockMetadata()) {
+src/main/java/com/hbm/render/tileentity/RenderDrain.java	23	qualified	switch(te.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCombustionEngine.java	24	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderExcavator.java	29	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/tileentity/RenderCrystallizer.java	26	qualified	switch(te.getBlockMetadata() - 10) {
+src/main/java/com/hbm/render/tileentity/RenderCatalyticReformer.java	36	qualified	switch(tile.getBlockMetadata() - BlockDummyable.offset) {
+src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java	33	qualified	switch(((EntityFallingNuke) p_76986_1_).getBlockMetadata()) {
+src/main/java/com/hbm/render/entity/projectile/RenderRubble.java	34	qualified	bindTexture(NativeBlockMaterial.texture(block, rocket.getBlockMetadata()));
+src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java	85	qualified	ForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();
+src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java	94	qualified	ForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();

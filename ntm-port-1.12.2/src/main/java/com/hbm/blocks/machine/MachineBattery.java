@@ -248,12 +248,15 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	}
 
 	@Override
-	public boolean hasComparatorInputOverride() {
+	public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+	public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {
+		int x = blockPos.getX();
+		int y = blockPos.getY();
+		int z = blockPos.getZ();
 
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 

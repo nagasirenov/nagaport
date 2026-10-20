@@ -1,0 +1,159 @@
+{
+  "base": "242867906a53eb7da03c879f476ced61c1170e14",
+  "log_path": "ntm-port-1.12.2/porting/checkpoint81/full-compile.log",
+  "log_sha256": "5ec9c7e144ebb41876c66ae1b178d686f3452c5306d8dc37c92074bfcaee08ca",
+  "watcher_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 73,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(17, new Float(50F));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 92,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.dataWatcher.updateObject(17, health);\n\t\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 94,
+      "message": "cannot find symbol",
+      "detail": "\t\t\thealth = this.dataWatcher.getWatchableObjectFloat(17);\n\t\t\t             ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 182,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(17, nbt.getFloat(\"health\"));\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 188,
+      "message": "cannot find symbol",
+      "detail": "\t\tnbt.setFloat(\"health\", this.getDataWatcher().getWatchableObjectFloat(17));\n\t\t                           ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java",
+      "line": 30,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {\n\t\t\t       ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 35,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 44,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {\n\t\t\t       ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 46,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tint bomberType = this.dataWatcher.getWatchableObjectByte(16);\n\t\t\t\t\t                     ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 146,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(16, (byte) i);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 212,
+      "message": "cannot find symbol",
+      "detail": "\t\tbomber.getDataWatcher().updateObject(16, (byte) i);\n\t\t      ^\n  symbol:   method getDataWatcher()\n  location: variable bomber of type EntityBomber"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 224,
+      "message": "cannot find symbol",
+      "detail": "\t\tbomber.getDataWatcher().updateObject(16, (byte) 4);\n\t\t      ^\n  symbol:   method getDataWatcher()\n  location: variable bomber of type EntityBomber"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 236,
+      "message": "cannot find symbol",
+      "detail": "\t\tbomber.getDataWatcher().updateObject(16, (byte) 6);\n\t\t      ^\n  symbol:   method getDataWatcher()\n  location: variable bomber of type EntityBomber"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 248,
+      "message": "cannot find symbol",
+      "detail": "\t\tbomber.getDataWatcher().updateObject(16, (byte) 6);\n\t\t      ^\n  symbol:   method getDataWatcher()\n  location: variable bomber of type EntityBomber"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 263,
+      "message": "cannot find symbol",
+      "detail": "    \tbomber.getDataWatcher().updateObject(16, (byte)9);\n    \t      ^\n  symbol:   method getDataWatcher()\n  location: variable bomber of type EntityBomber"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 282,
+      "message": "cannot find symbol",
+      "detail": "    \tbomber.getDataWatcher().updateObject(16, (byte)10);\n    \t      ^\n  symbol:   method getDataWatcher()\n  location: variable bomber of type EntityBomber"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 293,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(16, nbt.getByte(\"style\"));\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 304,
+      "message": "cannot find symbol",
+      "detail": "\t\tnbt.setByte(\"style\", this.getDataWatcher().getWatchableObjectByte(16));\n\t\t                         ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java",
+      "line": 31,
+      "message": "cannot find symbol",
+      "detail": "\t\tint i = entity.getDataWatcher().getWatchableObjectByte(16);\n\t\t              ^\n  symbol:   method getDataWatcher()\n  location: variable entity of type Entity"
+    }
+  ],
+  "other_same_file_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 57,
+      "message": "method isEntityInvulnerable in class Entity cannot be applied to given types;",
+      "detail": "\t\tif(this.isEntityInvulnerable()) return false;\n\t\t       ^\n  required: DamageSource\n  found: no arguments\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "line": 128,
+      "message": "method isAir in class Block cannot be applied to given types;",
+      "detail": "\t\t\t\tif((!com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isAir(this.world, (int) posX, (int) posY, (int) posZ) || posY < 0)) {\n\t\t\t\t                                                                                                  ^\n  required: IBlockState,IBlockAccess,BlockPos\n  found: World,int,int,int\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java",
+      "line": 58,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.world.spawnEntityInWorld(crate);\n\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityParachuteCrate)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 79,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.world.spawnEntityInWorld(rocket);\n\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityBoxcar)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 83,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tExplosionChaos.spawnPoisonCloud(this.world, this.posX, this.world.getHeightValue((int) this.posX, (int) this.posZ) + 2, this.posZ, 10, 1, 2);\n\t\t\t\t                                                                 ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "line": 98,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.world.spawnEntityInWorld(zeta);\n\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityBombletZeta)\n  location: variable world of type World"
+    }
+  ]
+}

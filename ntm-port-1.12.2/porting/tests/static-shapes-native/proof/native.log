@@ -1,0 +1,6 @@
+PASS 4 exact CP82 inverses; 4 pristine constructor geometry matches; 12 source mutants rejected
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[10:05:33] [main/INFO]: Processing ObjectHolder annotations
+[10:05:33] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 15666 original/native exact geometry, state, World/Chunk collision and ray-trace assertions across 4 genuine scoped owners

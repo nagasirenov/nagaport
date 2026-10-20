@@ -1,0 +1,794 @@
+{
+  "baseline": "d5ef20a8f1cb65fbd06faa86a4901870c8bab3f2",
+  "files": {
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+      "before_sha256": "3c15891bc0beb221de4251e33b9f0b92c8f1686134c09ba512bdeffc655f08ac",
+      "after_sha256": "11ea0b66076b3ed21531c7ed17a75db3ebef8138ef06234efac51ad3bac71a95",
+      "edits": [
+        {
+          "before_offset": 1195,
+          "after_offset": 1195,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 12263,
+          "after_offset": 12310,
+          "old": "\t\t\t\t\tItemStack content = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"slot\" + i));\n",
+          "new": "\t\t\t\t\tItemStack content = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag(\"slot\" + i));\n"
+        },
+        {
+          "before_offset": 12727,
+          "after_offset": 12774,
+          "old": "\t\t\t\tItemStack content = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"slot\" + i));\n",
+          "new": "\t\t\t\tItemStack content = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag(\"slot\" + i));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+      "before_sha256": "a0e123772fb5ba6d3915ede3cfce2e0f5b6ddb326b6e0c7aeb4b8293be3804bc",
+      "after_sha256": "187bd1b81864e5860840ecc862bc1358fce39948898da169b6a7b04de9d9150d",
+      "edits": [
+        {
+          "before_offset": 1105,
+          "after_offset": 1105,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 10743,
+          "after_offset": 10790,
+          "old": "\t\tItemStack type = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"slot1\"));\n",
+          "new": "\t\tItemStack type = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag(\"slot1\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "641855732ff0b4c21d06d636f985dc0cd6f002e91e41121626dd98ea71de77f5",
+      "after_sha256": "c01a3218c341baed629999312502a2b0d3c38fcc4042e8b55ac58a00685bfa66",
+      "edits": [
+        {
+          "before_offset": 3383,
+          "after_offset": 3383,
+          "old": "\t\t\tboolean hitByCreative = source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode;\n",
+          "new": "\t\t\tboolean hitByCreative = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "8d26f03aa6f274e17248c3da616345d8ee2afc465d6b0dba52a0e8c01b8bfc26",
+      "after_sha256": "44a5c2d1cce0c532c247c2a1e95f96b8019af4716761eb642dee832ba259b1ef",
+      "edits": [
+        {
+          "before_offset": 6766,
+          "after_offset": 6766,
+          "old": "\t\t\t\tboolean flag = source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode;\n",
+          "new": "\t\t\t\tboolean flag = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "3777a076452c46f46459416e88a947752643409732d5dad3e3a240fb4e6ada21",
+      "after_sha256": "99f9c24408a98cedff808af69786dde93cb049ea7209af00043ec8bd28dbbc9c",
+      "edits": [
+        {
+          "before_offset": 7821,
+          "after_offset": 7821,
+          "old": "                boolean flag = p_70097_1_.getEntity() instanceof EntityPlayer && ((EntityPlayer)p_70097_1_.getEntity()).capabilities.isCreativeMode;\n",
+          "new": "                boolean flag = p_70097_1_.getTrueSource() instanceof EntityPlayer && ((EntityPlayer)p_70097_1_.getTrueSource()).capabilities.isCreativeMode;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMovingPackage.java": {
+      "before_sha256": "7582adac5ff9365473a29569b60489d4c8910b048dfa9325d4990b41539828ad",
+      "after_sha256": "801d99610908cd548d84d45887e1fb2096298e108e64c7e2622ba0ce6b76f45e",
+      "edits": [
+        {
+          "before_offset": 1798,
+          "after_offset": 1798,
+          "old": "\t\tthis.hitByEntity(source.getEntity());\n",
+          "new": "\t\tthis.hitByEntity(source.getTrueSource());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "a9657a7b94582d9ccdd794c3614e4047f3ea5786755f1798e86b88237e61c00b",
+      "after_sha256": "a23963599d9b7a780cd3fa64a171362634deb43b95893c5f782b6139e78b2918",
+      "edits": [
+        {
+          "before_offset": 23393,
+          "after_offset": 23393,
+          "old": "\t\t\t} else if(riddenByEntity == null && source.getEntity() instanceof EntityPlayer) {\n",
+          "new": "\t\t\t} else if(riddenByEntity == null && source.getTrueSource() instanceof EntityPlayer) {\n"
+        },
+        {
+          "before_offset": 23736,
+          "after_offset": 23740,
+          "old": "\t\t\t\t\tItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayer) source.getEntity()));\n",
+          "new": "\t\t\t\t\tItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayer) source.getTrueSource()));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java": {
+      "before_sha256": "a0ae4750ea750c44d63adc697368c2a89496011cf4d3e1b6b723fecb765c3a16",
+      "after_sha256": "f5d4ed15c81357a06e78e44c32cb9793189f3afaef7b42428c7c5bccb2fdcbbd",
+      "edits": [
+        {
+          "before_offset": 2753,
+          "after_offset": 2753,
+          "old": "\t\tif(p_70645_1_.getEntity() instanceof EntitySkeleton || (p_70645_1_.isProjectile() && p_70645_1_.getEntity() instanceof EntityArrow && ((EntityArrow) (p_70645_1_.getEntity())).shootingEntity == null)) {\n",
+          "new": "\t\tif(p_70645_1_.getTrueSource() instanceof EntitySkeleton || (p_70645_1_.isProjectile() && p_70645_1_.getTrueSource() instanceof EntityArrow && ((EntityArrow) (p_70645_1_.getTrueSource())).shootingEntity == null)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "before_sha256": "0c81196035781a068061cf9469af5dbf59d10f5234bbc574876d2befe6e6c253",
+      "after_sha256": "d5b9ffcdd5e30c25f7175506900cea3d9f23757322d0f1efc0d17bbfd8abaf5b",
+      "edits": [
+        {
+          "before_offset": 2981,
+          "after_offset": 2981,
+          "old": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect)source).getEntity() instanceof EntityFBI) {\n",
+          "new": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect)source).getTrueSource() instanceof EntityFBI) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityMaskMan.java": {
+      "before_sha256": "9e2e478988b965dc76280c4fb3799cf4fb2d4fb0a77dfb27504a0627fb7976ef",
+      "after_sha256": "851065c0b3c1ed6eed6ed48201fc32c1c25b49558371735c8eb10a0b24dbc34a",
+      "edits": [
+        {
+          "before_offset": 2681,
+          "after_offset": 2681,
+          "old": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getSourceOfDamage() instanceof EntityEgg && rand.nextInt(10) == 0) {\n",
+          "new": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getImmediateSource() instanceof EntityEgg && rand.nextInt(10) == 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTankbot.java": {
+      "before_sha256": "c5c094c73a0197407e9a6c935e25183e1f7578daf50582f5aef6f549ddbc1953",
+      "after_sha256": "9ef12504e94f095af0e4eadd64a7178d234bafc3bd6499a23bfc0420e1e1a241",
+      "edits": [
+        {
+          "before_offset": 4123,
+          "after_offset": 4123,
+          "old": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getSourceOfDamage() instanceof EntityEgg && rand.nextInt(10) == 0) {\n",
+          "new": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getImmediateSource() instanceof EntityEgg && rand.nextInt(10) == 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityWarBehemoth.java": {
+      "before_sha256": "72822f5b4effb462f47bbd1731e49d183290219d6c577d7a06c21662a9d5e3f5",
+      "after_sha256": "a4dbc3c13a0a4a7222c7561e696522a19aae7d8314faf563b82b2c6dc8eda0a1",
+      "edits": [
+        {
+          "before_offset": 2611,
+          "after_offset": 2611,
+          "old": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getSourceOfDamage() instanceof EntityEgg && rand.nextInt(10) == 0) {\n",
+          "new": "\t\tif(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getImmediateSource() instanceof EntityEgg && rand.nextInt(10) == 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java": {
+      "before_sha256": "00ecaf765a01b0574012d3485d1f6582822bbc3ae2a804110a9874aa790bf822",
+      "after_sha256": "ef44d49922e0f08bb57489a80f92f0ec70961b3d92798d3b42b3a7f76b764b04",
+      "edits": [
+        {
+          "before_offset": 1996,
+          "after_offset": 1996,
+          "old": "\t\tif(this.isEntityInvulnerable() || source == DamageSource.drown || source == DamageSource.inWall || ((source.getEntity() instanceof EntityWormBaseNT) && ((EntityWormBaseNT) source.getEntity()).getHeadID() == this.getHeadID())) {\n",
+          "new": "\t\tif(this.isEntityInvulnerable() || source == DamageSource.drown || source == DamageSource.inWall || ((source.getTrueSource() instanceof EntityWormBaseNT) && ((EntityWormBaseNT) source.getTrueSource()).getHeadID() == this.getHeadID())) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "fb20225f15c45ea6aa9e584e1b31dfe0bb967f53c846c9e4cbfd5e4d7556dbcf",
+      "after_sha256": "c717bfd78811ae9dcbfdd83d823a5b27cd80fd0732f1318c7c179982063b6c55",
+      "edits": [
+        {
+          "before_offset": 12905,
+          "after_offset": 12905,
+          "old": "\t\tif(source.getEntity() instanceof EntityGlyphid) return false;\n",
+          "new": "\t\tif(source.getTrueSource() instanceof EntityGlyphid) return false;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/GlyphidStats.java": {
+      "before_sha256": "12cd254563ec0502183a8cb38ddf60d5f51a24be1d0b3d0bbac728e1c8eeae29",
+      "after_sha256": "cd8c9d9d0d810f624dbb676615a8ed1e323e8a9e83ea002c9b71a88c1cf57465",
+      "edits": [
+        {
+          "before_offset": 5512,
+          "after_offset": 5512,
+          "old": "\t\t\tif((source == ModDamageSource.acid || ModDamageSource.s_acid.equals(source.getDamageType())) && source.getSourceOfDamage() instanceof EntityGlyphid) return false;\n",
+          "new": "\t\t\tif((source == ModDamageSource.acid || ModDamageSource.s_acid.equals(source.getDamageType())) && source.getImmediateSource() instanceof EntityGlyphid) return false;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java": {
+      "before_sha256": "7e0d4a664c33d128db4b8f77049e3335e0e2e7ddfb208f22edb58fb2e5ba0504",
+      "after_sha256": "84a8f4df0feea14638100f52ad82c458e37f0627875ee0b947eb9ae815e626c3",
+      "edits": [
+        {
+          "before_offset": 1779,
+          "after_offset": 1779,
+          "old": "\t\tif(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getEntity() instanceof EntityPlayer))\n",
+          "new": "\t\tif(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java": {
+      "before_sha256": "a5e359e9259cdeeea47e1ada7688eb67a295a1b003e064745dafad0f404b9886",
+      "after_sha256": "385c4026fc28f0ee28f54bee4a7dbab2fafee2498ce69e589767ca00e241b3cc",
+      "edits": [
+        {
+          "before_offset": 1692,
+          "after_offset": 1692,
+          "old": "\t\tif(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getEntity() instanceof EntityPlayer))\n",
+          "new": "\t\tif(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java": {
+      "before_sha256": "ec07e8d76c809fd84aed1f30515a3479200b474c5aea56e83a68cf463c644f1b",
+      "after_sha256": "4339334451452567cb09ee6caf111c63a45adecd3029dc0091ced61f7256d0ed",
+      "edits": [
+        {
+          "before_offset": 1899,
+          "after_offset": 1899,
+          "old": "\t\tif(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getEntity() instanceof EntityPlayer))\n",
+          "new": "\t\tif(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/ArmorModHandler.java": {
+      "before_sha256": "b2360c771320211f644531b9d802585d903bc0b042a447a2472ac10f86e49022",
+      "after_sha256": "7d70535071ecd7349c66f1b894b20957c89f87cd8deb6aef27b423e2d79129d8",
+      "edits": [
+        {
+          "before_offset": 104,
+          "after_offset": 104,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 3399,
+          "after_offset": 3446,
+          "old": "\t\tif(mods.hasNoTags())\n",
+          "new": "\t\tif(mods.isEmpty())\n"
+        },
+        {
+          "before_offset": 4574,
+          "after_offset": 4619,
+          "old": "\t\t\tItemStack stack = ItemStack.loadItemStackFromNBT(cmp);\n",
+          "new": "\t\t\tItemStack stack = NullableInventoryStackNbt.read(cmp);\n"
+        },
+        {
+          "before_offset": 5073,
+          "after_offset": 5118,
+          "old": "\t\tItemStack stack = ItemStack.loadItemStackFromNBT(cmp);\n",
+          "new": "\t\tItemStack stack = NullableInventoryStackNbt.read(cmp);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/transformer/HazardTransformerRadiationContainer.java": {
+      "before_sha256": "4b18235a995682d6ae10f07a38e7306ac9ad68e7e1d9d2b5f0cab35098a3c508",
+      "after_sha256": "440fbe9b74d78b4b8b5c9e39b615d9f23c708a0a7145a59deca7f65bb14f3db2",
+      "edits": [
+        {
+          "before_offset": 395,
+          "after_offset": 395,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 1586,
+          "after_offset": 1633,
+          "old": "\t\t\t\tItemStack held = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"slot\" + i));\n",
+          "new": "\t\t\t\tItemStack held = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag(\"slot\" + i));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ModItems.java": {
+      "before_sha256": "f6afc87bee360e613b2718a86e4a59d3636ae87090a464c3ea0bab461be3be72",
+      "after_sha256": "6321ccf6e1698a1a4b8b57724bdb47fde0ffc41a757a6846ee03879e48be810c",
+      "edits": [
+        {
+          "before_offset": 260296,
+          "after_offset": 260296,
+          "old": "\t\tcart = new ItemModMinecart().setUnlocalizedName(\"cart\");\r\n",
+          "new": "\t\tcart = new ItemModMinecart().setTranslationKey(\"cart\");\r\n"
+        },
+        {
+          "before_offset": 369630,
+          "after_offset": 369629,
+          "old": "\t\tdefuser = NativeItemTextureRegistry.texture(new ItemDefuser(ToolType.DEFUSER, 100).setUnlocalizedName(\"defuser\").setMaxStackSize(1).setFull3D().setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + \":defuser\");\r\n",
+          "new": "\t\tdefuser = NativeItemTextureRegistry.texture(new ItemDefuser(ToolType.DEFUSER, 100).setTranslationKey(\"defuser\").setMaxStackSize(1).setFull3D().setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + \":defuser\");\r\n"
+        },
+        {
+          "before_offset": 387018,
+          "after_offset": 387016,
+          "old": "\t\tscrewdriver = new ItemTooling(ToolType.SCREWDRIVER, 100).setUnlocalizedName(\"screwdriver\");\r\n\t\tscrewdriver_desh = new ItemTooling(ToolType.SCREWDRIVER, 0).setUnlocalizedName(\"screwdriver_desh\");\r\n\t\thand_drill = new ItemTooling(ToolType.HAND_DRILL, 100).setUnlocalizedName(\"hand_drill\");\r\n\t\thand_drill_desh = new ItemTooling(ToolType.HAND_DRILL, 0).setUnlocalizedName(\"hand_drill_desh\");\r\n\t\twrench_archineer = NativeItemTextureRegistry.texture(new ItemToolingWeapon(ToolType.WRENCH, 1000, 12F).setUnlocalizedName(\"wrench_archineer\"), RefStrings.MODID + \":wrench_archineer_hd\");\r\n\t\tchemistry_set = new ItemCraftingDegradation(100).setUnlocalizedName(\"chemistry_set\");\r\n\t\tchemistry_set_boron = new ItemCraftingDegradation(0).setUnlocalizedName(\"chemistry_set_boron\");\r\n\t\tblowtorch = new ItemBlowtorch().setUnlocalizedName(\"blowtorch\");\r\n\t\tacetylene_torch = new ItemBlowtorch().setUnlocalizedName(\"acetylene_torch\");\r\n\t\tboltgun = new ItemBoltgun().setUnlocalizedName(\"boltgun\");\r\n",
+          "new": "\t\tscrewdriver = new ItemTooling(ToolType.SCREWDRIVER, 100).setTranslationKey(\"screwdriver\");\r\n\t\tscrewdriver_desh = new ItemTooling(ToolType.SCREWDRIVER, 0).setTranslationKey(\"screwdriver_desh\");\r\n\t\thand_drill = new ItemTooling(ToolType.HAND_DRILL, 100).setTranslationKey(\"hand_drill\");\r\n\t\thand_drill_desh = new ItemTooling(ToolType.HAND_DRILL, 0).setTranslationKey(\"hand_drill_desh\");\r\n\t\twrench_archineer = NativeItemTextureRegistry.texture(new ItemToolingWeapon(ToolType.WRENCH, 1000, 12F).setTranslationKey(\"wrench_archineer\"), RefStrings.MODID + \":wrench_archineer_hd\");\r\n\t\tchemistry_set = new ItemCraftingDegradation(100).setTranslationKey(\"chemistry_set\");\r\n\t\tchemistry_set_boron = new ItemCraftingDegradation(0).setTranslationKey(\"chemistry_set_boron\");\r\n\t\tblowtorch = new ItemBlowtorch().setTranslationKey(\"blowtorch\");\r\n\t\tacetylene_torch = new ItemBlowtorch().setTranslationKey(\"acetylene_torch\");\r\n\t\tboltgun = new ItemBoltgun().setTranslationKey(\"boltgun\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "before_sha256": "a5947f7b7de6934f3607cf527e934f24ed898cff7add99f46646f56f1a0df5e2",
+      "after_sha256": "b2201e223bdde0832448e8f510c922067ac94e4e5a331e48c07104d21de0ef0f",
+      "edits": [
+        {
+          "before_offset": 5097,
+          "after_offset": 5097,
+          "old": "\t\t\t\tif(event.source.isExplosion()) {\n",
+          "new": "\t\t\t\tif(event.getSource().isExplosion()) {\n"
+        },
+        {
+          "before_offset": 5154,
+          "after_offset": 5159,
+          "old": "\t\t\t\tif(event.source != ModDamageSource.oxyprime) {\n",
+          "new": "\t\t\t\tif(event.getSource() != ModDamageSource.oxyprime) {\n"
+        },
+        {
+          "before_offset": 5576,
+          "after_offset": 5586,
+          "old": "\t\t\t\tif(event.source.isExplosion()) {\n\t\t\t\t\tevent.ammount *= 0.001F;\n",
+          "new": "\t\t\t\tif(event.getSource().isExplosion()) {\n\t\t\t\t\tevent.setAmount((float) (event.getAmount() * (0.001F)));\n"
+        },
+        {
+          "before_offset": 5663,
+          "after_offset": 5710,
+          "old": "\t\t\t\tevent.ammount = 0;\n",
+          "new": "\t\t\t\tevent.setAmount(0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHat.java": {
+      "before_sha256": "c365d00a57f4af76af26de64486419db3588cae8b2b867fdb7c7bcdb014c7640",
+      "after_sha256": "4e1952b1ac39e833e273b0c450352c635cda4308b6bf0b594d3f43bd3b8482c8",
+      "edits": [
+        {
+          "before_offset": 900,
+          "after_offset": 900,
+          "old": "\t\tif(event.source.isUnblockable())\n",
+          "new": "\t\tif(event.getSource().isUnblockable())\n"
+        },
+        {
+          "before_offset": 949,
+          "after_offset": 954,
+          "old": "\t\tevent.ammount -= 2F;\n",
+          "new": "\t\tevent.setAmount((float) (event.getAmount() - (2F)));\n"
+        },
+        {
+          "before_offset": 975,
+          "after_offset": 1012,
+          "old": "\t\tif(event.ammount < 0)\n\t\t\tevent.ammount = 0;\n",
+          "new": "\t\tif(event.getAmount() < 0)\n\t\t\tevent.setAmount(0);\n"
+        },
+        {
+          "before_offset": 1109,
+          "after_offset": 1151,
+          "old": "\t\tif(event.source.isUnblockable())\n",
+          "new": "\t\tif(event.getSource().isUnblockable())\n"
+        },
+        {
+          "before_offset": 1158,
+          "after_offset": 1205,
+          "old": "\t\tif(event.ammount <= 2F) {\n",
+          "new": "\t\tif(event.getAmount() <= 2F) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNo9.java": {
+      "before_sha256": "84aa7e7fcdefe1418b4e522e1d4fc97e7cb990cad9c45fbd44fd946044060faf",
+      "after_sha256": "9bb445572e96d5160c5bad73eb2af9913a33fee9a17a97a5bcf8c0f5bc1faddc",
+      "edits": [
+        {
+          "before_offset": 1607,
+          "after_offset": 1607,
+          "old": "\t\tif(event.source.isUnblockable())\n",
+          "new": "\t\tif(event.getSource().isUnblockable())\n"
+        },
+        {
+          "before_offset": 1656,
+          "after_offset": 1661,
+          "old": "\t\tevent.ammount -= 0.5F;\n",
+          "new": "\t\tevent.setAmount((float) (event.getAmount() - (0.5F)));\n"
+        },
+        {
+          "before_offset": 1684,
+          "after_offset": 1721,
+          "old": "\t\tif(event.ammount < 0)\n\t\t\tevent.ammount = 0;\n",
+          "new": "\t\tif(event.getAmount() < 0)\n\t\t\tevent.setAmount(0);\n"
+        },
+        {
+          "before_offset": 1818,
+          "after_offset": 1860,
+          "old": "\t\tif(event.source.isUnblockable())\n",
+          "new": "\t\tif(event.getSource().isUnblockable())\n"
+        },
+        {
+          "before_offset": 1867,
+          "after_offset": 1914,
+          "old": "\t\tif(event.ammount <= 0.5F) {\n",
+          "new": "\t\tif(event.getAmount() <= 0.5F) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java": {
+      "before_sha256": "7b769e27badbc83c4ca99efac5c2477e9383f2b29d51c699def3562ce65186bb",
+      "after_sha256": "9a6bcc7376692e8d53d243851625c3fdadedd4d19a5d9ff25a96a4cc3b76a92e",
+      "edits": [
+        {
+          "before_offset": 2103,
+          "after_offset": 2103,
+          "old": "\t\t\t\tif(event.source.isExplosion() && event.source.getSourceOfDamage() == player) {\n\t\t\t\t\tevent.ammount = 0;\n",
+          "new": "\t\t\t\tif(event.getSource().isExplosion() && event.getSource().getImmediateSource() == player) {\n\t\t\t\t\tevent.setAmount(0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModBandaid.java": {
+      "before_sha256": "022eec1f8a1b20c89a235e72440532a1cfad332f895a80dfddf7590a4b87c600",
+      "after_sha256": "8e35d42789d2a99472e6cd0f8054ab01f5a129f0977f94d49b0561506ac30314",
+      "edits": [
+        {
+          "before_offset": 1002,
+          "after_offset": 1002,
+          "old": "\t\t\tevent.ammount = 0;\n",
+          "new": "\t\t\tevent.setAmount(0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModBathwater.java": {
+      "before_sha256": "16c765c0d8f08a5fbd92a5047f2c7f60e6950f69bc6713fe5c8175ab95446ca5",
+      "after_sha256": "5ffb1237e3264f30fd01d56c02fe796960a22494ff6de727aff202edfe85be64",
+      "edits": [
+        {
+          "before_offset": 1738,
+          "after_offset": 1738,
+          "old": "\t\t\tif(event.source instanceof EntityDamageSource) {\n",
+          "new": "\t\t\tif(event.getSource() instanceof EntityDamageSource) {\n"
+        },
+        {
+          "before_offset": 1795,
+          "after_offset": 1800,
+          "old": "\t\t\t\tEntity attacker = ((EntityDamageSource)event.source).getEntity();\n",
+          "new": "\t\t\t\tEntity attacker = ((EntityDamageSource)event.getSource()).getTrueSource();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModCard.java": {
+      "before_sha256": "c5a6faf89fffbf08ee0a5c41648409eb661e70a978948f060f957412c21d426c",
+      "after_sha256": "5b470ff4d8e6d67f1e99a9bf2228a25bb046ce70d144e780ea29dcdf2a80eea3",
+      "edits": [
+        {
+          "before_offset": 1559,
+          "after_offset": 1559,
+          "old": "\t\t\tevent.ammount = 0;\n",
+          "new": "\t\t\tevent.setAmount(0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModCharm.java": {
+      "before_sha256": "9248b027939b18b3641783118c63b466a8554eff518418511989e5482afd7c0c",
+      "after_sha256": "c659513b0c1d6b9963fbc4dd9d3dd80e68ff510c4a57b10ce48b6f5267e04429",
+      "edits": [
+        {
+          "before_offset": 1382,
+          "after_offset": 1382,
+          "old": "\t\tif(event.source == ModDamageSource.broadcast) {\n",
+          "new": "\t\tif(event.getSource() == ModDamageSource.broadcast) {\n"
+        },
+        {
+          "before_offset": 1477,
+          "after_offset": 1482,
+          "old": "\t\t\t\tevent.ammount *= 0.5F;\n",
+          "new": "\t\t\t\tevent.setAmount((float) (event.getAmount() * (0.5F)));\n"
+        },
+        {
+          "before_offset": 1541,
+          "after_offset": 1578,
+          "old": "\t\t\t\tevent.ammount = 0F;\n",
+          "new": "\t\t\t\tevent.setAmount(0F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModInk.java": {
+      "before_sha256": "e51e82a0acffef3a6f34bd024e6136fba640491d6135fd92ad2e146667ce1db2",
+      "after_sha256": "5a59a76b9cf70b88d49841ac77b7557b6e5165a4005b562cc395569688516634",
+      "edits": [
+        {
+          "before_offset": 1096,
+          "after_offset": 1096,
+          "old": "\t\t\tevent.ammount = 0;\n",
+          "new": "\t\t\tevent.setAmount(0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModInsert.java": {
+      "before_sha256": "f48a6e3c7e03ae63e6b64cbca6577e04dac68af769bb716fc4e4a27479e4613c",
+      "after_sha256": "11d64d31324edafa5faae47b33405ce134928b2fcb8ba111932897483b662eec",
+      "edits": [
+        {
+          "before_offset": 3090,
+          "after_offset": 3090,
+          "old": "\t\tevent.ammount *= damageMod;\n",
+          "new": "\t\tevent.setAmount((float) (event.getAmount() * (damageMod)));\n"
+        },
+        {
+          "before_offset": 3123,
+          "after_offset": 3155,
+          "old": "\t\tif(event.source.isProjectile())\n\t\t\tevent.ammount *= projectileMod;\n",
+          "new": "\t\tif(event.getSource().isProjectile())\n\t\t\tevent.setAmount((float) (event.getAmount() * (projectileMod)));\n"
+        },
+        {
+          "before_offset": 3195,
+          "after_offset": 3264,
+          "old": "\t\tif(event.source.isExplosion())\n\t\t\tevent.ammount *= explosionMod;\n",
+          "new": "\t\tif(event.getSource().isExplosion())\n\t\t\tevent.setAmount((float) (event.getAmount() * (explosionMod)));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModPads.java": {
+      "before_sha256": "7134c53ed0061577701b9cddf1da7a880487660dbdbf3e32f147504fc625c04e",
+      "after_sha256": "e6fe9da7f4440ba422323c4a0fe38917ff5dbdb129aff94f403e93a4deb019ab",
+      "edits": [
+        {
+          "before_offset": 1541,
+          "after_offset": 1541,
+          "old": "\t\tif(event.source == DamageSource.fall)\n\t\t\tevent.ammount *= damageMod;\n",
+          "new": "\t\tif(event.getSource() == DamageSource.fall)\n\t\t\tevent.setAmount((float) (event.getAmount() * (damageMod)));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModPolish.java": {
+      "before_sha256": "d6e7086a074b14ed8e7de2881783350189c2c539405e4011a43ddc67a4477093",
+      "after_sha256": "0c3e734c39b44d9f176e04848d3789b903aa57896379e9c22e2a6b8aef61826a",
+      "edits": [
+        {
+          "before_offset": 994,
+          "after_offset": 994,
+          "old": "\t\t\tevent.ammount = 0;\n",
+          "new": "\t\t\tevent.setAmount(0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": {
+      "before_sha256": "44baabe5c3095759fa1bdde18c85fee5eb71d2891f3208f16ee0ac1e707b18ac",
+      "after_sha256": "8f421359a3bd4eab877a049b5a6f9b412a02196816d39ea79524426ce9b5f6e1",
+      "edits": [
+        {
+          "before_offset": 615,
+          "after_offset": 615,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 5523,
+          "after_offset": 5570,
+          "old": "\t\t\t\tthis.slots[i] = ItemStack.loadItemStackFromNBT(target.getTagCompound().getCompoundTag(\"slot\" + i));\n",
+          "new": "\t\t\t\tthis.slots[i] = NullableInventoryStackNbt.read(target.getTagCompound().getCompoundTag(\"slot\" + i));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBlowtorch.java": {
+      "before_sha256": "f470f9da2a45fc02c899c31e655e97bae06565c36cb0e8616ad62237f2cdce5b",
+      "after_sha256": "a101e5db17b3f6e0f298961a244616e646a6585a553658c23f971dea1c9f7848",
+      "edits": [
+        {
+          "before_offset": 1170,
+          "after_offset": 1170,
+          "old": "\tpublic Item setUnlocalizedName(String unlocalizedName) {\n\t\tsuper.setUnlocalizedName(unlocalizedName);\n\t\tthis.setTextureName(RefStrings.MODID + \":\"+ unlocalizedName);\n",
+          "new": "\tpublic Item setTranslationKey(String unlocalizedName) {\n\t\tsuper.setTranslationKey(unlocalizedName);\n\t\tcom.hbm.render.item.NativeItemTextureRegistry.texture(this, RefStrings.MODID + \":\"+ unlocalizedName);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBoltgun.java": {
+      "before_sha256": "8e03ae655633d820177ff1b948d64a5e6c9dc5f2bc34f9f78fdb6120e52f2762",
+      "after_sha256": "2c0c2a3f3e9a2c0522e9c831ed825a23d8ef3c1e2f8deec6864535f4c97605b9",
+      "edits": [
+        {
+          "before_offset": 1218,
+          "after_offset": 1218,
+          "old": "\tpublic Item setUnlocalizedName(String unlocalizedName) {\n\t\tsuper.setUnlocalizedName(unlocalizedName);\n\t\tthis.setTextureName(RefStrings.MODID + \":\"+ unlocalizedName);\n",
+          "new": "\tpublic Item setTranslationKey(String unlocalizedName) {\n\t\tsuper.setTranslationKey(unlocalizedName);\n\t\tcom.hbm.render.item.NativeItemTextureRegistry.texture(this, RefStrings.MODID + \":\"+ unlocalizedName);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java": {
+      "before_sha256": "168ba83b59caf21edee639957a89acdb2c61817b886d740eed12cb45d02ed22e",
+      "after_sha256": "e56b3ebfad755660babfcc825f6784ceb59edd0910162bb574c14beb409d3e4d",
+      "edits": [
+        {
+          "before_offset": 805,
+          "after_offset": 805,
+          "old": "\tpublic Item setUnlocalizedName(String unlocalizedName) {\n\t\tsuper.setUnlocalizedName(unlocalizedName);\n\t\tthis.setTextureName(RefStrings.MODID + \":\"+ unlocalizedName);\n",
+          "new": "\tpublic Item setTranslationKey(String unlocalizedName) {\n\t\tsuper.setTranslationKey(unlocalizedName);\n\t\tcom.hbm.render.item.NativeItemTextureRegistry.texture(this, RefStrings.MODID + \":\"+ unlocalizedName);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModMinecart.java": {
+      "before_sha256": "896a50b99fc41d7c59bf22f9d5c8f4a7001f6ac44b61123de405ca6bce601273",
+      "after_sha256": "c1b61746269125ad353475d6039f4260639e5d9419d210479efbcd6a6fc353cd",
+      "edits": [
+        {
+          "before_offset": 2542,
+          "after_offset": 2542,
+          "old": "\tpublic Item setUnlocalizedName(String unlocalizedName) {\n\t\tsuper.setUnlocalizedName(unlocalizedName);\n\t\tthis.setTextureName(RefStrings.MODID + \":\"+ unlocalizedName);\n",
+          "new": "\tpublic Item setTranslationKey(String unlocalizedName) {\n\t\tsuper.setTranslationKey(unlocalizedName);\n\t\tcom.hbm.render.item.NativeItemTextureRegistry.texture(this, RefStrings.MODID + \":\"+ unlocalizedName);\n"
+        },
+        {
+          "before_offset": 3520,
+          "after_offset": 3558,
+          "old": "\t\t\tbases[i] = reg.registerIcon(this.getIconString() + \".\" + base.name().toLowerCase(Locale.US));\n",
+          "new": "\t\t\tbases[i] = reg.registerIcon(com.hbm.render.item.NativeItemTextureRegistry.texture(this) + \".\" + base.name().toLowerCase(Locale.US));\n"
+        },
+        {
+          "before_offset": 3779,
+          "after_offset": 3856,
+          "old": "\t\t\tthis.icons[i] = reg.registerIcon(this.getIconString() + \"_overlay.\" + num.name().toLowerCase(Locale.US));\n",
+          "new": "\t\t\tthis.icons[i] = reg.registerIcon(com.hbm.render.item.NativeItemTextureRegistry.texture(this) + \"_overlay.\" + num.name().toLowerCase(Locale.US));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/DamageSourceSednaWithAttacker.java": {
+      "before_sha256": "55569a9b9c8520f9bfd7e5e9b61c609d481e1c04e201094150561de05e22a21d",
+      "after_sha256": "d6714649cfda4927c9e58c8f0284d2ed9c065aeab16b1914be4af90b4bb42038",
+      "edits": [
+        {
+          "before_offset": 681,
+          "after_offset": 681,
+          "old": "\t@Override public Entity getSourceOfDamage() { return this.projectile; } //what even uses this, except for the wackass \"shot by bullet\" death messages?\r\n\t@Override public Entity getEntity() { return this.shooter; }\r\n",
+          "new": "\t@Override public Entity getImmediateSource() { return this.projectile; } //what even uses this, except for the wackass \"shot by bullet\" death messages?\r\n\t@Override public Entity getTrueSource() { return this.shooter; }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "60fd0822fd8ce5c25d927ab2028cb1cdb8127b77f26aa3fdc8ba9368c33e30b2",
+      "after_sha256": "3c775817c07fce2b274336d710475f00070f893dd2bc34f3b9633728a2785727",
+      "edits": [
+        {
+          "before_offset": 17857,
+          "after_offset": 17857,
+          "old": "\t\t\tif(event.source instanceof EntityDamageSource && ((EntityDamageSource)event.source).getEntity() instanceof EntityPlayer\n\t\t\t\t\t && !(((EntityDamageSource)event.source).getEntity() instanceof FakePlayer)) {\n",
+          "new": "\t\t\tif(event.source instanceof EntityDamageSource && ((EntityDamageSource)event.source).getTrueSource() instanceof EntityPlayer\n\t\t\t\t\t && !(((EntityDamageSource)event.source).getTrueSource() instanceof FakePlayer)) {\n"
+        },
+        {
+          "before_offset": 20165,
+          "after_offset": 20173,
+          "old": "\t\t\tEntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.source).getEntity();\n",
+          "new": "\t\t\tEntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.source).getTrueSource();\n"
+        },
+        {
+          "before_offset": 39342,
+          "after_offset": 39354,
+          "old": "\t\t\t\tfloat reduce = Math.min(props.shield+props.nitanHealth, event.ammount);\n",
+          "new": "\t\t\t\tfloat reduce = Math.min(props.shield+props.nitanHealth, event.getAmount());\n"
+        },
+        {
+          "before_offset": 39479,
+          "after_offset": 39495,
+          "old": "\t\t\t\tevent.ammount -= reduce;\n",
+          "new": "\t\t\t\tevent.setAmount((float) (event.getAmount() - (reduce)));\n"
+        },
+        {
+          "before_offset": 39561,
+          "after_offset": 39609,
+          "old": "\t\tif(HbmLivingProps.getContagion(e) > 0 && event.ammount < 100)\n\t\t\tevent.ammount *= 2F;\n",
+          "new": "\t\tif(HbmLivingProps.getContagion(e) > 0 && event.getAmount() < 100)\n\t\t\tevent.setAmount((float) (event.getAmount() * (2F)));\n"
+        },
+        {
+          "before_offset": 39663,
+          "after_offset": 39747,
+          "old": "\t\tif(EntityDamageUtil.wasAttackedByV1(event.source)) {\n\t\t\tEntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.source).getEntity();\n",
+          "new": "\t\tif(EntityDamageUtil.wasAttackedByV1(event.getSource())) {\n\t\t\tEntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.getSource()).getTrueSource();\n"
+        },
+        {
+          "before_offset": 40344,
+          "after_offset": 40442,
+          "old": "\t\t\t\tattacker.heal(event.ammount * 0.5F);\n",
+          "new": "\t\t\t\tattacker.heal(event.getAmount() * 0.5F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/ArmorUtil.java": {
+      "before_sha256": "9cff36a9494c35b22a48e4e0f6f969380c21f433b72e7fa80c6ff7cce7ff7a56",
+      "after_sha256": "fb624945810ce9c5a8bdcec0fb3276f9faa5a984ecabb74826cfb700be9db41d",
+      "edits": [
+        {
+          "before_offset": 1179,
+          "after_offset": 1179,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 18209,
+          "after_offset": 18256,
+          "old": "\t\tItemStack filter = ItemStack.loadItemStackFromNBT(attach);\n",
+          "new": "\t\tItemStack filter = NullableInventoryStackNbt.read(attach);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/DamageResistanceHandler.java": {
+      "before_sha256": "031f4c77d650e08088a8ab25243a9631911ff45f30eacd744beeba3b77ce9734",
+      "after_sha256": "e3032502a1493f3de6047cfbf7d0402286c81a3397b927900f6db06e56a145a8",
+      "edits": [
+        {
+          "before_offset": 19590,
+          "after_offset": 19590,
+          "old": "\t\tif(event.source.isDamageAbsolute()) return;\n",
+          "new": "\t\tif(event.getSource().isDamageAbsolute()) return;\n"
+        },
+        {
+          "before_offset": 19685,
+          "after_offset": 19690,
+          "old": "\t\tfloat amount = event.ammount;\n\t\t\n\t\tfloat[] vals = getDTDR(e, event.source, amount, currentPDT, currentPDR);\n",
+          "new": "\t\tfloat amount = event.getAmount();\n\t\t\n\t\tfloat[] vals = getDTDR(e, event.getSource(), amount, currentPDT, currentPDR);\n"
+        },
+        {
+          "before_offset": 19868,
+          "after_offset": 19882,
+          "old": "\t\tif((dt > 0 && dt >= event.ammount) || dr >= 1F) {\n",
+          "new": "\t\tif((dt > 0 && dt >= event.getAmount()) || dr >= 1F) {\n"
+        },
+        {
+          "before_offset": 20077,
+          "after_offset": 20095,
+          "old": "\t\tevent.ammount = calculateDamage(event.getEntityLiving(), event.source, event.ammount, currentPDT, currentPDR);\n",
+          "new": "\t\tevent.setAmount(calculateDamage(event.getEntityLiving(), event.getSource(), event.getAmount(), currentPDT, currentPDR));\n"
+        },
+        {
+          "before_offset": 20329,
+          "after_offset": 20357,
+          "old": "\t\t\tirp.onDamageDealt(event.source, event.ammount);\n",
+          "new": "\t\t\tirp.onDamageDealt(event.getSource(), event.getAmount());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "7a2a92b7bbfae144b7dc09bb9259db593c9ce8829c9ff4be189ec8b566d4ada9",
+      "after_sha256": "72e7cd9ab3724565381f43000c811007a9072053edbca306c15a6b55c3514519",
+      "edits": [
+        {
+          "before_offset": 1098,
+          "after_offset": 1098,
+          "old": "\t\t\tEntity attacker = ((EntityDamageSource) source).getEntity();\n",
+          "new": "\t\t\tEntity attacker = ((EntityDamageSource) source).getTrueSource();\n"
+        },
+        {
+          "before_offset": 2473,
+          "after_offset": 2477,
+          "old": "\t\tif(living instanceof EntityPlayerMP && source.getEntity() instanceof EntityPlayer) {\n",
+          "new": "\t\tif(living instanceof EntityPlayerMP && source.getTrueSource() instanceof EntityPlayer) {\n"
+        },
+        {
+          "before_offset": 2614,
+          "after_offset": 2622,
+          "old": "\t\t\tEntityPlayer attacker = (EntityPlayer) source.getEntity();\n",
+          "new": "\t\t\tEntityPlayer attacker = (EntityPlayer) source.getTrueSource();\n"
+        },
+        {
+          "before_offset": 4411,
+          "after_offset": 4423,
+          "old": "\t\tEntity entity = source.getEntity();\n",
+          "new": "\t\tEntity entity = source.getTrueSource();\n"
+        },
+        {
+          "before_offset": 6501,
+          "after_offset": 6517,
+          "old": "\t\tEntity entity = source.getEntity();\n",
+          "new": "\t\tEntity entity = source.getTrueSource();\n"
+        },
+        {
+          "before_offset": 11615,
+          "after_offset": 11635,
+          "old": "\t\t\t\tEntity entity = source.getEntity();\n",
+          "new": "\t\t\t\tEntity entity = source.getTrueSource();\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

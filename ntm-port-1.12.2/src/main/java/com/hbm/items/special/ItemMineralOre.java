@@ -121,7 +121,7 @@ public class ItemMineralOre extends Item {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		return "item." + itemTypes[Math.abs(stack.getItemDamage()) % itemTypes.length].name;
 	}
 	

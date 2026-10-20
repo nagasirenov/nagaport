@@ -1,0 +1,6 @@
+PASS runtime negative control: BlockCrate drop-assignment compiled then rejected by Caused by: java.lang.AssertionError: exact original sound argument identity
+PASS runtime negative control: BlockCrate wrong-argument compiled then rejected by Caused by: java.lang.AssertionError: exact original sound argument identity
+PASS runtime negative control: BlockCrate null-return compiled then rejected by Caused by: java.lang.NullPointerException
+PASS runtime negative control: BlockStorageCrate drop-assignment compiled then rejected by Caused by: java.lang.AssertionError: exact original sound argument identity
+PASS runtime negative control: BlockStorageCrate wrong-argument compiled then rejected by Caused by: java.lang.AssertionError: exact original sound argument identity
+PASS runtime negative control: BlockStorageCrate null-return compiled then rejected by Caused by: java.lang.NullPointerException

@@ -1,0 +1,25 @@
+{
+  "baseline": "f5ce86cd607379cc9810896cf91d1fee86ce6331",
+  "files": {
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "before": "ed38915c4524f93949c1b5eb80abaad3c8e0163ad51480bb5e5c3eb11e5c50ea",
+      "after": "46e1bb9c5d416d29e994d5e2d1eec329d30fd5105ffb2ac23acb8d78ac1785ef",
+      "calls": 2
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java": {
+      "before": "44f35fd8ea1255c934daedebbd13e0799c0da3b6fd0c51d0b7fd734ae7619f82",
+      "after": "d0a6cf1a2ab620653797c9acbc782e789f0b84fd392aadfdc442840ac2d4da33",
+      "calls": 1
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java": {
+      "before": "a6723749e5db25ea3899adc36195e93754a1025a29799df859531cb2e653300f",
+      "after": "33d02b00c615849610b6ea77edc3c658964b3bcc8609c60389d28365bf7f4b5c",
+      "calls": 1
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java": {
+      "before": "c8679582a46340d560f13a4ada8b4325ce760967b162407634ea92ff7e561b68",
+      "after": "983b3a57f4f9e587b0c40e5c960d2ca82f786b8e070d5275dcb7896e94f7ee7b",
+      "calls": 1
+    }
+  }
+}

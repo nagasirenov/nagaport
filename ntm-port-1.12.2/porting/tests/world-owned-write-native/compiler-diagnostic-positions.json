@@ -1,0 +1,344 @@
+[
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 85,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 86,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 87,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 88,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 89,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 90,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 91,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 92,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 97,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 98,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 99,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 100,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 104,
+    "block": "brick_red",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 105,
+    "block": "brick_red",
+    "metadata": 5
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 106,
+    "block": "brick_red",
+    "metadata": 2
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 107,
+    "block": "brick_red",
+    "metadata": 3
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 122,
+    "block": "brick_red",
+    "metadata": 1
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java",
+    "line": 123,
+    "block": "brick_red",
+    "metadata": 0
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 109,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 110,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 111,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 112,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 113,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 114,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 115,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 116,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 121,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 122,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 123,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 124,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 128,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 129,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 130,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 131,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 138,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+    "line": 139,
+    "block": "brick_red",
+    "metadata": 6
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 84,
+    "block": "steel_poles",
+    "metadata": 2
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 86,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 90,
+    "block": "steel_poles",
+    "metadata": 3
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 95,
+    "block": "steel_poles",
+    "metadata": 2
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 97,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 101,
+    "block": "steel_poles",
+    "metadata": 3
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 116,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 125,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 134,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 143,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 152,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 161,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 170,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 179,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 188,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 197,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 215,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 224,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 233,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 260,
+    "block": "steel_poles",
+    "metadata": 4
+  },
+  {
+    "file": "src/main/java/com/hbm/world/dungeon/Antenna.java",
+    "line": 269,
+    "block": "pole_top",
+    "metadata": 4
+  }
+]

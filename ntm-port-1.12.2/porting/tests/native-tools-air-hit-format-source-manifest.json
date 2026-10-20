@@ -1,0 +1,770 @@
+{
+  "baseline": "f5ce86cd607379cc9810896cf91d1fee86ce6331",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockTaint.java": {
+      "before_sha256": "da4e35f9b290d433cf39134006a1616cb09a56a7401b973b94b9a74c994b357e",
+      "after_sha256": "0fcc433d115e23bcc7abced47f2d725125436860660af74bb5056cdd935366e7",
+      "edits": [
+        {
+          "before_offset": 1906,
+          "after_offset": 1906,
+          "old": "\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();\n\t\t\tif(b.isAir(world, x + i, y + j, z + k) || b == Blocks.BEDROCK) continue;\n",
+          "new": "\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k);\n\t\t\tBlock b = nativeAirState.getBlock();\n\t\t\tif(b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x + i, y + j, z + k)) || b == Blocks.BEDROCK) continue;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "before_sha256": "c3d931415af5617835d5b18943fc1b144b76b3b0542f3ef6372f0a3166b757a1",
+      "after_sha256": "627a3c1cb52005cde16c704976b0b43ac22701c412a39292e1ec3110f049d900",
+      "edits": [
+        {
+          "before_offset": 8248,
+          "after_offset": 8248,
+          "old": "\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();\n\n\t\t\t\tif(!b.isAir(this.world, x, y, z) && b.getExplosionResistance(null) < Blocks.OBSIDIAN.getExplosionResistance(null)) {\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);\n\t\t\t\tBlock b = nativeAirState.getBlock();\n\n\t\t\t\tif(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && b.getExplosionResistance(null) < Blocks.OBSIDIAN.getExplosionResistance(null)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "8e399f4852529e07924d623893b5127cdf4514f8c424e0e820b3c6974b6bac1c",
+      "after_sha256": "8dd9e3a29415d9824b1e219dbfafa402187e7d4fb088af4445ac58d32e505001",
+      "edits": [
+        {
+          "before_offset": 1475,
+          "after_offset": 1475,
+          "old": "\t\tBlock block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);\n\t\tBlock block = nativeAirState.getBlock();\n"
+        },
+        {
+          "before_offset": 1630,
+          "after_offset": 1703,
+          "old": "\t\tif (block.isLeaves(world, x, y - 1, z) && !block.isAir(world, x, y - 1, z)) return true;\n",
+          "new": "\t\tif (block.isLeaves(world, x, y - 1, z) && !block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) return true;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypoint.java": {
+      "before_sha256": "43ec7b66e08f9b0518924bbf0d231b8ed3e50f13353c6b0aa1a93f26f84d2c0f",
+      "after_sha256": "8a8e6f7314b49425b3a02e8b08e90469bb990cf0aacb808a8fd88477cae884c9",
+      "edits": [
+        {
+          "before_offset": 2906,
+          "after_offset": 2906,
+          "old": "\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();\n"
+        },
+        {
+          "before_offset": 3024,
+          "after_offset": 3097,
+          "old": "\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {\n",
+          "new": "\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)))) {\n"
+        },
+        {
+          "before_offset": 3533,
+          "after_offset": 3660,
+          "old": "\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();\n"
+        },
+        {
+          "before_offset": 3651,
+          "after_offset": 3851,
+          "old": "\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(world, x, y, z));\n",
+          "new": "\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java": {
+      "before_sha256": "16bf458b66e8af0ce19c08dbe413da40fa915e3e762f1a2b2b7c67c1eeb00f46",
+      "after_sha256": "4efa6bf2eb5540599204c181d46631db1d3d90c84b266720ef1f436d3675db7e",
+      "edits": [
+        {
+          "before_offset": 2457,
+          "after_offset": 2457,
+          "old": "\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();\n"
+        },
+        {
+          "before_offset": 2575,
+          "after_offset": 2648,
+          "old": "\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {\n",
+          "new": "\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)))) {\n"
+        },
+        {
+          "before_offset": 3084,
+          "after_offset": 3211,
+          "old": "\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);\n\t\tBlock b = nativeAirState.getBlock();\n"
+        },
+        {
+          "before_offset": 3202,
+          "after_offset": 3402,
+          "old": "\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(world, x, y, z));\n",
+          "new": "\t\treturn com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/laythe/SkyProviderLaytheSunset.java": {
+      "before_sha256": "f1f159671dc7621437a6f5b03af2ba741fef20ec80b92f40c53a911009b7d8d0",
+      "after_sha256": "6c880aaca759a663d2b0e81d1e0f3bb0efda0cc30077e019aa8d226af6f8da86",
+      "edits": [
+        {
+          "before_offset": 295,
+          "after_offset": 295,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 665,
+          "after_offset": 783,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 1433,
+          "after_offset": 1617,
+          "old": "\t\t\t\ttessellator.startDrawing(6);\n\t\t\t\ttessellator.setColorRGBA_F(anaglyphColor[0], anaglyphColor[1], anaglyphColor[2], sunsetColor[3]);\n\t\t\t\ttessellator.addVertex(0.0D, 150.0D, 0.0D);\n\t\t\t\ttessellator.setColorRGBA_F(sunsetColor[0], sunsetColor[1], sunsetColor[2], 0.0F);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\tint tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((anaglyphColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((anaglyphColor[1]) * 255.0F)));\n\t\t\t\tint tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((anaglyphColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) ((sunsetColor[3]) * 255.0F)));\n\t\t\t\ttessellatorBuffer.pos(0.0D, 150.0D, 0.0D).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n\t\t\t\tint tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((sunsetColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((sunsetColor[1]) * 255.0F)));\n\t\t\t\tint tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((sunsetColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 1904,
+          "after_offset": 2805,
+          "old": "\t\t\t\t\ttessellator.addVertex((double)(sinAngle * 160.0F), (double)(cosAngle * 160.0F), (double)(-cosAngle * 90.0F * sunsetColor[3]));\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos((double)(sinAngle * 160.0F), (double)(cosAngle * 160.0F), (double)(-cosAngle * 90.0F * sunsetColor[3])).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2208,
+          "after_offset": 3220,
+          "old": "\t\t\t\ttessellator.startDrawing(6);\n\t\t\t\ttessellator.setColorRGBA_F(anaglyphColor[0], anaglyphColor[1], anaglyphColor[2], sunsetColor[3]);\n\t\t\t\ttessellator.addVertex(0.0D, 100.0D, 0.0D);\n\t\t\t\ttessellator.setColorRGBA_F(sunsetColor[0], sunsetColor[1], sunsetColor[2], 0.0F);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\tint tessellatorColor2Red = Math.max(0, Math.min(255, (int) ((anaglyphColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor2Green = Math.max(0, Math.min(255, (int) ((anaglyphColor[1]) * 255.0F)));\n\t\t\t\tint tessellatorColor2Blue = Math.max(0, Math.min(255, (int) ((anaglyphColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor2Alpha = Math.max(0, Math.min(255, (int) ((sunsetColor[3]) * 255.0F)));\n\t\t\t\ttessellatorBuffer.pos(0.0D, 100.0D, 0.0D).color(tessellatorColor2Red, tessellatorColor2Green, tessellatorColor2Blue, tessellatorColor2Alpha).endVertex();\n\t\t\t\tint tessellatorColor3Red = Math.max(0, Math.min(255, (int) ((sunsetColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor3Green = Math.max(0, Math.min(255, (int) ((sunsetColor[1]) * 255.0F)));\n\t\t\t\tint tessellatorColor3Blue = Math.max(0, Math.min(255, (int) ((sunsetColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor3Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 2680,
+          "after_offset": 4409,
+          "old": "\t\t\t\t\ttessellator.addVertex((double)(sinAngle * 100.0F), (double)(cosAngle * 100.0F), (double)(-cosAngle * 90.0F));\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos((double)(sinAngle * 100.0F), (double)(cosAngle * 100.0F), (double)(-cosAngle * 90.0F)).color(tessellatorColor3Red, tessellatorColor3Green, tessellatorColor3Blue, tessellatorColor3Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2967,
+          "after_offset": 4807,
+          "old": "\t\t\t\ttessellator.startDrawing(6);\n\t\t\t\ttessellator.setColorRGBA_F(anaglyphColor[0], anaglyphColor[1], anaglyphColor[2], sunsetColor[3]);\n\t\t\t\ttessellator.addVertex(0.0D, 80.0D, 0.0D);\n\t\t\t\ttessellator.setColorRGBA_F(sunsetColor[0], sunsetColor[1] * 0.2F, sunsetColor[2], 0.0F);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\tint tessellatorColor4Red = Math.max(0, Math.min(255, (int) ((anaglyphColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor4Green = Math.max(0, Math.min(255, (int) ((anaglyphColor[1]) * 255.0F)));\n\t\t\t\tint tessellatorColor4Blue = Math.max(0, Math.min(255, (int) ((anaglyphColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor4Alpha = Math.max(0, Math.min(255, (int) ((sunsetColor[3]) * 255.0F)));\n\t\t\t\ttessellatorBuffer.pos(0.0D, 80.0D, 0.0D).color(tessellatorColor4Red, tessellatorColor4Green, tessellatorColor4Blue, tessellatorColor4Alpha).endVertex();\n\t\t\t\tint tessellatorColor5Red = Math.max(0, Math.min(255, (int) ((sunsetColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor5Green = Math.max(0, Math.min(255, (int) ((sunsetColor[1] * 0.2F) * 255.0F)));\n\t\t\t\tint tessellatorColor5Blue = Math.max(0, Math.min(255, (int) ((sunsetColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor5Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 3445,
+          "after_offset": 6002,
+          "old": "\t\t\t\t\ttessellator.addVertex((double)(sinAngle * 100.0F), (double)(cosAngle * 100.0F), (double)(-cosAngle * 90.0F));\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos((double)(sinAngle * 100.0F), (double)(cosAngle * 100.0F), (double)(-cosAngle * 90.0F)).color(tessellatorColor5Red, tessellatorColor5Green, tessellatorColor5Blue, tessellatorColor5Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/TTree.java": {
+      "before_sha256": "e618e0f5dae5f786019b9f1fb555bcff9827f4afca22e87d30b8166af198ad12",
+      "after_sha256": "c046774ace40bc54e385788ebbfc35efed791f9ef836ae7d225962952a91dc93",
+      "edits": [
+        {
+          "before_offset": 1596,
+          "after_offset": 1596,
+          "old": "\t\t\t\t\t\tBlock block = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz).getBlock();\n\t\t\t\t\t\tif (block.isAir(world, x + dx, bulbStartY + dy, z + dz)) {\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz);\n\t\t\t\t\t\tBlock block = nativeAirState.getBlock();\n\t\t\t\t\t\tif (block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x + dx, bulbStartY + dy, z + dz))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileCustom.java": {
+      "before_sha256": "a09c61f5f529c9e48fdfb6c9f95aea057e3051226c7c6a81e473b753b7b57332",
+      "after_sha256": "6c324d9978a5ea1ae06a6de43b172e5079190468a4cee4cdc2fa344ad5c203f4",
+      "edits": [
+        {
+          "before_offset": 8439,
+          "after_offset": 8439,
+          "old": "\t\t\t\tBlock block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();\n\t\t\t\tif(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\tBlock block = nativeAirState.getBlock();\n\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityMissileTier0.java": {
+      "before_sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986",
+      "after_sha256": "883e44a5f6e2d2a053af0448740e4a83524e1ae19f0319295e8b739c15159899",
+      "edits": [
+        {
+          "before_offset": 6007,
+          "after_offset": 6007,
+          "old": "\t\t\t\tBlock block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();\n\t\t\t\tif(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\tBlock block = nativeAirState.getBlock();\n\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java": {
+      "before_sha256": "4eb79ff2df4062e7385d9244ad2cbd0ceb1c94cc12433a596683e27b8b7ae16a",
+      "after_sha256": "379718b9a18ac24062ea52f378e416f2f7f7ae8607f068be3c50e65e7f27fe98",
+      "edits": [
+        {
+          "before_offset": 1546,
+          "after_offset": 1546,
+          "old": "\t\t\t\t\t\tBlock block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();\n\t\t\t\t\t\tif(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\t\t\tBlock block = nativeAirState.getBlock();\n\t\t\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        },
+        {
+          "before_offset": 2140,
+          "after_offset": 2271,
+          "old": "\t\t\t\t\t\tBlock block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();\n\t\t\t\t\t\tif(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);\n\t\t\t\t\t\tBlock block = nativeAirState.getBlock();\n\t\t\t\t\t\tif(block.isNormalCube() && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java": {
+      "before_sha256": "913f81d39961a9aa3752a8536ceb2a2d779520085e64197377eb64c8ab86e3c6",
+      "after_sha256": "bccc025f6ff201b327ed4976189de14f7b002fa8de0bcaeb2e8dffa20a6158e5",
+      "edits": [
+        {
+          "before_offset": 2626,
+          "after_offset": 2626,
+          "old": "\t\tBlock block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();\n\n\t\tif(block.isAir(world, x, y, z)) return false; // Air obviously doesn't seal\n",
+          "new": "\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y, z);\n\t\tBlock block = nativeAirState.getBlock();\n\n\t\tif(block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z))) return false; // Air obviously doesn't seal\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "before_sha256": "ed38915c4524f93949c1b5eb80abaad3c8e0163ad51480bb5e5c3eb11e5c50ea",
+      "after_sha256": "46e1bb9c5d416d29e994d5e2d1eec329d30fd5105ffb2ac23acb8d78ac1785ef",
+      "edits": [
+        {
+          "before_offset": 4117,
+          "after_offset": 4117,
+          "old": "\t\t\tif(this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {\n",
+          "new": "\t\t\tif(this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {\n"
+        },
+        {
+          "before_offset": 4913,
+          "after_offset": 4915,
+          "old": "\t\treturn this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y);\n",
+          "new": "\t\treturn this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java": {
+      "before_sha256": "44f35fd8ea1255c934daedebbd13e0799c0da3b6fd0c51d0b7fd734ae7619f82",
+      "after_sha256": "d0a6cf1a2ab620653797c9acbc782e789f0b84fd392aadfdc442840ac2d4da33",
+      "edits": [
+        {
+          "before_offset": 3177,
+          "after_offset": 3177,
+          "old": "\t\treturn this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y);\n",
+          "new": "\t\treturn this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java": {
+      "before_sha256": "a6723749e5db25ea3899adc36195e93754a1025a29799df859531cb2e653300f",
+      "after_sha256": "33d02b00c615849610b6ea77edc3c658964b3bcc8609c60389d28365bf7f4b5c",
+      "edits": [
+        {
+          "before_offset": 1722,
+          "after_offset": 1722,
+          "old": "\t\treturn this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y);\n",
+          "new": "\t\treturn this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java": {
+      "before_sha256": "c8679582a46340d560f13a4ada8b4325ce760967b162407634ea92ff7e561b68",
+      "after_sha256": "983b3a57f4f9e587b0c40e5c960d2ca82f786b8e070d5275dcb7896e94f7ee7b",
+      "edits": [
+        {
+          "before_offset": 3080,
+          "after_offset": 3080,
+          "old": "\t\t\tif(this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {\n",
+          "new": "\t\t\tif(this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineRadarNT.java": {
+      "before_sha256": "5caaa8d6a2b11c60cd99a1baafb5ddfa6583e89eeccd75002129acba3082d32f",
+      "after_sha256": "a477f454a024af65b43be94999e09ce49e49bdcba288147b4a23a59e8b109c4e",
+      "edits": [
+        {
+          "before_offset": 6866,
+          "after_offset": 6866,
+          "old": "\t\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\t\tTessellator tess = Tessellator.getInstance();\n\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 6949,
+          "after_offset": 7002,
+          "old": "\t\t\ttess.startDrawingQuads();\n",
+          "new": "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 7147,
+          "after_offset": 7232,
+          "old": "\t\t\t\t\ttess.setColorOpaque_I(color);\n\t\t\t\t\ttess.addVertex(guiLeft + 8 + iX,\tguiTop + 18 + iZ,\tthis.zLevel);\n\t\t\t\t\ttess.addVertex(guiLeft + 9 + iX,\tguiTop + 18 + iZ,\tthis.zLevel);\n\t\t\t\t\ttess.addVertex(guiLeft + 9 + iX,\tguiTop + 17 + iZ,\tthis.zLevel);\n\t\t\t\t\ttess.addVertex(guiLeft + 8 + iX,\tguiTop + 17 + iZ,\tthis.zLevel);\n",
+          "new": "\t\t\t\t\tint tessColor0Packed = color;\n\t\t\t\t\ttessBuffer.pos(guiLeft + 8 + iX, guiTop + 18 + iZ, this.zLevel).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n\t\t\t\t\ttessBuffer.pos(guiLeft + 9 + iX, guiTop + 18 + iZ, this.zLevel).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n\t\t\t\t\ttessBuffer.pos(guiLeft + 9 + iX, guiTop + 17 + iZ, this.zLevel).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n\t\t\t\t\ttessBuffer.pos(guiLeft + 8 + iX, guiTop + 17 + iZ, this.zLevel).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 8070,
+          "after_offset": 8595,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawingQuads();\n\t\ttess.setColorRGBA_I(0x00ff00, 0);\ttess.addVertex(guiLeft + 108,\t\t\t\tguiTop + 117,\t\t\t\tthis.zLevel);\n\t\ttess.setColorRGBA_I(0x00ff00, 255);\ttess.addVertex(guiLeft + 108 + tr.x,\tguiTop + 117 + tr.y,\tthis.zLevel);\n\t\ttess.setColorRGBA_I(0x00ff00, 0);\ttess.addVertex(guiLeft + 108 + tl.x,\tguiTop + 117 + tl.y,\tthis.zLevel);\n\t\ttess.setColorRGBA_I(0x00ff00, 0);\ttess.addVertex(guiLeft + 108 + bl.x,\tguiTop + 117 + bl.y,\tthis.zLevel);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\tint tessColor1Packed = 0x00ff00;\n\t\tint tessColor1Alpha = Math.max(0, Math.min(255, 0));\ttessBuffer.pos(guiLeft + 108, guiTop + 117, this.zLevel).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();\n\t\tint tessColor2Packed = 0x00ff00;\n\t\tint tessColor2Alpha = Math.max(0, Math.min(255, 255));\ttessBuffer.pos(guiLeft + 108 + tr.x, guiTop + 117 + tr.y, this.zLevel).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, tessColor2Alpha).endVertex();\n\t\tint tessColor3Packed = 0x00ff00;\n\t\tint tessColor3Alpha = Math.max(0, Math.min(255, 0));\ttessBuffer.pos(guiLeft + 108 + tl.x, guiTop + 117 + tl.y, this.zLevel).color((tessColor3Packed >> 16) & 255, (tessColor3Packed >> 8) & 255, tessColor3Packed & 255, tessColor3Alpha).endVertex();\n\t\tint tessColor4Packed = 0x00ff00;\n\t\tint tessColor4Alpha = Math.max(0, Math.min(255, 0));\ttessBuffer.pos(guiLeft + 108 + bl.x, guiTop + 117 + bl.y, this.zLevel).color((tessColor4Packed >> 16) & 255, (tessColor4Packed >> 8) & 255, tessColor4Packed & 255, tessColor4Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/LoadingScreenRendererNT.java": {
+      "before_sha256": "b57da4de73b88db6468c953943cedd1d3887c63ccaee57061c12e3ba53abe796",
+      "after_sha256": "efa9c6b98f29e7cce200d53e26ae73fa44179fd8135447d6ac4cc019e053bd54",
+      "edits": [
+        {
+          "before_offset": 459,
+          "after_offset": 459,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 4203,
+          "after_offset": 4321,
+          "old": "\t\t\t\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\t\t\t\tTessellator tessellator = Tessellator.getInstance();\n\t\t\t\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 4347,
+          "after_offset": 4534,
+          "old": "\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\ttessellator.setColorOpaque_I(4210752);\n\t\t\t\t\ttessellator.addVertexWithUV(0.0D, height, 0.0D, 0.0D, height / f);\n\t\t\t\t\ttessellator.addVertexWithUV(width, height, 0.0D, width / f, height / f);\n\t\t\t\t\ttessellator.addVertexWithUV(width, 0.0D, 0.0D, width / f, 0.0D);\n\t\t\t\t\ttessellator.addVertexWithUV(0.0D, 0.0D, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);\n\t\t\t\t\tint tessellatorColor0Packed = 4210752;\n\t\t\t\t\ttessellatorBuffer.pos(0.0D, height, 0.0D).tex(0.0D, height / f).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n\t\t\t\t\ttessellatorBuffer.pos(width, height, 0.0D).tex(width / f, height / f).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n\t\t\t\t\ttessellatorBuffer.pos(width, 0.0D, 0.0D).tex(width / f, 0.0D).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n\t\t\t\t\ttessellatorBuffer.pos(0.0D, 0.0D, 0.0D).tex(0.0D, 0.0D).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 4915,
+          "after_offset": 5654,
+          "old": "\t\t\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\t\t\ttessellator.setColorOpaque_I(8421504);\n\t\t\t\t\t\ttessellator.addVertex(j1, k1, 0.0D);\n\t\t\t\t\t\ttessellator.addVertex(j1, k1 + b1, 0.0D);\n\t\t\t\t\t\ttessellator.addVertex(j1 + b0, k1 + b1, 0.0D);\n\t\t\t\t\t\ttessellator.addVertex(j1 + b0, k1, 0.0D);\n\t\t\t\t\t\ttessellator.setColorOpaque_I(8454016);\n\t\t\t\t\t\ttessellator.addVertex(j1, k1, 0.0D);\n\t\t\t\t\t\ttessellator.addVertex(j1, (k1 + b1), 0.0D);\n\t\t\t\t\t\ttessellator.addVertex(j1 + p_73718_1_, k1 + b1, 0.0D);\n\t\t\t\t\t\ttessellator.addVertex(j1 + p_73718_1_, k1, 0.0D);\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\t\t\tint tessellatorColor1Packed = 8421504;\n\t\t\t\t\t\ttessellatorBuffer.pos(j1, k1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(j1, k1 + b1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(j1 + b0, k1 + b1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(j1 + b0, k1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();\n\t\t\t\t\t\tint tessellatorColor2Packed = 8454016;\n\t\t\t\t\t\ttessellatorBuffer.pos(j1, k1, 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(j1, (k1 + b1), 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(j1 + p_73718_1_, k1 + b1, 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();\n\t\t\t\t\t\ttessellatorBuffer.pos(j1 + p_73718_1_, k1, 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java": {
+      "before_sha256": "042f1871ac458eddb5d2f6e8e2908d338866a512e9529967bf288b16c2f9b32c",
+      "after_sha256": "245c808ca5e745603a6bce2ceae4f885545d133df0d3ff1b184644116ae93a78",
+      "edits": [
+        {
+          "before_offset": 3006,
+          "after_offset": 3006,
+          "old": "\tpublic Multimap getAttributeModifiers(ItemStack stack) {\r\n",
+          "new": "\tpublic Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {\r\n"
+        },
+        {
+          "before_offset": 3069,
+          "after_offset": 3119,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(stack);\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(slot, stack);\r\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", 2, 0));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java": {
+      "before_sha256": "a6c3425bd95ffcf20ffe57a638fff16d414868c0b48733741ef80b2206522b71",
+      "after_sha256": "3a0e143d920b38c886e1b1fc89813483bdee2dc329e80cb8422374786a77c657",
+      "edits": [
+        {
+          "before_offset": 4232,
+          "after_offset": 4232,
+          "old": "\tpublic Multimap getAttributeModifiers(ItemStack stack) {\r\n",
+          "new": "\tpublic Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {\r\n"
+        },
+        {
+          "before_offset": 4295,
+          "after_offset": 4345,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(stack);\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(slot, stack);\r\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", 2, 0));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemStructurePattern.java": {
+      "before_sha256": "b1660826c2f02ebc8c2dcb87e30f4ffd7362f3032e3d063d9d8510af11bed474",
+      "after_sha256": "02703f81ccb39cba14b5ca8fd28c3ba2c6fd9dc5a955328682312ea4a05a7cb4",
+      "edits": [
+        {
+          "before_offset": 1538,
+          "after_offset": 1538,
+          "old": "\t\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()).getBlock();\n\t\t\t\t\tif(b.isAir(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ())) continue;\n",
+          "new": "\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ());\n\t\t\t\t\tBlock b = nativeAirState.getBlock();\n\t\t\t\t\tif(b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()))) continue;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemSwordAbility.java": {
+      "before_sha256": "9a37d87a100cafba1ead52e6f46091ba53fb3acbb733a86427cad0043355333a",
+      "after_sha256": "ee7f7555554becd1dc3e88ee96af2aa0bae2b5332ebb644579bea2233df9aff3",
+      "edits": [
+        {
+          "before_offset": 2086,
+          "after_offset": 2086,
+          "old": "\tpublic Multimap getItemAttributeModifiers() {\n",
+          "new": "\tpublic Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {\n"
+        },
+        {
+          "before_offset": 2179,
+          "after_offset": 2227,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n",
+          "new": "\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Tool modifier\", (double) this.damage, 0));\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Tool modifier\", movement, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+      "before_sha256": "685d730b2d86d9a72685f04ca2b6ca5220f88d25448224d1b7056267cc382198",
+      "after_sha256": "d1976684752da85f836ead6742a1b30f3266ce7a91f8a39a8c7d9ade92eea9ec",
+      "edits": [
+        {
+          "before_offset": 5458,
+          "after_offset": 5458,
+          "old": "\t\tsuper(0, material, type.blocks);\r\n",
+          "new": "\t\tsuper(material, type.blocks);\r\n"
+        },
+        {
+          "before_offset": 10340,
+          "after_offset": 10337,
+          "old": "\tpublic Multimap getItemAttributeModifiers() {\r\n",
+          "new": "\tpublic Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {\r\n"
+        },
+        {
+          "before_offset": 10436,
+          "after_offset": 10481,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\r\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\r\n",
+          "new": "\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Tool modifier\", (double) this.damage, 0));\r\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Tool modifier\", movement, 1));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java": {
+      "before_sha256": "f73049f048ae9a9e822a749a8934ac005ac639ed2afda6282c1e3dfbf356413d",
+      "after_sha256": "ca100d069fe6410f4594a5df44baeefeb72388b70fd9c9c4bc6f6a9c28f28edd",
+      "edits": [
+        {
+          "before_offset": 1106,
+          "after_offset": 1106,
+          "old": "\tpublic Multimap getAttributeModifiers(ItemStack stack) {\n",
+          "new": "\tpublic Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {\n"
+        },
+        {
+          "before_offset": 1167,
+          "after_offset": 1217,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(stack);\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", damage, 0));\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(slot, stack);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", damage, 0));\n"
+        },
+        {
+          "before_offset": 1394,
+          "after_offset": 1541,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Wrench modifier\", -0.1, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Wrench modifier\", -0.1, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "a35490a1a04c4fbf7f63ee0c40f4de65fc980ad34f0a154bb3e95ec8270b3592",
+      "after_sha256": "ff263d68ec5bbb02eb2e64dddbc11fa0a0558dcf7272b8fee09675a045151ac5",
+      "edits": [
+        {
+          "before_offset": 7258,
+          "after_offset": 7258,
+          "old": "\tpublic Multimap getItemAttributeModifiers() {\n\t\tMultimap multimap = super.getItemAttributeModifiers();\n",
+          "new": "\tpublic Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {\n\t\tMultimap multimap = super.getItemAttributeModifiers(slot);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.MAINHAND) {\n\t\t\tAttributeModifier damage = new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", (double) (4.0F + super.getAttackDamage()), 0);\n\t\t\tmultimap.remove(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);\n\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);\n\t\t}\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n"
+        },
+        {
+          "before_offset": 7406,
+          "after_offset": 7907,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.5, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", -0.5, 1));\n"
+        },
+        {
+          "before_offset": 7616,
+          "after_offset": 8125,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.2, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", -0.2, 1));\n"
+        },
+        {
+          "before_offset": 7794,
+          "after_offset": 8311,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.1, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", -0.1, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "before_sha256": "95024164af92e2a896696d9b919f83589693979193e9f51d276f5e6e9d07241d",
+      "after_sha256": "bc47859d7796a5f5d91ec33571193811f29e479f95ad978e3db29ef17f94ef71",
+      "edits": [
+        {
+          "before_offset": 5789,
+          "after_offset": 5789,
+          "old": "\tpublic Multimap getItemAttributeModifiers() {\n\t\tMultimap multimap = super.getItemAttributeModifiers();\n",
+          "new": "\tpublic Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {\n\t\tMultimap multimap = super.getItemAttributeModifiers(slot);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n"
+        },
+        {
+          "before_offset": 5957,
+          "after_offset": 6092,
+          "old": "\t\t\t\tnew AttributeModifier(field_111210_e, \"Weapon modifier\", 3.5, 0));\n",
+          "new": "\t\t\t\tnew AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", 3.5, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCrucible.java": {
+      "before_sha256": "7297ec30153a744646fd1ef5883fbe010394ab0af6a25c6b3525613b2399f331",
+      "after_sha256": "7abd989c7ecb84d5d10d8fae338bf4f216b38bc843d677974dbb73faa2a72f31",
+      "edits": [
+        {
+          "before_offset": 4262,
+          "after_offset": 4262,
+          "old": "\tpublic Multimap getAttributeModifiers(ItemStack stack) {\n",
+          "new": "\t@Override\n\tpublic Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {\n"
+        },
+        {
+          "before_offset": 4366,
+          "after_offset": 4427,
+          "old": "",
+          "new": "\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n"
+        },
+        {
+          "before_offset": 4420,
+          "after_offset": 4564,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Tool modifier\", (double) this.damage, 0));\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Tool modifier\", movement, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "3e46fac7b6a2447d499856e5d25bf8ffa07c9b15948a3a1587ab65eca8f993b5",
+      "after_sha256": "6335f19cf5014007b44872aafc5e1b1246a007183c80a0b248810740e5623050",
+      "edits": [
+        {
+          "before_offset": 42845,
+          "after_offset": 42845,
+          "old": "\t\t\tif(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers().containsKey(SharedMonsterAttributes.ATTACK_DAMAGE.getName())) return;\n",
+          "new": "\t\t\tif(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND).containsKey(SharedMonsterAttributes.ATTACK_DAMAGE.getName())) return;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/potion/HbmPotion.java": {
+      "before_sha256": "30009b63cb206d3c84ea61b0265b2c9d39fed53ee98c4733e9f2588b498de1c2",
+      "after_sha256": "3d10a65cd9f5c064d378dbd8725341a3b16e82472d801c4d0e82a9a0e2c53358",
+      "edits": [
+        {
+          "before_offset": 5111,
+          "after_offset": 5111,
+          "old": "\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z).getBlock();\n\t\t\t\tif(y > 1 && b.isNormalCube() && !b.isAir(entity.world, x, y - 1, z)) {\n",
+          "new": "\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z);\n\t\t\t\tBlock b = nativeAirState.getBlock();\n\t\t\t\tif(y > 1 && b.isNormalCube() && !b.isAir(nativeAirState, entity.world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderDeathBlast.java": {
+      "before_sha256": "065d5e4ead75e7a983455a409f60fbeaadcd830975b629ae86ce2c0b045d99d4",
+      "after_sha256": "975d1d7808c9fe8e8f3b4e29ae7e1ce65d3e507fe2b7d21ff6b2ae42441f6c0a",
+      "edits": [
+        {
+          "before_offset": 300,
+          "after_offset": 300,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1608,
+          "after_offset": 1726,
+          "old": "\t        Tessellator tessellator = Tessellator.instance;\n",
+          "new": "\t        Tessellator tessellator = Tessellator.getInstance();\n\t        BufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 1754,
+          "after_offset": 1945,
+          "old": "\t            tessellator.startDrawing(6);\n\t            tessellator.addVertex(vector.x, 250.0D, vector.z);\n\t            tessellator.addVertex(vector.x, 0.0D, vector.z);\n",
+          "new": "\t            tessellatorBuffer.begin(6, DefaultVertexFormats.POSITION);\n\t            tessellatorBuffer.pos(vector.x, 250.0D, vector.z).endVertex();\n\t            tessellatorBuffer.pos(vector.x, 0.0D, vector.z).endVertex();\n"
+        },
+        {
+          "before_offset": 1966,
+          "after_offset": 2211,
+          "old": "\t            tessellator.addVertex(vector.x, 0.0D, vector.z);\n\t            tessellator.addVertex(vector.x, 250.0D, vector.z);\n",
+          "new": "\t            tessellatorBuffer.pos(vector.x, 0.0D, vector.z).endVertex();\n\t            tessellatorBuffer.pos(vector.x, 250.0D, vector.z).endVertex();\n"
+        },
+        {
+          "before_offset": 2225,
+          "after_offset": 2494,
+          "old": "\t            tessellator.startDrawing(6);\n\t            tessellator.addVertex(vector.x / 2, 250.0D, vector.z / 2);\n\t            tessellator.addVertex(vector.x / 2, 0.0D, vector.z / 2);\n",
+          "new": "\t            tessellatorBuffer.begin(6, DefaultVertexFormats.POSITION);\n\t            tessellatorBuffer.pos(vector.x / 2, 250.0D, vector.z / 2).endVertex();\n\t            tessellatorBuffer.pos(vector.x / 2, 0.0D, vector.z / 2).endVertex();\n"
+        },
+        {
+          "before_offset": 2453,
+          "after_offset": 2776,
+          "old": "\t            tessellator.addVertex(vector.x / 2, 0.0D, vector.z / 2);\n\t            tessellator.addVertex(vector.x / 2, 250.0D, vector.z / 2);\n",
+          "new": "\t            tessellatorBuffer.pos(vector.x / 2, 0.0D, vector.z / 2).endVertex();\n\t            tessellatorBuffer.pos(vector.x / 2, 250.0D, vector.z / 2).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBobble.java": {
+      "before_sha256": "1fb7bbd770ffdc64beb87e4db465211736112cf17ba28fb904a4c670e49838ee",
+      "after_sha256": "40513a8093d260eb2c1fc37ecb7174afe301b75b7ed97d74488369f3d90d177a",
+      "edits": [
+        {
+          "before_offset": 614,
+          "after_offset": 614,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 18918,
+          "after_offset": 19036,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.setColorOpaque_F(1F, 0F, 0F);\n\t\ttess.startDrawing(GL11.GL_TRIANGLES);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\t// Legacy begin resets this attribute; retain its argument evaluation.\n\t\tfloat tessResetRed = 1F, tessResetGreen = 0F, tessResetBlue = 0F;\n\t\ttessBuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 19060,
+          "after_offset": 19364,
+          "old": "\t\ttess.addVertex(0, d, 0);\n\t\ttess.addVertex(d, 0, 0);\n\t\ttess.addVertex(0, 0, d);\n\n\t\ttess.addVertex(0, d, 0);\n\t\ttess.addVertex(-d, 0, 0);\n\t\ttess.addVertex(0, 0, d);\n\n\t\ttess.addVertex(0, d, 0);\n\t\ttess.addVertex(d, 0, 0);\n\t\ttess.addVertex(0, 0, -d);\n\n\t\ttess.addVertex(0, d, 0);\n\t\ttess.addVertex(-d, 0, 0);\n\t\ttess.addVertex(0, 0, -d);\n\n\t\ttess.addVertex(0, -d, 0);\n\t\ttess.addVertex(d, 0, 0);\n\t\ttess.addVertex(0, 0, d);\n\n\t\ttess.addVertex(0, -d, 0);\n\t\ttess.addVertex(d, 0, 0);\n\t\ttess.addVertex(0, 0, -d);\n\n\t\ttess.addVertex(0, -d, 0);\n\t\ttess.addVertex(-d, 0, 0);\n\t\ttess.addVertex(0, 0, d);\n\n\t\ttess.addVertex(0, -d, 0);\n\t\ttess.addVertex(-d, 0, 0);\n\t\ttess.addVertex(0, 0, -d);\n",
+          "new": "\t\ttessBuffer.pos(0, d, 0).endVertex();\n\t\ttessBuffer.pos(d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, d).endVertex();\n\n\t\ttessBuffer.pos(0, d, 0).endVertex();\n\t\ttessBuffer.pos(-d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, d).endVertex();\n\n\t\ttessBuffer.pos(0, d, 0).endVertex();\n\t\ttessBuffer.pos(d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, -d).endVertex();\n\n\t\ttessBuffer.pos(0, d, 0).endVertex();\n\t\ttessBuffer.pos(-d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, -d).endVertex();\n\n\t\ttessBuffer.pos(0, -d, 0).endVertex();\n\t\ttessBuffer.pos(d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, d).endVertex();\n\n\t\ttessBuffer.pos(0, -d, 0).endVertex();\n\t\ttessBuffer.pos(d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, -d).endVertex();\n\n\t\ttessBuffer.pos(0, -d, 0).endVertex();\n\t\ttessBuffer.pos(-d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, d).endVertex();\n\n\t\ttessBuffer.pos(0, -d, 0).endVertex();\n\t\ttessBuffer.pos(-d, 0, 0).endVertex();\n\t\ttessBuffer.pos(0, 0, -d).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/GaugeUtil.java": {
+      "before_sha256": "e4f31ebd7ba0754c1f78a6e6d01a4a17bb2a5b67604d6cedeb0bf60af42019e1",
+      "after_sha256": "3dc2e3ecd793981df1718f6178e975b62401737664889dd44e56d14214abc142",
+      "edits": [
+        {
+          "before_offset": 182,
+          "after_offset": 182,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1947,
+          "after_offset": 2065,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawingQuads();\n\t\ttess.addVertexWithUV(x, \t\t\t\ty + gauge.height, \tz, \t0, \tframeOffset + singleFrame);\n\t\ttess.addVertexWithUV(x + gauge.width, \ty + gauge.height, \tz, \t1, \tframeOffset + singleFrame);\n\t\ttess.addVertexWithUV(x + gauge.width, \ty, \t\t\t\t\tz, \t1, \tframeOffset);\n\t\ttess.addVertexWithUV(x, \t\t\t\ty, \t\t\t\t\tz, \t0, \tframeOffset);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\ttessBuffer.pos(x, y + gauge.height, z).tex(0, frameOffset + singleFrame).endVertex();\n\t\ttessBuffer.pos(x + gauge.width, y + gauge.height, z).tex(1, frameOffset + singleFrame).endVertex();\n\t\ttessBuffer.pos(x + gauge.width, y, z).tex(1, frameOffset).endVertex();\n\t\ttessBuffer.pos(x, y, z).tex(0, frameOffset).endVertex();\n"
+        },
+        {
+          "before_offset": 3230,
+          "after_offset": 3440,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawing(GL11.GL_TRIANGLES);\n\t\ttess.setColorOpaque_I(colorOuter);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);\n\t\tint tessColor0Packed = colorOuter;\n"
+        },
+        {
+          "before_offset": 3371,
+          "after_offset": 3669,
+          "old": "\t\ttess.addVertex(x + tip.x * mult, y + tip.y * mult, z);\n\t\ttess.addVertex(x + left.x * mult, y + left.y * mult, z);\n\t\ttess.addVertex(x + right.x * mult, y + right.y * mult, z);\n\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(x + tip.x, y + tip.y, z);\n\t\ttess.addVertex(x + left.x, y + left.y, z);\n\t\ttess.addVertex(x + right.x, y + right.y, z);\n",
+          "new": "\t\ttessBuffer.pos(x + tip.x * mult, y + tip.y * mult, z).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(x + left.x * mult, y + left.y * mult, z).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(x + right.x * mult, y + right.y * mult, z).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n\t\tint tessColor1Packed = color;\n\t\ttessBuffer.pos(x + tip.x, y + tip.y, z).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(x + left.x, y + left.y, z).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(x + right.x, y + right.y, z).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, 255).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/world/RenderNTMSkyboxImpact.java": {
+      "before_sha256": "566436ac5d737784caf01136b9f4bb230464f126238d2f061746134741446770",
+      "after_sha256": "52800224f488f3c42e70f4447b1d64482571633e21860e015b351d80f44afa5a",
+      "edits": [
+        {
+          "before_offset": 381,
+          "after_offset": 381,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1866,
+          "after_offset": 1984,
+          "old": "\t\tfinal Tessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tfinal Tessellator tessellator = Tessellator.getInstance();\n\t\tfinal BufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 2206,
+          "after_offset": 2396,
+          "old": "\t\t\t\ttessellator.startDrawingQuads();\n\t\t\t\ttessellator.addVertex(j + 0, f, l + 0);\n\t\t\t\ttessellator.addVertex(j + byte2, f, l + 0);\n\t\t\t\ttessellator.addVertex(j + byte2, f, l + byte2);\n\t\t\t\ttessellator.addVertex(j + 0, f, l + byte2);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);\n\t\t\t\ttessellatorBuffer.pos(j + 0, f, l + 0).endVertex();\n\t\t\t\ttessellatorBuffer.pos(j + byte2, f, l + 0).endVertex();\n\t\t\t\ttessellatorBuffer.pos(j + byte2, f, l + byte2).endVertex();\n\t\t\t\ttessellatorBuffer.pos(j + 0, f, l + byte2).endVertex();\n"
+        },
+        {
+          "before_offset": 2598,
+          "after_offset": 2862,
+          "old": "\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 2750,
+          "after_offset": 3040,
+          "old": "\t\t\t\ttessellator.addVertex(k + byte2, f, i1 + 0);\n\t\t\t\ttessellator.addVertex(k + 0, f, i1 + 0);\n\t\t\t\ttessellator.addVertex(k + 0, f, i1 + byte2);\n\t\t\t\ttessellator.addVertex(k + byte2, f, i1 + byte2);\n",
+          "new": "\t\t\t\ttessellatorBuffer.pos(k + byte2, f, i1 + 0).endVertex();\n\t\t\t\ttessellatorBuffer.pos(k + 0, f, i1 + 0).endVertex();\n\t\t\t\ttessellatorBuffer.pos(k + 0, f, i1 + byte2).endVertex();\n\t\t\t\ttessellatorBuffer.pos(k + byte2, f, i1 + byte2).endVertex();\n"
+        },
+        {
+          "before_offset": 3789,
+          "after_offset": 4127,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 5117,
+          "after_offset": 5521,
+          "old": "\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertex(-f10, 99.9D, -f10);\n\t\ttessellator.addVertex(f10, 99.9D, -f10);\n\t\ttessellator.addVertex(f10, 99.9D, f10);\n\t\ttessellator.addVertex(-f10, 99.9D, f10);\n",
+          "new": "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);\n\t\ttessellatorBuffer.pos(-f10, 99.9D, -f10).endVertex();\n\t\ttessellatorBuffer.pos(f10, 99.9D, -f10).endVertex();\n\t\ttessellatorBuffer.pos(f10, 99.9D, f10).endVertex();\n\t\ttessellatorBuffer.pos(-f10, 99.9D, f10).endVertex();\n"
+        },
+        {
+          "before_offset": 5480,
+          "after_offset": 5958,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-f10, 100.0D, -f10, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(f10, 100.0D, -f10, 1.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(f10, 100.0D, f10, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-f10, 100.0D, f10, 0.0D, 1.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-f10, 100.0D, -f10).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(f10, 100.0D, -f10).tex(1.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(f10, 100.0D, f10).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-f10, 100.0D, f10).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 6288,
+          "after_offset": 6836,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-f10, -100.0D, f10, zz, rand9);\n\t\t\ttessellator.addVertexWithUV(f10, -100.0D, f10, yy, rand9);\n\t\t\ttessellator.addVertexWithUV(f10, -100.0D, -f10, yy, rand7);\n\t\t\ttessellator.addVertexWithUV(-f10, -100.0D, -f10, zz, rand7);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-f10, -100.0D, f10).tex(zz, rand9).endVertex();\n\t\t\ttessellatorBuffer.pos(f10, -100.0D, f10).tex(yy, rand9).endVertex();\n\t\t\ttessellatorBuffer.pos(f10, -100.0D, -f10).tex(yy, rand7).endVertex();\n\t\t\ttessellatorBuffer.pos(-f10, -100.0D, -f10).tex(zz, rand7).endVertex();\n"
+        },
+        {
+          "before_offset": 7323,
+          "after_offset": 7941,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 8092,
+          "after_offset": 8780,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 8994,
+          "after_offset": 9752,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setColorRGBA_I(0, 255);\n\t\t\ttessellator.addVertex(-f8, f9, f8);\n\t\t\ttessellator.addVertex(f8, f9, f8);\n\t\t\ttessellator.addVertex(f8, f10, f8);\n\t\t\ttessellator.addVertex(-f8, f10, f8);\n\t\t\ttessellator.addVertex(-f8, f10, -f8);\n\t\t\ttessellator.addVertex(f8, f10, -f8);\n\t\t\ttessellator.addVertex(f8, f9, -f8);\n\t\t\ttessellator.addVertex(-f8, f9, -f8);\n\t\t\ttessellator.addVertex(f8, f10, -f8);\n\t\t\ttessellator.addVertex(f8, f10, f8);\n\t\t\ttessellator.addVertex(f8, f9, f8);\n\t\t\ttessellator.addVertex(f8, f9, -f8);\n\t\t\ttessellator.addVertex(-f8, f9, -f8);\n\t\t\ttessellator.addVertex(-f8, f9, f8);\n\t\t\ttessellator.addVertex(-f8, f10, f8);\n\t\t\ttessellator.addVertex(-f8, f10, -f8);\n\t\t\ttessellator.addVertex(-f8, f10, -f8);\n\t\t\ttessellator.addVertex(-f8, f10, f8);\n\t\t\ttessellator.addVertex(f8, f10, f8);\n\t\t\ttessellator.addVertex(f8, f10, -f8);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\t\tint tessellatorColor0Packed = 0;\n\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, 255));\n\t\t\ttessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 10323,
+          "after_offset": 14175,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n\t\ttessellator.startDrawingQuads();\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 11665,
+          "after_offset": 15609,
+          "old": "\t\t\t\t\ttessellator.addVertex(d5 + d24, d6 + d22, d7 + d25);\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos(d5 + d24, d6 + d22, d7 + d25).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": {
+      "before_sha256": "a91c6c26f991a42df49b8c8af43a0ebf2374c9bc9e4e0eaf9914f753d55d4417",
+      "after_sha256": "c9f69c243eb83835e24b7c53a0da62c3f47625d12e9fb60d188b4a0944cb592a",
+      "edits": [
+        {
+          "before_offset": 4005,
+          "after_offset": 4005,
+          "old": "\t\t\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();\n\t\t\t\t\t\t\n\t\t\t\t\t\tif(!b.isAir(this.world, x, y, z)) {\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);\n\t\t\t\t\t\tBlock b = nativeAirState.getBlock();\n\t\t\t\t\t\t\n\t\t\t\t\t\tif(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java": {
+      "before_sha256": "5a5b1e1a175777480c31ac06e0f283a90396fb680d2e2bbdfae20ca1044b3799",
+      "after_sha256": "0065c58d9f2d16605ad6bb866813a018b197d3c5dc9b5d2a42d8370cbabc2e8e",
+      "edits": [
+        {
+          "before_offset": 4196,
+          "after_offset": 4196,
+          "old": "\t\t\t\t\t\tBlock b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i).getBlock();\n",
+          "new": "\t\t\t\t\t\tnet.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i);\n\t\t\t\t\t\tBlock b = nativeAirState.getBlock();\n"
+        },
+        {
+          "before_offset": 4795,
+          "after_offset": 4872,
+          "old": "\t\t\t\t\t\tif(!b.isAir(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i)) {\n",
+          "new": "\t\t\t\t\t\tif(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i))) {\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

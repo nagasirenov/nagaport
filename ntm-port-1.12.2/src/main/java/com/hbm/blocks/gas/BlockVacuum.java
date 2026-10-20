@@ -62,18 +62,18 @@ public class BlockVacuum extends Block {
 	}
 
 	@Override
-	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {
+	public boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return false;
 	}
 
 	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
-		if(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, 1);
+		if(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);
 	}
 
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, 1);
+		if(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class BlockVacuum extends Block {
 			
 			if(isAirBlock(b)) {
 				
-				if(b.isReplaceable(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
+				if(b.isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ))) {
 					if(getAirCount(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == 0) {
 						world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.vacuum);
 						return;

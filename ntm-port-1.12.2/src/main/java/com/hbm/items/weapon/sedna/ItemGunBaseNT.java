@@ -452,7 +452,7 @@ public class ItemGunBaseNT extends Item implements IKeybindReceiver, IItemHUD, I
 			event.setCanceled(true);
 			GunConfig config = gun.getConfig(stack, 0);
 			if(config.getHideCrosshair(stack) && aimingProgress >= 1F) return;
-			RenderScreenOverlay.renderCustomCrosshairs(event.resolution, Minecraft.getMinecraft().ingameGUI, config.getCrosshair(stack));
+			RenderScreenOverlay.renderCustomCrosshairs(event.getResolution(), Minecraft.getMinecraft().ingameGUI, config.getCrosshair(stack));
 		}
 
 		int confNo = this.configs_DNA.length;

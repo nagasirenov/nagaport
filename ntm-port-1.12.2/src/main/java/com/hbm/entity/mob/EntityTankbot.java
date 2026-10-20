@@ -38,6 +38,15 @@ import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.world.World;
 
 public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, IAnimals, ISuffocationImmune {
+
+	/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public boolean isInRangeToRenderDist(double distance) {
+		double range = this.getEntityBoundingBox().getAverageEdgeLength();
+		range *= 64.0D * 24.0D;
+		return distance < range * range;
+	}
     private int stepTimer = 0;
 	public double headTargetYaw; 
 	public double currentHeadYaw; 
@@ -56,7 +65,6 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
         this.getNavigator().setAvoidsWater(true);
         this.deathTime = -50;
         this.isImmuneToFire = true;
-        this.renderDistanceWeight = 24.0D;
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.tasks.addTask(5, new EntityAIWander(this, 0.2D));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, true, selector));
@@ -111,7 +119,7 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		
-		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getSourceOfDamage() instanceof EntityEgg && rand.nextInt(10) == 0) {
+		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getImmediateSource() instanceof EntityEgg && rand.nextInt(10) == 0) {
 			this.experienceValue = 0;
 			this.setHealth(0);
 			return true;

@@ -16,6 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -46,6 +47,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 		if(!world.isRemote && stack.stackSize == 1) {
 			if(stack.getTagCompound() != null && stack.getTagCompound().hasKey("lock")) {
 				for(ItemStack item : player.inventory.mainInventory) {
+					if (item == ItemStack.EMPTY) item = null;
 
 					if(item == null) continue; // Skip if no item.
 					if(!(item.getItem() instanceof ItemKey)) continue; // Skip if item isn't a key.
@@ -105,7 +107,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 			}
 
 			for(int i = 0; i < slots.length; i++)
-				this.slots[i] = ItemStack.loadItemStackFromNBT(target.getTagCompound().getCompoundTag("slot" + i));
+				this.slots[i] = NullableInventoryStackNbt.read(target.getTagCompound().getCompoundTag("slot" + i));
 		}
 
 		@Nonnull
@@ -145,7 +147,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 		}
 
 		@Override
-		public boolean isUseableByPlayer(EntityPlayer player) {
+		public boolean isUsableByPlayer(EntityPlayer player) {
 			return com.hbm.util.NativeHeldItem.getMainHandNullable(player) == this.target;
 		}
 
@@ -160,7 +162,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 
 			for(int i = 0; i < invSize; i++) {
 
-				ItemStack stack = this.getStackInSlot(i);
+				ItemStack stack = this.getStackInSlotNullable(i);
 				if(stack == null) {
 					nbt.removeTag("slot" + i);
 					continue;

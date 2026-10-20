@@ -1,0 +1,26 @@
+CL: rg net/minecraft/client/renderer/texture/IIconRegister
+CL: abd net/minecraft/item/ItemArmor$ArmorMaterial
+FD: adb/l net/minecraft/item/Item/field_111218_cA
+FD: adb/k net/minecraft/item/Item/field_77791_bV
+MD: abb/b (Ladd;)I net/minecraft/item/ItemArmor/func_82814_b (Lnet/minecraft/item/ItemStack;)I
+MD: abb/c ()I net/minecraft/item/ItemArmor/func_77619_b ()I
+MD: adb/b_ (I)Lrf; net/minecraft/item/Item/func_77617_a (I)Lnet/minecraft/util/IIcon;
+MD: abb/a (Ladd;Lahb;Lyz;)Ladd; net/minecraft/item/ItemArmor/func_77659_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;)Lnet/minecraft/item/ItemStack;
+MD: adb/f (Ladd;)Ladq; net/minecraft/item/Item/func_77613_e (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/EnumRarity;
+MD: abb/c_ (Ladd;)Z net/minecraft/item/ItemArmor/func_82816_b_ (Lnet/minecraft/item/ItemStack;)Z
+MD: abb/e ()[I net/minecraft/item/ItemArmor/access$000 ()[I
+MD: abb/b (Ladd;I)V net/minecraft/item/ItemArmor/func_82813_b (Lnet/minecraft/item/ItemStack;I)V
+MD: abb/b (I)Lrf; net/minecraft/item/ItemArmor/func_94602_b (I)Lnet/minecraft/util/IIcon;
+MD: adb/w ()Ljava/lang/String; net/minecraft/item/Item/func_111208_A ()Ljava/lang/String;
+MD: adb/a (II)Lrf; net/minecraft/item/Item/func_77618_c (II)Lnet/minecraft/util/IIcon;
+MD: abb/c (Ladd;)V net/minecraft/item/ItemArmor/func_82815_c (Lnet/minecraft/item/ItemStack;)V
+MD: abb/a (Ladd;Ladd;)Z net/minecraft/item/ItemArmor/func_82789_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+MD: abb/b ()Z net/minecraft/item/ItemArmor/func_77623_v ()Z
+MD: abb/a (II)Lrf; net/minecraft/item/ItemArmor/func_77618_c (II)Lnet/minecraft/util/IIcon;
+MD: abb/m_ ()Labd; net/minecraft/item/ItemArmor/func_82812_d ()Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+MD: adb/a (Lrg;)V net/minecraft/item/Item/func_94581_a (Lnet/minecraft/client/renderer/texture/IIconRegister;)V
+MD: adb/f ()Z net/minecraft/item/Item/func_77662_d ()Z
+MD: abb/a (Lrg;)V net/minecraft/item/ItemArmor/func_94581_a (Lnet/minecraft/client/renderer/texture/IIconRegister;)V
+MD: adb/f (Ljava/lang/String;)Ladb; net/minecraft/item/Item/func_111206_d (Ljava/lang/String;)Lnet/minecraft/item/Item;
+MD: adb/f (I)Ladb; net/minecraft/item/Item/func_77656_e (I)Lnet/minecraft/item/Item;
+MD: abb/a (Ladd;I)I net/minecraft/item/ItemArmor/func_82790_a (Lnet/minecraft/item/ItemStack;I)I

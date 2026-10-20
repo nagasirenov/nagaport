@@ -1,0 +1,65 @@
+import net.minecraft.init.Bootstrap;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+public final class FuelReceiverTest {
+    ItemStack[] slots = new ItemStack[4];
+    boolean markDirty;
+    static int checks;
+    void consume() {
+/* ACTUAL_BLOCK */
+    }
+    static void check(boolean b) { checks++; if (!b) throw new AssertionError("check " + checks); }
+    static final class Callback extends Item {
+        ItemStack argument, result;
+        int calls;
+        @Override public ItemStack getContainerItem(ItemStack stack) {
+            calls++;
+            argument = stack;
+            check(stack.getCount() == 0);
+            return result == null ? stack : result;
+        }
+    }
+    public static void main(String[] args) {
+        Bootstrap.register();
+        for (Item item : new Item[] {Items.LAVA_BUCKET, Items.COAL, Items.BLAZE_ROD, Items.BLAZE_POWDER}) {
+            for (int count : new int[] {1, 2, 64}) {
+                FuelReceiverTest t = new FuelReceiverTest();
+                ItemStack input = new ItemStack(item, count);
+                t.slots[2] = input;
+                t.consume();
+                check(t.markDirty);
+                check(input.getCount() == count - 1);
+                if (count > 1) check(t.slots[2] == input);
+                else if (item == Items.LAVA_BUCKET) {
+                    check(t.slots[2].getItem() == Items.BUCKET);
+                    check(t.slots[2].getCount() == 1);
+                    check(t.slots[2] != input);
+                } else check(t.slots[2] == null);
+            }
+        }
+        for (int count : new int[] {1, 2}) {
+            Callback callback = new Callback();
+            FuelReceiverTest t = new FuelReceiverTest();
+            ItemStack input = new ItemStack(callback, count);
+            t.slots[2] = input;
+            t.consume();
+            check(callback.calls == (count == 1 ? 1 : 0));
+            check(t.slots[2] == input);
+            check(callback.argument == (count == 1 ? input : null));
+        }
+        // Preserve noncanonical depleted callback aliases; normalize absence ONLY.
+        Callback callback = new Callback();
+        callback.result = new ItemStack(Items.COAL, 0);
+        FuelReceiverTest t = new FuelReceiverTest();
+        t.slots[2] = new ItemStack(callback, 1);
+        t.consume();
+        check(t.slots[2] == callback.result);
+        callback.result = ItemStack.EMPTY;
+        t.slots[2] = new ItemStack(callback, 1);
+        t.consume();
+        check(t.slots[2] == null);
+        t = new FuelReceiverTest(); t.consume(); check(!t.markDirty);
+        System.out.println("PASS " + checks + " native positive-entry fuel/callback/alias checks");
+    }
+}

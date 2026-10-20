@@ -1,0 +1,79 @@
+{
+  "checks": 60,
+  "pins_replaced": false,
+  "attribute_baseline": "0be133c9fb9f07053e26f081371487e641c95214",
+  "files": [
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "original_slot_pin": "eedf28a7869ed4fe5c1dbd233083a013093db247dc9c6cb66170aafef4ba4161",
+      "composed_sha256": "27588d07744135db03f113dbca46d1ce44570e1cafddce0d3ab3be7e596ea9e3",
+      "restored_sha256": "eedf28a7869ed4fe5c1dbd233083a013093db247dc9c6cb66170aafef4ba4161"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+      "original_slot_pin": "e1c4d3e48a710232f50810650d072f0d1a8930c931d5cdb3c90ab08adc75ca94",
+      "composed_sha256": "c813a00526dc05254b1aa80ddb401fa9a9ca07893fb91b71c014c72151716fab",
+      "restored_sha256": "e1c4d3e48a710232f50810650d072f0d1a8930c931d5cdb3c90ab08adc75ca94"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "original_slot_pin": "ecdde5c268282140bbdd88dc7ff20decc8cd28d556cddf98e9f3fc775c6d36a1",
+      "composed_sha256": "d2f9291b6bcd6b5041c86bdb4336039cb05c9c2d22f5b99e9eb1ba9688a67505",
+      "restored_sha256": "ecdde5c268282140bbdd88dc7ff20decc8cd28d556cddf98e9f3fc775c6d36a1"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+      "original_slot_pin": "fc7250997edae379bcc64053f8b3794d0ca07861e22f1c203bb5ad9834e270aa",
+      "composed_sha256": "b193b68cb66a311655ae194980c5602bc0a313341d5380a6c8436cd9248992e7",
+      "restored_sha256": "fc7250997edae379bcc64053f8b3794d0ca07861e22f1c203bb5ad9834e270aa"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "original_slot_pin": "d9fafa802cea1b9cf8a72ed094c6d1f28c7c93aa29dae27afd471d572faf20ba",
+      "composed_sha256": "15731ac646fefe6b643f671f7d06d1a969055777c9be3220e2293703872dde1a",
+      "restored_sha256": "d9fafa802cea1b9cf8a72ed094c6d1f28c7c93aa29dae27afd471d572faf20ba"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "original_slot_pin": "e2093a57eb1c9c893c3af3ea332a0c06923a9f5639199581e3c3600d1c5f9c2c",
+      "composed_sha256": "25709b450819617e7530c800faceac2b77ba7c40ebe866e6cf48b7d2f61c383e",
+      "restored_sha256": "e2093a57eb1c9c893c3af3ea332a0c06923a9f5639199581e3c3600d1c5f9c2c"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModWD40.java",
+      "original_slot_pin": "dcc620586a217cdc808eb3da450eae31b70fad9cdd855bb171df374fff8ac333",
+      "composed_sha256": "9fe44848204963b30398af0446e5304a8c5713729db7834efae317d360845ca8",
+      "restored_sha256": "dcc620586a217cdc808eb3da450eae31b70fad9cdd855bb171df374fff8ac333"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModIron.java",
+      "original_slot_pin": "5022a5fbf317f3b40eddf168cab47d9cd98932c8ade4482a622f114718bdb19a",
+      "composed_sha256": "d1885b95318d3e8ea153e580e7e9c87d16886ef9867006858cfc6c6607828386",
+      "restored_sha256": "5022a5fbf317f3b40eddf168cab47d9cd98932c8ade4482a622f114718bdb19a"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "original_slot_pin": "4cdd0ac9580a9805bfb69508da521a1e876e1b6b007f705381d5dc01b216d6f0",
+      "composed_sha256": "be5f2cfdfe9b7761f8acc1dd37d97ae390973755016b394cf81d27e85227967a",
+      "restored_sha256": "4cdd0ac9580a9805bfb69508da521a1e876e1b6b007f705381d5dc01b216d6f0"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+      "original_slot_pin": "f9822af9385c1dfeb4a0102ee84378f2eecb7d057ddd98ebfd4aac97c3c14dc3",
+      "composed_sha256": "f03d4490e6b942db7e17d6346932752084386377a7904c44075e46b702f5618d",
+      "restored_sha256": "f9822af9385c1dfeb4a0102ee84378f2eecb7d057ddd98ebfd4aac97c3c14dc3"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModV1.java",
+      "original_slot_pin": "d196710fb428c1573360026241c1ff33b3b980c84004dc924631c6d2fbeebe14",
+      "composed_sha256": "77acba5b34c5e74a8eb4ad06fae0354d29078b6e44e0b60c3fd65d2a054cd437",
+      "restored_sha256": "d196710fb428c1573360026241c1ff33b3b980c84004dc924631c6d2fbeebe14"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModHealth.java",
+      "original_slot_pin": "a6319e48dd0f0de6d8c9dedccbd76fd023cd160e27cb67bf25bff9081ebf7c4d",
+      "composed_sha256": "08928f655ec2a76bd9990d18b47ce5f009ce5cb7552e3159253f2b66e5f91de1",
+      "restored_sha256": "a6319e48dd0f0de6d8c9dedccbd76fd023cd160e27cb67bf25bff9081ebf7c4d"
+    }
+  ]
+}

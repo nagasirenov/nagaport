@@ -60,18 +60,21 @@ public class MachineRadar extends BlockContainer {
 	}
 	
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int m) {
-		TileEntityMachineRadarNT entity = (TileEntityMachineRadarNT) world.getTileEntity(x, y, z);
+	public int getWeakPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {
+		int x = blockPos.getX();
+		int y = blockPos.getY();
+		int z = blockPos.getZ();
+		TileEntityMachineRadarNT entity = (TileEntityMachineRadarNT) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		return entity.getRedPower();
 	}
 
 	@Override
-	public int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int m) {
-		return isProvidingWeakPower(world, x, y, z, m);
+	public int getStrongPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {
+		return getWeakPower(state, world, blockPos, side);
 	}
 }

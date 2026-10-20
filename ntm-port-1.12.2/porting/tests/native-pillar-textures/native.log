@@ -1,0 +1,43 @@
+SCOPE: eighteen complete production owners/helpers, eleven verbatim construction and registry statements; explicit ItemBlockBase constructor/metadata and ItemBlockLore constructor slices; MainRegistry bootstrap/localization boundary fixture.
+BOUNDARY: native jars are unchanged. No full ModBlocks, whole-mod compilation, launched client or game visual parity claim.
+/tmp/pillar-native-l0u_u81m/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/pillar-native-l0u_u81m/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/pillar-native-l0u_u81m/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/pillar-native-l0u_u81m/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/tmp/pillar-native-l0u_u81m/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/tmp/pillar-native-l0u_u81m/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/pillar-native-l0u_u81m/com/hbm/blocks/ITooltipProvider.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+[15:35:45] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[15:35:45] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[15:35:45] [main/INFO]: Replaced 1036 ore ingredients
+[15:35:45] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[15:35:45] [main/INFO]: Processing ObjectHolder annotations
+[15:35:45] [main/INFO]: Found 1167 ObjectHolder annotations
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[15:35:45] [main/INFO]: Setting user: AtlasProbe
+[15:35:45] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[15:35:46] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[15:35:46] [main/INFO]: Max texture size: 16384
+[15:35:46] [main/INFO]: Created: 128x64 textures-atlas
+PASS native registry/model/atlas/GL/old-face/item-metadata cycle 0
+[15:35:46] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources, original-asset-overlay
+[15:35:46] [main/INFO]: Max texture size: 16384
+[15:35:46] [main/INFO]: Created: 128x64 textures-atlas
+PASS native registry/model/atlas/GL/old-face/item-metadata cycle 1 with higher-priority original-asset overlay
+PASS 18631 assertions: full pillar owners, eleven production calls, genuine Forge lifecycle and original bytecode face oracle. NOT a launched game or whole-mod build.

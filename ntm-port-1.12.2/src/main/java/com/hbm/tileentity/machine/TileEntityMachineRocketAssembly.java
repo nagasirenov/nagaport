@@ -99,7 +99,7 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 				int maxHeight = Integer.MAX_VALUE;
 				for(int h = 1; h < 256; h++) {
 					Block block = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + h, this.pos.getZ()).getBlock();
-					if(!block.isReplaceable(this.world, this.pos.getX(), this.pos.getY() + h, this.pos.getZ()) && block != ModBlocks.machine_rocket_assembly) {
+					if(!block.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + h, this.pos.getZ())) && block != ModBlocks.machine_rocket_assembly) {
 						maxHeight = h;
 						break;
 					}

@@ -7,14 +7,16 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.loader.HFRWavefrontObject;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import com.hbm.render.util.ClientBossDisplay;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderWormHead extends Render {
+public class RenderWormHead extends Render<Entity> {
 
-	public RenderWormHead() {
+	public RenderWormHead(RenderManager renderManager) {
+		super(renderManager);
 		this.shadowOpaque = 0.0F;
 	}
 

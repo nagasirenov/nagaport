@@ -160,7 +160,7 @@ public class TileEntityWatz extends TileEntityMachineBase implements IFluidStand
 				for(int x = -3; x <= 3; x++) {
 					for(int y = 3; y < 6; y++) {
 						for(int z = -3; z <= 3; z++) {
-							this.world.setBlock(this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z, Blocks.AIR);
+							com.hbm.world.WorldBlockState.write(this.world, this.pos.getX() + x, this.pos.getY() + y, this.pos.getZ() + z, Blocks.AIR.getStateFromMeta(0), 3);
 						}
 					}
 				}
@@ -523,7 +523,7 @@ public class TileEntityWatz extends TileEntityMachineBase implements IFluidStand
 		setBrokenColumn(1, ModBlocks.watz_end, 1, -2, 2);
 		setBrokenColumn(1, ModBlocks.watz_end, 1, -2, -2);
 		
-		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));
 		
 		for(EntityPlayer player : players) {
 			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achWatzBoom);

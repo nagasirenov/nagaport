@@ -10,6 +10,9 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EntityTrackerEntry;
@@ -20,6 +23,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntityAdditionalSpawnData {
+
+	private static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBaseMK4.class, DataSerializers.VARINT);
 	
 	public BulletConfig config;
 	//used for rendering tracers
@@ -32,7 +37,6 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 
 	public EntityBulletBaseMK4(World world) {
 		super(world);
-		this.renderDistanceWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 		this.isImmuneToFire = true;
 	}
@@ -53,7 +57,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 		this.motionY = motionY;
 		this.motionZ = motionZ;
 		
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread + gunSpread);
+		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread + gunSpread);
 	}
 	
 	/** For standard guns */
@@ -81,7 +85,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
 		
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
+		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
 	}
 	
 	/** For turrets - angles are in radians, and pitch is negative! */
@@ -97,22 +101,22 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 		this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
+		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
 	}
 
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(3, Integer.valueOf(0));
+		this.dataManager.register(BULLET_CONFIG, Integer.valueOf(0));
 	}
 	
 	public void setBulletConfig(BulletConfig config) {
 		this.config = config;
-		this.dataWatcher.updateObject(3, config.id);
+		this.dataManager.set(BULLET_CONFIG, config.id);
 	}
 	
 	public BulletConfig getBulletConfig() {
-		int id = this.dataWatcher.getWatchableObjectInt(3);
+		int id = this.dataManager.get(BULLET_CONFIG);
 		if(id < 0 || id > BulletConfig.configs.size()) return null;
 		return BulletConfig.configs.get(id);
 	}

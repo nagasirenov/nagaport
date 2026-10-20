@@ -272,14 +272,14 @@ public class NukeCustom extends BlockContainer implements IBomb {
 			if(!entity.isFalling()) {
 				
 				entity.clearSlots();
-				world.func_147480_a(x, y, z, false);
+				com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 				NukeCustom.explodeCustom(world, x + 0.5, y + 0.5, z + 0.5, entity.tnt, entity.nuke, entity.hydro, entity.amat, entity.dirty, entity.schrab, entity.euph);
 				return BombReturnCode.DETONATED;
 				
 			} else {
 				
 				EntityFallingNuke bomb = new EntityFallingNuke(world, entity.tnt, entity.nuke, entity.hydro, entity.amat, entity.dirty, entity.schrab, entity.euph);
-				bomb.getDataWatcher().updateObject(20, (byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
+				bomb.setBlockMetadata((byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 				bomb.setPositionAndRotation(x + 0.5, y, z + 0.5, 0, 0);
 				entity.clearSlots();
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);

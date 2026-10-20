@@ -1,0 +1,515 @@
+{
+  "baseline": "0be133c9fb9f07053e26f081371487e641c95214",
+  "files": {
+    "src/main/java/com/hbm/inventory/SlotLayer.java": {
+      "edits": [
+        {
+          "start": 786,
+          "end": 802,
+          "new": "this.yPos",
+          "receiver": "com.hbm.inventory.SlotLayer",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 860,
+          "end": 876,
+          "new": "this.yPos",
+          "receiver": "com.hbm.inventory.SlotLayer",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "32b17ad13b7bf5a9f6563246a6f60c4df8457e289ba7a8df1bc87fe5e8b53e94",
+      "after": "8819926966ed2aafa19163a98bf83d5d1f33bbff28b066ad79b8a632976a45ad"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "edits": [
+        {
+          "start": 4147,
+          "end": 4163,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4170,
+          "end": 4186,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4970,
+          "end": 4986,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4993,
+          "end": 5009,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "aaaa2591b48b2ea6eade1cbb8ed2f1d0c2452a7d6d49ef3096cb01eb731c797d",
+      "after": "ed38915c4524f93949c1b5eb80abaad3c8e0163ad51480bb5e5c3eb11e5c50ea"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIArmorTable.java": {
+      "edits": [
+        {
+          "start": 3139,
+          "end": 3155,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 3166,
+          "end": 3182,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "3de7b371d378e68dd737b405f92371a5baa08368cb7ea764a996bab379819505",
+      "after": "ec89ef21c61dfc574bde0650b68b1bf63129cfcadea2ce67d482a2a9222aedd8"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java": {
+      "edits": [
+        {
+          "start": 3210,
+          "end": 3226,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 3233,
+          "end": 3249,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "b03f8f7a49b3c1681b6eb706b74e49ad862df1b7d205c7b4a69b89df154e0f51",
+      "after": "44f35fd8ea1255c934daedebbd13e0799c0da3b6fd0c51d0b7fd734ae7619f82"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneRouter.java": {
+      "edits": [
+        {
+          "start": 4409,
+          "end": 4425,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4442,
+          "end": 4458,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4548,
+          "end": 4564,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4581,
+          "end": 4597,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "9f1d73234282e41b5d9b41fad9a00c92e4c15042bf9b7e111a889174c3fb7f26",
+      "after": "f6e47503ae7f07fb1a24db02c04338dedf3630755ba55120ba44a72b47f2a7e3"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java": {
+      "edits": [
+        {
+          "start": 1755,
+          "end": 1771,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 1778,
+          "end": 1794,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "f6b233bee2ae579ab7905aa3e6098f5e416ff26d24c00e8c029c46da7c67b1e1",
+      "after": "a6723749e5db25ea3899adc36195e93754a1025a29799df859531cb2e653300f"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java": {
+      "edits": [
+        {
+          "start": 3110,
+          "end": 3126,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 3133,
+          "end": 3149,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "1173d1c04fbe0f6c349de1f2039ae8a3dbfd10cce09070f07c5c4258b31d9dce",
+      "after": "c8679582a46340d560f13a4ada8b4325ce760967b162407634ea92ff7e561b68"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java": {
+      "edits": [
+        {
+          "start": 5582,
+          "end": 5598,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5605,
+          "end": 5621,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 6079,
+          "end": 6095,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 6111,
+          "end": 6127,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 6134,
+          "end": 6150,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 6157,
+          "end": 6173,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "5caf74ec7a169f8213ccb2f8f763f7dc96221f66e1c92552a81609f6ec1e38a8",
+      "after": "a6fadd900d76411f12783e377d72fda324e98691f627f1a30e622d1aa936c852"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java": {
+      "edits": [
+        {
+          "start": 4572,
+          "end": 4588,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4595,
+          "end": 4611,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5056,
+          "end": 5072,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5088,
+          "end": 5104,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5111,
+          "end": 5127,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5134,
+          "end": 5150,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "b25f4cf3fc98372f4fcb139bc7307bea7dcf39bb7dbfeb945b832a05e0ab5328",
+      "after": "70f36b3394ef92ac923a93aff1293de261681af6dce0af572b43f2261047a845"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java": {
+      "edits": [
+        {
+          "start": 5470,
+          "end": 5486,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5493,
+          "end": 5509,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5967,
+          "end": 5983,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5999,
+          "end": 6015,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 6022,
+          "end": 6038,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 6045,
+          "end": 6061,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "239c20d4264c3ddfd70c0956507d04b55e3fb32ef38ebdde7a6d9410c83c33a3",
+      "after": "6a4f8a07d95e7f7d2a921a6e852e9827370792c2d1b9c26e7543074ef5d3e703"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java": {
+      "edits": [
+        {
+          "start": 4583,
+          "end": 4599,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4606,
+          "end": 4622,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5067,
+          "end": 5083,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5099,
+          "end": 5115,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5122,
+          "end": 5138,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5145,
+          "end": 5161,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "12d410e32396c5c278847d12b34d055d04e3eda0467d807efdbce6ce78648e34",
+      "after": "646c0ac87ba2a579593e16647bfbe70e5e18aa3d370df9f87a4d6259136ba82a"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java": {
+      "edits": [
+        {
+          "start": 4374,
+          "end": 4390,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4397,
+          "end": 4413,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4850,
+          "end": 4866,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4882,
+          "end": 4898,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4905,
+          "end": 4921,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4928,
+          "end": 4944,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "cf384bc601f271f81a0366a20c249a48ea6cb59fb556a101aad3a23b9c461ecc",
+      "after": "d984b613ba92955328a67be94e89ec62f9f87fd3c4c3a8e8b1059fce4450d7b3"
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java": {
+      "edits": [
+        {
+          "start": 4474,
+          "end": 4490,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4497,
+          "end": 4513,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4958,
+          "end": 4974,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 4990,
+          "end": 5006,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5013,
+          "end": 5029,
+          "new": "xPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "xDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        },
+        {
+          "start": 5036,
+          "end": 5052,
+          "new": "yPos",
+          "receiver": "net.minecraft.inventory.Slot",
+          "old": "yDisplayPosition",
+          "owner": "net.minecraft.inventory.Slot"
+        }
+      ],
+      "before": "44eeb33ca1e36398e83d24e8618b3876e7c4aac75082af539c0ee47cbbfcdbc5",
+      "after": "7c5546fab31bfe81d6be8ca94c3beac71828ff7f04572bfbf3f2b80aabc6c58b"
+    }
+  }
+}

@@ -1,0 +1,1066 @@
+{
+  "baseline": "df18fc077648dd18e6d0c1055d82c11dc2ebdb78",
+  "owner_and_dispatch_hashes": {
+    "src/main/java/com/hbm/items/armor/ArmorAJR.java": "61c5a62fdaeb558e6b4c33021999578f00436bf88ba4defc4be55e98e0571008",
+    "src/main/java/com/hbm/items/armor/ArmorAJRO.java": "af764195e0f6527825bd0f5494c352df3a0919f00837b73e235a8c4a902d8b9a",
+    "src/main/java/com/hbm/items/armor/ArmorAshGlasses.java": "2069bd89dbe7d80868fe30181c32ee7cb7d1a087a0f2ca55028092f3d016a68e",
+    "src/main/java/com/hbm/items/armor/ArmorBJ.java": "3cc4c1b66dab338b2c3aed7400b382e84dad3d63880feda2730439d71be065f0",
+    "src/main/java/com/hbm/items/armor/ArmorBJJetpack.java": "87c1548b49138de8f6b09cdb9cef483cfa8db19b17412f1f9a5e4699ef0b9d3f",
+    "src/main/java/com/hbm/items/armor/ArmorBismuth.java": "03e5646e2b337a3b2636d02de7f02aaffd94fe1964599c72e99e75edec989d41",
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": "c9605f37954ac866485f046c3b96dacdf5ceb48a67107d33ad6ad6629014dd25",
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java": "ee6530b6fd50b915726dd0a918607f3e7ed29e26522ebe3482ebd5dd8e7bfe4f",
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": "e410d142125dcbd60ce743d800c58a5d5e4ac16ba6f50c833a20fddaeda1b2aa",
+    "src/main/java/com/hbm/items/armor/ArmorDigamma.java": "49b3c6e10582fb0785b1cc8a377c63504fb8043fa47f2b8e6cec38551d2584af",
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": "e2200820edf7ca3b6e802652aae6beba3fb1c9d3ccd8520f425b077ac5912539",
+    "src/main/java/com/hbm/items/armor/ArmorEuphemium.java": "2060c8079ad60de660b24933fa7662a69c636b7af93a6e2f6535560b0f3cd222",
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": "e6cd7cdb0031ad491b5ed1911662d52b059668997f52e32bd6b4205f0c6618f7",
+    "src/main/java/com/hbm/items/armor/ArmorFSBFueled.java": "7b62ebb6ff84a758d597fff366662b4f95c8065877c1ef947565567fd2394c24",
+    "src/main/java/com/hbm/items/armor/ArmorFSBPowered.java": "8dbc48ef29c45c58e6d3c5b20c12e109184db7659fc3a001905dffb9989d3954",
+    "src/main/java/com/hbm/items/armor/ArmorGasMask.java": "8c77d38b43cb9ad90faa94ea39907aae58ff54d88452ab76846bb423eb8de924",
+    "src/main/java/com/hbm/items/armor/ArmorHEV.java": "0a862e9cb6541979c887a88eb7497bea8ad5bf06da6548e23c9bb9d541d29943",
+    "src/main/java/com/hbm/items/armor/ArmorHat.java": "4e1952b1ac39e833e273b0c450352c635cda4308b6bf0b594d3f43bd3b8482c8",
+    "src/main/java/com/hbm/items/armor/ArmorHazmat.java": "424b97b4094b1595e311f952f57c8d9e614bb20d5c2f548872bf7a6d8becf07c",
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": "9925bad3b3343838df45cdb00e06819aa3e36fccbef6da152b4906433d72d44f",
+    "src/main/java/com/hbm/items/armor/ArmorModel.java": "58dba0c25f66659cb6c8823c6dfb11798602a8853ac487b4f1f6ee2a1329fa87",
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": "190856cc8de59114dff20edf2a0dd5fbc4a2598b320359d052c7711d243548f2",
+    "src/main/java/com/hbm/items/armor/ArmorNo9.java": "9bb445572e96d5160c5bad73eb2af9913a33fee9a17a97a5bcf8c0f5bc1faddc",
+    "src/main/java/com/hbm/items/armor/ArmorRPA.java": "309e3bec76aade46a530707ade1a185ac3deaa936d31e81152ccb6c12cbdaeaa",
+    "src/main/java/com/hbm/items/armor/ArmorT51.java": "31d70d6260c56f3962e425e746a1e192ac18f3da8550d661890d46cd0fecb05b",
+    "src/main/java/com/hbm/items/armor/ArmorTaurun.java": "e83654de8f1572901005972534d97ffd348db9507f415bf04c85134a351cac5e",
+    "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java": "9a6bcc7376692e8d53d243851625c3fdadedd4d19a5d9ff25a96a4cc3b76a92e",
+    "src/main/java/com/hbm/items/special/ItemDrop.java": "7ba674a958f13ea1675daed0b1f77b3f244367cf13500d48c34ab28d3a47e4e5",
+    "src/main/java/com/hbm/items/armor/ModArmor.java": "c7f221f4d3eb70fb3a8df6a589f0de3a1487d0b933d60c1700db5c4c6ab78614",
+    "src/main/java/com/hbm/main/ClientProxy.java": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "src/main/java/com/hbm/main/MainRegistry.java": "d6728c4ec543df69357a93ffee3a428a8ab746641a2d1be05538903cd7168095",
+    "src/main/java/com/hbm/items/ModItems.java": "6321ccf6e1698a1a4b8b57724bdb47fde0ffc41a757a6846ee03879e48be810c",
+    "src/main/java/com/hbm/main/LegacyBaseModelHandler.java": "228ac231cafd97d12f360297a417e331c643116401b0f883776b04305000b431",
+    "src/main/java/com/hbm/render/tileentity/IItemRendererProvider.java": "91f503c014b03f3fc8b161131bdad145c78a9bad29943fea5f7aff2d12beaabe",
+    "src/main/java/com/hbm/render/item/NativeItemTextureRegistry.java": "c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412",
+    "src/main/java/com/hbm/render/item/NativeItemTextureModelHandler.java": "eda9237a3df2c6d55d7758c852e007b3534db8aa77f3cb9c2e83b15c85344ac7",
+    "src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemRegistration.java": "304f27f65dc0b7923549dfd2ee501b961f46c802afa580ec30925c3de8253c84",
+    "src/main/java/com/hbm/render/item/nativeitem/callback/CallbackItemModel.java": "2cbf2a0a80ba19c90a51386e70ef49b9da5aae05c16b7362923b3694bd35626f"
+  },
+  "materials": {
+    "ArmorMaterial.IRON": "Native non-leather ArmorMaterial.IRON identity.",
+    "aMatRags": "ArmorMaterial aMatRags = EnumHelper.addArmorMaterial(\"HBM_RAGS\", 150, new int[] { 1, 1, 1, 1 }, 0);",
+    "MainRegistry.aMatAlloy": "ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial(\"HBM_ALLOY\", 40, new int[] { 3, 8, 6, 3 }, 12);",
+    "MainRegistry.aMatEuph": "ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial(\"HBM_EUPHEMIUM\", 15000000, new int[] { 3, 8, 6, 3 }, 100);",
+    "MainRegistry.aMatSchrab": "ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial(\"HBM_SCHRABIDIUM\", 100, new int[] { 3, 8, 6, 3 }, 50);",
+    "MainRegistry.aMatBismuth": "ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial(\"HBM_BISMUTH\", 100, new int[] { 3, 8, 6, 3 }, 100);",
+    "MainRegistry.aMatTitan": "ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial(\"HBM_TITANIUM\", 25, new int[] { 3, 8, 6, 3 }, 9);",
+    "MainRegistry.aMatSteel": "ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial(\"HBM_STEEL\", 20, new int[] { 2, 6, 5, 2 }, 5);",
+    "MainRegistry.aMatCMB": "ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial(\"HBM_CMB\", 60, new int[] { 3, 8, 6, 3 }, 50);",
+    "MainRegistry.aMatPaa": "ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial(\"HBM_PAA\", 75, new int[] { 3, 8, 6, 3 }, 25);",
+    "MainRegistry.aMatAsbestos": "ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial(\"HBM_ASBESTOS\", 20, new int[] { 1, 4, 3, 1 }, 5);",
+    "MainRegistry.aMatSecurity": "ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial(\"HBM_SECURITY\", 100, new int[] { 3, 8, 6, 3 }, 15);",
+    "MainRegistry.aMatCobalt": "ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial(\"HBM_COBALT\", 70, new int[] { 3, 8, 6, 3 }, 60);",
+    "MainRegistry.aMatStarmetal": "ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial(\"HBM_STARMETAL\", 150, new int[] { 3, 8, 6, 3 }, 100);",
+    "ArmorMaterial.CHAIN": "Native non-leather ArmorMaterial.CHAIN identity.",
+    "aMatZirconium": "ArmorMaterial aMatZirconium = EnumHelper.addArmorMaterial(\"HBM_ZIRCONIUM\", 1000, new int[] { 2, 5, 3, 1 }, 1000);",
+    "aMatDNT": "ArmorMaterial aMatDNT = EnumHelper.addArmorMaterial(\"HBM_DNT_LOLOLOL\", 3, new int[] { 1, 1, 1, 1 }, 0);",
+    "aMatT51": "ArmorMaterial aMatT51 = EnumHelper.addArmorMaterial(\"HBM_T51\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatDesh": "ArmorMaterial aMatDesh = EnumHelper.addArmorMaterial(\"HBM_DESH\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatDiesel": "ArmorMaterial aMatDiesel = EnumHelper.addArmorMaterial(\"HBM_BNUUY\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatAJR": "ArmorMaterial aMatAJR = EnumHelper.addArmorMaterial(\"HBM_T45AJR\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatBJ": "ArmorMaterial aMatBJ = EnumHelper.addArmorMaterial(\"HBM_BLACKJACK\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatEnv": "ArmorMaterial aMatEnv = EnumHelper.addArmorMaterial(\"HBM_ENV\", 150, new int[] { 3, 8, 6, 3 }, 10);",
+    "aMatHEV": "ArmorMaterial aMatHEV = EnumHelper.addArmorMaterial(\"HBM_HEV\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatFau": "ArmorMaterial aMatFau = EnumHelper.addArmorMaterial(\"HBM_DIGAMMA\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatDNS": "ArmorMaterial aMatDNS = EnumHelper.addArmorMaterial(\"HBM_DNT_NANO\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+    "aMatTaurun": "ArmorMaterial aMatTaurun = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", 150, new int[] { 3, 8, 6, 3 }, 10);",
+    "aMatTrench": "ArmorMaterial aMatTrench = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", 150, new int[] { 3, 8, 6, 3 }, 0);"
+  },
+  "resources": {
+    "hbm:ajr_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/ajr_boots.png",
+      "sha256": "bde6f6e355e4387d831eba21c967c05d4784aee043e3a9380f6fb67a1c665745",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:ajr_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/ajr_legs.png",
+      "sha256": "b2039347ea43b83fed051740d9410ecdf0b2c824c4d76a4d82549564483bd552",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:ajr_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/ajr_plate.png",
+      "sha256": "41f0a1a8f3b9271e74128aa4b64e13bf64686fd2210d3cda5880becb26a100e0",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:ajro_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/ajro_boots.png",
+      "sha256": "55f3da172b0bf1e123e28f3e4ffbab4fc603d60ecb65fb38b24ed12c9d5e2f66",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:ajro_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/ajro_legs.png",
+      "sha256": "5964e5342e5aba686de56ffd18ce5ef6d9e432f125af4ec36b3de84cd2e4b0fa",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:ajro_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/ajro_plate.png",
+      "sha256": "4a10623f8c36e1c7891616a29e94fd14fd1d64a9b50be2879fb5634544d93a6f",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:alloy_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/alloy_boots.png",
+      "sha256": "80b7308fb67818149126c44bfb9d3bf9d80ab00a3af8032a7f1e2ddc1afa401a",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:alloy_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/alloy_helmet.png",
+      "sha256": "7d9d9dedafe9812d7b09ca8a6a8e64e3edc2884e12437c237219fdd09bc0d84b",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:alloy_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/alloy_legs.png",
+      "sha256": "14315b7984147c9e02ab459c8b98c846f8a097994b66a3c6c31e4be6249f3afd",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:alloy_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/alloy_plate.png",
+      "sha256": "8d4ae3ed48c0fc7e52ade718d67217c086023dd3437ac2bda2c89f910181fc3b",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:armor": {
+      "path": "src/main/resources/assets/hbm/textures/items/armor.png",
+      "sha256": "728f7ac7e0cfd041de20f503913a2b1c310fc2bc3c3e8256c146a0de63946b1e",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:asbestos_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/asbestos_boots.png",
+      "sha256": "51c7ec889ab61cd8ed1ac47237fc42d63a7b0a81bc8b0395ceb3e5b358405af0",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:asbestos_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/asbestos_legs.png",
+      "sha256": "716bd215f4b44c30845165002fc7097938691d490362e99f94007522dc6374dc",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:asbestos_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/asbestos_plate.png",
+      "sha256": "fcce6bdb017c140037ed3c174fb1ecffe1b55317405cfa0cc42967c905d6cfbd",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:ashglasses": {
+      "path": "src/main/resources/assets/hbm/textures/items/ashglasses.png",
+      "sha256": "f12e4d29320ac69aa3685b7401111d1ec0679ec153e9c41abb2ab7b77769e1e9",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:bismuth_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/bismuth_boots.png",
+      "sha256": "2e882e048d3857d2132b488d062a50ddfc8d9eb464a12c7ad069f31a1c2ef973",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:bismuth_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/bismuth_legs.png",
+      "sha256": "291ae539433ce389f9103cab34dc573b78ff7f7292582b874cd9c0ff9780fc51",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:bismuth_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/bismuth_plate.png",
+      "sha256": "32530642cb3527659f005cbe428048ddede521e66381426a93df01b70f114a80",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:bj_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/bj_boots.png",
+      "sha256": "a8ac2a68a8fd8d72094ca05087cf09e8f125b6accc59ff703020f17363c41985",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:bj_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/bj_legs.png",
+      "sha256": "c581793cf15a28ccab4ae0ae84b8a36d4a82411d0b7dc6b8994bc62cd661ad6e",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:bj_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/bj_plate.png",
+      "sha256": "ed6721a0d7ff0f05eade13d8c8e012d5bcb0d6874baf7f2056cce4415712b0e2",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:bj_plate_jetpack": {
+      "path": "src/main/resources/assets/hbm/textures/items/bj_plate_jetpack.png",
+      "sha256": "91173602c672f6922a7ac71ab14a8832d7ab9835f155de1c4eecf8a4d07ef48b",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:cmb_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/cmb_boots.png",
+      "sha256": "ee0c81f18fbfde7a555e5047c7f6bf2b50bdeec2d7972a4926f8c07a7b4e6645",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:cmb_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/cmb_legs.png",
+      "sha256": "04c3bf2d262f8f1e1c27a4e83a123b570b324e84bac1cf042850f10d93f8b2d8",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:cmb_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/cmb_plate.png",
+      "sha256": "009c9c2a3b75c63596a9c4bec955a06b4c1cb4adbe1f6ce501e8c43d186560c9",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:cobalt_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/cobalt_boots.png",
+      "sha256": "ae19280c77c80abe67f72e6aa10d778f5bb574707d4016286bfde087d9f37caf",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:cobalt_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/cobalt_helmet.png",
+      "sha256": "c0bc926d9efbb41091e72eb7f9885a858671949c097c740aa284eb6602f051de",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:cobalt_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/cobalt_legs.png",
+      "sha256": "008b256d1b344914a1112cf5dfb9f47bbca178cf5810e3b1f6381d7adf002fe9",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:cobalt_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/cobalt_plate.png",
+      "sha256": "0958e35cc676e574ae93c7c89734c7ebb35c5beaeda4af071acae64f1f583c0f",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dieselsuit_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/dieselsuit_boots.png",
+      "sha256": "51e240307af3d724b2d2b0f9d1559daafe896b13d4863c3eaec7a0fedaf96d75",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dieselsuit_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/dieselsuit_legs.png",
+      "sha256": "c0cdab57eeea09e41e73385b67a8840f84ab2d87be1fd50129449376d5efbbf2",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dieselsuit_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/dieselsuit_plate.png",
+      "sha256": "4bbbeb211c6f5eb480d77dafa0bb2183b9f98af23237f216dca67bdd8fad318d",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dns_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/dns_boots.png",
+      "sha256": "71059dfdaa9daffe3f1c9003e9acc8d64ff19abf347f5fb7d82ebb1cf5265cdd",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dns_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/dns_legs.png",
+      "sha256": "49e39818ad60c5da9c00fa6f7e4e5716888d5a50fec8afe217821de432a60d16",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dns_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/dns_plate.png",
+      "sha256": "80c25b26ba90fca111ac334034ed873afe6cffbac6a8a4a4d5235aa7cb8be542",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dnt_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/dnt_boots.png",
+      "sha256": "776f6ceee1334c7fae749c9485ea94f8e9baa8e68f966a43aefce88a739acb51",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dnt_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/dnt_helmet.png",
+      "sha256": "3de5eea8aeccfb659b738b8e1e5921fcfaeda4bb686cb9dafe007104d93942ca",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dnt_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/dnt_legs.png",
+      "sha256": "e15b93839670bd41211cce2643b418a5e09bd5b95dec91245724cb56c35ae911",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:dnt_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/dnt_plate.png",
+      "sha256": "b3c14ac61aaeea4c0ec7adaf9bb3234e7cd32083842ed8dfa02b12da03c017d3",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:envsuit_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/envsuit_boots.png",
+      "sha256": "3aaa66404723bd4ce9ce334cd8936fe9f656a054c81222814785777c7527e2d6",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:envsuit_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/envsuit_legs.png",
+      "sha256": "206664bc027bc9c59c79b2f26426b4d0337a516ab69bd88e85ce2cd6f868ae9e",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:envsuit_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/envsuit_plate.png",
+      "sha256": "ace373da60df5137c19d1e5cbda06996f0ef023283fe3384b51cc8620a5b3b5c",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:euphemium_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/euphemium_boots.png",
+      "sha256": "26cdcec9538ee75cb2b7dbe9289f18b850e89cfe325e73fb6dfe7705dc6972cf",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:euphemium_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/euphemium_helmet.png",
+      "sha256": "391a693795f8e196a0160f5b6adf366089e20d23211ba19604ad352b27a3c349",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:euphemium_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/euphemium_legs.png",
+      "sha256": "c4be3d6a1f32e805c48ec57f3ca500334a40831be00e3bc93576fd7e330a86c4",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:euphemium_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/euphemium_plate.png",
+      "sha256": "f970c1a856707f7dba72066f7526a442b6eead95a2678bcb59817fdb519c42c2",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:fau_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/fau_boots.png",
+      "sha256": "b4775d39fa5f62986bed6923a822b8f5dd17531334dd13c221e8591fa60b8b76",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:gas_mask": {
+      "path": "src/main/resources/assets/hbm/textures/items/gas_mask.png",
+      "sha256": "d2fc09c752d77d4057920571e732d231ae1b40dcb30d5f71405dad8089594404",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:gas_mask_m65": {
+      "path": "src/main/resources/assets/hbm/textures/items/gas_mask_m65.png",
+      "sha256": "2560de1d893c6f0d2550dfb93b3743fd1e66348ff9edc2e29e34d5299fc90ba4",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:gas_mask_mono": {
+      "path": "src/main/resources/assets/hbm/textures/items/gas_mask_mono.png",
+      "sha256": "90919c2c1044aadaf1a4f8356cc9d67202839faea42227253b41eaa335ab4e2a",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:gas_mask_olde": {
+      "path": "src/main/resources/assets/hbm/textures/items/gas_mask_olde.png",
+      "sha256": "7f4c9d2ceffdf568563a37cc0ce429748c12bd9a543a96ff07acb539c0889b79",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:goggles": {
+      "path": "src/main/resources/assets/hbm/textures/items/goggles.png",
+      "sha256": "0b247102f65c3e82488b5252f5cc76b30d4f25c7033ea82a5c931e80ccbf777d",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:hat": {
+      "path": "src/main/resources/assets/hbm/textures/items/hat.png",
+      "sha256": "56ed89d63b358996b5625a252d3a02151180359f683b758d7d145167257ffb02",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:hev_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/hev_boots.png",
+      "sha256": "5e468213161b6ef57a1639ee85efa7ca816b81ee5bc5237f676ec1763050146c",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:hev_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/hev_legs.png",
+      "sha256": "a7eb40f74f3fd236ec15c2efb693ba1e122891194ef215cdb864b36eea4760b0",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:hev_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/hev_plate.png",
+      "sha256": "7615ef464bdec97d20f8c31c07a9e5b8463c70a3fb2d9e2cbfb5f198f80bef9c",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:jackt": {
+      "path": "src/main/resources/assets/hbm/textures/items/jackt.png",
+      "sha256": "212a5150457f26ec9a060ffc96a4b42e2adb46dd53e0703bb38a0fd8a27d11f2",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:jackt2": {
+      "path": "src/main/resources/assets/hbm/textures/items/jackt2.png",
+      "sha256": "1e1d1af6eb161999523426b70a5a32c877279d7937d4b8bbe9b28e8a804a1393",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:mask_piss": {
+      "path": "src/main/resources/assets/hbm/textures/items/mask_piss.png",
+      "sha256": "7ae65e588b0062ab74ad63f5119b4b6595d0824af662dd91fba3a2f0a9763f95",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:mask_rag": {
+      "path": "src/main/resources/assets/hbm/textures/items/mask_rag.png",
+      "sha256": "d577e3c13e87ea323c1cd866e415b09ed81402e3f3d5536d45e8ef61a787d528",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:paa_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/paa_boots.png",
+      "sha256": "049702e2e0c731a6c3dd8e3160e0f6cd4522c6fd2b89dbb6cb018d826e68961f",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:paa_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/paa_legs.png",
+      "sha256": "c8c87564cf136d9d6b81f49427a55e782cb093999c4310fb3fa1bede56d94c17",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:robes_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/robes_boots.png",
+      "sha256": "314d7f47a7380de48ca37fb2f6236def83299337a56bf1949a5ff01aa1fbae1a",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:robes_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/robes_helmet.png",
+      "sha256": "32a6e0e7f990f3bdc4cf73243441d8ee978538157c093f5e799a7438ef7147cd",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:robes_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/robes_legs.png",
+      "sha256": "47c7b38c4498e2b2e4aecab46c0ab2b5506422f9ce468b58a131f01818046e3e",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:robes_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/robes_plate.png",
+      "sha256": "8887744c944d190f0a6eadea7a07efb8be00c5dba39f19f905047476270386ec",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:rpa_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/rpa_boots.png",
+      "sha256": "bfe4183511ccfff0513fa677ecb654c8262de01636b7253813c55855ecdb3cc5",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:rpa_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/rpa_legs.png",
+      "sha256": "d6d2c6b11ff45dc6900a3063c590738199f938b082daa97de336b119aac33ea9",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:rpa_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/rpa_plate.png",
+      "sha256": "0d4c23001589012fbf97f87fe7a631ab355602594b72f42ca1834763ed5855d0",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:schrabidium_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/schrabidium_boots.png",
+      "sha256": "a7cbb00dc5901187141eff58b5ac311cf98bc4b03df933b3f4cbc2ea79336810",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:schrabidium_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/schrabidium_legs.png",
+      "sha256": "dc76c5605d1214a6895ed88df9545f6354a73e60e3b10cf8a9457a5add6f97e7",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:schrabidium_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/schrabidium_plate.png",
+      "sha256": "dfd38af74e699b1e14a4f14181d1323a570b20a1e31a8f0b91fb531afea4eb5f",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:security_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/security_boots.png",
+      "sha256": "ef815b67e7d99c527708e71f37364dc2295b5ad08c37976baded261412c64374",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:security_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/security_helmet.png",
+      "sha256": "ffe4546236839ac8ba742f6a4f11d6e51c4069a31684cc79ea0d38088795b647",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:security_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/security_legs.png",
+      "sha256": "96dd3dc65fa0e9354859270ecda7296087bdb97e1e746e8100afc08a37c489b6",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:security_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/security_plate.png",
+      "sha256": "499cff50e2c07aafaa9670bcc1ad4a9316a41ed2b005fc0d54d8fbb4c026d5c3",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:starmetal_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/starmetal_boots.png",
+      "sha256": "7c41f30168275af30ec932d51afb8e0ed689abc7b0937528441dd5c16b22d12a",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:starmetal_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/starmetal_helmet.png",
+      "sha256": "3c7300a407bbd24f673e06e29189a47f36770c771c8e9901d84ea2583daff94a",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:starmetal_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/starmetal_legs.png",
+      "sha256": "793e61b407576d38d5f16985b30c5df1516342951bd09173d9b3d9ec8e082677",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:starmetal_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/starmetal_plate.png",
+      "sha256": "c532c0cac304d9747788b2bbd02ca72485f572077e968c79340c00b9da3a478b",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:steamsuit_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/steamsuit_boots.png",
+      "sha256": "09ed18e4b862b1e6b0754c8b05ebc5e2c3f811f8f491117fb3520fbeb5670eb3",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:steamsuit_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/steamsuit_legs.png",
+      "sha256": "1b44aeea3467f6c1afa4ee8bdaf6ed4457edf42bbbe9cdb89caaf6f5dd1fd4ef",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:steamsuit_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/steamsuit_plate.png",
+      "sha256": "f6412265d97dbe027be31f4407b7b8064245fab9e3241456a737d38747308a0f",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:steel_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/steel_boots.png",
+      "sha256": "6a85396b41289f4a560667de574fc84a097c295a8767699b58535859c786c417",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:steel_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/steel_helmet.png",
+      "sha256": "4203320f38ec565aaa0d94416470cd23c4c5cca25b0517d39d7ce99593c28f82",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:steel_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/steel_legs.png",
+      "sha256": "01ed9abfcf9c7ac1a97ae02b4c4158d82b57fc8411b7d21d1fe5104067115621",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:steel_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/steel_plate.png",
+      "sha256": "efe1eff0a6b13ede8def3b7bb6ed6ef6660f4d59eb64eb7fc84c96b7a0b0f008",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:taurun_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/taurun_boots.png",
+      "sha256": "9aefe0c40886eb3c36b8c7c2f83f97cc7c7cdd2654f3fe7d674e22e05ccb3515",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:taurun_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/taurun_legs.png",
+      "sha256": "6f08c2f343311aa5346597ccee8080cc5657be7e1f68cb36040bffdc283fe87a",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:taurun_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/taurun_plate.png",
+      "sha256": "d3f8e93bc7401809416cf556f57841c5ce7183fd678110842b5994a7af01529b",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:titanium_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/titanium_boots.png",
+      "sha256": "24e87caff93194d016942bcd1e3506ec97bbffba8f7fbd731561d0509413d1fe",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:titanium_helmet": {
+      "path": "src/main/resources/assets/hbm/textures/items/titanium_helmet.png",
+      "sha256": "89bfc027977905ab4e6cf616c002e2dc4b63677cd5724edde48f72423248ca1f",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:titanium_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/titanium_legs.png",
+      "sha256": "fdec0b7bd540edfaab0ccb7a4aecfddf7df8d0b57ea839a7660aabcf3556b303",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:titanium_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/titanium_plate.png",
+      "sha256": "21ff9762b847177eb2a218262ca8f7945d6abdf84f7d3516247a77de0fa5defc",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:trenchmaster_boots": {
+      "path": "src/main/resources/assets/hbm/textures/items/trenchmaster_boots.png",
+      "sha256": "9d501e6593aeff97c1e1db613c1bbfc58df046003f85114e86d0051795fb37c8",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:trenchmaster_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/trenchmaster_legs.png",
+      "sha256": "f1e17b0132f3e4ebfa033c958acaddd02dc019691d4e412eba4f05d0339fea7a",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:trenchmaster_plate": {
+      "path": "src/main/resources/assets/hbm/textures/items/trenchmaster_plate.png",
+      "sha256": "6c49bf6a314c84b71113663133a6ed6ab6a48c2364a0eadf56de3b3c28b870e7",
+      "size": [
+        16,
+        16
+      ]
+    },
+    "hbm:zirconium_legs": {
+      "path": "src/main/resources/assets/hbm/textures/items/zirconium_legs.png",
+      "sha256": "8d3fbea48d289b00c54ad0a2fe19ab62b140cd7dc4a7846187f223f5ed30cf86",
+      "size": [
+        16,
+        16
+      ]
+    }
+  },
+  "closure": [
+    [
+      "com.hbm.items.armor.ArmorAJR",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorAJRO",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorAshGlasses",
+      "net.minecraft.item.ItemArmor",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorBJ",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorBJJetpack",
+      "com.hbm.items.armor.ArmorBJ",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorBismuth",
+      "com.hbm.items.armor.ArmorFSB",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorDNT",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorDesh",
+      "com.hbm.items.armor.ArmorFSBFueled",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorDiesel",
+      "com.hbm.items.armor.ArmorFSBFueled",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorDigamma",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorEnvsuit",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorEuphemium",
+      "net.minecraft.item.ItemArmor",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorFSB",
+      "net.minecraft.item.ItemArmor",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorFSBFueled",
+      "com.hbm.items.armor.ArmorFSB",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "com.hbm.items.armor.ArmorFSB",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorGasMask",
+      "net.minecraft.item.ItemArmor",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorHEV",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorHat",
+      "com.hbm.items.armor.ArmorModel",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorHazmat",
+      "com.hbm.items.armor.ArmorFSB",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorLiquidator",
+      "com.hbm.items.armor.ArmorFSB",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorModel",
+      "net.minecraft.item.ItemArmor",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorNCRPA",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorNo9",
+      "com.hbm.items.armor.ArmorModel",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorRPA",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorT51",
+      "com.hbm.items.armor.ArmorFSBPowered",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorTaurun",
+      "com.hbm.items.armor.ArmorFSB",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ArmorTrenchmaster",
+      "com.hbm.items.armor.ArmorFSB",
+      "true",
+      "true",
+      ""
+    ],
+    [
+      "com.hbm.items.special.ItemDrop",
+      "net.minecraft.item.Item",
+      "true",
+      "false",
+      ""
+    ],
+    [
+      "com.hbm.items.armor.ModArmor",
+      "net.minecraft.item.ItemArmor",
+      "true",
+      "false",
+      ""
+    ]
+  ],
+  "mapped_calls": 106,
+  "excluded_calls": 23
+}

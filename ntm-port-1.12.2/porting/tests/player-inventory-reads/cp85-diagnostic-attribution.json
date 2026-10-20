@@ -1,0 +1,867 @@
+{
+  "baseline": "abe006a0845275e8be52417967ac8ebf6f283a52",
+  "cp85_full_compile_sha256": "448ddd91ecf69ff1759489c19fd9f01cf7220fa7c15a00cac4f67392996565cb",
+  "indexed_read_sites": 83,
+  "length_sites": 19,
+  "readonly_alias_declarations": 1,
+  "indexed": [
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "line": 109,
+      "expression": "pl.inventory.mainInventory[pl.inventory.currentItem]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineITER.java:109: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "line": 90,
+      "expression": "pl.inventory.mainInventory[pl.inventory.currentItem]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/SoyuzLauncher.java:90: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "line": 779,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/handler/EntityEffectHandler.java:779: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "line": 788,
+      "expression": "player.inventory.armorInventory[armorSlot]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/handler/EntityEffectHandler.java:788: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/HazmatRegistry.java",
+      "line": 210,
+      "expression": "player.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/handler/HazmatRegistry.java:210: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/HazardSystem.java",
+      "line": 201,
+      "expression": "player.inventory.mainInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/hazard/HazardSystem.java:201: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIAnvil.java",
+      "line": 298,
+      "expression": "inventory.mainInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIAnvil.java:298: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIAnvil.java",
+      "line": 320,
+      "expression": "inventory.mainInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIAnvil.java:320: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorBJ.java",
+      "line": 52,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorBJ.java:52: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "line": 88,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorEnvsuit.java:88: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "line": 229,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorFSB.java:229: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "line": 238,
+      "expression": "player.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorFSB.java:238: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "line": 258,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorFSB.java:258: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "line": 267,
+      "expression": "player.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorFSB.java:267: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "line": 297,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorFSB.java:297: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "line": 379,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorFSB.java:379: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "line": 390,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorFSB.java:390: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorHEV.java",
+      "line": 54,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorHEV.java:54: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorHEV.java",
+      "line": 113,
+      "expression": "player.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorHEV.java:113: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorHEV.java",
+      "line": 114,
+      "expression": "player.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorHEV.java:114: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "line": 100,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorTrenchmaster.java:100: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorTrenchmaster.java:100: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "line": 100,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorTrenchmaster.java:100: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorTrenchmaster.java:100: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "line": 105,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorTrenchmaster.java:105: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "line": 106,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ArmorTrenchmaster.java:106: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java",
+      "line": 16,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:16: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:16: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java",
+      "line": 16,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:16: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:16: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java",
+      "line": 17,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:17: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java",
+      "line": 30,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:30: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:30: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java",
+      "line": 30,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:30: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:30: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/IPAWeaponsProvider.java",
+      "line": 31,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/IPAWeaponsProvider.java:31: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModPads.java",
+      "line": 66,
+      "expression": "player.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/armor/ItemModPads.java:66: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/food/ItemPancake.java",
+      "line": 41,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/food/ItemPancake.java:41: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/machine/ItemFluidSiphon.java",
+      "line": 46,
+      "expression": "player.inventory.mainInventory[j]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/machine/ItemFluidSiphon.java:46: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "line": 34,
+      "expression": "p.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemStarterKit.java:34: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      "line": 35,
+      "expression": "p.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemStarterKit.java:35: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 189,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:189: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:189: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 189,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:189: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:189: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 191,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:191: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 194,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:194: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 201,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:201: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 205,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:205: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 227,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:227: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 228,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:228: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 232,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:232: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 234,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:234: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 251,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/special/ItemSyringe.java:251: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemFusionCore.java",
+      "line": 27,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/tool/ItemFusionCore.java:27: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemRepairKit.java",
+      "line": 27,
+      "expression": "player.inventory.mainInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/tool/ItemRepairKit.java:27: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/GunB92Cell.java",
+      "line": 22,
+      "expression": "player.inventory.mainInventory[j]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/GunB92Cell.java:22: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/GunB92Cell.java:22: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/GunB92Cell.java",
+      "line": 22,
+      "expression": "player.inventory.mainInventory[j]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/GunB92Cell.java:22: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/GunB92Cell.java:22: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/GunB92Cell.java",
+      "line": 23,
+      "expression": "player.inventory.mainInventory[j]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/GunB92Cell.java:23: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/GunB92Cell.java",
+      "line": 25,
+      "expression": "player.inventory.mainInventory[j]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/GunB92Cell.java:25: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 994,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:994: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:994: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 994,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:994: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:994: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 995,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:995: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1065,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1065: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1065: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1065,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1065: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1065: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1066,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1066: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1082,
+      "expression": "e.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1082: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1082: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1082,
+      "expression": "e.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1082: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1082: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1083,
+      "expression": "e.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1083: error: distance has private access in PlayerFlyableFallEvent",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1083: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1091,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1091: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1137,
+      "expression": "((EntityPlayer)e).inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1137: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1137: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1137,
+      "expression": "((EntityPlayer)e).inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1137: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1137: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1138,
+      "expression": "((EntityPlayer)e).inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1138: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1156,
+      "expression": "((EntityPlayer)e).inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1156: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1156: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1156,
+      "expression": "((EntityPlayer)e).inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1156: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1156: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1157,
+      "expression": "((EntityPlayer)e).inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1157: error: distance has private access in LivingFallEvent",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1157: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1354,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1354: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1354: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1354,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1354: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1354: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1355,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1355: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 215,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:215: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 404,
+      "expression": "player.inventory.armorInventory[3]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:404: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 482,
+      "expression": "player.inventory.armorInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:482: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 1149,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:1149: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:1149: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 1149,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:1149: error: array required, but NonNullList<ItemStack> found",
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:1149: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 1150,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:1150: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 1441,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:1441: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "line": 1471,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandlerClient.java:1471: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/packet/toserver/ItemFolderPacket.java",
+      "line": 147,
+      "expression": "player.inventory.mainInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/packet/toserver/ItemFolderPacket.java:147: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/EntityDamageUtil.java",
+      "line": 38,
+      "expression": "player.inventory.armorInventory[2]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/util/EntityDamageUtil.java:38: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/InventoryUtil.java",
+      "line": 321,
+      "expression": "player.inventory.mainInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/util/InventoryUtil.java:321: error: array required, but NonNullList<ItemStack> found"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/InventoryUtil.java",
+      "line": 343,
+      "expression": "player.inventory.mainInventory[i]",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/util/InventoryUtil.java:343: error: array required, but NonNullList<ItemStack> found"
+      ]
+    }
+  ],
+  "length": [
+    {
+      "file": "src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "line": 469,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/handler/EntityEffectHandler.java:469: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/HazardSystem.java",
+      "line": 199,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/hazard/HazardSystem.java:199: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/type/HazardTypeNeutron.java",
+      "line": 49,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/hazard/type/HazardTypeNeutron.java:49: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/hazard/type/HazardTypeNeutron.java",
+      "line": 52,
+      "expression": "player.inventory.armorInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/hazard/type/HazardTypeNeutron.java:52: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIAnvil.java",
+      "line": 297,
+      "expression": "inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIAnvil.java:297: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/inventory/gui/GUIAnvil.java",
+      "line": 319,
+      "expression": "inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/inventory/gui/GUIAnvil.java:319: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/machine/ItemFluidSiphon.java",
+      "line": 45,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/machine/ItemFluidSiphon.java:45: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+      "line": 167,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/tool/ItemRebarPlacer.java:167: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/GunB92Cell.java",
+      "line": 21,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/GunB92Cell.java:21: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 1462,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1462: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/packet/toserver/ItemFolderPacket.java",
+      "line": 145,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/packet/toserver/ItemFolderPacket.java:145: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityDecon.java",
+      "line": 64,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityDecon.java:64: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityDecon.java",
+      "line": 67,
+      "expression": "player.inventory.armorInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityDecon.java:67: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java",
+      "line": 69,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java:69: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java",
+      "line": 72,
+      "expression": "player.inventory.armorInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityDemonLamp.java:72: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java",
+      "line": 193,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:193: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java",
+      "line": 196,
+      "expression": "player.inventory.armorInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java:196: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/InventoryUtil.java",
+      "line": 319,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/util/InventoryUtil.java:319: error: cannot find symbol"
+      ]
+    },
+    {
+      "file": "src/main/java/com/hbm/util/InventoryUtil.java",
+      "line": 341,
+      "expression": "player.inventory.mainInventory.length",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/util/InventoryUtil.java:341: error: cannot find symbol"
+      ]
+    }
+  ],
+  "alias": [
+    {
+      "file": "src/main/java/com/hbm/util/ArmorUtil.java",
+      "line": 360,
+      "expression": "ItemStack[] armor = player.inventory.armorInventory;",
+      "diagnostics": [
+        "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/util/ArmorUtil.java:360: error: incompatible types: NonNullList<ItemStack> cannot be converted to ItemStack[]"
+      ]
+    }
+  ],
+  "outside_indexed_scope": {
+    "player_assignment_sites": 21,
+    "TileEntityFurnaceSpace_array_errors": 10
+  }
+}

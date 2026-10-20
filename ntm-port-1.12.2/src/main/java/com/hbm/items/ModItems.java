@@ -1,4 +1,6 @@
 package com.hbm.items;
+import net.minecraft.init.SoundEvents;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.HashSet;
 
@@ -3410,7 +3412,7 @@ public class ModItems {
 		can_key = NativeItemTextureRegistry.texture(new Item().setTranslationKey("can_key").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":can_key");
 
 		boat_rubber = NativeItemTextureRegistry.texture(new ItemBoatRubber().setTranslationKey("boat_rubber"), RefStrings.MODID + ":boat_rubber");
-		cart = new ItemModMinecart().setUnlocalizedName("cart");
+		cart = new ItemModMinecart().setTranslationKey("cart");
 		train = new ItemTrain().setTranslationKey("train");
 		drone = new ItemDrone().setTranslationKey("drone");
 
@@ -4211,7 +4213,7 @@ public class ModItems {
 		egg_glyphid = NativeItemTextureRegistry.texture(new Item().setTranslationKey("egg_glyphid").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":egg_glyphid");
 		flour = NativeItemTextureRegistry.texture(new Item().setTranslationKey("flour").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":flour");
 
-		defuser = NativeItemTextureRegistry.texture(new ItemDefuser(ToolType.DEFUSER, 100).setUnlocalizedName("defuser").setMaxStackSize(1).setFull3D().setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + ":defuser");
+		defuser = NativeItemTextureRegistry.texture(new ItemDefuser(ToolType.DEFUSER, 100).setTranslationKey("defuser").setMaxStackSize(1).setFull3D().setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + ":defuser");
 		reacher = NativeItemTextureRegistry.texture(new Item().setTranslationKey("reacher").setMaxStackSize(1).setFull3D().setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":reacher");
 		bismuth_tool = NativeItemTextureRegistry.texture(new ItemAmatExtractor().setTranslationKey("bismuth_tool").setMaxStackSize(1).setFull3D().setCreativeTab(null), RefStrings.MODID + ":bismuth_tool");
 		meltdown_tool = NativeItemTextureRegistry.texture(new ItemDyatlov().setTranslationKey("meltdown_tool").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":meltdown_tool");
@@ -4308,16 +4310,16 @@ public class ModItems {
 		fusion_core = NativeItemTextureRegistry.texture(new ItemFusionCore(2500000).setTranslationKey("fusion_core").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":fusion_core");
 		energy_core = NativeItemTextureRegistry.texture(new ItemBattery(10000000, 0, 1000).setTranslationKey("energy_core").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":energy_core");
 		fuse = NativeItemTextureRegistry.texture(new ItemCustomLore().setTranslationKey("fuse").setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":fuse");
-		screwdriver = new ItemTooling(ToolType.SCREWDRIVER, 100).setUnlocalizedName("screwdriver");
-		screwdriver_desh = new ItemTooling(ToolType.SCREWDRIVER, 0).setUnlocalizedName("screwdriver_desh");
-		hand_drill = new ItemTooling(ToolType.HAND_DRILL, 100).setUnlocalizedName("hand_drill");
-		hand_drill_desh = new ItemTooling(ToolType.HAND_DRILL, 0).setUnlocalizedName("hand_drill_desh");
-		wrench_archineer = NativeItemTextureRegistry.texture(new ItemToolingWeapon(ToolType.WRENCH, 1000, 12F).setUnlocalizedName("wrench_archineer"), RefStrings.MODID + ":wrench_archineer_hd");
-		chemistry_set = new ItemCraftingDegradation(100).setUnlocalizedName("chemistry_set");
-		chemistry_set_boron = new ItemCraftingDegradation(0).setUnlocalizedName("chemistry_set_boron");
-		blowtorch = new ItemBlowtorch().setUnlocalizedName("blowtorch");
-		acetylene_torch = new ItemBlowtorch().setUnlocalizedName("acetylene_torch");
-		boltgun = new ItemBoltgun().setUnlocalizedName("boltgun");
+		screwdriver = new ItemTooling(ToolType.SCREWDRIVER, 100).setTranslationKey("screwdriver");
+		screwdriver_desh = new ItemTooling(ToolType.SCREWDRIVER, 0).setTranslationKey("screwdriver_desh");
+		hand_drill = new ItemTooling(ToolType.HAND_DRILL, 100).setTranslationKey("hand_drill");
+		hand_drill_desh = new ItemTooling(ToolType.HAND_DRILL, 0).setTranslationKey("hand_drill_desh");
+		wrench_archineer = NativeItemTextureRegistry.texture(new ItemToolingWeapon(ToolType.WRENCH, 1000, 12F).setTranslationKey("wrench_archineer"), RefStrings.MODID + ":wrench_archineer_hd");
+		chemistry_set = new ItemCraftingDegradation(100).setTranslationKey("chemistry_set");
+		chemistry_set_boron = new ItemCraftingDegradation(0).setTranslationKey("chemistry_set_boron");
+		blowtorch = new ItemBlowtorch().setTranslationKey("blowtorch");
+		acetylene_torch = new ItemBlowtorch().setTranslationKey("acetylene_torch");
+		boltgun = new ItemBoltgun().setTranslationKey("boltgun");
 		overfuse = NativeItemTextureRegistry.texture(new ItemCustomLore().setTranslationKey("overfuse").setMaxStackSize(1).setFull3D(), RefStrings.MODID + ":overfuse");
 		arc_electrode = NativeItemTextureRegistry.texture(new ItemArcElectrode().setTranslationKey("arc_electrode").setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":arc_electrode");
 		arc_electrode_burnt = NativeItemTextureRegistry.texture(new ItemArcElectrodeBurnt().setTranslationKey("arc_electrode_burnt").setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":arc_electrode_burnt");
@@ -4898,8 +4900,8 @@ public class ModItems {
 		hazmat_paa_legs = NativeItemTextureRegistry.texture(new ArmorHazmat(MainRegistry.aMatPaa, 2, RefStrings.MODID + ":textures/armor/hazmat_paa_2.png").cloneStats((ArmorFSB) hazmat_paa_helmet).setTranslationKey("hazmat_paa_legs"), RefStrings.MODID + ":hazmat_paa_legs");
 		hazmat_paa_boots = NativeItemTextureRegistry.texture(new ArmorHazmat(MainRegistry.aMatPaa, 3, RefStrings.MODID + ":textures/armor/hazmat_paa_1.png").cloneStats((ArmorFSB) hazmat_paa_helmet).setTranslationKey("hazmat_paa_boots"), RefStrings.MODID + ":hazmat_paa_boots");
 
-		ArmorMaterial aMatLiquidator = EnumHelper.addArmorMaterial("HBM_LIQUIDATOR", 750, new int[] { 3, 8, 6, 3 }, 10);
-		aMatLiquidator.customCraftingMaterial = ModItems.plate_lead;
+		ArmorMaterial aMatLiquidator = EnumHelper.addArmorMaterial("HBM_LIQUIDATOR", "leather", 750, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+		aMatLiquidator.repairMaterial = new ItemStack(ModItems.plate_lead, 1, OreDictionary.WILDCARD_VALUE);
 		liquidator_helmet = NativeItemTextureRegistry.texture(new ArmorLiquidatorMask(aMatLiquidator, 0, RefStrings.MODID + ":textures/armor/liquidator_helmet.png")
 				.setStep("hbm:step.metal")
 				.setJump("hbm:step.iron_jump")

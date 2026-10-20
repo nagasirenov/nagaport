@@ -37,7 +37,7 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(models == null) {
 			models = new ModelArmorTrenchmaster[4];
@@ -46,7 +46,7 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 				models[i] = new ModelArmorTrenchmaster(i);
 		}
 
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -68,8 +68,8 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 
 			if(ArmorFSB.hasFSBArmor(player)) {
 				
-				if(event.source.isExplosion() && event.source.getSourceOfDamage() == player) {
-					event.ammount = 0;
+				if(event.getSource().isExplosion() && event.getSource().getImmediateSource() == player) {
+					event.setAmount(0);
 					return;
 				}
 			}
@@ -97,13 +97,13 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 
 	public static boolean isTrenchMaster(EntityPlayer player) {
 		if(player == null) return false;
-		return player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() == ModItems.trenchmaster_plate && ArmorFSB.hasFSBArmor(player);
+		return com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() == ModItems.trenchmaster_plate && ArmorFSB.hasFSBArmor(player);
 	}
 
 	public static boolean hasAoS(EntityPlayer player) {
 		if(player == null) return false;
-		if(player.inventory.armorInventory[3] != null) {
-			ItemStack[] mods =  ArmorModHandler.pryMods(player.inventory.armorInventory[3]);
+		if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3) != null) {
+			ItemStack[] mods =  ArmorModHandler.pryMods(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3));
 			ItemStack helmet = mods[ArmorModHandler.helmet_only];
 			return helmet != null && helmet.getItem() == ModItems.card_aos;
 		}
@@ -117,13 +117,13 @@ public class ArmorTrenchmaster extends ArmorFSB implements IItemRendererProvider
 	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
-				if(armorType == 0) GL11.glTranslated(0, 1, 0);
-				if(armorType == 1) GL11.glTranslated(0, 1.5, 0);
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) GL11.glTranslated(0, 1, 0);
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) GL11.glTranslated(0, 1.5, 0);
 				setupRenderInv();
 			}
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_trenchmaster, armorType,
+				renderStandard(ResourceManager.armor_trenchmaster, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.trenchmaster_helmet, ResourceManager.trenchmaster_chest, ResourceManager.trenchmaster_arm, ResourceManager.trenchmaster_leg,
 						"Helmet,Light", "Chest", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

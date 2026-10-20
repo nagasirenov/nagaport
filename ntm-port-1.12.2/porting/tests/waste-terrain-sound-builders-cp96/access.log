@@ -1,0 +1,3 @@
+PASS native compiler negative control: ProtectedSetter
+PASS native compiler negative control: NoForeignBuilder
+PASS genuine native protected sound setter and identical-receiver setter bytecode. Source guard independently proves exact native Block parent and absence of owner overrides.

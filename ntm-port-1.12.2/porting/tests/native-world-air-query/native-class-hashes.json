@@ -1,0 +1,14 @@
+{
+  "net/minecraft/world/World.class": {
+    "jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "5be11b38b4a93387554d5a7e215e9ff3449f3ca9a716573d0e551d310b8aefc6"
+  },
+  "net/minecraft/util/math/BlockPos.class": {
+    "jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "64dea3b52874529a2af3b449e1fd96662bc5bc7be5b80b57243228315940bc9e"
+  },
+  "net/minecraft/block/Block.class": {
+    "jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "sha256": "ea913e592dd98ad91b61e779e4ee07889ded2585a5fdea7eb72a1d81bf2d451d"
+  }
+}

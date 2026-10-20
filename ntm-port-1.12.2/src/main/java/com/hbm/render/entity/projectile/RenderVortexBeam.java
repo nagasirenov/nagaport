@@ -31,7 +31,7 @@ public class RenderVortexBeam extends Render {
 		
 		GL11.glPushMatrix();
 		
-		EntityPlayer player = laser.world.getPlayerEntityByName(laser.getDataWatcher().getWatchableObjectString(20));
+		EntityPlayer player = laser.world.getPlayerEntityByName(laser.getOwnerDisplayName());
 		
 		if(player != null) {
 			

@@ -27,7 +27,7 @@ public class FragileBrick extends Block {
 		if(world.isRemote)
 			return;
 		
-		world.func_147480_a(x, y, z, false);
+		com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 		notifyNeighbors(world, x, y, z);
 	}
 	
@@ -37,7 +37,7 @@ public class FragileBrick extends Block {
 		if(world.isRemote)
 			return;
 		
-		world.func_147480_a(x, y, z, false);
+		com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 		notifyNeighbors(world, x, y, z);
 	}
 	
@@ -48,7 +48,7 @@ public class FragileBrick extends Block {
 			Block n = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
 
 			if(n == this) {
-				world.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, world.rand.nextInt(4) + 8);
+				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, world.rand.nextInt(4) + 8);
 			}
 		}
 	}

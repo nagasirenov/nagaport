@@ -63,34 +63,34 @@ public abstract class JetpackBase extends ItemArmorMod {
 	@SideOnly(Side.CLIENT)
 	public void modRender(RenderPlayerEvent.SetArmorModel event, ItemStack armor) {
 
-		ModelBiped modelJetpack = getArmorModel(event.getEntityLiving(), null, 1);
+		ModelBiped modelJetpack = getArmorModel(event.getEntityLiving(), null, net.minecraft.inventory.EntityEquipmentSlot.CHEST, null);
 		
-		RenderPlayer renderer = event.renderer;
+		RenderPlayer renderer = event.getRenderer();
 		ModelBiped model = renderer.modelArmor;
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 
 		modelJetpack.isSneak = model.isSneak;
 		
-		float interp = event.partialRenderTick;
+		float interp = event.getPartialRenderTick();
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
 		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), 1, null)));
-		modelJetpack.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), net.minecraft.inventory.EntityEquipmentSlot.CHEST, null)));
+		modelJetpack.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
 	}
 
 	@Override
-	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity) {
-		return armorType == 1;
+	public boolean isValidArmor(ItemStack stack, net.minecraft.inventory.EntityEquipmentSlot armorType, Entity entity) {
+		return armorType == net.minecraft.inventory.EntityEquipmentSlot.CHEST;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
-		if (armorSlot == 1) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		if (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {
 			if (cachedModel == null) {
 				this.cachedModel = new ModelJetPack();
 			}

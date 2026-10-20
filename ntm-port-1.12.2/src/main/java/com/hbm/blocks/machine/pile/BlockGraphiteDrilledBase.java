@@ -155,7 +155,8 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 				int iy = y + dir.offsetY * i;
 				int iz = z + dir.offsetZ * i;
 				
-				Block b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();
+				net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz);
+				Block b = nativeCubeState_b.getBlock();
 				
 				if(b instanceof BlockGraphiteDrilledBase) {
 					int baseMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) );
@@ -167,7 +168,7 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 					else if(i >= 3) //if there is stuff to push and we reach our limit
 						return false;
 				} else {
-					if(b.isNormalCube()) //obstructions
+					if(b.isNormalCube(nativeCubeState_b)) //obstructions
 						return false;
 					else //empty space? no need to search
 						break;

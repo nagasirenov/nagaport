@@ -1,0 +1,41 @@
+{
+  "baseline": "77b595c32b46e2f9309bcf9924d654ddc29a3c95",
+  "production_files": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/blocks/PlainCubeTextures.java"
+  ],
+  "sites": 15,
+  "owners": {
+    "BlockDepth": 7,
+    "BlockDepthOre": 8
+  },
+  "item_forms": {
+    "ItemBlockBase": 15
+  },
+  "attributed_units": 4065,
+  "before_full_source_errors": 12686,
+  "after_full_source_errors": 12671,
+  "before_modblocks_errors": 532,
+  "after_modblocks_errors": 517,
+  "added_modblocks_diagnostics": 0,
+  "removed_modblocks_diagnostics": 15,
+  "native_assertions": 51935,
+  "prior26_native_assertions": 66353,
+  "native_reload_cycles": 2,
+  "unchanged_original_pngs": 15,
+  "headless_only": true,
+  "full_gameplay_owners_compiled": false,
+  "complete_mod_compile": false,
+  "known_boundaries": [
+    "Unported mining/drop/tooltip callbacks unchanged",
+    "Original-versus-native item-camera and AO/lighting pixel parity not certified",
+    "No launched client/server or save compatibility proof"
+  ],
+  "logs": {
+    "before.log": "29183e226f3364152f7c80c2ec5925809bdacce30092493f5adca88edc450b8a",
+    "after.log": "e026a0bf55487795025ab58198ac120492dee3d47c8383edf86402570978cc82",
+    "native.log": "fa57933302dfda096b09787a032e0c042f7ebb8404e46f30d8ff307ba2e4e86a",
+    "previous26-native.log": "cfa923fe383154232cdaf5a12bd99b224180c74199dcc70728c8043c352b4230",
+    "source.log": "5b5c33719f72f61d30af4b89f0f11c6efd726b57a79ae488e4f2d42af9ef8e79"
+  }
+}

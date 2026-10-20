@@ -2,21 +2,24 @@ package com.hbm.render.entity.projectile;
 
 import org.lwjgl.opengl.GL11;
 
+import com.hbm.entity.projectile.EntityFallingNuke;
 import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.ObjMeshModel;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderFallingNuke extends Render {
+public class RenderFallingNuke extends Render<Entity> {
 
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(RefStrings.MODID, "models/LilBoy1.obj");
 	private MeshModel boyModel;
 	private ResourceLocation boyTexture;
 
-	public RenderFallingNuke() {
+	public RenderFallingNuke(RenderManager renderManager) {
+		super(renderManager);
 		boyModel = new ObjMeshModel(objTesterModelRL);
 		boyTexture = new ResourceLocation(RefStrings.MODID, "textures/models/CustomNuke.png");
 	}
@@ -27,7 +30,7 @@ public class RenderFallingNuke extends Render {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
 
-		switch(p_76986_1_.getDataWatcher().getWatchableObjectByte(20)) {
+		switch(((EntityFallingNuke) p_76986_1_).getBlockMetadata()) {
 		case 2:
 			GL11.glRotatef(90, 0F, 1F, 0F);
 			GL11.glTranslated(-2.0D, 0.0D, 0.0D);

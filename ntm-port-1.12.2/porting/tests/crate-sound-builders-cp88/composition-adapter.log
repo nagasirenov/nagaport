@@ -1,0 +1,5 @@
+PASS exact complete three-file family reconstruction equals actual tested sources
+PASS rejected whole-file family drift: src/main/java/com/hbm/blocks/ModBlocks.java
+PASS rejected whole-file family drift: src/main/java/com/hbm/blocks/generic/BlockCrate.java
+PASS rejected whole-file family drift: src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java
+PASS composed mode fails closed while the required real CP88 aggregate is unavailable; no composed native acceptance claimed

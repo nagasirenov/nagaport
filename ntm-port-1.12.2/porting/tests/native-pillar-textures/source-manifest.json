@@ -1,0 +1,33 @@
+{
+  "base": "f44d3ffc5ad3bfa0afcfd93d035e51bdecde2de4",
+  "production_patch_sha256": "4d885d15dc471f76f1519a4981eae4124b55a951ee213acb270eeb3ad33717bc",
+  "production": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "after_sha256": "5539a19ac6381ff93a0c0a13fa3415c2f5c3322b972ff1b706d5d0e24e3db353",
+      "before_sha256": "7a34b8436264dfad95f3f7214192b1f9771a4a63bfee6ce99b8e83611bc81143"
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockPillar.java": {
+      "after_sha256": "797ac2a3fabc667b810b52f9e92481d0c534c83254650ad1d3c2db0283535558",
+      "before_sha256": "3933fb8080131c0aa7cd4ac9d4137d937651adbe53f46ce56ede7863731d7986"
+    },
+    "src/main/java/com/hbm/main/PillarModelHandler.java": {
+      "after_sha256": "e40a5bfd9357bfa3b05379bda904065ec82b690892d123c643851a88366d7c70",
+      "before_sha256": null
+    }
+  },
+  "unchanged": {
+    "src/main/java/com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+    "src/main/java/com/hbm/blocks/machine/BlockPillarPWR.java": "5aba8cbb2197bab5f27e5304103d4d0acb3c3962e7e388e38423463a35aedac4",
+    "src/main/java/com/hbm/blocks/generic/BlockWriting.java": "3fac19dea1bf08bff4861439f9ca0f2f0d0753498dca08d9e44565a76f6271b6",
+    "src/main/java/com/hbm/blocks/generic/BlockForgottenLock.java": "09e3846db694849649864e4cbcbfa4a4a3aae5dbcfc04c5b4508a3c5b038ca44",
+    "src/main/java/com/hbm/blocks/bomb/DetMiner.java": "14a3b0a3c9d60417e47933cdd240047800cd2f0067065f919786ced0bf2e56ca",
+    "src/main/java/com/hbm/blocks/machine/BlockCMFlux.java": "9b74437e0b5b231f9b8ab9b226e3a20a26760e1b8b1b274fdf129b4fccbe5751",
+    "src/main/java/com/hbm/blocks/machine/BlockCMHeat.java": "82518e68c00361c8eb6f35b712f6a47b19cf01a627dbfa99d29fbe24048b1e5b",
+    "src/main/java/com/hbm/items/block/ItemBlockBase.java": "117146a96fc87357c114469f851d935f1911b87aa11d8d84e16b5a7d4e4e9203",
+    "src/main/java/com/hbm/items/block/ItemBlockLore.java": "b69f0cb06ea60e56ee99934302850678d5c020342a7d80720ddf6feb062a5394",
+    "src/main/java/com/hbm/main/LegacyBaseModelHandler.java": "228ac231cafd97d12f360297a417e331c643116401b0f883776b04305000b431",
+    "src/main/java/com/hbm/main/LegacyIconRegistrationHandler.java": "57b06be6b30eb4b5e4e653ece86f9c3a660c18facf3e2953d64ac8018fdfb8cf",
+    "src/main/java/com/hbm/render/model/PlainCubeModel.java": "43920d78146b1771b6e28cedb5d216eba5d4e318e99c8555c0fc47452b0b4d35",
+    "src/main/java/com/hbm/registry/GameRegistry.java": "fed01b4eeeec1e0b44bc754a06da858d079cfe9a39596eb59926d633364d4456"
+  }
+}

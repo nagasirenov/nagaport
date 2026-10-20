@@ -1,0 +1,17 @@
+Native 1.12.2:
+  protected net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #376                // Field blockSoundType:Lnet/minecraft/block/SoundType;
+       5: aload_0
+       6: areturn
+
+Untransformed vanilla 1.7.10 (Forge widens this setter; see forge-original-access.json):
+  protected aji a(ajm);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #508                // Field H:Lajm;
+       5: aload_0
+       6: areturn

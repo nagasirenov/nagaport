@@ -1,0 +1,42 @@
+/workspace/shared/nagaport-plain-cube-cp78/ntm-port-1.12.2/porting/tests/plain-cube-sound/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-plain-cube-cp78/ntm-port-1.12.2/porting/tests/plain-cube-sound/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-plain-cube-cp78/ntm-port-1.12.2/porting/tests/plain-cube-sound/OriginalCubeFaces.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-plain-cube-cp78/ntm-port-1.12.2/porting/tests/plain-cube-sound/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+   ^
+/workspace/shared/nagaport-plain-cube-cp78/ntm-port-1.12.2/porting/tests/plain-cube-sound/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                  ^
+/workspace/shared/nagaport-plain-cube-cp78/ntm-port-1.12.2/porting/tests/plain-cube-sound/OriginalCubeFaces.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+   Unsafe unsafe=(Unsafe)field(Unsafe.class,"theUnsafe").get(null);render=unsafe.allocateInstance(renderer);tess=tessType.getField("a").get(null);raw=field(tessType,"f");count=field(tessType,"g");ptr=field(tessType,"p");
+                               ^
+Note: /workspace/shared/nagaport-plain-cube-cp78/ntm-port-1.12.2/porting/tests/plain-cube-sound/PlainCubeNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+[08:54:59] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[08:54:59] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[08:54:59] [main/INFO]: Replaced 1036 ore ingredients
+[08:54:59] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[08:54:59] [main/INFO]: Processing ObjectHolder annotations
+[08:54:59] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS nine native sound identities,world accessors,exact setter/return/null dispatch and receiver/argument sequencing for both exact owners.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[08:55:00] [main/INFO]: Setting user: AtlasProbe
+[08:55:00] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+PASS actual original sound setter/null reference identity,preceding setter closure,four sound categories and native volume/pitch.
+PASS actual original Block setter return/string identity, 156 side/meta icons including raw int edges,26 item colors, white world color and normal opaque cube methods.
+[08:55:01] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[08:55:01] [main/INFO]: Max texture size: 16384
+[08:55:01] [main/INFO]: Created: 64x64 textures-atlas
+PASS native Forge mesher raw-edge ownership and missing-model negative control, reload 0
+[08:55:01] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[08:55:01] [main/INFO]: Max texture size: 16384
+[08:55:01] [main/INFO]: Created: 64x64 textures-atlas
+PASS native Forge mesher raw-edge ownership and missing-model negative control, reload 1
+PASS 44135 native cube checks; production loader/helper, 9 exact constructor chains, actual native model/atlas/reload and original RenderBlocks bytecode. Gameplay owner bodies are deliberately not compiled in this bounded constructor fixture.

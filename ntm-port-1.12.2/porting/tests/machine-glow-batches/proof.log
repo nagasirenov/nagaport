@@ -1,0 +1,6 @@
+PASS 4 exact reversible complete files, 4 owned quad sites, 56 vertex expressions, 18 color setters, 32 mutation rejections; unchanged enclosing callbacks, control flow, geometry, GL/matrices, random/clock and helper evaluation sites.
+PASS explicit exclusion: actual VertexFormat.addElement(TEX_2S) rejects UV1 without UV0: java.lang.IndexOutOfBoundsException: Index: 1, Size: 0
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[12:05:16] [main/INFO]: Setting user: AtlasProbe
+PASS actual original/native machine-glow vertices and Mesa uploads: 136 paired streams, 424 batch comparisons, 12496 vertices, 848 actual draws; same GL/current-color/current-normal/lightmap state, packing and RNG counts. Not full renderer linkage or in-game pixel proof.
+PASS independent inverse comparison with all 4 sealed CP87 source objects

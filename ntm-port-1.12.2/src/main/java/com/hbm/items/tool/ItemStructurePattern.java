@@ -46,8 +46,9 @@ public class ItemStructurePattern extends ItemStructureTool {
 			for(int iy = minY; iy <= maxY; iy++) {
 				for(int iz = minZ; iz <= maxZ; iz++) {
 					
-					Block b = com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()).getBlock();
-					if(b.isAir(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ())) continue;
+					net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ());
+					Block b = nativeAirState.getBlock();
+					if(b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()))) continue;
 					
 					int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix + pos.getX(), iy + pos.getY(), iz + pos.getZ()) );
 					

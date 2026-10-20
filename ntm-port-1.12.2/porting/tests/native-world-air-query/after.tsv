@@ -1,0 +1,14 @@
+src/main/java/com/hbm/blocks/bomb/Balefire.java	5423	5468	world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))	net.minecraft.world.World
+src/main/java/com/hbm/blocks/generic/BlockMush.java	5637	5685	world.isAirBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz))	net.minecraft.world.World
+src/main/java/com/hbm/blocks/generic/BlockMush.java	5924	5972	world.isAirBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz))	net.minecraft.world.World
+src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java	6145	6194	world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z))	net.minecraft.world.World
+src/main/java/com/hbm/blocks/generic/BlockTallPlant.java	3511	3560	world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z))	net.minecraft.world.World
+src/main/java/com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java	1054	1126	p_76484_1_.isAirBlock(new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_))	net.minecraft.world.World
+src/main/java/com/hbm/dim/eve/genlayer/WorldGenEveSpike.java	506	578	p_76484_1_.isAirBlock(new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_))	net.minecraft.world.World
+src/main/java/com/hbm/dim/tekto/TTree.java	2316	2373	world.isAirBlock(new net.minecraft.util.math.BlockPos(vineX, vineY, vineZ))	net.minecraft.world.World
+src/main/java/com/hbm/explosion/ExplosionNukeRayBatched.java	6237	6285	world.isAirBlock(new net.minecraft.util.math.BlockPos(x0, y0, z0))	net.minecraft.world.World
+src/main/java/com/hbm/items/tool/ItemBalefireMatch.java	1009	1054	world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))	net.minecraft.world.World
+src/main/java/com/hbm/items/tool/ItemToolAbility.java	11485	11530	world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))	net.minecraft.world.World
+src/main/java/com/hbm/items/tool/RedstoneSword.java	1339	1384	world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))	net.minecraft.world.World
+src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryDrill.java	4840	4885	world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))	net.minecraft.world.World
+src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java	9722	9803	this.world.isAirBlock(new net.minecraft.util.math.BlockPos(x + dir.offsetX * i, y, z + dir.offsetZ * i))	net.minecraft.world.World

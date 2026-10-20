@@ -2,7 +2,7 @@ package com.hbm.inventory.container;
 
 import com.hbm.inventory.SlotNonRetarded;
 import com.hbm.items.tool.ItemLeadBox.InventoryLeadBox;
-import com.hbm.util.InventoryUtil;
+import com.hbm.items.ItemInventoryTransfer;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -37,7 +37,7 @@ public class ContainerLeadBox extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -45,20 +45,20 @@ public class ContainerLeadBox extends Container {
 			var3 = var5.copy();
 
 			if(par2 <= box.getSizeInventory() - 1) {
-				if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+				if(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {
+					return ItemStack.EMPTY;
 				}
-			} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {
-				return null;
+			} else if(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {
+				return ItemStack.EMPTY;
 			}
 
-			if(var5.stackSize == 0) {
-				var4.putStack((ItemStack) null);
+			if(ItemInventoryTransfer.quantity(var5) == 0) {
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}
 
-			var4.onPickupFromSlot(p_82846_1_, var5);
+			var4.onTake(p_82846_1_, var5);
 		}
 
 		return var3;
@@ -74,7 +74,7 @@ public class ContainerLeadBox extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return box.isUseableByPlayer(player);
+		return box.isUsableByPlayer(player);
 	}
 	
 	@Override

@@ -1,0 +1,630 @@
+{
+  "reason": "Untouched value/registration consumers; native caps do not match original. No stat-equivalence claim.",
+  "counts": {
+    "maxHealth": 36,
+    "movementSpeed": 29,
+    "attackDamage": 22
+  },
+  "files": {
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "sha256": "b93ab61736cd671a43b047b137e84afe06674eb277091c9e30a0979fd964b8ea",
+      "references": [
+        {
+          "line": 111,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10000.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBlockSpider.java": {
+      "sha256": "1612a75da91f7ccb775f72501f7a46d9df3fbbb52fd7bd567d1f429a607e18ca",
+      "references": [
+        {
+          "line": 32,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D);"
+        },
+        {
+          "line": 33,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1F);"
+        },
+        {
+          "line": 58,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(health);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java": {
+      "sha256": "2599f13e1a87182475b54834bf7aa0e44fd024fba20a6a24a3f50a83cf998853",
+      "references": [
+        {
+          "line": 118,
+          "field": "attackDamage",
+          "line_text": "\t\tboolean hit = target.attackEntityFrom(DamageSource.causeMobDamage(this), (float) getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue());"
+        },
+        {
+          "line": 146,
+          "field": "movementSpeed",
+          "line_text": "\t\t\tdouble speed = this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getBaseValue();"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperNuclear.java": {
+      "sha256": "f5d4ed15c81357a06e78e44c32cb9793189f3afaef7b42428c7c5bccb2fdcbbd",
+      "references": [
+        {
+          "line": 43,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);"
+        },
+        {
+          "line": 44,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCreeperTainted.java": {
+      "sha256": "4eb79ff2df4062e7385d9244ad2cbd0ceb1c94cc12433a596683e27b8b7ae16a",
+      "references": [
+        {
+          "line": 23,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15.0D);"
+        },
+        {
+          "line": 24,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityCyberCrab.java": {
+      "sha256": "e29acccd5b78dc50484a236c121de1df5d3f6bd5c53792f5d229bc0eb84814d5",
+      "references": [
+        {
+          "line": 54,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(4.0D);"
+        },
+        {
+          "line": 55,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.75F);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "sha256": "d5b9ffcdd5e30c25f7175506900cea3d9f23757322d0f1efc0d17bbfd8abaf5b",
+      "references": [
+        {
+          "line": 67,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFBIDrone.java": {
+      "sha256": "43628f9d0988c8372d3b5d4b95227473d3704cddede3d4b35d4b2c3d96764bec",
+      "references": [
+        {
+          "line": 47,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(35.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityFish.java": {
+      "sha256": "96735eb32b04a48e87a9ed4c345d46c3ddceac277df45c84cd1e481a71aa7a79",
+      "references": [
+        {
+          "line": 33,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15.0);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityGhost.java": {
+      "sha256": "1ffb62f882e6e638ec74509c4bee8b6e6ef7ce8ed3661ea772dbc6a53b5b11e8",
+      "references": [
+        {
+          "line": 29,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);"
+        },
+        {
+          "line": 30,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java": {
+      "sha256": "af2ffbd767fe767958f00aa41fe00566f8ba7ca572dfc4c4b9c3909a5382dfe4",
+      "references": [
+        {
+          "line": 107,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(750.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityMaskMan.java": {
+      "sha256": "851065c0b3c1ed6eed6ed48201fc32c1c25b49558371735c8eb10a0b24dbc34a",
+      "references": [
+        {
+          "line": 54,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);"
+        },
+        {
+          "line": 56,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);"
+        },
+        {
+          "line": 58,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityParasiteMaggot.java": {
+      "sha256": "f122cf5643845967793b53c969f21bdf88bb0d761b6ab56e1cbeb53d96fc0a12",
+      "references": [
+        {
+          "line": 20,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);"
+        },
+        {
+          "line": 21,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.0D);"
+        },
+        {
+          "line": 22,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityRADBeast.java": {
+      "sha256": "1cb5ab317c849fb75d5602e5fd147eeb5f61b21072130a1a681f38e45d3c0d71",
+      "references": [
+        {
+          "line": 36,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(120.0D);"
+        },
+        {
+          "line": 37,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(16.0D);"
+        },
+        {
+          "line": 43,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(360.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTaintCrab.java": {
+      "sha256": "3c02de008640e6daaade845cedc0f95330d453743ffd1cd25a50472de872f2f4",
+      "references": [
+        {
+          "line": 42,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0D);"
+        },
+        {
+          "line": 43,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.5F);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTankbot.java": {
+      "sha256": "9ef12504e94f095af0e4eadd64a7178d234bafc3bd6499a23bfc0420e1e1a241",
+      "references": [
+        {
+          "line": 140,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);"
+        },
+        {
+          "line": 142,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(180.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTeslaCrab.java": {
+      "sha256": "a75f5846c8d9ed72dc2782beec0df2106628818112bc3f0609c8c64fd04cae3c",
+      "references": [
+        {
+          "line": 26,
+          "field": "maxHealth",
+          "line_text": "        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D);"
+        },
+        {
+          "line": 27,
+          "field": "movementSpeed",
+          "line_text": "        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.5F);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "sha256": "d256ec3dade2660f0e81dbd6bd887f033aad8414a0a584237b5f0127b3b52c00",
+      "references": [
+        {
+          "line": 83,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20000.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java": {
+      "sha256": "57e82491d0e6e234637d1bbcaf057956b3ac7da6a4a5b8448489504acd9475dc",
+      "references": [
+        {
+          "line": 48,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);"
+        },
+        {
+          "line": 49,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityWarBehemoth.java": {
+      "sha256": "a4dbc3c13a0a4a7222c7561e696522a19aae7d8314faf563b82b2c6dc8eda0a1",
+      "references": [
+        {
+          "line": 89,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);"
+        },
+        {
+          "line": 91,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/ai/EntityMoonWalkHelper.java": {
+      "sha256": "e59f27c863697b42f2e503ba10ab86126dda78d08ad02594ab3b0f1c5b8a402e",
+      "references": [
+        {
+          "line": 29,
+          "field": "movementSpeed",
+          "line_text": "\t\t\t\tfloat speed = (float) (this.speed * this.entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue());"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBase.java": {
+      "sha256": "73b255b2ba152d633b7a8e0dabf0456037925ce2331cdcb961bcd4bb9c9acddf",
+      "references": [
+        {
+          "line": 50,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15000.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeHead.java": {
+      "sha256": "480e5c61b5407c611aa3428219014a2e53670d734959ade8a5c4928049e5a977",
+      "references": [
+        {
+          "line": 47,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);"
+        },
+        {
+          "line": 183,
+          "field": "movementSpeed",
+          "line_text": "\t\t\t\tdouble moverSpeed = this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getBaseValue();"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "sha256": "c717bfd78811ae9dcbfdd83d823a5b27cd80fd0732f1318c7c179982063b6c55",
+      "references": [
+        {
+          "line": 129,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getGrunt().health);"
+        },
+        {
+          "line": 130,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getGrunt().speed * (variant == TYPE_RADIOACTIVE ? 2D : 1D));"
+        },
+        {
+          "line": 131,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getGrunt().damage * (variant == TYPE_RADIOACTIVE ? 5D : 1D));"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBehemoth.java": {
+      "sha256": "9d43b8ae5067ee512d39f68aaf33cb8b013d6e60c358fad5a2685788a6f5655c",
+      "references": [
+        {
+          "line": 40,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBehemoth().health);"
+        },
+        {
+          "line": 41,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBehemoth().speed);"
+        },
+        {
+          "line": 42,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBehemoth().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBlaster.java": {
+      "sha256": "b019e4b27def109144305f3f78c3664acd316d5e0b31a76b6bf8493b752e4c56",
+      "references": [
+        {
+          "line": 30,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBlaster().health);"
+        },
+        {
+          "line": 31,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBlaster().speed);"
+        },
+        {
+          "line": 32,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBlaster().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBombardier.java": {
+      "sha256": "91f5f705fe589e2a50caa67e617a4b1060b851616e42c9ba80e529ae7b39b2de",
+      "references": [
+        {
+          "line": 32,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBombardier().health);"
+        },
+        {
+          "line": 33,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBombardier().speed);"
+        },
+        {
+          "line": 34,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBombardier().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrawler.java": {
+      "sha256": "8532d7f7ba88104179cbca493a3377314a339c4e4ef5b87fcdea7938218cf49a",
+      "references": [
+        {
+          "line": 117,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBrawler().health);"
+        },
+        {
+          "line": 118,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBrawler().speed);"
+        },
+        {
+          "line": 119,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBrawler().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrenda.java": {
+      "sha256": "1a66914cb90a558eec57f84a2b22ce59be140e5e36d3271baa057c0a582d3982",
+      "references": [
+        {
+          "line": 36,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBrenda().health);"
+        },
+        {
+          "line": 37,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBrenda().speed);"
+        },
+        {
+          "line": 38,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBrenda().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java": {
+      "sha256": "4f91c6a3d2ba7f8ad3bb4e8d58d5b5678149561ec1053faab8b31094a546f7b1",
+      "references": [
+        {
+          "line": 43,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getDigger().health);"
+        },
+        {
+          "line": 44,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getDigger().speed);"
+        },
+        {
+          "line": 45,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getDigger().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidNuclear.java": {
+      "sha256": "8c36c31dd00cb0b2bbba7114ea063a7b6e647850d55c094816392d5d19cd6edf",
+      "references": [
+        {
+          "line": 53,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getNuclear().health);"
+        },
+        {
+          "line": 54,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getNuclear().speed);"
+        },
+        {
+          "line": 55,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getNuclear().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java": {
+      "sha256": "5139774dbbf38da5f7bb046d731714946728ddd524588ef2d2872574ca935c08",
+      "references": [
+        {
+          "line": 63,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getScout().health);"
+        },
+        {
+          "line": 64,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getScout().speed);"
+        },
+        {
+          "line": 65,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getScout().damage);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java": {
+      "sha256": "84a8f4df0feea14638100f52ad82c458e37f0627875ee0b947eb9ae815e626c3",
+      "references": [
+        {
+          "line": 106,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);"
+        },
+        {
+          "line": 107,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 25);"
+        },
+        {
+          "line": 299,
+          "field": "movementSpeed",
+          "line_text": "\t\t\t    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue() * 3.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java": {
+      "sha256": "385c4026fc28f0ee28f54bee4a7dbab2fafee2498ce69e589767ca00e241b3cc",
+      "references": [
+        {
+          "line": 73,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);"
+        },
+        {
+          "line": 75,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);"
+        },
+        {
+          "line": 76,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(1.0D);"
+        },
+        {
+          "line": 82,
+          "field": "attackDamage",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier(\"Tier Damage Mod\", tier.damageMod, 1));"
+        },
+        {
+          "line": 83,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.5);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java": {
+      "sha256": "4339334451452567cb09ee6caf111c63a45adecd3029dc0091ced61f7256d0ed",
+      "references": [
+        {
+          "line": 43,
+          "field": "movementSpeed",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);"
+        },
+        {
+          "line": 44,
+          "field": "maxHealth",
+          "line_text": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.25);"
+        },
+        {
+          "line": 160,
+          "field": "movementSpeed",
+          "line_text": "\t\t\t    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue() * 1.0D);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/pollution/PollutionHandler.java": {
+      "sha256": "e7244ee5cfa2d0a3f01cd8c7995ad11a373d655f4fe6e71bed80c24f455e42e4",
+      "references": [
+        {
+          "line": 383,
+          "field": "maxHealth",
+          "line_text": "\t\t\t\tif(living.getEntityAttribute(SharedMonsterAttributes.maxHealth) != null && living.getEntityAttribute(SharedMonsterAttributes.maxHealth).getModifier(maxHealth) == null) living.getEntityAttribute(SharedMonsterAttributes.maxHealth).applyModifier(new AttributeModifier(maxHealth, \"Soot Anger Health Increase\", 1D, 1));"
+        },
+        {
+          "line": 383,
+          "field": "maxHealth",
+          "line_text": "\t\t\t\tif(living.getEntityAttribute(SharedMonsterAttributes.maxHealth) != null && living.getEntityAttribute(SharedMonsterAttributes.maxHealth).getModifier(maxHealth) == null) living.getEntityAttribute(SharedMonsterAttributes.maxHealth).applyModifier(new AttributeModifier(maxHealth, \"Soot Anger Health Increase\", 1D, 1));"
+        },
+        {
+          "line": 383,
+          "field": "maxHealth",
+          "line_text": "\t\t\t\tif(living.getEntityAttribute(SharedMonsterAttributes.maxHealth) != null && living.getEntityAttribute(SharedMonsterAttributes.maxHealth).getModifier(maxHealth) == null) living.getEntityAttribute(SharedMonsterAttributes.maxHealth).applyModifier(new AttributeModifier(maxHealth, \"Soot Anger Health Increase\", 1D, 1));"
+        },
+        {
+          "line": 384,
+          "field": "attackDamage",
+          "line_text": "\t\t\t\tif(living.getEntityAttribute(SharedMonsterAttributes.attackDamage) != null && living.getEntityAttribute(SharedMonsterAttributes.attackDamage).getModifier(attackDamage) == null) living.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier(attackDamage, \"Soot Anger Damage Increase\", 1.5D, 1));"
+        },
+        {
+          "line": 384,
+          "field": "attackDamage",
+          "line_text": "\t\t\t\tif(living.getEntityAttribute(SharedMonsterAttributes.attackDamage) != null && living.getEntityAttribute(SharedMonsterAttributes.attackDamage).getModifier(attackDamage) == null) living.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier(attackDamage, \"Soot Anger Damage Increase\", 1.5D, 1));"
+        },
+        {
+          "line": 384,
+          "field": "attackDamage",
+          "line_text": "\t\t\t\tif(living.getEntityAttribute(SharedMonsterAttributes.attackDamage) != null && living.getEntityAttribute(SharedMonsterAttributes.attackDamage).getModifier(attackDamage) == null) living.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier(attackDamage, \"Soot Anger Damage Increase\", 1.5D, 1));"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModKnife.java": {
+      "sha256": "1e1d0203cb5a2686dad5dffb7ef029d9c05bfdcb5493935594336f673139b2b9",
+      "references": [
+        {
+          "line": 60,
+          "field": "maxHealth",
+          "line_text": "\t\t\t\tIAttributeInstance attributeinstance = entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.maxHealth);"
+        }
+      ]
+    }
+  }
+}

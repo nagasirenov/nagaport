@@ -110,13 +110,13 @@ public class EntitySiegeLaser extends EntityThrowable {
 				int y = mop.getBlockPos().getY() + side.getFrontOffsetY();
 				int z = mop.getBlockPos().getZ() + side.getFrontOffsetZ();
 				
-				if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, x, y, z)) {
-					this.world.setBlock(x, y, z, Blocks.FIRE);
+				if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {
+					com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.FIRE.getStateFromMeta(0), 3);
 				}
 			}
 			
 			if(this.rand.nextFloat() < this.breakChance) {
-				this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+				com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 			}
 
 			this.setDead();

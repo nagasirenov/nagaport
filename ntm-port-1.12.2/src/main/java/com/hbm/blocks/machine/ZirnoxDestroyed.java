@@ -95,7 +95,7 @@ public class ZirnoxDestroyed extends BlockDummyable {
 			}
 		}
 
-		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
 	@Override

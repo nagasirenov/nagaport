@@ -1,0 +1,67 @@
+{
+  "before": 10831,
+  "after": 10819,
+  "removed": [
+    [
+      "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "compiler.err.method.does.not.override.superclass",
+      "method does not override or implement a method from a supertype"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ItemModHealth.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ItemModIron.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ItemModV1.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ItemModWD40.java",
+      "compiler.err.cant.apply.symbol",
+      "method getAttributeModifiers in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.item.ItemStack\\n  found: net.minecraft.item.ItemStack\\n  reason: actual and formal argument lists differ in length"
+    ]
+  ],
+  "added": []
+}

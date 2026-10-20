@@ -1,0 +1,23 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iconst_1
+       4: isub
+       5: iload         4
+       7: invokestatic  #128                // Method net/minecraft/world/World.func_147466_a:(Lnet/minecraft/world/IBlockAccess;III)Z
+      10: ifne          29
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iconst_1
+      17: isub
+      18: iload         4
+      20: invokevirtual #132                // Method net/minecraft/world/World.func_147439_a:(III)Lnet/minecraft/block/Block;
+      23: invokestatic  #138                // Method net/minecraft/block/BlockFence.func_149825_a:(Lnet/minecraft/block/Block;)Z
+      26: ifeq          33
+      29: iconst_1
+      30: goto          34
+      33: iconst_0
+      34: ireturn

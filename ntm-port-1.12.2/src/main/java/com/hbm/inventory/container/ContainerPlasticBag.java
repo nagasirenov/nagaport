@@ -53,7 +53,7 @@ public class ContainerPlasticBag extends Container {
 				var4.onSlotChanged();
 			}
 
-			var4.onPickupFromSlot(p_82846_1_, var5);
+			var4.onTake(p_82846_1_, var5);
 		}
 
 		return var3;

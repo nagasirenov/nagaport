@@ -1,0 +1,525 @@
+{
+  "base": "c2f60149e9a9fb836bade505fe566d40a54ef3cc",
+  "log_path": "ntm-port-1.12.2/porting/checkpoint87/full-compile.log",
+  "log_sha256": "78bc29f720e720325b8d8703ea401d55abac842d175aefe1518fb52299b97515",
+  "watcher_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "line": 34,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(25, new Integer(0));\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "line": 39,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(25, bogie.getEntityId());\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "line": 43,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(25);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 30,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(17, 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 31,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(18, 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 32,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(19, 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 189,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(17, x);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 190,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(18, y);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 191,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(19, z);\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 195,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(17);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 199,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(18);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 203,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.dataWatcher.getWatchableObjectInt(19);\n\t\t           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 96,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(12, (int) 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 97,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(13, 0F);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 98,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(14, 0F);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 99,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(15, 0F);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 100,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(16, (byte) 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 104,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(12, tier.id);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 112,
+      "message": "cannot find symbol",
+      "detail": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];\n\t\t                                     ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 117,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(16, beam ? (byte) 1 : (byte) 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 121,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn this.getDataWatcher().getWatchableObjectByte(16) == 1;\n\t\t           ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 125,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(13, (float) x);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 126,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(14, (float) y);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 127,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(15, (float) z);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 132,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.getDataWatcher().getWatchableObjectFloat(13),\n\t\t\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 133,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.getDataWatcher().getWatchableObjectFloat(14),\n\t\t\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 134,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.getDataWatcher().getWatchableObjectFloat(15)\n\t\t\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 37,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(12, (int) 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 41,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(12, tier.id);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 49,
+      "message": "cannot find symbol",
+      "detail": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];\n\t\t                                     ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 67,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().addObject(12, (int) 0);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 80,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getDataWatcher().updateObject(12, tier.id);\n\t\t    ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 88,
+      "message": "cannot find symbol",
+      "detail": "\t\tSiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];\n\t\t                                     ^\n  symbol: method getDataWatcher()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 32,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.addObject(cart_base_id, new Integer(0)); //EnumCartBase\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 36,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(cart_base_id, type.ordinal());\n\t\t    ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 40,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn EnumCartBase.values()[this.dataWatcher.getWatchableObjectInt(cart_base_id)];\n\t\t                                 ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 78,
+      "message": "cannot find symbol",
+      "detail": "\t\tnbt.setInteger(\"base\", this.dataWatcher.getWatchableObjectInt(cart_base_id));\n\t\t                           ^\n  symbol: variable dataWatcher"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 84,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.dataWatcher.updateObject(23, nbt.getInteger(\"base\"));\n\t\t    ^\n  symbol: variable dataWatcher"
+    }
+  ],
+  "other_same_file_diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "line": 14,
+      "message": "EntityMagnusCartus is not abstract and does not override abstract method getType() in EntityMinecart",
+      "detail": "public class EntityMagnusCartus extends EntityMinecart {\n       ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "line": 26,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "line": 60,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\tthis.world.spawnEntityInWorld(bog);\n\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityMinecartBogie)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 36,
+      "message": "updateEntityActionState() in EntityUFOBase cannot override updateEntityActionState() in EntityLiving",
+      "detail": "\tprotected void updateEntityActionState() {\n\t               ^\n  overridden method is final"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 40,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {\n\t\t\t             ^\n  symbol:   variable difficultySetting\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 80,
+      "message": "incompatible types: Class<CAP#1> cannot be converted to Class<? extends EntityLivingBase>",
+      "detail": "\t\t\t\tif(!entity.isEntityAlive() || !canAttackClass(entity.getClass()))\n\t\t\t\t                                                             ^\n  where CAP#1 is a fresh type-variable:\n    CAP#1 extends Entity from capture of ? extends Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 94,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tif(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {\n\t\t\t\t\t\t       ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 94,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tif(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {\n\t\t\t\t\t\t                                            ^\n  symbol: method getDistanceSqToEntity(Entity)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 118,
+      "message": "cannot find symbol",
+      "detail": "\t\tAxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();\n\t\t                                                         ^\n  symbol:   method copy()\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 123,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tif(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {\n\t\t\t              ^\n  symbol:   method getCollidingBoundingBoxes(EntityUFOBase,AxisAlignedBB)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 171,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ), (int) this.target.posY) + targetHeightOffset(),  wZ);\n\t\t                                        ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "line": 185,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.setWaypoint(x, this.world.getHeightValue(x, z) + wanderHeightOffset(),  z);\n\t\t                              ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 48,
+      "message": "method isEntityInvulnerable in class Entity cannot be applied to given types;",
+      "detail": "\t\tif(this.isEntityInvulnerable())\n\t\t       ^\n  required: DamageSource\n  found: no arguments\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 65,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.world.playSoundAtEntity(this, \"random.break\", 5F, 1.0F + rand.nextFloat() * 0.5F);\n\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntitySiegeCraft,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 106,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);\n\t\t                                               ^\n  symbol:   variable movementSpeed\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 107,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 25);\n\t\t                                               ^\n  symbol:   variable maxHealth\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 154,
+      "message": "updateEntityActionState() in EntitySiegeCraft cannot override updateEntityActionState() in EntityLiving",
+      "detail": "\tprotected void updateEntityActionState() {\n\t               ^\n  overridden method is final"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 210,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\t\tthis.world.playSoundAtEntity(this.target, \"hbm:weapon.stingerLockOn\", 2F, 0.75F);\n\t\t\t\t\t\t          ^\n  symbol:   method playSoundAtEntity(Entity,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 233,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tList<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(lockon.x, lockon.y, lockon.z, lockon.x, lockon.y, lockon.z).expand(2, 2, 2));\n\t\t\t\t\t                                                                                           ^\n  symbol:   method getBoundingBox(double,double,double,double,double,double)\n  location: class AxisAlignedBB"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 236,
+      "message": "incompatible types: Class<CAP#1> cannot be converted to Class<? extends EntityLivingBase>",
+      "detail": "\t\t\t\t\t\tif(this.canAttackClass(e.getClass())) {\n\t\t\t\t\t\t                                 ^\n  where CAP#1 is a fresh type-variable:\n    CAP#1 extends Entity from capture of ? extends Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 286,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tlaser.setThrowableHeading(copy.x, copy.y, copy.z, 1F, 0.0F);\n\t\t\t\t\t     ^\n  symbol:   method setThrowableHeading(double,double,double,float,float)\n  location: variable laser of type EntitySiegeLaser"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 291,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.spawnEntityInWorld(laser);\n\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntitySiegeLaser)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 294,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\t\t\tthis.playSound(\"hbm:weapon.ballsLaser\", 2.0F, 1.0F);\n\t\t\t\t               ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 299,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue() * 3.0D);\n\t\t\t                                                                                                       ^\n  symbol:   variable movementSpeed\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 311,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.setWaypoint(x, this.world.getHeightValue(x, z) + 5 + rand.nextInt(6),  z);\n\t\t                              ^\n  symbol:   method getHeightValue(int,int)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 326,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "line": 329,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn super.onSpawnWithEgg(data);\n\t\t            ^\n  symbol: method onSpawnWithEgg(IEntityLivingData)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 43,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);\n\t\t                                               ^\n  symbol:   variable movementSpeed\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 44,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.25);\n\t\t                                               ^\n  symbol:   variable maxHealth\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 56,
+      "message": "method isEntityInvulnerable in class Entity cannot be applied to given types;",
+      "detail": "\t\tif(this.isEntityInvulnerable())\n\t\t       ^\n  required: DamageSource\n  found: no arguments\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 72,
+      "message": "cannot find symbol",
+      "detail": "\t\t\tthis.world.playSoundAtEntity(this, \"random.break\", 5F, 1.0F + rand.nextFloat() * 0.5F);\n\t\t\t          ^\n  symbol:   method playSoundAtEntity(EntitySiegeUFO,String,float,float)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 82,
+      "message": "updateEntityActionState() in EntitySiegeUFO cannot override updateEntityActionState() in EntityLiving",
+      "detail": "\tprotected void updateEntityActionState() {\n\t               ^\n  overridden method is final"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 153,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t\t\tthis.world.spawnEntityInWorld(bullet);\n\t\t\t\t\t          ^\n  symbol:   method spawnEntityInWorld(EntityBulletBeamBase)\n  location: variable world of type World"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 154,
+      "message": "incompatible types: String cannot be converted to SoundEvent",
+      "detail": "\t\t\t\t\tthis.playSound(\"hbm:entity.bfashoot\", 2.0F, 1.0F);\n\t\t\t\t\t               ^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 160,
+      "message": "cannot find symbol",
+      "detail": "\t\t\t    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue() * 1.0D);\n\t\t\t                                                                                                       ^\n  symbol:   variable movementSpeed\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 171,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "line": 174,
+      "message": "cannot find symbol",
+      "detail": "\t\treturn super.onSpawnWithEgg(data);\n\t\t            ^\n  symbol: method onSpawnWithEgg(IEntityLivingData)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 32,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.yOffset = 0.5F;\n\t\t    ^\n  symbol: variable yOffset"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 38,
+      "message": "method isEntityInvulnerable in class Entity cannot be applied to given types;",
+      "detail": "\t\tif(this.isEntityInvulnerable())\n\t\t       ^\n  required: DamageSource\n  found: no arguments\n  reason: actual and formal argument lists differ in length"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 73,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);\n\t\t                                                                ^\n  symbol:   variable attackDamage\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 75,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);\n\t\t                                               ^\n  symbol:   variable movementSpeed\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 76,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(1.0D);\n\t\t                                               ^\n  symbol:   variable attackDamage\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 82,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier(\"Tier Damage Mod\", tier.damageMod, 1));\n\t\t                                               ^\n  symbol:   variable attackDamage\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "line": 83,
+      "message": "cannot find symbol",
+      "detail": "\t\tthis.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.5);\n\t\t                                               ^\n  symbol:   variable maxHealth\n  location: class SharedMonsterAttributes"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 43,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 58,
+      "message": "method does not override or implement a method from a supertype",
+      "detail": "\t@Override\n\t^"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 68,
+      "message": "cannot find symbol",
+      "detail": "\t\tif(this.func_95999_t() != null) {\n\t\t       ^\n  symbol: method func_95999_t()"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "line": 69,
+      "message": "cannot find symbol",
+      "detail": "\t\t\titemstack.setStackDisplayName(this.func_95999_t());\n\t\t\t                                  ^\n  symbol: method func_95999_t()"
+    }
+  ]
+}

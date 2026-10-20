@@ -14,8 +14,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 
 public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
+	private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeUFO.class, DataSerializers.VARINT);
+
 
 	private int attackCooldown;
 	private double lastTargetX;
@@ -34,11 +40,11 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.getDataWatcher().addObject(12, (int) 0);
+		this.getDataManager().register(SIEGE_TIER, (int) 0);
 	}
 	
 	public void setTier(SiegeTier tier) {
-		this.getDataWatcher().updateObject(12, tier.id);
+		this.getDataManager().set(SIEGE_TIER, tier.id);
 
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.25);
@@ -46,7 +52,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 	}
 	
 	public SiegeTier getTier() {
-		SiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];
+		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
 		return tier != null ? tier : SiegeTier.CLAY;
 	}
 	
@@ -63,7 +69,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 			return false;
 		}
 		
-		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getEntity() instanceof EntityPlayer))
+		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))
 			return false;
 		
 		damage -= tier.dt;

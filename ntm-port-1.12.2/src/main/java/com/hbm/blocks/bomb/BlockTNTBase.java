@@ -124,7 +124,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 		
 		if(tool == ToolType.DEFUSER) {
 			if(!world.isRemote) {
-				world.func_147480_a(x, y, z, false);
+				com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 				this.dropBlockAsItem(world, x, y, z, 0, 0);
 			}
 			return true;

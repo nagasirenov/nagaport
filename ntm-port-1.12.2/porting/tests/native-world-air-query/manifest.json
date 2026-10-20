@@ -1,0 +1,153 @@
+{
+  "base": "0675e599e5ee31a60776b560af792372df191790",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/Balefire.java": {
+      "before": "707319c6807a00805b3b4a183e92c80c857aea4bcecfb20c1863fc39a4b6eebb",
+      "after": "eaf533131222749da0e3e81a028914cca5a1d030d87e43e06ff2f130168b1685",
+      "edits": [
+        {
+          "start": 5423,
+          "old": "x, y, z",
+          "new": "new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java": {
+      "before": "57e00f828a5a2f14ef08547756a18d3d8cce80740965d2009d47dea1853c2989",
+      "after": "b307fbce1969b232a8e8dd31791768d4cb63bd391c753f1c1154af9f128e2b1a",
+      "edits": [
+        {
+          "start": 5637,
+          "old": "ix, iy, iz",
+          "new": "new net.minecraft.util.math.BlockPos(ix, iy, iz)"
+        },
+        {
+          "start": 5886,
+          "old": "ix, iy, iz",
+          "new": "new net.minecraft.util.math.BlockPos(ix, iy, iz)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": {
+      "before": "7a41e94a3a8100b602231266248eae1d526dc4bf40ce7067daef3e548175be3d",
+      "after": "dac558816051c6faddfdc7eab3a0711adad7dfca9e498cf94b2299fef00eb8e4",
+      "edits": [
+        {
+          "start": 6145,
+          "old": "x, y + 1, z",
+          "new": "new net.minecraft.util.math.BlockPos(x, y + 1, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before": "5803106864d55b9cb46e5d3c9317140c053e1076ac1cb78f5aa78b26a4c1ba4e",
+      "after": "01de7dc0ead1a75597ebd45a3290b775412dcafaae56a62d6565eec05f27bd8c",
+      "edits": [
+        {
+          "start": 3511,
+          "old": "x, y + 1, z",
+          "new": "new net.minecraft.util.math.BlockPos(x, y + 1, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java": {
+      "before": "890cc6ff7c474f722fce08373b404fc20bc643ea11fd787aa523068dea2d7f98",
+      "after": "49d2a80efe8466f1e76ffd19fae6d7d63f81b66921b15ff9a8def395815e48c9",
+      "edits": [
+        {
+          "start": 1054,
+          "old": "p_76484_3_, p_76484_4_, p_76484_5_",
+          "new": "new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/genlayer/WorldGenEveSpike.java": {
+      "before": "f25c42f4136fc42a262f31d01cce79b21ec90bce0fb0d2c342a371c02b85960a",
+      "after": "e98ca95030ff6abbcad605e6f5c91ec3028eaeb84d7820f6f578bbf975fd2c40",
+      "edits": [
+        {
+          "start": 506,
+          "old": "p_76484_3_, p_76484_4_, p_76484_5_",
+          "new": "new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/TTree.java": {
+      "before": "c046774ace40bc54e385788ebbfc35efed791f9ef836ae7d225962952a91dc93",
+      "after": "2fec5a47a3e5ce7a07edc10760dcefdf1f62b07050ef919241a286d386d23e37",
+      "edits": [
+        {
+          "start": 2316,
+          "old": "vineX, vineY, vineZ",
+          "new": "new net.minecraft.util.math.BlockPos(vineX, vineY, vineZ)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeRayBatched.java": {
+      "before": "2c13cf4a68c9acadee088e951a1d4e21e3f1de499010dae91bb28b2b384bf466",
+      "after": "b6a127d48c9fe51f4ff945bf1d4886e8737ff9ac05d5e47fc89cf137c0a1757b",
+      "edits": [
+        {
+          "start": 6237,
+          "old": "x0, y0, z0",
+          "new": "new net.minecraft.util.math.BlockPos(x0, y0, z0)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBalefireMatch.java": {
+      "before": "38a4c20313d2592be0813436d5fb71cec6db0061831e08c2050d678aae98e45c",
+      "after": "78dfb130aeedc9a0a29722d17438ad09992e44a3830a3c233a6a7eca0dc5f207",
+      "edits": [
+        {
+          "start": 1009,
+          "old": "x, y, z",
+          "new": "new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+      "before": "d1976684752da85f836ead6742a1b30f3266ce7a91f8a39a8c7d9ade92eea9ec",
+      "after": "d1612943f92585b1ff46d37d0cb01468f201575660ff78afb5c0ab351486ae75",
+      "edits": [
+        {
+          "start": 11485,
+          "old": "x, y, z",
+          "new": "new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/RedstoneSword.java": {
+      "before": "da3e53ae3287e5e09d41658aa7b15c8ad94ada45216d268c1d7ecf2298ce6da9",
+      "after": "4996d52001ad2cb66abe405e520e025bb5e5a84ef62a6ebb06d981a51a934804",
+      "edits": [
+        {
+          "start": 1339,
+          "old": "x, y, z",
+          "new": "new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryDrill.java": {
+      "before": "6a4b7c5b9c5217984c670972bb1c261a2b88bd2f4e4098f757355dcc44480752",
+      "after": "b94ee79ca9007d5d538820b7d6f0811f190452d28f5570ff873bf438730fad5c",
+      "edits": [
+        {
+          "start": 4840,
+          "old": "x, y, z",
+          "new": "new net.minecraft.util.math.BlockPos(x, y, z)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java": {
+      "before": "a9b81a81fd43ec8be0cce0573fab29969ace06edeef45f3e52ff2cd9cfb0ae1f",
+      "after": "a2ea1b159ab2a5f4b47d73cdb3a447ed5b7c7cba21b8cc2cceb186334f3dbbf7",
+      "edits": [
+        {
+          "start": 9722,
+          "old": "x + dir.offsetX * i, y, z + dir.offsetZ * i",
+          "new": "new net.minecraft.util.math.BlockPos(x + dir.offsetX * i, y, z + dir.offsetZ * i)"
+        }
+      ]
+    }
+  }
+}

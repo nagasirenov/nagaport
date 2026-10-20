@@ -1,0 +1,43 @@
+Compiled from "BlockVine.java"
+public class net.minecraft.block.BlockVine extends net.minecraft.block.Block implements net.minecraftforge.common.IShearable {
+  public static final net.minecraft.block.properties.PropertyBool UP;
+  public static final net.minecraft.block.properties.PropertyBool NORTH;
+  public static final net.minecraft.block.properties.PropertyBool EAST;
+  public static final net.minecraft.block.properties.PropertyBool SOUTH;
+  public static final net.minecraft.block.properties.PropertyBool WEST;
+  public static final net.minecraft.block.properties.PropertyBool[] ALL_FACES;
+  protected static final net.minecraft.util.math.AxisAlignedBB UP_AABB;
+  protected static final net.minecraft.util.math.AxisAlignedBB WEST_AABB;
+  protected static final net.minecraft.util.math.AxisAlignedBB EAST_AABB;
+  protected static final net.minecraft.util.math.AxisAlignedBB NORTH_AABB;
+  protected static final net.minecraft.util.math.AxisAlignedBB SOUTH_AABB;
+  public net.minecraft.block.BlockVine();
+  public net.minecraft.util.math.AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+  public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+  public net.minecraft.block.state.IBlockState getActualState(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+  public boolean isOpaqueCube(net.minecraft.block.state.IBlockState);
+  public boolean isFullCube(net.minecraft.block.state.IBlockState);
+  public boolean isReplaceable(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+  public boolean canPlaceBlockOnSide(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+  public boolean canAttachTo(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+  protected static boolean isExceptBlockForAttaching(net.minecraft.block.Block);
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+  public void updateTick(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, java.util.Random);
+  public net.minecraft.block.state.IBlockState getStateForPlacement(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing, float, float, float, int, net.minecraft.entity.EntityLivingBase);
+  public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState, java.util.Random, int);
+  public int quantityDropped(java.util.Random);
+  public void harvestBlock(net.minecraft.world.World, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.tileentity.TileEntity, net.minecraft.item.ItemStack);
+  public net.minecraft.block.state.IBlockState getStateFromMeta(int);
+  public net.minecraft.util.BlockRenderLayer getRenderLayer();
+  public int getMetaFromState(net.minecraft.block.state.IBlockState);
+  protected net.minecraft.block.state.BlockStateContainer createBlockState();
+  public net.minecraft.block.state.IBlockState withRotation(net.minecraft.block.state.IBlockState, net.minecraft.util.Rotation);
+  public net.minecraft.block.state.IBlockState withMirror(net.minecraft.block.state.IBlockState, net.minecraft.util.Mirror);
+  public static net.minecraft.block.properties.PropertyBool getPropertyFor(net.minecraft.util.EnumFacing);
+  public static int getNumGrownFaces(net.minecraft.block.state.IBlockState);
+  public boolean isLadder(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.entity.EntityLivingBase);
+  public boolean isShearable(net.minecraft.item.ItemStack, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+  public java.util.List<net.minecraft.item.ItemStack> onSheared(net.minecraft.item.ItemStack, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, int);
+  public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(net.minecraft.world.IBlockAccess, net.minecraft.block.state.IBlockState, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+  static {};
+}

@@ -1,0 +1,14 @@
+{
+  "base": "CP92 0675e599e5ee31a60776b560af792372df191790",
+  "parsed_units_each": 4071,
+  "parse_errors": 0,
+  "before_errors": 10366,
+  "after_errors": 10359,
+  "removed": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java\tcompiler.err.cant.resolve.location.args\tcannot find symbol\\n  symbol:   method setStepSound(net.minecraft.block.SoundType)\\n  location: class net.minecraft.block.Block": 10
+  },
+  "added": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java\tcompiler.err.cant.resolve.location.args\tcannot find symbol\\n  symbol:   method setBlockTextureName(java.lang.String)\\n  location: class net.minecraft.block.Block": 3
+  },
+  "scope": "Fresh all-source parse/attribution only, no class generation or full build."
+}

@@ -28,6 +28,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -309,7 +310,7 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 
 		if(!stack.hasTagCompound()) return;
 
-		ItemStack type = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot1"));
+		ItemStack type = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag("slot1"));
 
 		if(type != null) {
 			list.add(TextFormatting.GOLD + type.getDisplayName());
@@ -318,12 +319,15 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	}
 
 	@Override
-	public boolean hasComparatorInputOverride() {
+	public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+	public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {
+		int x = blockPos.getX();
+		int y = blockPos.getY();
+		int z = blockPos.getZ();
 		return ((TileEntityMassStorage) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))).redstone;
 	}
 }

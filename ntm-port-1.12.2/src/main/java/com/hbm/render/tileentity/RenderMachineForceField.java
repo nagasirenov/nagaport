@@ -6,6 +6,8 @@ import com.hbm.main.ResourceManager;
 import com.hbm.tileentity.machine.TileEntityForceField;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
@@ -66,7 +68,8 @@ public class RenderMachineForceField extends TileEntitySpecialRenderer {
 	        
 	        for(int i = 0; i < l; i++) {
 
-	            Tessellator tessellator = Tessellator.instance;
+	            Tessellator tessellator = Tessellator.getInstance();
+	            BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 	            
 	            /*if((i < 2 || i > l - 2) && k % 10 == 0) {
 		            tessellator.startDrawing(3);
@@ -76,12 +79,12 @@ public class RenderMachineForceField extends TileEntitySpecialRenderer {
 		            tessellator.draw();
 	            }*/
 	            
-	            tessellator.startDrawing(3);
+	            tessellatorBuffer.begin(3, DefaultVertexFormats.POSITION_COLOR);
 	            //tessellator.setColorRGBA_F(0F, 1F, 0F, 1.0F);
-	            tessellator.setColorOpaque_I(hex);
-	            tessellator.addVertex(vec.x, vec.y, vec.z);
+	            int tessellatorColor0Packed = hex;
+	            tessellatorBuffer.pos(vec.x, vec.y, vec.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
 	            vec.rotateAroundXRad(lRot);
-	            tessellator.addVertex(vec.x, vec.y, vec.z);
+	            tessellatorBuffer.pos(vec.x, vec.y, vec.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
 	            tessellator.draw();
 	        }
         }
@@ -110,13 +113,14 @@ public class RenderMachineForceField extends TileEntitySpecialRenderer {
         	
 	        for(int i = 0; i < s; i++) {
 
-	            Tessellator tessellator = Tessellator.instance;
-	            tessellator.startDrawing(3);
+	            Tessellator tessellator = Tessellator.getInstance();
+	            BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+	            tessellatorBuffer.begin(3, DefaultVertexFormats.POSITION_COLOR);
 	            //tessellator.setColorRGBA_F(0F, 1F, 0F, 1.0F);
-	            tessellator.setColorOpaque_I(hex);
-	            tessellator.addVertex(vec2.x, vec2.y, vec2.z);
+	            int tessellatorColor0Packed = hex;
+	            tessellatorBuffer.pos(vec2.x, vec2.y, vec2.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
 	            vec2.rotateAroundYRad(sRot);
-	            tessellator.addVertex(vec2.x, vec2.y, vec2.z);
+	            tessellatorBuffer.pos(vec2.x, vec2.y, vec2.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
 	            tessellator.draw();
 	        }
         }

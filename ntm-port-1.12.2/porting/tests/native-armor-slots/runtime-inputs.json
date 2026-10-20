@@ -1,0 +1,23 @@
+{
+  "ProductionSlotProjections.java": "31bd272c3ca193343380fe75ed4cd7e60a9096afd5dcd1186341aabaebfc6bd1",
+  "com/hbm/items/ModItems.java": "a79750bcfdd1a802dfc41523c28810b8b11405626302d5ad91c275e6f14aed0a",
+  "com/hbm/items/armor/ItemArmorMod.java": "612d8668bec478bea735cf9b12390cd5f26d3d5bc11ec1340636eb5c3871c8b9",
+  "com/hbm/main/ResourceManager.java": "02b9452cdf51e5dd70c9dab9fa83ea27327c2d7c7a481eb9cd15b1374ac036c3",
+  "src/main/java/com/hbm/util/ArmorSlotOrder.java": "eb1fc28d55a91eadc1df7412ee5d7ab330b7ff31d74c9bafcde8002fd284e370",
+  "src/main/java/com/hbm/util/NullableInventoryStackNbt.java": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+  "src/main/java/com/hbm/util/Tuple.java": "068c51c250ecd2d7bce6576fbc87a1ef18106065833de1258458be4c6f29ef41",
+  "src/main/java/com/hbm/interfaces/Spaghetti.java": "f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70",
+  "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+  "src/main/java/com/hbm/items/armor/ArmorAshGlasses.java": "80e87061cafaa691eb73e39b88fd91c019ca7b722b55de08204e0c08f05343f5",
+  "src/main/java/com/hbm/items/armor/MaskOfInfamy.java": "e97f5b73db03143b5a25e2ee4a9711708e846d39864abd83f889559d840197b5",
+  "src/main/java/com/hbm/items/armor/ModArmor.java": "20498b6e0c3de702a053c04376b60ccc64ddb2a381562a31bb41f77b2805f615",
+  "src/main/java/com/hbm/handler/ArmorModHandler.java": "3368c07073b9b4be536cb76d10ca84de807211f074e1a7152e0ed0eca146b804",
+  "src/main/java/com/hbm/render/model/ModelArmorBase.java": "ed5bf943483621ae7db63f3db8fd46858ac3958371a24c4a9382bae3b1eab62e",
+  "src/main/java/com/hbm/render/model/ModelGlasses.java": "14b78a592bfc47e17931db8e8571d63a45a08246ebd2cb45cf1f0935134eceac",
+  "src/main/java/com/hbm/render/model/ModelArmorHEV.java": "8f396f7460257bf435f9e6983c41716362c614b8df7b173235d8d23dda900293",
+  "src/main/java/com/hbm/render/loader/ModelRendererObj.java": "640f09714aa48afe7104bdf4f024b98b663d7eb1fe0708c309ff6f61bb7d15de",
+  "src/main/java/com/hbm/render/mesh/MeshModel.java": "50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2",
+  "src/main/java/com/hbm/render/mesh/ObjMesh.java": "d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736",
+  "src/main/java/com/hbm/render/item/NativeItemTextureRegistry.java": "c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412",
+  "porting/tests/native-armor-slots/NativeArmorSlotsTest.java": "b7c53b0bebbe2d532154706cf886287c00e574f618c54ef49fc6c773a006503a"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "assertions": 18631,
+  "production_patch_sha256": "4d885d15dc471f76f1519a4981eae4124b55a951ee213acb270eeb3ad33717bc",
+  "test_and_log_sha256": {
+    "PillarNativeTest.java": "15728d319d32616ad2f5952b3d17677668f789aa9341c421e8de307945cc3d8a",
+    "run.py": "4d9771b8daea1551bef446ef3a990783e42a10dd218c88dab1dde79d90b914cf",
+    "native.log": "3a03ac5287e1f910282d5196e9d884f1bc80e514e376df2dc0317490f74d12e7",
+    "runtime-inputs.json": "aecb23b4573f8ee79d2240c42c84d03707b9d401967d7b5b4fcd5a27cbd4d07c",
+    "sites.json": "e051e17b5b0f3b1dac14f494cc625252b501a84a8c2ae6787e550061c66376ff"
+  },
+  "legacy_client_jar_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "scope": "Completed native run retained without rerunning. Source inputs are pinned in runtime-inputs.json; full native owner state, selected 11 constructions/registrations, real model/atlas/GL and two reloads passed. NBT proof is native named-state NBT plus ExtendedBlockStorage, not an imported old-world save or full chunk save migration."
+}

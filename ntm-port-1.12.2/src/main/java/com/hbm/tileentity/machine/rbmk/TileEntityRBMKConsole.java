@@ -75,9 +75,9 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 
 			if(this.world.getTotalWorldTime() % 10 == 0) {
 
-				this.world.theProfiler.startSection("rbmkConsole_rescan");
+				this.world.profiler.startSection("rbmkConsole_rescan");
 				rescan();
-				this.world.theProfiler.endSection();
+				this.world.profiler.endSection();
 				prepareScreenInfo();
 			}
 

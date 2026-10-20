@@ -11,6 +11,8 @@ import com.hbm.render.anim.HbmAnimations;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -150,7 +152,8 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		float aimingProgress = ItemGunBaseNT.prevAimingProgress + (ItemGunBaseNT.aimingProgress - ItemGunBaseNT.prevAimingProgress) * interp;
 		aimingProgress = Math.min(1F, aimingProgress * 2);
 
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		GL11.glPushMatrix();
 		int amount = 16;
 		for(int i = 0; i < amount; i++) {
@@ -158,12 +161,12 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 			GL11.glTranslated(0, -1.5 - aimingProgress, 0);
 			GL11.glRotated(90 * aimingProgress, 1, 0, 0);
 			GL11.glRotated(-45, 0, 0, 1);
-			tess.startDrawingQuads();
-			tess.setNormal(0F, 1F, 0F);
-			tess.addVertexWithUV(-0.5, -0.5F, -0.5, maxU, maxV);
-			tess.addVertexWithUV(0.5F, -0.5F, -0.5, minU, maxV);
-			tess.addVertexWithUV(0.5F, 0.5F, -0.5, minU, minV);
-			tess.addVertexWithUV(-0.5, 0.5F, -0.5, maxU, minV);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
+			float tessNormal0X = 0F, tessNormal0Y = 1F, tessNormal0Z = 0F;
+			tessBuffer.pos(-0.5, -0.5F, -0.5).tex(maxU, maxV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+			tessBuffer.pos(0.5F, -0.5F, -0.5).tex(minU, maxV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+			tessBuffer.pos(0.5F, 0.5F, -0.5).tex(minU, minV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+			tessBuffer.pos(-0.5, 0.5F, -0.5).tex(maxU, minV).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
 			tess.draw();
 			GL11.glPopMatrix();
 			GL11.glRotated(360D / amount, 0, 0, 1);

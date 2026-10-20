@@ -16,6 +16,12 @@ public class BlockLogNT extends BlockLog {
 		this.topIcon = topIcon;
 	}
 
+	/** NTM construction hook for the native protected sound setter. */
+	public BlockLogNT withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		this.field_150167_a = new IIcon[1];

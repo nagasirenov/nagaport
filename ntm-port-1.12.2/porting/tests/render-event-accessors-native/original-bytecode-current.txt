@@ -1,0 +1,187 @@
+Compiled from "RenderGameOverlayEvent.java"
+public class net.minecraftforge.client.event.RenderGameOverlayEvent extends cpw.mods.fml.common.eventhandler.Event {
+  public final float partialTicks;
+
+  public final bca resolution;
+
+  public final int mouseX;
+
+  public final int mouseY;
+
+  public final net.minecraftforge.client.event.RenderGameOverlayEvent$ElementType type;
+
+  public net.minecraftforge.client.event.RenderGameOverlayEvent(float, bca, int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #37                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: fload_1
+       6: putfield      #39                 // Field partialTicks:F
+       9: aload_0
+      10: aload_2
+      11: putfield      #41                 // Field resolution:Lbca;
+      14: aload_0
+      15: iload_3
+      16: putfield      #43                 // Field mouseX:I
+      19: aload_0
+      20: iload         4
+      22: putfield      #45                 // Field mouseY:I
+      25: aload_0
+      26: aconst_null
+      27: putfield      #47                 // Field type:Lnet/minecraftforge/client/event/RenderGameOverlayEvent$ElementType;
+      30: return
+
+  private net.minecraftforge.client.event.RenderGameOverlayEvent(net.minecraftforge.client.event.RenderGameOverlayEvent, net.minecraftforge.client.event.RenderGameOverlayEvent$ElementType);
+    Code:
+       0: aload_0
+       1: invokespecial #37                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: getfield      #39                 // Field partialTicks:F
+       9: putfield      #39                 // Field partialTicks:F
+      12: aload_0
+      13: aload_1
+      14: getfield      #41                 // Field resolution:Lbca;
+      17: putfield      #41                 // Field resolution:Lbca;
+      20: aload_0
+      21: aload_1
+      22: getfield      #43                 // Field mouseX:I
+      25: putfield      #43                 // Field mouseX:I
+      28: aload_0
+      29: aload_1
+      30: getfield      #45                 // Field mouseY:I
+      33: putfield      #45                 // Field mouseY:I
+      36: aload_0
+      37: aload_2
+      38: putfield      #47                 // Field type:Lnet/minecraftforge/client/event/RenderGameOverlayEvent$ElementType;
+      41: return
+
+  net.minecraftforge.client.event.RenderGameOverlayEvent(net.minecraftforge.client.event.RenderGameOverlayEvent, net.minecraftforge.client.event.RenderGameOverlayEvent$ElementType, net.minecraftforge.client.event.RenderGameOverlayEvent$1);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #54                 // Method "<init>":(Lnet/minecraftforge/client/event/RenderGameOverlayEvent;Lnet/minecraftforge/client/event/RenderGameOverlayEvent$ElementType;)V
+       6: return
+}
+
+Compiled from "RenderWorldLastEvent.java"
+public class net.minecraftforge.client.event.RenderWorldLastEvent extends cpw.mods.fml.common.eventhandler.Event {
+  public final bma context;
+
+  public final float partialTicks;
+
+  public net.minecraftforge.client.event.RenderWorldLastEvent(bma, float);
+    Code:
+       0: aload_0
+       1: invokespecial #14                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #16                 // Field context:Lbma;
+       9: aload_0
+      10: fload_2
+      11: putfield      #18                 // Field partialTicks:F
+      14: return
+}
+
+Compiled from "RenderLivingEvent.java"
+public abstract class net.minecraftforge.client.event.RenderLivingEvent extends cpw.mods.fml.common.eventhandler.Event {
+  public final sv entity;
+
+  public final boh renderer;
+
+  public final double x;
+
+  public final double y;
+
+  public final double z;
+
+  public net.minecraftforge.client.event.RenderLivingEvent(sv, boh, double, double, double);
+    Code:
+       0: aload_0
+       1: invokespecial #27                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #29                 // Field entity:Lsv;
+       9: aload_0
+      10: aload_2
+      11: putfield      #31                 // Field renderer:Lboh;
+      14: aload_0
+      15: dload_3
+      16: putfield      #33                 // Field x:D
+      19: aload_0
+      20: dload         5
+      22: putfield      #35                 // Field y:D
+      25: aload_0
+      26: dload         7
+      28: putfield      #37                 // Field z:D
+      31: return
+}
+
+Compiled from "DrawBlockHighlightEvent.java"
+public class net.minecraftforge.client.event.DrawBlockHighlightEvent extends cpw.mods.fml.common.eventhandler.Event {
+  public final bma context;
+
+  public final yz player;
+
+  public final azu target;
+
+  public final int subID;
+
+  public final add currentItem;
+
+  public final float partialTicks;
+
+  public net.minecraftforge.client.event.DrawBlockHighlightEvent(bma, yz, azu, int, add, float);
+    Code:
+       0: aload_0
+       1: invokespecial #23                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #25                 // Field context:Lbma;
+       9: aload_0
+      10: aload_2
+      11: putfield      #27                 // Field player:Lyz;
+      14: aload_0
+      15: aload_3
+      16: putfield      #29                 // Field target:Lazu;
+      19: aload_0
+      20: iload         4
+      22: putfield      #31                 // Field subID:I
+      25: aload_0
+      26: aload         5
+      28: putfield      #33                 // Field currentItem:Ladd;
+      31: aload_0
+      32: fload         6
+      34: putfield      #35                 // Field partialTicks:F
+      37: return
+}
+
+Compiled from "EntityViewRenderEvent.java"
+public abstract class net.minecraftforge.client.event.EntityViewRenderEvent extends cpw.mods.fml.common.eventhandler.Event {
+  public final blt renderer;
+
+  public final sv entity;
+
+  public final aji block;
+
+  public final double renderPartialTicks;
+
+  public net.minecraftforge.client.event.EntityViewRenderEvent(blt, sv, aji, double);
+    Code:
+       0: aload_0
+       1: invokespecial #27                 // Method cpw/mods/fml/common/eventhandler/Event."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #29                 // Field renderer:Lblt;
+       9: aload_0
+      10: aload_2
+      11: putfield      #31                 // Field entity:Lsv;
+      14: aload_0
+      15: aload_3
+      16: putfield      #33                 // Field block:Laji;
+      19: aload_0
+      20: dload         4
+      22: putfield      #35                 // Field renderPartialTicks:D
+      25: return
+}

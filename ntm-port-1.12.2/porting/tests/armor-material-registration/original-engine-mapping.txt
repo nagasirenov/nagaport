@@ -1,0 +1,41 @@
+CL: abd net/minecraft/item/ItemArmor$ArmorMaterial
+CL: bnw net/minecraft/client/renderer/entity/RenderBiped
+CL: abb net/minecraft/item/ItemArmor
+CL: kl net/minecraft/init/Bootstrap
+MD: bnw/d ()V net/minecraft/client/renderer/entity/RenderBiped/func_82421_b ()V
+MD: bnw/a (Lsw;Ladd;)V net/minecraft/client/renderer/entity/RenderBiped/func_82420_a (Lnet/minecraft/entity/EntityLiving;Lnet/minecraft/item/ItemStack;)V
+MD: abb/b (Ladd;)I net/minecraft/item/ItemArmor/func_82814_b (Lnet/minecraft/item/ItemStack;)I
+MD: abd/values ()[Labd; net/minecraft/item/ItemArmor$ArmorMaterial/values ()[Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+MD: abb/c ()I net/minecraft/item/ItemArmor/func_77619_b ()I
+MD: abb/a (Ladd;Lahb;Lyz;)Ladd; net/minecraft/item/ItemArmor/func_77659_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;)Lnet/minecraft/item/ItemStack;
+MD: bnw/a (Labb;ILjava/lang/String;)Lbqx; net/minecraft/client/renderer/entity/RenderBiped/func_110858_a (Lnet/minecraft/item/ItemArmor;ILjava/lang/String;)Lnet/minecraft/util/ResourceLocation;
+MD: bnw/a (Lsw;IF)I net/minecraft/client/renderer/entity/RenderBiped/func_77032_a (Lnet/minecraft/entity/EntityLiving;IF)I
+MD: abb/c_ (Ladd;)Z net/minecraft/item/ItemArmor/func_82816_b_ (Lnet/minecraft/item/ItemStack;)Z
+MD: abb/e ()[I net/minecraft/item/ItemArmor/access$000 ()[I
+MD: bnw/a (Lsw;)Lbqx; net/minecraft/client/renderer/entity/RenderBiped/func_110775_a (Lnet/minecraft/entity/EntityLiving;)Lnet/minecraft/util/ResourceLocation;
+MD: abb/b (Ladd;I)V net/minecraft/item/ItemArmor/func_82813_b (Lnet/minecraft/item/ItemStack;I)V
+MD: abd/a (I)I net/minecraft/item/ItemArmor$ArmorMaterial/func_78046_a (I)I
+MD: abb/b (I)Lrf; net/minecraft/item/ItemArmor/func_94602_b (I)Lnet/minecraft/util/IIcon;
+MD: bnw/e ()V net/minecraft/client/renderer/entity/RenderBiped/func_82422_c ()V
+MD: abb/c (Ladd;)V net/minecraft/item/ItemArmor/func_82815_c (Lnet/minecraft/item/ItemStack;)V
+MD: abb/a (Ladd;Ladd;)Z net/minecraft/item/ItemArmor/func_82789_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+MD: abb/b ()Z net/minecraft/item/ItemArmor/func_77623_v ()Z
+MD: bnw/c (Lsv;IF)V net/minecraft/client/renderer/entity/RenderBiped/func_82408_c (Lnet/minecraft/entity/EntityLivingBase;IF)V
+MD: abb/a (II)Lrf; net/minecraft/item/ItemArmor/func_77618_c (II)Lnet/minecraft/util/IIcon;
+MD: abd/b ()Ladb; net/minecraft/item/ItemArmor$ArmorMaterial/func_151685_b ()Lnet/minecraft/item/Item;
+MD: bnw/c (Lsv;F)V net/minecraft/client/renderer/entity/RenderBiped/func_77029_c (Lnet/minecraft/entity/EntityLivingBase;F)V
+MD: abb/m_ ()Labd; net/minecraft/item/ItemArmor/func_82812_d ()Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+MD: bnw/a (Lsv;IF)I net/minecraft/client/renderer/entity/RenderBiped/func_77032_a (Lnet/minecraft/entity/EntityLivingBase;IF)I
+MD: abd/b (I)I net/minecraft/item/ItemArmor$ArmorMaterial/func_78044_b (I)I
+MD: abd/valueOf (Ljava/lang/String;)Labd; net/minecraft/item/ItemArmor$ArmorMaterial/valueOf (Ljava/lang/String;)Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+MD: bnw/b (Lsw;IF)V net/minecraft/client/renderer/entity/RenderBiped/func_82408_c (Lnet/minecraft/entity/EntityLiving;IF)V
+MD: abb/a (Lrg;)V net/minecraft/item/ItemArmor/func_94581_a (Lnet/minecraft/client/renderer/texture/IIconRegister;)V
+MD: bnw/a (Lsv;DDDFF)V net/minecraft/client/renderer/entity/RenderBiped/func_76986_a (Lnet/minecraft/entity/EntityLivingBase;DDDFF)V
+MD: abd/a ()I net/minecraft/item/ItemArmor$ArmorMaterial/func_78045_a ()I
+MD: bnw/a (Lsw;DDDFF)V net/minecraft/client/renderer/entity/RenderBiped/func_76986_a (Lnet/minecraft/entity/EntityLiving;DDDFF)V
+MD: bnw/a (Lsa;)Lbqx; net/minecraft/client/renderer/entity/RenderBiped/func_110775_a (Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/ResourceLocation;
+MD: bnw/a (Lsw;F)V net/minecraft/client/renderer/entity/RenderBiped/func_77029_c (Lnet/minecraft/entity/EntityLiving;F)V
+MD: adb/o ()I net/minecraft/item/Item/func_77612_l ()I
+MD: bnw/a (Labb;I)Lbqx; net/minecraft/client/renderer/entity/RenderBiped/func_110857_a (Lnet/minecraft/item/ItemArmor;I)Lnet/minecraft/util/ResourceLocation;
+MD: abb/a (Ladd;I)I net/minecraft/item/ItemArmor/func_82790_a (Lnet/minecraft/item/ItemStack;I)I
+MD: bnw/a (Lsa;DDDFF)V net/minecraft/client/renderer/entity/RenderBiped/func_76986_a (Lnet/minecraft/entity/Entity;DDDFF)V

@@ -5,8 +5,13 @@ import com.hbm.items.ModItems;
 import api.hbm.energymk2.IBatteryItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 public abstract class EntityRailCarElectric extends EntityRailCarRidable {
+
+	private static final DataParameter<Integer> POWER = EntityDataManager.createKey(EntityRailCarElectric.class, DataSerializers.VARINT);
 
 	public EntityRailCarElectric(World world) {
 		super(world);
@@ -20,7 +25,7 @@ public abstract class EntityRailCarElectric extends EntityRailCarRidable {
 	
 	@Override protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(3, new Integer(0));
+		this.dataManager.register(POWER, new Integer(0));
 	}
 	
 	@Override public boolean canAccelerate() {
@@ -33,11 +38,11 @@ public abstract class EntityRailCarElectric extends EntityRailCarRidable {
 	}
 	
 	public void setPower(int power) {
-		this.dataWatcher.updateObject(3, power);
+		this.dataManager.set(POWER, power);
 	}
 	
 	public int getPower() {
-		return this.dataWatcher.getWatchableObjectInt(3);
+		return this.dataManager.get(POWER);
 	}
 	
 	@Override

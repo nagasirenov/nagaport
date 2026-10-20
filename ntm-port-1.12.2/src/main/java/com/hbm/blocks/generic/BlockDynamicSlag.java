@@ -137,7 +137,7 @@ public class BlockDynamicSlag extends BlockContainer {
 		TileEntitySlag self = (TileEntitySlag) s;
 		
 		/* Flow down */
-		if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().isReplaceable(world, x, y - 1, z) && y > 0) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) && y > 0) {
 			world.setBlock(x, y - 1, z, ModBlocks.slag);
 			TileEntitySlag tile = (TileEntitySlag) Compat.getTileStandard(world, x, y - 1, z);
 			tile.mat = self.mat;
@@ -161,7 +161,7 @@ public class BlockDynamicSlag extends BlockContainer {
 				}
 
 				world.markBlockForUpdate(x, y - 1, z);
-				world.scheduleBlockUpdate(x, y - 1, z, ModBlocks.slag, 1);
+				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y - 1, z), ModBlocks.slag, 1);
 				return;
 			}
 		}
@@ -173,7 +173,7 @@ public class BlockDynamicSlag extends BlockContainer {
 			int iX = x + dir.offsetX;
 			int iZ = z + dir.offsetZ;
 			
-			if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, iX, y, iZ)) {
+			if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(iX, y, iZ))) {
 				count++;
 			}
 		}
@@ -185,11 +185,11 @@ public class BlockDynamicSlag extends BlockContainer {
 				int iX = x + dir.offsetX;
 				int iZ = z + dir.offsetZ;
 				
-				if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, iX, y, iZ)) {
+				if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(iX, y, iZ))) {
 					world.setBlock(iX, y, iZ, ModBlocks.slag);
 					TileEntitySlag tile = (TileEntitySlag) Compat.getTileStandard(world, iX, y, iZ);
 					world.markBlockForUpdate(iX, y, iZ);
-					world.scheduleBlockUpdate(iX, y, iZ, ModBlocks.slag, 1);
+					world.scheduleUpdate(new net.minecraft.util.math.BlockPos(iX, y, iZ), ModBlocks.slag, 1);
 					tile.mat = self.mat;
 					tile.amount = toSpread;
 					self.amount -= toSpread;

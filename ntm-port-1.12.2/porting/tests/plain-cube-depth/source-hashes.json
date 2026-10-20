@@ -1,0 +1,22 @@
+{
+  "porting/tests/plain-cube-depth/OriginalCubeFaces.java": "3c51807d6b2c3270c764c0240959fcc646083f5f41f7b5c9695cc6cfa749a0f3",
+  "porting/tests/plain-cube-depth/PlainCubeNativeTest.java": "9d1962d812eb6abb2403585940a305c2604333c74a7a907f930f8cb6fc3aa390",
+  "porting/tests/plain-cube-depth/README.md": "e446f64d80a112047598d2ee43714e137937c38216475ec84bb4dfe036d593c8",
+  "porting/tests/plain-cube-depth/TextureAttribution.java": "54c568350efdb71a44d74dd76ba2edae741b35fdf26a006d2a7797088979f04f",
+  "porting/tests/plain-cube-depth/after-errors.tsv": "3910183d1b9d3e4f043377dd4b2ddb8bb7142bf2c166685588816147b8983193",
+  "porting/tests/plain-cube-depth/after.tsv": "d3046580969d3ae1d71331d39d2a87f36bf1a8264ca923dbc73d91a4e1990b79",
+  "porting/tests/plain-cube-depth/before-errors.tsv": "9b4396fbac6e098d6bcd496182200ec4d1b91ba9a54b404774b848a8ed875693",
+  "porting/tests/plain-cube-depth/before.tsv": "8db0b32e90877404345660d357a08e54d5db91c7da66d360dfa07c2d854768ac",
+  "porting/tests/plain-cube-depth/check-source.py": "84c8becf155b22e6a07af7dccddd0dd8486674f8cd27dc26cd17fc62dc295e7d",
+  "porting/tests/plain-cube-depth/inherited-visual-calls.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "porting/tests/plain-cube-depth/manifest.json": "1f7503fff77db7ef07cb63a6d6461ee56e9753a788df632499f789b80c485db9",
+  "porting/tests/plain-cube-depth/original-item-audit.json": "cebee3017fefd47446a4a2c4bdb3b54e1dd8a2741ca410ca29ae8b077e43a40c",
+  "porting/tests/plain-cube-depth/owner-audit.json": "0aba332d7d222c2f1306799e360540fc23765c5cd6fee66ad60490b8a245e925",
+  "porting/tests/plain-cube-depth/resource-audit.json": "2c4b46e492a9831578b4f2dd78cf256e319319f3238048752b9f2021b1547f2d",
+  "porting/tests/plain-cube-depth/run-attribution.py": "55fb81deab9c5e4c96edd449b58e28302cd186497c840781f4fb61050cfbba48",
+  "porting/tests/plain-cube-depth/run-native.py": "577dea15ed1d8b1fc7471820c6786b7e5840a0674a933c80c4e23b0a26feffaf",
+  "porting/tests/plain-cube-depth/sites.json": "ef93a1895347c705d7a438f9e24e3e26c605da07b332214fdf566a13c3853f98",
+  "porting/tests/plain-cube-depth/sites.tsv": "2d9bbf3ff88b5d16a962f6ab7d23f50130a5bf3eb83b9e983b1d629855058e1a",
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "64014238c21ddfb1410290d043a71c838dbf6eaa1364227b11b93244351ca9ba",
+  "src/main/java/com/hbm/blocks/PlainCubeTextures.java": "14a20a8b6b87ceeb50ed1674f81c931084acdab20710518830f61626080b1080"
+}

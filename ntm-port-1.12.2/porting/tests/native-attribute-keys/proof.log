@@ -1,0 +1,15 @@
+PASS 19 exact byte inverses and 77 whole-file/token drift negatives; no historical baseline hashes refreshed
+Note: /tmp/attribute-keys-native-h7bjqhzg/AttributeKeyTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+BOUNDARY generic.maxHealth default=20.0 originalClamp=[0.0,1.7976931348623157E308] nativeClamp=[1.401298464324817E-45,1024.0]
+BOUNDARY generic.movementSpeed default=0.699999988079071 originalClamp=[0.0,1.7976931348623157E308] nativeClamp=[0.0,1024.0]
+BOUNDARY generic.attackDamage default=2.0 originalClamp=[0.0,1.7976931348623157E308] nativeClamp=[0.0,2048.0]
+PASS 345 original/native exact-key and extracted production modifier-map checks; no attribute registration, value application, clamping or gameplay equivalence claim
+
+PASS actual original/native name getter bytecode is exactly aload_0/getfield/areturn
+
+Attribution diagnostics (unfinished source, NOT full-mod compilation success): 12686
+Attribution diagnostics (unfinished source, NOT full-mod compilation success): 12657
+PASS diagnostic attribution: exactly 29 missing field errors removed; no newly exposed errors
+PASS all 58 exact before/after native owner and zero-argument name-getter tokens re-attributed

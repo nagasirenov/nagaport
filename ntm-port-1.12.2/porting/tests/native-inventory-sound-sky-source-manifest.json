@@ -1,0 +1,518 @@
+{
+  "baseline": "d2f171750be2f0d156a019f25fa781db39db308a",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "51b16ab84ae4057aedc9193dbcd5e582f0ed06d1f3a5328ee14b5c5375ac5dc1",
+      "after_sha256": "8bcf69373279a90833404494b432deeaf2e6f0c5b1f82367d5e2dce6bfa04f87",
+      "edits": [
+        {
+          "before_offset": 90083,
+          "after_offset": 90083,
+          "old": "\t\tblock_insulator = new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_insulator_top\").setTranslationKey(\"block_insulator\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_insulator_side\");\r\n\t\tblock_fiberglass = new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_fiberglass_top\").setTranslationKey(\"block_fiberglass\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":block_fiberglass_side\");\r\n",
+          "new": "\t\tblock_insulator = ((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_insulator_top\").setTranslationKey(\"block_insulator\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_insulator_side\");\r\n\t\tblock_fiberglass = ((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_fiberglass_top\").setTranslationKey(\"block_fiberglass\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":block_fiberglass_side\");\r\n"
+        },
+        {
+          "before_offset": 95385,
+          "after_offset": 95437,
+          "old": "\t\tblock_tritium = new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + \":block_tritium_top\").setTranslationKey(\"block_tritium\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F).setBlockTextureName(RefStrings.MODID + \":block_tritium_side\");\r\n",
+          "new": "\t\tblock_tritium = ((BlockRotatablePillar) new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + \":block_tritium_top\").setTranslationKey(\"block_tritium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F).setBlockTextureName(RefStrings.MODID + \":block_tritium_side\");\r\n"
+        },
+        {
+          "before_offset": 277132,
+          "after_offset": 277210,
+          "old": "\t\tpink_log = new BlockLogNT(\"log_oak\", RefStrings.MODID + \":pink_log\").setTranslationKey(\"pink_log\").setHardness(0.5F).setStepSound(SoundType.WOOD).setCreativeTab(null);\r\n",
+          "new": "\t\tpink_log = ((BlockLogNT) new BlockLogNT(\"log_oak\", RefStrings.MODID + \":pink_log\").setTranslationKey(\"pink_log\").setHardness(0.5F)).withSoundType(SoundType.WOOD).setCreativeTab(null);\r\n"
+        },
+        {
+          "before_offset": 278108,
+          "after_offset": 278202,
+          "old": "\t\tvinyl_log = new BlockLogNT(RefStrings.MODID + \":vinyl_log_side\", RefStrings.MODID + \":vinyl_log_top\").setTranslationKey(\"vinyl_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tpvc_log = new BlockLogNT(RefStrings.MODID + \":pvc_log_side\", RefStrings.MODID + \":pvc_log_top\").setTranslationKey(\"pvc_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n",
+          "new": "\t\tvinyl_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":vinyl_log_side\", RefStrings.MODID + \":vinyl_log_top\").setTranslationKey(\"vinyl_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tpvc_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":pvc_log_side\", RefStrings.MODID + \":pvc_log_top\").setTranslationKey(\"pvc_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n"
+        },
+        {
+          "before_offset": 281103,
+          "after_offset": 281229,
+          "old": "\t\tlattice_log = new BlockLogNT(RefStrings.MODID + \":rad_log_side\", RefStrings.MODID + \":rad_log_top\").setTranslationKey(\"lattice_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tbf_log = new BlockLogNT(RefStrings.MODID + \":bf_log_side\", RefStrings.MODID + \":bf_log_top\").setTranslationKey(\"bf_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tprimed_log = new BlockLogNT(RefStrings.MODID + \":primed_log_side\", RefStrings.MODID + \":primed_log_top\").setTranslationKey(\"primed_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\teu_log = new BlockLogNT(RefStrings.MODID + \":eu_log_side\", RefStrings.MODID + \":eu_log_top\").setTranslationKey(\"eu_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n",
+          "new": "\t\tlattice_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":rad_log_side\", RefStrings.MODID + \":rad_log_top\").setTranslationKey(\"lattice_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tbf_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":bf_log_side\", RefStrings.MODID + \":bf_log_top\").setTranslationKey(\"bf_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tprimed_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":primed_log_side\", RefStrings.MODID + \":primed_log_top\").setTranslationKey(\"primed_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\teu_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":eu_log_side\", RefStrings.MODID + \":eu_log_top\").setTranslationKey(\"eu_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLogNT.java": {
+      "before_sha256": "f3eca90b6b535cc688dda3e0095057496cceaffd1e7e7f3f465d5a30b867934a",
+      "after_sha256": "4784e39baf663104e9c3d5915c74e1f82c1a2378f0c8817f3fa3303b5f937f9a",
+      "edits": [
+        {
+          "before_offset": 453,
+          "after_offset": 453,
+          "old": "",
+          "new": "\t/** NTM construction hook for the native protected sound setter. */\n\tpublic BlockLogNT withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRotatablePillar.java": {
+      "before_sha256": "dabbf4a4f40d527f895208b468f97b54c5ac94f3ff3f3f2a524aec5016d0e278",
+      "after_sha256": "968ce9a1f43336acb14a516bed8b2d33e4e5ad95f19a0f2342724b97e21f4b4f",
+      "edits": [
+        {
+          "before_offset": 791,
+          "after_offset": 791,
+          "old": "",
+          "new": "\t/** NTM construction hook for the native protected sound setter. */\n\tpublic BlockRotatablePillar withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "9f6e6f07e6da02bf886fd3a4d1072c71eb4220b73267615267565812900fd182",
+      "after_sha256": "669c2daca390c432d0cc7b5b37b6a5ac28ca86617088451bbef88bb600ad351b",
+      "edits": [
+        {
+          "before_offset": 8118,
+          "after_offset": 8118,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 15850,
+          "after_offset": 15916,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.setColorRGBA_I(0, 255);\n\t\t\ttessellator.addVertex(-f8, f9, f8);\n\t\t\ttessellator.addVertex(f8, f9, f8);\n\t\t\ttessellator.addVertex(f8, opposite, f8);\n\t\t\ttessellator.addVertex(-f8, opposite, f8);\n\t\t\ttessellator.addVertex(-f8, opposite, -f8);\n\t\t\ttessellator.addVertex(f8, opposite, -f8);\n\t\t\ttessellator.addVertex(f8, f9, -f8);\n\t\t\ttessellator.addVertex(-f8, f9, -f8);\n\t\t\ttessellator.addVertex(f8, opposite, -f8);\n\t\t\ttessellator.addVertex(f8, opposite, f8);\n\t\t\ttessellator.addVertex(f8, f9, f8);\n\t\t\ttessellator.addVertex(f8, f9, -f8);\n\t\t\ttessellator.addVertex(-f8, f9, -f8);\n\t\t\ttessellator.addVertex(-f8, f9, f8);\n\t\t\ttessellator.addVertex(-f8, opposite, f8);\n\t\t\ttessellator.addVertex(-f8, opposite, -f8);\n\t\t\ttessellator.addVertex(-f8, opposite, -f8);\n\t\t\ttessellator.addVertex(-f8, opposite, f8);\n\t\t\ttessellator.addVertex(f8, opposite, f8);\n\t\t\ttessellator.addVertex(f8, opposite, -f8);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\t\tint tessellatorColor0Packed = 0;\n\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, 255));\n\t\t\ttessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 17697,
+          "after_offset": 20857,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-115 * sc, 100.0D, -115 * sc, 0.0D + uvOffset, 0.0D);\n\t\t\ttessellator.addVertexWithUV(115 * sc, 100.0D, -115 * sc, 1.0D + uvOffset, 0.0D);\n\t\t\ttessellator.addVertexWithUV(115 * sc, 100.0D, 115 * sc, 1.0D + uvOffset, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-115 * sc, 100.0D, 115 * sc, 0.0D + uvOffset, 1.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-115 * sc, 100.0D, -115 * sc).tex(0.0D + uvOffset, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(115 * sc, 100.0D, -115 * sc).tex(1.0D + uvOffset, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(115 * sc, 100.0D, 115 * sc).tex(1.0D + uvOffset, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-115 * sc, 100.0D, 115 * sc).tex(0.0D + uvOffset, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 18571,
+          "after_offset": 21801,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 19210,
+          "after_offset": 22506,
+          "old": "\t\t\t\ttessellator.startDrawing(6);\n\t\t\t\ttessellator.setColorRGBA_F(anaglyphColor[0], anaglyphColor[1], anaglyphColor[2], sunsetColor[3]);\n\t\t\t\ttessellator.addVertex(0.0, 100.0, 0.0);\n\t\t\t\ttessellator.setColorRGBA_F(sunsetColor[0], sunsetColor[1], sunsetColor[2], 0.0F);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n\t\t\t\tint tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((anaglyphColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((anaglyphColor[1]) * 255.0F)));\n\t\t\t\tint tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((anaglyphColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) ((sunsetColor[3]) * 255.0F)));\n\t\t\t\ttessellatorBuffer.pos(0.0, 100.0, 0.0).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n\t\t\t\tint tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((sunsetColor[0]) * 255.0F)));\n\t\t\t\tint tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((sunsetColor[1]) * 255.0F)));\n\t\t\t\tint tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((sunsetColor[2]) * 255.0F)));\n\t\t\t\tint tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 19698,
+          "after_offset": 23711,
+          "old": "\t\t\t\t\ttessellator.addVertex((double)(sinAngle * 120.0F), (double)(cosAngle * 120.0F), (double)(-cosAngle * 40.0F * sunsetColor[3]));\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos((double)(sinAngle * 120.0F), (double)(cosAngle * 120.0F), (double)(-cosAngle * 40.0F * sunsetColor[3])).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 20631,
+          "after_offset": 24755,
+          "old": "\t\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 20715,
+          "after_offset": 24869,
+          "old": "\t\t\t\t\t\ttessellator.addVertex(rand.nextGaussian() * 50, 100, -((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20));\n",
+          "new": "\t\t\t\t\t\ttessellatorBuffer.pos(rand.nextGaussian() * 50, 100, -((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20)).endVertex();\n"
+        },
+        {
+          "before_offset": 21820,
+          "after_offset": 25986,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n"
+        },
+        {
+          "before_offset": 23373,
+          "after_offset": 27544,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 24110,
+          "after_offset": 28347,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-shaderSize, 100.0D, -shaderSize, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(shaderSize, 100.0D, -shaderSize, 1.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(shaderSize, 100.0D, shaderSize, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-shaderSize, 100.0D, shaderSize, 0.0D, 1.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-shaderSize, 100.0D, -shaderSize).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(shaderSize, 100.0D, -shaderSize).tex(1.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(shaderSize, 100.0D, shaderSize).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-shaderSize, 100.0D, shaderSize).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 24744,
+          "after_offset": 29051,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertex(-sunSize, 99.9D, -sunSize);\n\t\t\ttessellator.addVertex(sunSize, 99.9D, -sunSize);\n\t\t\ttessellator.addVertex(sunSize, 99.9D, sunSize);\n\t\t\ttessellator.addVertex(-sunSize, 99.9D, sunSize);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);\n\t\t\ttessellatorBuffer.pos(-sunSize, 99.9D, -sunSize).endVertex();\n\t\t\ttessellatorBuffer.pos(sunSize, 99.9D, -sunSize).endVertex();\n\t\t\ttessellatorBuffer.pos(sunSize, 99.9D, sunSize).endVertex();\n\t\t\ttessellatorBuffer.pos(-sunSize, 99.9D, sunSize).endVertex();\n"
+        },
+        {
+          "before_offset": 25161,
+          "after_offset": 29542,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-sunSize * 0.25D, 100.1D, -sunSize * 0.25D, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(sunSize * 0.25D, 100.1D, -sunSize * 0.25D, 1.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(sunSize * 0.25D, 100.1D, sunSize * 0.25D, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-sunSize * 0.25D, 100.1D, sunSize * 0.25D, 0.0D, 1.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-sunSize * 0.25D, 100.1D, -sunSize * 0.25D).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(sunSize * 0.25D, 100.1D, -sunSize * 0.25D).tex(1.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(sunSize * 0.25D, 100.1D, sunSize * 0.25D).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-sunSize * 0.25D, 100.1D, sunSize * 0.25D).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 25991,
+          "after_offset": 30442,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-sunSize, 100.0D, -sunSize, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(sunSize, 100.0D, -sunSize, 1.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(sunSize, 100.0D, sunSize, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-sunSize, 100.0D, sunSize, 0.0D, 1.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-sunSize, 100.0D, -sunSize).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(sunSize, 100.0D, -sunSize).tex(1.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(sunSize, 100.0D, sunSize).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-sunSize, 100.0D, sunSize).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 26562,
+          "after_offset": 31083,
+          "old": "\t\t\ttessellator.startDrawingQuads();\n\t\t\ttessellator.addVertexWithUV(-coronaSize, 99.9D, -coronaSize, 0.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(coronaSize, 99.9D, -coronaSize, 1.0D, 0.0D);\n\t\t\ttessellator.addVertexWithUV(coronaSize, 99.9D, coronaSize, 1.0D, 1.0D);\n\t\t\ttessellator.addVertexWithUV(-coronaSize, 99.9D, coronaSize, 0.0D, 1.0D);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\t\ttessellatorBuffer.pos(-coronaSize, 99.9D, -coronaSize).tex(0.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(coronaSize, 99.9D, -coronaSize).tex(1.0D, 0.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(coronaSize, 99.9D, coronaSize).tex(1.0D, 1.0D).endVertex();\n\t\t\ttessellatorBuffer.pos(-coronaSize, 99.9D, coronaSize).tex(0.0D, 1.0D).endVertex();\n"
+        },
+        {
+          "before_offset": 27427,
+          "after_offset": 32018,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 28629,
+          "after_offset": 33286,
+          "old": "\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 28855,
+          "after_offset": 33542,
+          "old": "\t\t\t\t\ttessellator.addVertex(x, 0, z);\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos(x, 0, z).endVertex();\n"
+        },
+        {
+          "before_offset": 29055,
+          "after_offset": 33754,
+          "old": "\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 29281,
+          "after_offset": 34010,
+          "old": "\t\t\t\t\ttessellator.addVertex(x, 0, z);\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos(x, 0, z).endVertex();\n"
+        },
+        {
+          "before_offset": 29482,
+          "after_offset": 34223,
+          "old": "\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n",
+          "new": "\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+        },
+        {
+          "before_offset": 29708,
+          "after_offset": 34479,
+          "old": "\t\t\t\t\ttessellator.addVertex(x, 0, z);\n",
+          "new": "\t\t\t\t\ttessellatorBuffer.pos(x, 0, z).endVertex();\n"
+        },
+        {
+          "before_offset": 47444,
+          "after_offset": 52227,
+          "old": "",
+          "new": "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 47504,
+          "after_offset": 52348,
+          "old": "\t\ttessellator.startDrawingQuads();\n\t\ttessellator.addVertexWithUV(-100.0D, -100.0D, -100.0D, u, v);\n\t\ttessellator.addVertexWithUV(-100.0D, -100.0D, 100.0D, u, v + 0.5D);\n\t\ttessellator.addVertexWithUV(100.0D, -100.0D, 100.0D, u + 0.3333333333333333D, v + 0.5D);\n\t\ttessellator.addVertexWithUV(100.0D, -100.0D, -100.0D, u + 0.3333333333333333D, v);\n",
+          "new": "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n\t\ttessellatorBuffer.pos(-100.0D, -100.0D, -100.0D).tex(u, v).endVertex();\n\t\ttessellatorBuffer.pos(-100.0D, -100.0D, 100.0D).tex(u, v + 0.5D).endVertex();\n\t\ttessellatorBuffer.pos(100.0D, -100.0D, 100.0D).tex(u + 0.3333333333333333D, v + 0.5D).endVertex();\n\t\ttessellatorBuffer.pos(100.0D, -100.0D, -100.0D).tex(u + 0.3333333333333333D, v).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java": {
+      "before_sha256": "c13c533e0823c027d3a7d8e339ebc037d13c6b27bbfbc570a1d1147f5cab6463",
+      "after_sha256": "05825f5d620c43e160eb00e56abc969af93bb114131d3450fd59ad95ecf7c586",
+      "edits": [
+        {
+          "before_offset": 2232,
+          "after_offset": 2232,
+          "old": "\t\treturn box.isUseableByPlayer(player);\n",
+          "new": "\t\treturn box.isUsableByPlayer(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java": {
+      "before_sha256": "3cc3f2987900bebd7e6f1b7e7463bdc559c8a8739b301a7557721028a23f2d6d",
+      "after_sha256": "c71d446900239629f1b4eeed35517917b73726991d4e18959911f5335dab764f",
+      "edits": [
+        {
+          "before_offset": 2225,
+          "after_offset": 2225,
+          "old": "\t\treturn box.isUseableByPlayer(player);\n",
+          "new": "\t\treturn box.isUsableByPlayer(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUILeadBox.java": {
+      "before_sha256": "0c6aa9b5e23548c9e031a678326865ab9742498409b6ae72fded4bc61e62d6a5",
+      "after_sha256": "d4542a5f57e809137b01c440ae1bf5b94c19e3bd592edc5b38ef17229f95e820",
+      "edits": [
+        {
+          "before_offset": 1509,
+          "after_offset": 1509,
+          "old": "\t\tString name = I18n.format(this.inventory.getInventoryName());\n",
+          "new": "\t\tString name = I18n.format(this.inventory.getName());\n"
+        },
+        {
+          "before_offset": 1574,
+          "after_offset": 1565,
+          "old": "\t\tif(inventory.hasCustomInventoryName()) {\n",
+          "new": "\t\tif(inventory.hasCustomName()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIToolBox.java": {
+      "before_sha256": "709abc18b4e436e31d03c1849a9e465427c67278df6a26c22dcf00a32639d9b9",
+      "after_sha256": "2749cbe9873d3d2617dede00cb51ac23cd7be9a5c23c5f7658ddc68d75965d17",
+      "edits": [
+        {
+          "before_offset": 1503,
+          "after_offset": 1503,
+          "old": "\t\tString name = I18n.format(this.inventory.getInventoryName());\n",
+          "new": "\t\tString name = I18n.format(this.inventory.getName());\n"
+        },
+        {
+          "before_offset": 1568,
+          "after_offset": 1559,
+          "old": "\t\tif(inventory.hasCustomInventoryName()) {\n",
+          "new": "\t\tif(inventory.hasCustomName()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ItemInventory.java": {
+      "before_sha256": "b41934e72e7728f2c1b45566e34e752c7e8207ec3ae4502fb7346b4367934e4c",
+      "after_sha256": "5843ef1ba3614b4076daa2531f2788c88806b3a310ed86e6ee318bdd3e10b270",
+      "edits": [
+        {
+          "before_offset": 26,
+          "after_offset": 26,
+          "old": "import com.hbm.util.ItemStackUtil;\r\n",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\r\n"
+        },
+        {
+          "before_offset": 890,
+          "after_offset": 902,
+          "old": "\t\t\tif(getStackInSlot(i) != null && getStackInSlot(i).stackSize == 0) {\r\n",
+          "new": "\t\t\tif(getStackInSlotNullable(i) != null && quantity(getStackInSlotNullable(i)) == 0) {\r\n"
+        },
+        {
+          "before_offset": 997,
+          "after_offset": 1025,
+          "old": "\t\tItemStackUtil.addStacksToNBT(target, slots); // Maintain compatibility with the containment boxes.\r\n",
+          "new": "\t\twriteStacksToNBT(target, slots); // Maintain compatibility with the containment boxes.\r\n"
+        },
+        {
+          "before_offset": 1225,
+          "after_offset": 1241,
+          "old": "\t\tif(nbt == null || nbt.hasNoTags())\r\n",
+          "new": "\t\tif(nbt == null || nbt.isEmpty())\r\n"
+        },
+        {
+          "before_offset": 1326,
+          "after_offset": 1340,
+          "old": "\t\t\tbyte[] abyte = CompressedStreamTools.compress(nbt);\r\n",
+          "new": "\t\t\tjava.io.ByteArrayOutputStream compressed = new java.io.ByteArrayOutputStream();\r\n\t\t\tCompressedStreamTools.writeCompressed(nbt, compressed);\r\n\t\t\tbyte[] abyte = compressed.toByteArray();\r\n"
+        },
+        {
+          "before_offset": 1610,
+          "after_offset": 1757,
+          "old": "\t\t\t\t\tItemStack itemstack = this.getStackInSlot(i1);\r\n",
+          "new": "\t\t\t\t\tItemStack itemstack = this.getStackInSlotNullable(i1);\r\n"
+        },
+        {
+          "before_offset": 1853,
+          "after_offset": 2008,
+          "old": "\t\t\t\t\t\twhile (itemstack.stackSize > 0) {\r\n",
+          "new": "\t\t\t\t\t\twhile (quantity(itemstack) > 0) {\r\n"
+        },
+        {
+          "before_offset": 1938,
+          "after_offset": 2093,
+          "old": "\t\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\r\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\r\n",
+          "new": "\t\t\t\t\t\t\tif (j1 > quantity(itemstack)) {\r\n\t\t\t\t\t\t\t\tj1 = quantity(itemstack);\r\n"
+        },
+        {
+          "before_offset": 2025,
+          "after_offset": 2180,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\r\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(player.world, player.posX + f, player.posY + f1, player.posZ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\r\n",
+          "new": "\t\t\t\t\t\t\tnet.minecraft.item.Item item = itemstack.getItem();\r\n\t\t\t\t\t\t\tint damage = itemstack.getItemDamage();\r\n\t\t\t\t\t\t\t// Native empty masking must not replace a registered raw item with AIR.\r\n\t\t\t\t\t\t\t// Edge-only public snapshot; its capability serialization follows native rules.\r\n\t\t\t\t\t\t\tif(item == net.minecraft.init.Items.AIR) {\r\n\t\t\t\t\t\t\t\tNBTTagCompound identity = itemstack.writeToNBT(new NBTTagCompound());\r\n\t\t\t\t\t\t\t\titem = net.minecraft.item.Item.getByNameOrId(identity.getString(\"id\"));\r\n\t\t\t\t\t\t\t\tdamage = item.getDamage(itemstack);\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\tNBTTagCompound tag = itemstack.getTagCompound();\r\n\t\t\t\t\t\t\titemstack.shrink(j1);\r\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(player.world, player.posX + f, player.posY + f1, player.posZ + f2, new ItemStack(item, j1, damage));\r\n"
+        },
+        {
+          "before_offset": 2244,
+          "after_offset": 2961,
+          "old": "\t\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\r\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\r\n",
+          "new": "\t\t\t\t\t\t\tif (tag != null) {\r\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound(tag.copy());\r\n"
+        },
+        {
+          "before_offset": 2681,
+          "after_offset": 3337,
+          "old": "\t\t\t\t\t\t\tplayer.world.spawnEntityInWorld(entityitem);\r\n",
+          "new": "\t\t\t\t\t\t\tplayer.world.spawnEntity(entityitem);\r\n"
+        },
+        {
+          "before_offset": 2922,
+          "after_offset": 3571,
+          "old": "\t\tItemStack stack = getStackInSlot(slot);\r\n",
+          "new": "\t\tItemStack stack = getStackInSlotNullable(slot);\r\n"
+        },
+        {
+          "before_offset": 2988,
+          "after_offset": 3645,
+          "old": "\t\t\tif (stack.stackSize > amount) {\r\n",
+          "new": "\t\t\tif (quantity(stack) > amount) {\r\n"
+        },
+        {
+          "before_offset": 3159,
+          "after_offset": 3816,
+          "old": "\t\treturn stack;\r\n",
+          "new": "\t\treturn stack == null ? ItemStack.EMPTY : stack;\r\n"
+        },
+        {
+          "before_offset": 3262,
+          "after_offset": 3953,
+          "old": "\t\tstack = stack == null || stack.isEmpty() ? null : stack;\r\n",
+          "new": "\t\tstack = stack == ItemStack.EMPTY ? null : stack;\r\n"
+        },
+        {
+          "before_offset": 3345,
+          "after_offset": 4028,
+          "old": "\t\t\tstack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));\r\n",
+          "new": "\t\t\tstack.setCount(Math.min(quantity(stack), this.getInventoryStackLimit()));\r\n"
+        },
+        {
+          "before_offset": 3540,
+          "after_offset": 4222,
+          "old": "\t\tItemStack stack = getStackInSlot(slot);\r\n",
+          "new": "\t\tItemStack stack = getStackInSlotNullable(slot);\r\n"
+        },
+        {
+          "before_offset": 3635,
+          "after_offset": 4325,
+          "old": "\t\treturn stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;\r\n",
+          "new": "\t\treturn stack == null ? ItemStack.EMPTY : stack;\r\n"
+        },
+        {
+          "before_offset": 3711,
+          "after_offset": 4382,
+          "old": "\t@Override public ItemStack getStackInSlot(int slot) { return slots[slot]; }\r\n",
+          "new": "\tpublic ItemStack getStackInSlotNullable(int slot) { return slots[slot]; }\r\n\t@Override public ItemStack getStackInSlot(int slot) { ItemStack stack = getStackInSlotNullable(slot); return stack == null ? ItemStack.EMPTY : stack; }\r\n"
+        },
+        {
+          "before_offset": 3791,
+          "after_offset": 4614,
+          "old": "\t@Override public boolean isUseableByPlayer(EntityPlayer player) { return true; }\r\n",
+          "new": "\t@Override public boolean isUsableByPlayer(EntityPlayer player) { return true; }\r\n"
+        },
+        {
+          "before_offset": 4465,
+          "after_offset": 5287,
+          "old": "",
+          "new": "\t/** Native boundary: internal vacancy remains null; non-null raw stacks retain identity. */\r\n\t@Override public boolean isEmpty() {\r\n\t\tfor(ItemStack stack : slots) if(stack != null && !stack.isEmpty()) return false;\r\n\t\treturn true;\r\n\t}\r\n\t@Override public void clear() { java.util.Arrays.fill(slots, null); markDirty(); }\r\n\t@Override public int getField(int id) { return 0; }\r\n\t@Override public void setField(int id, int value) { }\r\n\t@Override public int getFieldCount() { return 0; }\r\n\t@Override public net.minecraft.util.text.ITextComponent getDisplayName() {\r\n\t\treturn hasCustomName() ? new TextComponentString(target.getDisplayName()) : new net.minecraft.util.text.TextComponentTranslation(getName());\r\n\t}\r\n\r\n\t/** Raw quantity is necessary for the original signed clamp and exactly-zero cleanup.\r\n\t * Read-only, mapped access; no furnace-specific empty admission policy applies here. */\r\n\tprotected static int quantity(ItemStack stack) {\r\n\t\tint count = stack.getCount();\r\n\t\tif(count != 0) return count;\r\n\t\ttry { return QuantityField.FIELD.getInt(stack); }\r\n\t\tcatch(IllegalAccessException failure) { throw new IllegalStateException(\"Cannot read item inventory stack quantity\", failure); }\r\n\t}\r\n\tprivate static final class QuantityField {\r\n\t\tprivate static final java.lang.reflect.Field FIELD = net.minecraftforge.fml.relauncher.ReflectionHelper.findField(ItemStack.class, \"stackSize\", \"field_77994_a\");\r\n\t}\r\n\r\n\t/** Original nullable item-inventory list schema, deliberately local to this domain. */\r\n\tprotected static void writeStacksToNBT(ItemStack owner, ItemStack[] stacks) {\r\n\t\tif(owner.getTagCompound() == null) owner.setTagCompound(new NBTTagCompound());\r\n\t\tnet.minecraft.nbt.NBTTagList tags = new net.minecraft.nbt.NBTTagList();\r\n\t\tfor(int i = 0; i < stacks.length; i++) {\r\n\t\t\tif(stacks[i] != null) {\r\n\t\t\t\tNBTTagCompound slot = new NBTTagCompound();\r\n\t\t\t\tslot.setByte(\"slot\", (byte) i);\r\n\t\t\t\tstacks[i].writeToNBT(slot);\r\n\t\t\t\ttags.appendTag(slot);\r\n\t\t\t}\r\n\t\t}\r\n\t\towner.getTagCompound().setTag(\"items\", tags);\r\n\t}\r\n\tprotected static ItemStack[] readStacksFromNBT(ItemStack owner, int count) {\r\n\t\tif(owner.getTagCompound() == null) return null;\r\n\t\tnet.minecraft.nbt.NBTTagList tags = owner.getTagCompound().getTagList(\"items\", 10);\r\n\t\tif(count == 0) count = tags.tagCount();\r\n\t\tItemStack[] stacks = new ItemStack[count];\r\n\t\tfor(int i = 0; i < count; i++) {\r\n\t\t\tNBTTagCompound slot = tags.getCompoundTagAt(i);\r\n\t\t\tbyte index = slot.getByte(\"slot\");\r\n\t\t\tItemStack loaded = NullableInventoryStackNbt.read(slot);\r\n\t\t\tif(index >= 0 && index < stacks.length && loaded != null) stacks[index] = loaded;\r\n\t\t}\r\n\t\treturn stacks;\r\n\t}\r\n\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": {
+      "before_sha256": "09bec0a536a7857111fd5dbf34f70f0839624a1aae1da59d3e8913ee520df9d0",
+      "after_sha256": "c636aa3a84777d6cc135804975cf88944c9e88359c0958653d9b24628c00a50d",
+      "edits": [
+        {
+          "before_offset": 6990,
+          "after_offset": 6990,
+          "old": "\t\tpublic boolean isUseableByPlayer(EntityPlayer player) {\n",
+          "new": "\t\tpublic boolean isUsableByPlayer(EntityPlayer player) {\n"
+        },
+        {
+          "before_offset": 7498,
+          "after_offset": 7497,
+          "old": "\t\t\t\tItemStack stack = this.getStackInSlot(i);\n",
+          "new": "\t\t\t\tItemStack stack = this.getStackInSlotNullable(i);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemLeadBox.java": {
+      "before_sha256": "ea2382d1eb2cbc59f8fc262b8d4f2ba33e2e842019dc114474230a36cac15b8d",
+      "after_sha256": "6c46417c97a1472a9c0656e2ed4c2728f313fafb83d73698c07bab6da3d047ae",
+      "edits": [
+        {
+          "before_offset": 1789,
+          "after_offset": 1789,
+          "old": "\t\t\tif(!box.hasTagCompound())\n",
+          "new": "\t\t\tif(box.getTagCompound() == null)\n"
+        },
+        {
+          "before_offset": 1865,
+          "after_offset": 1872,
+          "old": "\t\t\tItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);\n",
+          "new": "\t\t\tItemStack[] fromNBT = readStacksFromNBT(box, slots.length);\n"
+        },
+        {
+          "before_offset": 2113,
+          "after_offset": 2106,
+          "old": "\t\tpublic String getInventoryName() {\n",
+          "new": "\t\tpublic String getName() {\n"
+        },
+        {
+          "before_offset": 2198,
+          "after_offset": 2182,
+          "old": "\t\tpublic boolean hasCustomInventoryName() {\n",
+          "new": "\t\tpublic boolean hasCustomName() {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "before_sha256": "d17cdda4cda17e35046e615f72e4572cc555c7dea864984a9d0c533fd069755e",
+      "after_sha256": "7a5342e8c1dd1b148dab579163b87eaf9fecce3f5dd78afebd5107627f66fe5d",
+      "edits": [
+        {
+          "before_offset": 7444,
+          "after_offset": 7444,
+          "old": "\t\t\tif(!box.hasTagCompound()) box.setTagCompound(new NBTTagCompound());\n\n\t\t\tItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);\n",
+          "new": "\t\t\tif(box.getTagCompound() == null) box.setTagCompound(new NBTTagCompound());\n\n\t\t\tItemStack[] fromNBT = readStacksFromNBT(box, slots.length);\n"
+        },
+        {
+          "before_offset": 7731,
+          "after_offset": 7724,
+          "old": "\t\t@Override public String getInventoryName() { return \"container.rebar\"; }\n\t\t@Override public boolean hasCustomInventoryName() { return target.hasDisplayName(); }\n",
+          "new": "\t\t@Override public String getName() { return \"container.rebar\"; }\n\t\t@Override public boolean hasCustomName() { return target.hasDisplayName(); }\n"
+        },
+        {
+          "before_offset": 9358,
+          "after_offset": 9333,
+          "old": "\t\t\treturn rebar.isUseableByPlayer(player);\n",
+          "new": "\t\t\treturn rebar.isUsableByPlayer(player);\n"
+        },
+        {
+          "before_offset": 11406,
+          "after_offset": 11380,
+          "old": "\t\t\tString name = I18n.format(this.inventory.getInventoryName());\n\t\t\tif(inventory.hasCustomInventoryName()) name = inventory.target.getDisplayName();\n",
+          "new": "\t\t\tString name = I18n.format(this.inventory.getName());\n\t\t\tif(inventory.hasCustomName()) name = inventory.target.getDisplayName();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java": {
+      "before_sha256": "5c63e6639e458f5bdcd8c21b3a80027cb874346ef3e15b467ab726594b060d18",
+      "after_sha256": "c1f21456f82c753e5d9f88bf00c80b69ff77676fb2fd45e7c5cf47f94fa9370a",
+      "edits": [
+        {
+          "before_offset": 9446,
+          "after_offset": 9446,
+          "old": "\t\t\tif(!box.hasTagCompound())\n",
+          "new": "\t\t\tif(box.getTagCompound() == null)\n"
+        },
+        {
+          "before_offset": 9522,
+          "after_offset": 9529,
+          "old": "\t\t\tItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);\n",
+          "new": "\t\t\tItemStack[] fromNBT = readStacksFromNBT(box, slots.length);\n"
+        },
+        {
+          "before_offset": 9770,
+          "after_offset": 9763,
+          "old": "\t\tpublic String getInventoryName() {\n",
+          "new": "\t\tpublic String getName() {\n"
+        },
+        {
+          "before_offset": 9855,
+          "after_offset": 9839,
+          "old": "\t\tpublic boolean hasCustomInventoryName() {\n",
+          "new": "\t\tpublic boolean hasCustomName() {\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

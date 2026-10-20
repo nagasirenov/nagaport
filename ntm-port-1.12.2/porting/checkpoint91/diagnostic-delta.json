@@ -1,0 +1,801 @@
+{
+  "before": 10831,
+  "after": 10583,
+  "new_diagnostics_count": 5,
+  "removed_diagnostics_count": 253,
+  "new": [
+    {
+      "file": "com/hbm/inventory/gui/GUIAnvil.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAmmoPress.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIAutocrafter.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIDiFurnace.java",
+      "message": "cannot find symbol",
+      "symbol": "method func_146978_c(int,int,int,int,int,int)",
+      "location": "",
+      "count": 1
+    }
+  ],
+  "removed": [
+    {
+      "file": "com/hbm/world/gen/nbt/NBTStructure.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/TrappedBrick.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/items/armor/ItemModV1.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ItemModServos.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ItemModIron.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ArmorDNT.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ItemModHealth.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ArmorDesh.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ArmorLiquidator.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ItemModInsert.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ArmorEnvsuit.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ArmorNCRPA.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ItemModWD40.java",
+      "message": "method getAttributeModifiers in class Item cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/armor/ArmorDiesel.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemRebarPlacer.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/machine/ItemFluidDuct.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/entity/grenade/EntityWastePearl.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/projectile/EntitySiegeLaser.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/projectile/EntityShrapnel.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/entity/effect/EntityFalloutRain.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIAnvil.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIAnvil.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/handler/MultiblockHandler.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/gas/BlockGasBase.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/gas/BlockVacuum.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/gas/BlockVacuum.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/LaunchTable.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/fluid/VolcanicBlock.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/fluid/CoriumFinite.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/fluid/CoriumBlock.java",
+      "message": "method does not override or implement a method from a supertype",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/MachineSatDock.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/dim/duna/WorldGeneratorDuna.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/world/feature/Meteorite.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/SlotLayer.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "class SlotLayer",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityChlorineSeal.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityBlastDoor.java",
+      "message": "method isReplaceable in class Block cannot be applied to given types;",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 12
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 16
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 11
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,double,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 24
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderSiegeLaser.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderBlackHole.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderBlackHole.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderBlackHole.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderBlackHole.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(int,int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderBlackHole.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderCloudTom.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderCloudTom.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderCloudTom.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderCloudTom.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderCloudTom.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderSpear.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderSpear.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderSpear.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderSpear.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderSpear.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderFlare.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderFlare.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderFlare.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderFlare.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/effect/RenderFlare.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/entity/mob/RenderBFA.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/mob/RenderBFA.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/mob/RenderBFA.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/mob/RenderBFA.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/entity/mob/RenderBFA.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,float,float)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderPumpjack.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderPumpjack.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderPumpjack.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderPumpjack.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 18
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderPumpjack.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderMachineForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderMachineForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderMachineForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderMachineForceField.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tessellator of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineChemicalPlant.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineChemicalPlant.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAmmoPress.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAmmoPress.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUICraneRouter.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable s of type Slot",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUICraneRouter.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable s of type Slot",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAssemblyFactory.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAssemblyFactory.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachinePrecAss.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachinePrecAss.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIAutocrafter.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIAutocrafter.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAssemblyMachine.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineAssemblyMachine.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIDiFurnace.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIDiFurnace.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIArmorTable.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIArmorTable.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachinePUREX.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachinePUREX.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineChemicalFactory.java",
+      "message": "cannot find symbol",
+      "symbol": "variable xDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/inventory/gui/GUIMachineChemicalFactory.java",
+      "message": "cannot find symbol",
+      "symbol": "variable yDisplayPosition",
+      "location": "variable slot of type Slot",
+      "count": 3
+    }
+  ]
+}

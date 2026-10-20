@@ -1,0 +1,1 @@
+PASS 722 native payload/constructor/bytecode/selected-read/write/evaluation checks; 67 resolved dependency JARs checked for overrides. No whole handler, event-bus or game lifecycle claim.

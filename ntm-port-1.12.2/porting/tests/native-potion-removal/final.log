@@ -1,0 +1,5 @@
+PASS 6 UTF16 exact edits and complete source inverse; other calls, ordering and arguments byte-identical.
+PASS 300 original/native identity and actual removal-map assertions; lifecycle callbacks observed, not simulated gameplay or effect-formula parity.
+PASS 10 native owner, shadow, foreign receiver and application exclusion fixtures.
+PASS complete-source pre-edit native owner re-attribution; diagnostics are not compile success.
+PASS changed-source idempotence.

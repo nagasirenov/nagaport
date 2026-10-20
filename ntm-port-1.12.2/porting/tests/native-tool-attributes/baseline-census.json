@@ -1,0 +1,178 @@
+[
+  [
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+    "getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+    "getItemAttributeModifiers(slot)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+    "getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+    "getItemAttributeModifiers(slot)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+    "getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+    "getItemAttributeModifiers(slot)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemArmorMod.java",
+    "getModifiers(ItemStack armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModHealth.java",
+    "getModifiers(ItemStack armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModHealth.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+    "getModifiers(ItemStack armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModIron.java",
+    "getModifiers(ItemStack armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModIron.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModServos.java",
+    "getModifiers(ItemStack armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModServos.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModV1.java",
+    "getModifiers(ItemStack armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModV1.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModWD40.java",
+    "getModifiers(ItemStack armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/armor/ItemModWD40.java",
+    "getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor)"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+    "getAttributeModifiers(ItemStack stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+    "getAttributeModifiers(stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+    "getAttributeModifiers(ItemStack stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+    "getAttributeModifiers(stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemSwordAbility.java",
+    "getItemAttributeModifiers()"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+    "getItemAttributeModifiers()"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+    "getAttributeModifiers(ItemStack stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+    "getAttributeModifiers(stack)"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+    "getItemAttributeModifiers()"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+    "getItemAttributeModifiers()"
+  ],
+  [
+    "src/main/java/com/hbm/items/weapon/GunB92.java",
+    "getItemAttributeModifiers()"
+  ],
+  [
+    "src/main/java/com/hbm/items/weapon/GunB92.java",
+    "getItemAttributeModifiers()"
+  ],
+  [
+    "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+    "getAttributeModifiers(ItemStack stack)"
+  ],
+  [
+    "src/main/java/com/hbm/main/ModEventHandler.java",
+    "getModifiers(prev)"
+  ],
+  [
+    "src/main/java/com/hbm/main/ModEventHandler.java",
+    "getModifiers(armor)"
+  ],
+  [
+    "src/main/java/com/hbm/main/ModEventHandler.java",
+    "getAttributeModifiers().containsKey(SharedMonsterAttributes.ATTACK_DAMAGE.getName()))"
+  ],
+  [
+    "src/main/java/com/hbm/potion/HbmPotion.java",
+    "getModifiers() & 0xFFFFFFEF)"
+  ],
+  [
+    "src/main/java/com/hbm/render/item/nativeitem/context/ContextRenderItem.java",
+    "getModifiers()))"
+  ],
+  [
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemFields.java",
+    "getModifiers()) && field.getType() == type)"
+  ],
+  [
+    "src/main/java/com/hbm/render/item/nativeitem/context/NativeItemRendererOwnership.java",
+    "getModifiers()) && RenderItem.class.isAssignableFrom(field.getType())) throw new IllegalStateException(\"Unknown entity renderer caches RenderItem: \" + kind.getName())"
+  ],
+  [
+    "src/main/java/com/hbm/render/item/nativeitem/context/SednaPlayerOwnership.java",
+    "getModifiers()))"
+  ],
+  [
+    "src/main/java/com/hbm/render/item/nativeitem/context/SednaPlayerOwnership.java",
+    "getModifiers()))"
+  ]
+]

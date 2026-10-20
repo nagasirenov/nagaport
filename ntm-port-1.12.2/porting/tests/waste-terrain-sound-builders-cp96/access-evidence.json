@@ -1,0 +1,15 @@
+{
+  "native_jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+  "native_jar_sha256": "69e6736b75384d9218846614fd47fd61c66c0f7e8899341ef98d1886b835d775",
+  "native_block_class_sha256": "ea913e592dd98ad91b61e779e4ee07889ded2585a5fdea7eb72a1d81bf2d451d",
+  "native_visibility": "protected",
+  "native_methods_verified": [
+    "setSoundType",
+    "setTranslationKey",
+    "setHardness",
+    "setResistance",
+    "setCreativeTab",
+    "setLightLevel"
+  ],
+  "changes": "No access transformer, native/cache/dependency edits, native-class replacement or reflective production setter."
+}

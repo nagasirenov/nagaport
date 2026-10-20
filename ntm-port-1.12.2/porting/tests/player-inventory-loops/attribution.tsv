@@ -1,0 +1,11 @@
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/HEVBattery.java	2888	2943	3416	stack	armorInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/hazard/HazardSystem.java	6308	6363	6429	stack	armorInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java	1694	1747	2285	item	mainInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPancake.java	751	803	1026	st	armorInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemAmmoContainer.java	1587	1639	1858	inv	mainInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemConveyorWand.java	6672	6735	6924	inventoryStack	mainInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemConveyorWand.java	7695	7758	8089	inventoryStack	mainInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemFusionCore.java	768	820	1177	st	armorInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/mags/IMagazine.java	3086	3127	3305	stack	mainInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java	38835	38890	39038	stack	armorInventory
+/workspace/shared/nagaport-inventory-loops-cp86/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java	41165	41220	41368	stack	armorInventory

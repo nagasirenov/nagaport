@@ -1,0 +1,13 @@
+[
+  {
+    "phase": "after",
+    "diagnostics": "Attribution diagnostics (unfinished module, not build success): 12887",
+    "selected": 65,
+    "existing_excluded": 6
+  },
+  {
+    "phase": "before",
+    "diagnostics": "Attribution diagnostics (unfinished module, not build success): 12952",
+    "selected": 65
+  }
+]

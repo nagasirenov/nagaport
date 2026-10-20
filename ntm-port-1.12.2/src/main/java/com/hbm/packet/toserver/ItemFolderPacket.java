@@ -142,12 +142,12 @@ public class ItemFolderPacket implements IMessage {
 		
 		private void tryConvert(EntityPlayer player, Item target, Item result) {
 			
-			for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+			for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 				
-				ItemStack stack = player.inventory.mainInventory[i];
+				ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);
 				
 				if(stack != null && stack.getItem() == target) {
-					player.inventory.mainInventory[i] = new ItemStack(result, stack.stackSize, stack.getItemDamage());
+					player.inventory.mainInventory.set(i, new ItemStack(result, stack.stackSize, stack.getItemDamage()));
 					return;
 				}
 			}

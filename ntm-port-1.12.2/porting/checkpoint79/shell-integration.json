@@ -1,0 +1,16 @@
+{
+  "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+  "before_sha256": "66941ca8549fa3c11b55b7f1e1c5ccaf88fcd6c2ccb3a4a61c176bb52d7fa2ad",
+  "after_sha256": "96f8d19f0637b707e8b12d69c298d2b5edfdc986a004f36e7202b0827e3f9367",
+  "byte_exact_inverse": true,
+  "edits": [
+    {
+      "old": "import net.minecraft.item.ItemStack;",
+      "new": "import com.hbm.util.NullableInventoryStackNbt;\r\nimport net.minecraft.item.ItemStack;"
+    },
+    {
+      "old": "this.setCargo(ItemStack.loadItemStackFromNBT(compound));",
+      "new": "this.setCargo(NullableInventoryStackNbt.read(compound));"
+    }
+  ]
+}

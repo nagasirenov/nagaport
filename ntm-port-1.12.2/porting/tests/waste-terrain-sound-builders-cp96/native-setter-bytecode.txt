@@ -1,0 +1,64 @@
+  protected net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #376                // Field blockSoundType:Lnet/minecraft/block/SoundType;
+       5: aload_0
+       6: areturn
+
+  public net.minecraft.block.Block setTranslationKey(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #1113               // Field translationKey:Ljava/lang/String;
+       5: aload_0
+       6: areturn
+
+  public net.minecraft.block.Block setHardness(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: putfield      #518                // Field blockHardness:F
+       5: aload_0
+       6: getfield      #427                // Field blockResistance:F
+       9: fload_1
+      10: ldc_w         #519                // float 5.0f
+      13: fmul
+      14: fcmpg
+      15: ifge          27
+      18: aload_0
+      19: fload_1
+      20: ldc_w         #519                // float 5.0f
+      23: fmul
+      24: putfield      #427                // Field blockResistance:F
+      27: aload_0
+      28: areturn
+
+  public net.minecraft.block.Block setResistance(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: ldc_w         #425                // float 3.0f
+       5: fmul
+       6: putfield      #427                // Field blockResistance:F
+       9: aload_0
+      10: areturn
+
+  public net.minecraft.block.Block setCreativeTab(net.minecraft.creativetab.CreativeTabs);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #1188               // Field displayOnCreativeTab:Lnet/minecraft/creativetab/CreativeTabs;
+       5: aload_0
+       6: areturn
+
+  public net.minecraft.block.Block setLightLevel(float);
+    Code:
+       0: aload_0
+       1: ldc_w         #422                // float 15.0f
+       4: fload_1
+       5: fmul
+       6: f2i
+       7: putfield      #277                // Field lightValue:I
+      10: aload_0
+      11: areturn

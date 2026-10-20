@@ -1,0 +1,46 @@
+{
+  "EntityBeamBase.ctor-World world": {
+    "sha256": "d0e07ebb179f5de69aedd7d793847d1b502ba9154cf5b05b821153db27d6e40b",
+    "source": "public EntityBeamBase(World world) {\n\t\tsuper(world);\n\t\tthis.ignoreFrustumCheck = true;\n\t}"
+  },
+  "EntityBeamBase.ctor-World world, EntityPlayer player": {
+    "sha256": "296084f45e7743064ee1910eb312fb67ef5fe51f07dc052b07257fc132bc8806",
+    "source": "public EntityBeamBase(World world, EntityPlayer player) {\n\t\tsuper(world);\n\t\t\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.dataManager.set(PLAYER_NAME, player.getDisplayNameString());\n\t\t\n\t\tVec3d vec = player.getLookVec();\n\t\tvec = vec.rotateYaw(-90F);\n\t\tfloat l = 0.075F;\n\t\tvec = vec.scale(l);\n\t\t\n\t\tVec3d vec0 = player.getLookVec();\n\t\tfloat d = 0.1F;\n\t\tvec0 = vec0.scale(d);\n\t\t\n\t\tthis.setPosition(player.posX + vec.x + vec0.x, player.posY + player.getEyeHeight() + vec0.y, player.posZ + vec.z + vec0.z);\n\t}"
+  },
+  "EntityBeamBase.key": {
+    "sha256": "6ace44675ec67ac05e024c55aa730c1985c3588c9b17ae94da0133638650414b",
+    "source": "protected static final DataParameter<String> PLAYER_NAME = EntityDataManager.createKey(EntityBeamBase.class, DataSerializers.STRING);"
+  },
+  "EntityBeamBase.getOwnerDisplayName": {
+    "sha256": "69cf0f9a321db4fea9ec3f49023c0e6b5c808bf1e3410520210a039dacdbf699",
+    "source": "public String getOwnerDisplayName() {\n\t\treturn this.dataManager.get(PLAYER_NAME);\n\t}"
+  },
+  "EntityBeamBase.entityInit": {
+    "sha256": "97d7e00eea60cb4a596c2a96902c9d881c66d6dd0de9d4731d08311c7726ec0b",
+    "source": "protected void entityInit() {\n        this.dataManager.register(PLAYER_NAME, \"\");\n\t}"
+  },
+  "EntityBeamBase.readEntityFromNBT": {
+    "sha256": "cc2f1ac770eebfdffdec4310f66f7dd0c5ca435fac18c5e3a0093cae79826552",
+    "source": "protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {\n\t}"
+  },
+  "EntityBeamBase.writeEntityToNBT": {
+    "sha256": "26b1023c31ab2d9ea89cd31d038d25a3afb251639779196c3281d9eed18db208",
+    "source": "protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {\n\t}"
+  },
+  "EntityBeamVortex.ctor-World world": {
+    "sha256": "8b596f4f7a6783ad078b5af6885de68ef8785c67c92318e9a265a768cb4f3bff",
+    "source": "public EntityBeamVortex(World world) {\n\t\tsuper(world);\n\t}"
+  },
+  "EntityBeamVortex.ctor-World world, EntityPlayer player": {
+    "sha256": "00e6032e708142a0f075d505bf7d5850b8bfcf3079f51f5bd37d55017246ef9d",
+    "source": "public EntityBeamVortex(World world, EntityPlayer player) {\n\t\tsuper(world, player);\n\t}"
+  },
+  "EntityBeamVortex.update-prefix": {
+    "sha256": "542a7961112620d94b73e85e285c8dc1c0a17bbd991e9f9d2b1204a19a3e025f",
+    "source": "\n\t\t\n\t\tif(this.ticksExisted > 10)\n\t\t\tthis.setDead();\n\t\t\n\t\tif(this.ticksExisted > 1)\n\t\t\treturn;\n\t\t\n\t\tint range = 100;\n\t\t\n\t\tEntityPlayer player = this.world.getPlayerEntityByName(this.dataManager.get(PLAYER_NAME));\n\t\t"
+  },
+  "RenderVortexBeam.owner-lookup": {
+    "sha256": "f066ae5b78203e02f2dd53fa52b58572388cb51f4357a61e232699e5b0ecd4a8",
+    "source": "EntityPlayer player = laser.world.getPlayerEntityByName(laser.getOwnerDisplayName());"
+  }
+}

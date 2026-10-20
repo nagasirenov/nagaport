@@ -1,0 +1,332 @@
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java
+index ed651171..009f5edd 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java
+@@ -12,14 +12,10 @@ import net.minecraft.nbt.NBTTagCompound;
+ import net.minecraft.util.math.AxisAlignedBB;
+ import net.minecraft.util.DamageSource;
+ import net.minecraft.world.World;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+-
+ 
+ public abstract class EntityMinecartNTM extends EntityMinecart {
+ 	
+-	private static final DataParameter<Integer> CART_BASE = EntityDataManager.createKey(EntityMinecartNTM.class, DataSerializers.VARINT);
++	public static final int cart_base_id = 23;
+ 
+ 	public EntityMinecartNTM(World p_i1712_1_) {
+ 		super(p_i1712_1_);
+@@ -33,15 +29,15 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.dataManager.register(CART_BASE, new Integer(0)); //EnumCartBase
++		this.dataWatcher.addObject(cart_base_id, new Integer(0)); //EnumCartBase
+ 	}
+ 	
+ 	public void setBase(EnumCartBase type) {
+-		this.dataManager.set(CART_BASE, type.ordinal());
++		this.dataWatcher.updateObject(cart_base_id, type.ordinal());
+ 	}
+ 	
+ 	public EnumCartBase getBase() {
+-		return EnumCartBase.values()[this.dataManager.get(CART_BASE)];
++		return EnumCartBase.values()[this.dataWatcher.getWatchableObjectInt(cart_base_id)];
+ 	}
+ 
+ 	@Override
+@@ -79,13 +75,13 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
+ 	@Override
+ 	protected void writeEntityToNBT(NBTTagCompound nbt) {
+ 		super.writeEntityToNBT(nbt);
+-		nbt.setInteger("base", this.dataManager.get(CART_BASE));
++		nbt.setInteger("base", this.dataWatcher.getWatchableObjectInt(cart_base_id));
+ 	}
+ 
+ 	@Override
+ 	protected void readEntityFromNBT(NBTTagCompound nbt) {
+ 		super.readEntityFromNBT(nbt);
+-		this.dataManager.set(CART_BASE, nbt.getInteger("base"));
++		this.dataWatcher.updateObject(23, nbt.getInteger("base"));
+ 	}
+ 	
+ 	@SideOnly(Side.CLIENT)
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java
+index e5a8e14c..737d4fa5 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java
+@@ -10,14 +10,8 @@ import net.minecraft.entity.item.EntityMinecart;
+ import net.minecraft.nbt.NBTTagCompound;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+-
+ 
+ public class EntityMagnusCartus extends EntityMinecart {
+-	private static final DataParameter<Integer> BOGIE_ID = EntityDataManager.createKey(EntityMagnusCartus.class, DataSerializers.VARINT);
+-
+ 
+ 	public EntityMinecartBogie bogie;
+ 
+@@ -37,16 +31,16 @@ public class EntityMagnusCartus extends EntityMinecart {
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.dataManager.register(BOGIE_ID, new Integer(0));
++		this.dataWatcher.addObject(25, new Integer(0));
+ 	}
+ 
+ 	public void setBogie(EntityMinecartBogie bogie) {
+ 		this.bogie = bogie;
+-		this.dataManager.set(BOGIE_ID, bogie.getEntityId());
++		this.dataWatcher.updateObject(25, bogie.getEntityId());
+ 	}
+ 
+ 	public int getBogieID() {
+-		return this.dataManager.get(BOGIE_ID);
++		return this.dataWatcher.getWatchableObjectInt(25);
+ 	}
+ 
+ 	@Override
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java
+index b267cab4..e05c275d 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java
+@@ -12,16 +12,8 @@ import net.minecraft.util.math.AxisAlignedBB;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.EnumDifficulty;
+ import net.minecraft.world.World;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+-
+ 
+ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffocationImmune {
+-	private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);
+-	private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);
+-	private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);
+-
+ 
+ 	protected int scanCooldown;
+ 	protected int courseChangeCooldown;
+@@ -35,9 +27,9 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
+ 	protected void entityInit() {
+ 		super.entityInit();
+ 		//XYZ
+-		this.getDataManager().register(WAYPOINT_X, 0);
+-		this.getDataManager().register(WAYPOINT_Y, 0);
+-		this.getDataManager().register(WAYPOINT_Z, 0);
++		this.getDataWatcher().addObject(17, 0);
++		this.getDataWatcher().addObject(18, 0);
++		this.getDataWatcher().addObject(19, 0);
+ 	}
+ 
+ 	@Override
+@@ -194,20 +186,20 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
+ 	}
+ 
+ 	public void setWaypoint(int x, int y, int z) {
+-		this.dataManager.set(WAYPOINT_X, x);
+-		this.dataManager.set(WAYPOINT_Y, y);
+-		this.dataManager.set(WAYPOINT_Z, z);
++		this.dataWatcher.updateObject(17, x);
++		this.dataWatcher.updateObject(18, y);
++		this.dataWatcher.updateObject(19, z);
+ 	}
+ 
+ 	public int getX() {
+-		return this.dataManager.get(WAYPOINT_X);
++		return this.dataWatcher.getWatchableObjectInt(17);
+ 	}
+ 
+ 	public int getY() {
+-		return this.dataManager.get(WAYPOINT_Y);
++		return this.dataWatcher.getWatchableObjectInt(18);
+ 	}
+ 
+ 	public int getZ() {
+-		return this.dataManager.get(WAYPOINT_Z);
++		return this.dataWatcher.getWatchableObjectInt(19);
+ 	}
+ }
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java
+index 220db1b2..4dbbaa8b 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java
+@@ -25,18 +25,8 @@ import net.minecraft.util.DamageSource;
+ import net.minecraft.util.EntityDamageSource;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+-
+ 
+ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
+-	private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.VARINT);
+-	private static final DataParameter<Float> LOCKON_X = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);
+-	private static final DataParameter<Float> LOCKON_Y = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);
+-	private static final DataParameter<Float> LOCKON_Z = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);
+-	private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.BYTE);
+-
+ 
+ 	private int attackCooldown;
+ 	private int beamCountdown;
+@@ -103,15 +93,15 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.getDataManager().register(SIEGE_TIER, (int) 0);
+-		this.getDataManager().register(LOCKON_X, 0F);
+-		this.getDataManager().register(LOCKON_Y, 0F);
+-		this.getDataManager().register(LOCKON_Z, 0F);
+-		this.getDataManager().register(BEAM, (byte) 0);
++		this.getDataWatcher().addObject(12, (int) 0);
++		this.getDataWatcher().addObject(13, 0F);
++		this.getDataWatcher().addObject(14, 0F);
++		this.getDataWatcher().addObject(15, 0F);
++		this.getDataWatcher().addObject(16, (byte) 0);
+ 	}
+ 
+ 	public void setTier(SiegeTier tier) {
+-		this.getDataManager().set(SIEGE_TIER, tier.id);
++		this.getDataWatcher().updateObject(12, tier.id);
+ 
+ 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);
+ 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 25);
+@@ -119,29 +109,29 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
+ 	}
+ 
+ 	public SiegeTier getTier() {
+-		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
++		SiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];
+ 		return tier != null ? tier : SiegeTier.CLAY;
+ 	}
+ 
+ 	public void setBeam(boolean beam) {
+-		this.getDataManager().set(BEAM, beam ? (byte) 1 : (byte) 0);
++		this.getDataWatcher().updateObject(16, beam ? (byte) 1 : (byte) 0);
+ 	}
+ 
+ 	public boolean getBeam() {
+-		return this.getDataManager().get(BEAM) == 1;
++		return this.getDataWatcher().getWatchableObjectByte(16) == 1;
+ 	}
+ 
+ 	public void setLockon(double x, double y, double z) {
+-		this.getDataManager().set(LOCKON_X, (float) x);
+-		this.getDataManager().set(LOCKON_Y, (float) y);
+-		this.getDataManager().set(LOCKON_Z, (float) z);
++		this.getDataWatcher().updateObject(13, (float) x);
++		this.getDataWatcher().updateObject(14, (float) y);
++		this.getDataWatcher().updateObject(15, (float) z);
+ 	}
+ 
+ 	public Vec3d getLockon() {
+ 		return new Vec3d(
+-				this.getDataManager().get(LOCKON_X),
+-				this.getDataManager().get(LOCKON_Y),
+-				this.getDataManager().get(LOCKON_Z)
++				this.getDataWatcher().getWatchableObjectFloat(13),
++				this.getDataWatcher().getWatchableObjectFloat(14),
++				this.getDataWatcher().getWatchableObjectFloat(15)
+ 				);
+ 	}
+ 
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java
+index d9ec2e84..5b783d75 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java
+@@ -12,10 +12,6 @@ import net.minecraft.nbt.NBTTagCompound;
+ import net.minecraft.util.DamageSource;
+ import net.minecraft.util.EntityDamageSource;
+ import net.minecraft.world.World;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+-
+ 
+ //cursed code ahead
+ //no, this time it's vanilla that is cursed
+@@ -28,8 +24,6 @@ import net.minecraft.network.datasync.EntityDataManager;
+ //honest to fucking god was the entire mojang dev team on crack when they wrote this?
+ @NotableComments
+ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
+-	private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeTunneler.class, DataSerializers.VARINT);
+-
+ 
+ 	public EntitySiegeTunneler(World world) {
+ 		super(world);
+@@ -70,7 +64,7 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.getDataManager().register(SIEGE_TIER, (int) 0);
++		this.getDataWatcher().addObject(12, (int) 0);
+ 	}
+ 
+ 	@Override
+@@ -83,7 +77,7 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
+ 	}
+ 	
+ 	public void setTier(SiegeTier tier) {
+-		this.getDataManager().set(SIEGE_TIER, tier.id);
++		this.getDataWatcher().updateObject(12, tier.id);
+ 
+ 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier("Tier Damage Mod", tier.damageMod, 1));
+ 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.5);
+@@ -91,7 +85,7 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
+ 	}
+ 	
+ 	public SiegeTier getTier() {
+-		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
++		SiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];
+ 		return tier != null ? tier : SiegeTier.CLAY;
+ 	}
+ 
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java
+index bade7df1..561d3aab 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java
+@@ -14,14 +14,8 @@ import net.minecraft.util.DamageSource;
+ import net.minecraft.util.EntityDamageSource;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+-
+ 
+ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
+-	private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeUFO.class, DataSerializers.VARINT);
+-
+ 
+ 	private int attackCooldown;
+ 	private double lastTargetX;
+@@ -40,11 +34,11 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.getDataManager().register(SIEGE_TIER, (int) 0);
++		this.getDataWatcher().addObject(12, (int) 0);
+ 	}
+ 	
+ 	public void setTier(SiegeTier tier) {
+-		this.getDataManager().set(SIEGE_TIER, tier.id);
++		this.getDataWatcher().updateObject(12, tier.id);
+ 
+ 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);
+ 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.25);
+@@ -52,7 +46,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
+ 	}
+ 	
+ 	public SiegeTier getTier() {
+-		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
++		SiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];
+ 		return tier != null ? tier : SiegeTier.CLAY;
+ 	}
+ 	

@@ -252,14 +252,14 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 
 		//for when you fill antimatter into a matter tank
 		if(b != ModBlocks.barrel_antimatter && tank.getTankType().isAntimatter()) {
-			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 			new ExplosionVNT(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 5).makeAmat().explode();
 			//worldObj.newExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 5, true, true);
 		}
 
 		//for when you fill hot or corrosive liquids into a plastic tank
 		if(b == ModBlocks.barrel_plastic && (tank.getTankType().isCorrosive() || tank.getTankType().isHot())) {
-			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "random.fizz", 1.0F, 1.0F);
 		}
 
@@ -285,7 +285,7 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 				tank.setFill(tank.getFill() - 1);
 				FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.SPILL, 1F);
 			}
-			if(this.world.rand.nextInt(3 * 60 * 20) == 0) this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			if(this.world.rand.nextInt(3 * 60 * 20) == 0) com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 		}
 
 		//For when Tom's firestorm hits a barrel full of water

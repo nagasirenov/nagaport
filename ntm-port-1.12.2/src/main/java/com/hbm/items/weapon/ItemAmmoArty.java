@@ -39,6 +39,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
@@ -139,7 +140,7 @@ public class ItemAmmoArty extends Item {
 		case CARGO:
 
 			if(stack.hasTagCompound() && stack.getTagCompound().getCompoundTag("cargo") != null) {
-				ItemStack cargo = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("cargo"));
+				ItemStack cargo = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag("cargo"));
 				list.add(y + cargo.getDisplayName());
 			} else {
 				list.add(r + "Empty");
@@ -180,7 +181,7 @@ public class ItemAmmoArty extends Item {
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		return "item." + itemTypes[Math.abs(stack.getItemDamage()) % itemTypes.length].name;
 	}
 

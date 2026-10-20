@@ -6,6 +6,8 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.loader.HFRWavefrontObject;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -41,8 +43,9 @@ public class RenderDemonLamp extends TileEntitySpecialRenderer {
 		bindTexture(tex);
 		demon_lamp.renderAll();
 		
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawingQuads();
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
 		Vec3d vec = new Vec3d(1, 0, 0);
 
 		GL11.glDepthMask(false);
@@ -64,16 +67,25 @@ public class RenderDemonLamp extends TileEntitySpecialRenderer {
 			
 			for(int i = 0; i < 16; i++) {
 				
-				tess.setColorRGBA_F(0F, 0.75F, 1F, 0.25F);
-				tess.addVertex(vec.x * near, 0.5D + j * 0.125D, vec.z * near);
-				tess.setColorRGBA_F(0F, 0.75F, 1F, 0F);
-				tess.addVertex(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far);
+				int tessColor0Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor0Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));
+				int tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));
+				tessBuffer.pos(vec.x * near, 0.5D + j * 0.125D, vec.z * near).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				int tessColor1Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor1Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));
+				int tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				tessBuffer.pos(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 				
 				vec = vec.rotateYaw((float)(Math.PI * 2D / 16D));
 	
-				tess.addVertex(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far);
-				tess.setColorRGBA_F(0F, 0.75F, 1F, 0.25F);
-				tess.addVertex(vec.x * near, 0.5D + j * 0.125D, vec.z * near);
+				tessBuffer.pos(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+				int tessColor2Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+				int tessColor2Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));
+				int tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+				int tessColor2Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));
+				tessBuffer.pos(vec.x * near, 0.5D + j * 0.125D, vec.z * near).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();
 			}
 		}
 		tess.draw();

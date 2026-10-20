@@ -1,0 +1,263 @@
+import net.minecraft.item.*; import net.minecraft.init.*; import net.minecraft.block.Block; import net.minecraft.nbt.*; import net.minecraft.entity.player.EntityPlayer; import javax.annotation.Nonnull; import java.util.Random; import com.hbm.items.ItemInventory; import com.hbm.util.NullableInventoryStackNbt;
+class ModItems { static Item toolbox; }
+class ModBlocks { static Block crate_iron=Blocks.IRON_BLOCK,crate_steel=Blocks.GOLD_BLOCK,crate_desh=Blocks.DIAMOND_BLOCK,crate_tungsten=Blocks.EMERALD_BLOCK,crate_template=Blocks.LAPIS_BLOCK,safe=Blocks.STONE; }
+// Explicit crate-type projections: only exact constructor count and size/name/custom-name methods.
+abstract class TileEntityCrateBase extends net.minecraft.tileentity.TileEntity {
+ protected ItemStack[] slots; public String customName;
+ public TileEntityCrateBase(int count) { slots = new ItemStack[count]; }
+ public int getSizeInventory() { return slots.length; }
+ public boolean hasCustomName() { return this.customName != null && !this.customName.isEmpty(); }
+ public void setCustomName(String name) { this.customName = name; markDirty(); }
+ public abstract String getName();
+}
+class TileEntityCrateIron extends TileEntityCrateBase { public TileEntityCrateIron() {
+		super(36);
+	} public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateIron";
+	} }
+class TileEntityCrateSteel extends TileEntityCrateBase { public TileEntityCrateSteel() {
+		super(54);
+	} public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateSteel";
+	} }
+class TileEntityCrateDesh extends TileEntityCrateBase { public TileEntityCrateDesh() {
+		super(104); //8 rows with 13 slots
+	} public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateDesh";
+	} }
+class TileEntityCrateTungsten extends TileEntityCrateBase { public TileEntityCrateTungsten() {
+		super(27);
+	} public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateTungsten";
+	} }
+class TileEntityCrateTemplate extends TileEntityCrateBase { public TileEntityCrateTemplate() {
+		super(27);
+	} public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateTemplate";
+	} }
+class TileEntitySafe extends TileEntityCrateBase { public TileEntitySafe() {
+		super(15);
+	} public String getName() {
+		return this.hasCustomName() ? this.customName : "container.safe";
+	} }
+class ItemLeadBox {
+public static class InventoryLeadBox extends ItemInventory {
+
+		public InventoryLeadBox(EntityPlayer player, ItemStack box) {
+			this.player = player;
+			this.target = box;
+			slots = new ItemStack[this.getSizeInventory()];
+
+			if(box.getTagCompound() == null)
+				box.setTagCompound(new NBTTagCompound());
+
+			ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);
+
+			if(fromNBT != null) {
+				System.arraycopy(fromNBT, 0, slots, 0, slots.length);
+			}
+		}
+
+		@Override
+		public int getSizeInventory() {
+			return 20;
+		}
+
+		@Override
+		public String getName() {
+			return "container.leadBox";
+		}
+
+		@Override
+		public boolean hasCustomName() {
+			return target.hasDisplayName();
+		}
+
+		@Override
+		public int getInventoryStackLimit() {
+			return 1;
+		}
+		
+		@Override
+		public boolean isItemValidForSlot(int slot, ItemStack stack) {
+			if(stack != null && stack.getItem() instanceof ItemBlockStorageCrate) return false;
+			return true;
+		}
+	}
+}
+class ItemToolBox {
+public static class InventoryToolBox extends ItemInventory {
+
+		public InventoryToolBox(EntityPlayer player, ItemStack box) {
+			this.player = player;
+			this.target = box;
+			slots = new ItemStack[this.getSizeInventory()];
+
+			if(box.getTagCompound() == null)
+				box.setTagCompound(new NBTTagCompound());
+
+			ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);
+
+			if(fromNBT != null) {
+				System.arraycopy(fromNBT, 0, slots, 0, slots.length);
+			}
+		}
+
+		@Override
+		public int getSizeInventory() {
+			return 24;
+		}
+
+		@Override
+		public String getName() {
+			return "container.toolBox";
+		}
+
+		@Override
+		public boolean hasCustomName() {
+			return target.hasDisplayName();
+		}
+
+		@Override
+		public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
+			super.closeInventory(viewer);
+
+			this.target.getTagCompound().removeTag("isOpen");
+			this.target.getTagCompound().setInteger("rand", player.world.rand.nextInt()); // a boolean changing isn't sufficient to detect the change
+			player.inventoryContainer.detectAndSendChanges();
+		}
+
+		@Override
+		public boolean isItemValidForSlot(int slot, ItemStack stack) {
+			return stack.getItem() != ModItems.toolbox;
+		}
+	}
+}
+class ItemRebarPlacer {
+public static class InventoryRebar extends ItemInventory {
+
+		public InventoryRebar(EntityPlayer player, ItemStack box) {
+			this.player = player;
+			this.target = box;
+			slots = new ItemStack[this.getSizeInventory()];
+
+			if(box.getTagCompound() == null) box.setTagCompound(new NBTTagCompound());
+
+			ItemStack[] fromNBT = readStacksFromNBT(box, slots.length);
+			if(fromNBT != null) System.arraycopy(fromNBT, 0, slots, 0, slots.length);
+		}
+
+		@Override public int getSizeInventory() { return 1; }
+		@Override public String getName() { return "container.rebar"; }
+		@Override public boolean hasCustomName() { return target.hasDisplayName(); }
+		@Override public int getInventoryStackLimit() { return 1; }
+	}
+}
+class ItemBlockStorageCrate extends ItemBlock { ItemBlockStorageCrate(Block b) { super(b); }
+public static class InventoryCrate extends ItemInventory {
+		
+		public static Random rand = new Random();
+
+		public InventoryCrate(EntityPlayer player, ItemStack crate) {
+			this.player = player;
+			this.target = crate;
+
+			this.slots = new ItemStack[this.getSizeInventory()];
+			if(target.getTagCompound() == null) {
+				target.setTagCompound(new NBTTagCompound());
+				target.getTagCompound().setLong("stacklock", rand.nextLong());
+			}
+
+			for(int i = 0; i < slots.length; i++)
+				this.slots[i] = NullableInventoryStackNbt.read(target.getTagCompound().getCompoundTag("slot" + i));
+		}
+
+		@Nonnull
+		public static TileEntityCrateBase findCrateType(Item crate) {
+			Block block = Block.getBlockFromItem(crate);
+			if(block == ModBlocks.crate_iron) return new TileEntityCrateIron();
+			if(block == ModBlocks.crate_steel) return new TileEntityCrateSteel();
+			if(block == ModBlocks.crate_desh) return new TileEntityCrateDesh();
+			if(block == ModBlocks.crate_tungsten) return new TileEntityCrateTungsten();
+			if(block == ModBlocks.crate_template) return new TileEntityCrateTemplate();
+			if(block == ModBlocks.safe) return new TileEntitySafe();
+			throw new NullPointerException();
+		}
+
+		@Override
+		public int getSizeInventory() {
+			return findCrateType(target.getItem()).getSizeInventory();
+		}
+
+		@Override
+		public String getName() {
+			TileEntityCrateBase tile = findCrateType(target.getItem());
+			if (hasCustomName()) {
+				tile.setCustomName(target.getDisplayName());
+			}
+			return tile.getName();
+		}
+
+		@Override
+		public boolean hasCustomName() {
+			return target.hasDisplayName();
+		}
+		
+		@Override
+		public net.minecraft.util.text.ITextComponent getDisplayName() {
+			return hasCustomName() ? new net.minecraft.util.text.TextComponentString(getName()) : new net.minecraft.util.text.TextComponentTranslation(getName());
+		}
+
+		@Override
+		public boolean isUsableByPlayer(EntityPlayer player) {
+			return com.hbm.util.NativeHeldItem.getMainHandNullable(player) == this.target;
+		}
+
+		@Override
+		public void markDirty() { // You have been blessed by the unfuck
+
+			// Preserve existing NBT so we keep lock data and piders
+			NBTTagCompound nbt = target.getTagCompound() != null ? target.getTagCompound() : new NBTTagCompound();
+			int invSize = this.getSizeInventory();
+			
+			nbt.removeTag("stacklock");
+
+			for(int i = 0; i < invSize; i++) {
+
+				ItemStack stack = this.getStackInSlotNullable(i);
+				if(stack == null) {
+					nbt.removeTag("slot" + i);
+					continue;
+				}
+
+				NBTTagCompound slot = new NBTTagCompound();
+				stack.writeToNBT(slot);
+				nbt.setTag("slot" + i, slot);
+			}
+			
+			// never, ever fucking ever remove the tag compound here, lack of tack compound makes the crate stackable
+			nbt.setLong("stacklock", rand.nextLong()); // add shit that prevents crates from stacking
+
+			target.setTagCompound(nbt);
+		}
+
+		@Override
+		public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
+			super.closeInventory(viewer);
+
+			// Check for 6kb item vomit
+			target.setTagCompound(checkNBT(target.getTagCompound()));
+			player.inventoryContainer.detectAndSendChanges();
+			
+			if(target.getTagCompound() != null) {
+				target.getTagCompound().removeTag("stacklock");
+				
+				if(target.getTagCompound().isEmpty()) {
+					target.setTagCompound(null); // if there's no tags left, clear compound to make the crate stackable again
+				} else {
+					target.getTagCompound().setLong("stacklock", rand.nextLong()); // add shit that prevents crates from stacking
+				}
+			}
+		}
+	}
+}

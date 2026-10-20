@@ -1,0 +1,247 @@
+Compiled from "Slot.java"
+public class net.minecraft.inventory.Slot {
+  private final int slotIndex;
+
+  public final net.minecraft.inventory.IInventory inventory;
+
+  public int slotNumber;
+
+  public int xPos;
+
+  public int yPos;
+
+  protected java.lang.String backgroundName;
+
+  protected net.minecraft.util.ResourceLocation backgroundLocation;
+
+  protected java.lang.Object backgroundMap;
+
+  public net.minecraft.inventory.Slot(net.minecraft.inventory.IInventory, int, int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #23                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aconst_null
+       6: putfield      #25                 // Field backgroundName:Ljava/lang/String;
+       9: aload_0
+      10: aconst_null
+      11: putfield      #27                 // Field backgroundLocation:Lnet/minecraft/util/ResourceLocation;
+      14: aload_0
+      15: aload_1
+      16: putfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+      19: aload_0
+      20: iload_2
+      21: putfield      #31                 // Field slotIndex:I
+      24: aload_0
+      25: iload_3
+      26: putfield      #33                 // Field xPos:I
+      29: aload_0
+      30: iload         4
+      32: putfield      #35                 // Field yPos:I
+      35: return
+
+  public void onSlotChange(net.minecraft.item.ItemStack, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_2
+       1: invokevirtual #49                 // Method net/minecraft/item/ItemStack.getCount:()I
+       4: aload_1
+       5: invokevirtual #49                 // Method net/minecraft/item/ItemStack.getCount:()I
+       8: isub
+       9: istore_3
+      10: iload_3
+      11: ifle          20
+      14: aload_0
+      15: aload_2
+      16: iload_3
+      17: invokevirtual #53                 // Method onCrafting:(Lnet/minecraft/item/ItemStack;I)V
+      20: return
+
+  protected void onCrafting(net.minecraft.item.ItemStack, int);
+    Code:
+       0: return
+
+  protected void onSwapCraft(int);
+    Code:
+       0: return
+
+  protected void onCrafting(net.minecraft.item.ItemStack);
+    Code:
+       0: return
+
+  public net.minecraft.item.ItemStack onTake(net.minecraft.entity.player.EntityPlayer, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #68                 // Method onSlotChanged:()V
+       4: aload_2
+       5: areturn
+
+  public boolean isItemValid(net.minecraft.item.ItemStack);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public net.minecraft.item.ItemStack getStack();
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       4: aload_0
+       5: getfield      #31                 // Field slotIndex:I
+       8: invokeinterface #82,  2           // InterfaceMethod net/minecraft/inventory/IInventory.getStackInSlot:(I)Lnet/minecraft/item/ItemStack;
+      13: areturn
+
+  public boolean getHasStack();
+    Code:
+       0: aload_0
+       1: invokevirtual #86                 // Method getStack:()Lnet/minecraft/item/ItemStack;
+       4: invokevirtual #89                 // Method net/minecraft/item/ItemStack.isEmpty:()Z
+       7: ifne          14
+      10: iconst_1
+      11: goto          15
+      14: iconst_0
+      15: ireturn
+
+  public void putStack(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       4: aload_0
+       5: getfield      #31                 // Field slotIndex:I
+       8: aload_1
+       9: invokeinterface #94,  3           // InterfaceMethod net/minecraft/inventory/IInventory.setInventorySlotContents:(ILnet/minecraft/item/ItemStack;)V
+      14: aload_0
+      15: invokevirtual #68                 // Method onSlotChanged:()V
+      18: return
+
+  public void onSlotChanged();
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       4: invokeinterface #98,  1           // InterfaceMethod net/minecraft/inventory/IInventory.markDirty:()V
+       9: return
+
+  public int getSlotStackLimit();
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       4: invokeinterface #102,  1          // InterfaceMethod net/minecraft/inventory/IInventory.getInventoryStackLimit:()I
+       9: ireturn
+
+  public int getItemStackLimit(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #106                // Method getSlotStackLimit:()I
+       4: ireturn
+
+  public java.lang.String getSlotTexture();
+    Code:
+       0: aload_0
+       1: getfield      #25                 // Field backgroundName:Ljava/lang/String;
+       4: areturn
+
+  public net.minecraft.item.ItemStack decrStackSize(int);
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       4: aload_0
+       5: getfield      #31                 // Field slotIndex:I
+       8: iload_1
+       9: invokeinterface #118,  3          // InterfaceMethod net/minecraft/inventory/IInventory.decrStackSize:(II)Lnet/minecraft/item/ItemStack;
+      14: areturn
+
+  public boolean isHere(net.minecraft.inventory.IInventory, int);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       5: if_acmpne     20
+       8: iload_2
+       9: aload_0
+      10: getfield      #31                 // Field slotIndex:I
+      13: if_icmpne     20
+      16: iconst_1
+      17: goto          21
+      20: iconst_0
+      21: ireturn
+
+  public boolean canTakeStack(net.minecraft.entity.player.EntityPlayer);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean isEnabled();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public net.minecraft.util.ResourceLocation getBackgroundLocation();
+    Code:
+       0: aload_0
+       1: getfield      #27                 // Field backgroundLocation:Lnet/minecraft/util/ResourceLocation;
+       4: ifnonnull     13
+       7: getstatic     #134                // Field net/minecraft/client/renderer/texture/TextureMap.LOCATION_BLOCKS_TEXTURE:Lnet/minecraft/util/ResourceLocation;
+      10: goto          17
+      13: aload_0
+      14: getfield      #27                 // Field backgroundLocation:Lnet/minecraft/util/ResourceLocation;
+      17: areturn
+
+  public void setBackgroundLocation(net.minecraft.util.ResourceLocation);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #27                 // Field backgroundLocation:Lnet/minecraft/util/ResourceLocation;
+       5: return
+
+  public void setBackgroundName(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #25                 // Field backgroundName:Ljava/lang/String;
+       5: return
+
+  public net.minecraft.client.renderer.texture.TextureAtlasSprite getBackgroundSprite();
+    Code:
+       0: aload_0
+       1: invokevirtual #146                // Method getSlotTexture:()Ljava/lang/String;
+       4: astore_1
+       5: aload_1
+       6: ifnonnull     13
+       9: aconst_null
+      10: goto          21
+      13: aload_0
+      14: invokevirtual #152                // Method getBackgroundMap:()Lnet/minecraft/client/renderer/texture/TextureMap;
+      17: aload_1
+      18: invokevirtual #156                // Method net/minecraft/client/renderer/texture/TextureMap.getAtlasSprite:(Ljava/lang/String;)Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+      21: areturn
+
+  protected net.minecraft.client.renderer.texture.TextureMap getBackgroundMap();
+    Code:
+       0: aload_0
+       1: getfield      #161                // Field backgroundMap:Ljava/lang/Object;
+       4: ifnonnull     17
+       7: aload_0
+       8: invokestatic  #167                // Method net/minecraft/client/Minecraft.getMinecraft:()Lnet/minecraft/client/Minecraft;
+      11: invokevirtual #170                // Method net/minecraft/client/Minecraft.getTextureMapBlocks:()Lnet/minecraft/client/renderer/texture/TextureMap;
+      14: putfield      #161                // Field backgroundMap:Ljava/lang/Object;
+      17: aload_0
+      18: getfield      #161                // Field backgroundMap:Ljava/lang/Object;
+      21: checkcast     #131                // class net/minecraft/client/renderer/texture/TextureMap
+      24: areturn
+
+  public int getSlotIndex();
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field slotIndex:I
+       4: ireturn
+
+  public boolean isSameInventory(net.minecraft.inventory.Slot);
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       4: aload_1
+       5: getfield      #29                 // Field inventory:Lnet/minecraft/inventory/IInventory;
+       8: if_acmpne     15
+      11: iconst_1
+      12: goto          16
+      15: iconst_0
+      16: ireturn
+}

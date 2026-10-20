@@ -1,0 +1,186 @@
+{
+  "baseline_commit": "bdb4c897",
+  "scope": "BlockMulti-only four-bit state codec, 33-class closure; six native representative construction owners, no full startup",
+  "closure": {
+    "BlockAbsorber": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockAbsorber.java"
+    ],
+    "BlockBiomeStone": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockBiomeStone.java"
+    ],
+    "BlockCM": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/machine/BlockCM.java"
+    ],
+    "BlockCMGlass": [
+      "BlockCM",
+      "com/hbm/blocks/machine/BlockCMGlass.java"
+    ],
+    "BlockCMPort": [
+      "BlockCM",
+      "com/hbm/blocks/machine/BlockCMPort.java"
+    ],
+    "BlockCap": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockCap.java"
+    ],
+    "BlockCoke": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockCoke.java"
+    ],
+    "BlockConcreteColoredExt": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockConcreteColoredExt.java"
+    ],
+    "BlockCrashedBomb": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/bomb/BlockCrashedBomb.java"
+    ],
+    "BlockDeadPlant": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockDeadPlant.java"
+    ],
+    "BlockDecoCRT": [
+      "BlockMulti",
+      "com/hbm/blocks/generic/BlockDecoCRT.java"
+    ],
+    "BlockDecoContainer": [
+      "BlockDecoModel",
+      "com/hbm/blocks/generic/BlockDecoContainer.java"
+    ],
+    "BlockDecoModel": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockDecoModel.java"
+    ],
+    "BlockDecoToaster": [
+      "BlockMulti",
+      "com/hbm/blocks/generic/BlockDecoToaster.java"
+    ],
+    "BlockEnumMulti": [
+      "BlockMulti",
+      "com/hbm/blocks/BlockEnumMulti.java"
+    ],
+    "BlockFusionComponent": [
+      "BlockToolConversion",
+      "com/hbm/blocks/machine/BlockFusionComponent.java"
+    ],
+    "BlockICFComponent": [
+      "BlockToolConversion",
+      "com/hbm/blocks/machine/BlockICFComponent.java"
+    ],
+    "BlockICFLaserComponent": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/machine/BlockICFLaserComponent.java"
+    ],
+    "BlockLightstone": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockLightstone.java"
+    ],
+    "BlockMeteorOre": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockMeteorOre.java"
+    ],
+    "BlockMulti": [
+      "BlockBase",
+      "com/hbm/blocks/BlockMulti.java"
+    ],
+    "BlockNTMFlower": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockNTMFlower.java"
+    ],
+    "BlockNTMSand": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockNTMSand.java"
+    ],
+    "BlockOreBasalt": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockOreBasalt.java"
+    ],
+    "BlockResourceStone": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockResourceStone.java"
+    ],
+    "BlockRubberCacti": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockRubberCacti.java"
+    ],
+    "BlockRubberPlant": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockRubberPlant.java"
+    ],
+    "BlockStalagmite": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockStalagmite.java"
+    ],
+    "BlockTallPlant": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockTallPlant.java"
+    ],
+    "BlockTallPlantWater": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockTallPlantWater.java"
+    ],
+    "BlockToolConversion": [
+      "BlockMulti",
+      "com/hbm/blocks/generic/BlockToolConversion.java"
+    ],
+    "BlockToolConversionPillar": [
+      "BlockToolConversion",
+      "com/hbm/blocks/generic/BlockToolConversionPillar.java"
+    ],
+    "BlockWoodStructure": [
+      "BlockEnumMulti",
+      "com/hbm/blocks/generic/BlockWoodStructure.java"
+    ]
+  },
+  "complete_state_owners": [
+    "BlockDecoCRT",
+    "BlockDecoModel",
+    "BlockDecoToaster",
+    "BlockMulti",
+    "BlockNTMFlower",
+    "BlockRubberCacti",
+    "BlockWoodStructure"
+  ],
+  "compiled_production_sha256": {
+    "com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+    "com/hbm/blocks/BlockMulti.java": "29346e03673e5648680bd9dd8bd2be06f5893a2c71cd52858557e05607bd24df",
+    "com/hbm/blocks/IBlockMulti.java": "f131279ef239eb552900ffb0490feb81f82b6d346f5b282d41fa85ba2c7887e9",
+    "com/hbm/blocks/BlockEnumMulti.java": "b818ceae7675720ffbc85a12a1902add0dd9565ec9e66e28304d6e023f52d303",
+    "com/hbm/blocks/BlockEnums.java": "a8b4cc7f8e2fac23d4b2a76bdb191129a70a72e6cd0dfd857ef61e157170f9cf",
+    "com/hbm/blocks/generic/BlockGeneric.java": "aacc87716df2edaa7654e9d963a4ada178eabf7d7fc6a180db606bcc8bc83106",
+    "com/hbm/blocks/generic/BlockDecoToaster.java": "1534ed4a1ea7c34444c43b4f3c7b9f589073753ffc45bcc094162749976f57f7",
+    "com/hbm/world/gen/nbt/INBTBlockTransformable.java": "6e1ad2c23c587808792db1372bf01eb38b0bd2a57ac776a6fc894f5bf8f8f64b",
+    "com/hbm/blocks/generic/BlockMeteorOre.java": "0c585a7f7392b5c5c1c349184c11fa9fda02bbda1f78ffcb450447d223ab4d9f",
+    "com/hbm/blocks/generic/BlockConcreteColoredExt.java": "19c99148937ed7c8e806fc5bf2fdfc84483ed8b019b046eb8d9a4034edfb154f",
+    "com/hbm/blocks/generic/BlockLightstone.java": "86d973f343144cd6588b3a0d9ebd7ead74631f20bf434388dcd5f4b4ea0d57a8",
+    "com/hbm/blocks/machine/BlockCM.java": "97a6fb034a7a44cbe26dd42e1b0c87382afe048fb1d8068306e4aea74494f399",
+    "com/hbm/blocks/machine/BlockICFLaserComponent.java": "411473e2c98fad8df1e2a4f7437d43eea19f8abf30d564b4af6ae7ad72424df4",
+    "com/hbm/items/block/ItemBlockBase.java": "117146a96fc87357c114469f851d935f1911b87aa11d8d84e16b5a7d4e4e9203",
+    "com/hbm/blocks/IPersistentInfoProvider.java": "6b9f18bf71bbd87e0eb2889331b2cf1afc5f8712bf640fecf6d07a22a5b490ad",
+    "com/hbm/blocks/ITooltipProvider.java": "8fbfe2b7b76bce74361af2cb8b75d67f231824df57176b4e84a731c9c8aed3e5",
+    "com/hbm/tileentity/IPersistentNBT.java": "351d6d5004ad1e2ede9a95d7ac2d095e8f8ad779873619e5da8af178a797d7ce",
+    "com/hbm/util/i18n/I18nUtil.java": "6424de426ed248d0679e4e9d4e6a4025be284fef9e1a382145f1a4ac930169d7",
+    "com/hbm/util/i18n/ITranslate.java": "791239ab525259c1519f208bc56928c9d421e5b4b0057713aa45838bd99af410",
+    "com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "com/hbm/render/icon/IIcon.java": "5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205",
+    "com/hbm/render/icon/IIconRegister.java": "071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752",
+    "com/hbm/render/icon/LegacyIconRegister.java": "020b31fa967e929352e5af5fa71dfc0934c699299d037142924a6e8b94ec508d",
+    "com/hbm/render/icon/LegacyTextureAtlasSprite.java": "2345b038dee3508bd3ddf6b87bb12d38f888cc76f033eed28a5324d48e70ad0e",
+    "com/hbm/render/item/NativeItemTextureRegistry.java": "c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412",
+    "com/hbm/render/model/LegacyBaseBakedModel.java": "af137d82bc3ecd05d50e86be818e9fe31af6e5d0368a280f164bfbdadde8d377",
+    "com/hbm/items/ItemEnumMulti.java": "911a049fb452c91eb67eb5dc29070eec6ae05bd103f531f23bb18b5a84e14a75",
+    "com/hbm/interfaces/IOrderedEnum.java": "6b679d0b15d75dcd0d450f332b1e553c452c77c430e8545e3adc78618bbc6f9f",
+    "com/hbm/util/EnumUtil.java": "7fd70aab941e36a7d79eb369f88c12da0e95afafa597875eb97d8e776698d107"
+  },
+  "construction_statements": [
+    "ore_meteor = new BlockMeteorOre().setBlockName(\"ore_meteor\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);",
+    "concrete_colored_ext = ((BlockBase) new BlockConcreteColoredExt(Material.ROCK).setBlockName(\"concrete_colored_ext\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F)).setBlockTextureName(RefStrings.MODID + \":concrete_colored_ext\");",
+    "lightstone = ((BlockBase) new BlockLightstone(Material.ROCK, LightstoneType.class, true, true).setBlockName(\"lightstone\").setCreativeTab(MainRegistry.blockTab).setHardness(2F).setResistance(15.0F)).setBlockTextureName(RefStrings.MODID + \":lightstone\");",
+    "vinyl_tile = ((BlockBase) ((BlockBase) new BlockEnumMulti(Material.ROCK, TileType.class, true, true).setBlockName(\"vinyl_tile\")).setSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(60.0F)).setBlockTextureName(RefStrings.MODID + \":vinyl_tile\");",
+    "cm_block = ((BlockBase) new BlockCM(Material.IRON, EnumCMMaterials.class, true, true).setBlockName(\"cm_block\").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":cm_block\");",
+    "icf_laser_component = new BlockICFLaserComponent().setBlockName(\"icf_laser_component\").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab);"
+  ]
+}

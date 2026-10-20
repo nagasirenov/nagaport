@@ -1,0 +1,262 @@
+{
+  "group": "plane-metadata",
+  "base": "242867906a53eb7da03c879f476ced61c1170e14",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+      "class_name": "EntityPlaneBase",
+      "before_sha256": "b7ee548d33dadee2e72506bbed228471a25100f3e5e8ab69aec92a7bf4a4db83",
+      "after_sha256": "98e9148db123d60746353b951b1cbddc588ceca4b9101cbb06a3a575eb4eb0bc",
+      "original_sha256": "09d812099d3cfeb3677940cf5b63287baa76addc4bd9bea1e03710a8eb636f31",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\tprotected static final DataParameter<Float> PLANE_HEALTH = EntityDataManager.createKey(EntityPlaneBase.class, DataSerializers.FLOAT);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(17, new Float(50F))",
+          "after": "this.dataManager.register(PLANE_HEALTH, 50F)",
+          "before_offset": 2457,
+          "owner": "EntityPlaneBase",
+          "slot": 17,
+          "after_offset": 2758,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before": "this.dataWatcher.updateObject(17, health)",
+          "after": "this.dataManager.set(PLANE_HEALTH, health)",
+          "before_offset": 2916,
+          "owner": "EntityPlaneBase",
+          "slot": 17,
+          "after_offset": 3215,
+          "method": "public void onUpdate() {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(17)",
+          "after": "this.dataManager.get(PLANE_HEALTH)",
+          "before_offset": 2984,
+          "owner": "EntityPlaneBase",
+          "slot": 17,
+          "after_offset": 3284,
+          "method": "public void onUpdate() {"
+        },
+        {
+          "before": "this.getDataWatcher().updateObject(17, nbt.getFloat(\"health\"))",
+          "after": "this.dataManager.set(PLANE_HEALTH, nbt.getFloat(\"health\"))",
+          "before_offset": 6744,
+          "owner": "EntityPlaneBase",
+          "slot": 17,
+          "after_offset": 7034,
+          "method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+        },
+        {
+          "before": "this.getDataWatcher().getWatchableObjectFloat(17)",
+          "after": "this.dataManager.get(PLANE_HEALTH)",
+          "before_offset": 6957,
+          "owner": "EntityPlaneBase",
+          "slot": 17,
+          "after_offset": 7243,
+          "method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+      "class_name": "EntityBomber",
+      "before_sha256": "4a8750b55db3568bd394cbbbf613f85f2d4d5bf92a0b34afceeeb224f6085fa8",
+      "after_sha256": "0380fb9c40ba62c105f507645eb20cb4843ed10ad139e9f84b3b0ef5910a9979",
+      "original_sha256": "399856273f22b4ddedc2cd4a2fe65c27bc4a744c8d9e8ca5393b4cee8e37ddb0",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\tprivate static final DataParameter<Byte> BOMBER_STYLE = EntityDataManager.createKey(EntityBomber.class, DataSerializers.BYTE);\n",
+        "\n\tpublic byte getBomberStyle() {\n\t\treturn this.dataManager.get(BOMBER_STYLE);\n\t}\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0))",
+          "after": "this.dataManager.register(BOMBER_STYLE, Byte.valueOf((byte) 0))",
+          "before_offset": 939,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 1233,
+          "method": "public void entityInit() {"
+        },
+        {
+          "before": "this.getDataWatcher().getWatchableObjectFloat(17)",
+          "after": "this.dataManager.get(PLANE_HEALTH)",
+          "before_offset": 1129,
+          "owner": "EntityPlaneBase",
+          "slot": 17,
+          "after_offset": 1513,
+          "method": "public void onUpdate() {"
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(16)",
+          "after": "this.dataManager.get(BOMBER_STYLE)",
+          "before_offset": 1254,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 1623,
+          "method": "public void onUpdate() {"
+        },
+        {
+          "before": "this.getDataWatcher().updateObject(16, (byte) i)",
+          "after": "this.dataManager.set(BOMBER_STYLE, (byte) i)",
+          "before_offset": 5084,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 5444,
+          "method": "public void fac(World world, double x, double y, double z) {"
+        },
+        {
+          "before": "bomber.getDataWatcher().updateObject(16, (byte) i)",
+          "after": "bomber.dataManager.set(BOMBER_STYLE, (byte) i)",
+          "before_offset": 6821,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 7177,
+          "method": "public static EntityBomber statFacABomb(World world, double x, double y, double z) {"
+        },
+        {
+          "before": "bomber.getDataWatcher().updateObject(16, (byte) 4)",
+          "after": "bomber.dataManager.set(BOMBER_STYLE, (byte) 4)",
+          "before_offset": 7178,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 7530,
+          "method": "public static EntityBomber statFacStinger(World world, double x, double y, double z) {"
+        },
+        {
+          "before": "bomber.getDataWatcher().updateObject(16, (byte) 6)",
+          "after": "bomber.dataManager.set(BOMBER_STYLE, (byte) 6)",
+          "before_offset": 7534,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 7882,
+          "method": "public static EntityBomber statFacBoxcar(World world, double x, double y, double z) {"
+        },
+        {
+          "before": "bomber.getDataWatcher().updateObject(16, (byte) 6)",
+          "after": "bomber.dataManager.set(BOMBER_STYLE, (byte) 6)",
+          "before_offset": 7885,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 8229,
+          "method": "public static EntityBomber statFacPC(World world, double x, double y, double z) {"
+        },
+        {
+          "before": "bomber.getDataWatcher().updateObject(16, (byte)9)",
+          "after": "bomber.dataManager.set(BOMBER_STYLE, (byte)9)",
+          "before_offset": 8330,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 8670,
+          "method": "public static EntityBomber statFacCV(World world, double x, double y, double z) {"
+        },
+        {
+          "before": "bomber.getDataWatcher().updateObject(16, (byte)10)",
+          "after": "bomber.dataManager.set(BOMBER_STYLE, (byte)10)",
+          "before_offset": 8773,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 9109,
+          "method": "public static EntityBomber statFacCarpetJet(World world, double x, double y, double z) {"
+        },
+        {
+          "before": "this.getDataWatcher().updateObject(16, nbt.getByte(\"style\"))",
+          "after": "this.dataManager.set(BOMBER_STYLE, nbt.getByte(\"style\"))",
+          "before_offset": 9105,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 9437,
+          "method": "protected void readEntityFromNBT(NBTTagCompound nbt) {"
+        },
+        {
+          "before": "this.getDataWatcher().getWatchableObjectByte(16)",
+          "after": "this.dataManager.get(BOMBER_STYLE)",
+          "before_offset": 9473,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 9801,
+          "method": "protected void writeEntityToNBT(NBTTagCompound nbt) {"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java",
+      "class_name": "EntityC130",
+      "before_sha256": "17eb9c725660198abb35549c63eb134e3c7fcd45cbb79c47afaf8567708d1f49",
+      "after_sha256": "8a6608dc52825d9313919a76692dbbcebd04e648fb6c4969cf97345a92760924",
+      "original_sha256": "708dc02a274dcd761d9725fc2a68def7e059bd126a37d7124ca1b9873742b8d7",
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "this.getDataWatcher().getWatchableObjectFloat(17)",
+          "after": "this.dataManager.get(PLANE_HEALTH)",
+          "before_offset": 721,
+          "owner": "EntityPlaneBase",
+          "slot": 17,
+          "after_offset": 721,
+          "method": "public void onUpdate() {"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java",
+      "class_name": "RenderBomber",
+      "before_sha256": "6a1f1928ff01e11d05033e5102e2a4757f579d6c2d3a60eee47ec78c08967a59",
+      "after_sha256": "c3b39ba739cdab837077171ce738dc75ff1fcc861d6836c66cef8b2038ab3646",
+      "original_sha256": "d1e63da3206406f0d282cabad5ef1f66d278bd3515ece60282b0218ef96a5299",
+      "insertions": [
+        "import com.hbm.entity.logic.EntityBomber;\n"
+      ],
+      "transformations": [
+        {
+          "before": "entity.getDataWatcher().getWatchableObjectByte(16)",
+          "after": "((EntityBomber) entity).getBomberStyle()",
+          "before_offset": 1021,
+          "owner": "EntityBomber",
+          "slot": 16,
+          "after_offset": 1063,
+          "method": "public void doRender(Entity entity, double x, double y, double z, float f0, float interp) {"
+        }
+      ]
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityBomber",
+      "parent": "EntityPlaneBase"
+    },
+    {
+      "class_name": "EntityC130",
+      "parent": "EntityPlaneBase"
+    },
+    {
+      "class_name": "EntityPlaneBase",
+      "parent": "Entity"
+    }
+  ],
+  "keys": [
+    {
+      "declaring_owner": "EntityPlaneBase",
+      "key": "PLANE_HEALTH",
+      "visibility": "protected",
+      "type": "Float",
+      "serializer": "FLOAT",
+      "default": "50F",
+      "legacy_id": 17,
+      "registration_order": 0
+    },
+    {
+      "declaring_owner": "EntityBomber",
+      "key": "BOMBER_STYLE",
+      "visibility": "private",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "default": "Byte.valueOf((byte) 0)",
+      "legacy_id": 16,
+      "registration_order": 1
+    }
+  ]
+}

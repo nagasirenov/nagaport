@@ -56,6 +56,7 @@ public class ItemAmmoContainer extends Item {
 		List<ItemStack> stacks = new ArrayList();
 		
 		for(ItemStack inv : player.inventory.mainInventory) {
+			if (inv == ItemStack.EMPTY) inv = null;
 			if(inv != null && inv.getItem() instanceof ItemGunBaseNT) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) inv.getItem();
 				if(gun.defaultAmmo != null && !(makeshift && gun.isDefaultExpensive)) stacks.add(inv);

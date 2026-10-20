@@ -1,0 +1,24 @@
+Attribution diagnostics (unfinished source, not compile success): 14
+/workspace/shared/nagaport-entity-fields-cp89/ntm-port-1.12.2/porting/tests/native-collision-profiler-fields/NativeFieldTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-entity-fields-cp89/ntm-port-1.12.2/porting/tests/native-collision-profiler-fields/NativeFieldTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-entity-fields-cp89/ntm-port-1.12.2/porting/tests/native-collision-profiler-fields/NativeFieldTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-entity-fields-cp89/ntm-port-1.12.2/porting/tests/native-collision-profiler-fields/NativeFieldTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field ufield=Unsafe.class.getDeclaredField("theUnsafe");ufield.setAccessible(true);Unsafe u=(Unsafe)ufield.get(null);
+               ^
+/workspace/shared/nagaport-entity-fields-cp89/ntm-port-1.12.2/porting/tests/native-collision-profiler-fields/NativeFieldTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field ufield=Unsafe.class.getDeclaredField("theUnsafe");ufield.setAccessible(true);Unsafe u=(Unsafe)ufield.get(null);
+                                                                                     ^
+/workspace/shared/nagaport-entity-fields-cp89/ntm-port-1.12.2/porting/tests/native-collision-profiler-fields/NativeFieldTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field ufield=Unsafe.class.getDeclaredField("theUnsafe");ufield.setAccessible(true);Unsafe u=(Unsafe)ufield.get(null);
+                                                                                               ^
+6 warnings
+PASS 117673 actual original/native field and exact collision-assignment projection checks; no movement lifecycle claim
+PASS exact whole-file inverse and 34 individual omitted-token controls across 12 files
+PASS 16 typed receiver/shadow/static/nested/Unicode controls
+PASS three executable production-formula mutants rejected

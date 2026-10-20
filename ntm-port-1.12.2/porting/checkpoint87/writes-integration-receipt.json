@@ -1,0 +1,22 @@
+{
+  "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+    "before_sha256": "be44dd0e62aa6cce0d382ddf486a6053bfda40166df2ce9dc057178b513f0a23",
+    "after_sha256": "85efca101170d1882b7bbe5e30047d60f3ca6eae0f8aa62326b5f04c0fad6644"
+  },
+  "src/main/java/com/hbm/entity/mob/EntityRADBeast.java": {
+    "before_sha256": "96f604fde4653ababbb1a6fb8a15fb80b0a25043dd952e070d362e22a2be22f0",
+    "after_sha256": "95da2827aeb42514bf767937efdc2f1e638e963c5a31d543aaad8ce39f78eca0"
+  },
+  "src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java": {
+    "before_sha256": "57e82491d0e6e234637d1bbcaf057956b3ac7da6a4a5b8448489504acd9475dc",
+    "after_sha256": "c7dbfb35e2737448596db8dca29c00a069669f91409c8af5d818e69bf27779d5"
+  },
+  "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java": {
+    "before_sha256": "b1a7aabad2e46ddefb8253ca5e6e95fac6f78e4a7487d534833c947427ecc87d",
+    "after_sha256": "39ab9d9d21972b8cf700f601c6e32fd611230b9e76ab5e2a669162af540f935e"
+  },
+  "src/main/java/com/hbm/util/MobUtil.java": {
+    "before_sha256": "767f55fbe635012a12916f69ad2a4f85e1f39cdfdeebeb8e20cde9925bc1520b",
+    "after_sha256": "b1b490e795c3116a762e51cf09a89cfc470f75d327a6553ef95aee13184722bd"
+  }
+}

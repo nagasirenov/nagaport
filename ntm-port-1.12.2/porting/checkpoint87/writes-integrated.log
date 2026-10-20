@@ -1,0 +1,28 @@
+PASS Native equipment/destruction/name source: 78 byte-exact inverses/round trips, 2 new, 0 retired sources, 0 binary paths, 240 rejected mutations. Not runtime/GL proof.
+PASS independent read/write/destruction inverses compose to 67 exact CP86 files; item hooks and collaborators match tested hashes
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/equipment-writes-native/NativeEquipmentWriteTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/equipment-writes-native/NativeEquipmentWriteTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/equipment-writes-native/NativeEquipmentWriteTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/equipment-writes-native/NativeEquipmentWriteTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe() throws Exception {Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+        ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/equipment-writes-native/NativeEquipmentWriteTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe() throws Exception {Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/equipment-writes-native/NativeEquipmentWriteTest.java:15: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe() throws Exception {Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                                                                                           ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/equipment-writes-native/NativeEquipmentWriteTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Unsafe u=unsafe();
+                       ^
+7 warnings
+PASS 339 actual original/native concrete zombie setter aliases, zero/tag payload, exact drop float bits, virtual dispatch, offhand exclusion and player EMPTY sound-hook checks
+PASS exact Forge1614 player setter correction and untouched mob/skeleton/drop contracts
+PASS all 27 exact original expressions fail against native classes; no unrelated expression omitted
+PASS complete 27 native write expressions compiled/executed with explicit native Item dependency fixtures. Complete NTM classes/gameplay are not claimed.

@@ -1,0 +1,53 @@
+import java.util.*;import java.io.*;import java.net.*;import java.lang.reflect.*;
+import net.minecraft.block.state.IBlockState;import net.minecraft.util.math.BlockPos;import net.minecraft.util.*;import net.minecraft.world.*;import net.minecraft.world.chunk.*;import net.minecraft.world.storage.*;import net.minecraft.nbt.*;import net.minecraft.profiler.Profiler;import net.minecraft.creativetab.CreativeTabs;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.*;
+import net.minecraft.init.Bootstrap;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import com.hbm.blocks.ModBlocks;
+import com.hbm.items.ModItems;
+import com.hbm.blocks.generic.*;
+public class OilNativeTest {
+ static int checks;
+ static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ static void reg(Block b,String n){b.setRegistryName("hbm",n);ForgeRegistries.BLOCKS.register(b);}
+ public static void main(String[] args)throws Exception{
+ Bootstrap.register();FMLCommonHandler.instance().beginLoading(net.minecraftforge.fml.server.FMLServerHandler.instance());ModMetadata md=new ModMetadata();md.modId="hbm";md.name="Oil proof";md.version="1";DummyModContainer c=new DummyModContainer(md);Loader.instance().setupTestHarness(c);Loader.instance().setActiveModContainer(c);
+ for(BlockOreFluid.ReserveType type:BlockOreFluid.ReserveType.values()){
+  BlockOre empty=new BlockOre(Material.ROCK);reg(empty,"empty_"+type);
+  BlockOreFluid b=new BlockOreFluid(Material.ROCK,empty,type);reg(b,"full_"+type);
+  OriginalOilOracle o=new OriginalOilOracle(Material.ROCK,empty,OriginalOilOracle.ReserveType.valueOf(type.name()));reg(o,"oracle_"+type);
+  check(BlockOreFluid.getFullBlock(empty)==b,"inverse reserve lookup");
+  for(int m=0;m<16;m++){check(empty.getMetaFromState(empty.getStateFromMeta(m))==m && b.getMetaFromState(b.getStateFromMeta(m))==m,"target and full exact nibble");formulas(b,o,m);}
+  for(int m:new int[]{Integer.MIN_VALUE,-17,-1,0,1,10,15,16,31,Integer.MAX_VALUE})for(double chance:new double[]{-1,0,0.5,1,2,Double.NaN,Double.POSITIVE_INFINITY}){
+   NativeWorld w=new NativeWorld(),v=new NativeWorld();BlockPos p=new BlockPos(2,70,2);w.setBlockState(p,b.getStateFromMeta(3),2);v.setBlockState(p,o.getStateFromMeta(3),2);w.writes.clear();v.writes.clear();w.rand.setSeed(42);v.rand.setSeed(42);b.drain(w,2,70,2,m,chance);o.drain(v,2,70,2,m,chance);check(w.writes.equals(v.writes)&&w.rand.nextLong()==v.rand.nextLong(),"drain raw meta, chance and RNG parity");check(w.getBlockState(p).getBlock().getMetaFromState(w.getBlockState(p))==v.getBlockState(p).getBlock().getMetaFromState(v.getBlockState(p)),"drain native Chunk metadata");
+  }
+  for(int height:new int[]{1,2,3,6})for(int m=0;m<16;m++){
+   NativeWorld w=new NativeWorld(),v=new NativeWorld();BlockPos p=new BlockPos(3,64,3);
+   // Populate actual Chunk directly so setup does not trigger the lifecycle under test.
+   for(int dy=-2;dy<=height;dy++){BlockPos q=p.up(dy);w.getChunk(q).setBlockState(q,dy<0?empty.getStateFromMeta(4):b.getStateFromMeta((m+dy)&15));v.getChunk(q).setBlockState(q,dy<0?empty.getStateFromMeta(4):o.getStateFromMeta((m+dy)&15));}
+   w.writes.clear();v.writes.clear();((Block)b).neighborChanged(b.getStateFromMeta((m+7)&15),w,p,empty,p.down());o.neighborChanged(o.getDefaultState(),v,p,empty,p.down());
+   check(w.writes.equals(v.writes),"ordered synchronous reentrant writes, live metadata not stale supplied state");
+   for(int dy=-2;dy<=height;dy++){IBlockState n=w.getBlockState(p.up(dy)),old=v.getBlockState(p.up(dy));check((n.getBlock()==b)==(old.getBlock()==o)&&n.getBlock().getMetaFromState(n)==old.getBlock().getMetaFromState(old),"native World Chunk lifecycle final states");}
+  }
+  for(int[] xyz:new int[][]{{30000000,64,0},{-30000001,64,0},{0,-1,0},{0,256,0},{0,Integer.MIN_VALUE,0},{0,Integer.MAX_VALUE,0}}){NativeWorld w=new NativeWorld();w.rand.setSeed(31);Random r=new Random(31);r.nextDouble();b.drain(w,xyz[0],xyz[1],xyz[2],5,Double.POSITIVE_INFINITY);check(w.writes.isEmpty()&&w.rand.nextLong()==r.nextLong(),"out-of-domain drain consumes draw before bounds");b.neighborChanged(null,w,new BlockPos(xyz[0],xyz[1],xyz[2]),null,null);check(w.writes.isEmpty(),"out-of-domain live neighbor does not acquire chunks");}
+  boolean threw=false;try{b.drain(null,0,-1,0,0,0);}catch(NullPointerException ex){threw=true;}check(threw,"nonnull reserve always reads RNG even null world and zero chance");
+ }
+ BlockOreFluid bedrock=new BlockOreFluid(Material.ROCK,null,BlockOreFluid.ReserveType.OIL);bedrock.drain(null,0,0,0,0,1);bedrock.neighborChanged(null,null,null,null,null);check(bedrock.requiresFracking()&&BlockOreFluid.getFullBlock(null)==bedrock,"null target early return and original inverse null key");
+ System.out.println("PASS "+checks+" oil native World/Chunk, reentrant notification, formula, RNG and codec checks");
+ }
+ static void formulas(BlockOreFluid b,OriginalOilOracle o,int m)throws Exception{
+  check(b.getPrimaryFluid(m)==o.getPrimaryFluid(m)&&b.getSecondaryFluid(m)==o.getSecondaryFluid(m)&&b.getBlockFluidAmount(m)==o.getBlockFluidAmount(m)&&b.getPrimaryFluidAmount(m)==o.getPrimaryFluidAmount(m),"original fluid identities and amount formulas");
+  Field n=BlockOreFluid.class.getDeclaredField("rand"),old=OriginalOilOracle.class.getDeclaredField("rand");n.setAccessible(true);old.setAccessible(true);Random nr=new Random(991),or=new Random(991);n.set(b,nr);old.set(o,or);check(b.getSecondaryFluidAmount(m)==o.getSecondaryFluidAmount(m)&&nr.nextLong()==or.nextLong(),"secondary formula and exact RNG draw");
+ }
+ static class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final List<ItemStack> spawned=new ArrayList<>();int notifications,lastFlags;final List<String> writes=new ArrayList<>();
+  public boolean setBlockState(BlockPos p,IBlockState s,int flags){writes.add(p.getX()+","+p.getY()+","+p.getZ()+":"+(s.getBlock() instanceof BlockOreFluid || s.getBlock() instanceof OriginalOilOracle?"full":s.getBlock() instanceof BlockOre?"empty":"other")+":"+s.getBlock().getMetaFromState(s)+":"+flags);return super.setBlockState(p,s,flags);}
+  NativeWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "real preloaded chunks";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}protected boolean isChunkLoaded(int x,int z,boolean empty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+  @Override public void notifyBlockUpdate(BlockPos p,IBlockState old,IBlockState next,int flags){lastFlags=flags;notifications++;super.notifyBlockUpdate(p,old,next,flags);}
+  @Override public boolean spawnEntity(Entity e){if(e instanceof EntityItem){spawned.add(((EntityItem)e).getItem().copy());return true;}return super.spawnEntity(e);}
+ }
+}

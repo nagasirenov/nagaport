@@ -1,0 +1,361 @@
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java
+index 95e25d64..5448e0d8 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java
+@@ -43,7 +43,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
+         this.motionX = (double)(-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
+         this.motionZ = (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
+         this.motionY = (double)(-MathHelper.sin((this.rotationPitch + this.func_70183_g()) / 180.0F * (float)Math.PI) * f);
+-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, this.func_70182_d(), 1.0F);
++        this.shoot(this.motionX, this.motionY, this.motionZ, this.func_70182_d(), 1.0F);
+         this.rotationPitch = 0;
+         this.prevRotationPitch = 0;
+     }
+@@ -82,7 +82,7 @@ public abstract class EntityGrenadeBouncyBase extends Entity implements IProject
+         return 0.03F;
+     }
+     
+-    public void setThrowableHeading(double motionX, double motionY, double motionZ, float f0, float f1)
++    public void shoot(double motionX, double motionY, double motionZ, float f0, float f1)
+     {
+         float f2 = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
+         motionX /= (double)f2;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java
+index 8ed714d1..d1c09014 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java
+@@ -330,7 +330,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
+ 		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.WORM_LASER);
+ 		bullet.setThrower(this);
+ 		bullet.setPosition(pivotX, pivotY, pivotZ);
+-		bullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);
++		bullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);
+ 		this.world.spawnEntityInWorld(bullet);
+ 		this.playSound("hbm:weapon.ballsLaser", 5.0F, 1.0F);
+ 	}
+@@ -343,7 +343,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
+ 		EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.UFO_ROCKET);
+ 		bullet.setThrower(this);
+ 		bullet.setPosition(this.posX, this.posY - 0.5D, this.posZ);
+-		bullet.setThrowableHeading(heading.x, heading.y, heading.z, 2F, 0.02F);
++		bullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);
+ 		bullet.getEntityData().setInteger("homingTarget", e.getEntityId());
+ 		this.world.spawnEntityInWorld(bullet);
+ 		this.playSound("hbm:turret.richard_fire", 5.0F, 1.0F);
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java
+index d3e83447..cd1611d4 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java
+@@ -105,7 +105,7 @@ public class EntityAIBehemothGun extends EntityAIBase {
+ 			grenade.motionX = vec.x * 0.05D;
+ 			grenade.motionY = 0.5D + owner.getRNG().nextDouble() * 0.5D;
+ 			grenade.motionZ = vec.z * 0.05D;
+-			grenade.setThrowableHeading(grenade.motionX , grenade.motionY * 6, grenade.motionZ , 5F, 0);
++			grenade.shoot(grenade.motionX , grenade.motionY * 6, grenade.motionZ , 5F, 0);
+ 			grenade.setTarget(target.posX, target.posZ, target.posY);
+ 			com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_fire", 25.0F, 1.0F);
+ 			owner.world.spawnEntityInWorld(grenade);
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBombardier.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBombardier.java
+index cc1d734f..88cd5b21 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBombardier.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBombardier.java
+@@ -91,7 +91,7 @@ public class EntityGlyphidBombardier extends EntityGlyphid {
+ 					for(int i = 0; i < getBombCount(); i++) {
+ 						EntityAcidBomb bomb = new EntityAcidBomb(this.world, posX, posY + 1, posZ);
+ 						bomb.setThrower(this);
+-						bomb.setThrowableHeading(fireVec.x, fireVec.y, fireVec.z, (float) v0, i * getSpreadMult());
++						bomb.shoot(fireVec.x, fireVec.y, fireVec.z, (float) v0, i * getSpreadMult());
+ 						bomb.damage = getBombDamage();
+ 						this.world.spawnEntityInWorld(bomb);
+ 					}
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java
+index 6c922c0f..b1c8b33f 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java
+@@ -145,7 +145,7 @@ public class EntityGlyphidDigger extends EntityGlyphid {
+ 					rubble.setMetaBasedOnBlock(b, this.world.getBlockMetadata(x1, y1, z1));
+ 
+ 					if(fireVec != null)
+-						rubble.setThrowableHeading(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());
++						rubble.shoot(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());
+ 
+ 					this.world.spawnEntityInWorld(rubble);
+ 
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java
+index ef4d2e3e..08df9257 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java
+@@ -121,7 +121,7 @@ public class EntityBullet extends Entity implements IProjectile {
+ 			this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
+ 			this.yOffset = 0.0F;
+ 			float f4 = 0;//(float) d3 * 0.2F;
+-			this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
++			this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
+ 		}
+ 	}
+ 
+@@ -148,7 +148,7 @@ public class EntityBullet extends Entity implements IProjectile {
+ 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+ 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
+ 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
++		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+ 
+ 		// this.dmgMin = dmgMin;
+ 		// this.dmgMax = dmgMax;
+@@ -203,7 +203,7 @@ public class EntityBullet extends Entity implements IProjectile {
+ 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+ 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
+ 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
++		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+ 		this.setTau(isTau == "tauDay");
+ 		this.setChopper(isTau == "chopper");
+ 		this.setIsCritical(isTau != "chopper");
+@@ -229,7 +229,7 @@ public class EntityBullet extends Entity implements IProjectile {
+ 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+ 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
+ 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
++		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+ 		this.setTau(isTau == "tauDay");
+ 		this.setIsCritical(true);
+ 	}
+@@ -259,7 +259,7 @@ public class EntityBullet extends Entity implements IProjectile {
+ 	 * direction.
+ 	 */
+ 	@Override
+-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
++	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
+ 			float p_70186_8_) {
+ 		float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
+ 		p_70186_1_ /= f2;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java
+index 4983fbcd..c00d8b32 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java
+@@ -57,7 +57,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
+ 		this.motionY = motionY;
+ 		this.motionZ = motionZ;
+ 		
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread + gunSpread);
++		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread + gunSpread);
+ 	}
+ 	
+ 	/** For standard guns */
+@@ -85,7 +85,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
+ 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
+ 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
+ 		
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
++		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
+ 	}
+ 	
+ 	/** For turrets - angles are in radians, and pitch is negative! */
+@@ -101,7 +101,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
+ 		this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
+ 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
+ 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
++		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, gunSpread);
+ 	}
+ 
+ 	@Override
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java
+index 83015586..5a3fe69f 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java
+@@ -136,7 +136,7 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
+ 
+ 		this.setSize(0.5F, 0.5F);
+ 
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread * (accuracyBoost ? 0.25F : 1F));
++		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread * (accuracyBoost ? 0.25F : 1F));
+ 	}
+ 
+ 	public EntityBulletBaseNT(World world, int config, EntityLivingBase entity, EntityLivingBase target, float motion, float deviation) {
+@@ -163,7 +163,7 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
+ 			double d5 = d2 / d3;
+ 			this.setLocationAndAngles(entity.posX + d4, this.posY, entity.posZ + d5, f2, f3);
+ 			this.yOffset = 0.0F;
+-			this.setThrowableHeading(d0, d1, d2, motion, deviation);
++			this.shoot(d0, d1, d2, motion, deviation);
+ 		}
+ 	}
+ 
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChopperMine.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChopperMine.java
+index 6fc99461..7ce8b1d9 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChopperMine.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChopperMine.java
+@@ -38,7 +38,7 @@ public class EntityChopperMine extends Entity implements IProjectile {
+ 	}
+ 
+ 	@Override
+-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
++	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
+ 			float p_70186_8_) {
+ 		
+ 	}
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java
+index c3eb8ab7..01c06d5a 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java
+@@ -97,7 +97,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
+             this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
+             this.yOffset = 0.0F;
+             float f4 = (float)d3 * 0.2F;
+-            this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
++            this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
+         }
+     }
+ 	
+@@ -119,7 +119,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
+ 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+ 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
+ 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
++		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+ 	}
+ 
+     public EntityExplosiveBeam(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_)
+@@ -138,7 +138,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
+         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
+         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
+         this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
+-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
++        this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+     }
+ 
+     public EntityExplosiveBeam(World world, int x, int y, int z, double mx, double my, double mz, double grav) {
+@@ -164,7 +164,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
+      * Similar to setArrowHeading, it's point the throwable entity to a x, y, z direction.
+      */
+     @Override
+-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
++	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
+     {
+         float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
+         p_70186_1_ /= f2;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java
+index 50d262d5..a58fab2c 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java
+@@ -103,7 +103,7 @@ public class EntityRocket extends Entity implements IProjectile
+             this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
+             this.yOffset = 0.0F;
+             float f4 = (float)d3 * 0.2F;
+-            this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
++            this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
+         }
+     }
+ 
+@@ -128,7 +128,7 @@ public class EntityRocket extends Entity implements IProjectile
+         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
+         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
+         this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
+-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
++        this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+     }
+ 
+     public EntityRocket(World world, int x, int y, int z, double mx, double my, double mz, double grav) {
+@@ -154,7 +154,7 @@ public class EntityRocket extends Entity implements IProjectile
+      * Similar to setArrowHeading, it's point the throwable entity to a x, y, z direction.
+      */
+     @Override
+-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
++	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
+     {
+         float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
+         p_70186_1_ /= f2;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java
+index 114e32c1..a6887466 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java
+@@ -104,7 +104,7 @@ public class EntitySchrab extends Entity implements IProjectile
+             this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
+             this.yOffset = 0.0F;
+             float f4 = (float)d3 * 0.2F;
+-            this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
++            this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
+         }
+     }
+ 
+@@ -129,7 +129,7 @@ public class EntitySchrab extends Entity implements IProjectile
+         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
+         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
+         this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
+-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
++        this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+     }
+ 
+     public EntitySchrab(World world, int x, int y, int z, double mx, double my, double mz, double grav) {
+@@ -155,7 +155,7 @@ public class EntitySchrab extends Entity implements IProjectile
+      * Similar to setArrowHeading, it's point the throwable entity to a x, y, z direction.
+      */
+     @Override
+-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
++	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
+     {
+         float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
+         p_70186_1_ /= f2;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java
+index 8ceb407c..64c4d4db 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java
+@@ -83,7 +83,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
+ 		this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * velocity);
+ 		this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * velocity);
+ 		this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.throwAngle()) / 180.0F * (float) Math.PI) * velocity);
+-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, this.throwForce(), 1.0F);
++		this.shoot(this.motionX, this.motionY, this.motionZ, this.throwForce(), 1.0F);
+ 	}
+ 
+ 	public EntityThrowableNT(World world, double x, double y, double z) {
+@@ -111,7 +111,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
+ 	}
+ 
+ 	@Override
+-	public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
++	public void shoot(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
+ 		float throwLen = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
+ 		motionX /= (double) throwLen;
+ 		motionY /= (double) throwLen;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java b/ntm-port-1.12.2/src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java
+index aeb688a3..790072c7 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java
+@@ -69,7 +69,7 @@ public class GunNPCFactory {
+ 				EntityBulletBaseNT bolt = new EntityBulletBaseNT(bulletnt.world, BulletConfigSyncingUtil.MASKMAN_BOLT);
+ 				bolt.setThrower(bulletnt.getThrower());
+ 				bolt.setPosition(bulletnt.posX, bulletnt.posY, bulletnt.posZ);
+-				bolt.setThrowableHeading(motion.x, motion.y, motion.z, 0.5F, 0.05F);
++				bolt.shoot(motion.x, motion.y, motion.z, 0.5F, 0.05F);
+ 				bulletnt.world.spawnEntityInWorld(bolt);
+ 			}
+ 		};
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java
+index 580fb0dc..2afb20e8 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java
+@@ -197,7 +197,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
+ 
+ 		EntityArtilleryShell proj = new EntityArtilleryShell(this.world);
+ 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, 0.0F, 0.0F);
+-		proj.setThrowableHeading(vec.x, vec.y, vec.z, (float) getV0(), 0.0F);
++		proj.shoot(vec.x, vec.y, vec.z, (float) getV0(), 0.0F);
+ 		proj.setTarget((int) tPos.x, (int) tPos.y, (int) tPos.z);
+ 		proj.setType(type.getItemDamage());
+ 
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java
+index 73539a42..81b198c3 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java
+@@ -320,7 +320,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
+ 		
+ 		EntityArtilleryRocket proj = new EntityArtilleryRocket(this.world);
+ 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, 0.0F, 0.0F);
+-		proj.setThrowableHeading(vec.x, vec.y, vec.z, 25F, 0.0F);
++		proj.shoot(vec.x, vec.y, vec.z, 25F, 0.0F);
+ 		
+ 		if(this.target != null)
+ 			proj.setTarget(this.target);

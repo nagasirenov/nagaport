@@ -13,6 +13,8 @@ import com.hbm.wiaj.actors.ITileActorRenderer;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
@@ -58,13 +60,15 @@ public class RenderCrucible extends TileEntitySpecialRenderer implements ITileAc
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240F, 240F);
 
 			ITileActorRenderer.bindTexture(lava);
-			Tessellator tess = Tessellator.instance;
-			tess.setNormal(0F, 1F, 0F);
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(-1, 0.5 + level, -1, 0, 0);
-			tess.addVertexWithUV(-1, 0.5 + level, 1, 0, 1);
-			tess.addVertexWithUV(1, 0.5 + level, 1, 1, 1);
-			tess.addVertexWithUV(1, 0.5 + level, -1, 1, 0);
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder tessBuffer = tess.getBuffer();
+			// Legacy begin resets this attribute; retain its argument evaluation.
+			float tessResetNormalX = 0F, tessResetNormalY = 1F, tessResetNormalZ = 0F;
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessBuffer.pos(-1, 0.5 + level, -1).tex(0, 0).endVertex();
+			tessBuffer.pos(-1, 0.5 + level, 1).tex(0, 1).endVertex();
+			tessBuffer.pos(1, 0.5 + level, 1).tex(1, 1).endVertex();
+			tessBuffer.pos(1, 0.5 + level, -1).tex(1, 0).endVertex();
 			tess.draw();
 			
 			GL11.glEnable(GL11.GL_LIGHTING);

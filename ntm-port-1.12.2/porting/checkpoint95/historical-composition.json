@@ -1,0 +1,61 @@
+{
+  "baseline": "d754432647909d6840333059865d834f87bd4a7f",
+  "files": [
+    "src/main/java/com/hbm/blocks/BlockKelp.java",
+    "src/main/java/com/hbm/blocks/BlockVinylVine.java",
+    "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+    "src/main/java/com/hbm/blocks/bomb/Balefire.java",
+    "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java",
+    "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+    "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+    "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+    "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+    "src/main/java/com/hbm/blocks/machine/BlockOrbitalStation.java",
+    "src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionTorus.java",
+    "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+    "src/main/java/com/hbm/entity/grenade/EntityWastePearl.java",
+    "src/main/java/com/hbm/explosion/ExplosionThermo.java",
+    "src/main/java/com/hbm/items/tool/ItemModDoor.java",
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+    "src/main/java/com/hbm/main/ModEventHandler.java",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+    "src/main/java/com/hbm/world/feature/OilSpot.java",
+    "src/main/java/com/hbm/world/feature/OreCave.java"
+  ],
+  "pins": {
+    "porting/checkpoint94/check-historical-composition.py": "ee104ab44b086d28b2b9448e39ab633fb106514050dda124e71a1c208327400e",
+    "porting/checkpoint94/historical-composition.json": "8ae0130fafe2854792b7a3efdc3a19f9b9dc6fa581e16ecd27803e746db8d8d1",
+    "porting/checkpoint94/cp93-source-boundary.py": "63a7aea8157ea60c2e25974717e094e37648f293361e7040fe2f3d14d9cc332c",
+    "porting/tests/native-normal-cube-queries/check_source.py": "7e3019476a86bb92cadf0df21db46c36c0e1a6d911bb2e06d082cea7ca139036",
+    "porting/tests/native-normal-cube-queries/manifest.json": "6cc8fdd08a33a22526f83d0daff4a1a3509a7aad361601a213be45375609ebe9",
+    "porting/tests/native-block-placement-source-manifest.json": "c6fb42093ef40396285e38ba8b1130a7a458892a7ac5d534de3ea1725bbc5fb9",
+    "porting/tests/check-native-block-placement-source.py": "f23172ecd12800f4f1590a2ff7461e4ed2bdb2100409d9ece789a4da3705753d",
+    "porting/tests/native-block-placement/check_source.py": "d8f97063b6eefdbb20ae5979fed9e09442ed81e15118ef6200aa02c92e8b8849",
+    "porting/tests/native-block-placement/manifest.json": "554c8892672d0b3d2d14f2a6a5de7b05a259cc7a2b009a3bfec35ce198d9fd78",
+    "porting/checkpoint95/cp94-source-boundary.py": "4daa4fceee66e7fa3c1bc42f84b5db9013c94ccf2d7a19cbe8e7eb2e45bc3aa3"
+  },
+  "intersections": {
+    "air": [
+      "src/main/java/com/hbm/blocks/generic/BlockFallout.java"
+    ],
+    "press": [
+      "src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java"
+    ],
+    "normal_cube": [
+      "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+      "src/main/java/com/hbm/items/tool/ItemModDoor.java",
+      "src/main/java/com/hbm/world/feature/OilSpot.java",
+      "src/main/java/com/hbm/world/feature/OreCave.java"
+    ]
+  }
+}

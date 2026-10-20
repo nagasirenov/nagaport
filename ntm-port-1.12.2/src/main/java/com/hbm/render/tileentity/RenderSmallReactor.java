@@ -6,6 +6,8 @@ import com.hbm.main.ResourceManager;
 import com.hbm.tileentity.machine.TileEntityReactorResearch;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
@@ -42,45 +44,49 @@ public class RenderSmallReactor extends TileEntitySpecialRenderer {
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 			GL11.glDisable(GL11.GL_ALPHA_TEST);
 
-			Tessellator tess = Tessellator.instance;
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder tessBuffer = tess.getBuffer();
 
 			for(double d = 0.285; d < 0.7; d += 0.025) {
 
-				tess.startDrawingQuads();
-				tess.setColorRGBA_F(0.4F, 0.9F, 1.0F, 0.025F + (float) (Math.random() * 0.015F) + (0.125F * reactor.totalFlux / 1000F));
+				tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+				int tessColor0Red = Math.max(0, Math.min(255, (int) ((0.4F) * 255.0F)));
+				int tessColor0Green = Math.max(0, Math.min(255, (int) ((0.9F) * 255.0F)));
+				int tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+				int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.025F + (float) (Math.random() * 0.015F) + (0.125F * reactor.totalFlux / 1000F)) * 255.0F)));
 
 				double top = 1.375;
 				double bottom = 1.375;
 
-				tess.addVertex(d, bottom - d, -d);
-				tess.addVertex(d, top + d, -d);
-				tess.addVertex(d, top + d, d);
-				tess.addVertex(d, bottom - d, d);
+				tessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 
-				tess.addVertex(-d, bottom - d, -d);
-				tess.addVertex(-d, top + d, -d);
-				tess.addVertex(-d, top + d, d);
-				tess.addVertex(-d, bottom - d, d);
+				tessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 
-				tess.addVertex(-d, bottom - d, d);
-				tess.addVertex(-d, top + d, d);
-				tess.addVertex(d, top + d, d);
-				tess.addVertex(d, bottom - d, d);
+				tessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 
-				tess.addVertex(-d, bottom - d, -d);
-				tess.addVertex(-d, top + d, -d);
-				tess.addVertex(d, top + d, -d);
-				tess.addVertex(d, bottom - d, -d);
+				tessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 
-				tess.addVertex(-d, top + d, -d);
-				tess.addVertex(-d, top + d, d);
-				tess.addVertex(d, top + d, d);
-				tess.addVertex(d, top + d, -d);
+				tessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 
-				tess.addVertex(-d, bottom - d, -d);
-				tess.addVertex(-d, bottom - d, d);
-				tess.addVertex(d, bottom - d, d);
-				tess.addVertex(d, bottom - d, -d);
+				tessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 
 				tess.draw();
 			}

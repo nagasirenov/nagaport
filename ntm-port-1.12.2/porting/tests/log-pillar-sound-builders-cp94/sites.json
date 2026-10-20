@@ -1,0 +1,92 @@
+[
+  {
+    "name": "block_insulator",
+    "owner": "BlockRotatablePillar",
+    "line": 1630,
+    "receiver": "new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_insulator_top\").setTranslationKey(\"block_insulator\").setCreativeTab(MainRegistry.blockTab)",
+    "sound": "SoundType.CLOTH",
+    "before": "\t\tblock_insulator = new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_insulator_top\").setTranslationKey(\"block_insulator\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_insulator_side\");",
+    "after": "\t\tblock_insulator = ((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_insulator_top\").setTranslationKey(\"block_insulator\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_insulator_side\");"
+  },
+  {
+    "name": "block_fiberglass",
+    "owner": "BlockRotatablePillar",
+    "line": 1631,
+    "receiver": "new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_fiberglass_top\").setTranslationKey(\"block_fiberglass\").setCreativeTab(MainRegistry.blockTab)",
+    "sound": "SoundType.CLOTH",
+    "before": "\t\tblock_fiberglass = new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_fiberglass_top\").setTranslationKey(\"block_fiberglass\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":block_fiberglass_side\");",
+    "after": "\t\tblock_fiberglass = ((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + \":block_fiberglass_top\").setTranslationKey(\"block_fiberglass\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + \":block_fiberglass_side\");"
+  },
+  {
+    "name": "block_tritium",
+    "owner": "BlockRotatablePillar",
+    "line": 1654,
+    "receiver": "new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + \":block_tritium_top\").setTranslationKey(\"block_tritium\").setCreativeTab(MainRegistry.blockTab)",
+    "sound": "SoundType.GLASS",
+    "before": "\t\tblock_tritium = new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + \":block_tritium_top\").setTranslationKey(\"block_tritium\").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F).setBlockTextureName(RefStrings.MODID + \":block_tritium_side\");",
+    "after": "\t\tblock_tritium = ((BlockRotatablePillar) new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + \":block_tritium_top\").setTranslationKey(\"block_tritium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F).setBlockTextureName(RefStrings.MODID + \":block_tritium_side\");"
+  },
+  {
+    "name": "pink_log",
+    "owner": "BlockLogNT",
+    "line": 2693,
+    "receiver": "new BlockLogNT(\"log_oak\", RefStrings.MODID + \":pink_log\").setTranslationKey(\"pink_log\").setHardness(0.5F)",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tpink_log = new BlockLogNT(\"log_oak\", RefStrings.MODID + \":pink_log\").setTranslationKey(\"pink_log\").setHardness(0.5F).setStepSound(SoundType.WOOD).setCreativeTab(null);",
+    "after": "\t\tpink_log = ((BlockLogNT) new BlockLogNT(\"log_oak\", RefStrings.MODID + \":pink_log\").setTranslationKey(\"pink_log\").setHardness(0.5F)).withSoundType(SoundType.WOOD).setCreativeTab(null);"
+  },
+  {
+    "name": "vinyl_log",
+    "owner": "BlockLogNT",
+    "line": 2699,
+    "receiver": "new BlockLogNT(RefStrings.MODID + \":vinyl_log_side\", RefStrings.MODID + \":vinyl_log_top\").setTranslationKey(\"vinyl_log\")",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tvinyl_log = new BlockLogNT(RefStrings.MODID + \":vinyl_log_side\", RefStrings.MODID + \":vinyl_log_top\").setTranslationKey(\"vinyl_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\tvinyl_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":vinyl_log_side\", RefStrings.MODID + \":vinyl_log_top\").setTranslationKey(\"vinyl_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  },
+  {
+    "name": "pvc_log",
+    "owner": "BlockLogNT",
+    "line": 2700,
+    "receiver": "new BlockLogNT(RefStrings.MODID + \":pvc_log_side\", RefStrings.MODID + \":pvc_log_top\").setTranslationKey(\"pvc_log\")",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tpvc_log = new BlockLogNT(RefStrings.MODID + \":pvc_log_side\", RefStrings.MODID + \":pvc_log_top\").setTranslationKey(\"pvc_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\tpvc_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":pvc_log_side\", RefStrings.MODID + \":pvc_log_top\").setTranslationKey(\"pvc_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  },
+  {
+    "name": "lattice_log",
+    "owner": "BlockLogNT",
+    "line": 2715,
+    "receiver": "new BlockLogNT(RefStrings.MODID + \":rad_log_side\", RefStrings.MODID + \":rad_log_top\").setTranslationKey(\"lattice_log\")",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tlattice_log = new BlockLogNT(RefStrings.MODID + \":rad_log_side\", RefStrings.MODID + \":rad_log_top\").setTranslationKey(\"lattice_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\tlattice_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":rad_log_side\", RefStrings.MODID + \":rad_log_top\").setTranslationKey(\"lattice_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  },
+  {
+    "name": "bf_log",
+    "owner": "BlockLogNT",
+    "line": 2716,
+    "receiver": "new BlockLogNT(RefStrings.MODID + \":bf_log_side\", RefStrings.MODID + \":bf_log_top\").setTranslationKey(\"bf_log\")",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tbf_log = new BlockLogNT(RefStrings.MODID + \":bf_log_side\", RefStrings.MODID + \":bf_log_top\").setTranslationKey(\"bf_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\tbf_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":bf_log_side\", RefStrings.MODID + \":bf_log_top\").setTranslationKey(\"bf_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  },
+  {
+    "name": "primed_log",
+    "owner": "BlockLogNT",
+    "line": 2717,
+    "receiver": "new BlockLogNT(RefStrings.MODID + \":primed_log_side\", RefStrings.MODID + \":primed_log_top\").setTranslationKey(\"primed_log\")",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tprimed_log = new BlockLogNT(RefStrings.MODID + \":primed_log_side\", RefStrings.MODID + \":primed_log_top\").setTranslationKey(\"primed_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\tprimed_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":primed_log_side\", RefStrings.MODID + \":primed_log_top\").setTranslationKey(\"primed_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  },
+  {
+    "name": "eu_log",
+    "owner": "BlockLogNT",
+    "line": 2718,
+    "receiver": "new BlockLogNT(RefStrings.MODID + \":eu_log_side\", RefStrings.MODID + \":eu_log_top\").setTranslationKey(\"eu_log\")",
+    "sound": "SoundType.WOOD",
+    "before": "\t\teu_log = new BlockLogNT(RefStrings.MODID + \":eu_log_side\", RefStrings.MODID + \":eu_log_top\").setTranslationKey(\"eu_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\teu_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + \":eu_log_side\", RefStrings.MODID + \":eu_log_top\").setTranslationKey(\"eu_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  }
+]

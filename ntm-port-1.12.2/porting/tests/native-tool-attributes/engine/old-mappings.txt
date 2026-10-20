@@ -1,0 +1,59 @@
+CL: acg net/minecraft/item/ItemTool
+CL: aeh net/minecraft/item/ItemSword
+CL: adc net/minecraft/item/Item$ToolMaterial
+FD: adc/k net/minecraft/item/Item$ToolMaterial/$VALUES
+FD: adc/e net/minecraft/item/Item$ToolMaterial/GOLD
+FD: acg/d net/minecraft/item/ItemTool/field_77865_bY
+FD: aeh/a net/minecraft/item/ItemSword/field_150934_a
+FD: adc/j net/minecraft/item/Item$ToolMaterial/field_78008_j
+FD: adc/d net/minecraft/item/Item$ToolMaterial/EMERALD
+FD: acg/c net/minecraft/item/ItemTool/field_150914_c
+FD: adc/i net/minecraft/item/Item$ToolMaterial/field_78011_i
+FD: adc/c net/minecraft/item/Item$ToolMaterial/IRON
+FD: acg/b net/minecraft/item/ItemTool/field_77862_b
+FD: adc/h net/minecraft/item/Item$ToolMaterial/field_78010_h
+FD: adc/b net/minecraft/item/Item$ToolMaterial/STONE
+FD: acg/a net/minecraft/item/ItemTool/field_77864_a
+FD: adc/g net/minecraft/item/Item$ToolMaterial/field_78002_g
+FD: adc/a net/minecraft/item/Item$ToolMaterial/WOOD
+FD: adb/f net/minecraft/item/Item/field_111210_e
+FD: adc/f net/minecraft/item/Item$ToolMaterial/field_78001_f
+FD: aeh/b net/minecraft/item/ItemSword/field_150933_b
+MD: aeh/a (Ladd;Laji;)F net/minecraft/item/ItemSword/func_150893_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/block/Block;)F
+MD: aeh/a (Ladd;Lsv;Lsv;)Z net/minecraft/item/ItemSword/func_77644_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)Z
+MD: tj/b ()Ljava/lang/String; net/minecraft/entity/ai/attributes/AttributeModifier/func_111166_b ()Ljava/lang/String;
+MD: acg/j ()Ljava/lang/String; net/minecraft/item/ItemTool/func_77861_e ()Ljava/lang/String;
+MD: aeh/a (Ladd;Lahb;Lyz;)Ladd; net/minecraft/item/ItemSword/func_77659_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;)Lnet/minecraft/item/ItemStack;
+MD: aeh/j ()Ljava/lang/String; net/minecraft/item/ItemSword/func_150932_j ()Ljava/lang/String;
+MD: adc/c ()F net/minecraft/item/Item$ToolMaterial/func_78000_c ()F
+MD: aeh/b (Laji;)Z net/minecraft/item/ItemSword/func_150897_b (Lnet/minecraft/block/Block;)Z
+MD: adc/values ()[Ladc; net/minecraft/item/Item$ToolMaterial/values ()[Lnet/minecraft/item/Item$ToolMaterial;
+MD: acg/k ()Lcom/google/common/collect/Multimap; net/minecraft/item/ItemTool/func_111205_h ()Lcom/google/common/collect/Multimap;
+MD: tj/a ()Ljava/util/UUID; net/minecraft/entity/ai/attributes/AttributeModifier/func_111167_a ()Ljava/util/UUID;
+MD: aeh/d_ (Ladd;)I net/minecraft/item/ItemSword/func_77626_a (Lnet/minecraft/item/ItemStack;)I
+MD: aeh/k ()Lcom/google/common/collect/Multimap; net/minecraft/item/ItemSword/func_111205_h ()Lcom/google/common/collect/Multimap;
+MD: adb/k ()Lcom/google/common/collect/Multimap; net/minecraft/item/Item/func_111205_h ()Lcom/google/common/collect/Multimap;
+MD: acg/a (Ladd;Ladd;)Z net/minecraft/item/ItemTool/func_82789_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+MD: acg/a (Ladd;Lahb;Laji;IIILsv;)Z net/minecraft/item/ItemTool/func_150894_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/block/Block;IIILnet/minecraft/entity/EntityLivingBase;)Z
+MD: aeh/a (Ladd;Ladd;)Z net/minecraft/item/ItemSword/func_82789_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+MD: aeh/a (Ladd;Lahb;Laji;IIILsv;)Z net/minecraft/item/ItemSword/func_150894_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/block/Block;IIILnet/minecraft/entity/EntityLivingBase;)Z
+MD: adc/valueOf (Ljava/lang/String;)Ladc; net/minecraft/item/Item$ToolMaterial/valueOf (Ljava/lang/String;)Lnet/minecraft/item/Item$ToolMaterial;
+MD: tj/c ()I net/minecraft/entity/ai/attributes/AttributeModifier/func_111169_c ()I
+MD: adc/a ()I net/minecraft/item/Item$ToolMaterial/func_77997_a ()I
+MD: adc/d ()I net/minecraft/item/Item$ToolMaterial/func_77996_d ()I
+MD: acg/f ()Z net/minecraft/item/ItemTool/func_77662_d ()Z
+MD: adc/f ()Ladb; net/minecraft/item/Item$ToolMaterial/func_150995_f ()Lnet/minecraft/item/Item;
+MD: adc/b ()F net/minecraft/item/Item$ToolMaterial/func_77998_b ()F
+MD: aeh/f ()Z net/minecraft/item/ItemSword/func_77662_d ()Z
+MD: acg/i ()Ladc; net/minecraft/item/ItemTool/func_150913_i ()Lnet/minecraft/item/Item$ToolMaterial;
+MD: aeh/i ()F net/minecraft/item/ItemSword/func_150931_i ()F
+MD: add/b (I)V net/minecraft/item/ItemStack/func_77964_b (I)V
+MD: tj/d ()D net/minecraft/entity/ai/attributes/AttributeModifier/func_111164_d ()D
+MD: adc/e ()I net/minecraft/item/Item$ToolMaterial/func_77995_e ()I
+MD: aeh/d (Ladd;)Laei; net/minecraft/item/ItemSword/func_77661_b (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/EnumAction;
+MD: adb/f (I)Ladb; net/minecraft/item/Item/func_77656_e (I)Lnet/minecraft/item/Item;
+MD: acg/c ()I net/minecraft/item/ItemTool/func_77619_b ()I
+MD: acg/a (Ladd;Laji;)F net/minecraft/item/ItemTool/func_150893_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/block/Block;)F
+MD: acg/a (Ladd;Lsv;Lsv;)Z net/minecraft/item/ItemTool/func_77644_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)Z
+MD: add/D ()Lcom/google/common/collect/Multimap; net/minecraft/item/ItemStack/func_111283_C ()Lcom/google/common/collect/Multimap;
+MD: aeh/c ()I net/minecraft/item/ItemSword/func_77619_b ()I

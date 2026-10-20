@@ -1,0 +1,1 @@
+PASS complete all-source parse/attribution, 4066 units each, zero syntax errors; 11 exact owner casts and native method bindings; eleven sound failures removed, five pre-existing texture failures exposed; 11787 -> 11781 diagnostics, no other message-multiset changes. No class generation/full build.

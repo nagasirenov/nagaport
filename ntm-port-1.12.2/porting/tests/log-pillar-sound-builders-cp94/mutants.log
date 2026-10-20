@@ -1,0 +1,6 @@
+PASS runtime mutant rejected after successful compilation: BlockLogNT drop-assignment Caused by: java.lang.AssertionError: native setter stores exact argument including custom/null
+PASS runtime mutant rejected after successful compilation: BlockLogNT wrong-argument Caused by: java.lang.AssertionError: exact original sound object identity
+PASS runtime mutant rejected after successful compilation: BlockLogNT null-return Caused by: java.lang.NullPointerException
+PASS runtime mutant rejected after successful compilation: BlockRotatablePillar drop-assignment Caused by: java.lang.AssertionError: exact original sound object identity
+PASS runtime mutant rejected after successful compilation: BlockRotatablePillar wrong-argument Caused by: java.lang.AssertionError: exact original sound object identity
+PASS runtime mutant rejected after successful compilation: BlockRotatablePillar null-return Caused by: java.lang.NullPointerException

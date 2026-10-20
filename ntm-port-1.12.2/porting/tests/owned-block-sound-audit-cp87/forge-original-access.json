@@ -1,0 +1,9 @@
+{
+  "artifact": "forge-1.7.10-10.13.4.1614-1.7.10-userdev.jar",
+  "archive_sha256": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+  "member": "src/main/resources/forge_at.cfg",
+  "member_sha256": "e8fc2438f3aa69391155604deab27d1702fa76fba6f3dbe16079e2ec46b3c164",
+  "line_number": 35,
+  "exact_line": "public net.minecraft.block.Block func_149672_a(Lnet.minecraft.block.Block$SoundType;)Lnet.minecraft.block.Block; #setStepSound",
+  "scope": "Original Forge access configuration, not a newly launched transformed runtime; no cache regeneration."
+}

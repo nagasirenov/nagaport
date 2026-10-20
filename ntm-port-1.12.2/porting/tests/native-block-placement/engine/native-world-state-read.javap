@@ -1,0 +1,31 @@
+  public boolean isOutsideBuildHeight(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: invokevirtual #394                // Method net/minecraft/util/math/BlockPos.getY:()I
+       4: iflt          17
+       7: aload_1
+       8: invokevirtual #394                // Method net/minecraft/util/math/BlockPos.getY:()I
+      11: sipush        256
+      14: if_icmplt     21
+      17: iconst_1
+      18: goto          22
+      21: iconst_0
+      22: ireturn
+
+  public net.minecraft.block.state.IBlockState getBlockState(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #388                // Method isOutsideBuildHeight:(Lnet/minecraft/util/math/BlockPos;)Z
+       5: ifeq          15
+       8: getstatic     #581                // Field net/minecraft/init/Blocks.AIR:Lnet/minecraft/block/Block;
+      11: invokevirtual #585                // Method net/minecraft/block/Block.getDefaultState:()Lnet/minecraft/block/state/IBlockState;
+      14: areturn
+      15: aload_0
+      16: aload_1
+      17: invokevirtual #277                // Method getChunk:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/world/chunk/Chunk;
+      20: astore_2
+      21: aload_2
+      22: aload_1
+      23: invokevirtual #863                // Method net/minecraft/world/chunk/Chunk.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      26: areturn

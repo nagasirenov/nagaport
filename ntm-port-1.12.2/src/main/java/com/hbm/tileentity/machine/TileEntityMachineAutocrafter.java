@@ -19,6 +19,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
@@ -357,7 +358,7 @@ public class TileEntityMachineAutocrafter extends TileEntityMachineBase implemen
 		int slot = nbt.getInteger("slot");
 		if(slot > 8) return;
 		NBTTagCompound stack = nbt.getCompoundTag("stack");
-		ItemStack item = ItemStack.loadItemStackFromNBT(stack);
+		ItemStack item = NullableInventoryStackNbt.read(stack);
 		inv.setInventorySlotContents(slot, item);
 		matcher.initPatternSmart(getWorld(), item, slot);
 		tile.getWorld().markTileEntityChunkModified(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), tile);

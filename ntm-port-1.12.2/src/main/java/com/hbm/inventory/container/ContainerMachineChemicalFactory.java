@@ -78,7 +78,7 @@ public class ContainerMachineChemicalFactory extends ContainerBase {
 				slot.onSlotChanged();
 			}
 
-			slot.onPickupFromSlot(player, slotStack);
+			slot.onTake(player, slotStack);
 		}
 
 		return slotOriginal;

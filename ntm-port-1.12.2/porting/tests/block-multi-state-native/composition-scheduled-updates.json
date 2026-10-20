@@ -1,0 +1,85 @@
+{
+  "scope": "Exact composition of four scheduled-call migrations in two state-closure-only dependencies. No compiled representative source is replaced. The entire scheduler 37-call/21-file manifest was independently reversed to CP83 at capture; only these two dependencies overlap this state proof.",
+  "baseline": "bdb4c897d5f554458d23c6efab036b056ee20de0",
+  "scheduler_manifest_sha256": "18f077f030cc07a5b3a5c5cd7428388826b51072b4dc0c58bb91243fea6ce880",
+  "scheduler_verifier_sha256": "a627f951e0781876ef33ae4465ed612bd12ff150bf7622242c999fe4fc68b7c8",
+  "scheduler_production_patch_sha256": "a9503e94862763bc61636dea53a5a86f750d7a835262bafa326afacb3110b1bb",
+  "scheduler_total_calls_verified": 37,
+  "scheduler_total_files_verified": 21,
+  "files": {
+    "com/hbm/blocks/generic/BlockAbsorber.java": {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockAbsorber.java",
+      "before_sha256": "e66713a6e5f5704ad70fc057ff651f354148f0c59cbbdb55f2eb2a059b215987",
+      "after_sha256": "7bee2a07e28d121ebce226a3b7331a6cd922b6d7172c3a9066dfb27a92c53274",
+      "calls": [
+        {
+          "start": 2440,
+          "end": 2497,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 74
+        },
+        {
+          "start": 2616,
+          "end": 2673,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 80
+        }
+      ]
+    },
+    "com/hbm/blocks/generic/BlockNTMSand.java": {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMSand.java",
+      "before_sha256": "3c9d2a691f10d4ec41e5e5e175f13e40282f9ec2dfa7bbbd84f524d14ab196e2",
+      "after_sha256": "d481b0a4a3a04bcabbdf07316dcd506be709cc11047bacc05c61625cbfb7c63e",
+      "calls": [
+        {
+          "start": 577,
+          "end": 639,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 23
+        },
+        {
+          "start": 738,
+          "end": 800,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 28
+        }
+      ]
+    }
+  }
+}

@@ -37,6 +37,23 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
     }
 
 
+	/** Raw quantity is required for dynamically valid stacks with a stale empty cache.
+	 * Admission of native-empty stacks is handled at the furnace boundaries, not here. */
+	private static int quantity(ItemStack stack) {
+		int count = stack.getCount();
+		if(count != 0) return count;
+		try {
+			return QuantityField.FIELD.getInt(stack);
+		} catch(IllegalAccessException ex) {
+			throw new IllegalStateException("Cannot read furnace stack quantity", ex);
+		}
+	}
+
+	private static final class QuantityField {
+		private static final java.lang.reflect.Field FIELD = net.minecraftforge.fml.relauncher.ReflectionHelper.findField(
+				ItemStack.class, "stackSize", "field_77994_a");
+	}
+
 	public int progress;
 	public int fuel;
 	public static final int maxFuel = 12800;
@@ -67,7 +84,7 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 
 	//TODO: replace this terribleness
 	private int getItemPower(ItemStack stack, boolean canBreathe) {
-		if(stack == null) {
+		if(stack == null || stack.isEmpty()) {
 			return 0;
 		} else {
 			Item item = stack.getItem();
@@ -145,15 +162,15 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 	}
 
 	public boolean canProcess() {
-		if(slots[0] == null || slots[1] == null) return false;
+		if(slots[0] == null || slots[0].isEmpty() || slots[1] == null || slots[1].isEmpty()) return false;
 		if(!this.hasPower()) return false;
 		
 		ItemStack output = BlastFurnaceRecipes.getOutput(slots[0], slots[1]);
-		if(output == null) return false;
-		if(slots[3] == null) return true;
+		if(output == null || output.isEmpty()) return false;
+		if(slots[3] == null || slots[3].isEmpty()) return true;
 		if(!slots[3].isItemEqual(output)) return false;
 
-		if(slots[3].stackSize + output.stackSize <= slots[3].getMaxStackSize()) {
+		if(quantity(slots[3]) + quantity(output) <= slots[3].getMaxStackSize()) {
 			return true;
 		}
 		
@@ -162,11 +179,12 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 
 	private void processItem() {
 		ItemStack itemStack = BlastFurnaceRecipes.getOutput(slots[0], slots[1]);
+		if(itemStack == null || itemStack.isEmpty()) return;
 
-		if(slots[3] == null) {
+		if(slots[3] == null || slots[3].isEmpty()) {
 			slots[3] = itemStack.copy();
 		} else if(slots[3].isItemEqual(itemStack)) {
-			slots[3].stackSize += itemStack.stackSize;
+			slots[3].grow(quantity(itemStack));
 		}
 
 		for(int i = 0; i < 2; i++) {
@@ -202,9 +220,11 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 				this.fuel += getItemPower(this.slots[2], canOperate);
 				if(this.slots[2] != null) {
 					markDirty = true;
-					this.slots[2].stackSize--;
-					if(this.slots[2].stackSize == 0) {
-						this.slots[2] = this.slots[2].getItem().getContainerItem(this.slots[2]);
+					Item fuelItem = this.slots[2].getItem();
+					this.slots[2].shrink(1);
+					if(this.slots[2].getCount() == 0) {
+						ItemStack residue = fuelItem.getContainerItem(this.slots[2]);
+						this.slots[2] = residue == ItemStack.EMPTY ? null : residue;
 					}
 				}
 			}

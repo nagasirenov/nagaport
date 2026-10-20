@@ -1,0 +1,6 @@
+CLASSES	4876
+DECLARE	net/minecraft/entity/EntityLiving	net/minecraft/entity/EntityLivingBase	getItemStackFromSlot(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lnet/minecraft/item/ItemStack;
+DECLARE	net/minecraft/entity/EntityLivingBase	net/minecraft/entity/Entity	getItemStackFromSlot(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lnet/minecraft/item/ItemStack;
+DECLARE	net/minecraft/entity/item/EntityArmorStand	net/minecraft/entity/EntityLivingBase	getItemStackFromSlot(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lnet/minecraft/item/ItemStack;
+DECLARE	net/minecraft/entity/player/EntityPlayer	net/minecraft/entity/EntityLivingBase	getItemStackFromSlot(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lnet/minecraft/item/ItemStack;
+DECLARE	net/minecraft/entity/player/InventoryPlayer	java/lang/Object	armorItemInSlot(I)Lnet/minecraft/item/ItemStack;

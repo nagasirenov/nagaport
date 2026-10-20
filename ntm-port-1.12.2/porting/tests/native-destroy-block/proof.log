@@ -1,0 +1,60 @@
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/DestroyBlockTest.java:23: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U;static int checks;
+                      ^
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/DestroyBlockTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                             ^
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/DestroyBlockTest.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                          ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS: 3357 genuine native World/Chunk domain, callback order, metadata, return, evaluation and complete production TileEntityDummy assertions
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/OriginalDestroyBlockTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U;static int checks;static StringBuilder trace=new StringBuilder();static boolean sabotage;static int wantedMeta;static OriginalDestroyBlockTest recording;
+                      ^
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/OriginalDestroyBlockTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                             ^
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/OriginalDestroyBlockTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                          ^
+Note: /workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/OriginalDestroyBlockTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS: 3296 real original World/Chunk domain, event, drop, metadata, final-removal return assertions (vanilla original engine; authentic Forge patches audited separately)
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/OriginalDestroyEvaluation.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                           ^
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/OriginalDestroyEvaluation.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                     ^
+/workspace/shared/nagaport-destroy-cp87/ntm-port-1.12.2/porting/tests/native-destroy-block/OriginalDestroyEvaluation.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                                        ^
+3 warnings
+PASS: 6 direct original World invocation null/argument exception/evaluation assertions
+net/minecraft/client/multiplayer/WorldClient extends net/minecraft/world/World declares []
+net/minecraft/world/World extends java/lang/Object declares [setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z, setBlockToAir(Lnet/minecraft/util/math/BlockPos;)Z, destroyBlock(Lnet/minecraft/util/math/BlockPos;Z)Z]
+net/minecraft/world/WorldServer extends net/minecraft/world/World declares []
+net/minecraft/world/WorldServerDemo extends net/minecraft/world/WorldServer declares []
+net/minecraft/world/WorldServerMulti extends net/minecraft/world/WorldServer declares []
+Audited 5 World hierarchy classes among 48240 classes
+ahb extends java/lang/Object declares [d(IIILaji;II)Z, f(III)Z, a(IIIZ)Z]
+bjf extends ahb declares []
+mk extends mt declares []
+mm extends mt declares []
+mt extends ahb declares []
+Audited 5 World hierarchy classes among 1803 classes
+net/minecraft/block/Block extends net/minecraftforge/registries/IForgeRegistryEntry$Impl declares isAir(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z
+appeng/block/paint/BlockPaint extends appeng/block/AEBaseTileBlock declares isAir(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z
+Attribution diagnostics, not compile success: 11
+Unrelated unfinished-port diagnostics: 11727
+Attribution diagnostics, not compile success: 11787
+PASS: 60 exact selected edits, original-byte reversal and target regeneration in 50 files
+PASS: authentic original SRG mapping and Forge/FML World patch archives; source World override and NTM isAir declaration audit
+PASS: 2 typed positives and 10 owner/type/arity/boxing/unresolved/effectful-receiver negative attribution controls
+PASS: exact 60 old full-source World/int,int,int,boolean positions equal 60 resolved native helper invocations
+PASS: eight bound/null/coordinate/drop-flag/return/drop-suppression mutants rejected
+PASS: bounded proof complete; unfinished-port diagnostics are not whole-source build success

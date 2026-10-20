@@ -6,7 +6,7 @@ import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderChicken;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.entity.RenderManager;
 import com.hbm.render.util.ClientBossDisplay;
 import com.hbm.entity.boss.INtmBossDisplay;
 import net.minecraft.entity.passive.EntityChicken;
@@ -25,13 +25,16 @@ public class RenderQuacc extends RenderChicken {
     /**
      *  BOW
      */
-	public RenderQuacc(ModelBase model, float f0) {
-		super(model, f0);
+	public RenderQuacc(RenderManager renderManager, ModelBase model, float shadowSize) {
+		super(renderManager);
+		this.mainModel = model;
+		this.shadowSize = shadowSize;
 	}
     
     /**
      *  BOW
      */
+    @Override
     protected ResourceLocation getEntityTexture(EntityChicken DUCC) {
         return ducc;
     }
@@ -39,7 +42,8 @@ public class RenderQuacc extends RenderChicken {
     /**
      *  BOW
      */
-    protected void preRenderCallback(EntityLivingBase DUCC, float f0) {
+    @Override
+    protected void preRenderCallback(EntityChicken DUCC, float f0) {
     	
         ClientBossDisplay.capture((INtmBossDisplay) DUCC, false);
         

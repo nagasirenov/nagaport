@@ -1,0 +1,1321 @@
+import java.util.*; import java.lang.reflect.*; import net.minecraft.item.*; import net.minecraft.inventory.EntityEquipmentSlot; import net.minecraft.entity.*; import net.minecraft.client.model.ModelBiped; import net.minecraft.entity.ai.attributes.AttributeModifier; import net.minecraft.util.ResourceLocation; import net.minecraftforge.fml.relauncher.*; import com.hbm.util.ArmorSlotOrder; import com.hbm.items.ModItems; import com.hbm.main.ResourceManager; import com.hbm.lib.RefStrings; import com.hbm.handler.ArmorModHandler; import com.hbm.render.model.ModelGlasses; import com.hbm.render.model.ModelArmorHEV; import com.hbm.render.item.NativeItemTextureRegistry;
+public class ProductionSlotProjections {
+public static class LegacyBase extends ItemArmor {
+ public LegacyBase(){super(ArmorMaterial.IRON,0,EntityEquipmentSlot.HEAD);}
+ public ModelBiped getArmorModel(EntityLivingBase e,ItemStack s,int slot){return null;}
+ public String getArmorTexture(ItemStack s,Entity e,int slot,String type){return null;}
+ public boolean isValidArmor(ItemStack s,int slot,Entity e){return false;}
+}
+public static class NativeBase extends ItemArmor { public NativeBase(){super(ArmorMaterial.IRON,0,EntityEquipmentSlot.HEAD);} }
+public static class ProbeModel extends ModelBiped { public final int type; public ProbeModel(int type){this.type=type;} }
+
+public static class ModelArmorAJR extends ProbeModel { public ModelArmorAJR(){super(0);} public ModelArmorAJR(int type){super(type);} }
+public static class ModelArmorAJRO extends ProbeModel { public ModelArmorAJRO(){super(0);} public ModelArmorAJRO(int type){super(type);} }
+public static class ModelArmorBJ extends ProbeModel { public ModelArmorBJ(){super(0);} public ModelArmorBJ(int type){super(type);} }
+public static class ModelArmorBismuth extends ProbeModel { public ModelArmorBismuth(){super(0);} public ModelArmorBismuth(int type){super(type);} }
+public static class ModelArmorDNT extends ProbeModel { public ModelArmorDNT(){super(0);} public ModelArmorDNT(int type){super(type);} }
+public static class ModelArmorDesh extends ProbeModel { public ModelArmorDesh(){super(0);} public ModelArmorDesh(int type){super(type);} }
+public static class ModelArmorDiesel extends ProbeModel { public ModelArmorDiesel(){super(0);} public ModelArmorDiesel(int type){super(type);} }
+public static class ModelArmorDigamma extends ProbeModel { public ModelArmorDigamma(){super(0);} public ModelArmorDigamma(int type){super(type);} }
+public static class ModelArmorEnvsuit extends ProbeModel { public ModelArmorEnvsuit(){super(0);} public ModelArmorEnvsuit(int type){super(type);} }
+public static class ModelArmorNCRPA extends ProbeModel { public ModelArmorNCRPA(){super(0);} public ModelArmorNCRPA(int type){super(type);} }
+public static class ModelArmorRPA extends ProbeModel { public ModelArmorRPA(){super(0);} public ModelArmorRPA(int type){super(type);} }
+public static class ModelArmorT51 extends ProbeModel { public ModelArmorT51(){super(0);} public ModelArmorT51(int type){super(type);} }
+public static class ModelArmorTaurun extends ProbeModel { public ModelArmorTaurun(){super(0);} public ModelArmorTaurun(int type){super(type);} }
+public static class ModelArmorTrenchmaster extends ProbeModel { public ModelArmorTrenchmaster(){super(0);} public ModelArmorTrenchmaster(int type){super(type);} }
+public static class ModelArmorWings extends ProbeModel { public ModelArmorWings(){super(0);} public ModelArmorWings(int type){super(type);} }
+public static class ModelCloak extends ProbeModel { public ModelCloak(){super(0);} public ModelCloak(int type){super(type);} }
+public static class ModelGasMask extends ProbeModel { public ModelGasMask(){super(0);} public ModelGasMask(int type){super(type);} }
+public static class ModelGoggles extends ProbeModel { public ModelGoggles(){super(0);} public ModelGoggles(int type){super(type);} }
+public static class ModelHat extends ProbeModel { public ModelHat(){super(0);} public ModelHat(int type){super(type);} }
+public static class ModelJetPack extends ProbeModel { public ModelJetPack(){super(0);} public ModelJetPack(int type){super(type);} }
+public static class ModelM65 extends ProbeModel { public ModelM65(){super(0);} public ModelM65(int type){super(type);} }
+public static class ModelNo9 extends ProbeModel { public ModelNo9(){super(0);} public ModelNo9(int type){super(type);} }
+public static class ArmorAJRNative extends NativeBase {
+ModelArmorAJR[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorAJR[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorAJR(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorAJRLegacy extends LegacyBase {
+ModelArmorAJR[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorAJR[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorAJR(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorAJRONative extends NativeBase {
+ModelArmorAJRO[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorAJRO[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorAJRO(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorAJROLegacy extends LegacyBase {
+ModelArmorAJRO[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorAJRO[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorAJRO(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorAsbestosNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
+		if(stack.getItem().equals(ModItems.asbestos_helmet) || stack.getItem().equals(ModItems.asbestos_plate) || stack.getItem().equals(ModItems.asbestos_boots)) {
+			return(RefStrings.MODID + ":textures/armor/asbestos_1.png");
+		}
+		if(stack.getItem().equals(ModItems.asbestos_legs)) {
+			return(RefStrings.MODID + ":textures/armor/asbestos_2.png");
+		}
+
+		else
+			return null;
+	}
+}
+public static class ArmorAsbestosLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+		if(stack.getItem().equals(ModItems.asbestos_helmet) || stack.getItem().equals(ModItems.asbestos_plate) || stack.getItem().equals(ModItems.asbestos_boots)) {
+			return(RefStrings.MODID + ":textures/armor/asbestos_1.png");
+		}
+		if(stack.getItem().equals(ModItems.asbestos_legs)) {
+			return(RefStrings.MODID + ":textures/armor/asbestos_2.png");
+		}
+
+		else
+			return null;
+	}
+}
+public static class ArmorAshGlassesNative extends NativeBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(model == null) {
+			model = new ModelGlasses(0);
+		}
+		
+		return model;
+	}
+}
+public static class ArmorAshGlassesLegacy extends LegacyBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(model == null) {
+			model = new ModelGlasses(0);
+		}
+		
+		return model;
+	}
+}
+public static class ArmorBJNative extends NativeBase {
+ModelArmorBJ[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(models == null) {
+			models = new ModelArmorBJ[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorBJ(i);
+		}
+
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorBJLegacy extends LegacyBase {
+ModelArmorBJ[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(models == null) {
+			models = new ModelArmorBJ[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorBJ(i);
+		}
+
+		return models[armorSlot];
+	}
+}
+public static class ArmorBJJetpackNative extends NativeBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(model == null) {
+			model = new ModelArmorBJ(5);
+		}
+
+		return model;
+	}
+}
+public static class ArmorBJJetpackLegacy extends LegacyBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(model == null) {
+			model = new ModelArmorBJ(5);
+		}
+
+		return model;
+	}
+}
+public static class ArmorBismuthNative extends NativeBase {
+ModelArmorBismuth[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorBismuth[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorBismuth(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorBismuthLegacy extends LegacyBase {
+ModelArmorBismuth[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorBismuth[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorBismuth(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorDNTNative extends NativeBase {
+ModelArmorDNT[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(models == null) {
+			models = new ModelArmorDNT[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDNT(i);
+		}
+
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorDNTLegacy extends LegacyBase {
+ModelArmorDNT[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(models == null) {
+			models = new ModelArmorDNT[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDNT(i);
+		}
+
+		return models[armorSlot];
+	}
+}
+public static class ArmorDeshNative extends NativeBase {
+ModelArmorDesh[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorDesh[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDesh(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorDeshLegacy extends LegacyBase {
+ModelArmorDesh[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorDesh[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDesh(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorDieselNative extends NativeBase {
+ModelArmorDiesel[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(models == null) {
+			models = new ModelArmorDiesel[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDiesel(i);
+		}
+
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorDieselLegacy extends LegacyBase {
+ModelArmorDiesel[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(models == null) {
+			models = new ModelArmorDiesel[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDiesel(i);
+		}
+
+		return models[armorSlot];
+	}
+}
+public static class ArmorDigammaNative extends NativeBase {
+ModelArmorDigamma[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorDigamma[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDigamma(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorDigammaLegacy extends LegacyBase {
+ModelArmorDigamma[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorDigamma[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorDigamma(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorEnvsuitNative extends NativeBase {
+ModelArmorEnvsuit[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(models == null) {
+			models = new ModelArmorEnvsuit[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorEnvsuit(i);
+		}
+
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorEnvsuitLegacy extends LegacyBase {
+ModelArmorEnvsuit[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(models == null) {
+			models = new ModelArmorEnvsuit[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorEnvsuit(i);
+		}
+
+		return models[armorSlot];
+	}
+}
+public static class ArmorEuphemiumNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
+		if(stack.getItem().equals(ModItems.euphemium_helmet) || stack.getItem().equals(ModItems.euphemium_plate) || stack.getItem().equals(ModItems.euphemium_boots)) {
+			return (RefStrings.MODID + ":textures/armor/euphemium_1.png");
+		}
+		if(stack.getItem().equals(ModItems.euphemium_legs)) {
+			return (RefStrings.MODID + ":textures/armor/euphemium_2.png");
+		}
+		
+		else return null;
+	}
+}
+public static class ArmorEuphemiumLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+		if(stack.getItem().equals(ModItems.euphemium_helmet) || stack.getItem().equals(ModItems.euphemium_plate) || stack.getItem().equals(ModItems.euphemium_boots)) {
+			return (RefStrings.MODID + ":textures/armor/euphemium_1.png");
+		}
+		if(stack.getItem().equals(ModItems.euphemium_legs)) {
+			return (RefStrings.MODID + ":textures/armor/euphemium_2.png");
+		}
+		
+		else return null;
+	}
+}
+public static class ArmorFSBNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
+		return texture;
+	}
+}
+public static class ArmorFSBLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+		return texture;
+	}
+}
+public static class ArmorGasMaskNative extends NativeBase {
+ModelBiped modelGas;
+ModelBiped modelM65;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(this == ModItems.gas_mask) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
+				if(this.modelGas == null) {
+					this.modelGas = new ModelGasMask();
+				}
+				return this.modelGas;
+			}
+		}
+
+		if(this == ModItems.gas_mask_m65 || this == ModItems.gas_mask_olde || this == ModItems.gas_mask_mono) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
+				if(this.modelM65 == null) {
+					this.modelM65 = new ModelM65();
+				}
+				return this.modelM65;
+			}
+		}
+
+		return null;
+	}
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+
+		if(stack.getItem() == ModItems.gas_mask) {
+			return "hbm:textures/models/GasMask.png";
+		}
+		if(stack.getItem() == ModItems.gas_mask_m65) {
+			return "hbm:textures/models/ModelM65.png";
+		}
+		if(stack.getItem() == ModItems.gas_mask_olde) {
+			return "hbm:textures/armor/mask_olde.png";
+		}
+		if(stack.getItem() == ModItems.gas_mask_mono) {
+			return "hbm:textures/models/ModelM65Mono.png";
+		}
+
+		return null;
+	}
+}
+public static class ArmorGasMaskLegacy extends LegacyBase {
+ModelBiped modelGas;
+ModelBiped modelM65;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(this == ModItems.gas_mask) {
+			if(armorSlot == 0) {
+				if(this.modelGas == null) {
+					this.modelGas = new ModelGasMask();
+				}
+				return this.modelGas;
+			}
+		}
+
+		if(this == ModItems.gas_mask_m65 || this == ModItems.gas_mask_olde || this == ModItems.gas_mask_mono) {
+			if(armorSlot == 0) {
+				if(this.modelM65 == null) {
+					this.modelM65 = new ModelM65();
+				}
+				return this.modelM65;
+			}
+		}
+
+		return null;
+	}
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+
+		if(stack.getItem() == ModItems.gas_mask) {
+			return "hbm:textures/models/GasMask.png";
+		}
+		if(stack.getItem() == ModItems.gas_mask_m65) {
+			return "hbm:textures/models/ModelM65.png";
+		}
+		if(stack.getItem() == ModItems.gas_mask_olde) {
+			return "hbm:textures/armor/mask_olde.png";
+		}
+		if(stack.getItem() == ModItems.gas_mask_mono) {
+			return "hbm:textures/models/ModelM65Mono.png";
+		}
+
+		return null;
+	}
+}
+public static class ArmorHEVNative extends NativeBase {
+ModelArmorHEV[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(models == null) {
+			models = new ModelArmorHEV[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorHEV(i);
+		}
+
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorHEVLegacy extends LegacyBase {
+ModelArmorHEV[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(models == null) {
+			models = new ModelArmorHEV[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorHEV(i);
+		}
+
+		return models[armorSlot];
+	}
+}
+public static class ArmorHazmatMaskNative extends NativeBase {
+ModelBiped modelM65;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(this == ModItems.hazmat_helmet_red || this == ModItems.hazmat_helmet_grey) {
+			if (this.modelM65 == null) {
+				this.modelM65 = new ModelM65();
+			}
+			return this.modelM65;
+		}
+		
+		return null;
+	}
+}
+public static class ArmorHazmatMaskLegacy extends LegacyBase {
+ModelBiped modelM65;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(this == ModItems.hazmat_helmet_red || this == ModItems.hazmat_helmet_grey) {
+			if (this.modelM65 == null) {
+				this.modelM65 = new ModelM65();
+			}
+			return this.modelM65;
+		}
+		
+		return null;
+	}
+}
+public static class ArmorLiquidatorNative extends NativeBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if (this == ModItems.liquidator_helmet) {
+			if (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
+				if (this.model == null) {
+					this.model = new ModelM65();
+				}
+				return this.model;
+			}
+		}
+		
+		return super.getArmorModel(entityLiving, itemStack, armorSlot, defaultModel);
+	}
+}
+public static class ArmorLiquidatorLegacy extends LegacyBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if (this == ModItems.liquidator_helmet) {
+			if (armorSlot == 0) {
+				if (this.model == null) {
+					this.model = new ModelM65();
+				}
+				return this.model;
+			}
+		}
+		
+		return super.getArmorModel(entityLiving, itemStack, armorSlot);
+	}
+}
+public static class ArmorModelNative extends NativeBase {
+ModelBiped modelCloak;
+ModelBiped modelGoggles;
+ModelBiped modelHat;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		if(this == ModItems.goggles) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
+				if(modelGoggles == null) modelGoggles = new ModelGoggles();
+				return modelGoggles;
+			}
+		}
+		if(this == ModItems.hat) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
+				if(modelHat == null) modelHat = new ModelHat(0);
+				return modelHat;
+			}
+		}
+		if(this == ModItems.cape_radiation || this == ModItems.cape_gasmask || this == ModItems.cape_schrabidium || this == ModItems.cape_hidden) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {
+				if(modelCloak == null) modelCloak = new ModelCloak();
+				return modelCloak;
+			}
+		}
+		return null;
+	}
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+		if(stack.getItem() == ModItems.goggles) {
+			return "hbm:textures/models/Goggles.png";
+		}
+		if(stack.getItem() == ModItems.cape_radiation) {
+			return "hbm:textures/models/capes/CapeRadiation.png";
+		}
+		if(stack.getItem() == ModItems.cape_gasmask) {
+			return "hbm:textures/models/capes/CapeGasMask.png";
+		}
+		if(stack.getItem() == ModItems.cape_schrabidium) {
+			return "hbm:textures/models/capes/CapeSchrabidium.png";
+		}
+		if(stack.getItem() == ModItems.cape_hidden) {
+			return "hbm:textures/models/capes/CapeHidden.png";
+		}
+
+		return "hbm:textures/models/capes/CapeUnknown.png";
+	}
+}
+public static class ArmorModelLegacy extends LegacyBase {
+ModelBiped modelCloak;
+ModelBiped modelGoggles;
+ModelBiped modelHat;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		if(this == ModItems.goggles) {
+			if(armorSlot == 0) {
+				if(modelGoggles == null) modelGoggles = new ModelGoggles();
+				return modelGoggles;
+			}
+		}
+		if(this == ModItems.hat) {
+			if(armorSlot == 0) {
+				if(modelHat == null) modelHat = new ModelHat(0);
+				return modelHat;
+			}
+		}
+		if(this == ModItems.cape_radiation || this == ModItems.cape_gasmask || this == ModItems.cape_schrabidium || this == ModItems.cape_hidden) {
+			if(armorSlot == 1) {
+				if(modelCloak == null) modelCloak = new ModelCloak();
+				return modelCloak;
+			}
+		}
+		return null;
+	}
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		if(stack.getItem() == ModItems.goggles) {
+			return "hbm:textures/models/Goggles.png";
+		}
+		if(stack.getItem() == ModItems.cape_radiation) {
+			return "hbm:textures/models/capes/CapeRadiation.png";
+		}
+		if(stack.getItem() == ModItems.cape_gasmask) {
+			return "hbm:textures/models/capes/CapeGasMask.png";
+		}
+		if(stack.getItem() == ModItems.cape_schrabidium) {
+			return "hbm:textures/models/capes/CapeSchrabidium.png";
+		}
+		if(stack.getItem() == ModItems.cape_hidden) {
+			return "hbm:textures/models/capes/CapeHidden.png";
+		}
+
+		return "hbm:textures/models/capes/CapeUnknown.png";
+	}
+}
+public static class ArmorNCRPANative extends NativeBase {
+ModelArmorNCRPA[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorNCRPA[4];
+			for(int i = 0; i < 4; i++) models[i] = new ModelArmorNCRPA(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorNCRPALegacy extends LegacyBase {
+ModelArmorNCRPA[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorNCRPA[4];
+			for(int i = 0; i < 4; i++) models[i] = new ModelArmorNCRPA(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorNo9Native extends NativeBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(model == null) {
+			model = new ModelNo9(0);
+		}
+		
+		return model;
+	}
+}
+public static class ArmorNo9Legacy extends LegacyBase {
+ModelBiped model;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(model == null) {
+			model = new ModelNo9(0);
+		}
+		
+		return model;
+	}
+}
+public static class ArmorRPANative extends NativeBase {
+ModelArmorRPA[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorRPA[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorRPA(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorRPALegacy extends LegacyBase {
+ModelArmorRPA[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorRPA[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorRPA(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorT51Native extends NativeBase {
+ModelArmorT51[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		
+		if(models == null) {
+			models = new ModelArmorT51[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorT51(i);
+		}
+		
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorT51Legacy extends LegacyBase {
+ModelArmorT51[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		
+		if(models == null) {
+			models = new ModelArmorT51[4];
+			
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorT51(i);
+		}
+		
+		return models[armorSlot];
+	}
+}
+public static class ArmorTaurunNative extends NativeBase {
+ModelArmorTaurun[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(models == null) {
+			models = new ModelArmorTaurun[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorTaurun(i);
+		}
+
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorTaurunLegacy extends LegacyBase {
+ModelArmorTaurun[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(models == null) {
+			models = new ModelArmorTaurun[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorTaurun(i);
+		}
+
+		return models[armorSlot];
+	}
+}
+public static class ArmorTrenchmasterNative extends NativeBase {
+ModelArmorTrenchmaster[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+
+		if(models == null) {
+			models = new ModelArmorTrenchmaster[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorTrenchmaster(i);
+		}
+
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
+	}
+}
+public static class ArmorTrenchmasterLegacy extends LegacyBase {
+ModelArmorTrenchmaster[] models;
+String texture="hbm:test/worn";
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+
+		if(models == null) {
+			models = new ModelArmorTrenchmaster[4];
+
+			for(int i = 0; i < 4; i++)
+				models[i] = new ModelArmorTrenchmaster(i);
+		}
+
+		return models[armorSlot];
+	}
+}
+public static class ItemModHeavyBootsNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public boolean isValidArmor(ItemStack stack, net.minecraft.inventory.EntityEquipmentSlot armorType, Entity entity) {
+		return armorType == net.minecraft.inventory.EntityEquipmentSlot.FEET;
+	}
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+		return "hbm:textures/armor/heavy_boots.png";
+	}
+}
+public static class ItemModHeavyBootsLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity) {
+		return armorType == 3;
+	}
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return "hbm:textures/armor/heavy_boots.png";
+	}
+}
+public static class JetpackBaseNative extends NativeBase {
+ModelBiped cachedModel;
+String texture="hbm:test/worn";
+@Override
+	public boolean isValidArmor(ItemStack stack, net.minecraft.inventory.EntityEquipmentSlot armorType, Entity entity) {
+		return armorType == net.minecraft.inventory.EntityEquipmentSlot.CHEST;
+	}
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		if (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {
+			if (cachedModel == null) {
+				this.cachedModel = new ModelJetPack();
+			}
+			return this.cachedModel;
+		}
+		
+		return null;
+	}
+}
+public static class JetpackBaseLegacy extends LegacyBase {
+ModelBiped cachedModel;
+String texture="hbm:test/worn";
+@Override
+	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity) {
+		return armorType == 1;
+	}
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		if (armorSlot == 1) {
+			if (cachedModel == null) {
+				this.cachedModel = new ModelJetPack();
+			}
+			return this.cachedModel;
+		}
+		
+		return null;
+	}
+}
+public static class JetpackBoosterNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+		return "hbm:textures/models/JetPack.png";
+	}
+}
+public static class JetpackBoosterLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return "hbm:textures/models/JetPack.png";
+	}
+}
+public static class JetpackBreakNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+		return "hbm:textures/models/JetPackBlue.png";
+	}
+}
+public static class JetpackBreakLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return "hbm:textures/models/JetPackBlue.png";
+	}
+}
+public static class JetpackRegularNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+		return "hbm:textures/models/JetPackRed.png";
+	}
+}
+public static class JetpackRegularLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return "hbm:textures/models/JetPackRed.png";
+	}
+}
+public static class JetpackVectorizedNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+		return "hbm:textures/models/JetPackGreen.png";
+	}
+}
+public static class JetpackVectorizedLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return "hbm:textures/models/JetPackGreen.png";
+	}
+}
+public static class MaskOfInfamyNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
+		
+		return (RefStrings.MODID + ":textures/armor/MaskOfInfamy.png");
+	}
+}
+public static class MaskOfInfamyLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+		
+		return (RefStrings.MODID + ":textures/armor/MaskOfInfamy.png");
+	}
+}
+public static class ModArmorNative extends NativeBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
+		if(stack.getItem().equals(ModItems.steel_helmet) || stack.getItem().equals(ModItems.steel_plate) || stack.getItem().equals(ModItems.steel_boots)) {
+			return (RefStrings.MODID + ":textures/armor/steel_1.png");
+		}
+		if(stack.getItem().equals(ModItems.steel_legs)) {
+			return (RefStrings.MODID + ":textures/armor/steel_2.png");
+		}
+		if(stack.getItem().equals(ModItems.titanium_helmet) || stack.getItem().equals(ModItems.titanium_plate) || stack.getItem().equals(ModItems.titanium_boots)) {
+			return (RefStrings.MODID + ":textures/armor/titanium_1.png");
+		}
+		if(stack.getItem().equals(ModItems.titanium_legs)) {
+			return (RefStrings.MODID + ":textures/armor/titanium_2.png");
+		}
+		if(stack.getItem().equals(ModItems.alloy_helmet) || stack.getItem().equals(ModItems.alloy_plate) || stack.getItem().equals(ModItems.alloy_boots)) {
+			return (RefStrings.MODID + ":textures/armor/alloy_1.png");
+		}
+		if(stack.getItem().equals(ModItems.alloy_legs)) {
+			return (RefStrings.MODID + ":textures/armor/alloy_2.png");
+		}
+		if(stack.getItem().equals(ModItems.cmb_helmet) || stack.getItem().equals(ModItems.cmb_plate) || stack.getItem().equals(ModItems.cmb_boots)) {
+			return (RefStrings.MODID + ":textures/armor/cmb_1.png");
+		}
+		if(stack.getItem().equals(ModItems.cmb_legs)) {
+			return (RefStrings.MODID + ":textures/armor/cmb_2.png");
+		}
+		if(stack.getItem().equals(ModItems.paa_plate) || stack.getItem().equals(ModItems.paa_boots)) {
+			return (RefStrings.MODID + ":textures/armor/paa_1.png");
+		}
+		if(stack.getItem().equals(ModItems.paa_legs)) {
+			return (RefStrings.MODID + ":textures/armor/paa_2.png");
+		}
+		if(stack.getItem().equals(ModItems.asbestos_helmet) || stack.getItem().equals(ModItems.asbestos_plate) || stack.getItem().equals(ModItems.asbestos_boots)) {
+			return (RefStrings.MODID + ":textures/armor/asbestos_1.png");
+		}
+		if(stack.getItem().equals(ModItems.asbestos_legs)) {
+			return (RefStrings.MODID + ":textures/armor/asbestos_2.png");
+		}
+		if(stack.getItem().equals(ModItems.jackt)) {
+			return (RefStrings.MODID + ":textures/armor/jackt.png");
+		}
+		if(stack.getItem().equals(ModItems.jackt2)) {
+			return (RefStrings.MODID + ":textures/armor/jackt2.png");
+		}
+		if(stack.getItem().equals(ModItems.security_helmet) || stack.getItem().equals(ModItems.security_plate) || stack.getItem().equals(ModItems.security_boots)) {
+			return (RefStrings.MODID + ":textures/armor/security_1.png");
+		}
+		if(stack.getItem().equals(ModItems.security_legs)) {
+			return (RefStrings.MODID + ":textures/armor/security_2.png");
+		}
+		if(stack.getItem().equals(ModItems.mask_rag)) {
+			return (RefStrings.MODID + ":textures/armor/rag_damp.png");
+		}
+		if(stack.getItem().equals(ModItems.mask_piss)) {
+			return (RefStrings.MODID + ":textures/armor/rag_piss.png");
+		}
+		
+		else return null;
+	}
+}
+public static class ModArmorLegacy extends LegacyBase {
+
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+		if(stack.getItem().equals(ModItems.steel_helmet) || stack.getItem().equals(ModItems.steel_plate) || stack.getItem().equals(ModItems.steel_boots)) {
+			return (RefStrings.MODID + ":textures/armor/steel_1.png");
+		}
+		if(stack.getItem().equals(ModItems.steel_legs)) {
+			return (RefStrings.MODID + ":textures/armor/steel_2.png");
+		}
+		if(stack.getItem().equals(ModItems.titanium_helmet) || stack.getItem().equals(ModItems.titanium_plate) || stack.getItem().equals(ModItems.titanium_boots)) {
+			return (RefStrings.MODID + ":textures/armor/titanium_1.png");
+		}
+		if(stack.getItem().equals(ModItems.titanium_legs)) {
+			return (RefStrings.MODID + ":textures/armor/titanium_2.png");
+		}
+		if(stack.getItem().equals(ModItems.alloy_helmet) || stack.getItem().equals(ModItems.alloy_plate) || stack.getItem().equals(ModItems.alloy_boots)) {
+			return (RefStrings.MODID + ":textures/armor/alloy_1.png");
+		}
+		if(stack.getItem().equals(ModItems.alloy_legs)) {
+			return (RefStrings.MODID + ":textures/armor/alloy_2.png");
+		}
+		if(stack.getItem().equals(ModItems.cmb_helmet) || stack.getItem().equals(ModItems.cmb_plate) || stack.getItem().equals(ModItems.cmb_boots)) {
+			return (RefStrings.MODID + ":textures/armor/cmb_1.png");
+		}
+		if(stack.getItem().equals(ModItems.cmb_legs)) {
+			return (RefStrings.MODID + ":textures/armor/cmb_2.png");
+		}
+		if(stack.getItem().equals(ModItems.paa_plate) || stack.getItem().equals(ModItems.paa_boots)) {
+			return (RefStrings.MODID + ":textures/armor/paa_1.png");
+		}
+		if(stack.getItem().equals(ModItems.paa_legs)) {
+			return (RefStrings.MODID + ":textures/armor/paa_2.png");
+		}
+		if(stack.getItem().equals(ModItems.asbestos_helmet) || stack.getItem().equals(ModItems.asbestos_plate) || stack.getItem().equals(ModItems.asbestos_boots)) {
+			return (RefStrings.MODID + ":textures/armor/asbestos_1.png");
+		}
+		if(stack.getItem().equals(ModItems.asbestos_legs)) {
+			return (RefStrings.MODID + ":textures/armor/asbestos_2.png");
+		}
+		if(stack.getItem().equals(ModItems.jackt)) {
+			return (RefStrings.MODID + ":textures/armor/jackt.png");
+		}
+		if(stack.getItem().equals(ModItems.jackt2)) {
+			return (RefStrings.MODID + ":textures/armor/jackt2.png");
+		}
+		if(stack.getItem().equals(ModItems.security_helmet) || stack.getItem().equals(ModItems.security_plate) || stack.getItem().equals(ModItems.security_boots)) {
+			return (RefStrings.MODID + ":textures/armor/security_1.png");
+		}
+		if(stack.getItem().equals(ModItems.security_legs)) {
+			return (RefStrings.MODID + ":textures/armor/security_2.png");
+		}
+		if(stack.getItem().equals(ModItems.mask_rag)) {
+			return (RefStrings.MODID + ":textures/armor/rag_damp.png");
+		}
+		if(stack.getItem().equals(ModItems.mask_piss)) {
+			return (RefStrings.MODID + ":textures/armor/rag_piss.png");
+		}
+		
+		else return null;
+	}
+}
+public static class WingsMurkNative extends NativeBase {
+ModelBiped cachedModel;
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
+		return ResourceManager.wings_murk.toString();
+	}
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		if (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {
+			if(cachedModel == null) {
+				cachedModel = new ModelArmorWings(this == ModItems.wings_murk ? 0 : 1);
+			}
+
+			return cachedModel;
+		}
+
+		return null;
+	}
+}
+public static class WingsMurkLegacy extends LegacyBase {
+ModelBiped cachedModel;
+String texture="hbm:test/worn";
+@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return ResourceManager.wings_murk.toString();
+	}
+@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		if (armorSlot == 1) {
+			if(cachedModel == null) {
+				cachedModel = new ModelArmorWings(this == ModItems.wings_murk ? 0 : 1);
+			}
+
+			return cachedModel;
+		}
+
+		return null;
+	}
+}
+public static class CtorArmorAsbestos extends ItemArmor { String texture; public CtorArmorAsbestos(ArmorMaterial armorMaterial, int armorType) {
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
+	} }
+public static class CtorArmorAshGlasses extends ItemArmor { String texture; public CtorArmorAshGlasses(ArmorMaterial armorMaterial, int armorType) {
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
+	} }
+public static class CtorArmorEuphemium extends ItemArmor { String texture; public CtorArmorEuphemium(ArmorMaterial armorMaterial, int armorType) {
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
+		this.setCreativeTab(null);
+	} }
+public static class CtorArmorFSB extends ItemArmor { String texture; public CtorArmorFSB(ArmorMaterial material, int slot, String texture) {
+		super(material, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));
+		this.texture = texture;
+		NativeItemTextureRegistry.texture(this, RefStrings.MODID + ":armor");
+	} }
+public static class CtorArmorGasMask extends ItemArmor { String texture; public CtorArmorGasMask() {
+		super(ArmorMaterial.IRON, 0, com.hbm.util.ArmorSlotOrder.fromIndex(0));
+	} }
+public static class CtorArmorModel extends ItemArmor { String texture; public CtorArmorModel(ArmorMaterial armorMaterial, int armorType) {
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
+	} }
+public static class CtorMaskOfInfamy extends ItemArmor { String texture; public CtorMaskOfInfamy(ArmorMaterial mat, int slot) {
+		super(mat, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));
+	} }
+public static class CtorModArmor extends ItemArmor { String texture; public CtorModArmor(ArmorMaterial material, int slot) {
+		super(material, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));
+	} }
+public static class HazmatRegistry { public static java.util.List<com.hbm.util.Tuple.Pair> external=new ArrayList<>();public static double helmet = 0.2D;public static double chest = 0.4D;public static double legs = 0.3D;public static double boots = 0.1D;}
+public static class ArmorFSB extends ItemArmor { public double radResist; public ArmorFSB(int slot){super(ArmorMaterial.IRON,0,ArmorSlotOrder.fromIndex(slot));}
+public ArmorFSB setRadResist(double fullSet) {
+		this.radResist = fullSet;
+		if(fullSet > 0) {
+			double mult = com.hbm.util.ArmorSlotOrder.index(armorType) == 0 ? HazmatRegistry.helmet :
+				com.hbm.util.ArmorSlotOrder.index(armorType) == 1 ? HazmatRegistry.chest : 
+				com.hbm.util.ArmorSlotOrder.index(armorType) == 2 ? HazmatRegistry.legs : HazmatRegistry.boots;
+			HazmatRegistry.external.add(new com.hbm.util.Tuple.Pair(this, fullSet * mult));
+		}
+		return this;
+	}}
+public static class Modifiers extends ItemArmor { public Modifiers(int slot){super(ArmorMaterial.IRON,0,ArmorSlotOrder.fromIndex(slot));} public AttributeModifier get(int which,ItemStack armor,float health,float speed){switch(which){case 0: return new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", -0.025D, 1);case 1: return new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", 0.25D, 1);case 2: return new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", 100D, 0);case 3: return new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", -0.1D, 1);case 4: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Health", health, 0);case 5: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Speed", -1F + speed, 2);case 6: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Knockback", 0.5, 0);case 7: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2);case 8: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 1.5, 2);case 9: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.25, 2);case 10: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2);case 11: return new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Health", 4, 0);default:throw new AssertionError();}} }
+public static int armorTableIndex(net.minecraft.entity.player.InventoryPlayer inventory,int i){return inventory.mainInventory.size() + 3 - i;}
+}

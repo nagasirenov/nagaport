@@ -6,6 +6,7 @@ import com.hbm.inventory.RecipesCommon.ComparableStack;
 import com.hbm.util.Tuple.Triplet;
 
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCMessage;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -23,7 +24,7 @@ public class IMCBlastFurnace extends IMCHandler {
 		
 		final NBTTagCompound data = message.getNBTValue();
 		final NBTTagCompound outputData = data.getCompoundTag("output");
-		final ItemStack output = ItemStack.loadItemStackFromNBT(outputData);
+		final ItemStack output = NullableInventoryStackNbt.read(outputData);
 
 		if(output == null) {
 			printError(message, "Output stack could not be read!");
@@ -47,7 +48,7 @@ public class IMCBlastFurnace extends IMCHandler {
 			break;
 			
 		case "itemstack":
-			input1 = new ComparableStack(ItemStack.loadItemStackFromNBT(data.getCompoundTag("input1")));
+			input1 = new ComparableStack(NullableInventoryStackNbt.read(data.getCompoundTag("input1")));
 			break;
 			
 		default:
@@ -69,7 +70,7 @@ public class IMCBlastFurnace extends IMCHandler {
 			break;
 			
 		case "itemstack":
-			input2 = new ComparableStack(ItemStack.loadItemStackFromNBT(data.getCompoundTag("input2")));
+			input2 = new ComparableStack(NullableInventoryStackNbt.read(data.getCompoundTag("input2")));
 			break;
 			
 		default:

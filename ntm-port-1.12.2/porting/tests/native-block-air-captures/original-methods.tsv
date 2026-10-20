@@ -1,0 +1,2 @@
+CODE	com/hbm/blocks/machine/BlockBeamBase	(Lnet/minecraft/world/IBlockAccess;III)Z	4,172
+METHOD	com/hbm/blocks/machine/BlockBeamBase	(Lnet/minecraft/world/IBlockAccess;III)Z

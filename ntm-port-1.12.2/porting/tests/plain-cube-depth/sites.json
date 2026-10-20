@@ -1,0 +1,152 @@
+[
+  {
+    "line": 1506,
+    "name": "stone_depth",
+    "owner": "BlockDepth",
+    "item": "ItemBlockBase",
+    "texture": "stone_depth",
+    "registration": "GameRegistry.registerBlock(stone_depth, ItemBlockBase.class, stone_depth.getTranslationKey());",
+    "before": "\t\tstone_depth = new BlockDepth().setTranslationKey(\"stone_depth\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":stone_depth\");",
+    "after": "\t\tstone_depth = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"stone_depth\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":stone_depth\");"
+  },
+  {
+    "line": 1507,
+    "name": "ore_depth_cinnebar",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "ore_depth_cinnebar",
+    "registration": "GameRegistry.registerBlock(ore_depth_cinnebar, ItemBlockBase.class, ore_depth_cinnebar.getTranslationKey());",
+    "before": "\t\tore_depth_cinnebar = new BlockDepthOre().setTranslationKey(\"ore_depth_cinnebar\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_cinnebar\");",
+    "after": "\t\tore_depth_cinnebar = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_cinnebar\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_cinnebar\");"
+  },
+  {
+    "line": 1508,
+    "name": "ore_depth_zirconium",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "ore_depth_zirconium",
+    "registration": "GameRegistry.registerBlock(ore_depth_zirconium, ItemBlockBase.class, ore_depth_zirconium.getTranslationKey());",
+    "before": "\t\tore_depth_zirconium = new BlockDepthOre().setTranslationKey(\"ore_depth_zirconium\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_zirconium\");",
+    "after": "\t\tore_depth_zirconium = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_zirconium\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_zirconium\");"
+  },
+  {
+    "line": 1509,
+    "name": "ore_depth_borax",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "ore_depth_borax",
+    "registration": "GameRegistry.registerBlock(ore_depth_borax, ItemBlockBase.class, ore_depth_borax.getTranslationKey());",
+    "before": "\t\tore_depth_borax = new BlockDepthOre().setTranslationKey(\"ore_depth_borax\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_borax\");",
+    "after": "\t\tore_depth_borax = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_borax\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_borax\");"
+  },
+  {
+    "line": 1510,
+    "name": "cluster_depth_iron",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "cluster_depth_iron",
+    "registration": "GameRegistry.registerBlock(cluster_depth_iron, ItemBlockBase.class, cluster_depth_iron.getTranslationKey());",
+    "before": "\t\tcluster_depth_iron = new BlockDepthOre().setTranslationKey(\"cluster_depth_iron\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":cluster_depth_iron\");",
+    "after": "\t\tcluster_depth_iron = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"cluster_depth_iron\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":cluster_depth_iron\");"
+  },
+  {
+    "line": 1511,
+    "name": "cluster_depth_titanium",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "cluster_depth_titanium",
+    "registration": "GameRegistry.registerBlock(cluster_depth_titanium, ItemBlockBase.class, cluster_depth_titanium.getTranslationKey());",
+    "before": "\t\tcluster_depth_titanium = new BlockDepthOre().setTranslationKey(\"cluster_depth_titanium\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":cluster_depth_titanium\");",
+    "after": "\t\tcluster_depth_titanium = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"cluster_depth_titanium\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":cluster_depth_titanium\");"
+  },
+  {
+    "line": 1512,
+    "name": "cluster_depth_tungsten",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "cluster_depth_tungsten",
+    "registration": "GameRegistry.registerBlock(cluster_depth_tungsten, ItemBlockBase.class, cluster_depth_tungsten.getTranslationKey());",
+    "before": "\t\tcluster_depth_tungsten = new BlockDepthOre().setTranslationKey(\"cluster_depth_tungsten\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":cluster_depth_tungsten\");",
+    "after": "\t\tcluster_depth_tungsten = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"cluster_depth_tungsten\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":cluster_depth_tungsten\");"
+  },
+  {
+    "line": 1513,
+    "name": "ore_alexandrite",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "ore_alexandrite",
+    "registration": "GameRegistry.registerBlock(ore_alexandrite, ItemBlockBase.class, ore_alexandrite.getTranslationKey());",
+    "before": "\t\tore_alexandrite = new BlockDepthOre().setTranslationKey(\"ore_alexandrite\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_alexandrite\");",
+    "after": "\t\tore_alexandrite = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_alexandrite\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_alexandrite\");"
+  },
+  {
+    "line": 1521,
+    "name": "depth_brick",
+    "owner": "BlockDepth",
+    "item": "ItemBlockBase",
+    "texture": "depth_brick",
+    "registration": "GameRegistry.registerBlock(depth_brick, ItemBlockBase.class, depth_brick.getTranslationKey());",
+    "before": "\t\tdepth_brick = new BlockDepth().setTranslationKey(\"depth_brick\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_brick\");",
+    "after": "\t\tdepth_brick = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_brick\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_brick\");"
+  },
+  {
+    "line": 1522,
+    "name": "depth_tiles",
+    "owner": "BlockDepth",
+    "item": "ItemBlockBase",
+    "texture": "depth_tiles",
+    "registration": "GameRegistry.registerBlock(depth_tiles, ItemBlockBase.class, depth_tiles.getTranslationKey());",
+    "before": "\t\tdepth_tiles = new BlockDepth().setTranslationKey(\"depth_tiles\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_tiles\");",
+    "after": "\t\tdepth_tiles = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_tiles\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_tiles\");"
+  },
+  {
+    "line": 1523,
+    "name": "depth_nether_brick",
+    "owner": "BlockDepth",
+    "item": "ItemBlockBase",
+    "texture": "depth_nether_brick",
+    "registration": "GameRegistry.registerBlock(depth_nether_brick, ItemBlockBase.class, depth_nether_brick.getTranslationKey());",
+    "before": "\t\tdepth_nether_brick = new BlockDepth().setTranslationKey(\"depth_nether_brick\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_nether_brick\");",
+    "after": "\t\tdepth_nether_brick = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_nether_brick\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_nether_brick\");"
+  },
+  {
+    "line": 1524,
+    "name": "depth_nether_tiles",
+    "owner": "BlockDepth",
+    "item": "ItemBlockBase",
+    "texture": "depth_nether_tiles",
+    "registration": "GameRegistry.registerBlock(depth_nether_tiles, ItemBlockBase.class, depth_nether_tiles.getTranslationKey());",
+    "before": "\t\tdepth_nether_tiles = new BlockDepth().setTranslationKey(\"depth_nether_tiles\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_nether_tiles\");",
+    "after": "\t\tdepth_nether_tiles = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_nether_tiles\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_nether_tiles\");"
+  },
+  {
+    "line": 1525,
+    "name": "depth_dnt",
+    "owner": "BlockDepth",
+    "item": "ItemBlockBase",
+    "texture": "depth_dnt",
+    "registration": "GameRegistry.registerBlock(depth_dnt, ItemBlockBase.class, depth_dnt.getTranslationKey());",
+    "before": "\t\tdepth_dnt = new BlockDepth().setTranslationKey(\"depth_dnt\").setCreativeTab(MainRegistry.blockTab).setResistance(60000.0F).setBlockTextureName(RefStrings.MODID + \":depth_dnt\");",
+    "after": "\t\tdepth_dnt = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_dnt\").setCreativeTab(MainRegistry.blockTab).setResistance(60000.0F), RefStrings.MODID + \":depth_dnt\");"
+  },
+  {
+    "line": 1527,
+    "name": "stone_depth_nether",
+    "owner": "BlockDepth",
+    "item": "ItemBlockBase",
+    "texture": "stone_depth_nether",
+    "registration": "GameRegistry.registerBlock(stone_depth_nether, ItemBlockBase.class, stone_depth_nether.getTranslationKey());",
+    "before": "\t\tstone_depth_nether = new BlockDepth().setTranslationKey(\"stone_depth_nether\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":stone_depth_nether\");",
+    "after": "\t\tstone_depth_nether = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"stone_depth_nether\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":stone_depth_nether\");"
+  },
+  {
+    "line": 1528,
+    "name": "ore_depth_nether_neodymium",
+    "owner": "BlockDepthOre",
+    "item": "ItemBlockBase",
+    "texture": "ore_depth_nether_neodymium",
+    "registration": "GameRegistry.registerBlock(ore_depth_nether_neodymium, ItemBlockBase.class, ore_depth_nether_neodymium.getTranslationKey());",
+    "before": "\t\tore_depth_nether_neodymium = new BlockDepthOre().setTranslationKey(\"ore_depth_nether_neodymium\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_nether_neodymium\");",
+    "after": "\t\tore_depth_nether_neodymium = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_nether_neodymium\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_nether_neodymium\");"
+  }
+]

@@ -17,6 +17,9 @@ import com.hbm.util.Vec3NT;
 import api.hbm.entity.IRadarDetectable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.ChunkPos;
@@ -28,6 +31,8 @@ import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
 public class EntityArtilleryRocket extends EntityThrowableInterp implements IChunkLoader, IRadarDetectable {
+
+	private static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryRocket.class, DataSerializers.VARINT);
 
 	private Ticket loaderTicket;
 
@@ -49,7 +54,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 	@Override
 	protected void entityInit() {
 		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
-		this.dataWatcher.addObject(10, new Integer(0));
+		this.dataManager.register(AMMO_TYPE, new Integer(0));
 	}
 
 	@Override
@@ -59,13 +64,17 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 	}
 
 	public EntityArtilleryRocket setType(int type) {
-		this.dataWatcher.updateObject(10, type);
+		this.dataManager.set(AMMO_TYPE, type);
 		return this;
+	}
+
+	public int getTypeId() {
+		return this.dataManager.get(AMMO_TYPE);
 	}
 
 	public HIMARSRocket getType() {
 		try {
-			return ItemAmmoHIMARS.itemTypes[this.dataWatcher.getWatchableObjectInt(10)];
+			return ItemAmmoHIMARS.itemTypes[this.dataManager.get(AMMO_TYPE)];
 		} catch(Exception ex) {
 			return ItemAmmoHIMARS.itemTypes[0];
 		}
@@ -200,7 +209,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 		nbt.setDouble("targetY", this.lastTargetPos.y);
 		nbt.setDouble("targetZ", this.lastTargetPos.z);
 
-		nbt.setInteger("type", this.dataWatcher.getWatchableObjectInt(10));
+		nbt.setInteger("type", this.dataManager.get(AMMO_TYPE));
 	}
 
 	@Override
@@ -209,7 +218,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 
 		this.lastTargetPos = new Vec3d(nbt.getDouble("targetX"), nbt.getDouble("targetY"), nbt.getDouble("targetZ"));
 
-		this.dataWatcher.updateObject(10, nbt.getInteger("type"));
+		this.dataManager.set(AMMO_TYPE, nbt.getInteger("type"));
 	}
 
 	@Override

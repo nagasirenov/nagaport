@@ -77,18 +77,18 @@ public class ItemModHeavyBoots extends ItemArmorMod {
 	}
 
 	@Override
-	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity) {
-		return armorType == 3;
+	public boolean isValidArmor(ItemStack stack, net.minecraft.inventory.EntityEquipmentSlot armorType, Entity entity) {
+		return armorType == net.minecraft.inventory.EntityEquipmentSlot.FEET;
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
 		return "hbm:textures/armor/heavy_boots.png";
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void armorRender(RenderPlayerEvent.SetArmorModel event, ItemStack armor) {
-		RenderPlayer renderer = event.renderer;
+		RenderPlayer renderer = event.getRenderer();
 		ModelBiped modelbiped = renderer.modelArmor;
 		modelbiped.bipedHead.showModel = false;
 		modelbiped.bipedHeadwear.showModel = false;
@@ -101,9 +101,9 @@ public class ItemModHeavyBoots extends ItemArmorMod {
 		modelbiped.isRiding = renderer.modelBipedMain.isRiding;
 		modelbiped.isChild = renderer.modelBipedMain.isChild;
 
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 
-		float interp = event.partialRenderTick;
+		float interp = event.getPartialRenderTick();
 
 		float swingRight = player.prevLimbSwingAmount + (player.limbSwingAmount - player.prevLimbSwingAmount) * interp;
 		float swingLeft = player.limbSwing - player.limbSwingAmount * (1.0F - interp);
@@ -117,8 +117,8 @@ public class ItemModHeavyBoots extends ItemArmorMod {
 		float pitch = player.rotationPitch;
 
 		modelbiped.setLivingAnimations(player, swingLeft, swingRight, interp);
-		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), 3, null)));
-		modelbiped.render(event.entityPlayer, swingLeft, swingRight, yawWrapped, yaw, pitch, 0.0625F);
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(this.getArmorTexture(armor, event.getEntity(), net.minecraft.inventory.EntityEquipmentSlot.FEET, null)));
+		modelbiped.render(event.getEntityPlayer(), swingLeft, swingRight, yawWrapped, yaw, pitch, 0.0625F);
 	}
 
 }

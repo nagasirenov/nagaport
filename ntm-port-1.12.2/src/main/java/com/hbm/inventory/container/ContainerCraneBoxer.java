@@ -59,7 +59,7 @@ public class ContainerCraneBoxer extends Container {
 				var4.onSlotChanged();
 			}
 
-			var4.onPickupFromSlot(player, var5);
+			var4.onTake(player, var5);
 		}
 
 		return var3;

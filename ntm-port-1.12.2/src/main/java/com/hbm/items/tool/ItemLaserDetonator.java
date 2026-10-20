@@ -61,7 +61,7 @@ public class ItemLaserDetonator extends Item implements IHoldableWeapon {
 			
 			for(int i = 0; i < len; i++) {
 				double rand = world.rand.nextDouble() * len + 3;
-				world.spawnParticle("reddust", player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);
 			}
 		}
 

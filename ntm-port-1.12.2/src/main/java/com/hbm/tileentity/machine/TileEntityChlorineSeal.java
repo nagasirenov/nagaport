@@ -18,7 +18,7 @@ public class TileEntityChlorineSeal extends TileEntity implements net.minecraft.
 		if(index > 50)
 			return;
 		
-		if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, x, y, z))
+		if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)))
 			this.world.setBlock(x, y, z, ModBlocks.chlorine_gas);
 		
 		if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock() != ModBlocks.chlorine_gas && com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock() != ModBlocks.vent_chlorine_seal)

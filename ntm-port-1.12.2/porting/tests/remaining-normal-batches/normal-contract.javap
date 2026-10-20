@@ -1,0 +1,260 @@
+Official 1.7.10 setter: signed-byte normal conversion and private packed value.
+  public void c(float, float, float);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #42                 // Field o:Z
+       5: fload_1
+       6: ldc           #6                  // float 127.0f
+       8: fmul
+       9: f2i
+      10: i2b
+      11: istore        4
+      13: fload_2
+      14: ldc           #6                  // float 127.0f
+      16: fmul
+      17: f2i
+      18: i2b
+      19: istore        5
+      21: fload_3
+      22: ldc           #6                  // float 127.0f
+      24: fmul
+      25: f2i
+      26: i2b
+      27: istore        6
+      29: aload_0
+      30: iload         4
+      32: sipush        255
+      35: iand
+      36: iload         5
+      38: sipush        255
+      41: iand
+      42: bipush        8
+      44: ishl
+      45: ior
+      46: iload         6
+      48: sipush        255
+      51: iand
+      52: bipush        16
+      54: ishl
+      55: ior
+      56: putfield      #50                 // Field w:I
+      59: return
+
+Actual 1.12.2 BufferBuilder normal encoder; selected formats use BYTE.
+  public net.minecraft.client.renderer.BufferBuilder normal(float, float, float);
+    Code:
+       0: aload_0
+       1: getfield      #100                // Field vertexCount:I
+       4: aload_0
+       5: getfield      #102                // Field vertexFormat:Lnet/minecraft/client/renderer/vertex/VertexFormat;
+       8: invokevirtual #107                // Method net/minecraft/client/renderer/vertex/VertexFormat.getSize:()I
+      11: imul
+      12: aload_0
+      13: getfield      #102                // Field vertexFormat:Lnet/minecraft/client/renderer/vertex/VertexFormat;
+      16: aload_0
+      17: getfield      #291                // Field vertexFormatIndex:I
+      20: invokevirtual #320                // Method net/minecraft/client/renderer/vertex/VertexFormat.getOffset:(I)I
+      23: iadd
+      24: istore        4
+      26: getstatic     #323                // Field net/minecraft/client/renderer/BufferBuilder$2.$SwitchMap$net$minecraft$client$renderer$vertex$VertexFormatElement$EnumType:[I
+      29: aload_0
+      30: getfield      #289                // Field vertexFormatElement:Lnet/minecraft/client/renderer/vertex/VertexFormatElement;
+      33: invokevirtual #327                // Method net/minecraft/client/renderer/vertex/VertexFormatElement.getType:()Lnet/minecraft/client/renderer/vertex/VertexFormatElement$EnumType;
+      36: invokevirtual #330                // Method net/minecraft/client/renderer/vertex/VertexFormatElement$EnumType.ordinal:()I
+      39: iaload
+      40: tableswitch   { // 1 to 7
+                     1: 84
+                     2: 125
+                     3: 125
+                     4: 169
+                     5: 169
+                     6: 239
+                     7: 239
+               default: 306
+          }
+      84: aload_0
+      85: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+      88: iload         4
+      90: fload_1
+      91: invokevirtual #334                // Method java/nio/ByteBuffer.putFloat:(IF)Ljava/nio/ByteBuffer;
+      94: pop
+      95: aload_0
+      96: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+      99: iload         4
+     101: iconst_4
+     102: iadd
+     103: fload_2
+     104: invokevirtual #334                // Method java/nio/ByteBuffer.putFloat:(IF)Ljava/nio/ByteBuffer;
+     107: pop
+     108: aload_0
+     109: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     112: iload         4
+     114: bipush        8
+     116: iadd
+     117: fload_3
+     118: invokevirtual #334                // Method java/nio/ByteBuffer.putFloat:(IF)Ljava/nio/ByteBuffer;
+     121: pop
+     122: goto          306
+     125: aload_0
+     126: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     129: iload         4
+     131: fload_1
+     132: f2i
+     133: invokevirtual #338                // Method java/nio/ByteBuffer.putInt:(II)Ljava/nio/ByteBuffer;
+     136: pop
+     137: aload_0
+     138: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     141: iload         4
+     143: iconst_4
+     144: iadd
+     145: fload_2
+     146: f2i
+     147: invokevirtual #338                // Method java/nio/ByteBuffer.putInt:(II)Ljava/nio/ByteBuffer;
+     150: pop
+     151: aload_0
+     152: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     155: iload         4
+     157: bipush        8
+     159: iadd
+     160: fload_3
+     161: f2i
+     162: invokevirtual #338                // Method java/nio/ByteBuffer.putInt:(II)Ljava/nio/ByteBuffer;
+     165: pop
+     166: goto          306
+     169: aload_0
+     170: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     173: iload         4
+     175: fload_1
+     176: ldc_w         #467                // float 32767.0f
+     179: fmul
+     180: f2i
+     181: ldc_w         #468                // int 65535
+     184: iand
+     185: i2s
+     186: invokevirtual #342                // Method java/nio/ByteBuffer.putShort:(IS)Ljava/nio/ByteBuffer;
+     189: pop
+     190: aload_0
+     191: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     194: iload         4
+     196: iconst_2
+     197: iadd
+     198: fload_2
+     199: ldc_w         #467                // float 32767.0f
+     202: fmul
+     203: f2i
+     204: ldc_w         #468                // int 65535
+     207: iand
+     208: i2s
+     209: invokevirtual #342                // Method java/nio/ByteBuffer.putShort:(IS)Ljava/nio/ByteBuffer;
+     212: pop
+     213: aload_0
+     214: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     217: iload         4
+     219: iconst_4
+     220: iadd
+     221: fload_3
+     222: ldc_w         #467                // float 32767.0f
+     225: fmul
+     226: f2i
+     227: ldc_w         #468                // int 65535
+     230: iand
+     231: i2s
+     232: invokevirtual #342                // Method java/nio/ByteBuffer.putShort:(IS)Ljava/nio/ByteBuffer;
+     235: pop
+     236: goto          306
+     239: aload_0
+     240: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     243: iload         4
+     245: fload_1
+     246: ldc_w         #447                // float 127.0f
+     249: fmul
+     250: f2i
+     251: sipush        255
+     254: iand
+     255: i2b
+     256: invokevirtual #345                // Method java/nio/ByteBuffer.put:(IB)Ljava/nio/ByteBuffer;
+     259: pop
+     260: aload_0
+     261: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     264: iload         4
+     266: iconst_1
+     267: iadd
+     268: fload_2
+     269: ldc_w         #447                // float 127.0f
+     272: fmul
+     273: f2i
+     274: sipush        255
+     277: iand
+     278: i2b
+     279: invokevirtual #345                // Method java/nio/ByteBuffer.put:(IB)Ljava/nio/ByteBuffer;
+     282: pop
+     283: aload_0
+     284: getfield      #62                 // Field byteBuffer:Ljava/nio/ByteBuffer;
+     287: iload         4
+     289: iconst_2
+     290: iadd
+     291: fload_3
+     292: ldc_w         #447                // float 127.0f
+     295: fmul
+     296: f2i
+     297: sipush        255
+     300: iand
+     301: i2b
+     302: invokevirtual #345                // Method java/nio/ByteBuffer.put:(IB)Ljava/nio/ByteBuffer;
+     305: pop
+     306: aload_0
+     307: invokespecial #348                // Method nextVertexFormatIndex:()V
+     310: aload_0
+     311: areturn
+
+Actual Forge postDraw NORMAL branch only disables GL_NORMAL_ARRAY (32885).
+  public static void postDraw(net.minecraft.client.renderer.vertex.VertexFormatElement$EnumUsage, net.minecraft.client.renderer.vertex.VertexFormat, int, int, java.nio.ByteBuffer);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: invokevirtual #662                // Method net/minecraft/client/renderer/vertex/VertexFormat.getElement:(I)Lnet/minecraft/client/renderer/vertex/VertexFormatElement;
+       5: astore        5
+       7: getstatic     #684                // Field net/minecraftforge/client/ForgeHooksClient$1.$SwitchMap$net$minecraft$client$renderer$vertex$VertexFormatElement$EnumUsage:[I
+      10: aload_0
+      11: invokevirtual #685                // Method net/minecraft/client/renderer/vertex/VertexFormatElement$EnumUsage.ordinal:()I
+      14: iaload
+      15: tableswitch   { // 1 to 6
+                     1: 52
+                     2: 61
+                     3: 70
+                     4: 82
+                     5: 109
+                     6: 112
+               default: 120
+          }
+      52: ldc_w         #692                // int 32884
+      55: invokestatic  #770                // Method net/minecraft/client/renderer/GlStateManager.glDisableClientState:(I)V
+      58: goto          135
+      61: ldc_w         #710                // int 32885
+      64: invokestatic  #770                // Method net/minecraft/client/renderer/GlStateManager.glDisableClientState:(I)V
+      67: goto          135
+      70: ldc_w         #714                // int 32886
+      73: invokestatic  #770                // Method net/minecraft/client/renderer/GlStateManager.glDisableClientState:(I)V
+      76: invokestatic  #773                // Method net/minecraft/client/renderer/GlStateManager.resetColor:()V
+      79: goto          135
+      82: getstatic     #719                // Field net/minecraft/client/renderer/OpenGlHelper.defaultTexUnit:I
+      85: aload         5
+      87: invokevirtual #722                // Method net/minecraft/client/renderer/vertex/VertexFormatElement.getIndex:()I
+      90: iadd
+      91: invokestatic  #725                // Method net/minecraft/client/renderer/OpenGlHelper.setClientActiveTexture:(I)V
+      94: ldc_w         #729                // int 32888
+      97: invokestatic  #770                // Method net/minecraft/client/renderer/GlStateManager.glDisableClientState:(I)V
+     100: getstatic     #719                // Field net/minecraft/client/renderer/OpenGlHelper.defaultTexUnit:I
+     103: invokestatic  #725                // Method net/minecraft/client/renderer/OpenGlHelper.setClientActiveTexture:(I)V
+     106: goto          135
+     109: goto          135
+     112: aload         5
+     114: invokevirtual #722                // Method net/minecraft/client/renderer/vertex/VertexFormatElement.getIndex:()I
+     117: invokestatic  #776                // Method org/lwjgl/opengl/GL20.glDisableVertexAttribArray:(I)V
+     120: getstatic     #744                // Field net/minecraftforge/fml/common/FMLLog.log:Lorg/apache/logging/log4j/Logger;
+     123: ldc_w         #746                // String Unimplemented vanilla attribute upload: {}
+     126: aload_0
+     127: invokevirtual #749                // Method net/minecraft/client/renderer/vertex/VertexFormatElement$EnumUsage.getDisplayName:()Ljava/lang/String;
+     130: invokeinterface #755,  3          // InterfaceMethod org/apache/logging/log4j/Logger.fatal:(Ljava/lang/String;Ljava/lang/Object;)V
+     135: return

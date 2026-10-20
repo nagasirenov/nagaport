@@ -1,0 +1,4 @@
+PASS constructor domain: all 152 creations use 0..3 (four fixed-head gas masks), 24 unchanged forwarding constructors, 8 native roots
+PASS typed closure: 8 native ItemArmor constructors, 39 native overrides (24 model/13 texture/2 valid), 52 native fields, 75 mapped index calls
+PASS 42 complete-file CP89 inverses; 126 drift controls; 127 protected constructor registrations/model/domain files
+PASS strict material-family composition: 21 baseline/combined/drift controls; no protected pins changed

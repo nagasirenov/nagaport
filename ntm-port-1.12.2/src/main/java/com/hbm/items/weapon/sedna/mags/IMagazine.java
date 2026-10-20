@@ -57,6 +57,7 @@ public interface IMagazine<T> {
 		if(config.casingItem != null && config.casingAmount > 0 && inventory instanceof InventoryPlayer) {
 			InventoryPlayer inv = (InventoryPlayer) inventory;
 			for(ItemStack stack : inv.mainInventory) {
+				if (stack == ItemStack.EMPTY) stack = null;
 				if(stack != null && stack.getItem() == ModItems.casing_bag && ItemCasingBag.pushCasing(stack, config.casingItem, 1F / config.casingAmount * 0.5F * shotsFired)) return;
 			}
 		}

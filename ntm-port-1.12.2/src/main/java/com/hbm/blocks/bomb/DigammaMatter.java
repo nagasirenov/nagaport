@@ -42,7 +42,7 @@ public class DigammaMatter extends Block {
 	public void onBlockAdded(World world, int x, int y, int z) {
 		
 		if(!world.isRemote)
-			world.scheduleBlockUpdate(x, y, z, this, 10 + rand.nextInt(40));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10 + rand.nextInt(40));
 	}
 
 	@Override

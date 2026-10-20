@@ -100,7 +100,7 @@ public class OreCave {
 	@SubscribeEvent
 	public void onDecorate(DecorateBiomeEvent.Pre event) {
 		
-		World world = event.world;
+		World world = event.getWorld();
 		
 		if(world.provider == null) return;
 
@@ -118,7 +118,7 @@ public class OreCave {
 		}
 		
 		if(this.noise == null) {
-			this.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() + (ore.hashCode() * 31) + yLevel), 2);
+			this.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() + (ore.hashCode() * 31) + yLevel), 2);
 		}
 		
 		int cX = event.chunkX;
@@ -141,15 +141,17 @@ public class OreCave {
 						continue;
 					
 					for(int y = yLevel - range; y <= yLevel + range; y++) {
-						Block genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+						net.minecraft.block.state.IBlockState nativeCubeState_genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z);
+						Block genTarget = nativeCubeState_genTarget.getBlock();
 						
-						if(genTarget.isNormalCube() && genTarget.isReplaceableOreGen(world, x, y, z, replace)) {
+						if(genTarget.isNormalCube(nativeCubeState_genTarget) && genTarget.isReplaceableOreGen(world, x, y, z, replace)) {
 							
 							boolean shouldGen = false;
-							boolean canGenFluid = event.rand.nextBoolean();
+							boolean canGenFluid = event.getRand().nextBoolean();
 							
 							for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-								Block neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
+								net.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+								Block neighbor = nativeCubeState_neighbor.getBlock();
 								Material material = neighbor.getDefaultState().getMaterial();
 								if(material == Material.AIR || (ignoreWater && material == Material.WATER) || neighbor instanceof BlockStalagmite) {
 									shouldGen = true;
@@ -161,12 +163,12 @@ public class OreCave {
 								if(fluid != null) {
 									switch(dir) {
 									case UP: if(neighbor.getDefaultState().getMaterial() != Material.AIR && !(neighbor instanceof BlockStalagmite)) canGenFluid = false; break;
-									case DOWN: if(!neighbor.isNormalCube()) canGenFluid = false; break;
+									case DOWN: if(!neighbor.isNormalCube(nativeCubeState_neighbor)) canGenFluid = false; break;
 									case NORTH:
 									case SOUTH:
 									case EAST:
 									case WEST:
-										if(!neighbor.isNormalCube() && neighbor != fluid) canGenFluid = false; break;
+										if(!neighbor.isNormalCube(nativeCubeState_neighbor) && neighbor != fluid) canGenFluid = false; break;
 									}
 								}
 							}
@@ -179,9 +181,10 @@ public class OreCave {
 									ForgeDirection dir = ForgeDirection.getOrientation(i);
 									int clX = x + dir.offsetX;
 									int clZ = z + dir.offsetZ;
-									Block neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ).getBlock();
+									net.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ);
+									Block neighbor = nativeCubeState_neighbor.getBlock();
 									
-									if(neighbor.isNormalCube())
+									if(neighbor.isNormalCube(nativeCubeState_neighbor))
 										world.setBlock(clX, y, clZ, ore.block, ore.meta, 2);
 								}
 								
@@ -191,11 +194,11 @@ public class OreCave {
 							
 						} else if(spawnStalagmites) {
 
-							if((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube()) && event.rand.nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {
-								if(ModBlocks.stalactite.canPlaceBlockAt(world, x, y, z)) {
+							if((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube(nativeCubeState_genTarget)) && event.getRand().nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {
+								if(ModBlocks.stalactite.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 									world.setBlock(x, y, z, ModBlocks.stalactite, BlockStalagmite.getMetaFromResource(ore.block, ore.meta), 2);
 								} else {
-									if(ModBlocks.stalagmite.canPlaceBlockAt(world, x, y, z)) {
+									if(ModBlocks.stalagmite.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 										world.setBlock(x, y, z, ModBlocks.stalagmite, BlockStalagmite.getMetaFromResource(ore.block, ore.meta), 2);
 									}
 								}

@@ -151,7 +151,7 @@ public class GUIAnvil extends GuiContainer {
 			Slot slot = (Slot) obj;
 
 			// if the mouse is over a slot, cancel
-			if(this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y) && slot.getHasStack()) {
+			if(this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {
 				return;
 			}
 		}
@@ -179,7 +179,7 @@ public class GUIAnvil extends GuiContainer {
 	}
 
 	private boolean isMouseOverSlot(Slot slot, int x, int y) {
-		return this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y);
+		return this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y);
 	}
 
 	@Override
@@ -294,8 +294,8 @@ public class GUIAnvil extends GuiContainer {
 				ComparableStack input = (ComparableStack) stack;
 				boolean hasItem = false;
 				int amount = 0;
-				for(int i = 0; i < inventory.mainInventory.length; i++) {
-					ItemStack stackItem = inventory.mainInventory[i];
+				for(int i = 0; i < inventory.mainInventory.size(); i++) {
+					ItemStack stackItem = com.hbm.util.PlayerInventoryRead.get(inventory.mainInventory, i);
 					if(stackItem == null) {
 						continue;
 					}
@@ -316,8 +316,8 @@ public class GUIAnvil extends GuiContainer {
 				if(ores.size() > 0) {
 					boolean hasItem = false;
 					int amount = 0;
-					for(int i = 0; i < inventory.mainInventory.length; i++) {
-						ItemStack stackItem = inventory.mainInventory[i];
+					for(int i = 0; i < inventory.mainInventory.size(); i++) {
+						ItemStack stackItem = com.hbm.util.PlayerInventoryRead.get(inventory.mainInventory, i);
 						if(stackItem == null) {
 							continue;
 						}

@@ -1,0 +1,54 @@
+{
+  "baseline": "d2f171750be2f0d156a019f25fa781db39db308a",
+  "scope": "CP94 aggregate reversible source boundary and three finite historical static compositions only",
+  "files_written": {
+    "porting/checkpoint94/generate-source-boundary.py": "b8ca9125144592026e3590398a4fa177589578fb3a562b37d82b730982929609",
+    "porting/checkpoint94/cp93-source-boundary.py": "63a7aea8157ea60c2e25974717e094e37648f293361e7040fe2f3d14d9cc332c",
+    "porting/checkpoint94/check-historical-composition.py": "ee104ab44b086d28b2b9448e39ab633fb106514050dda124e71a1c208327400e",
+    "porting/checkpoint94/historical-composition.json": "8ae0130fafe2854792b7a3efdc3a19f9b9dc6fa581e16ecd27803e746db8d8d1",
+    "porting/checkpoint94/source-guards.log": "835d37666c30a3d0d94d5b177ead1067548bac142877a00532ea73e1132362e5",
+    "porting/checkpoint94/historical-composed.log": "8ce2c17bea119f0cc34796526a80beb9b924c44bab0243324a291dc81e17057a",
+    "porting/tests/check-native-inventory-sound-sky-source.py": "4daa4fceee66e7fa3c1bc42f84b5db9013c94ccf2d7a19cbe8e7eb2e45bc3aa3",
+    "porting/tests/native-inventory-sound-sky-source-manifest.json": "1c6767e7c5efcd3a46ee7ad24962d440b6a54a450b59f541c57efb216587645f",
+    "porting/tests/check-native-normal-world-air-source.py": "0838fa75f78bc9d7368efb8e9210971a3fa9ec0d812bcc3bf52dbf4339988cbf"
+  },
+  "results": {
+    "aggregate_boundary": {
+      "existing_sources": 13,
+      "new_sources": 0,
+      "deleted_sources": 0,
+      "binary_paths": 0,
+      "rejected_mutations": 39,
+      "status": "PASS"
+    },
+    "thermal_family_source": "PASS complete historical composition",
+    "historical_normal": {
+      "complete_file_inverses": 6,
+      "rejected_source_mutations": 145,
+      "rejected_hash_mutations": 12,
+      "status": "PASS"
+    },
+    "historical_air": {
+      "cp93_rejected_mutations": 18,
+      "historical_rejected_mutations": 42,
+      "status": "PASS"
+    },
+    "historical_press_cache": {
+      "getter_occurrences": 518,
+      "cp93_rejected_mutations": 18,
+      "cp92_rejected_mutations": 12,
+      "status": "PASS"
+    },
+    "production_java_bytes_unchanged": 4072
+  },
+  "limitations": [
+    "Static source evidence only; no runtime, GL, build or gameplay acceptance claimed.",
+    "No production changes, builds, commits or network operations performed by this source-guard task.",
+    "Historical CP93 checker and all historical manifests retain their original hashes."
+  ],
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-native-inventory-sound-sky-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-thermal-family-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/checkpoint94/check-historical-composition.py"
+  ]
+}

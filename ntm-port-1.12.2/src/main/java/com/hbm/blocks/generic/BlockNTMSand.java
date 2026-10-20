@@ -20,12 +20,12 @@ public class BlockNTMSand extends BlockEnumMulti {
 
 	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
-		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {
-		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class BlockNTMSand extends BlockEnumMulti {
 				}
 
 				if(y > 0) {
-					world.setBlock(x, y, z, this);
+					{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = this; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				}
 			}
 		}

@@ -16,12 +16,12 @@ import com.hbm.util.ArmorUtil;
 public class ArmorEuphemium extends ItemArmor {
 	
 	public ArmorEuphemium(ArmorMaterial armorMaterial, int armorType) {
-		super(armorMaterial, 0, armorType);
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
 		this.setCreativeTab(null);
 	}
 	
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
 		if(stack.getItem().equals(ModItems.euphemium_helmet) || stack.getItem().equals(ModItems.euphemium_plate) || stack.getItem().equals(ModItems.euphemium_boots)) {
 			return (RefStrings.MODID + ":textures/armor/euphemium_1.png");
 		}

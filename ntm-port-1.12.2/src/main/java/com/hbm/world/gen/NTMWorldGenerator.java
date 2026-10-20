@@ -267,11 +267,11 @@ public class NTMWorldGenerator implements IWorldGenerator {
 		hasPopulationEvent = true;
 
 		if(StructureConfig.enableStructures == 0) return;
-		if(StructureConfig.enableStructures == 2 && !event.world.getWorldInfo().isMapFeaturesEnabled()) return;
+		if(StructureConfig.enableStructures == 2 && !event.getWorld().getWorldInfo().isMapFeaturesEnabled()) return;
 
-		setRandomSeed(event.world, event.chunkX, event.chunkZ); //Set random for population down the line.
+		setRandomSeed(event.getWorld(), event.getChunkX(), event.getChunkZ()); //Set random for population down the line.
 
-		nbtGen.generateStructures(event.world, rand, event.chunkProvider, event.chunkX, event.chunkZ);
+		nbtGen.generateStructures(event.getWorld(), rand, event.chunkProvider, event.getChunkX(), event.getChunkZ());
 	}
 
 

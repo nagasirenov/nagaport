@@ -1,0 +1,4 @@
+PASS 7 exact reversible complete files, 10 nonescaping local scopes, 29 owned POSITION_TEX sites, 116 XYZUV expressions, 5 reset-setter argument evaluations and 49 mutation rejections; unchanged GL/matrix/material/animation/RNG/clock/control-flow surroundings.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[12:45:17] [main/INFO]: Setting user: AtlasProbe
+PASS actual original/native singleton POSITION_TEX and Mesa uploads: 522 paired streams, 522 batch comparisons, 2088 vertices, 1044 actual draws. Exact XYZUV float words, attribute absence, owner resets, RNG call counts and post-draw GL/current-color/current-normal/UV0/UV1/texture/matrix state. Not full renderer linkage or in-game pixels.

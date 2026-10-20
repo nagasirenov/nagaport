@@ -1,0 +1,37 @@
+/workspace/shared/nagaport-item-metadata-cp82/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;
+                ^
+/workspace/shared/nagaport-item-metadata-cp82/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                  ^
+/workspace/shared/nagaport-item-metadata-cp82/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                        ^
+/workspace/shared/nagaport-item-metadata-cp82/ntm-port-1.12.2/porting/tests/plain-item-metadata-native/OriginalDefaultIcons.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+   sun.misc.Unsafe unsafe=(sun.misc.Unsafe)NativeItemFoundationTest.field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+           ^
+/workspace/shared/nagaport-item-metadata-cp82/ntm-port-1.12.2/porting/tests/plain-item-metadata-native/OriginalDefaultIcons.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+   sun.misc.Unsafe unsafe=(sun.misc.Unsafe)NativeItemFoundationTest.field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                   ^
+/workspace/shared/nagaport-item-metadata-cp82/ntm-port-1.12.2/porting/tests/plain-item-metadata-native/OriginalDefaultIcons.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+   sun.misc.Unsafe unsafe=(sun.misc.Unsafe)NativeItemFoundationTest.field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                                                                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+[10:10:35] [main/INFO]: Processing ObjectHolder annotations
+[10:10:35] [main/INFO]: Found 1167 ObjectHolder annotations
+[10:10:35] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `item.foreign`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[10:10:35] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[10:10:36] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, item-resources.jar
+PASS original unmodified 1.7.10 Item bytecode: 294922 icon identity assertions; metadata/pass-independent default icon, original texture setter and single icon registration.
+PASS default item metadata: 3933740 assertions / 786693 native mesher lookups, 4 maxDamage/subtype combinations, entire native nonempty raw metadata interval [-32768,65535], constructor-domain [0,65535], 11 existing ItemDrop native receiver fixtures, late registration, two reloads, unknown owners, resource models and specialized wrapper controls. No NTM class-constructor/full-mod/GL proof claimed.
+[10:10:39] [main/INFO]: Processing ObjectHolder annotations
+[10:10:39] [main/INFO]: Found 1167 ObjectHolder annotations
+[10:10:39] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `item.foreign`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[10:10:39] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[10:10:39] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, item-resources.jar
+PASS native item foundation: 196 assertions; actual Forge event bus, registry, generated model, atlas sprite/PNG, mesher, native tooltip override, actual server-side stripping and reload. Complete listed production classes, no NTM collaborator stubs. Controlled headless atlas population, not live texture upload or full ModItems initialization.
+PASS exact one-branch production delta; 11 current registered ItemDrop owners and absence of named render-route owners; original SRG bytecode identities verified. No full-mod build.

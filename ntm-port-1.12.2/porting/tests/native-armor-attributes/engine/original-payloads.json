@@ -1,0 +1,146 @@
+[
+  {
+    "owner": "ArmorDesh",
+    "armor_type": 0,
+    "attribute": "generic.movementSpeed",
+    "uuid": "e572caf4-3e65-4152-bc79-c4d4048cbd29",
+    "name": "Armor modifier",
+    "amount": -0.025,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorDesh",
+    "armor_type": 1,
+    "attribute": "generic.movementSpeed",
+    "uuid": "bed30902-8a6a-4769-9f65-2a9b67469fff",
+    "name": "Armor modifier",
+    "amount": -0.025,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorDesh",
+    "armor_type": 2,
+    "attribute": "generic.movementSpeed",
+    "uuid": "baebf7b3-1eda-4a14-b233-068e2493e9a2",
+    "name": "Armor modifier",
+    "amount": -0.025,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorDesh",
+    "armor_type": 3,
+    "attribute": "generic.movementSpeed",
+    "uuid": "28016c1b-d992-4324-9409-a9f9f0ffb85c",
+    "name": "Armor modifier",
+    "amount": -0.025,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorDiesel",
+    "armor_type": 0,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "e572caf4-3e65-4152-bc79-c4d4048cbd29",
+    "name": "Armor modifier",
+    "amount": 0.25,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorDiesel",
+    "armor_type": 1,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "bed30902-8a6a-4769-9f65-2a9b67469fff",
+    "name": "Armor modifier",
+    "amount": 0.25,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorDiesel",
+    "armor_type": 2,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "baebf7b3-1eda-4a14-b233-068e2493e9a2",
+    "name": "Armor modifier",
+    "amount": 0.25,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorDiesel",
+    "armor_type": 3,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "28016c1b-d992-4324-9409-a9f9f0ffb85c",
+    "name": "Armor modifier",
+    "amount": 0.25,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 0,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "e572caf4-3e65-4152-bc79-c4d4048cbd29",
+    "name": "Armor modifier",
+    "amount": 100.0,
+    "operation": 0
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 0,
+    "attribute": "generic.movementSpeed",
+    "uuid": "e572caf4-3e65-4152-bc79-c4d4048cbd29",
+    "name": "Armor modifier",
+    "amount": -0.1,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 1,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "bed30902-8a6a-4769-9f65-2a9b67469fff",
+    "name": "Armor modifier",
+    "amount": 100.0,
+    "operation": 0
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 1,
+    "attribute": "generic.movementSpeed",
+    "uuid": "bed30902-8a6a-4769-9f65-2a9b67469fff",
+    "name": "Armor modifier",
+    "amount": -0.1,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 2,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "baebf7b3-1eda-4a14-b233-068e2493e9a2",
+    "name": "Armor modifier",
+    "amount": 100.0,
+    "operation": 0
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 2,
+    "attribute": "generic.movementSpeed",
+    "uuid": "baebf7b3-1eda-4a14-b233-068e2493e9a2",
+    "name": "Armor modifier",
+    "amount": -0.1,
+    "operation": 1
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 3,
+    "attribute": "generic.knockbackResistance",
+    "uuid": "28016c1b-d992-4324-9409-a9f9f0ffb85c",
+    "name": "Armor modifier",
+    "amount": 100.0,
+    "operation": 0
+  },
+  {
+    "owner": "ArmorLiquidator",
+    "armor_type": 3,
+    "attribute": "generic.movementSpeed",
+    "uuid": "28016c1b-d992-4324-9409-a9f9f0ffb85c",
+    "name": "Armor modifier",
+    "amount": -0.1,
+    "operation": 1
+  }
+]

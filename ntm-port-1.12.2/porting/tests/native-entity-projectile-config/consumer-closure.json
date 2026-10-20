@@ -1,0 +1,1501 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "sha256": "a9ffc8b3769b11f10244f8f609b869aeee081cf95aa8c6a86b65f3d5e5455ed6",
+    "references": [
+      {
+        "line": 145,
+        "source": "addEntity(EntityBulletBaseMK4.class, \"entity_bullet_mk4\", 250, false);"
+      },
+      {
+        "line": 146,
+        "source": "addEntity(EntityBulletBaseMK4CL.class, \"entity_bullet_mk4_cl\", 250, false);"
+      },
+      {
+        "line": 147,
+        "source": "addEntity(EntityBulletBeamBase.class, \"entity_beam_mk4\", 250, false);"
+      },
+      {
+        "line": 199,
+        "source": "addEntity(EntityArtilleryShell.class, \"entity_artillery_shell\", 1000);"
+      },
+      {
+        "line": 200,
+        "source": "addEntity(EntityArtilleryRocket.class, \"entity_himars\", 1000);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+    "sha256": "b93ab61736cd671a43b047b137e84afe06674eb277091c9e30a0979fd964b8ea",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 12,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 486,
+        "source": "EntityBulletBeamBase bullet = new EntityBulletBeamBase(this,XFactoryEnergy.energy_tesla_overcharge.setKnockback(0),8F);"
+      },
+      {
+        "line": 510,
+        "source": "EntityBulletBeamBase bullet = new EntityBulletBeamBase("
+      },
+      {
+        "line": 539,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4("
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0))",
+      "this.dataWatcher.addObject(17, 0)",
+      "this.dataWatcher.addObject(18, 0)",
+      "this.dataWatcher.addObject(19, 0)",
+      "this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)))",
+      "this.dataWatcher.getWatchableObjectByte(16)",
+      "this.dataWatcher.updateObject(17, x)",
+      "this.dataWatcher.updateObject(18, y)",
+      "this.dataWatcher.updateObject(19, z)",
+      "this.dataWatcher.getWatchableObjectInt(17)",
+      "this.dataWatcher.getWatchableObjectInt(18)",
+      "this.dataWatcher.getWatchableObjectInt(19)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityTaintCrab.java",
+    "sha256": "3c02de008640e6daaade845cedc0f95330d453743ffd1cd25a50472de872f2f4",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 71,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(this, XFactory762mm.r762_fmj, 10F, 0F, 0F, 0F, 0F);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java",
+    "sha256": "808ce7d8c33b5e26715cdfca58c0ea6fe2727a716b8ad00321cb7c85f833bc65",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryShell;"
+      },
+      {
+        "line": 4,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 88,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(owner, XFactory762mm.r762_ap.setKnockback(0), 0.5F, 0.01F, owner.posX + xOffset, owner.posY + yOffset, owner.posZ + zOffset);"
+      },
+      {
+        "line": 101,
+        "source": "EntityArtilleryShell grenade = new EntityArtilleryShell(owner.world);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAITankshell.java",
+    "sha256": "49a93501b79905bc25b722a539fb64b3e5ebb98fefd5b202ebbf6a3357e2fe4e",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 126,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(owner, XFactoryRocket.rocket_qd[3], 4, 0.01F, owner.posX, owner.posY + 3, owner.posZ);"
+      },
+      {
+        "line": 133,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(owner, XFactoryRocket.rocket_qd[1], 4, 0.01F, owner.posX, owner.posY + 3, owner.posZ);"
+      },
+      {
+        "line": 142,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(owner, XFactory12ga.g12_explosive, 4, 0.01F, owner.posX, owner.posY + 3, owner.posZ);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+    "sha256": "4339334451452567cb09ee6caf111c63a45adecd3029dc0091ced61f7256d0ed",
+    "references": [
+      {
+        "line": 4,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 136,
+        "source": "EntityBulletBeamBase bullet = new EntityBulletBeamBase("
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.getDataWatcher().addObject(12, (int) 0)",
+      "this.getDataWatcher().updateObject(12, tier.id)",
+      "this.getDataWatcher().getWatchableObjectInt(12)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryRocket.java",
+    "sha256": "4241f9082dae9513b2b69dea845da209a580bdd186f909e38a98fb70d71fbf49",
+    "references": [
+      {
+        "line": 30,
+        "source": "public class EntityArtilleryRocket extends EntityThrowableInterp implements IChunkLoader, IRadarDetectable {"
+      },
+      {
+        "line": 41,
+        "source": "public EntityArtilleryRocket(World world) {"
+      },
+      {
+        "line": 61,
+        "source": "public EntityArtilleryRocket setType(int type) {"
+      },
+      {
+        "line": 74,
+        "source": "public EntityArtilleryRocket setTarget(Entity target) {"
+      },
+      {
+        "line": 80,
+        "source": "public EntityArtilleryRocket setTarget(double x, double y, double z) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(10, new Integer(0))",
+      "this.dataWatcher.updateObject(10, type)",
+      "this.dataWatcher.getWatchableObjectInt(10)",
+      "this.dataWatcher.getWatchableObjectInt(10)",
+      "this.dataWatcher.updateObject(10, nbt.getInteger(\"type\"))"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+    "sha256": "3c88644a3a544da06d2dadb02a3cd83f21490763f91e7549d3fd95a5b0041a5a",
+    "references": [
+      {
+        "line": 27,
+        "source": "public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoader, IRadarDetectable {"
+      },
+      {
+        "line": 52,
+        "source": "public EntityArtilleryShell(World world) {"
+      },
+      {
+        "line": 71,
+        "source": "public EntityArtilleryShell setType(int type) {"
+      },
+      {
+        "line": 176,
+        "source": "if(mop.typeOfHit == RayTraceResult.Type.ENTITY && mop.entityHit instanceof EntityArtilleryShell) return;"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(10, new Integer(0))",
+      "this.dataWatcher.updateObject(10, type)",
+      "this.dataWatcher.getWatchableObjectInt(10)",
+      "this.dataWatcher.getWatchableObjectInt(10)",
+      "this.dataWatcher.updateObject(10, nbt.getInteger(\"type\"))"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java",
+    "sha256": "2a0f3940b45e3c7accabb55fac613b47029593918a9a16bcb340dcd4b207ad9f",
+    "references": [
+      {
+        "line": 22,
+        "source": "public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntityAdditionalSpawnData {"
+      },
+      {
+        "line": 33,
+        "source": "public EntityBulletBaseMK4(World world) {"
+      },
+      {
+        "line": 41,
+        "source": "public EntityBulletBaseMK4(World world, EntityLivingBase entity, BulletConfig config, float damage, float gunSpread, double posX, double posY, double posZ, double motionX, double motionY, double motionZ) {"
+      },
+      {
+        "line": 60,
+        "source": "public EntityBulletBaseMK4(EntityLivingBase entity, BulletConfig config, float baseDamage, float gunSpread, double sideOffset, double heightOffset, double frontOffset) {"
+      },
+      {
+        "line": 88,
+        "source": "public EntityBulletBaseMK4(World world, BulletConfig config, float baseDamage, float gunSpread, float yaw, float pitch) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(3, Integer.valueOf(0))",
+      "this.dataWatcher.updateObject(3, config.id)",
+      "this.dataWatcher.getWatchableObjectInt(3)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4CL.java",
+    "sha256": "426e3d86b6c141db7b3942f04a6f8cdfadeb8dd05dadfd484864f8edc4c827b0",
+    "references": [
+      {
+        "line": 18,
+        "source": "public class EntityBulletBaseMK4CL extends EntityBulletBaseMK4 implements IChunkLoader {"
+      },
+      {
+        "line": 23,
+        "source": "public EntityBulletBaseMK4CL(World world) {"
+      },
+      {
+        "line": 27,
+        "source": "public EntityBulletBaseMK4CL(EntityLivingBase entity, BulletConfig config, float damage, float spread, double sideOffset, double heightOffset, double forwardOffset) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java",
+    "sha256": "85ac2554c91f948e1252351d2575fc971149794e2fc9f6d99da8e44c14453047",
+    "references": [
+      {
+        "line": 26,
+        "source": "public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpawnData {"
+      },
+      {
+        "line": 36,
+        "source": "public EntityBulletBeamBase(World world) {"
+      },
+      {
+        "line": 46,
+        "source": "public EntityBulletBeamBase(EntityLivingBase entity, BulletConfig config, float baseDamage) {"
+      },
+      {
+        "line": 55,
+        "source": "public EntityBulletBeamBase(EntityLivingBase entity, BulletConfig config, float baseDamage, float angularInaccuracy, double sideOffset, double heightOffset, double frontOffset) {"
+      },
+      {
+        "line": 265,
+        "source": "EntityBulletBeamBase newBeam = new EntityBulletBeamBase(hitCoin.getThrower() != null ? hitCoin.getThrower() : this.thrower, this.config, this.damage * 1.25F);"
+      },
+      {
+        "line": 272,
+        "source": "EntityBulletBeamBase newBeam = new EntityBulletBeamBase(hitCoin.getThrower() != null ? hitCoin.getThrower() : this.thrower, this.config, this.damage * 1.25F);"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(3, Integer.valueOf(0))",
+      "this.dataWatcher.updateObject(3, config.id)",
+      "this.dataWatcher.getWatchableObjectInt(3)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/rocketbehavior/IRocketSteeringBehavior.java",
+    "sha256": "0d44e4956c06ef4af057cb01e3c37245386e2c0f8f10e6ea3782f0f607450eb6",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 8,
+        "source": "public void adjustCourse(EntityArtilleryRocket rocket, double speed, double turnSpeed);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/rocketbehavior/IRocketTargetingBehavior.java",
+    "sha256": "075d1899403aac4c4ebc9d8e60dede9ed50bac544d1102e3dd0f643b67973cb7",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 10,
+        "source": "public void recalculateTargetPosition(EntityArtilleryRocket rocket, Entity target);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/rocketbehavior/RocketSteeringBallisticArc.java",
+    "sha256": "cbfaf31230fb3b5c74e38d6183ce41335776bc6953ef4ecfee53df9ad3f722fb",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 10,
+        "source": "public void adjustCourse(EntityArtilleryRocket rocket, double speed, double maxTurn) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/rocketbehavior/RocketTargetingPredictive.java",
+    "sha256": "c825ead9db01ee8a2b846c04941afef06b2e038c74f40ef7544cfc1d749079d5",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 25,
+        "source": "public void recalculateTargetPosition(EntityArtilleryRocket rocket, Entity target) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/rocketbehavior/RocketTargetingSimple.java",
+    "sha256": "60f67785990ff05f0638f36983112e5c3c578fa64907252ff5c59660361ee23c",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 14,
+        "source": "public void recalculateTargetPosition(EntityArtilleryRocket rocket, Entity target) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/explosion/vanillant/standard/EntityProcessorCross.java",
+    "sha256": "856af30a6ef8db07730c4ef94c5130d140e3623cd3ec45df0ab0bb262161a3e3",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 117,
+        "source": "if(!(entity instanceof EntityBulletBaseMK4)) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ArmorNCRPARanged.java",
+    "sha256": "86a347661d6122d03d4196bf33967ea2d6dc38f33712f0943f89bee63b44ca1a",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 37,
+        "source": "EntityBulletBaseMK4 mk4 = new EntityBulletBaseMK4(player, cfg, 25, 0, 0.25F * (player.getRNG().nextBoolean() ? - 1 : 1), 0, 0);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemMineralOre.java",
+    "sha256": "45f8a2a0537d6938721164f51ebbc40b04c0507ea597d091d89c652889a6d759",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryShell;"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+    "sha256": "135aa7d7a3bf4803f5d1af6b68e6aaf276ba8f13ce7741959eb9b5bff9acf4c1",
+    "references": [
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryShell;"
+      },
+      {
+        "line": 199,
+        "source": "public abstract void onImpact(EntityArtilleryShell shell, RayTraceResult mop);"
+      },
+      {
+        "line": 200,
+        "source": "public void onUpdate(EntityArtilleryShell shell) { }"
+      },
+      {
+        "line": 203,
+        "source": "public static void standardExplosion(EntityArtilleryShell shell, RayTraceResult mop, float size, float rangeMod, boolean breaksBlocks) {"
+      },
+      {
+        "line": 217,
+        "source": "public static void standardCluster(EntityArtilleryShell shell, int clusterType, int amount, double splitHeight, double deviation) {"
+      },
+      {
+        "line": 233,
+        "source": "EntityArtilleryShell cluster = new EntityArtilleryShell(shell.world);"
+      },
+      {
+        "line": 248,
+        "source": "this.itemTypes[NORMAL] = new ArtilleryShell(\"ammo_arty\", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 10F, 3F, false); ExplosionCreator.composeEffect(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 10, 2F, 0.5F, 25F, 5, 0, 20, 0.75F, 1F, -2F, 150); }};"
+      },
+      {
+        "line": 249,
+        "source": "this.itemTypes[CLASSIC] = new ArtilleryShell(\"ammo_arty_classic\", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 15F, 5F, false); ExplosionCreator.composeEffect(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, 5F, 1F, 45F, 10, 0, 50, 1F, 3F, -2F, 200); }};"
+      },
+      {
+        "line": 250,
+        "source": "this.itemTypes[EXPLOSIVE] = new ArtilleryShell(\"ammo_arty_he\", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { standardExplosion(shell, mop, 15F, 3F, true); ExplosionCreator.composeEffect(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 15, 5F, 1F, 45F, 10, 16, 50, 1F, 3F, -2F, 200); }};"
+      },
+      {
+        "line": 254,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {"
+      },
+      {
+        "line": 263,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {"
+      },
+      {
+        "line": 272,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {"
+      },
+      {
+        "line": 301,
+        "source": "this.itemTypes[CARGO] = new ArtilleryShell(\"ammo_arty_cargo\", SpentCasing.COLOR_CASE_16INCH) { public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {"
+      },
+      {
+        "line": 310,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {"
+      },
+      {
+        "line": 323,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {"
+      },
+      {
+        "line": 345,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {"
+      },
+      {
+        "line": 369,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { ItemAmmoArty.this.itemTypes[PHOSPHORUS].onImpact(shell, mop); }"
+      },
+      {
+        "line": 370,
+        "source": "public void onUpdate(EntityArtilleryShell shell) { standardCluster(shell, PHOSPHORUS, 10, 300, 5); }"
+      },
+      {
+        "line": 373,
+        "source": "public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) { ItemAmmoArty.this.itemTypes[MINI_NUKE].onImpact(shell, mop); }"
+      },
+      {
+        "line": 374,
+        "source": "public void onUpdate(EntityArtilleryShell shell) { standardCluster(shell, MINI_NUKE, 5, 300, 5); }"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java",
+    "sha256": "c5c1c25049b7a57926e998072328ec9e67e12d268a8e501d7f6f4baeec4b0f9c",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 146,
+        "source": "public abstract void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop);"
+      },
+      {
+        "line": 147,
+        "source": "public void onUpdate(EntityArtilleryRocket rocket) { }"
+      },
+      {
+        "line": 150,
+        "source": "public static void standardExplosion(EntityArtilleryRocket rocket, RayTraceResult mop, float size, float rangeMod, boolean breaksBlocks, Block slag, int slagMeta) {"
+      },
+      {
+        "line": 163,
+        "source": "public static void standardMush(EntityArtilleryRocket rocket, RayTraceResult mop, float size) {"
+      },
+      {
+        "line": 172,
+        "source": "this.itemTypes[SMALL] = new HIMARSRocket(\"standard\", \"himars_standard\",\t\t\t\t\t0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, false, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.world, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 15, 5F, 1F, 45F, 10, 0, 50, 1F, 3F, -2F, 200); }};"
+      },
+      {
+        "line": 173,
+        "source": "this.itemTypes[SMALL_HE] = new HIMARSRocket(\"standard_he\", \"himars_standard_he\",\t\t0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, true, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.world, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 15, 5F, 1F, 45F, 10, 16, 50, 1F, 3F, -2F, 200); }};"
+      },
+      {
+        "line": 174,
+        "source": "this.itemTypes[SMALL_LAVA] = new HIMARSRocket(\"standard_lava\", \"himars_standard_lava\",\t0) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 20F, 3F, true, ModBlocks.volcanic_lava_block, 0); }};"
+      },
+      {
+        "line": 175,
+        "source": "this.itemTypes[LARGE] = new HIMARSRocket(\"single\", \"himars_single\",\t\t\t\t\t\t1) { public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) { standardExplosion(rocket, mop, 50F, 5F, true, ModBlocks.block_slag, 1); ExplosionCreator.composeEffect(rocket.world, mop.getBlockPos().getX() + 0.5, mop.getBlockPos().getY() + 0.5, mop.getBlockPos().getZ() + 0.5, 30, 6.5F, 2F, 65F, 25, 16, 50, 1.25F, 3F, -2F, 350); }};"
+      },
+      {
+        "line": 178,
+        "source": "public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {"
+      },
+      {
+        "line": 186,
+        "source": "public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {"
+      },
+      {
+        "line": 210,
+        "source": "public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {"
+      },
+      {
+        "line": 218,
+        "source": "public void onImpact(EntityArtilleryRocket rocket, RayTraceResult mop) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/BulletConfig.java",
+    "sha256": "63d7ec349e5f8e2621d0968b7c859d47a23929d01dd53b261c8c29cfb5534add",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 71,
+        "source": "public BiConsumer<EntityBulletBaseMK4, RayTraceResult> onImpact;"
+      },
+      {
+        "line": 72,
+        "source": "public BiConsumer<EntityBulletBeamBase, RayTraceResult> onImpactBeam; //fuck fuck fuck fuck i should have used a better base class here god dammit"
+      },
+      {
+        "line": 73,
+        "source": "public BiConsumer<EntityBulletBaseMK4, RayTraceResult> onRicochet = LAMBDA_STANDARD_RICOCHET;"
+      },
+      {
+        "line": 74,
+        "source": "public BiConsumer<EntityBulletBaseMK4, RayTraceResult> onEntityHit = LAMBDA_STANDARD_ENTITY_HIT;"
+      },
+      {
+        "line": 87,
+        "source": "public BiConsumer<EntityBulletBaseMK4, Float> renderer;"
+      },
+      {
+        "line": 88,
+        "source": "public BiConsumer<EntityBulletBeamBase, Float> rendererBeam;"
+      },
+      {
+        "line": 136,
+        "source": "public BulletConfig setRenderer(BiConsumer<EntityBulletBaseMK4, Float> renderer) {\t\tthis.renderer = renderer; return this; }"
+      },
+      {
+        "line": 137,
+        "source": "public BulletConfig setRendererBeam(BiConsumer<EntityBulletBeamBase, Float> renderer) {\tthis.rendererBeam = renderer; return this; }"
+      },
+      {
+        "line": 140,
+        "source": "public BulletConfig setOnRicochet(BiConsumer<EntityBulletBaseMK4, RayTraceResult> lambda) {\t\tthis.onRicochet = lambda; return this; }"
+      },
+      {
+        "line": 141,
+        "source": "public BulletConfig setOnImpact(BiConsumer<EntityBulletBaseMK4, RayTraceResult> lambda) {\t\t\tthis.onImpact = lambda; return this; }"
+      },
+      {
+        "line": 142,
+        "source": "public BulletConfig setOnBeamImpact(BiConsumer<EntityBulletBeamBase, RayTraceResult> lambda) {\tthis.onImpactBeam = lambda; return this; }"
+      },
+      {
+        "line": 143,
+        "source": "public BulletConfig setOnEntityHit(BiConsumer<EntityBulletBaseMK4, RayTraceResult> lambda) {\t\tthis.onEntityHit = lambda; return this; }"
+      },
+      {
+        "line": 171,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_RICOCHET = (bullet, mop) -> {"
+      },
+      {
+        "line": 221,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_ENTITY_HIT = (bullet, mop) -> {"
+      },
+      {
+        "line": 262,
+        "source": "public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_STANDARD_BEAM_HIT = (bullet, mop) -> {"
+      },
+      {
+        "line": 282,
+        "source": "public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_BEAM_HIT = (beam, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/GunFactoryClient.java",
+    "sha256": "43e0f8eab4e96391d42178fcea1b5cfc9c7a3d36aa7def10cf20c72305493e44",
+    "references": [
+      {
+        "line": 28,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 29,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 255,
+        "source": "public static void setRendererBulk(BiConsumer<EntityBulletBaseMK4, Float> renderer, BulletConfig... configs) { for(BulletConfig config : configs) config.setRenderer(renderer); }"
+      },
+      {
+        "line": 256,
+        "source": "public static void setRendererBulkBeam(BiConsumer<EntityBulletBeamBase, Float> renderer, BulletConfig... configs) { for(BulletConfig config : configs) config.setRendererBeam(renderer); }"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/Lego.java",
+    "sha256": "06f05b60df49378e63bcde2e1d3e4b9c69a8b1391175fa01c3908969f6732cf7",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4CL;"
+      },
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 188,
+        "source": "/** Spawns an EntityBulletBaseMK4 with the loaded bulletcfg */"
+      },
+      {
+        "line": 195,
+        "source": "/** Spawns an EntityBulletBaseMK4 with the loaded bulletcfg, ignores wear */"
+      },
+      {
+        "line": 199,
+        "source": "/** Spawns an EntityBulletBaseMK4 with the loaded bulletcfg, then resets lockon progress */"
+      },
+      {
+        "line": 234,
+        "source": "EntityBulletBaseMK4 mk4 = new EntityBulletBaseMK4(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);"
+      },
+      {
+        "line": 239,
+        "source": "EntityBulletBaseMK4CL mk4 = new EntityBulletBaseMK4CL(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);"
+      },
+      {
+        "line": 244,
+        "source": "EntityBulletBeamBase mk4 = new EntityBulletBeamBase(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);"
+      },
+      {
+        "line": 285,
+        "source": "public static void standardExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range) { standardExplode(bullet, mop, range, 1F); }"
+      },
+      {
+        "line": 286,
+        "source": "public static void standardExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range, float damageMod) {"
+      },
+      {
+        "line": 294,
+        "source": "public static void tinyExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range) { tinyExplode(bullet, mop, range, 1F); }"
+      },
+      {
+        "line": 295,
+        "source": "public static void tinyExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range, float damageMod) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/LegoClient.java",
+    "sha256": "a49b74d64ff9a58b3dda0e5ca3d15cd8aa175923849f92ddb12fe356bf1c568a",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 40,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_STANDARD_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 46,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_FLECHETTE_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 52,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_AP_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 58,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_EXPRESS_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 64,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_DU_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 70,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_HE_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 76,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_SM_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 82,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_BLACK_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 88,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_TRACER_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 94,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_LEGENDARY_BULLET = (bullet, interp) -> {"
+      },
+      {
+        "line": 143,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_FLARE = (bullet, interp) -> { renderFlare(bullet, interp, 1F, 0.5F, 0.5F); };"
+      },
+      {
+        "line": 144,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_FLARE_SUPPLY = (bullet, interp) -> { renderFlare(bullet, interp, 0.5F, 0.5F, 1F); };"
+      },
+      {
+        "line": 145,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_FLARE_WEAPON = (bullet, interp) -> { renderFlare(bullet, interp, 0.5F, 1F, 0.5F); };"
+      },
+      {
+        "line": 207,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_GRENADE = (bullet, interp) -> {"
+      },
+      {
+        "line": 216,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_BIG_NUKE = (bullet, interp) -> {"
+      },
+      {
+        "line": 225,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_RPZB = (bullet, interp) -> {"
+      },
+      {
+        "line": 242,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_QD = (bullet, interp) -> {"
+      },
+      {
+        "line": 257,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_ML = (bullet, interp) -> {"
+      },
+      {
+        "line": 274,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_LIGHTNING = (bullet, interp) -> {"
+      },
+      {
+        "line": 293,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_LIGHTNING_SUB = (bullet, interp) -> {"
+      },
+      {
+        "line": 312,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_TAU = (bullet, interp) -> {"
+      },
+      {
+        "line": 338,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_TAU_CHARGE = (bullet, interp) -> {"
+      },
+      {
+        "line": 364,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_CRACKLE = (bullet, interp) -> {"
+      },
+      {
+        "line": 383,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_BLACK_LIGHTNING = (bullet, interp) -> {"
+      },
+      {
+        "line": 402,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_NI4NI_BOLT = (bullet, interp) -> {"
+      },
+      {
+        "line": 421,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_LASER_RED = (bullet, interp) -> {"
+      },
+      {
+        "line": 424,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_LASER_EMERALD = (bullet, interp) -> {"
+      },
+      {
+        "line": 427,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_LASER_CYAN = (bullet, interp) -> {"
+      },
+      {
+        "line": 430,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_LASER_PURPLE = (bullet, interp) -> {"
+      },
+      {
+        "line": 433,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_LASER_WHITE = (bullet, interp) -> {"
+      },
+      {
+        "line": 437,
+        "source": "public static void renderStandardLaser(EntityBulletBeamBase bullet, float interp, int r, int g, int b) {"
+      },
+      {
+        "line": 452,
+        "source": "public static BiConsumer<EntityBulletBeamBase, Float> RENDER_FOLLY = (bullet, interp) -> {"
+      },
+      {
+        "line": 477,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_NUKE = (bullet, interp) -> {"
+      },
+      {
+        "line": 490,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_NUKE_BALEFIRE = (bullet, interp) -> {"
+      },
+      {
+        "line": 502,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_HIVE = (bullet, interp) -> {"
+      },
+      {
+        "line": 515,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_CT_HOOK = (bullet, interp) -> {"
+      },
+      {
+        "line": 540,
+        "source": "public static void renderWire(EntityBulletBaseMK4 bullet, float interp) {"
+      },
+      {
+        "line": 644,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_CT_MORTAR = (bullet, interp) -> {"
+      },
+      {
+        "line": 658,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, Float> RENDER_CT_MORTAR_CHARGE = (bullet, interp) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory10ga.java",
+    "sha256": "f310fdce166bdf7c136b758fdedb0b4990478cf4a4ff35d6b4509c380d82c66e",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 39,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_TINY_EXPLODE = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java",
+    "sha256": "1d2e9aaed7affe74d82c33350dd4db526b99bce545d2c65251e01770ff8e6dc6",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 90,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE = (bullet, mop) -> {"
+      },
+      {
+        "line": 94,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_BOAT = (bullet, mop) -> {"
+      },
+      {
+        "line": 134,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.world, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, hitVec.x, hitVec.y, hitVec.z, dir.offsetX, dir.offsetY, dir.offsetZ);"
+      },
+      {
+        "line": 145,
+        "source": "EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.world, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, vec.x, vec.y, vec.z);"
+      },
+      {
+        "line": 160,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_SHREDDER_RICOCHET = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory35800.java",
+    "sha256": "ba1222f2ec1dd6c21472b9f234e8583d70c76f93c7fc7853107cd94614f0cf5e",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 36,
+        "source": "public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_BLACK_IMPACT = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory40mm.java",
+    "sha256": "0cba206f40007a54e6ced90315f5fce9334d3b4c2fa31a513db66da78b7d68ef",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 62,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_IGNITE = (bullet, mop) -> {"
+      },
+      {
+        "line": 70,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE = (bullet, mop) -> {"
+      },
+      {
+        "line": 73,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_HEAT = (bullet, mop) -> {"
+      },
+      {
+        "line": 83,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_DEMO = (bullet, mop) -> {"
+      },
+      {
+        "line": 94,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_INC = (bullet, mop) -> {"
+      },
+      {
+        "line": 97,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_PHOSPHORUS = (bullet, mop) -> {"
+      },
+      {
+        "line": 101,
+        "source": "public static void spawnFire(EntityBulletBaseMK4 bullet, RayTraceResult mop, boolean phosphorus, int duration) {"
+      },
+      {
+        "line": 131,
+        "source": "EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory44.java",
+    "sha256": "439073f63d3528f0900371cffdabea671bfd0d5a4c5c23f8ba6247b27c9ff7ae",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 50,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_BOXCAR = (bullet, mop) -> {"
+      },
+      {
+        "line": 60,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_TORPEDO = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory50.java",
+    "sha256": "037c457bcec7abe995855dbe72adccb1952921b989532e480a8cc1529ac9660c",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 48,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_BUILDING = (bullet, mop) -> {"
+      },
+      {
+        "line": 57,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory556mm.java",
+    "sha256": "203140c4331c3f0c123bef085a9d2f1db95ed8691030868e5d2bf7ddeef0983a",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 52,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> INCENDIARY = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory75Bolt.java",
+    "sha256": "902fb2602d1a6900055e38a096fca61440f7914ba4618b41b07379c09917eece",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 34,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_TINY_EXPLODE = (bullet, mop) -> {"
+      },
+      {
+        "line": 38,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_INC = (bullet, mop) -> {"
+      },
+      {
+        "line": 44,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory762mm.java",
+    "sha256": "edcdeb03695583aef628ffd2a0bca81ba37c0313ff2ccd83b0818c36a55f9696",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 45,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_TINY_EXPLODE = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java",
+    "sha256": "9d07c48728cf471d0ee713f01153db8aefc4a2ce358a59d6ecafd5e2189eca3c",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 178,
+        "source": "EntityBulletBeamBase mk4 = new EntityBulletBeamBase(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryCatapult.java",
+    "sha256": "61b0ab167c59e9754cc08c4b3ec4fb07a225e90bf322e0b08814665efbb52818",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 51,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_NUKE_STANDARD = (bullet, mop) -> {"
+      },
+      {
+        "line": 65,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_NUKE_DEMO = (bullet, mop) -> {"
+      },
+      {
+        "line": 81,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_NUKE_HIGH = (bullet, mop) -> {"
+      },
+      {
+        "line": 89,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_NUKE_BALEFIRE = (bullet, mop) -> {"
+      },
+      {
+        "line": 119,
+        "source": "public static void spawnMush(EntityBulletBaseMK4 bullet, RayTraceResult mop) {"
+      },
+      {
+        "line": 127,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_NUKE_TINYTOT = (bullet, mop) -> {"
+      },
+      {
+        "line": 145,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_NUKE_HIVE = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java",
+    "sha256": "d640b1de5a371eb9825bc05751010ceed3cfdcfeac34dc7a5076957e8dcc5cb7",
+    "references": [
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 66,
+        "source": "public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_LIGHTNING_HIT = (beam, mop) -> {"
+      },
+      {
+        "line": 103,
+        "source": "public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_LIGHTNING_SPLIT = (beam, mop) -> {"
+      },
+      {
+        "line": 117,
+        "source": "EntityBulletBeamBase sub = new EntityBulletBeamBase(beam.thrower, energy_tesla_ir_sub, beam.damage);"
+      },
+      {
+        "line": 125,
+        "source": "public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_IR_HIT = (beam, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFlamer.java",
+    "sha256": "60d2f238067b16e9f1db5127ec197d112af5396f039ed7b5e290eeb72c2b3c53",
+    "references": [
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 67,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_IGNITE_FIRE = (bullet, mop) -> {"
+      },
+      {
+        "line": 73,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_IGNITE_BALEFIRE = (bullet, mop) -> {"
+      },
+      {
+        "line": 79,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_LINGER_DIESEL = (bullet, mop) -> { if(!igniteIfPossible(bullet, mop)) spawnFire(bullet, mop, 2F, 1F, 100, EntityFireLingering.TYPE_DIESEL); };"
+      },
+      {
+        "line": 80,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_LINGER_GAS = (bullet, mop) -> { igniteIfPossible(bullet, mop); };"
+      },
+      {
+        "line": 81,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_LINGER_NAPALM = (bullet, mop) -> { if(!igniteIfPossible(bullet, mop)) spawnFire(bullet, mop, 2.5F, 1F, 200, EntityFireLingering.TYPE_DIESEL); };"
+      },
+      {
+        "line": 82,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_LINGER_BALEFIRE = (bullet, mop) -> { spawnFire(bullet, mop, 3F, 1F, 300, EntityFireLingering.TYPE_BALEFIRE); };"
+      },
+      {
+        "line": 84,
+        "source": "public static boolean igniteIfPossible(EntityBulletBaseMK4 bullet, RayTraceResult mop) {"
+      },
+      {
+        "line": 103,
+        "source": "public static void spawnFire(EntityBulletBaseMK4 bullet, RayTraceResult mop, float width, float height, int duration, int type) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFolly.java",
+    "sha256": "587036e20f206f90719cbd21d3b60bfbdbffe353a57d96105797f13a823e7cbb",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 11,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 52,
+        "source": "EntityBulletBeamBase beam = (EntityBulletBeamBase) entity;"
+      },
+      {
+        "line": 91,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_NUKE_IMPACT = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryRocket.java",
+    "sha256": "b72d36c88ad692fe61810d0b8a4610be8b8d441bfdd63c1184d8345bcb8b94cd",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 58,
+        "source": "EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;"
+      },
+      {
+        "line": 62,
+        "source": "EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;"
+      },
+      {
+        "line": 74,
+        "source": "EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;"
+      },
+      {
+        "line": 96,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE = (bullet, mop) -> {"
+      },
+      {
+        "line": 100,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_HEAT = (bullet, mop) -> {"
+      },
+      {
+        "line": 110,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_DEMO = (bullet, mop) -> {"
+      },
+      {
+        "line": 121,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_INC = (bullet, mop) -> {"
+      },
+      {
+        "line": 124,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_EXPLODE_PHOSPHORUS = (bullet, mop) -> {"
+      },
+      {
+        "line": 128,
+        "source": "public static void spawnFire(EntityBulletBaseMK4 bullet, RayTraceResult mop, boolean phosphorus, int duration) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+    "sha256": "50e1bcb8f08033e10e729e1e486360b28cd371a70ef39683d4e66beda320108a",
+    "references": [
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 64,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_WATER_HIT = (bullet, mop) -> {"
+      },
+      {
+        "line": 106,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_FOAM_HIT = (bullet, mop) -> {"
+      },
+      {
+        "line": 153,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_SAND_HIT = (bullet, mop) -> {"
+      },
+      {
+        "line": 194,
+        "source": "EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;"
+      },
+      {
+        "line": 204,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_HOOK = (bullet, mop) -> {"
+      },
+      {
+        "line": 212,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_MORTAR = (bullet, mop) -> {"
+      },
+      {
+        "line": 224,
+        "source": "public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_MORTAR_CHARGE = (bullet, mop) -> {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/impl/ItemGunChargeThrower.java",
+    "sha256": "f9a4c85beeb17b5b5d1f25e1adb0ee17c1adf4f73716892bfa5c7895c95e80e4",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 35,
+        "source": "if(e != null && !e.isDead && e instanceof EntityBulletBaseMK4 && ((EntityBulletBaseMK4) e).config == XFactoryTool.ct_hook && ((EntityBulletBaseMK4) e).velocity < 0.01) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "references": [
+      {
+        "line": 723,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseMK4.class, renderManager -> new RenderBulletMK4(renderManager));"
+      },
+      {
+        "line": 724,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityBulletBaseMK4CL.class, renderManager -> new RenderBulletMK4(renderManager));"
+      },
+      {
+        "line": 725,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityBulletBeamBase.class, renderManager -> new RenderBeam(renderManager));"
+      },
+      {
+        "line": 750,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityArtilleryShell.class, renderManager -> new RenderArtilleryShell(renderManager));"
+      },
+      {
+        "line": 751,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityArtilleryRocket.class, renderManager -> new RenderArtilleryRocket(renderManager));"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+    "sha256": "3c775817c07fce2b274336d710475f00070f893dd2bc34f3b9633728a2785727",
+    "references": [
+      {
+        "line": 51,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 1121,
+        "source": "EntityBulletBaseMK4 mk4 = new EntityBulletBaseMK4(player, firedConfig, 15F, 0F, -0.1875, -0.0625, 0.5);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderArtilleryRocket.java",
+    "sha256": "3dd44fdc10e2cbf9e4206856ef32b3d83cfea1e199c7805d8b3aeb3d58db62e1",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 37,
+        "source": "EntityArtilleryRocket rocket = (EntityArtilleryRocket) entity;"
+      },
+      {
+        "line": 49,
+        "source": "EntityArtilleryRocket rocket = (EntityArtilleryRocket) entity;"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "rocket.getDataWatcher().getWatchableObjectInt(10)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderBeam.java",
+    "sha256": "f264db2b1a24bb7e9bdc9056fd861fa5cf706caa890504089f2c4d6c4159b08a",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.projectile.EntityBulletBeamBase;"
+      },
+      {
+        "line": 21,
+        "source": "EntityBulletBeamBase bullet = (EntityBulletBeamBase) entity;"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderBulletMK4.java",
+    "sha256": "82841c9c6db0bbea2164669d30d666cbe98ecfb5b58cf2154f07ea8a83dff067",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 21,
+        "source": "EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java",
+    "sha256": "e38925e2cd5c0e215b5d6809ee73d2a625361aa590ee58282d7f099ff4e7c08f",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryShell;"
+      },
+      {
+        "line": 197,
+        "source": "EntityArtilleryShell proj = new EntityArtilleryShell(this.world);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+    "sha256": "3a14a96198ac6dee7da8f7c8d7bcf5378c2003eaec2395b74ee49bacd92af1c6",
+    "references": [
+      {
+        "line": 13,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 354,
+        "source": "EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java",
+    "sha256": "ccf944a31cc97904b41b3633dc133553cac35846a05363a9fb453c8b0e032941",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 113,
+        "source": "EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, tank.getTankType() == Fluids.BALEFIRE ? XFactoryFlamer.flame_nograv_bf : XFactoryFlamer.flame_nograv, damage, 0.05F, (float) rotationYaw, (float) rotationPitch);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java",
+    "sha256": "89c554b6c3d2b7164f2b804441abd58ea0b974943de6c58aa34d1ccaa641156b",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityArtilleryRocket;"
+      },
+      {
+        "line": 321,
+        "source": "EntityArtilleryRocket proj = new EntityArtilleryRocket(this.world);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretRichard.java",
+    "sha256": "34af8c8f186f6fe3e4924b2ba39801a7bf354670eace6acbcbdf9a9277ee7b48",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityBulletBaseMK4;"
+      },
+      {
+        "line": 156,
+        "source": "EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  }
+]

@@ -113,7 +113,7 @@ public class TileEntityNukeBalefire extends TileEntityMachineBase implements IGU
 		for(int i = 0; i < slots.length; i++)
 			slots[i] = null;
 		
-		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+		com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 		
 		EntityBalefire bf = new EntityBalefire(this.world);
 		bf.posX = this.pos.getX() + 0.5;

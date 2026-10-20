@@ -1,0 +1,2 @@
++        Block block = this.func_147439_a(p_147437_1_, p_147437_2_, p_147437_3_);
++        return block.isAir(this, p_147437_1_, p_147437_2_, p_147437_3_);

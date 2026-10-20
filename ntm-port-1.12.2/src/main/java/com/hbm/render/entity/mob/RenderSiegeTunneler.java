@@ -8,13 +8,15 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.loader.HFRWavefrontObject;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderSiegeTunneler extends Render {
+public class RenderSiegeTunneler extends Render<Entity> {
 
-	public RenderSiegeTunneler() {
+	public RenderSiegeTunneler(RenderManager renderManager) {
+		super(renderManager);
 		this.shadowOpaque = 0.0F;
 	}
 

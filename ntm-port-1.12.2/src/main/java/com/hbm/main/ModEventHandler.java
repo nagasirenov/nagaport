@@ -307,7 +307,7 @@ public class ModEventHandler {
 
 		for(int i = 1; i < 5; i++) {
 
-			ItemStack stack = event.getEntityLiving().getEquipmentInSlot(i);
+			ItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i);
 
 			if(stack != null && stack.getItem() instanceof ItemArmor && ArmorModHandler.hasMods(stack)) {
 
@@ -372,7 +372,7 @@ public class ModEventHandler {
 			event.getEntity().entityDropItem(new ItemStack(ModBlocks.block_meteor, 1 + rand.nextInt(10)), 0.0F);
 		}
 
-		if(event.getEntity() instanceof EntityCreeperTainted && event.source == ModDamageSource.boxcar) {
+		if(event.getEntity() instanceof EntityCreeperTainted && event.getSource() == ModDamageSource.boxcar) {
 
 			for(Object o : event.getEntity().world.getEntitiesWithinAABB(EntityPlayer.class, event.getEntity().getEntityBoundingBox().grow(50, 50, 50))) {
 				EntityPlayer player = (EntityPlayer)o;
@@ -419,14 +419,14 @@ public class ModEventHandler {
 
 		if(!event.getEntityLiving().world.isRemote) {
 
-			if(event.source==ModDamageSource.eve)
+			if(event.getSource()==ModDamageSource.eve)
 			{
 				for(int i = -1; i < 2; i++) {
 					for(int j = -1; j < 2; j++) {
 						for(int k = -1; k < 2; k++) {
 							if(com.hbm.world.WorldBlockState.read(event.getEntityLiving().world, (int)event.getEntityLiving().posX+i, (int)event.getEntityLiving().posY+j, (int)event.getEntityLiving().posZ+k).getBlock()==Blocks.AIR)
 							{
-								if(ModBlocks.flesh_block.canPlaceBlockAt(event.getEntityLiving().world, (int)event.getEntityLiving().posX+i, (int)event.getEntityLiving().posY+j, (int)event.getEntityLiving().posZ+k))
+								if(ModBlocks.flesh_block.canPlaceBlockAt(event.getEntityLiving().world, new net.minecraft.util.math.BlockPos((int)event.getEntityLiving().posX+i, (int)event.getEntityLiving().posY+j, (int)event.getEntityLiving().posZ+k)))
 								{
 									event.getEntityLiving().world.setBlock((int)event.getEntityLiving().posX+i, (int)event.getEntityLiving().posY+j, (int)event.getEntityLiving().posZ+k, ModBlocks.flesh_block);
 								}
@@ -436,8 +436,8 @@ public class ModEventHandler {
 				}
 			}
 
-			if(event.source instanceof EntityDamageSource && ((EntityDamageSource)event.source).getEntity() instanceof EntityPlayer
-					 && !(((EntityDamageSource)event.source).getEntity() instanceof FakePlayer)) {
+			if(event.getSource() instanceof EntityDamageSource && ((EntityDamageSource)event.getSource()).getTrueSource() instanceof EntityPlayer
+					 && !(((EntityDamageSource)event.getSource()).getTrueSource() instanceof FakePlayer)) {
 
 				if(event.getEntityLiving() instanceof EntitySpider && event.getEntityLiving().getRNG().nextInt(500) == 0) {
 					event.getEntityLiving().dropItem(ModItems.spider_milk, 1);
@@ -473,7 +473,7 @@ public class ModEventHandler {
 
 		EntityLivingBase entity = event.getEntityLiving();
 
-		if(EntityDamageUtil.wasAttackedByV1(event.source)) {
+		if(EntityDamageUtil.wasAttackedByV1(event.getSource())) {
 
 			NBTTagCompound vdat = new NBTTagCompound();
 			vdat.setString("type", "giblets");
@@ -482,7 +482,7 @@ public class ModEventHandler {
 
 			com.hbm.sound.VanillaWorldSoundEffects.play(entity.world, entity.posX, entity.posY, entity.posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + entity.world.rand.nextFloat() * 0.2F);
 
-			EntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.source).getEntity();
+			EntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.getSource()).getTrueSource();
 
 			if(attacker.getDistanceSqToEntity(entity) < 100) {
 				attacker.heal(entity.getMaxHealth() * 0.25F);
@@ -523,13 +523,13 @@ public class ModEventHandler {
 	@SubscribeEvent
 	public void decorateMob(LivingSpawnEvent event) {
 		EntityLivingBase entity = event.getEntityLiving();
-		World world = event.world;
+		World world = event.getWorld();
 
 		if(!MobConfig.enableMobGear || entity.isChild() || world.isRemote) return;
 
 		Map<Integer, List<WeightedRandomObject>> slotPools = new HashMap<>();
 
-		float soot = PollutionHandler.getPollution(entity.world, MathHelper.floor_double(event.x), MathHelper.floor_double(event.y), MathHelper.floor_double(event.z), PollutionType.SOOT); //uhfgfg
+		float soot = PollutionHandler.getPollution(entity.world, MathHelper.floor_double(event.getX()), MathHelper.floor_double(event.getY()), MathHelper.floor_double(event.getZ()), PollutionType.SOOT); //uhfgfg
 
 		if(entity instanceof EntityZombie) {
 			if(world.rand.nextFloat() < 0.005F && soot > 2) { // full hazmat zombine
@@ -589,7 +589,7 @@ public class ModEventHandler {
 
 	@SubscribeEvent
 	public void addAITasks(EntityJoinWorldEvent event) {
-		if(event.world.isRemote || !(event.getEntity() instanceof EntityLiving)) return;
+		if(event.getWorld().isRemote || !(event.getEntity() instanceof EntityLiving)) return;
 
 		EntityLiving living = (EntityLiving) event.getEntity();
 		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(living);
@@ -602,7 +602,7 @@ public class ModEventHandler {
 	@SubscribeEvent
 	public void onItemToss(ItemTossEvent event) {
 
-		ItemStack yeet = event.entityItem.getEntityItem();
+		ItemStack yeet = event.getEntityItem().getEntityItem();
 
 		if(yeet.getItem() instanceof ItemArmor && ArmorModHandler.hasMods(yeet)) {
 
@@ -610,38 +610,38 @@ public class ModEventHandler {
 			ItemStack cladding = mods[ArmorModHandler.cladding];
 
 			if(cladding != null && cladding.getItem() == ModItems.cladding_obsidian) {
-				ReflectionHelper.setPrivateValue(Entity.class, event.entityItem, true, "field_149119_a", "field_83001_bt", "field_149500_a", "invulnerable");
+				ReflectionHelper.setPrivateValue(Entity.class, event.getEntityItem(), true, "field_149119_a", "field_83001_bt", "field_149500_a", "invulnerable");
 			}
 		}
 
 		if(yeet.getItem() == ModItems.bismuth_tool) {
-			ReflectionHelper.setPrivateValue(Entity.class, event.entityItem, true, "field_149119_a", "field_83001_bt", "field_149500_a", "invulnerable");
+			ReflectionHelper.setPrivateValue(Entity.class, event.getEntityItem(), true, "field_149119_a", "field_83001_bt", "field_149500_a", "invulnerable");
 		}
 	}
 
 	@SubscribeEvent
 	public void onBlockPlaced(PlaceEvent event) {
-		if(event.world.isRemote) return;
-		boolean placeCancelled = ChunkAtmosphereManager.proxy.runEffectsOnBlock(event.world, event.block, event.x, event.y, event.z);
+		if(event.getWorld().isRemote) return;
+		boolean placeCancelled = ChunkAtmosphereManager.proxy.runEffectsOnBlock(event.getWorld(), event.block, event.x, event.y, event.z);
 		if(placeCancelled) return;
 
 		if(event.block instanceof IGrowable) {
-			ChunkAtmosphereManager.proxy.trackPlant(event.world, event.x, event.y, event.z);
+			ChunkAtmosphereManager.proxy.trackPlant(event.getWorld(), event.x, event.y, event.z);
 		}
 
-		if(SpaceConfig.allowNetherPortals && event.world.provider.getDimension() > 1 && event.block instanceof BlockFire) {
-			Blocks.PORTAL.func_150000_e(event.world, event.x, event.y, event.z);
+		if(SpaceConfig.allowNetherPortals && event.getWorld().provider.getDimension() > 1 && event.block instanceof BlockFire) {
+			Blocks.PORTAL.func_150000_e(event.getWorld(), event.x, event.y, event.z);
 		}
 
 		// sneaky sneaky space furnace
 		if(event.block == Blocks.FURNACE) {
-			event.world.setBlock(event.x, event.y, event.z, ModBlocks.furnace, 0, 2);
-			ModBlocks.furnace.onBlockPlacedBy(event.world, event.x, event.y, event.z, event.player, event.itemInHand);
+			event.getWorld().setBlock(event.x, event.y, event.z, ModBlocks.furnace, 0, 2);
+			ModBlocks.furnace.onBlockPlacedBy(event.getWorld(), event.x, event.y, event.z, event.getPlayer(), event.itemInHand);
 		}
 
-		if(event.y >= event.world.provider.getHorizon()) {
+		if(event.y >= event.getWorld().provider.getHorizon()) {
 			if(event.block.getLightValue() > 10) {
-				CelestialBody body = CelestialBody.getBody(event.world);
+				CelestialBody body = CelestialBody.getBody(event.getWorld());
 				CBT_Lights lights = body.getTrait(CBT_Lights.class);
 
 				if(lights == null) lights = new CBT_Lights();
@@ -654,13 +654,13 @@ public class ModEventHandler {
 
 	@SubscribeEvent
 	public void onBucketUse(FillBucketEvent event) {
-		if(event.world.isRemote) return;
-		if(event.target.typeOfHit != RayTraceResult.Type.BLOCK) return;
-		if(!(event.world.provider instanceof WorldProviderCelestial) && !(event.world.provider instanceof WorldProviderOrbit)) return;
+		if(event.getWorld().isRemote) return;
+		if(event.getTarget().typeOfHit != RayTraceResult.Type.BLOCK) return;
+		if(!(event.getWorld().provider instanceof WorldProviderCelestial) && !(event.getWorld().provider instanceof WorldProviderOrbit)) return;
 
-		if(event.current != null && event.current.getItem() == Items.WATER_BUCKET) {
-			net.minecraft.util.EnumFacing side = event.target.sideHit;
-			CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(event.world, event.target.getBlockPos().getX() + side.getFrontOffsetX(), event.target.getBlockPos().getY() + side.getFrontOffsetY(), event.target.getBlockPos().getZ() + side.getFrontOffsetZ());
+		if(event.getEmptyBucket() != null && event.getEmptyBucket().getItem() == Items.WATER_BUCKET) {
+			net.minecraft.util.EnumFacing side = event.getTarget().sideHit;
+			CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(event.getWorld(), event.getTarget().getBlockPos().getX() + side.getFrontOffsetX(), event.getTarget().getBlockPos().getY() + side.getFrontOffsetY(), event.getTarget().getBlockPos().getZ() + side.getFrontOffsetZ());
 			boolean hasLiquidPressure = ChunkAtmosphereManager.proxy.hasLiquidPressure(atmosphere);
 
 			if(Loader.isModLoaded(Compat.MOD_COFH)) {
@@ -669,7 +669,7 @@ public class ModEventHandler {
 				}
 			} else {
 				if(hasLiquidPressure) {
-					event.world.provider.isHellWorld = false;
+					event.getWorld().provider.isHellWorld = false;
 				}
 			}
 		}
@@ -683,7 +683,7 @@ public class ModEventHandler {
 
 			if(contaminated) {
 
-				for(EntityItem item : event.drops) {
+				for(EntityItem item : event.getDrops()) {
 					ItemStack stack = item.getEntityItem();
 
 					if(!stack.hasTagCompound()) {
@@ -782,7 +782,7 @@ public class ModEventHandler {
 		for(int i = 1; i < 5; i++) {
 
 			ItemStack prev = prevArmor != null ? prevArmor[i] : null;
-			ItemStack armor = event.getEntityLiving().getEquipmentInSlot(i);
+			ItemStack armor = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i);
 
 			boolean reapply = prevArmor != null && !ItemStack.areItemStacksEqual(prev, armor);
 
@@ -972,7 +972,7 @@ public class ModEventHandler {
 
 	@SubscribeEvent
 	public void onGenerateOre(GenerateMinable event) {
-		if(event.world.provider instanceof WorldProviderCelestial && event.world.provider.getDimension() != 0) {
+		if(event.getWorld().provider instanceof WorldProviderCelestial && event.getWorld().provider.getDimension() != 0) {
 			WorldGeneratorCelestial.onGenerateOre(event);
 		}
 	}
@@ -991,10 +991,11 @@ public class ModEventHandler {
 				event.setCanceled(true);
 			}
 
-			if(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB)
-				((ArmorFSB)player.inventory.armorInventory[2].getItem()).handleAttack(event);
+			if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)
+				((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).handleAttack(event);
 
 			for(ItemStack stack : player.inventory.armorInventory) {
+				if (stack == ItemStack.EMPTY) stack = null;
 				if(stack != null && stack.getItem() instanceof IAttackHandler) {
 					((IAttackHandler)stack.getItem()).handleAttack(event, stack);
 				}
@@ -1013,20 +1014,20 @@ public class ModEventHandler {
 
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
 			if(props.shield > 0 |props.nitanHealth > 0) {
-				float reduce = Math.min(props.shield+props.nitanHealth, event.ammount);
+				float reduce = Math.min(props.shield+props.nitanHealth, event.getAmount());
 				props.shield -= reduce;
 				props.nitanHealth -= reduce;
-				event.ammount -= reduce;
+				event.setAmount((float) (event.getAmount() - (reduce)));
 			}
 			props.lastDamage = player.ticksExisted;
 		}
 
-		if(HbmLivingProps.getContagion(e) > 0 && event.ammount < 100)
-			event.ammount *= 2F;
+		if(HbmLivingProps.getContagion(e) > 0 && event.getAmount() < 100)
+			event.setAmount((float) (event.getAmount() * (2F)));
 
 		/// V1 ///
-		if(EntityDamageUtil.wasAttackedByV1(event.source)) {
-			EntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.source).getEntity();
+		if(EntityDamageUtil.wasAttackedByV1(event.getSource())) {
+			EntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.getSource()).getTrueSource();
 
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "vanillaburst");
@@ -1037,14 +1038,14 @@ public class ModEventHandler {
 			PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, e.posX, e.posY + e.height * 0.5, e.posZ), new TargetPoint(e.dimension, e.posX, e.posY, e.posZ, 50));
 
 			if(attacker.getDistanceSqToEntity(e) < 25) {
-				attacker.heal(event.ammount * 0.5F);
+				attacker.heal(event.getAmount() * 0.5F);
 			}
 		}
 
 		/// ARMOR MODS ///
 		for(int i = 1; i < 5; i++) {
 
-			ItemStack armor = e.getEquipmentInSlot(i);
+			ItemStack armor = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(e, i);
 
 			if(armor != null && ArmorModHandler.hasMods(armor)) {
 
@@ -1062,11 +1063,12 @@ public class ModEventHandler {
 			EntityPlayer player = (EntityPlayer) e;
 
 			/// FSB ARMOR ///
-			if(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB)
-				((ArmorFSB)player.inventory.armorInventory[2].getItem()).handleHurt(event);
+			if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)
+				((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).handleHurt(event);
 
 
 			for(ItemStack stack : player.inventory.armorInventory) {
+				if (stack == ItemStack.EMPTY) stack = null;
 				if(stack != null && stack.getItem() instanceof IDamageHandler) {
 					((IDamageHandler)stack.getItem()).handleDamage(event, stack);
 				}
@@ -1077,22 +1079,22 @@ public class ModEventHandler {
 	@SubscribeEvent
 	public void onPlayerFall(PlayerFlyableFallEvent event) {
 
-		EntityPlayer e = event.entityPlayer;
+		EntityPlayer e = event.getEntityPlayer();
 
-		if(e.inventory.armorInventory[2] != null && e.inventory.armorInventory[2].getItem() instanceof ArmorFSB)
-			((ArmorFSB)e.inventory.armorInventory[2].getItem()).handleFall(e, event.distance);
+		if(com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)
+			((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2).getItem()).handleFall(e, event.getDistance());
 	}
 
 	// only for the ballistic gauntlet! contains dangerous conditional returns!
 	@SubscribeEvent
 	public void onPlayerPunch(AttackEntityEvent event) {
 
-		EntityPlayer player = event.entityPlayer;
-		ItemStack chestplate = player.inventory.armorInventory[2];
+		EntityPlayer player = event.getEntityPlayer();
+		ItemStack chestplate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 
 		if(!player.world.isRemote && chestplate != null && ArmorModHandler.hasMods(chestplate)) {
 
-			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers().containsKey(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName())) return;
+			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND).containsKey(SharedMonsterAttributes.ATTACK_DAMAGE.getName())) return;
 
 			ItemStack[] mods = ArmorModHandler.pryMods(chestplate);
 			ItemStack servo = mods[ArmorModHandler.servos];
@@ -1134,8 +1136,8 @@ public class ModEventHandler {
 
 		EntityLivingBase e = event.getEntityLiving();
 
-		if(e instanceof EntityPlayer && ((EntityPlayer)e).inventory.armorInventory[2] != null && ((EntityPlayer)e).inventory.armorInventory[2].getItem() instanceof ArmorFSB)
-			((ArmorFSB)((EntityPlayer)e).inventory.armorInventory[2].getItem()).handleJump((EntityPlayer)e);
+		if(e instanceof EntityPlayer && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem() instanceof ArmorFSB)
+			((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem()).handleJump((EntityPlayer)e);
 	}
 
 	@SubscribeEvent
@@ -1148,19 +1150,19 @@ public class ModEventHandler {
 
 		// Reduce fall damage on low gravity bodies
 		if(gravity < 0.3F) {
-			event.distance = 0;
+			event.setDistance(0);
 		} else if(gravity < 1.5F) {
-			event.distance *= gravity / AstronomyUtil.STANDARD_GRAVITY;
+			event.setDistance((float) (event.getDistance() * (gravity / AstronomyUtil.STANDARD_GRAVITY)));
 		}
 
-		if(e instanceof EntityPlayer && ((EntityPlayer)e).inventory.armorInventory[2] != null && ((EntityPlayer)e).inventory.armorInventory[2].getItem() instanceof ArmorFSB)
-			((ArmorFSB)((EntityPlayer)e).inventory.armorInventory[2].getItem()).handleFall((EntityPlayer)e, event.distance);
+		if(e instanceof EntityPlayer && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem() instanceof ArmorFSB)
+			((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem()).handleFall((EntityPlayer)e, event.getDistance());
 	}
 
 	//this exists!?
 	@SubscribeEvent
 	public void onUseHoe(UseHoeEvent event) {
-		World world = event.world;
+		World world = event.getWorld();
 		int x = event.x;
 		int y = event.y;
 		int z = event.z;
@@ -1169,7 +1171,7 @@ public class ModEventHandler {
 
 		if(block == ModBlocks.rubber_grass || block == ModBlocks.rubber_silt) {
 			world.setBlock(x, y, z, ModBlocks.rubber_farmland);
-			event.current.damageItem(1, event.entityPlayer);
+			event.getCurrent().damageItem(1, event.getEntityPlayer());
 			event.setResult(Result.ALLOW);
 		}
 	}
@@ -1183,7 +1185,7 @@ public class ModEventHandler {
 
 		if(event.phase == TickEvent.Phase.START) {
 
-			if(player.getCurrentArmor(2) == null && !player.onGround) {
+			if(com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2) == null && !player.onGround) {
 
 				if(player.getUniqueID().toString().equals(ShadyUtil.Barnaby99_x) || player.getDisplayName().equals("pheo7")) {
 
@@ -1297,7 +1299,7 @@ public class ModEventHandler {
 			if(player.getUniqueID().toString().equals(ShadyUtil.LePeeperSauvage) ||	player.getDisplayName().equals("LePeeperSauvage")) {
 
 				Multimap multimap = HashMultimap.create();
-				multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(fopSpeed, "FOP SPEED", 0.5, 1));
+				multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(fopSpeed, "FOP SPEED", 0.5, 1));
 				player.getAttributeMap().removeAttributeModifiers(multimap);
 
 				if(player.isSprinting()) {
@@ -1351,8 +1353,8 @@ public class ModEventHandler {
 			}
 		}
 
-		if(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB)
-			((ArmorFSB)player.inventory.armorInventory[2].getItem()).handleTick(event);
+		if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB)
+			((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).handleTick(event);
 
 		if(player.ticksExisted == 100 || player.ticksExisted == 200)
 			CraftingManager.crumple();
@@ -1459,7 +1461,7 @@ public class ModEventHandler {
 
 			/// PU RADIATION END ///
 
-			for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+			for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 				ItemStack stack2 = player.inventory.getStackInSlot(i);
 
 				//oh yeah remind me...
@@ -1486,7 +1488,7 @@ public class ModEventHandler {
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(3 * rand.nextDouble(), 0, 0);
 				vec.rotateAroundZRad((float) (rand.nextDouble() * Math.PI));
 				vec.rotateAroundYRad((float) (rand.nextDouble() * Math.PI * 2));
-				player.world.spawnParticle("townaura", player.posX + vec.x, player.posY + 1 + vec.y, player.posZ + vec.z, 0.0, 0.0, 0.0);
+				player.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, player.posX + vec.x, player.posY + 1 + vec.y, player.posZ + vec.z, 0.0, 0.0, 0.0);
 			}
 			if(player.getUniqueID().toString().equals(ShadyUtil.DUODEC_)) {
 
@@ -1512,12 +1514,12 @@ public class ModEventHandler {
 	@SubscribeEvent
 	public void preventOrganicSpawn(DecorateBiomeEvent.Decorate event) {
 		// In space, no one can hear you shroom
-		if(!(event.world.provider instanceof WorldProviderCelestial)) return;
+		if(!(event.getWorld().provider instanceof WorldProviderCelestial)) return;
 
-		WorldProviderCelestial celestial = (WorldProviderCelestial) event.world.provider;
+		WorldProviderCelestial celestial = (WorldProviderCelestial) event.getWorld().provider;
 		if(celestial.hasLife()) return; // Except on Laythe
 
-		switch(event.type) {
+		switch(event.getType()) {
 		case BIG_SHROOM:
 		case CACTUS:
 		case DEAD_BUSH:
@@ -1578,11 +1580,11 @@ public class ModEventHandler {
 
 	@SubscribeEvent
 	public void commandEvent(CommandEvent event) {
-		ICommand command = event.command;
-		ICommandSender sender = event.sender;
+		ICommand command = event.getCommand();
+		ICommandSender sender = event.getSender();
 		if(command instanceof CommandGameRule) {
 			if(command.canCommandSenderUseCommand(sender)) {
-				command.processCommand(sender,event.parameters);
+				command.processCommand(sender,event.getParameters());
 				RBMKDials.refresh(sender.getEntityWorld()); // Refresh RBMK gamerules.
 				event.setCanceled(true);
 			}
@@ -1684,16 +1686,16 @@ public class ModEventHandler {
 				int y = event.y + dir.offsetY;
 				int z = event.z + dir.offsetZ;
 
-				if(event.world.rand.nextInt(2) == 0 && com.hbm.world.WorldBlockState.read(event.world, x, y, z).getBlock() == Blocks.AIR)
-					event.world.setBlock(x, y, z, ModBlocks.gas_coal);
+				if(event.getWorld().rand.nextInt(2) == 0 && com.hbm.world.WorldBlockState.read(event.getWorld(), x, y, z).getBlock() == Blocks.AIR)
+					event.getWorld().setBlock(x, y, z, ModBlocks.gas_coal);
 			}
 		}
 
-		if(event.y > event.world.provider.getHorizon()) {
+		if(event.y > event.getWorld().provider.getHorizon()) {
 			if(event.block.getLightValue() > 10) {
 				// Placing blocks onto beams counts as a break, but doesn't reduce light count
 				if(!(event.block instanceof BlockBeamBase)) {
-					CelestialBody body = CelestialBody.getBody(event.world);
+					CelestialBody body = CelestialBody.getBody(event.getWorld());
 					CBT_Lights lights = body.getTrait(CBT_Lights.class);
 
 					if(lights == null) lights = new CBT_Lights();
@@ -1818,8 +1820,8 @@ public class ModEventHandler {
 	@SubscribeEvent
 	public void chatEvent(ServerChatEvent event) {
 
-		EntityPlayerMP player = event.player;
-		String message = event.message;
+		EntityPlayerMP player = event.getPlayer();
+		String message = event.getMessage();
 
 		//boolean conditions for the illiterate, edition 1
 		//bellow you can see the header of an if-block. inside the brackets, there is a boolean statement.

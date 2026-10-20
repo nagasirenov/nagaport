@@ -74,9 +74,9 @@ public class MachineForceField extends BlockContainer {
 				float f5 = rand.nextFloat();
 
 				if(te.color == 0xFF0000)
-					world.spawnParticle("lava", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
+					world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
 				else
-					world.spawnParticle("reddust", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
+					world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
 			}
 		} else if(te.cooldown > 0) {
 			for(int i = 0; i < 4; i++) {
@@ -86,7 +86,7 @@ public class MachineForceField extends BlockContainer {
 				float f4 = rand.nextFloat();
 				float f5 = rand.nextFloat();
 
-				world.spawnParticle("smoke", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}

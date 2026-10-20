@@ -15,7 +15,7 @@ public class ArmorAshGlasses extends ItemArmor {
 	private ModelGlasses modelGoggles;
 
 	public ArmorAshGlasses(ArmorMaterial armorMaterial, int armorType) {
-		super(armorMaterial, 0, armorType);
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -23,7 +23,7 @@ public class ArmorAshGlasses extends ItemArmor {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(model == null) {
 			model = new ModelGlasses(0);

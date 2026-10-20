@@ -15,6 +15,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
@@ -536,42 +538,44 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		Tessellator tess = Tessellator.instance;
-		tess.setColorOpaque_F(1F, 0F, 0F);
-		tess.startDrawing(GL11.GL_TRIANGLES);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		// Legacy begin resets this attribute; retain its argument evaluation.
+		float tessResetRed = 1F, tessResetGreen = 0F, tessResetBlue = 0F;
+		tessBuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION);
 
 		double d = 0.125D;
-		tess.addVertex(0, d, 0);
-		tess.addVertex(d, 0, 0);
-		tess.addVertex(0, 0, d);
+		tessBuffer.pos(0, d, 0).endVertex();
+		tessBuffer.pos(d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, d).endVertex();
 
-		tess.addVertex(0, d, 0);
-		tess.addVertex(-d, 0, 0);
-		tess.addVertex(0, 0, d);
+		tessBuffer.pos(0, d, 0).endVertex();
+		tessBuffer.pos(-d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, d).endVertex();
 
-		tess.addVertex(0, d, 0);
-		tess.addVertex(d, 0, 0);
-		tess.addVertex(0, 0, -d);
+		tessBuffer.pos(0, d, 0).endVertex();
+		tessBuffer.pos(d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, -d).endVertex();
 
-		tess.addVertex(0, d, 0);
-		tess.addVertex(-d, 0, 0);
-		tess.addVertex(0, 0, -d);
+		tessBuffer.pos(0, d, 0).endVertex();
+		tessBuffer.pos(-d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, -d).endVertex();
 
-		tess.addVertex(0, -d, 0);
-		tess.addVertex(d, 0, 0);
-		tess.addVertex(0, 0, d);
+		tessBuffer.pos(0, -d, 0).endVertex();
+		tessBuffer.pos(d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, d).endVertex();
 
-		tess.addVertex(0, -d, 0);
-		tess.addVertex(d, 0, 0);
-		tess.addVertex(0, 0, -d);
+		tessBuffer.pos(0, -d, 0).endVertex();
+		tessBuffer.pos(d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, -d).endVertex();
 
-		tess.addVertex(0, -d, 0);
-		tess.addVertex(-d, 0, 0);
-		tess.addVertex(0, 0, d);
+		tessBuffer.pos(0, -d, 0).endVertex();
+		tessBuffer.pos(-d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, d).endVertex();
 
-		tess.addVertex(0, -d, 0);
-		tess.addVertex(-d, 0, 0);
-		tess.addVertex(0, 0, -d);
+		tessBuffer.pos(0, -d, 0).endVertex();
+		tessBuffer.pos(-d, 0, 0).endVertex();
+		tessBuffer.pos(0, 0, -d).endVertex();
 
 		tess.draw();
 

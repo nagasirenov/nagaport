@@ -1,0 +1,39 @@
+# SOURCE: /tmp/nagaport-forge1614-patches.zip!/net/minecraft/entity/player/EntityPlayer.java.patch
+// EXCERPT containing ArmorProperties.ApplyArmor; source lines 303-339
+     public boolean func_70097_a(DamageSource p_70097_1_, float p_70097_2_)
+     {
++        if (ForgeHooks.onLivingAttack(this, p_70097_1_, p_70097_2_)) return false;
+         if (this.func_85032_ar())
+         {
+             return false;
+@@ -965,12 +1077,15 @@
+     {
+         if (!this.func_85032_ar())
+         {
++            p_70665_2_ = ForgeHooks.onLivingHurt(this, p_70665_1_, p_70665_2_);
++            if (p_70665_2_ <= 0) return;
+             if (!p_70665_1_.func_76363_c() && this.func_70632_aY() && p_70665_2_ > 0.0F)
+             {
+                 p_70665_2_ = (1.0F + p_70665_2_) * 0.5F;
+             }
+ 
+-            p_70665_2_ = this.func_70655_b(p_70665_1_, p_70665_2_);
++            p_70665_2_ = ArmorProperties.ApplyArmor(this, field_71071_by.field_70460_b, p_70665_1_, p_70665_2_);
++            if (p_70665_2_ <= 0) return;
+             p_70665_2_ = this.func_70672_c(p_70665_1_, p_70665_2_);
+             float f1 = p_70665_2_;
+             p_70665_2_ = Math.max(p_70665_2_ - this.func_110139_bj(), 0.0F);
+@@ -1004,6 +1119,7 @@
+ 
+     public boolean func_70998_m(Entity p_70998_1_)
+     {
++        if (MinecraftForge.EVENT_BUS.post(new EntityInteractEvent(this, p_70998_1_))) return false;
+         ItemStack itemstack = this.func_71045_bC();
+         ItemStack itemstack1 = itemstack != null ? itemstack.func_77946_l() : null;
+ 
+@@ -1054,7 +1170,9 @@
+ 
+     public void func_71028_bD()
+     {
++        ItemStack orig = func_71045_bC();
+         this.field_71071_by.func_70299_a(this.field_71071_by.field_70461_c, (ItemStack)null);

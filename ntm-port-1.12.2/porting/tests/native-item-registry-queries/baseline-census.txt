@@ -1,0 +1,45 @@
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java:118:		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java:128:			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java:252:				writer.name("item").value(Item.itemRegistry.getNameForObject(entry.getKey()));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java:277:					Item item = (Item) Item.itemRegistry.getObject(name);
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java:46:				setSize = Item.itemRegistry.getKeys().size();
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java:60:		String nameString = Item.itemRegistry.getNameForObject(preview.getItem()) + ", " + preview.getItemDamage();
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:208:			keyObject = Item.itemRegistry.getObject(key.get("item").getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:211:			keyObject = new ComparableStack((Item) Item.itemRegistry.getObject(key.get("item").getAsString()), 1, key.get("meta").getAsInt());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:243:			writer.name("item").value(Item.itemRegistry.getNameForObject(item));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:248:			writer.name("item").value(Item.itemRegistry.getNameForObject(comp.item));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:270:				Item item = (Item) Item.itemRegistry.getObject(array.get(1).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:275:				Item item = (Item) Item.itemRegistry.getObject(array.get(1).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:304:			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));					//item name
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:311:			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));	//item name
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:326:			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:341:			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:378:		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));													//item name
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:389:		writer.value(Item.itemRegistry.getNameForObject(stack.getKey().getItem()));																			//item name
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java:32:		Item item = (Item) Item.itemRegistry.getObject(id);
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java:45:		Item item = (Item) Item.itemRegistry.getObject(id);
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java:59:		nbt.setString("itemID", Item.itemRegistry.getNameForObject(item));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java:191:						String registry = Item.itemRegistry.getNameForObject(ore.getItem());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/CraftingManager.java:1137:				Item disassembler = (Item) Item.itemRegistry.getObject("Mekanism:AtomicDisassembler");
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/CraftingManager.java:1169:					Item disassembler = (Item) Item.itemRegistry.getObject("Mekanism:AtomicDisassembler");
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java:1122:				for (Object reg : Item.itemRegistry) {
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java:1124:					if(ignoreNonNTM && !Item.itemRegistry.getNameForObject(item).startsWith("hbm:")) continue;
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:171:				nbt.setString("item", Item.itemRegistry.getNameForObject(item));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:177:				nbt.setString("item", Item.itemRegistry.getNameForObject(comp.item));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:198:					return Item.itemRegistry.getObject(nbt.getString("item"));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:201:					return new ComparableStack((Item) Item.itemRegistry.getObject(nbt.getString("item")), 1, nbt.getShort("meta"));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/Compat.java:47:		return (Item) Item.itemRegistry.getObject(getReg(domain, name));
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:337:			writer.value(Item.itemRegistry.getNameForObject(entry.getKey())).setIndent("  ");
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:349:			writer.value(Item.itemRegistry.getNameForObject(entry.getKey().getW()))
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:350:			.value(Item.itemRegistry.getNameForObject(entry.getKey().getX()))
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:351:			.value(Item.itemRegistry.getNameForObject(entry.getKey().getY()))
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:352:			.value(Item.itemRegistry.getNameForObject(entry.getKey().getZ())).setIndent("  ");
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:378:			Item item = (Item) Item.itemRegistry.getObject(statArray.get(0).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:387:			Item helmet =	statArray.get(0).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(0).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:388:			Item plate =	statArray.get(1).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(1).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:389:			Item legs =		statArray.get(2).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(2).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:390:			Item boots =	statArray.get(3).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(3).getAsString());
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java:66:		Iterator iterator = Item.itemRegistry.iterator();
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java:102:		Iterator iterator = Item.itemRegistry.iterator();
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java:122:		Iterator iterator = Item.itemRegistry.iterator();
+5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/world/gen/nbt/NBTStructure.java:472:			Item item = (Item)Item.itemRegistry.getObject(entry.getValue());

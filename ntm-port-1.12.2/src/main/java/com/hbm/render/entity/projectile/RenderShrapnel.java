@@ -7,14 +7,16 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.model.ModelShrapnel;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderShrapnel extends Render {
+public class RenderShrapnel extends Render<Entity> {
 	
 	ModelShrapnel mine;
 
-	public RenderShrapnel() {
+	public RenderShrapnel(RenderManager renderManager) {
+		super(renderManager);
 		mine = new ModelShrapnel();
 	}
 

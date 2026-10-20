@@ -1,0 +1,597 @@
+{
+  "baseline": "0aeda80b859b80afc8af26398366ef05f68478af",
+  "recovery_commit": "d25dcb9f0908d76b1e9eca96b75e58f6397de355",
+  "attribution": "Recovered historical token inventory; not freshly attributed in replacement workspace",
+  "files": [
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/Guide.java",
+      "before": "542d18c42153460c6343fc8712f1eb5aa0fba597cdacd389e794f28940b58a57",
+      "after": "cd1dffcd4760c1238ea5ffec74956d644e1dbe001daa02004c8efb942dacccbc",
+      "edits": [
+        {
+          "start": 4144,
+          "end": 4154,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCrucible.java",
+      "before": "a92af0dba090ec57edfbd414039c6c3e3b6806f1cc719baf4413f840d9155f99",
+      "after": "be2b2ed5fe3f8e542cdc61816b7f6c80ec5fde95c53b3abc3c4800f6598f0edb",
+      "edits": [
+        {
+          "start": 5053,
+          "end": 5059,
+          "old": "player",
+          "new": "getPlayer()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        },
+        {
+          "start": 5084,
+          "end": 5096,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        },
+        {
+          "start": 6030,
+          "end": 6037,
+          "old": "context",
+          "new": "getContext()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorHEV.java",
+      "before": "a90c59e24951c95a88fe1e995f96ba148bdd244106630cf991a18d005fe19ef9",
+      "after": "0a862e9cb6541979c887a88eb7497bea8ad5bf06da6548e23c9bb9d541d29943",
+      "edits": [
+        {
+          "start": 1828,
+          "end": 1832,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 1916,
+          "end": 1920,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 2767,
+          "end": 2777,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+      "before": "26caae0f7f7509f10c77da38aaff50fa7aa3c6652237ba6a6d073e9828e8c159",
+      "after": "c484d8c70f4d7bd850f02169c75c9361fe6eaa61e3cf682fc8b83fee5c411a5d",
+      "edits": [
+        {
+          "start": 24877,
+          "end": 24887,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 24932,
+          "end": 24942,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/ItemGunBaseNT.java",
+      "before": "07d9e9f361a34c51cc3794bcd0708846780b89b1c3daf6c66e263bfcf41f82b9",
+      "after": "03a3e2d2459da4ffe95d6c1be3638e5395920628a7e9e90e4929f9de6b4a8f19",
+      "edits": [
+        {
+          "start": 22365,
+          "end": 22375,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/items/weapon/sedna/impl/ItemGunStinger.java",
+      "before": "39a64bdd079696f9c8e67bef409b7310cd66622096f4da320a7c119827df7ff3",
+      "after": "63b8a8afc2542dad7609e3bcf4e190eabd797b660015f6877e0c6304e39b000a",
+      "edits": [
+        {
+          "start": 4870,
+          "end": 4880,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 5013,
+          "end": 5023,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "before": "8d0cb11bf60fda039f4787d9fa3448fd540d4703290ccc47d65ecff3bd3d58eb",
+      "after": "1ca52867ee1cbc798a6d41011a38c050afc295b0e37b36f0d1ce1c80a73b3539",
+      "edits": [
+        {
+          "start": 6689,
+          "end": 6693,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 6838,
+          "end": 6848,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 6889,
+          "end": 6899,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 8894,
+          "end": 8898,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 9018,
+          "end": 9022,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 9329,
+          "end": 9339,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 9442,
+          "end": 9446,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 15255,
+          "end": 15259,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 15467,
+          "end": 15477,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 16104,
+          "end": 16114,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 16367,
+          "end": 16371,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 16534,
+          "end": 16544,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 16782,
+          "end": 16786,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 16959,
+          "end": 16969,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 18049,
+          "end": 18053,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Post",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 18172,
+          "end": 18182,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Post",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 18266,
+          "end": 18270,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Post",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 18423,
+          "end": 18433,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Post",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 18525,
+          "end": 18529,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Post",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 19250,
+          "end": 19260,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Post",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 19301,
+          "end": 19311,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Post",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 51931,
+          "end": 51943,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderWorldLastEvent",
+          "owner": "net.minecraftforge.client.event.RenderWorldLastEvent"
+        },
+        {
+          "start": 52017,
+          "end": 52029,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderWorldLastEvent",
+          "owner": "net.minecraftforge.client.event.RenderWorldLastEvent"
+        },
+        {
+          "start": 52103,
+          "end": 52115,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderWorldLastEvent",
+          "owner": "net.minecraftforge.client.event.RenderWorldLastEvent"
+        },
+        {
+          "start": 54057,
+          "end": 54069,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderWorldLastEvent",
+          "owner": "net.minecraftforge.client.event.RenderWorldLastEvent"
+        },
+        {
+          "start": 54915,
+          "end": 54927,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderWorldLastEvent",
+          "owner": "net.minecraftforge.client.event.RenderWorldLastEvent"
+        },
+        {
+          "start": 54978,
+          "end": 54990,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.RenderWorldLastEvent",
+          "owner": "net.minecraftforge.client.event.RenderWorldLastEvent"
+        },
+        {
+          "start": 55154,
+          "end": 55160,
+          "old": "entity",
+          "new": "getEntity()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55583,
+          "end": 55589,
+          "old": "entity",
+          "new": "getEntity()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55649,
+          "end": 55655,
+          "old": "entity",
+          "new": "getEntity()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55684,
+          "end": 55690,
+          "old": "entity",
+          "new": "getEntity()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55909,
+          "end": 55915,
+          "old": "entity",
+          "new": "getEntity()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55923,
+          "end": 55924,
+          "old": "x",
+          "new": "getX()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55932,
+          "end": 55933,
+          "old": "y",
+          "new": "getY()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55941,
+          "end": 55942,
+          "old": "z",
+          "new": "getZ()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        },
+        {
+          "start": 55950,
+          "end": 55958,
+          "old": "renderer",
+          "new": "getRenderer()",
+          "receiver": "net.minecraftforge.client.event.RenderLivingEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderLivingEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+      "before": "2bd773b2bdacd766b29f41c6f873c3708ba99a5709324e3863e8df42190181ff",
+      "after": "71dd86c35752ba2f1b060800aa3bc4c6e40d1648ba44927236266cae54f39407",
+      "edits": [
+        {
+          "start": 3823,
+          "end": 3835,
+          "old": "partialTicks",
+          "new": "getPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        },
+        {
+          "start": 3911,
+          "end": 3917,
+          "old": "target",
+          "new": "getTarget()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        },
+        {
+          "start": 4005,
+          "end": 4011,
+          "old": "player",
+          "new": "getPlayer()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        },
+        {
+          "start": 4204,
+          "end": 4210,
+          "old": "player",
+          "new": "getPlayer()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        },
+        {
+          "start": 4335,
+          "end": 4341,
+          "old": "player",
+          "new": "getPlayer()",
+          "receiver": "net.minecraftforge.client.event.DrawBlockHighlightEvent",
+          "owner": "net.minecraftforge.client.event.DrawBlockHighlightEvent"
+        },
+        {
+          "start": 5084,
+          "end": 5090,
+          "old": "entity",
+          "new": "getEntity()",
+          "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity",
+          "owner": "net.minecraftforge.client.event.EntityViewRenderEvent"
+        },
+        {
+          "start": 5211,
+          "end": 5217,
+          "old": "entity",
+          "new": "getEntity()",
+          "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity",
+          "owner": "net.minecraftforge.client.event.EntityViewRenderEvent"
+        },
+        {
+          "start": 6558,
+          "end": 6576,
+          "old": "renderPartialTicks",
+          "new": "getRenderPartialTicks()",
+          "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+          "owner": "net.minecraftforge.client.event.EntityViewRenderEvent"
+        },
+        {
+          "start": 7500,
+          "end": 7504,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 7603,
+          "end": 7613,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 7668,
+          "end": 7672,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 8307,
+          "end": 8311,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 8413,
+          "end": 8423,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 8464,
+          "end": 8474,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/render/util/RenderInfoSystem.java",
+      "before": "e57c6e9e303d1b614d5b51a1902e7df57cb85d72805af8e43f17b25918aa3c36",
+      "after": "10c37e0716de8f29822f229618da23bc7962be36e8efe8cae02ce687f383cdf5",
+      "edits": [
+        {
+          "start": 1603,
+          "end": 1607,
+          "old": "type",
+          "new": "getType()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        },
+        {
+          "start": 1998,
+          "end": 2008,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java",
+      "before": "1b526c3dac38db79e33fdd7788b0cbf503604aec2955368e28b6477023ee6a5e",
+      "after": "049cbeaf0df4d9013504509ebeb8a04cb390fe49480bfa6389d0b6ab084ad15f",
+      "edits": [
+        {
+          "start": 8612,
+          "end": 8622,
+          "old": "resolution",
+          "new": "getResolution()",
+          "receiver": "net.minecraftforge.client.event.RenderGameOverlayEvent.Pre",
+          "owner": "net.minecraftforge.client.event.RenderGameOverlayEvent"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,720 @@
+{
+  "base": "c2f60149e9a9fb836bade505fe566d40a54ef3cc",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "before_sha256": "72a2107194024c677a3f431f7d3e12fe1974ceefcc7cb3cc5c509bb073f1ca70",
+      "after_sha256": "6ab28a27f120959e8c770521cb3636431f288cf3c606db797255b072249d9e81",
+      "original_sha256": "fb266337fcdd2c946c9a53cc59557039783d585d49dd6d06801b0c9d59bba314",
+      "transformations": [
+        {
+          "before_offset": 909,
+          "before": "this.dataWatcher.addObject(cart_base_id, new Integer(0))",
+          "after": "this.dataManager.register(CART_BASE, new Integer(0))",
+          "method": "protected void entityInit() {",
+          "owner": "EntityMinecartNTM",
+          "key": "CART_BASE",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 23,
+          "after_offset": 1166
+        },
+        {
+          "before_offset": 1031,
+          "before": "this.dataWatcher.updateObject(cart_base_id, type.ordinal())",
+          "after": "this.dataManager.set(CART_BASE, type.ordinal())",
+          "method": "public void setBase(EnumCartBase type) {",
+          "owner": "EntityMinecartNTM",
+          "key": "CART_BASE",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 23,
+          "after_offset": 1284
+        },
+        {
+          "before_offset": 1161,
+          "before": "this.dataWatcher.getWatchableObjectInt(cart_base_id)",
+          "after": "this.dataManager.get(CART_BASE)",
+          "method": "public EnumCartBase getBase() {",
+          "owner": "EntityMinecartNTM",
+          "key": "CART_BASE",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 23,
+          "after_offset": 1402
+        },
+        {
+          "before_offset": 1937,
+          "before": "this.dataWatcher.getWatchableObjectInt(cart_base_id)",
+          "after": "this.dataManager.get(CART_BASE)",
+          "method": "protected void writeEntityToNBT(NBTTagCompound nbt) {",
+          "owner": "EntityMinecartNTM",
+          "key": "CART_BASE",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 23,
+          "after_offset": 2157
+        },
+        {
+          "before_offset": 2097,
+          "before": "this.dataWatcher.updateObject(23, nbt.getInteger(\"base\"))",
+          "after": "this.dataManager.set(CART_BASE, nbt.getInteger(\"base\"))",
+          "method": "protected void readEntityFromNBT(NBTTagCompound nbt) {",
+          "owner": "EntityMinecartNTM",
+          "key": "CART_BASE",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 23,
+          "after_offset": 2296
+        }
+      ],
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n"
+      ],
+      "replacements": [
+        {
+          "before": "\tpublic static final int cart_base_id = 23;",
+          "after": "\tprivate static final DataParameter<Integer> CART_BASE = EntityDataManager.createKey(EntityMinecartNTM.class, DataSerializers.VARINT);"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "before_sha256": "108eb38197599afb327c50f337d3d3e0c779a35019315feb71b06585b4963270",
+      "after_sha256": "50c1ed34b844b47c9c9b91028893d2ce53f9bb4337d571086a8282974983e840",
+      "original_sha256": "c0a539bcecd1125a615a2a97b5baa5091ded3ea33d8e45b6223115c685b9d517",
+      "transformations": [
+        {
+          "before_offset": 901,
+          "before": "this.dataWatcher.addObject(25, new Integer(0))",
+          "after": "this.dataManager.register(BOGIE_ID, new Integer(0))",
+          "method": "protected void entityInit() {",
+          "owner": "EntityMagnusCartus",
+          "key": "BOGIE_ID",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 25,
+          "after_offset": 1203
+        },
+        {
+          "before_offset": 1028,
+          "before": "this.dataWatcher.updateObject(25, bogie.getEntityId())",
+          "after": "this.dataManager.set(BOGIE_ID, bogie.getEntityId())",
+          "method": "public void setBogie(EntityMinecartBogie bogie) {",
+          "owner": "EntityMagnusCartus",
+          "key": "BOGIE_ID",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 25,
+          "after_offset": 1335
+        },
+        {
+          "before_offset": 1124,
+          "before": "this.dataWatcher.getWatchableObjectInt(25)",
+          "after": "this.dataManager.get(BOGIE_ID)",
+          "method": "public int getBogieID() {",
+          "owner": "EntityMagnusCartus",
+          "key": "BOGIE_ID",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 25,
+          "after_offset": 1428
+        }
+      ],
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n",
+        "\n\tprivate static final DataParameter<Integer> BOGIE_ID = EntityDataManager.createKey(EntityMagnusCartus.class, DataSerializers.VARINT);\n"
+      ],
+      "replacements": []
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "before_sha256": "89daba58b83842806c3bd9bd0a6390f363f5dff19b6e831e2f30f7ba8efb8b2a",
+      "after_sha256": "854c3312e964718acbe0dd1d099811fbfdc70aa1a09708bbd495f4452ad09941",
+      "original_sha256": "c5c7bd4e3f02ff1703b51d8e7213d5acbf13777b0856c993a5f2b49d9cb01896",
+      "transformations": [
+        {
+          "before_offset": 782,
+          "before": "this.getDataWatcher().addObject(17, 0)",
+          "after": "this.getDataManager().register(WAYPOINT_X, 0)",
+          "method": "protected void entityInit() {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_X",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 17,
+          "after_offset": 1345
+        },
+        {
+          "before_offset": 824,
+          "before": "this.getDataWatcher().addObject(18, 0)",
+          "after": "this.getDataManager().register(WAYPOINT_Y, 0)",
+          "method": "protected void entityInit() {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_Y",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 18,
+          "after_offset": 1394
+        },
+        {
+          "before_offset": 866,
+          "before": "this.getDataWatcher().addObject(19, 0)",
+          "after": "this.getDataManager().register(WAYPOINT_Z, 0)",
+          "method": "protected void entityInit() {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_Z",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 19,
+          "after_offset": 1443
+        },
+        {
+          "before_offset": 5001,
+          "before": "this.dataWatcher.updateObject(17, x)",
+          "after": "this.dataManager.set(WAYPOINT_X, x)",
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_X",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 17,
+          "after_offset": 5585
+        },
+        {
+          "before_offset": 5041,
+          "before": "this.dataWatcher.updateObject(18, y)",
+          "after": "this.dataManager.set(WAYPOINT_Y, y)",
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_Y",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 18,
+          "after_offset": 5624
+        },
+        {
+          "before_offset": 5081,
+          "before": "this.dataWatcher.updateObject(19, z)",
+          "after": "this.dataManager.set(WAYPOINT_Z, z)",
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_Z",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 19,
+          "after_offset": 5663
+        },
+        {
+          "before_offset": 5153,
+          "before": "this.dataWatcher.getWatchableObjectInt(17)",
+          "after": "this.dataManager.get(WAYPOINT_X)",
+          "method": "public int getX() {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_X",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 17,
+          "after_offset": 5734
+        },
+        {
+          "before_offset": 5231,
+          "before": "this.dataWatcher.getWatchableObjectInt(18)",
+          "after": "this.dataManager.get(WAYPOINT_Y)",
+          "method": "public int getY() {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_Y",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 18,
+          "after_offset": 5802
+        },
+        {
+          "before_offset": 5309,
+          "before": "this.dataWatcher.getWatchableObjectInt(19)",
+          "after": "this.dataManager.get(WAYPOINT_Z)",
+          "method": "public int getZ() {",
+          "owner": "EntityUFOBase",
+          "key": "WAYPOINT_Z",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 19,
+          "after_offset": 5870
+        }
+      ],
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n",
+        "\n\tprivate static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);\n"
+      ],
+      "replacements": []
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "before_sha256": "4339334451452567cb09ee6caf111c63a45adecd3029dc0091ced61f7256d0ed",
+      "after_sha256": "77d859a71f2faa7247bacc32cbbd5634b02e2be76bce60702d021b7ccf1d40aa",
+      "original_sha256": "871d8f8f28bed183fc70bb6b2d317c4d9a0aa00cf7152439c406f3b6f0353ba9",
+      "transformations": [
+        {
+          "before_offset": 1087,
+          "before": "this.getDataWatcher().addObject(12, (int) 0)",
+          "after": "this.getDataManager().register(SIEGE_TIER, (int) 0)",
+          "method": "protected void entityInit() {",
+          "owner": "EntitySiegeUFO",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 1387
+        },
+        {
+          "before_offset": 1179,
+          "before": "this.getDataWatcher().updateObject(12, tier.id)",
+          "after": "this.getDataManager().set(SIEGE_TIER, tier.id)",
+          "method": "public void setTier(SiegeTier tier) {",
+          "owner": "EntitySiegeUFO",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 1486
+        },
+        {
+          "before_offset": 1527,
+          "before": "this.getDataWatcher().getWatchableObjectInt(12)",
+          "after": "this.getDataManager().get(SIEGE_TIER)",
+          "method": "public SiegeTier getTier() {",
+          "owner": "EntitySiegeUFO",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 1833
+        }
+      ],
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n",
+        "\n\tprivate static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeUFO.class, DataSerializers.VARINT);\n"
+      ],
+      "replacements": []
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "before_sha256": "84a8f4df0feea14638100f52ad82c458e37f0627875ee0b947eb9ae815e626c3",
+      "after_sha256": "3165bb0760530bd7a9f28a6e986aa087ca24ba7b2f51633467b4da4a57e1fe52",
+      "original_sha256": "d45af433b79c898006d2c2a021dd4afee1c706615835641600c3a997a4a49f6b",
+      "transformations": [
+        {
+          "before_offset": 2811,
+          "before": "this.getDataWatcher().addObject(12, (int) 0)",
+          "after": "this.getDataManager().register(SIEGE_TIER, (int) 0)",
+          "method": "protected void entityInit() {",
+          "owner": "EntitySiegeCraft",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 3627
+        },
+        {
+          "before_offset": 2859,
+          "before": "this.getDataWatcher().addObject(13, 0F)",
+          "after": "this.getDataManager().register(LOCKON_X, 0F)",
+          "method": "protected void entityInit() {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_X",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 13,
+          "after_offset": 3682
+        },
+        {
+          "before_offset": 2902,
+          "before": "this.getDataWatcher().addObject(14, 0F)",
+          "after": "this.getDataManager().register(LOCKON_Y, 0F)",
+          "method": "protected void entityInit() {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_Y",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 14,
+          "after_offset": 3730
+        },
+        {
+          "before_offset": 2945,
+          "before": "this.getDataWatcher().addObject(15, 0F)",
+          "after": "this.getDataManager().register(LOCKON_Z, 0F)",
+          "method": "protected void entityInit() {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_Z",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 15,
+          "after_offset": 3778
+        },
+        {
+          "before_offset": 2988,
+          "before": "this.getDataWatcher().addObject(16, (byte) 0)",
+          "after": "this.getDataManager().register(BEAM, (byte) 0)",
+          "method": "protected void entityInit() {",
+          "owner": "EntitySiegeCraft",
+          "key": "BEAM",
+          "serializer": "BYTE",
+          "type": "Byte",
+          "legacy_id": 16,
+          "after_offset": 3826
+        },
+        {
+          "before_offset": 3080,
+          "before": "this.getDataWatcher().updateObject(12, tier.id)",
+          "after": "this.getDataManager().set(SIEGE_TIER, tier.id)",
+          "method": "public void setTier(SiegeTier tier) {",
+          "owner": "EntitySiegeCraft",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 3919
+        },
+        {
+          "before_offset": 3425,
+          "before": "this.getDataWatcher().getWatchableObjectInt(12)",
+          "after": "this.getDataManager().get(SIEGE_TIER)",
+          "method": "public SiegeTier getTier() {",
+          "owner": "EntitySiegeCraft",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 4263
+        },
+        {
+          "before_offset": 3565,
+          "before": "this.getDataWatcher().updateObject(16, beam ? (byte) 1 : (byte) 0)",
+          "after": "this.getDataManager().set(BEAM, beam ? (byte) 1 : (byte) 0)",
+          "method": "public void setBeam(boolean beam) {",
+          "owner": "EntitySiegeCraft",
+          "key": "BEAM",
+          "serializer": "BYTE",
+          "type": "Byte",
+          "legacy_id": 16,
+          "after_offset": 4393
+        },
+        {
+          "before_offset": 3674,
+          "before": "this.getDataWatcher().getWatchableObjectByte(16)",
+          "after": "this.getDataManager().get(BEAM)",
+          "method": "public boolean getBeam() {",
+          "owner": "EntitySiegeCraft",
+          "key": "BEAM",
+          "serializer": "BYTE",
+          "type": "Byte",
+          "legacy_id": 16,
+          "after_offset": 4495
+        },
+        {
+          "before_offset": 3790,
+          "before": "this.getDataWatcher().updateObject(13, (float) x)",
+          "after": "this.getDataManager().set(LOCKON_X, (float) x)",
+          "method": "public void setLockon(double x, double y, double z) {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_X",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 13,
+          "after_offset": 4594
+        },
+        {
+          "before_offset": 3843,
+          "before": "this.getDataWatcher().updateObject(14, (float) y)",
+          "after": "this.getDataManager().set(LOCKON_Y, (float) y)",
+          "method": "public void setLockon(double x, double y, double z) {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_Y",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 14,
+          "after_offset": 4644
+        },
+        {
+          "before_offset": 3896,
+          "before": "this.getDataWatcher().updateObject(15, (float) z)",
+          "after": "this.getDataManager().set(LOCKON_Z, (float) z)",
+          "method": "public void setLockon(double x, double y, double z) {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_Z",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 15,
+          "after_offset": 4694
+        },
+        {
+          "before_offset": 4003,
+          "before": "this.getDataWatcher().getWatchableObjectFloat(13)",
+          "after": "this.getDataManager().get(LOCKON_X)",
+          "method": "public Vec3d getLockon() {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_X",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 13,
+          "after_offset": 4798
+        },
+        {
+          "before_offset": 4058,
+          "before": "this.getDataWatcher().getWatchableObjectFloat(14)",
+          "after": "this.getDataManager().get(LOCKON_Y)",
+          "method": "public Vec3d getLockon() {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_Y",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 14,
+          "after_offset": 4839
+        },
+        {
+          "before_offset": 4113,
+          "before": "this.getDataWatcher().getWatchableObjectFloat(15)",
+          "after": "this.getDataManager().get(LOCKON_Z)",
+          "method": "public Vec3d getLockon() {",
+          "owner": "EntitySiegeCraft",
+          "key": "LOCKON_Z",
+          "serializer": "FLOAT",
+          "type": "Float",
+          "legacy_id": 15,
+          "after_offset": 4880
+        }
+      ],
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n",
+        "\n\tprivate static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Float> LOCKON_X = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> LOCKON_Y = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> LOCKON_Z = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.BYTE);\n"
+      ],
+      "replacements": []
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "before_sha256": "385c4026fc28f0ee28f54bee4a7dbab2fafee2498ce69e589767ca00e241b3cc",
+      "after_sha256": "c01d831f41221ec6ff0ef79f6f9f288bea33ffc28cc29da35b550fb8aa38e74b",
+      "original_sha256": "2adc490dce3868d025855356a419d96b03eb81b4a9d3029cce8c7cec8c4ecfa1",
+      "transformations": [
+        {
+          "before_offset": 2162,
+          "before": "this.getDataWatcher().addObject(12, (int) 0)",
+          "after": "this.getDataManager().register(SIEGE_TIER, (int) 0)",
+          "method": "protected void entityInit() {",
+          "owner": "EntitySiegeTunneler",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 2467
+        },
+        {
+          "before_offset": 2681,
+          "before": "this.getDataWatcher().updateObject(12, tier.id)",
+          "after": "this.getDataManager().set(SIEGE_TIER, tier.id)",
+          "method": "public void setTier(SiegeTier tier) {",
+          "owner": "EntitySiegeTunneler",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 2993
+        },
+        {
+          "before_offset": 3074,
+          "before": "this.getDataWatcher().getWatchableObjectInt(12)",
+          "after": "this.getDataManager().get(SIEGE_TIER)",
+          "method": "public SiegeTier getTier() {",
+          "owner": "EntitySiegeTunneler",
+          "key": "SIEGE_TIER",
+          "serializer": "VARINT",
+          "type": "Integer",
+          "legacy_id": 12,
+          "after_offset": 3385
+        }
+      ],
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n\n",
+        "\n\tprivate static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeTunneler.class, DataSerializers.VARINT);\n"
+      ],
+      "replacements": []
+    }
+  ],
+  "keys": [
+    {
+      "declaring_owner": "EntityMinecartNTM",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java",
+      "key": "CART_BASE",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 23,
+      "default": "new Integer(0)"
+    },
+    {
+      "declaring_owner": "EntityMagnusCartus",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java",
+      "key": "BOGIE_ID",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 25,
+      "default": "new Integer(0)"
+    },
+    {
+      "declaring_owner": "EntityUFOBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "key": "WAYPOINT_X",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 17,
+      "default": "0"
+    },
+    {
+      "declaring_owner": "EntityUFOBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "key": "WAYPOINT_Y",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 18,
+      "default": "0"
+    },
+    {
+      "declaring_owner": "EntityUFOBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "key": "WAYPOINT_Z",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 19,
+      "default": "0"
+    },
+    {
+      "declaring_owner": "EntitySiegeUFO",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java",
+      "key": "SIEGE_TIER",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 12,
+      "default": "(int) 0"
+    },
+    {
+      "declaring_owner": "EntitySiegeCraft",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "key": "SIEGE_TIER",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 12,
+      "default": "(int) 0"
+    },
+    {
+      "declaring_owner": "EntitySiegeCraft",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "key": "LOCKON_X",
+      "type": "Float",
+      "serializer": "FLOAT",
+      "legacy_id": 13,
+      "default": "0F"
+    },
+    {
+      "declaring_owner": "EntitySiegeCraft",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "key": "LOCKON_Y",
+      "type": "Float",
+      "serializer": "FLOAT",
+      "legacy_id": 14,
+      "default": "0F"
+    },
+    {
+      "declaring_owner": "EntitySiegeCraft",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "key": "LOCKON_Z",
+      "type": "Float",
+      "serializer": "FLOAT",
+      "legacy_id": 15,
+      "default": "0F"
+    },
+    {
+      "declaring_owner": "EntitySiegeCraft",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "key": "BEAM",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "legacy_id": 16,
+      "default": "(byte) 0"
+    },
+    {
+      "declaring_owner": "EntitySiegeTunneler",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java",
+      "key": "SIEGE_TIER",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "legacy_id": 12,
+      "default": "(int) 0"
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityFBIDrone",
+      "parent": "EntityUFOBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityFBIDrone.java"
+    },
+    {
+      "class_name": "EntityMagnusCartus",
+      "parent": "EntityMinecart",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMagnusCartus.java"
+    },
+    {
+      "class_name": "EntityMinecartContainerBase",
+      "parent": "EntityMinecartNTM",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java"
+    },
+    {
+      "class_name": "EntityMinecartCrate",
+      "parent": "EntityMinecartContainerBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartCrate.java"
+    },
+    {
+      "class_name": "EntityMinecartDestroyer",
+      "parent": "EntityMinecartContainerBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartDestroyer.java"
+    },
+    {
+      "class_name": "EntityMinecartNTM",
+      "parent": "EntityMinecart",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartNTM.java"
+    },
+    {
+      "class_name": "EntityMinecartOre",
+      "parent": "EntityMinecartNTM",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartOre.java"
+    },
+    {
+      "class_name": "EntityMinecartPowder",
+      "parent": "EntityMinecartNTM",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartPowder.java"
+    },
+    {
+      "class_name": "EntityMinecartSemtex",
+      "parent": "EntityMinecartNTM",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartSemtex.java"
+    },
+    {
+      "class_name": "EntitySiegeCraft",
+      "parent": "EntityUFOBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java"
+    },
+    {
+      "class_name": "EntitySiegeTunneler",
+      "parent": "EntityBurrowingSwingingBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeTunneler.java"
+    },
+    {
+      "class_name": "EntitySiegeUFO",
+      "parent": "EntityUFOBase",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeUFO.java"
+    },
+    {
+      "class_name": "EntityUFOBase",
+      "parent": "EntityFlying",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java"
+    }
+  ]
+}

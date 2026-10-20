@@ -19,7 +19,7 @@ public class WeaponConfig {
 
 		final String CATEGORY_MISSILE = CommonConfig.CATEGORY_MISSILE;
 		Property propCiwsHitrate = config.get(CATEGORY_MISSILE, "7.03_ciwsAccuracy", 50);
-		propCiwsHitrate.comment = "Additional modifier for CIWS accuracy";
+		propCiwsHitrate.setComment("Additional modifier for CIWS accuracy");
 		ciwsHitrate = propCiwsHitrate.getInt();
 
 		final String CATEGORY_DROPS = CommonConfig.CATEGORY_DROPS;

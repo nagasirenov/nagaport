@@ -1,0 +1,11 @@
+PASS 52 exact source inverses across 14 files; all other bytes, branches, formulas and cancellation calls retained
+PASS resolved binary override closure: 67 actual classpath jars; no accessor overrides in either family
+PASS 542 genuine native payload checks; test-only reflected cancellation state, not event-bus transformation or gameplay
+PASS 9072 checks of all 20 exact production store slices; calculation callback is a test boundary, not actual damage-formula execution
+PASS 1120 compiler-transformed side-effect, receiver reassignment, cast, exception and null-order checks
+PASS 31 real compiler fixtures: reads/stores, unsupported writes, receiver identity, shadows and reachable overrides
+PASS original Forge 1614 source/binary payload contracts; original userdev SHA256 6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91
+Source event descendant declarations: 0 []
+Attribution diagnostics (unfinished source, not compile success): 12835
+PASS complete native declaring-method attribution: 62 exact generated call sites from 52 accesses; 0 pre-existing unrelated calls excluded
+PASS bounded native LivingHurtEvent/LivingAttackEvent payload proof; not whole-mod compilation, event dispatch, damage simulation or gameplay

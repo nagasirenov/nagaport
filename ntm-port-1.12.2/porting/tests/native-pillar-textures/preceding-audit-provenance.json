@@ -1,0 +1,53 @@
+{
+  "path": "/workspace/shared/nagaport-owned-texture-cp97/ntm-port-1.12.2/porting/tests/owned-texture-dispatch-audit",
+  "files": {
+    "ParseTextureOwners.java": "5d38af45af8ef50700c3863723dd4cf6e4c53a240ab257e15b8b4ebfc45fcafc",
+    "README.md": "12680950db599f5ab312560e16fae9d2d5d924cf5f6cc00178b0e8b3cfe7280b",
+    "audit.py": "bf3d32970846b4564ce7521845c10c2a23d9ad21bb681d101f5b502811024774",
+    "diagnostic-hierarchies.json": "851160325af18b8a44a0bafbc020d9f2d35ea6d84ac05d27d0db3f47cbd13aa3",
+    "parse.log": "85ca0a0063196dd9cffb49f317df7360afa478652fda9c397d9de934fc43ec5e",
+    "parsed.tsv": "45ab295e5ecbf0431546f1b9b780ee5c385c3fa7bdd7f7c394b8684ea49eb677",
+    "reproduction.log": "c64ee599abe0dad6319eee3971a75ac3f9272809cafc4acfdd6c70874b86f94a",
+    "run.sh": "b62c0d069627407caaa97170352bce699f12a305339da45e0f23af08e90e5939",
+    "summary.json": "c64ee599abe0dad6319eee3971a75ac3f9272809cafc4acfdd6c70874b86f94a"
+  },
+  "base": "58f7f0c93cb4f5814d552e003ec9c7e2179a115f",
+  "summary": {
+    "base": "58f7f0c93cb4f5814d552e003ec9c7e2179a115f",
+    "production_changes": 0,
+    "parsed_source_count": 4071,
+    "parse_diagnostics": 0,
+    "full_attribution_or_build_performed": false,
+    "reported_texture_diagnostics": 373,
+    "registry_new_chains": 364,
+    "this_calls": 9,
+    "BlockBase_descendant_diagnostics": 0,
+    "existing_BlockBase_derived_new_calls": 145,
+    "existing_BlockBase_derived_new_calls_with_cast": 145,
+    "existing_texture_declarations": [
+      [
+        "METHOD",
+        "com/hbm/blocks/BlockBase.java",
+        "com.hbm.blocks.BlockBase",
+        "BlockBase",
+        "String texture"
+      ],
+      [
+        "METHOD",
+        "com/hbm/blocks/machine/BlockPillar.java",
+        "com.hbm.blocks.machine.BlockPillar",
+        "Block",
+        "String name"
+      ]
+    ],
+    "BlockPillar_diagnostics": 8,
+    "input_sha256": {
+      "cp95_full_compile_log": "72f5f493fcf6be1cf9cf31e995cc2e3641662cd10f3ca4b5016f9699d8e57386",
+      "BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
+      "BlockPillar.java": "3933fb8080131c0aa7cd4ac9d4137d937651adbe53f46ce56ede7863731d7986",
+      "ModBlocks.java": "8bcf69373279a90833404494b432deeaf2e6f0c5b1f82367d5e2dce6bfa04f87"
+    }
+  },
+  "current_baseline": "f44d3ffc5ad3bfa0afcfd93d035e51bdecde2de4",
+  "revalidation": "BlockBase and BlockPillar source hashes still match the preceding audit. Full ModBlocks hash changed in CP96, but all eleven selected construction statements are byte-identical between CP95 and CP96. The 373 count remains historical CP95 evidence, not a new CP96 compile count."
+}

@@ -1,0 +1,5 @@
+fullcube exit=1 Exception in thread "main" java.lang.AssertionError: selection exact old instance fields component 4: 65.0 != 64.25
+null-collision exit=1 Exception in thread "main" java.lang.AssertionError: collision exact old Block/BlockBush/null override null
+offset-twice exit=1 Exception in thread "main" java.lang.AssertionError: selection exact old instance fields component 0: 16.0 != 8.0
+float-rounding exit=1 Exception in thread "main" java.lang.AssertionError: selection exact old instance fields component 0: 8.3 != 8.300000011920929
+old-signature exit=1 Exception in thread "main" java.lang.AssertionError: selection exact old instance fields component 0: 8.300000011920929 != 8.0

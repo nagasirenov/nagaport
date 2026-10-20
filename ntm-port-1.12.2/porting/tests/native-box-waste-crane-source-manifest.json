@@ -1,0 +1,178 @@
+{
+  "baseline": "58f7f0c93cb4f5814d552e003ec9c7e2179a115f",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "8bcf69373279a90833404494b432deeaf2e6f0c5b1f82367d5e2dce6bfa04f87",
+      "after_sha256": "7a34b8436264dfad95f3f7214192b1f9771a4a63bfee6ce99b8e83611bc81143",
+      "edits": [
+        {
+          "before_offset": 148209,
+          "after_offset": 148209,
+          "old": "\t\twaste_earth = new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_earth\").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_earth\");\r\n\t\twaste_mycelium = new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_mycelium\").setStepSound(SoundType.PLANT).setLightLevel(1F).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_mycelium_side\");\r\n",
+          "new": "\t\twaste_earth = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_earth\")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_earth\");\r\n\t\twaste_mycelium = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_mycelium\")).withSoundType(SoundType.PLANT).setLightLevel(1F).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_mycelium_side\");\r\n"
+        },
+        {
+          "before_offset": 149333,
+          "after_offset": 149365,
+          "old": "\t\twaste_log = new WasteLog(Material.WOOD).setTranslationKey(\"waste_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(2.5F);\r\n\t\twaste_leaves = new WasteLeaves(Material.LEAVES).setTranslationKey(\"waste_leaves\").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setBlockTextureName(RefStrings.MODID + \":waste_leaves\");\r\n",
+          "new": "\t\twaste_log = ((WasteLog) new WasteLog(Material.WOOD).setTranslationKey(\"waste_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(2.5F);\r\n\t\twaste_leaves = ((WasteLeaves) new WasteLeaves(Material.LEAVES).setTranslationKey(\"waste_leaves\")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setBlockTextureName(RefStrings.MODID + \":waste_leaves\");\r\n"
+        },
+        {
+          "before_offset": 150319,
+          "after_offset": 150382,
+          "old": "\t\tfrozen_grass = new WasteEarth(Material.GROUND, false).setTranslationKey(\"frozen_grass\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tfrozen_log = new WasteLog(Material.WOOD).setTranslationKey(\"frozen_log\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n",
+          "new": "\t\tfrozen_grass = ((WasteEarth) new WasteEarth(Material.GROUND, false).setTranslationKey(\"frozen_grass\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n\t\tfrozen_log = ((WasteLog) new WasteLog(Material.WOOD).setTranslationKey(\"frozen_log\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);\r\n"
+        },
+        {
+          "before_offset": 152439,
+          "after_offset": 152532,
+          "old": "\t\tburning_earth = new WasteEarth(Material.GROUND, true).setTranslationKey(\"burning_earth\").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":burning_earth\");\r\n",
+          "new": "\t\tburning_earth = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey(\"burning_earth\")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":burning_earth\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": {
+      "before_sha256": "486691a6d264d8ff681aae311beaf70697e960c1dd14d41a83ea293c6a96662a",
+      "after_sha256": "b6143528ee38eb59b16fb4b191eea8edecf21e2392ceda2bd4ae7f2df147028e",
+      "edits": [
+        {
+          "before_offset": 10459,
+          "after_offset": 10459,
+          "old": "",
+          "new": "\t/** NTM construction hook for the native protected sound setter. */\n\tpublic WasteEarth withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteLeaves.java": {
+      "before_sha256": "1165e9ad2023a9e8332829f2bf3c568262b6a06413d8d113fd63166a10ed8cf5",
+      "after_sha256": "3b011fd9dfdc465b8d83b4e397d3f83170c303f3361ee7e8bed6a33ffda4afff",
+      "edits": [
+        {
+          "before_offset": 2409,
+          "after_offset": 2409,
+          "old": "",
+          "new": "\t/** NTM construction hook for the native protected sound setter. */\n\tpublic WasteLeaves withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteLog.java": {
+      "before_sha256": "e4457f00fbde887bbab814dcf9986cd89a65cd462090f6ff70a343ee2bac325e",
+      "after_sha256": "bf559c55e062a49e045e8f86ad38bf4c1b8a2dd85bbcb89671486e759bfc4152",
+      "edits": [
+        {
+          "before_offset": 2144,
+          "after_offset": 2144,
+          "old": "",
+          "new": "\t/** NTM construction hook for the native protected sound setter. */\n\tpublic WasteLog withSoundType(net.minecraft.block.SoundType sound) {\n\t\tsuper.setSoundType(sound);\n\t\treturn this;\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/SlotNonRetarded.java": {
+      "before_sha256": "81c229c6b9cbd8dd38c31810369627a9b3c515fb0efc2a71e7ddf70e7a8dd5d3",
+      "after_sha256": "a4dc41813dc9aa0692a01ce64d8874ef399d680f1f07b211929584fd615f4022",
+      "edits": [
+        {
+          "before_offset": 1027,
+          "after_offset": 1027,
+          "old": "\t\treturn Math.max(this.inventory.getInventoryStackLimit(), this.getHasStack() ? this.getStack().stackSize : 1);\n",
+          "new": "\t\treturn Math.max(this.inventory.getInventoryStackLimit(), this.getHasStack() ? this.getStack().getCount() : 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java": {
+      "before_sha256": "05825f5d620c43e160eb00e56abc969af93bb114131d3450fd59ad95ecf7c586",
+      "after_sha256": "63c7d9328152b4ad84a3ceaadecdb771496d86b68c79daeed93d90e94e2fc18c",
+      "edits": [
+        {
+          "before_offset": 136,
+          "after_offset": 136,
+          "old": "import com.hbm.util.InventoryUtil;\n",
+          "new": "import com.hbm.items.ItemInventoryTransfer;\n"
+        },
+        {
+          "before_offset": 1139,
+          "after_offset": 1148,
+          "old": "\t\tItemStack var3 = null;\n",
+          "new": "\t\tItemStack var3 = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1365,
+          "after_offset": 1385,
+          "old": "\t\t\t\tif(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn null;\n",
+          "new": "\t\t\t\tif(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1514,
+          "after_offset": 1553,
+          "old": "\t\t\t} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn null;\n",
+          "new": "\t\t\t} else if(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1644,
+          "after_offset": 1702,
+          "old": "\t\t\tif(var5.stackSize == 0) {\n\t\t\t\tvar4.putStack((ItemStack) null);\n",
+          "new": "\t\t\tif(ItemInventoryTransfer.quantity(var5) == 0) {\n\t\t\t\tvar4.putStack(ItemStack.EMPTY);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java": {
+      "before_sha256": "c71d446900239629f1b4eeed35517917b73726991d4e18959911f5335dab764f",
+      "after_sha256": "b112d299a4c8a52245a806f1442e368eb1fb54a6bf0e9927c6a9f0ff214dc8be",
+      "edits": [
+        {
+          "before_offset": 80,
+          "after_offset": 80,
+          "old": "import com.hbm.util.InventoryUtil;\n",
+          "new": "import com.hbm.items.ItemInventoryTransfer;\n"
+        },
+        {
+          "before_offset": 1133,
+          "after_offset": 1142,
+          "old": "\t\tItemStack var3 = null;\n",
+          "new": "\t\tItemStack var3 = ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1359,
+          "after_offset": 1379,
+          "old": "\t\t\t\tif(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn null;\n",
+          "new": "\t\t\t\tif(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1508,
+          "after_offset": 1547,
+          "old": "\t\t\t} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn null;\n",
+          "new": "\t\t\t} else if(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn ItemStack.EMPTY;\n"
+        },
+        {
+          "before_offset": 1638,
+          "after_offset": 1696,
+          "old": "\t\t\tif(var5.stackSize == 0) {\n",
+          "new": "\t\t\tif(ItemInventoryTransfer.quantity(var5) == 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java": {
+      "before_sha256": "7309ca77e5ec26b12b5f0ecac5d8b705672f1f86d8fbe15ddba4e49c74e08a4c",
+      "after_sha256": "1e9b01b4fef20b408716a2d4591fba0c3793f070efee9834eae0551d3e5fa3f8",
+      "edits": [
+        {
+          "before_offset": 3471,
+          "after_offset": 3471,
+          "old": "\t\t\t\t\tList<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));\n",
+          "new": "\t\t\t\t\tList<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, new AxisAlignedBB(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));\n"
+        },
+        {
+          "before_offset": 6136,
+          "after_offset": 6125,
+          "old": "\t\t\t\t\t\tList<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));\n",
+          "new": "\t\t\t\t\t\tList<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, new AxisAlignedBB(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/items/ItemInventoryTransfer.java": "bdb786bf5c346ef229261d204284137656154e80f3c13a7b8ab00180bad8a20d"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

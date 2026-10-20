@@ -152,7 +152,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 				double x = this.pos.getX() + 0.5 + dir.offsetX;
 				double y = this.pos.getY() + 0.25;
 				double z = this.pos.getZ() + 0.5 + dir.offsetZ;
-				this.world.spawnParticle("flame", x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);
 			}
 		}
 	}

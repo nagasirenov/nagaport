@@ -1,5 +1,7 @@
 # Metadata read exclusion audit
 
+Current continuation note (CP86, 2026-10-20): the BlockLayering recommendation below is historical and has been completed. See ../layering-native/README.md and the current BlockLayering.java codec/lifecycle. Do not repeat that migration. Other listed domains still require fresh source evidence before selection.
+
 Exact inspected base: CP72 e626aa7ad59f440bdbf6c98c9fee8c5740accec6.
 No production changes, no new runtime tests, no successful build claim.
 The JSON pins current source bytes and the previous increment's 26 attributed

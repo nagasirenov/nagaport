@@ -39,7 +39,7 @@ public class BombFlameWar extends Block implements IBomb {
 
 		if(!world.isRemote) {
 
-			world.func_147480_a(x, y, z, false);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 
 			for(int i = 0; i < 150; i++) {
 				ExplosionVNT vnt = new ExplosionVNT(world, x + world.rand.nextInt(51) - 25, y + world.rand.nextInt(11) - 5, z + world.rand.nextInt(51) - 25, 4, null);

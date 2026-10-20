@@ -70,12 +70,12 @@ public class ModEventHandlerRenderer {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onRenderRidingPlayerPre(RenderPlayerEvent.Pre event) {
-		wasRiding = event.entityPlayer.getRidingEntity() instanceof EntityRideableRocket;
+		wasRiding = event.getEntityPlayer().getRidingEntity() instanceof EntityRideableRocket;
 		if(!wasRiding) return;
 
 		GL11.glPushMatrix();
 
-		GL11.glRotated(-event.entityPlayer.getRidingEntity().rotationPitch, 0, 0, 1);
+		GL11.glRotated(-event.getEntityPlayer().getRidingEntity().rotationPitch, 0, 0, 1);
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
@@ -92,20 +92,20 @@ public class ModEventHandlerRenderer {
 
 		EntityPlayer player = MainRegistry.proxy.me();
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.gun_drill) {
-			XFactoryDrill.drawBlockHighlight(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player), event.partialTicks);
+			XFactoryDrill.drawBlockHighlight(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player), event.getPartialTicks());
 			event.setCanceled(true);
 			return;
 		}
 
-		RayTraceResult mop = event.target;
+		RayTraceResult mop = event.getTarget();
 
 		if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-			Block b = event.player.world.getBlockState(mop.getBlockPos()).getBlock();
+			Block b = event.getPlayer().world.getBlockState(mop.getBlockPos()).getBlock();
 			if(b instanceof ICustomBlockHighlight) {
 				ICustomBlockHighlight cus = (ICustomBlockHighlight) b;
 
-				if(cus.shouldDrawHighlight(event.player.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ())) {
-					cus.drawHighlight(event, event.player.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+				if(cus.shouldDrawHighlight(event.getPlayer().world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ())) {
+					cus.drawHighlight(event, event.getPlayer().world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
 					event.setCanceled(true);
 				}
 			}
@@ -136,8 +136,8 @@ public class ModEventHandlerRenderer {
 
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public void thickenFog(FogDensity event) {
-		if(event.entity.world.provider instanceof WorldProviderCelestial) {
-			WorldProviderCelestial provider = (WorldProviderCelestial) event.entity.world.provider;
+		if(event.getEntity().world.provider instanceof WorldProviderCelestial) {
+			WorldProviderCelestial provider = (WorldProviderCelestial) event.getEntity().world.provider;
 			lastFogDensity = provider.fogDensity(event);
 
 			if(lastFogDensity > 0) {
@@ -146,7 +146,7 @@ public class ModEventHandlerRenderer {
 				}
 				GL11.glFogi(GL11.GL_FOG_MODE, GL11.GL_EXP);
 
-				event.density = lastFogDensity;
+				event.setDensity(lastFogDensity);
 				event.setCanceled(true);
 
 				return;
@@ -175,11 +175,11 @@ public class ModEventHandlerRenderer {
 
 		EntityPlayer player = MainRegistry.proxy.me();
 		if(com.hbm.world.WorldBlockState.read(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posY), (int) Math.floor(player.posZ)).getBlock().getMaterial() != Material.WATER) {
-			Vec3d color = getFogBlendColor(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posZ), event.red, event.green, event.blue, event.renderPartialTicks);
+			Vec3d color = getFogBlendColor(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posZ), event.getRed(), event.getGreen(), event.getBlue(), event.getRenderPartialTicks());
 			if(color != null) {
-				event.red = (float) color.x;
-				event.green = (float) color.y;
-				event.blue = (float) color.z;
+				event.setRed((float) color.x);
+				event.setGreen((float) color.y);
+				event.setBlue((float) color.z);
 			}
 		}
 
@@ -188,9 +188,9 @@ public class ModEventHandlerRenderer {
 		float sootReq = (float) RadiationConfig.sootFogDivisor;
 		if(soot > 0 && RadiationConfig.enableSootFog) {
 			float interp = Math.min(soot / sootReq, 1F);
-			event.red = event.red * (1 - interp) + sootColor * interp;
-			event.green = event.green * (1 - interp) + sootColor * interp;
-			event.blue = event.blue * (1 - interp) + sootColor * interp;
+			event.setRed(event.getRed() * (1 - interp) + sootColor * interp);
+			event.setGreen(event.getGreen() * (1 - interp) + sootColor * interp);
+			event.setBlue(event.getBlue() * (1 - interp) + sootColor * interp);
 		}
 	}
 
@@ -201,19 +201,19 @@ public class ModEventHandlerRenderer {
 		Tessellator tess = Tessellator.instance;
 		
 		//TODO: using ALL doesn't work as anticipated - still hides in F1. need a different event for this
-		if(event.type == ElementType.ALL) {
-			if(ClientConfig.BADGES_HUD.get()) RenderScreenOverlay.renderBadges(event.resolution, Minecraft.getMinecraft().ingameGUI);
+		if(event.getType() == ElementType.ALL) {
+			if(ClientConfig.BADGES_HUD.get()) RenderScreenOverlay.renderBadges(event.getResolution(), Minecraft.getMinecraft().ingameGUI);
 		}
 
-		if(event.type == ElementType.HOTBAR && (ModEventHandlerClient.shakeTimestamp + ModEventHandlerClient.shakeDuration - System.currentTimeMillis()) > 0 && ClientConfig.NUKE_HUD_SHAKE.get()) {
+		if(event.getType() == ElementType.HOTBAR && (ModEventHandlerClient.shakeTimestamp + ModEventHandlerClient.shakeDuration - System.currentTimeMillis()) > 0 && ClientConfig.NUKE_HUD_SHAKE.get()) {
 			double mult = (ModEventHandlerClient.shakeTimestamp + ModEventHandlerClient.shakeDuration - System.currentTimeMillis()) / (double) ModEventHandlerClient.shakeDuration * 2;
 			double horizontal = MathHelper.clamp(Math.sin(System.currentTimeMillis() * 0.02), -0.7, 0.7) * 15;
 			double vertical = MathHelper.clamp(Math.sin(System.currentTimeMillis() * 0.01 + 2), -0.7, 0.7) * 3;
 			GL11.glTranslated(horizontal * mult, vertical * mult, 0);
-		} else if(event.type == ElementType.AIR) {
+		} else if(event.getType() == ElementType.AIR) {
 			EntityPlayer player = Minecraft.getMinecraft().player;
-			int width = event.resolution.getScaledWidth();
-			int height = event.resolution.getScaledHeight();
+			int width = event.getResolution().getScaledWidth();
+			int height = event.getResolution().getScaledHeight();
 
 			// If we're suffocating for a reason other than water, render the HUD bubbles
 			int air = HbmLivingProps.getOxy(player);

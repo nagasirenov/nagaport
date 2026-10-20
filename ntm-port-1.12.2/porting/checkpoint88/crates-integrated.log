@@ -1,0 +1,13 @@
+PASS pinned CP88 aggregate plus exact three-file crate reconstruction and actual-current source hashes; native probes use current files, not reconstructed bytes.
+PASS pinned CP88 aggregate plus exact three-file crate reconstruction and actual-current source hashes; native probes use current files, not reconstructed bytes.
+Note: /workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/crate-sound-builders-cp88/CrateSoundNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+COMPILE_PASS: exact native constructor/builder slice fixtures
+PASS legacy sound bytecode oracle: 12 assertions; stone and metal use dig.stone / step.stone, pitches 1.0 / 1.5
+[12:05:01] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[12:05:01] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[12:05:01] [main/INFO]: Replaced 1036 ore ingredients
+[12:05:01] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[12:05:01] [main/INFO]: Processing ObjectHolder annotations
+[12:05:01] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 457 finite native assertions: eleven exact crate construction slices; actual native setter/getters; receiver/null/custom identity; chain and exception order; untouched unrelated block.

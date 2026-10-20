@@ -73,14 +73,14 @@ public class ItemModGasmask extends ItemArmorMod implements IGasMask {
 			this.modelM65 = new ModelM65();
 		}
 		
-		RenderPlayer renderer = event.renderer;
+		RenderPlayer renderer = event.getRenderer();
 		ModelBiped model = renderer.modelArmor;
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 
 		modelM65.isSneak = model.isSneak;
 		modelM65.isChild = renderer.modelBipedMain.isChild;
 		
-		float interp = event.partialRenderTick;
+		float interp = event.getPartialRenderTick();
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
@@ -92,7 +92,7 @@ public class ItemModGasmask extends ItemArmorMod implements IGasMask {
 		if(this == ModItems.attachment_mask_mono)
 			Minecraft.getMinecraft().renderEngine.bindTexture(tex_mono);
 		
-		modelM65.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
+		modelM65.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
 	}
 
 	@Override

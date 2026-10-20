@@ -1,0 +1,15 @@
+Note: /workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/NativeArmorSlotsTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS 35432 assertions: all 39 exact callback projections, 8 complete constructor projections, 3 complete armor owners, complete ArmorModHandler with explicit ItemArmorMod fixture, exact radiation method and 12 modifier constructors; real Forge virtual hook + actual ModelGlasses/ModelArmorHEV constructors. No GL draw/gameplay claim.
+PASS constructor domain: all 152 creations use 0..3 (four fixed-head gas masks), 24 unchanged forwarding constructors, 8 native roots
+PASS typed closure: 8 native ItemArmor constructors, 39 native overrides (24 model/13 texture/2 valid), 52 native fields, 75 mapped index calls
+PASS 42 complete-file CP89 inverses; 126 drift controls; 127 protected constructor registrations/model/domain files
+PASS rejected production semantic mutant: table-offhand-anchor
+PASS rejected production semantic mutant: native-inventory-index-in-model-array
+PASS rejected production semantic mutant: boots-valid-in-legs
+PASS rejected production semantic mutant: radiation-head-reversed
+PASS rejected production semantic mutant: uuid-inventory-index
+PASS rejected production semantic mutant: lost-native-virtual-hook
+PASS bounded native armor slots; projections are not full NTM gameplay or all-model rendering acceptance

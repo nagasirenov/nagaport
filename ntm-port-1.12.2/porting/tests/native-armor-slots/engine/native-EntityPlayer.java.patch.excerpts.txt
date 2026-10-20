@@ -1,0 +1,33 @@
+# SOURCE: /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/userdev/patches.zip!/net/minecraft/entity/player/EntityPlayer.java.patch
+// EXCERPT containing ArmorProperties.applyArmor; source lines 238-268
+             if (this.field_184627_bm.func_190926_b())
+             {
+                 EnumHand enumhand = this.func_184600_cs();
++                net.minecraftforge.event.ForgeEventFactory.onPlayerDestroyItem(this, copyBeforeUse, enumhand);
+ 
+                 if (enumhand == EnumHand.MAIN_HAND)
+                 {
+@@ -1045,11 +1117,15 @@
+     {
+         if (!this.func_180431_b(p_70665_1_))
+         {
+-            p_70665_2_ = this.func_70655_b(p_70665_1_, p_70665_2_);
++            p_70665_2_ = net.minecraftforge.common.ForgeHooks.onLivingHurt(this, p_70665_1_, p_70665_2_);
++            if (p_70665_2_ <= 0) return;
++            p_70665_2_ = net.minecraftforge.common.ISpecialArmor.ArmorProperties.applyArmor(this, field_71071_by.field_70460_b, p_70665_1_, p_70665_2_);
++            if (p_70665_2_ <= 0) return;
+             p_70665_2_ = this.func_70672_c(p_70665_1_, p_70665_2_);
+             float f = p_70665_2_;
+             p_70665_2_ = Math.max(p_70665_2_ - this.func_110139_bj(), 0.0F);
+             this.func_110149_m(this.func_110139_bj() - (f - p_70665_2_));
++            p_70665_2_ = net.minecraftforge.common.ForgeHooks.onLivingDamage(this, p_70665_1_, p_70665_2_);
+ 
+             if (p_70665_2_ != 0.0F)
+             {
+@@ -1115,6 +1191,8 @@
+         }
+         else
+         {
++            EnumActionResult cancelResult = net.minecraftforge.common.ForgeHooks.onInteractEntity(this, p_190775_1_, p_190775_2_);
++            if (cancelResult != null) return cancelResult;
+             ItemStack itemstack = this.func_184586_b(p_190775_2_);

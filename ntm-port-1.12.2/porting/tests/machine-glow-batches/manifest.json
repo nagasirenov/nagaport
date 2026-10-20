@@ -1,0 +1,632 @@
+{
+  "baseline": "c2f60149e9a9fb836bade505fe566d40a54ef3cc",
+  "files": {
+    "src/main/java/com/hbm/render/tileentity/RenderSmallReactor.java": {
+      "before_sha256": "fc403ecc22adf067fb8a313791fe4cba538e448f944462bf97ea87568679e083",
+      "after_sha256": "b028dbe701e30d94bc415de25c4c395182cc2d9b3a41769306f10f68ab21d1c7",
+      "edits": [
+        {
+          "new_start": 8,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "new_start": 46,
+          "old": [
+            "\t\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "new_start": 51,
+          "old": [
+            "\t\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\t\ttess.setColorRGBA_F(0.4F, 0.9F, 1.0F, 0.025F + (float) (Math.random() * 0.015F) + (0.125F * reactor.totalFlux / 1000F));\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0.4F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.9F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.025F + (float) (Math.random() * 0.015F) + (0.125F * reactor.totalFlux / 1000F)) * 255.0F)));\n"
+          ]
+        },
+        {
+          "new_start": 60,
+          "old": [
+            "\t\t\t\ttess.addVertex(d, bottom - d, -d);\n",
+            "\t\t\t\ttess.addVertex(d, top + d, -d);\n",
+            "\t\t\t\ttess.addVertex(d, top + d, d);\n",
+            "\t\t\t\ttess.addVertex(d, bottom - d, d);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 65,
+          "old": [
+            "\t\t\t\ttess.addVertex(-d, bottom - d, -d);\n",
+            "\t\t\t\ttess.addVertex(-d, top + d, -d);\n",
+            "\t\t\t\ttess.addVertex(-d, top + d, d);\n",
+            "\t\t\t\ttess.addVertex(-d, bottom - d, d);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 70,
+          "old": [
+            "\t\t\t\ttess.addVertex(-d, bottom - d, d);\n",
+            "\t\t\t\ttess.addVertex(-d, top + d, d);\n",
+            "\t\t\t\ttess.addVertex(d, top + d, d);\n",
+            "\t\t\t\ttess.addVertex(d, bottom - d, d);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 75,
+          "old": [
+            "\t\t\t\ttess.addVertex(-d, bottom - d, -d);\n",
+            "\t\t\t\ttess.addVertex(-d, top + d, -d);\n",
+            "\t\t\t\ttess.addVertex(d, top + d, -d);\n",
+            "\t\t\t\ttess.addVertex(d, bottom - d, -d);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 80,
+          "old": [
+            "\t\t\t\ttess.addVertex(-d, top + d, -d);\n",
+            "\t\t\t\ttess.addVertex(-d, top + d, d);\n",
+            "\t\t\t\ttess.addVertex(d, top + d, d);\n",
+            "\t\t\t\ttess.addVertex(d, top + d, -d);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(-d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, top + d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, top + d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 85,
+          "old": [
+            "\t\t\t\ttess.addVertex(-d, bottom - d, -d);\n",
+            "\t\t\t\ttess.addVertex(-d, bottom - d, d);\n",
+            "\t\t\t\ttess.addVertex(d, bottom - d, d);\n",
+            "\t\t\t\ttess.addVertex(d, bottom - d, -d);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(-d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, bottom - d, d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(d, bottom - d, -d).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        }
+      ],
+      "mixed": false,
+      "color_setters": [
+        [
+          "0.4F",
+          "0.9F",
+          "1.0F",
+          "0.025F + (float) (Math.random() * 0.015F) + (0.125F * reactor.totalFlux / 1000F)"
+        ]
+      ],
+      "vertex_arguments": [
+        "d, bottom - d, -d",
+        "d, top + d, -d",
+        "d, top + d, d",
+        "d, bottom - d, d",
+        "-d, bottom - d, -d",
+        "-d, top + d, -d",
+        "-d, top + d, d",
+        "-d, bottom - d, d",
+        "-d, bottom - d, d",
+        "-d, top + d, d",
+        "d, top + d, d",
+        "d, bottom - d, d",
+        "-d, bottom - d, -d",
+        "-d, top + d, -d",
+        "d, top + d, -d",
+        "d, bottom - d, -d",
+        "-d, top + d, -d",
+        "-d, top + d, d",
+        "d, top + d, d",
+        "d, top + d, -d",
+        "-d, bottom - d, -d",
+        "-d, bottom - d, d",
+        "d, bottom - d, d",
+        "d, bottom - d, -d"
+      ],
+      "batches": 1
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java": {
+      "before_sha256": "4414e9549a04ae33661ceae73f444ac5e10cee6b2431ce56199e239f76d78c84",
+      "after_sha256": "a1fa536b73becf5ab6c27e103510f187b65820d682e329b885022954655c5143",
+      "edits": [
+        {
+          "new_start": 11,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "new_start": 46,
+          "old": [
+            "\t\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "new_start": 85,
+          "old": [
+            "\t\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n",
+            "\t\t\t\ttess.addVertex(0.5, 1.0625, 0.5);\n",
+            "\t\t\t\ttess.addVertex(0.5, 1.0625, -0.5);\n",
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n",
+            "\t\t\t\ttess.addVertex(0.5, dist, -0.5);\n",
+            "\t\t\t\ttess.addVertex(0.5, dist, 0.5);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(0.5, 1.0625, 0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(0.5, 1.0625, -0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(0.5, dist, -0.5).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(0.5, dist, 0.5).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 99,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n",
+            "\t\t\t\ttess.addVertex(-0.5, 1.0625, 0.5);\n",
+            "\t\t\t\ttess.addVertex(-0.5, 1.0625, -0.5);\n",
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n",
+            "\t\t\t\ttess.addVertex(-0.5, dist, -0.5);\n",
+            "\t\t\t\ttess.addVertex(-0.5, dist, 0.5);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, 1.0625, 0.5).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, 1.0625, -0.5).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n",
+            "\t\t\t\tint tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor3Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor3Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, dist, -0.5).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, dist, 0.5).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 112,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n",
+            "\t\t\t\ttess.addVertex(0.5, 1.0625, 0.5);\n",
+            "\t\t\t\ttess.addVertex(-0.5, 1.0625, 0.5);\n",
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n",
+            "\t\t\t\ttess.addVertex(-0.5, dist, 0.5);\n",
+            "\t\t\t\ttess.addVertex(0.5, dist, 0.5);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor4Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor4Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(0.5, 1.0625, 0.5).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, 1.0625, 0.5).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n",
+            "\t\t\t\tint tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor5Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor5Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, dist, 0.5).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(0.5, dist, 0.5).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 125,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, max);\n",
+            "\t\t\t\ttess.addVertex(0.5, 1.0625, -0.5);\n",
+            "\t\t\t\ttess.addVertex(-0.5, 1.0625, -0.5);\n",
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 1F, min);\n",
+            "\t\t\t\ttess.addVertex(-0.5, dist, -0.5);\n",
+            "\t\t\t\ttess.addVertex(0.5, dist, -0.5);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor6Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor6Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor6Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor6Alpha = Math.max(0, Math.min(255, (int) ((max) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(0.5, 1.0625, -0.5).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, 1.0625, -0.5).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();\n",
+            "\t\t\t\tint tessColor7Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor7Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor7Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor7Alpha = Math.max(0, Math.min(255, (int) ((min) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, dist, -0.5).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(0.5, dist, -0.5).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();\n"
+          ]
+        }
+      ],
+      "mixed": false,
+      "color_setters": [
+        [
+          "1F",
+          "1F",
+          "1F",
+          "max"
+        ],
+        [
+          "1F",
+          "1F",
+          "1F",
+          "min"
+        ],
+        [
+          "1F",
+          "1F",
+          "1F",
+          "max"
+        ],
+        [
+          "1F",
+          "1F",
+          "1F",
+          "min"
+        ],
+        [
+          "1F",
+          "1F",
+          "1F",
+          "max"
+        ],
+        [
+          "1F",
+          "1F",
+          "1F",
+          "min"
+        ],
+        [
+          "1F",
+          "1F",
+          "1F",
+          "max"
+        ],
+        [
+          "1F",
+          "1F",
+          "1F",
+          "min"
+        ]
+      ],
+      "vertex_arguments": [
+        "0.5, 1.0625, 0.5",
+        "0.5, 1.0625, -0.5",
+        "0.5, dist, -0.5",
+        "0.5, dist, 0.5",
+        "-0.5, 1.0625, 0.5",
+        "-0.5, 1.0625, -0.5",
+        "-0.5, dist, -0.5",
+        "-0.5, dist, 0.5",
+        "0.5, 1.0625, 0.5",
+        "-0.5, 1.0625, 0.5",
+        "-0.5, dist, 0.5",
+        "0.5, dist, 0.5",
+        "0.5, 1.0625, -0.5",
+        "-0.5, 1.0625, -0.5",
+        "-0.5, dist, -0.5",
+        "0.5, dist, -0.5"
+      ],
+      "batches": 1
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderDemonLamp.java": {
+      "before_sha256": "f44a4a0e536cbb3125b33f6770fe92184f46ce85256221b35116f8c1907a9a28",
+      "after_sha256": "9c1b72f7b83b7da4f8ddab00bf6cf6e4dd6355389dff8c2a3a7910508b6da40f",
+      "edits": [
+        {
+          "new_start": 8,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "new_start": 45,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\ttess.startDrawingQuads();\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+          ]
+        },
+        {
+          "new_start": 69,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(0F, 0.75F, 1F, 0.25F);\n",
+            "\t\t\t\ttess.addVertex(vec.x * near, 0.5D + j * 0.125D, vec.z * near);\n",
+            "\t\t\t\ttess.setColorRGBA_F(0F, 0.75F, 1F, 0F);\n",
+            "\t\t\t\ttess.addVertex(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(vec.x * near, 0.5D + j * 0.125D, vec.z * near).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 82,
+          "old": [
+            "\t\t\t\ttess.addVertex(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far);\n",
+            "\t\t\t\ttess.setColorRGBA_F(0F, 0.75F, 1F, 0.25F);\n",
+            "\t\t\t\ttess.addVertex(vec.x * near, 0.5D + j * 0.125D, vec.z * near);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(vec.x * far, 0.5D + j * 0.125D + height, vec.z * far).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n",
+            "\t\t\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(vec.x * near, 0.5D + j * 0.125D, vec.z * near).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n"
+          ]
+        }
+      ],
+      "mixed": false,
+      "color_setters": [
+        [
+          "0F",
+          "0.75F",
+          "1F",
+          "0.25F"
+        ],
+        [
+          "0F",
+          "0.75F",
+          "1F",
+          "0F"
+        ],
+        [
+          "0F",
+          "0.75F",
+          "1F",
+          "0.25F"
+        ]
+      ],
+      "vertex_arguments": [
+        "vec.x * near, 0.5D + j * 0.125D, vec.z * near",
+        "vec.x * far, 0.5D + j * 0.125D + height, vec.z * far",
+        "vec.x * far, 0.5D + j * 0.125D + height, vec.z * far",
+        "vec.x * near, 0.5D + j * 0.125D, vec.z * near"
+      ],
+      "batches": 1
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java": {
+      "before_sha256": "08d8e1a9a463ba2aa901dd7b880a01c8e757fc90217cee2d781fb7381d3a3063",
+      "after_sha256": "ae791a92c84ed13fcf6c14b697e31c227999a1fa21331db2d398d447e88ef943",
+      "edits": [
+        {
+          "new_start": 19,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "new_start": 79,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\ttess.startDrawingQuads();\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n"
+          ]
+        },
+        {
+          "new_start": 93,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.75F);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.75F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 100,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.5F);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 107,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.5F);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 114,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.25F);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor3Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor3Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 121,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0.25F);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor4Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor4Alpha = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "new_start": 128,
+          "old": [
+            "\t\t\t\ttess.setColorRGBA_F(1F, 1F, 0F, 0F);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width);\n",
+            "\t\t\t\ttess.addVertex(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width);\n"
+          ],
+          "new": [
+            "\t\t\t\tint tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor5Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\tint tessColor5Alpha = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();\n"
+          ]
+        }
+      ],
+      "mixed": false,
+      "color_setters": [
+        [
+          "1F",
+          "1F",
+          "0F",
+          "0.75F"
+        ],
+        [
+          "1F",
+          "1F",
+          "0F",
+          "0.5F"
+        ],
+        [
+          "1F",
+          "1F",
+          "0F",
+          "0.5F"
+        ],
+        [
+          "1F",
+          "1F",
+          "0F",
+          "0.25F"
+        ],
+        [
+          "1F",
+          "1F",
+          "0F",
+          "0.25F"
+        ],
+        [
+          "1F",
+          "1F",
+          "0F",
+          "0F"
+        ]
+      ],
+      "vertex_arguments": [
+        "xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width",
+        "xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width",
+        "xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width",
+        "xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width",
+        "xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width",
+        "xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width",
+        "xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width",
+        "xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width",
+        "xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width",
+        "xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width",
+        "xOffset, vec.y * len + vec.y * width, vec.z * len + vec.z * width",
+        "xOffset, vec.y * len - vec.y * width, vec.z * len - vec.z * width"
+      ],
+      "batches": 1
+    }
+  }
+}

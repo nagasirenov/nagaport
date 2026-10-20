@@ -1,0 +1,700 @@
+{
+  "base": "77b595c32b46e2f9309bcf9924d654ddc29a3c95",
+  "boundary": "29 pure attribute-name/string-key expressions only; 87 registration/value consumers excluded",
+  "files": {
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "before_sha256": "b2201e223bdde0832448e8f510c922067ac94e4e5a331e48c07104d21de0ef0f",
+      "after_sha256": "c9605f37954ac866485f046c3b96dacdf5ceb48a67107d33ad6ad6629014dd25",
+      "edits": [
+        {
+          "start": 2637,
+          "end": 2650,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 80,
+          "after_start": 2637
+        },
+        {
+          "start": 2651,
+          "end": 2678,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 80,
+          "after_start": 2652
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java": {
+      "before_sha256": "647674da47c975c51bfc8f023c9b72961d4178490fdff3f764cf9942220ecac3",
+      "after_sha256": "ee6530b6fd50b915726dd0a918607f3e7ed29e26522ebe3482ebd5dd8e7bfe4f",
+      "edits": [
+        {
+          "start": 1216,
+          "end": 1229,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 32,
+          "after_start": 1216
+        },
+        {
+          "start": 1230,
+          "end": 1257,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 32,
+          "after_start": 1231
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "83943b9deb13d5b635827e71700b7d8a7938bdf8e5b6cfcf245dbaac663fc3c9",
+      "after_sha256": "e2200820edf7ca3b6e802652aae6beba3fb1c9d3ccd8520f425b077ac5912539",
+      "edits": [
+        {
+          "start": 2049,
+          "end": 2062,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 66,
+          "after_start": 2049
+        },
+        {
+          "start": 2063,
+          "end": 2090,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 66,
+          "after_start": 2064
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": {
+      "before_sha256": "9346f879e9867ba4600bac47f6d0071a1c91c083a762b368f32c2bd87517997c",
+      "after_sha256": "5bb2f911c259efb8a43caa2b919739e153ef451636a26d49e30ee060c93817f5",
+      "edits": [
+        {
+          "start": 2054,
+          "end": 2067,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 58,
+          "after_start": 2054
+        },
+        {
+          "start": 2068,
+          "end": 2095,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 58,
+          "after_start": 2069
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": {
+      "before_sha256": "f5db8c0eab86e3b548b3ca6912be513b8e2cc2fbd965e2b3a1d7fe16e8c24982",
+      "after_sha256": "190856cc8de59114dff20edf2a0dd5fbc4a2598b320359d052c7711d243548f2",
+      "edits": [
+        {
+          "start": 1972,
+          "end": 1985,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 60,
+          "after_start": 1972
+        },
+        {
+          "start": 1986,
+          "end": 2013,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 60,
+          "after_start": 1987
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHealth.java": {
+      "before_sha256": "c5dfb10b97ccba665363014fc71dc8dd11c61c0ac74db45e3eda4a7ae9162def",
+      "after_sha256": "e47f80904afeeb4607f1cf449512b66aff3ffb5d67d956b2a75d93e4e350e5be",
+      "edits": [
+        {
+          "start": 1613,
+          "end": 1622,
+          "old": "maxHealth",
+          "new": "MAX_HEALTH",
+          "kind": "FIELD",
+          "attribute": "MAX_HEALTH",
+          "line": 53,
+          "after_start": 1613
+        },
+        {
+          "start": 1623,
+          "end": 1650,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MAX_HEALTH",
+          "line": 53,
+          "after_start": 1624
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModInsert.java": {
+      "before_sha256": "11d64d31324edafa5faae47b33405ce134928b2fcb8ba111932897483b662eec",
+      "after_sha256": "2c3bf291a4fca377cb51f9bb2f7fa97a7638dcba2a42abcfb7a9610d5aaeb60d",
+      "edits": [
+        {
+          "start": 4422,
+          "end": 4435,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 133,
+          "after_start": 4422
+        },
+        {
+          "start": 4436,
+          "end": 4463,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 133,
+          "after_start": 4437
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModServos.java": {
+      "before_sha256": "0b57c177201fb4784ae8074b01842f909f5495a4b7e1a82863b81834ca5549d5",
+      "after_sha256": "35c748f8b3fea7331c0f0a77fc47febb95dd4474d09a2eeac77b486daa5295b4",
+      "edits": [
+        {
+          "start": 3028,
+          "end": 3040,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 100,
+          "after_start": 3028
+        },
+        {
+          "start": 3041,
+          "end": 3068,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 100,
+          "after_start": 3042
+        },
+        {
+          "start": 3281,
+          "end": 3293,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 104,
+          "after_start": 3262
+        },
+        {
+          "start": 3294,
+          "end": 3321,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 104,
+          "after_start": 3276
+        },
+        {
+          "start": 3560,
+          "end": 3573,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 110,
+          "after_start": 3522
+        },
+        {
+          "start": 3574,
+          "end": 3601,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 110,
+          "after_start": 3537
+        },
+        {
+          "start": 3815,
+          "end": 3828,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 114,
+          "after_start": 3758
+        },
+        {
+          "start": 3829,
+          "end": 3856,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 114,
+          "after_start": 3773
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModV1.java": {
+      "before_sha256": "4faf3ed35065b82fd2e37bdd552e71423ffacdaebf13914ccf0fc3d5d28e7103",
+      "after_sha256": "d196710fb428c1573360026241c1ff33b3b980c84004dc924631c6d2fbeebe14",
+      "edits": [
+        {
+          "start": 864,
+          "end": 877,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 27,
+          "after_start": 864
+        },
+        {
+          "start": 878,
+          "end": 905,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 27,
+          "after_start": 879
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModWD40.java": {
+      "before_sha256": "6d1af85abc9c5652ac9decd57e2d39e2fec1d367a72011a75a09f79e61ee6b13",
+      "after_sha256": "898f5d0ad0d29b18fdd27c802de5857f505d7b0290b8d3af4b8e95e1ef61a8be",
+      "edits": [
+        {
+          "start": 1817,
+          "end": 1826,
+          "old": "maxHealth",
+          "new": "MAX_HEALTH",
+          "kind": "FIELD",
+          "attribute": "MAX_HEALTH",
+          "line": 55,
+          "after_start": 1817
+        },
+        {
+          "start": 1827,
+          "end": 1854,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MAX_HEALTH",
+          "line": 55,
+          "after_start": 1828
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java": {
+      "before_sha256": "7615e3113f46c71b3799258a3ff13e933c0a9f1c12c35dfdc058f60964462290",
+      "after_sha256": "042f1871ac458eddb5d2f6e8e2908d338866a512e9529967bf288b16c2f9b32c",
+      "edits": [
+        {
+          "start": 3167,
+          "end": 3179,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 83,
+          "after_start": 3167
+        },
+        {
+          "start": 3180,
+          "end": 3207,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 83,
+          "after_start": 3181
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java": {
+      "before_sha256": "fecdba2c1e2332d86ca99eec87d965b99273a6d76884c3e25c77a536a149c2f8",
+      "after_sha256": "a6c3425bd95ffcf20ffe57a638fff16d414868c0b48733741ef80b2206522b71",
+      "edits": [
+        {
+          "start": 4393,
+          "end": 4405,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 116,
+          "after_start": 4393
+        },
+        {
+          "start": 4406,
+          "end": 4433,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 116,
+          "after_start": 4407
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemSwordAbility.java": {
+      "before_sha256": "a832d8da52789828b2aa707658c8e02667cc3070f85c8c611835ef9bcbd472d2",
+      "after_sha256": "9a37d87a100cafba1ead52e6f46091ba53fb3acbb733a86427cad0043355333a",
+      "edits": [
+        {
+          "start": 2218,
+          "end": 2230,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 72,
+          "after_start": 2218
+        },
+        {
+          "start": 2231,
+          "end": 2258,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 72,
+          "after_start": 2232
+        },
+        {
+          "start": 2383,
+          "end": 2396,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 73,
+          "after_start": 2364
+        },
+        {
+          "start": 2397,
+          "end": 2424,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 73,
+          "after_start": 2379
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+      "before_sha256": "c484d8c70f4d7bd850f02169c75c9361fe6eaa61e3cf682fc8b83fee5c411a5d",
+      "after_sha256": "685d730b2d86d9a72685f04ca2b6ca5220f88d25448224d1b7056267cc382198",
+      "edits": [
+        {
+          "start": 10475,
+          "end": 10487,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 272,
+          "after_start": 10475
+        },
+        {
+          "start": 10488,
+          "end": 10515,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 272,
+          "after_start": 10489
+        },
+        {
+          "start": 10641,
+          "end": 10654,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 273,
+          "after_start": 10622
+        },
+        {
+          "start": 10655,
+          "end": 10682,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 273,
+          "after_start": 10637
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java": {
+      "before_sha256": "b65f6bebc33477c34a1cba2bbc81ecd8a0636c9a52be703cb4f09b59b9a5c18a",
+      "after_sha256": "f73049f048ae9a9e822a749a8934ac005ac639ed2afda6282c1e3dfbf356413d",
+      "edits": [
+        {
+          "start": 1264,
+          "end": 1276,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 49,
+          "after_start": 1264
+        },
+        {
+          "start": 1277,
+          "end": 1304,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 49,
+          "after_start": 1278
+        },
+        {
+          "start": 1453,
+          "end": 1466,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 52,
+          "after_start": 1434
+        },
+        {
+          "start": 1467,
+          "end": 1494,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 52,
+          "after_start": 1449
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "37e7920278dba3336572c77dcae00f306b332d97bdf473ab56594b8041b72a07",
+      "after_sha256": "233f39529ea2932af27076aa6ca91963761cf2bb03e2e57d5c436a1da0c9cf35",
+      "edits": [
+        {
+          "start": 7322,
+          "end": 7335,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 222,
+          "after_start": 7322
+        },
+        {
+          "start": 7336,
+          "end": 7363,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 222,
+          "after_start": 7337
+        },
+        {
+          "start": 7551,
+          "end": 7564,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 225,
+          "after_start": 7532
+        },
+        {
+          "start": 7565,
+          "end": 7592,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 225,
+          "after_start": 7547
+        },
+        {
+          "start": 7748,
+          "end": 7761,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 228,
+          "after_start": 7710
+        },
+        {
+          "start": 7762,
+          "end": 7789,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 228,
+          "after_start": 7725
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "before_sha256": "73fde70705188c9ad2849f4ba363563ecf08af11383d8f77033542c2882230c2",
+      "after_sha256": "0008133101ff93e0334fa27712f8b67e6747d799f78f3003129a05b09e1dccc2",
+      "edits": [
+        {
+          "start": 5927,
+          "end": 5939,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 210,
+          "after_start": 5927
+        },
+        {
+          "start": 5940,
+          "end": 5967,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 210,
+          "after_start": 5941
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCrucible.java": {
+      "before_sha256": "d1289ab203c26e55630b2df91105009b60a9d8db21252c1b9a8307754a152246",
+      "after_sha256": "7297ec30153a744646fd1ef5883fbe010394ab0af6a25c6b3525613b2399f331",
+      "edits": [
+        {
+          "start": 4460,
+          "end": 4472,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 115,
+          "after_start": 4460
+        },
+        {
+          "start": 4473,
+          "end": 4500,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 115,
+          "after_start": 4474
+        },
+        {
+          "start": 4626,
+          "end": 4639,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 116,
+          "after_start": 4607
+        },
+        {
+          "start": 4640,
+          "end": 4667,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 116,
+          "after_start": 4622
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "3c775817c07fce2b274336d710475f00070f893dd2bc34f3b9633728a2785727",
+      "after_sha256": "1c3ab150fad3395172fc1eb3506a427919f178c61cb27adfeb417c12e49eac1e",
+      "edits": [
+        {
+          "start": 42227,
+          "end": 42239,
+          "old": "attackDamage",
+          "new": "ATTACK_DAMAGE",
+          "kind": "FIELD",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 1095,
+          "after_start": 42227
+        },
+        {
+          "start": 42240,
+          "end": 42267,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "ATTACK_DAMAGE",
+          "line": 1095,
+          "after_start": 42241
+        },
+        {
+          "start": 49072,
+          "end": 49085,
+          "old": "movementSpeed",
+          "new": "MOVEMENT_SPEED",
+          "kind": "FIELD",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 1300,
+          "after_start": 49053
+        },
+        {
+          "start": 49086,
+          "end": 49113,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName",
+          "kind": "NAME_GETTER",
+          "attribute": "MOVEMENT_SPEED",
+          "line": 1300,
+          "after_start": 49068
+        }
+      ]
+    }
+  }
+}

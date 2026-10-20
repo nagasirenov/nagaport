@@ -303,7 +303,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 
 	protected void meltDown() {
 
-		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+		com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 
 		double x = 0;
 		double y = 0;

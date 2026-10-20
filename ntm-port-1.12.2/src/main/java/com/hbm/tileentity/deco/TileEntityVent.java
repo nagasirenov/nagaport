@@ -25,7 +25,7 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 					double y = rand.nextGaussian() * 1.5;
 					double z = rand.nextGaussian() * 1.5;
 					
-					if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {
+					if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {
 						this.world.spawnEntityInWorld(new EntityChlorineFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
@@ -36,7 +36,7 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 				double y = rand.nextGaussian() * 1.75;
 				double z = rand.nextGaussian() * 1.75;
 				
-				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {
+				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {
 					this.world.spawnEntityInWorld(new EntityCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
@@ -47,7 +47,7 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 				double y = rand.nextGaussian() * 2;
 				double z = rand.nextGaussian() * 2;
 				
-				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).getBlock().isNormalCube()) {
+				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {
 					this.world.spawnEntityInWorld(new EntityPinkCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}

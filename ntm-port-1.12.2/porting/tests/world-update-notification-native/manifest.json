@@ -1,0 +1,72 @@
+{
+  "base": "c2f60149e9a9fb836bade505fe566d40a54ef3cc",
+  "files": {
+    "src/main/java/com/hbm/blocks/network/BlockCablePaintable.java": [
+      {
+        "start": 4576,
+        "end": 4609,
+        "old": "world.markBlockForUpdate(x, y, z)",
+        "new": "com.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z)",
+        "line": 107,
+        "before_sha256": "39f0322200f8f041bbd53a2358cf78627c039fb5d53c7a86b8b198bb16730c26",
+        "after_sha256": "4272bf4b61d8968c8cf491c1743e6e57734534a799842970d8f3c9ea1a6c81fb"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java": [
+      {
+        "start": 5630,
+        "end": 5663,
+        "old": "world.markBlockForUpdate(x, y, z)",
+        "new": "com.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z)",
+        "line": 132,
+        "before_sha256": "fdeb02a440b4005494fde2418575172b69367626ef41a6484164a51a8c710fc8",
+        "after_sha256": "b8e351798e95dd8cf7b1faaba4d2d2ed318480ff614d255d5e0b6ba4637243fd"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": [
+      {
+        "start": 3828,
+        "end": 3861,
+        "old": "world.markBlockForUpdate(x, y, z)",
+        "new": "com.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z)",
+        "line": 77,
+        "before_sha256": "2bf055c7bf669c90a7c5d044a6bcb9636f789b4b95019b6a867e0645c9359b82",
+        "after_sha256": "8a227986128c75bf5b56337b0090ab8c2bebf89b9ea34dac6fc3d4d3660edf7d"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java": [
+      {
+        "start": 4369,
+        "end": 4402,
+        "old": "world.markBlockForUpdate(x, y, z)",
+        "new": "com.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z)",
+        "line": 107,
+        "before_sha256": "967f988f6e8dc69554447a03b59ca8908adeb4a3b4243d4b62eae9f826edfc91",
+        "after_sha256": "80f0ea8495d1d7ef83ffeb64181f74b04e2f1219217a5a50d23d9fc94b58126c"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java": [
+      {
+        "start": 3720,
+        "end": 3753,
+        "old": "world.markBlockForUpdate(x, y, z)",
+        "new": "com.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z)",
+        "line": 79,
+        "before_sha256": "86b7dab72347123b5a14e2bd296c53169f810da3f1ba16a2c1e06d94d79a8d4e",
+        "after_sha256": "d92d02ffaf0265eb381ed3daee2938399d8753639c059c24bb7963e3894332da"
+      }
+    ]
+  },
+  "preserved_call_count": 38,
+  "helper": "src/main/java/com/hbm/world/TileEntityBlockUpdate.java",
+  "contract": "Five paint-removal onScrew branches reached through the same-position loaded-block tooling path; not arbitrary World notification parity.",
+  "helper_sha256": "c4d73e269aaeed14fe6983381b6079fbfaf0fad6915b08e8c11f346a134d9745",
+  "closure_sha256": {
+    "src/main/java/com/hbm/items/tool/ItemTooling.java": "95b13cb5c0a37573128818177efd165c61096ec8cf5e2ccb440c4741ec6bee4e",
+    "src/main/java/com/hbm/items/tool/ItemBlowtorch.java": "a101e5db17b3f6e0f298961a244616e646a6585a553658c23f971dea1c9f7848",
+    "src/main/java/com/hbm/items/tool/ItemBoltgun.java": "2c0c2a3f3e9a2c0522e9c831ed825a23d8ef3c1e2f8deec6864535f4c97605b9",
+    "src/main/java/com/hbm/blocks/network/FluidDuctBase.java": "d50672257e8be7dc36e834e2a600930fe970c2824f8526893aa0316223f51111",
+    "src/main/java/com/hbm/blocks/MultipassContext.java": "98f361cbaa688b7b1449b35c0e2b8deaa8b87893df97a07921ac23b33d1e59c3",
+    "src/main/java/com/hbm/world/WorldBlockState.java": "554240513caba36cf5d1ab87850ba194967ead30fa25472393533dbdfb9dc718"
+  }
+}

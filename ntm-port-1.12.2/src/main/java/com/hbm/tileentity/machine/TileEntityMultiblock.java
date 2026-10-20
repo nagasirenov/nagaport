@@ -111,7 +111,7 @@ public class TileEntityMultiblock extends TileEntity implements net.minecraft.ut
 		switch(meta) {
 		case 0:
 			for(int i = 1; i < 12; i++)
-				this.world.setBlock(this.getPos().getX() + 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR);
+				com.hbm.world.WorldBlockState.write(this.world, this.getPos().getX() + 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR.getStateFromMeta(0), 3);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
@@ -125,7 +125,7 @@ public class TileEntityMultiblock extends TileEntity implements net.minecraft.ut
 			
 		case 1:
 			for(int i = 1; i < 12; i++)
-				this.world.setBlock(this.getPos().getX() - 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR);
+				com.hbm.world.WorldBlockState.write(this.world, this.getPos().getX() - 3, this.getPos().getY() + i, this.getPos().getZ(), Blocks.AIR.getStateFromMeta(0), 3);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
@@ -139,7 +139,7 @@ public class TileEntityMultiblock extends TileEntity implements net.minecraft.ut
 			
 		case 2:
 			for(int i = 1; i < 12; i++)
-				this.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() + 3, Blocks.AIR);
+				com.hbm.world.WorldBlockState.write(this.world, this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() + 3, Blocks.AIR.getStateFromMeta(0), 3);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)
@@ -153,7 +153,7 @@ public class TileEntityMultiblock extends TileEntity implements net.minecraft.ut
 			
 		case 3:
 			for(int i = 1; i < 12; i++)
-				this.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() - 3, Blocks.AIR);
+				com.hbm.world.WorldBlockState.write(this.world, this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ() - 3, Blocks.AIR.getStateFromMeta(0), 3);
 			
 			for(int i = -4; i <= 4; i++)
 				if(i != 0)

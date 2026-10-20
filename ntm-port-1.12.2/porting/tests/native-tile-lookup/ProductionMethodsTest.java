@@ -13,9 +13,9 @@ public class ProductionMethodsTest {
   TileLookupNativeTest.check(!owner.isUseableByPlayer(null),"production RBMK identity gate rejects missing tile before player access");
   c.getTileEntityMap().put(p,owner);FakePlayer player=(FakePlayer)TileLookupNativeTest.UNSAFE.allocateInstance(FakePlayer.class);player.posX=p.getX()+.5;player.posY=p.getY()+.5;player.posZ=p.getZ()+.5;
   TileLookupNativeTest.check(owner.isUseableByPlayer(player),"production RBMK center allowed");player.posX+=8;player.posZ+=8;TileLookupNativeTest.check(owner.isUseableByPlayer(player),"production exact 128 squared-distance threshold");player.posX+=.01;TileLookupNativeTest.check(!owner.isUseableByPlayer(player),"production beyond original threshold denied");
-  c.getTileEntityMap().clear();TileLookupNativeTest.check(owner.getComparatorInputOverride(w,-1,64,-17,0)==0,"production crate absent inventory remains zero");
-  TileEntityChest chest=new TileEntityChest();chest.setWorld(w);chest.setPos(p);c.getTileEntityMap().put(p,chest);TileLookupNativeTest.check(owner.getComparatorInputOverride(w,-1,64,-17,0)==0,"production empty inventory zero");
-  for(int i=0;i<chest.getSizeInventory();i++)chest.setInventorySlotContents(i,new ItemStack(Items.DIAMOND,64));TileLookupNativeTest.check(owner.getComparatorInputOverride(w,-1,64,-17,0)==15,"production full inventory native comparator max");
+  c.getTileEntityMap().clear();TileLookupNativeTest.check(owner.getComparatorInputOverride(w.getBlockState(p),w,p)==0,"production crate absent inventory remains zero");
+  TileEntityChest chest=new TileEntityChest();chest.setWorld(w);chest.setPos(p);c.getTileEntityMap().put(p,chest);TileLookupNativeTest.check(owner.getComparatorInputOverride(w.getBlockState(p),w,p)==0,"production empty inventory zero");
+  for(int i=0;i<chest.getSizeInventory();i++)chest.setInventorySlotContents(i,new ItemStack(Items.DIAMOND,64));TileLookupNativeTest.check(owner.getComparatorInputOverride(w.getBlockState(p),w,p)==15,"production full inventory native comparator max");
   System.out.println("PASS: "+TileLookupNativeTest.checks+" complete extracted production RBMK access and crate comparator checks; not complete owner classes");
  }
 }

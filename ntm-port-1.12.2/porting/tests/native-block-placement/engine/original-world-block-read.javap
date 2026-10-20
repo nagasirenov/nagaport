@@ -1,0 +1,75 @@
+  public aji a(int, int, int);
+    Code:
+       0: iload_1
+       1: ldc           #1                  // int -30000000
+       3: if_icmplt     35
+       6: iload_3
+       7: ldc           #1                  // int -30000000
+       9: if_icmplt     35
+      12: iload_1
+      13: ldc           #5                  // int 30000000
+      15: if_icmpge     35
+      18: iload_3
+      19: ldc           #5                  // int 30000000
+      21: if_icmpge     35
+      24: iload_2
+      25: iflt          35
+      28: iload_2
+      29: sipush        256
+      32: if_icmplt     39
+      35: getstatic     #232                // Field ajn.a:Laji;
+      38: areturn
+      39: aconst_null
+      40: astore        4
+      42: aload_0
+      43: iload_1
+      44: iconst_4
+      45: ishr
+      46: iload_3
+      47: iconst_4
+      48: ishr
+      49: invokevirtual #355                // Method e:(II)Lapx;
+      52: astore        4
+      54: aload         4
+      56: iload_1
+      57: bipush        15
+      59: iand
+      60: iload_2
+      61: iload_3
+      62: bipush        15
+      64: iand
+      65: invokevirtual #417                // Method apx.a:(III)Laji;
+      68: areturn
+      69: astore        5
+      71: aload         5
+      73: ldc           #45                 // String Exception getting block type in world
+      75: invokestatic  #492                // Method b.a:(Ljava/lang/Throwable;Ljava/lang/String;)Lb;
+      78: astore        6
+      80: aload         6
+      82: ldc           #55                 // String Requested block coordinates
+      84: invokevirtual #490                // Method b.a:(Ljava/lang/String;)Lk;
+      87: astore        7
+      89: aload         7
+      91: ldc           #48                 // String Found chunk
+      93: aload         4
+      95: ifnonnull     102
+      98: iconst_1
+      99: goto          103
+     102: iconst_0
+     103: invokestatic  #494                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     106: invokevirtual #521                // Method k.a:(Ljava/lang/String;Ljava/lang/Object;)V
+     109: aload         7
+     111: ldc           #53                 // String Location
+     113: iload_1
+     114: iload_2
+     115: iload_3
+     116: invokestatic  #520                // Method k.a:(III)Ljava/lang/String;
+     119: invokevirtual #521                // Method k.a:(Ljava/lang/String;Ljava/lang/Object;)V
+     122: new           #141                // class s
+     125: dup
+     126: aload         6
+     128: invokespecial #535                // Method s."<init>":(Lb;)V
+     131: athrow
+    Exception table:
+       from    to  target type
+          42    68    69   Class java/lang/Throwable

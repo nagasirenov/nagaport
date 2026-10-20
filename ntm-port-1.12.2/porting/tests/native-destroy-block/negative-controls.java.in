@@ -1,0 +1,14 @@
+import net.minecraft.world.*;
+class Controls {
+ World world; IBlockAccess cache; WorldServer server; Custom custom;
+ int x; long wide; boolean flag;
+ World receiver(){return world;}
+ void test() {
+  world.func_147480_a(x,2,3,flag);world.func_147480_a(1,2,x,true);
+  cache.func_147480_a(1,2,3,false);server.func_147480_a(1,2,3,false);custom.func_147480_a(1,2,3,false);
+  world.func_147480_a(wide,2,3,false);world.func_147480_a(unknown+1,2,3,false);
+  world.func_147480_a(1,2,3);world.func_147480_a("x",2,3,false);world.func_147480_a(1,2,3,Boolean.TRUE);
+  world.func_147480_a(1,2,3,unknownFlag);receiver().func_147480_a(1,2,3,false);
+ }
+ static class Custom {boolean func_147480_a(int a,int b,int c,boolean d){return d;}}
+}

@@ -1,0 +1,29 @@
+{
+  "baseline": "42dea8e6e3241d0c4ce4ba9c5459fab2bdfdc99b",
+  "material_inverse_sha256": "15274a584ed63348b57c98a7e8e34611829f9d0a43621432c00937437b5b9575",
+  "checks": 21,
+  "files": [
+    {
+      "file": "src/main/java/com/hbm/main/MainRegistry.java",
+      "original_sha256": "d6728c4ec543df69357a93ffee3a428a8ab746641a2d1be05538903cd7168095",
+      "approved_after_sha256": "5d2d4c831dcd98a5ae43614d44512181f6cbec2b6dd8539233e8d3a4baef0b9f",
+      "current_sha256": "5d2d4c831dcd98a5ae43614d44512181f6cbec2b6dd8539233e8d3a4baef0b9f",
+      "restored_sha256": "d6728c4ec543df69357a93ffee3a428a8ab746641a2d1be05538903cd7168095"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "original_sha256": "3383e89defe67d87d951ce989ddc1043f100d158145f30f2358c5bbbd4630c3c",
+      "approved_after_sha256": "ee50a0077fc0babce041dcc567dd2c5c6f2c8cad7f96d75d6e0896489fae42b9",
+      "current_sha256": "ee50a0077fc0babce041dcc567dd2c5c6f2c8cad7f96d75d6e0896489fae42b9",
+      "restored_sha256": "3383e89defe67d87d951ce989ddc1043f100d158145f30f2358c5bbbd4630c3c"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/ModItems.java",
+      "original_sha256": "6321ccf6e1698a1a4b8b57724bdb47fde0ffc41a757a6846ee03879e48be810c",
+      "approved_after_sha256": "5e5650e897b677e4b61fb9d94198e74cbf1d990419f5328800046242ce489024",
+      "current_sha256": "5e5650e897b677e4b61fb9d94198e74cbf1d990419f5328800046242ce489024",
+      "restored_sha256": "6321ccf6e1698a1a4b8b57724bdb47fde0ffc41a757a6846ee03879e48be810c"
+    }
+  ],
+  "protected_hashes_replaced": false
+}

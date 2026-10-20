@@ -1,0 +1,12 @@
+{
+  "base": "89b6bfc71a8b532c2fe7cdbd43bb66b7991ee365",
+  "production_commit": "09e909f1",
+  "file": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+  "exact_fragment_sha256": {
+    "read": "c29c3bcbaaf187c6bd0236e5462131c54757bd6784f5b2de49ef17f5b3917d91",
+    "write": "bed26b9aefd5f29844c34b2233f0f803f54951158fc4cf615a5b67197d5cb433",
+    "setCargo": "d0df736854d653f18ef9b02a41e83b8e1da5e2deb073d59d00831a48527ff44c",
+    "groundDespawn": "fe1641e6296081527ed57ae7464d8372f28741ca92a02fc9b4fd5a58bf6a0a5d"
+  },
+  "limits": "Only cargo reader/writer tail, setCargo and groundDespawn; compose with independent projectile metadata guards. Not whole-file acceptance."
+}

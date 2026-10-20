@@ -1,0 +1,21 @@
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/porting/tests/native-gui-hit-region/NativeHitRegionTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*;import java.util.*;import net.minecraft.client.gui.inventory.GuiContainer;import sun.misc.Unsafe;
+                                                                                                                    ^
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/porting/tests/native-gui-hit-region/NativeHitRegionTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*;import java.util.*;import net.minecraft.client.gui.inventory.GuiContainer;import sun.misc.Unsafe;
+                                                                                                                    ^
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/porting/tests/native-gui-hit-region/NativeHitRegionTest.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*;import java.util.*;import net.minecraft.client.gui.inventory.GuiContainer;import sun.misc.Unsafe;
+                                                                                                                    ^
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/porting/tests/native-gui-hit-region/NativeHitRegionTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[]args)throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);Current n=(Current)u.allocateInstance(Current.class);Original o=(Original)u.allocateInstance(Original.class);
+                                                               ^
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/porting/tests/native-gui-hit-region/NativeHitRegionTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[]args)throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);Current n=(Current)u.allocateInstance(Current.class);Original o=(Original)u.allocateInstance(Original.class);
+                                                                                                                                ^
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/porting/tests/native-gui-hit-region/NativeHitRegionTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+ public static void main(String[]args)throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);Current n=(Current)u.allocateInstance(Current.class);Original o=(Original)u.allocateInstance(Original.class);
+                                                                                                                                          ^
+6 warnings
+PASS 165157 actual original/native hit-region checks including signed overflow, negative sizes and one-pixel boundary; no GUI draw/input-loop claim
+PASS four exact whole-file inverses; five method-name-only edits

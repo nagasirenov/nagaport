@@ -129,7 +129,8 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 					for(int i = 1; i < 50; i++) {
 						this.laserLength = i;
 						
-						Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i).getBlock();
+						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i);
+						Block b = nativeAirState.getBlock();
 						if(b == ModBlocks.icf) {
 							TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX * (i + 8), this.pos.getY() - 3, this.pos.getZ() + dir.offsetZ * (i + 8)));
 							if(tile instanceof TileEntityICF) {
@@ -140,9 +141,9 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 							}
 						}
 						
-						if(!b.isAir(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i)) {
+						if(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i))) {
 							float hardness = b.getExplosionResistance(null);
-							if(hardness < 6000) this.world.func_147480_a(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false);
+							if(hardness < 6000) com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false);
 							break;
 						}
 					}
@@ -177,7 +178,7 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 				double offXZ = this.world.rand.nextDouble() * 0.25 - 0.125;
 				double offY = this.world.rand.nextDouble() * 0.25 - 0.125;
 				double dist = 0.55;
-				this.world.spawnParticle("reddust", this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);
 			}
 		}
 	}

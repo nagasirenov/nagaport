@@ -1,0 +1,14 @@
+  public boolean isAirBlock(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #382                // Method getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+       5: invokeinterface #401,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      10: aload_0
+      11: aload_1
+      12: invokevirtual #382                // Method getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      15: aload_0
+      16: aload_1
+      17: invokevirtual #407                // Method net/minecraft/block/Block.isAir:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z
+      20: ireturn
+

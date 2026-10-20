@@ -1,0 +1,1356 @@
+{
+  "base": "d2f171750be2f0d156a019f25fa781db39db308a",
+  "files": {
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "9f6e6f07e6da02bf886fd3a4d1072c71eb4220b73267615267565812900fd182",
+      "after_sha256": "669c2daca390c432d0cc7b5b37b6a5ac28ca86617088451bbef88bb600ad351b",
+      "scopes": {
+        "renderSkyboxSide": {
+          "name": "tessellator",
+          "acquisitions": 0,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-100.0D",
+                    "-100.0D",
+                    "-100.0D",
+                    "u",
+                    "v"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-100.0D",
+                    "-100.0D",
+                    "100.0D",
+                    "u",
+                    "v + 0.5D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "100.0D",
+                    "-100.0D",
+                    "100.0D",
+                    "u + 0.3333333333333333D",
+                    "v + 0.5D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "100.0D",
+                    "-100.0D",
+                    "-100.0D",
+                    "u + 0.3333333333333333D",
+                    "v"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX"
+            }
+          ],
+          "setters": [],
+          "vertices": [
+            [
+              "-100.0D",
+              "-100.0D",
+              "-100.0D",
+              "u",
+              "v"
+            ],
+            [
+              "-100.0D",
+              "-100.0D",
+              "100.0D",
+              "u",
+              "v + 0.5D"
+            ],
+            [
+              "100.0D",
+              "-100.0D",
+              "100.0D",
+              "u + 0.3333333333333333D",
+              "v + 0.5D"
+            ],
+            [
+              "100.0D",
+              "-100.0D",
+              "-100.0D",
+              "u + 0.3333333333333333D",
+              "v"
+            ]
+          ],
+          "reset_setters": 0,
+          "owner_parameter": true
+        },
+        "renderSwarm": {
+          "name": "tessellator",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "GL11.GL_POINTS",
+              "calls": [
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "x",
+                    "0",
+                    "z"
+                  ]
+                }
+              ],
+              "format": "POSITION"
+            },
+            {
+              "mode": "GL11.GL_POINTS",
+              "calls": [
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "x",
+                    "0",
+                    "z"
+                  ]
+                }
+              ],
+              "format": "POSITION"
+            },
+            {
+              "mode": "GL11.GL_POINTS",
+              "calls": [
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "x",
+                    "0",
+                    "z"
+                  ]
+                }
+              ],
+              "format": "POSITION"
+            }
+          ],
+          "setters": [],
+          "vertices": [
+            [
+              "x",
+              "0",
+              "z"
+            ],
+            [
+              "x",
+              "0",
+              "z"
+            ],
+            [
+              "x",
+              "0",
+              "z"
+            ]
+          ],
+          "reset_setters": 0
+        },
+        "renderSun": {
+          "name": "tessellator",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-shaderSize",
+                    "100.0D",
+                    "-shaderSize",
+                    "0.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "shaderSize",
+                    "100.0D",
+                    "-shaderSize",
+                    "1.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "shaderSize",
+                    "100.0D",
+                    "shaderSize",
+                    "1.0D",
+                    "1.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-shaderSize",
+                    "100.0D",
+                    "shaderSize",
+                    "0.0D",
+                    "1.0D"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-sunSize",
+                    "99.9D",
+                    "-sunSize"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "sunSize",
+                    "99.9D",
+                    "-sunSize"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "sunSize",
+                    "99.9D",
+                    "sunSize"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-sunSize",
+                    "99.9D",
+                    "sunSize"
+                  ]
+                }
+              ],
+              "format": "POSITION"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-sunSize * 0.25D",
+                    "100.1D",
+                    "-sunSize * 0.25D",
+                    "0.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "sunSize * 0.25D",
+                    "100.1D",
+                    "-sunSize * 0.25D",
+                    "1.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "sunSize * 0.25D",
+                    "100.1D",
+                    "sunSize * 0.25D",
+                    "1.0D",
+                    "1.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-sunSize * 0.25D",
+                    "100.1D",
+                    "sunSize * 0.25D",
+                    "0.0D",
+                    "1.0D"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-sunSize",
+                    "100.0D",
+                    "-sunSize",
+                    "0.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "sunSize",
+                    "100.0D",
+                    "-sunSize",
+                    "1.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "sunSize",
+                    "100.0D",
+                    "sunSize",
+                    "1.0D",
+                    "1.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-sunSize",
+                    "100.0D",
+                    "sunSize",
+                    "0.0D",
+                    "1.0D"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-coronaSize",
+                    "99.9D",
+                    "-coronaSize",
+                    "0.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "coronaSize",
+                    "99.9D",
+                    "-coronaSize",
+                    "1.0D",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "coronaSize",
+                    "99.9D",
+                    "coronaSize",
+                    "1.0D",
+                    "1.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-coronaSize",
+                    "99.9D",
+                    "coronaSize",
+                    "0.0D",
+                    "1.0D"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX"
+            }
+          ],
+          "setters": [],
+          "vertices": [
+            [
+              "-shaderSize",
+              "100.0D",
+              "-shaderSize",
+              "0.0D",
+              "0.0D"
+            ],
+            [
+              "shaderSize",
+              "100.0D",
+              "-shaderSize",
+              "1.0D",
+              "0.0D"
+            ],
+            [
+              "shaderSize",
+              "100.0D",
+              "shaderSize",
+              "1.0D",
+              "1.0D"
+            ],
+            [
+              "-shaderSize",
+              "100.0D",
+              "shaderSize",
+              "0.0D",
+              "1.0D"
+            ],
+            [
+              "-sunSize",
+              "99.9D",
+              "-sunSize"
+            ],
+            [
+              "sunSize",
+              "99.9D",
+              "-sunSize"
+            ],
+            [
+              "sunSize",
+              "99.9D",
+              "sunSize"
+            ],
+            [
+              "-sunSize",
+              "99.9D",
+              "sunSize"
+            ],
+            [
+              "-sunSize * 0.25D",
+              "100.1D",
+              "-sunSize * 0.25D",
+              "0.0D",
+              "0.0D"
+            ],
+            [
+              "sunSize * 0.25D",
+              "100.1D",
+              "-sunSize * 0.25D",
+              "1.0D",
+              "0.0D"
+            ],
+            [
+              "sunSize * 0.25D",
+              "100.1D",
+              "sunSize * 0.25D",
+              "1.0D",
+              "1.0D"
+            ],
+            [
+              "-sunSize * 0.25D",
+              "100.1D",
+              "sunSize * 0.25D",
+              "0.0D",
+              "1.0D"
+            ],
+            [
+              "-sunSize",
+              "100.0D",
+              "-sunSize",
+              "0.0D",
+              "0.0D"
+            ],
+            [
+              "sunSize",
+              "100.0D",
+              "-sunSize",
+              "1.0D",
+              "0.0D"
+            ],
+            [
+              "sunSize",
+              "100.0D",
+              "sunSize",
+              "1.0D",
+              "1.0D"
+            ],
+            [
+              "-sunSize",
+              "100.0D",
+              "sunSize",
+              "0.0D",
+              "1.0D"
+            ],
+            [
+              "-coronaSize",
+              "99.9D",
+              "-coronaSize",
+              "0.0D",
+              "0.0D"
+            ],
+            [
+              "coronaSize",
+              "99.9D",
+              "-coronaSize",
+              "1.0D",
+              "0.0D"
+            ],
+            [
+              "coronaSize",
+              "99.9D",
+              "coronaSize",
+              "1.0D",
+              "1.0D"
+            ],
+            [
+              "-coronaSize",
+              "99.9D",
+              "coronaSize",
+              "0.0D",
+              "1.0D"
+            ]
+          ],
+          "reset_setters": 0
+        },
+        "renderStars": {
+          "helper_calls": [
+            "4",
+            "1",
+            "0",
+            "5",
+            "2",
+            "3"
+          ],
+          "acquisitions": 1
+        },
+        "renderSunset": {
+          "name": "tessellator",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "6",
+              "calls": [
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "anaglyphColor[0]",
+                    "anaglyphColor[1]",
+                    "anaglyphColor[2]",
+                    "sunsetColor[3]"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "0.0",
+                    "100.0",
+                    "0.0"
+                  ]
+                },
+                {
+                  "call": "setColorRGBA_F",
+                  "arguments": [
+                    "sunsetColor[0]",
+                    "sunsetColor[1]",
+                    "sunsetColor[2]",
+                    "0.0F"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "(double)(sinAngle * 120.0F)",
+                    "(double)(cosAngle * 120.0F)",
+                    "(double)(-cosAngle * 40.0F * sunsetColor[3])"
+                  ]
+                }
+              ],
+              "format": "POSITION_COLOR"
+            },
+            {
+              "mode": "GL11.GL_POINTS",
+              "calls": [
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "rand.nextGaussian() * 50",
+                    "100",
+                    "-((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20)"
+                  ]
+                }
+              ],
+              "format": "POSITION"
+            }
+          ],
+          "setters": [
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "anaglyphColor[0]",
+                "anaglyphColor[1]",
+                "anaglyphColor[2]",
+                "sunsetColor[3]"
+              ]
+            },
+            {
+              "call": "setColorRGBA_F",
+              "arguments": [
+                "sunsetColor[0]",
+                "sunsetColor[1]",
+                "sunsetColor[2]",
+                "0.0F"
+              ]
+            }
+          ],
+          "vertices": [
+            [
+              "0.0",
+              "100.0",
+              "0.0"
+            ],
+            [
+              "(double)(sinAngle * 120.0F)",
+              "(double)(cosAngle * 120.0F)",
+              "(double)(-cosAngle * 40.0F * sunsetColor[3])"
+            ],
+            [
+              "rand.nextGaussian() * 50",
+              "100",
+              "-((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20)"
+            ]
+          ],
+          "reset_setters": 0
+        },
+        "render": {
+          "name": "tessellator",
+          "acquisitions": 1,
+          "batches": [
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "setColorRGBA_I",
+                  "arguments": [
+                    "0",
+                    "255"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "f9",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "f9",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "opposite",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "opposite",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "opposite",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "opposite",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "f9",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "f9",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "opposite",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "opposite",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "f9",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "f9",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "f9",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "f9",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "opposite",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "opposite",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "opposite",
+                    "-f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "-f8",
+                    "opposite",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "opposite",
+                    "f8"
+                  ]
+                },
+                {
+                  "call": "addVertex",
+                  "arguments": [
+                    "f8",
+                    "opposite",
+                    "-f8"
+                  ]
+                }
+              ],
+              "format": "POSITION_COLOR"
+            },
+            {
+              "mode": "7",
+              "calls": [
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-115 * sc",
+                    "100.0D",
+                    "-115 * sc",
+                    "0.0D + uvOffset",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "115 * sc",
+                    "100.0D",
+                    "-115 * sc",
+                    "1.0D + uvOffset",
+                    "0.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "115 * sc",
+                    "100.0D",
+                    "115 * sc",
+                    "1.0D + uvOffset",
+                    "1.0D"
+                  ]
+                },
+                {
+                  "call": "addVertexWithUV",
+                  "arguments": [
+                    "-115 * sc",
+                    "100.0D",
+                    "115 * sc",
+                    "0.0D + uvOffset",
+                    "1.0D"
+                  ]
+                }
+              ],
+              "format": "POSITION_TEX"
+            }
+          ],
+          "setters": [
+            {
+              "call": "setColorRGBA_I",
+              "arguments": [
+                "0",
+                "255"
+              ]
+            }
+          ],
+          "vertices": [
+            [
+              "-f8",
+              "f9",
+              "f8"
+            ],
+            [
+              "f8",
+              "f9",
+              "f8"
+            ],
+            [
+              "f8",
+              "opposite",
+              "f8"
+            ],
+            [
+              "-f8",
+              "opposite",
+              "f8"
+            ],
+            [
+              "-f8",
+              "opposite",
+              "-f8"
+            ],
+            [
+              "f8",
+              "opposite",
+              "-f8"
+            ],
+            [
+              "f8",
+              "f9",
+              "-f8"
+            ],
+            [
+              "-f8",
+              "f9",
+              "-f8"
+            ],
+            [
+              "f8",
+              "opposite",
+              "-f8"
+            ],
+            [
+              "f8",
+              "opposite",
+              "f8"
+            ],
+            [
+              "f8",
+              "f9",
+              "f8"
+            ],
+            [
+              "f8",
+              "f9",
+              "-f8"
+            ],
+            [
+              "-f8",
+              "f9",
+              "-f8"
+            ],
+            [
+              "-f8",
+              "f9",
+              "f8"
+            ],
+            [
+              "-f8",
+              "opposite",
+              "f8"
+            ],
+            [
+              "-f8",
+              "opposite",
+              "-f8"
+            ],
+            [
+              "-f8",
+              "opposite",
+              "-f8"
+            ],
+            [
+              "-f8",
+              "opposite",
+              "f8"
+            ],
+            [
+              "f8",
+              "opposite",
+              "f8"
+            ],
+            [
+              "f8",
+              "opposite",
+              "-f8"
+            ],
+            [
+              "-115 * sc",
+              "100.0D",
+              "-115 * sc",
+              "0.0D + uvOffset",
+              "0.0D"
+            ],
+            [
+              "115 * sc",
+              "100.0D",
+              "-115 * sc",
+              "1.0D + uvOffset",
+              "0.0D"
+            ],
+            [
+              "115 * sc",
+              "100.0D",
+              "115 * sc",
+              "1.0D + uvOffset",
+              "1.0D"
+            ],
+            [
+              "-115 * sc",
+              "100.0D",
+              "115 * sc",
+              "0.0D + uvOffset",
+              "1.0D"
+            ]
+          ],
+          "reset_setters": 0
+        }
+      },
+      "edits": [
+        {
+          "old_start": 181,
+          "new_start": 181,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 416,
+          "new_start": 417,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.setColorRGBA_I(0, 255);\n",
+            "\t\t\ttessellator.addVertex(-f8, f9, f8);\n",
+            "\t\t\ttessellator.addVertex(f8, f9, f8);\n",
+            "\t\t\ttessellator.addVertex(f8, opposite, f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, opposite, f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, opposite, -f8);\n",
+            "\t\t\ttessellator.addVertex(f8, opposite, -f8);\n",
+            "\t\t\ttessellator.addVertex(f8, f9, -f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, f9, -f8);\n",
+            "\t\t\ttessellator.addVertex(f8, opposite, -f8);\n",
+            "\t\t\ttessellator.addVertex(f8, opposite, f8);\n",
+            "\t\t\ttessellator.addVertex(f8, f9, f8);\n",
+            "\t\t\ttessellator.addVertex(f8, f9, -f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, f9, -f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, f9, f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, opposite, f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, opposite, -f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, opposite, -f8);\n",
+            "\t\t\ttessellator.addVertex(-f8, opposite, f8);\n",
+            "\t\t\ttessellator.addVertex(f8, opposite, f8);\n",
+            "\t\t\ttessellator.addVertex(f8, opposite, -f8);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessellatorColor0Packed = 0;\n",
+            "\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, 255));\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 474,
+          "new_start": 476,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertexWithUV(-115 * sc, 100.0D, -115 * sc, 0.0D + uvOffset, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(115 * sc, 100.0D, -115 * sc, 1.0D + uvOffset, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(115 * sc, 100.0D, 115 * sc, 1.0D + uvOffset, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(-115 * sc, 100.0D, 115 * sc, 0.0D + uvOffset, 1.0D);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessellatorBuffer.pos(-115 * sc, 100.0D, -115 * sc).tex(0.0D + uvOffset, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(115 * sc, 100.0D, -115 * sc).tex(1.0D + uvOffset, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(115 * sc, 100.0D, 115 * sc).tex(1.0D + uvOffset, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-115 * sc, 100.0D, 115 * sc).tex(0.0D + uvOffset, 1.0D).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 497,
+          "new_start": 499,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 515,
+          "new_start": 518,
+          "old": [
+            "\t\t\t\ttessellator.startDrawing(6);\n",
+            "\t\t\t\ttessellator.setColorRGBA_F(anaglyphColor[0], anaglyphColor[1], anaglyphColor[2], sunsetColor[3]);\n",
+            "\t\t\t\ttessellator.addVertex(0.0, 100.0, 0.0);\n",
+            "\t\t\t\ttessellator.setColorRGBA_F(sunsetColor[0], sunsetColor[1], sunsetColor[2], 0.0F);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\t\tint tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((anaglyphColor[0]) * 255.0F)));\n",
+            "\t\t\t\tint tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((anaglyphColor[1]) * 255.0F)));\n",
+            "\t\t\t\tint tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((anaglyphColor[2]) * 255.0F)));\n",
+            "\t\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) ((sunsetColor[3]) * 255.0F)));\n",
+            "\t\t\t\ttessellatorBuffer.pos(0.0, 100.0, 0.0).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\t\tint tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((sunsetColor[0]) * 255.0F)));\n",
+            "\t\t\t\tint tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((sunsetColor[1]) * 255.0F)));\n",
+            "\t\t\t\tint tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((sunsetColor[2]) * 255.0F)));\n",
+            "\t\t\t\tint tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n"
+          ]
+        },
+        {
+          "old_start": 525,
+          "new_start": 534,
+          "old": [
+            "\t\t\t\t\ttessellator.addVertex((double)(sinAngle * 120.0F), (double)(cosAngle * 120.0F), (double)(-cosAngle * 40.0F * sunsetColor[3]));\n"
+          ],
+          "new": [
+            "\t\t\t\t\ttessellatorBuffer.pos((double)(sinAngle * 120.0F), (double)(cosAngle * 120.0F), (double)(-cosAngle * 40.0F * sunsetColor[3])).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 553,
+          "new_start": 562,
+          "old": [
+            "\t\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n"
+          ],
+          "new": [
+            "\t\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+          ]
+        },
+        {
+          "old_start": 555,
+          "new_start": 564,
+          "old": [
+            "\t\t\t\t\t\ttessellator.addVertex(rand.nextGaussian() * 50, 100, -((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20));\n"
+          ],
+          "new": [
+            "\t\t\t\t\t\ttessellatorBuffer.pos(rand.nextGaussian() * 50, 100, -((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20)).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 583,
+          "new_start": 592,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n"
+          ]
+        },
+        {
+          "old_start": 634,
+          "new_start": 643,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 661,
+          "new_start": 671,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertexWithUV(-shaderSize, 100.0D, -shaderSize, 0.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(shaderSize, 100.0D, -shaderSize, 1.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(shaderSize, 100.0D, shaderSize, 1.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(-shaderSize, 100.0D, shaderSize, 0.0D, 1.0D);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessellatorBuffer.pos(-shaderSize, 100.0D, -shaderSize).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(shaderSize, 100.0D, -shaderSize).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(shaderSize, 100.0D, shaderSize).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-shaderSize, 100.0D, shaderSize).tex(0.0D, 1.0D).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 678,
+          "new_start": 688,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertex(-sunSize, 99.9D, -sunSize);\n",
+            "\t\t\ttessellator.addVertex(sunSize, 99.9D, -sunSize);\n",
+            "\t\t\ttessellator.addVertex(sunSize, 99.9D, sunSize);\n",
+            "\t\t\ttessellator.addVertex(-sunSize, 99.9D, sunSize);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);\n",
+            "\t\t\ttessellatorBuffer.pos(-sunSize, 99.9D, -sunSize).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(sunSize, 99.9D, -sunSize).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(sunSize, 99.9D, sunSize).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-sunSize, 99.9D, sunSize).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 689,
+          "new_start": 699,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertexWithUV(-sunSize * 0.25D, 100.1D, -sunSize * 0.25D, 0.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(sunSize * 0.25D, 100.1D, -sunSize * 0.25D, 1.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(sunSize * 0.25D, 100.1D, sunSize * 0.25D, 1.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(-sunSize * 0.25D, 100.1D, sunSize * 0.25D, 0.0D, 1.0D);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessellatorBuffer.pos(-sunSize * 0.25D, 100.1D, -sunSize * 0.25D).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(sunSize * 0.25D, 100.1D, -sunSize * 0.25D).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(sunSize * 0.25D, 100.1D, sunSize * 0.25D).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-sunSize * 0.25D, 100.1D, sunSize * 0.25D).tex(0.0D, 1.0D).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 708,
+          "new_start": 718,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertexWithUV(-sunSize, 100.0D, -sunSize, 0.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(sunSize, 100.0D, -sunSize, 1.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(sunSize, 100.0D, sunSize, 1.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(-sunSize, 100.0D, sunSize, 0.0D, 1.0D);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessellatorBuffer.pos(-sunSize, 100.0D, -sunSize).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(sunSize, 100.0D, -sunSize).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(sunSize, 100.0D, sunSize).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-sunSize, 100.0D, sunSize).tex(0.0D, 1.0D).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 719,
+          "new_start": 729,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertexWithUV(-coronaSize, 99.9D, -coronaSize, 0.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(coronaSize, 99.9D, -coronaSize, 1.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(coronaSize, 99.9D, coronaSize, 1.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(-coronaSize, 99.9D, coronaSize, 0.0D, 1.0D);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessellatorBuffer.pos(-coronaSize, 99.9D, -coronaSize).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(coronaSize, 99.9D, -coronaSize).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(coronaSize, 99.9D, coronaSize).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-coronaSize, 99.9D, coronaSize).tex(0.0D, 1.0D).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 738,
+          "new_start": 748,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 771,
+          "new_start": 782,
+          "old": [
+            "\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+          ]
+        },
+        {
+          "old_start": 779,
+          "new_start": 790,
+          "old": [
+            "\t\t\t\t\ttessellator.addVertex(x, 0, z);\n"
+          ],
+          "new": [
+            "\t\t\t\t\ttessellatorBuffer.pos(x, 0, z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 792,
+          "new_start": 803,
+          "old": [
+            "\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+          ]
+        },
+        {
+          "old_start": 800,
+          "new_start": 811,
+          "old": [
+            "\t\t\t\t\ttessellator.addVertex(x, 0, z);\n"
+          ],
+          "new": [
+            "\t\t\t\t\ttessellatorBuffer.pos(x, 0, z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 813,
+          "new_start": 824,
+          "old": [
+            "\t\t\t\ttessellator.startDrawing(GL11.GL_POINTS);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);\n"
+          ]
+        },
+        {
+          "old_start": 821,
+          "new_start": 832,
+          "old": [
+            "\t\t\t\t\ttessellator.addVertex(x, 0, z);\n"
+          ],
+          "new": [
+            "\t\t\t\t\ttessellatorBuffer.pos(x, 0, z).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 1249,
+          "new_start": 1260,
+          "old": [],
+          "new": [
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 1251,
+          "new_start": 1263,
+          "old": [
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(-100.0D, -100.0D, -100.0D, u, v);\n",
+            "\t\ttessellator.addVertexWithUV(-100.0D, -100.0D, 100.0D, u, v + 0.5D);\n",
+            "\t\ttessellator.addVertexWithUV(100.0D, -100.0D, 100.0D, u + 0.3333333333333333D, v + 0.5D);\n",
+            "\t\ttessellator.addVertexWithUV(100.0D, -100.0D, -100.0D, u + 0.3333333333333333D, v);\n"
+          ],
+          "new": [
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(-100.0D, -100.0D, -100.0D).tex(u, v).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(-100.0D, -100.0D, 100.0D).tex(u, v + 0.5D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(100.0D, -100.0D, 100.0D).tex(u + 0.3333333333333333D, v + 0.5D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(100.0D, -100.0D, -100.0D).tex(u + 0.3333333333333333D, v).endVertex();\n"
+          ]
+        }
+      ]
+    }
+  }
+}

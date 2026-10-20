@@ -1,0 +1,756 @@
+{
+  "baseline_commit": "fc2cd2dba34caba0dba74ed288f95107ab4dc979",
+  "all_attributed_calls": 44,
+  "selected_calls": 44,
+  "files": {
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": {
+      "before_sha256": "d5b9ffcdd5e30c25f7175506900cea3d9f23757322d0f1efc0d17bbfd8abaf5b",
+      "edits": [
+        {
+          "accept": true,
+          "start": 3138,
+          "end": 3164,
+          "rs": 3138,
+          "re": 3142,
+          "as": 3162,
+          "ae": 3163,
+          "method": "getEquipmentInSlot",
+          "type": "com.hbm.entity.mob.EntityFBI",
+          "old": "this.getEquipmentInSlot(4)",
+          "receiver": "this",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4)"
+        },
+        {
+          "accept": true,
+          "start": 3176,
+          "end": 3202,
+          "rs": 3176,
+          "re": 3180,
+          "as": 3200,
+          "ae": 3201,
+          "method": "getEquipmentInSlot",
+          "type": "com.hbm.entity.mob.EntityFBI",
+          "old": "this.getEquipmentInSlot(4)",
+          "receiver": "this",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4)"
+        },
+        {
+          "accept": true,
+          "start": 6354,
+          "end": 6380,
+          "rs": 6354,
+          "re": 6358,
+          "as": 6378,
+          "ae": 6379,
+          "method": "getEquipmentInSlot",
+          "type": "com.hbm.entity.mob.EntityFBI",
+          "old": "this.getEquipmentInSlot(4)",
+          "receiver": "this",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4)"
+        }
+      ],
+      "after_sha256": "7fd64df91cf9626da191b7bb6d2da70bf0407bf14d863e7bfa8d8e196e1ca3b8"
+    },
+    "src/main/java/com/hbm/handler/BossSpawnHandler.java": {
+      "before_sha256": "4a87ef9dd99863372acf4a55b0f068de2dbd7a93ea72060293af44a72d7584a8",
+      "edits": [
+        {
+          "accept": true,
+          "start": 8558,
+          "end": 8578,
+          "rs": 8558,
+          "re": 8559,
+          "as": 8576,
+          "ae": 8577,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "p.getCurrentArmor(i)",
+          "receiver": "p",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(p, i)"
+        }
+      ],
+      "after_sha256": "11378e5a2520de2eac016ed9312068a133ee83796dfef759193861782c16bb23"
+    },
+    "src/main/java/com/hbm/hazard/HazardSystem.java": {
+      "before_sha256": "8fe9905f8565faf29f06b25a6d1f9a8281792bc68bc023da44191e887877aaca",
+      "edits": [
+        {
+          "accept": true,
+          "start": 6657,
+          "end": 6685,
+          "rs": 6657,
+          "re": 6663,
+          "as": 6683,
+          "ae": 6684,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(i)",
+          "receiver": "entity",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i)"
+        }
+      ],
+      "after_sha256": "be928011c76e3e0bd3150e523bed0472d2c794420b95c1c9a5942cd80365e786"
+    },
+    "src/main/java/com/hbm/items/special/ItemCigarette.java": {
+      "before_sha256": "a0b7e7e9ad9f3c184bfd08140e6985d66502fde2815b06fb7bb2e352d57e2413",
+      "edits": [
+        {
+          "accept": true,
+          "start": 1551,
+          "end": 1579,
+          "rs": 1551,
+          "re": 1557,
+          "as": 1577,
+          "ae": 1578,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getEquipmentInSlot(4)",
+          "receiver": "player",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4)"
+        }
+      ],
+      "after_sha256": "3c0ff746e9d73c40d8ffb38a9142190fce8a4b7604480c46ce29b97879089f6d"
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "f8376fc5ed16b3b15e380673a53441c960b0fe7235221d2b99403406eca8d2bb",
+      "edits": [
+        {
+          "accept": true,
+          "start": 13307,
+          "end": 13352,
+          "rs": 13307,
+          "re": 13330,
+          "as": 13350,
+          "ae": 13351,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "event.getEntityLiving().getEquipmentInSlot(i)",
+          "receiver": "event.getEntityLiving()",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i)"
+        },
+        {
+          "accept": true,
+          "start": 32067,
+          "end": 32112,
+          "rs": 32067,
+          "re": 32090,
+          "as": 32110,
+          "ae": 32111,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "event.getEntityLiving().getEquipmentInSlot(i)",
+          "receiver": "event.getEntityLiving()",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(event.getEntityLiving(), i)"
+        },
+        {
+          "accept": true,
+          "start": 40733,
+          "end": 40756,
+          "rs": 40733,
+          "re": 40734,
+          "as": 40754,
+          "ae": 40755,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "e.getEquipmentInSlot(i)",
+          "receiver": "e",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(e, i)"
+        },
+        {
+          "accept": true,
+          "start": 46171,
+          "end": 46196,
+          "rs": 46171,
+          "re": 46177,
+          "as": 46194,
+          "ae": 46195,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(2)",
+          "receiver": "player",
+          "index": "2",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2)"
+        }
+      ],
+      "after_sha256": "8f01b57095059874ebc6789abaf9a2e294fad8f30ff58223c87b08eab989092b"
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "28f857ea87645987c4405d33422de5146c4dac68fd72a4b6dce780c1aaa77c68",
+      "edits": [
+        {
+          "accept": true,
+          "start": 23878,
+          "end": 23903,
+          "rs": 23878,
+          "re": 23884,
+          "as": 23901,
+          "ae": 23902,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)"
+        },
+        {
+          "accept": true,
+          "start": 24515,
+          "end": 24540,
+          "rs": 24515,
+          "re": 24521,
+          "as": 24538,
+          "ae": 24539,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(2)",
+          "receiver": "player",
+          "index": "2",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2)"
+        }
+      ],
+      "after_sha256": "14f37dc68b0283a7965fffd1da972699dbbcb4e8741f4231a0c0d101165dc3ab"
+    },
+    "src/main/java/com/hbm/render/model/ModelM65.java": {
+      "before_sha256": "920e814ec928df7c3ed5aa3ea7ca3d99cc9b9fa945356a45694d0c9225f58fd0",
+      "edits": [
+        {
+          "accept": true,
+          "start": 5303,
+          "end": 5351,
+          "rs": 5303,
+          "re": 5329,
+          "as": 5349,
+          "ae": 5350,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "((EntityLivingBase)entity).getEquipmentInSlot(4)",
+          "receiver": "((EntityLivingBase)entity)",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(((EntityLivingBase)entity), 4)"
+        }
+      ],
+      "after_sha256": "884b0fc886be11c3739345386d0e697db02e1410adbbaf59858d3d872277a222"
+    },
+    "src/main/java/com/hbm/render/model/ModelNo9.java": {
+      "before_sha256": "e4b3529efcf7b8e7aef7272af2e01d260a83e4107a2cb0d43f4c7c524f1f3e58",
+      "edits": [
+        {
+          "accept": true,
+          "start": 1923,
+          "end": 1951,
+          "rs": 1923,
+          "re": 1929,
+          "as": 1949,
+          "ae": 1950,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getEquipmentInSlot(4)",
+          "receiver": "player",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4)"
+        }
+      ],
+      "after_sha256": "1648efae008504e207d951a2b6c8378612f48dfca9f94e4209334c06d44e7c1a"
+    },
+    "src/main/java/com/hbm/util/ArmorRegistry.java": {
+      "before_sha256": "211c7b2c5f8aa48dbd4ec035401703c2b824ff2e6e2c6899544ff8a8cd309deb",
+      "edits": [
+        {
+          "accept": true,
+          "start": 794,
+          "end": 829,
+          "rs": 794,
+          "re": 800,
+          "as": 820,
+          "ae": 828,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(slot + 1)",
+          "receiver": "entity",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)"
+        },
+        {
+          "accept": true,
+          "start": 1105,
+          "end": 1140,
+          "rs": 1105,
+          "re": 1111,
+          "as": 1131,
+          "ae": 1139,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(slot + 1)",
+          "receiver": "entity",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)"
+        },
+        {
+          "accept": true,
+          "start": 1492,
+          "end": 1527,
+          "rs": 1492,
+          "re": 1498,
+          "as": 1518,
+          "ae": 1526,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(slot + 1)",
+          "receiver": "entity",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)"
+        }
+      ],
+      "after_sha256": "72667465b0d197c962d0dd416d37a5ddc28880da7465212e3693cdab2f063a33"
+    },
+    "src/main/java/com/hbm/util/ArmorUtil.java": {
+      "before_sha256": "b2f178c045f41158c0f83b25bb3c4e47c4e4999cb24a420e76edf8fc33e91afb",
+      "edits": [
+        {
+          "accept": true,
+          "start": 5997,
+          "end": 6032,
+          "rs": 5997,
+          "re": 6003,
+          "as": 6023,
+          "ae": 6031,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(slot + 1)",
+          "receiver": "entity",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)"
+        },
+        {
+          "accept": true,
+          "start": 6141,
+          "end": 6176,
+          "rs": 6141,
+          "re": 6147,
+          "as": 6167,
+          "ae": 6175,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "player.getEquipmentInSlot(slot + 1)",
+          "receiver": "player",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, slot + 1)"
+        },
+        {
+          "accept": true,
+          "start": 6276,
+          "end": 6311,
+          "rs": 6276,
+          "re": 6282,
+          "as": 6302,
+          "ae": 6310,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(slot + 1)",
+          "receiver": "entity",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)"
+        },
+        {
+          "accept": true,
+          "start": 6335,
+          "end": 6370,
+          "rs": 6335,
+          "re": 6341,
+          "as": 6361,
+          "ae": 6369,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(slot + 1)",
+          "receiver": "entity",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)"
+        },
+        {
+          "accept": true,
+          "start": 6405,
+          "end": 6440,
+          "rs": 6405,
+          "re": 6411,
+          "as": 6431,
+          "ae": 6439,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(slot + 1)",
+          "receiver": "entity",
+          "index": "slot + 1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1)"
+        },
+        {
+          "accept": true,
+          "start": 9769,
+          "end": 9794,
+          "rs": 9769,
+          "re": 9775,
+          "as": 9792,
+          "ae": 9793,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)"
+        },
+        {
+          "accept": true,
+          "start": 9994,
+          "end": 10019,
+          "rs": 9994,
+          "re": 10000,
+          "as": 10017,
+          "ae": 10018,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(3)",
+          "receiver": "player",
+          "index": "3",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 3)"
+        },
+        {
+          "accept": true,
+          "start": 10462,
+          "end": 10487,
+          "rs": 10462,
+          "re": 10468,
+          "as": 10485,
+          "ae": 10486,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)"
+        },
+        {
+          "accept": true,
+          "start": 12864,
+          "end": 12889,
+          "rs": 12864,
+          "re": 12870,
+          "as": 12887,
+          "ae": 12888,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)"
+        },
+        {
+          "accept": true,
+          "start": 13922,
+          "end": 13947,
+          "rs": 13922,
+          "re": 13928,
+          "as": 13945,
+          "ae": 13946,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(2)",
+          "receiver": "player",
+          "index": "2",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2)"
+        },
+        {
+          "accept": true,
+          "start": 14995,
+          "end": 15020,
+          "rs": 14995,
+          "re": 15001,
+          "as": 15018,
+          "ae": 15019,
+          "method": "getCurrentArmor",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getCurrentArmor(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i)"
+        },
+        {
+          "accept": true,
+          "start": 18786,
+          "end": 18814,
+          "rs": 18786,
+          "re": 18792,
+          "as": 18812,
+          "ae": 18813,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(4)",
+          "receiver": "entity",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4)"
+        },
+        {
+          "accept": true,
+          "start": 20841,
+          "end": 20869,
+          "rs": 20841,
+          "re": 20847,
+          "as": 20867,
+          "ae": 20868,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getEquipmentInSlot(4)",
+          "receiver": "player",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4)"
+        }
+      ],
+      "after_sha256": "0c7c28e9c505421cc0ea0f714b4431387aaa0157cda63df05979c5297bb5a6c8"
+    },
+    "src/main/java/com/hbm/util/DamageResistanceHandler.java": {
+      "before_sha256": "e3032502a1493f3de6047cfbf7d0402286c81a3397b927900f6db06e56a145a8",
+      "edits": [
+        {
+          "accept": true,
+          "start": 22306,
+          "end": 22334,
+          "rs": 22306,
+          "re": 22312,
+          "as": 22332,
+          "ae": 22333,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(4)",
+          "receiver": "entity",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4)"
+        },
+        {
+          "accept": true,
+          "start": 22345,
+          "end": 22373,
+          "rs": 22345,
+          "re": 22351,
+          "as": 22371,
+          "ae": 22372,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(4)",
+          "receiver": "entity",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4)"
+        },
+        {
+          "accept": true,
+          "start": 22396,
+          "end": 22424,
+          "rs": 22396,
+          "re": 22402,
+          "as": 22422,
+          "ae": 22423,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(3)",
+          "receiver": "entity",
+          "index": "3",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3)"
+        },
+        {
+          "accept": true,
+          "start": 22435,
+          "end": 22463,
+          "rs": 22435,
+          "re": 22441,
+          "as": 22461,
+          "ae": 22462,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(3)",
+          "receiver": "entity",
+          "index": "3",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3)"
+        },
+        {
+          "accept": true,
+          "start": 22486,
+          "end": 22514,
+          "rs": 22486,
+          "re": 22492,
+          "as": 22512,
+          "ae": 22513,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(2)",
+          "receiver": "entity",
+          "index": "2",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2)"
+        },
+        {
+          "accept": true,
+          "start": 22525,
+          "end": 22553,
+          "rs": 22525,
+          "re": 22531,
+          "as": 22551,
+          "ae": 22552,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(2)",
+          "receiver": "entity",
+          "index": "2",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2)"
+        },
+        {
+          "accept": true,
+          "start": 22576,
+          "end": 22604,
+          "rs": 22576,
+          "re": 22582,
+          "as": 22602,
+          "ae": 22603,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(1)",
+          "receiver": "entity",
+          "index": "1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1)"
+        },
+        {
+          "accept": true,
+          "start": 22615,
+          "end": 22643,
+          "rs": 22615,
+          "re": 22621,
+          "as": 22641,
+          "ae": 22642,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(1)",
+          "receiver": "entity",
+          "index": "1",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1)"
+        },
+        {
+          "accept": true,
+          "start": 22966,
+          "end": 22994,
+          "rs": 22966,
+          "re": 22972,
+          "as": 22992,
+          "ae": 22993,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "entity.getEquipmentInSlot(i)",
+          "receiver": "entity",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i)"
+        }
+      ],
+      "after_sha256": "15a6a40ee08e968be43f362196aa28b3619ac019e5ab3329e7e8030cd9a322a8"
+    },
+    "src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "a7533ef96a129439d57c5e1a02fa373b9f61535f84aee4d28a90a47b163ed434",
+      "edits": [
+        {
+          "accept": true,
+          "start": 10859,
+          "end": 10887,
+          "rs": 10859,
+          "re": 10865,
+          "as": 10885,
+          "ae": 10886,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "living.getEquipmentInSlot(4)",
+          "receiver": "living",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4)"
+        },
+        {
+          "accept": true,
+          "start": 10904,
+          "end": 10932,
+          "rs": 10904,
+          "re": 10910,
+          "as": 10930,
+          "ae": 10931,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.EntityLivingBase",
+          "old": "living.getEquipmentInSlot(4)",
+          "receiver": "living",
+          "index": "4",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4)"
+        }
+      ],
+      "after_sha256": "df6697db24c797d0aa9e37b935b31c18cc33dced190e7dd99007f6317cfffc43"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java": {
+      "before_sha256": "a961e865b02cae690e079120fef22c2df52c198b5ad857832e2dec7a2e90a55a",
+      "edits": [
+        {
+          "accept": true,
+          "start": 1494,
+          "end": 1522,
+          "rs": 1494,
+          "re": 1500,
+          "as": 1520,
+          "ae": 1521,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getEquipmentInSlot(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i)"
+        },
+        {
+          "accept": true,
+          "start": 3682,
+          "end": 3710,
+          "rs": 3682,
+          "re": 3688,
+          "as": 3708,
+          "ae": 3709,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getEquipmentInSlot(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i)"
+        }
+      ],
+      "after_sha256": "7ad820f415590c56ade428232a74eb666a5f29b982c853d2a88d4005a7c744a3"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java": {
+      "before_sha256": "ab118bc59afa832be20c9048ca0d45cbf3f542dcf486ce20cec0f9e2ce5fdc8b",
+      "edits": [
+        {
+          "accept": true,
+          "start": 1824,
+          "end": 1852,
+          "rs": 1824,
+          "re": 1830,
+          "as": 1850,
+          "ae": 1851,
+          "method": "getEquipmentInSlot",
+          "type": "net.minecraft.entity.player.EntityPlayer",
+          "old": "player.getEquipmentInSlot(i)",
+          "receiver": "player",
+          "index": "i",
+          "new": "com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i)"
+        }
+      ],
+      "after_sha256": "bf85b1d1e8a75b8a488c639dd89f13a29a4817e53fb64cb6c7bcc571983ea67a"
+    }
+  },
+  "excluded": [],
+  "helper": {
+    "file": "src/main/java/com/hbm/util/LivingEquipmentRead.java",
+    "sha256": "aed1dfc3c9f20cf6c0f10a4dbb6f0816ccf6d64e13a6269b851d218c89ecde18"
+  }
+}

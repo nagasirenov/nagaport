@@ -1,0 +1,1244 @@
+{
+  "baseline": "a0dc7d14f453a1d6f01b0d5abdcd455358bf2714",
+  "files": {
+    "src/main/java/com/hbm/blocks/fluid/GenericFluidBlock.java": {
+      "before_sha256": "b5e3edbde304623306159ed6a155a25e087868cad7602245836164cc9dbfaff7",
+      "after_sha256": "0f81ed53281bc8c9e2711416ced7369fc6e4af99805bb4d65e1d31459caec383",
+      "edits": [
+        {
+          "before_offset": 2764,
+          "after_offset": 2764,
+          "old": "\t\t\t\t\t\tworld.spawnParticle(\"cloud\", entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "95ae44edc9b92e5ef939b7ee721afc9924b750ccc332cddd780d76a353509e6e",
+      "after_sha256": "a6e5e95193b42e839d185742919b28da2028796c1e00f8db9de8246170f6c204",
+      "edits": [
+        {
+          "before_offset": 2632,
+          "after_offset": 2632,
+          "old": "\t\t\t\tworld.spawnParticle(\"smoke\", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(\"cloud\", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 2860,
+          "after_offset": 2937,
+          "old": "\t\t\t\tworld.spawnParticle(\"largesmoke\", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\t        \t\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\t        \t\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java": {
+      "before_sha256": "de02622184bd21327fe79925ae95d4d888f27dd8474e9ead4acf8801e31f0856",
+      "after_sha256": "098e0101367af60405131ef08d9500bbca7e8a1c4fe9f23829b117a215af263c",
+      "edits": [
+        {
+          "before_offset": 4194,
+          "after_offset": 4194,
+          "old": "\t\t\tworld.spawnParticle(\"cloud\", dx, dy, dz, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, dx, dy, dz, 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 9199,
+          "after_offset": 9234,
+          "old": "\t\t\tworld.spawnParticle(\"cloud\", dx, dy, dz, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, dx, dy, dz, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java": {
+      "before_sha256": "a2923b073def6f39d7431a4af76338fa04151371ebbd167ea8e49c49329a0bad",
+      "after_sha256": "e74baceae5d8eef9e9150c1a797decddcfcd31fa3f194aaeec104a6a60e1c744",
+      "edits": [
+        {
+          "before_offset": 4914,
+          "after_offset": 4914,
+          "old": "\t\t\t\tworld.spawnParticle(\"lava\", dx, dy, dz, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, dx, dy, dz, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 5625,
+          "after_offset": 5660,
+          "old": "\t\t\tworld.spawnParticle(\"dripLava\", dx, dy, dz, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.DRIP_LAVA, dx, dy, dz, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasAsbestos.java": {
+      "before_sha256": "3be2b9ad1122152ce0277a08536b705177dc328b915452447b4c7bf47fb5a4c4",
+      "after_sha256": "e35417c37046666640faf71b4c25c6faa2c7fd2da74e8af4209fe066ab9bb22a",
+      "edits": [
+        {
+          "before_offset": 739,
+          "after_offset": 739,
+          "old": "\t\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasCoal.java": {
+      "before_sha256": "1d9361a01f525001b639454f5d0658583bfcbe949067966bae210042e1b90a3b",
+      "after_sha256": "7af0bef2ad3661040992250af015479b05ab068d3b15032444aa57fafbfc8111",
+      "edits": [
+        {
+          "before_offset": 697,
+          "after_offset": 697,
+          "old": "\t\tworld.spawnParticle(\"smoke\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasMeltdown.java": {
+      "before_sha256": "fb5c2ca41b005c6104c1676df38d4d18da0b7637a2d94810b014f6c862b37955",
+      "after_sha256": "e7d4728184bb030f5c5d1f389a6d83a61162853822c65807cb8ae55641ec4b41",
+      "edits": [
+        {
+          "before_offset": 1822,
+          "after_offset": 1822,
+          "old": "\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java": {
+      "before_sha256": "6080514a5780431d0bf333d30cfbe417626842c6d289127bf56d9966c4ec8d90",
+      "after_sha256": "8cd887417724caa86f3dbc50a1c5168e44a019109faaa229ffb2bcb2d0a8e143",
+      "edits": [
+        {
+          "before_offset": 1694,
+          "after_offset": 1694,
+          "old": "\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockGeysir.java": {
+      "before_sha256": "ab0b57ecdd1f5b4337d1167c0334a8cf77fa57e7ff89544235ed814f3c3aadd8",
+      "after_sha256": "0b0c2612affc3dc52100f97417096e47c97de8479004035309c7f87eac47ee7f",
+      "edits": [
+        {
+          "before_offset": 2169,
+          "after_offset": 2169,
+          "old": "\t\t\tp_149734_1_.spawnParticle(\"cloud\", f, f1, f2, 0.0D, 0.1D, 0.0D);\n",
+          "new": "\t\t\tp_149734_1_.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, f, f1, f2, 0.0D, 0.1D, 0.0D);\n"
+        },
+        {
+          "before_offset": 2284,
+          "after_offset": 2319,
+          "old": "\t\t\tp_149734_1_.spawnParticle(\"flame\", x + 0.5F, y + 1.0625F, z + 0.5F, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tp_149734_1_.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + 0.5F, y + 1.0625F, z + 0.5F, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHazard.java": {
+      "before_sha256": "cfa78cbe78a61fbe039d78e4d41f0758f9df324a12151b2a91e42d932cc429b5",
+      "after_sha256": "d7770ccc05c006d4f851bdfc683b2b72fa9d31556b6e4df1cdee3eaa75306515",
+      "edits": [
+        {
+          "before_offset": 1533,
+          "after_offset": 1533,
+          "old": "\t\t\tworld.spawnParticle(\"lava\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 2631,
+          "after_offset": 2666,
+          "old": "\t\t\t\t\tworld.spawnParticle(\"townaura\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 3042,
+          "after_offset": 3113,
+          "old": "\t\t\t\t\tworld.spawnParticle(\"flame\", ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.1, 0.0);\n",
+          "new": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockHotHazard.java": {
+      "before_sha256": "614575aec7878b9cfb9b0fcb8e6a4e48b81470948f7bbd7e330245d4711619c1",
+      "after_sha256": "9d20e7e729b8e46b34fab9b08df1e3e28253d7b4f2ed9fc825157066d69cf481",
+      "edits": [
+        {
+          "before_offset": 595,
+          "after_offset": 595,
+          "old": "\t\t\tworld.spawnParticle(\"cloud\", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 1474,
+          "after_offset": 1509,
+          "old": "\t\t\t\tworld.spawnParticle(\"cloud\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLithium.java": {
+      "before_sha256": "8d2321e42630509e10102d8f6b0a9402d85ae8e09b6b06b57795b01b03947e9c",
+      "after_sha256": "1fdee98df3c558cab3a7760d24c93ed06d23da897498250c5255011ec9b009f9",
+      "edits": [
+        {
+          "before_offset": 1994,
+          "after_offset": 1994,
+          "old": "\t\t\tworld.spawnParticle(\"largesmoke\", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNetherCoal.java": {
+      "before_sha256": "f7ca98d0143fd5b403c11f41e283ec1e3be9366a90cb3aff84d54da324601c1b",
+      "after_sha256": "1b2f223cd975d19249201a437a0e5eebfda70e1058e820ea2b05ee18871e1947",
+      "edits": [
+        {
+          "before_offset": 1775,
+          "after_offset": 1775,
+          "old": "\t\t\t\tworld.spawnParticle(\"flame\", ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.1, 0.0);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);\n\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOreBasalt.java": {
+      "before_sha256": "ed4a51434554274b7b2d3ae144e237e2f4ba837017a6ec5cd37ed2bf53d7a271",
+      "after_sha256": "bdaf6f853ee5be1a8ff4d061f1a9c8106205672dd9e46235bd3070d9708f727c",
+      "edits": [
+        {
+          "before_offset": 2119,
+          "after_offset": 2119,
+          "old": "\t\t\tfor(int i = 0; i < 5; i++) world.spawnParticle(\"townaura\", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tfor(int i = 0; i < 5; i++) world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOreOutgas.java": {
+      "before_sha256": "374e5e400b0b179c1f7f915d2251d8437724d13f4d422a981952225184a7a168",
+      "after_sha256": "dd3ce26df50ffc5c57d68554cb81179e07f0b0e9cd7035f665ab0309f0bca0c4",
+      "edits": [
+        {
+          "before_offset": 1514,
+          "after_offset": 1514,
+          "old": "\t\t\t\t\tworld.spawnParticle(\"townaura\", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOutgas.java": {
+      "before_sha256": "8eab570cfb82fc4cb9a68e923deb23ab1907fe657297d282dae114aadff19c50",
+      "after_sha256": "4316bab31ef645eb3b23e85574eb1467cc7e04d1f19b5b2e70b6ab92b2519f9d",
+      "edits": [
+        {
+          "before_offset": 2812,
+          "after_offset": 2812,
+          "old": "\t\t\t\t\tworld.spawnParticle(\"townaura\", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSmolder.java": {
+      "before_sha256": "4ab7c46436f17d49d3c3728e57465797c902635f524d513c2ef07c9590e33f47",
+      "after_sha256": "ace106f7ab33c5f5bf5ffcb6fd358faf8eb7b0a22af5703739ea62970eb840e8",
+      "edits": [
+        {
+          "before_offset": 758,
+          "after_offset": 758,
+          "old": "\t\t\tworld.spawnParticle(\"lava\", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n\t\t\tworld.spawnParticle(\"flame\", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": {
+      "before_sha256": "d5554e91d90a3f345f6036cc3d2327672294a3b0d364c4d55e29262d473da9a8",
+      "after_sha256": "6aa0d041238ced71a290270af9e29ad5ea7ec58120782e8ce5de85d0026cf6fa",
+      "edits": [
+        {
+          "before_offset": 5072,
+          "after_offset": 5072,
+          "old": "\t\t\tp_149734_1_.spawnParticle(\"townaura\", p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1F, p_149734_4_ + p_149734_5_.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tp_149734_1_.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1F, p_149734_4_ + p_149734_5_.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java": {
+      "before_sha256": "11ea0b66076b3ed21531c7ed17a75db3ebef8138ef06234efac51ad3bac71a95",
+      "after_sha256": "594c4ead980df4270d7416e4470fe382ff57f259b8159f0798919cad04add276",
+      "edits": [
+        {
+          "before_offset": 11367,
+          "after_offset": 11367,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 11444,
+          "after_offset": 11487,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": {
+      "before_sha256": "980d2af122d2462006348723b25b640f036c2509cc6e0cbdda0db9dd6b9f2d67",
+      "after_sha256": "a9cf47614da4f46686287f87e4d7ec2368da67c1d4766547ee34c8488b9198ee",
+      "edits": [
+        {
+          "before_offset": 3793,
+          "after_offset": 3793,
+          "old": "\t\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 3945,
+          "after_offset": 3981,
+          "old": "\t\t\tworld.spawnParticle(\"flame\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n\t\t\tworld.spawnParticle(\"smoke\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java": {
+      "before_sha256": "187bd1b81864e5860840ecc862bc1358fce39948898da169b6a7b04de9d9150d",
+      "after_sha256": "46f7a856967d40ff114997a5228340fd968f4c927d7052853d737be9307b456f",
+      "edits": [
+        {
+          "before_offset": 11156,
+          "after_offset": 11156,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 11233,
+          "after_offset": 11276,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/GeigerCounter.java": {
+      "before_sha256": "7e4beef0e6a3b32206189e19671ed6851b124c23130a2a012168d7b717ebf0f9",
+      "after_sha256": "e249a949be43018952c6def0be1d734fa6ae42b019772d2f77f23c5f796a7c81",
+      "edits": [
+        {
+          "before_offset": 3957,
+          "after_offset": 3957,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 4034,
+          "after_offset": 4077,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBattery.java": {
+      "before_sha256": "696a4e35f1dadd1febec3763d303d58ef5af6d0c5ca605dff5585b1f52446445",
+      "after_sha256": "f1a6ae970ab5dafdf9883036f6cfe02ccce34ac3d5641e75c3adc78cbd29cb55",
+      "edits": [
+        {
+          "before_offset": 9654,
+          "after_offset": 9654,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 9731,
+          "after_offset": 9774,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBigAssTank9000.java": {
+      "before_sha256": "c6264919d7a48bf6fd746411d909dab5222d0a5948204c752a36cbdd98a2d144",
+      "after_sha256": "abd98ee6aefffc1514125d8289488b3075bd18622545297897d44ab75b2b734f",
+      "edits": [
+        {
+          "before_offset": 5066,
+          "after_offset": 5066,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 5143,
+          "after_offset": 5186,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineDiesel.java": {
+      "before_sha256": "dd489d513debb36460887762c804f72b97720aae61130196bf4efa3795d8c7e4",
+      "after_sha256": "bdccff36d44d388c613179fec626884b8d6d2de9e1b8c5f44540f440f3f548eb",
+      "edits": [
+        {
+          "before_offset": 1909,
+          "after_offset": 1909,
+          "old": "\t\t\t\tworld.spawnParticle(\"smoke\", x + 0.5 - dir.offsetX * 0.6 + rot.offsetX * 0.1875, y + 0.3125, z + 0.5 - dir.offsetZ * 0.6 + rot.offsetZ * 0.1875, 0, 0, 0);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + 0.5 - dir.offsetX * 0.6 + rot.offsetX * 0.1875, y + 0.3125, z + 0.5 - dir.offsetZ * 0.6 + rot.offsetZ * 0.1875, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": {
+      "before_sha256": "d5f26926a44a9a6e0e79f26d439f3eea51a994058d4c0576b08c80f35649d4e2",
+      "after_sha256": "a814c158eb59c33923fc2c9852cdad2c8001cd21b2990e178e84cd2a444f5173",
+      "edits": [
+        {
+          "before_offset": 5584,
+          "after_offset": 5584,
+          "old": "\t\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 + dir.offsetX * 0.5, this.pos.getY() + 0.5 + dir.offsetY * 0.5, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5, dir.offsetX * speed, dir.offsetY * speed, dir.offsetZ * speed);\n",
+          "new": "\t\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + dir.offsetX * 0.5, this.pos.getY() + 0.5 + dir.offsetY * 0.5, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5, dir.offsetX * speed, dir.offsetY * speed, dir.offsetZ * speed);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFluidTank.java": {
+      "before_sha256": "7bd40c48b1667459c8f30401f568bbdae3be86163f5735288b055a01f955bf9b",
+      "after_sha256": "fe067a8c6e35aea84474c8cf1639cf30bbf4c734e6b68c7b63f43a5441b25d80",
+      "edits": [
+        {
+          "before_offset": 6665,
+          "after_offset": 6665,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 6742,
+          "after_offset": 6785,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineForceField.java": {
+      "before_sha256": "ee9a82ced2bca01888d40d199b123b5226693915abe1b68f387440eb4dbbf716",
+      "after_sha256": "8442af74494c364b0bf427a47d4459494dd58bf4422e7c49a4d4c459ba5ca447",
+      "edits": [
+        {
+          "before_offset": 2318,
+          "after_offset": 2318,
+          "old": "\t\t\t\t\tworld.spawnParticle(\"lava\", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 2400,
+          "after_offset": 2435,
+          "old": "\t\t\t\t\tworld.spawnParticle(\"reddust\", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 2669,
+          "after_offset": 2740,
+          "old": "\t\t\t\tworld.spawnParticle(\"smoke\", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRadar.java": {
+      "before_sha256": "366767082787150404cea809ecb33a604c704e489b740a490d31e1b4789d12e7",
+      "after_sha256": "02dc21b68aeba10d8fa8668424721724bff0cc2b27a6be315141d12e455b88e8",
+      "edits": [
+        {
+          "before_offset": 1888,
+          "after_offset": 1888,
+          "old": "\tpublic boolean canProvidePower() {\n",
+          "new": "\tpublic boolean canProvidePower(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1954,
+          "after_offset": 1997,
+          "old": "\tpublic int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int m) {\n\t\tTileEntityMachineRadarNT entity = (TileEntityMachineRadarNT) world.getTileEntity(x, y, z);\n",
+          "new": "\tpublic int getWeakPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n\t\tTileEntityMachineRadarNT entity = (TileEntityMachineRadarNT) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n"
+        },
+        {
+          "before_offset": 2176,
+          "after_offset": 2426,
+          "old": "\tpublic int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int m) {\n\t\treturn isProvidingWeakPower(world, x, y, z, m);\n",
+          "new": "\tpublic int getStrongPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\treturn getWeakPower(state, world, blockPos, side);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRadarLarge.java": {
+      "before_sha256": "f948f1683a4e12a2e6f80c1944993d43e3cc5eed453ad34113213f06f0bc2490",
+      "after_sha256": "7fed76db0dfb45661ce092ff53705af97a433866c516afd236be368d77702d86",
+      "edits": [
+        {
+          "before_offset": 2282,
+          "after_offset": 2282,
+          "old": "\tpublic boolean canProvidePower() {\n",
+          "new": "\tpublic boolean canProvidePower(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 2348,
+          "after_offset": 2391,
+          "old": "\tpublic int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int m) {\n\t\tint meta = world.getBlockMetadata(x, y, z);\n",
+          "new": "\tpublic int getWeakPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n\t\tint m = side.getIndex();\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)));\n"
+        },
+        {
+          "before_offset": 2553,
+          "after_offset": 2867,
+          "old": "\t\t\tTileEntity tile = world.getTileEntity(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n",
+          "new": "\t\t\tTileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ));\n"
+        },
+        {
+          "before_offset": 2836,
+          "after_offset": 3188,
+          "old": "\tpublic int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int m) {\n\t\treturn isProvidingWeakPower(world, x, y, z, m);\n",
+          "new": "\tpublic int getStrongPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\treturn getWeakPower(state, world, blockPos, side);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineReactorControl.java": {
+      "before_sha256": "64ae31b5eaf3b1f284d426a6b3c19e89f6c4800f140fcbfe69071f3ffc4fafce",
+      "after_sha256": "836048737e0c9436743356a11795c0e6c700d6a1f929cb61363790452a20e8b4",
+      "edits": [
+        {
+          "before_offset": 6943,
+          "after_offset": 6943,
+          "old": "    public boolean hasComparatorInputOverride()\n",
+          "new": "    public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)\n"
+        },
+        {
+          "before_offset": 7036,
+          "after_offset": 7079,
+          "old": "    public int getComparatorInputOverride(World world, int x, int y, int z, int p_149736_5_)\n    {\n",
+          "new": "    public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos)\n    {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/ReactorResearch.java": {
+      "before_sha256": "64b70a9545561b0c96e17c8b453dc2bb934e5ddc21ea583d761327aab917b562",
+      "after_sha256": "293dcf9e5d069c940ad42229f6508b14b400faf6c58fabe69462d02cd6be04ba",
+      "edits": [
+        {
+          "before_offset": 2388,
+          "after_offset": 2388,
+          "old": "\t\t\t\tworld.spawnParticle(\"bubble\", ix, iy, iz, 0.0, 0.2, 0.0);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, ix, iy, iz, 0.0, 0.2, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/WasteDrum.java": {
+      "before_sha256": "15baefd91876a772487fd6ff8a29df2a48bcf112e0fe2f9555c056ef0a28d54c",
+      "after_sha256": "7ccdb9ee5aa5e9dbf4fa1f7c11f4069d4b4c7d96f18e7487ac67fb8dc7fbda25",
+      "edits": [
+        {
+          "before_offset": 2631,
+          "after_offset": 2631,
+          "old": "\t\t\t\tworld.spawnParticle(\"bubble\", ix, iy, iz, 0.0, 0.2, 0.0);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, ix, iy, iz, 0.0, 0.2, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteFuel.java": {
+      "before_sha256": "09817744885fa3fa9a64d811be7c50384ad9a1bfb88525ea263adf6d47ad6cc7",
+      "after_sha256": "d62ba86eb3c766e6ce9432ce62b45cde06b6db5a84d74fe2a6f3095f5bb12fd2",
+      "edits": [
+        {
+          "before_offset": 1409,
+          "after_offset": 1409,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1487,
+          "after_offset": 1530,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/MachineBatterySocket.java": {
+      "before_sha256": "8877b2b58b5bb52408c7233f36189dd6ecba641200f7fe21a6ed4fe58675dd2e",
+      "after_sha256": "4751d79e921199ac39346dc77bbc4d3bbdba5488f64c10afcc6553e09bf1af58",
+      "edits": [
+        {
+          "before_offset": 2249,
+          "after_offset": 2249,
+          "old": "\tpublic boolean hasComparatorInputOverride() {\n",
+          "new": "\tpublic boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 2326,
+          "after_offset": 2369,
+          "old": "\tpublic int getComparatorInputOverride(World world, int x, int y, int z, int side) {\n",
+          "new": "\tpublic int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/cart/EntityMinecartDestroyer.java": {
+      "before_sha256": "542b8bd42ff304f97232a247bfd1ed7615e91e4add4fc64def90768bfbe1f47a",
+      "after_sha256": "fe038ea630ade9a7c9519b5b95021fd3bfc879acc9d648629e24ef2c17ab94de",
+      "edits": [
+        {
+          "before_offset": 3418,
+          "after_offset": 3418,
+          "old": "\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityMist.java": {
+      "before_sha256": "a4e44cd69e0c7743498c49acb952b5ec98d47caf066396501033941a311b79ae",
+      "after_sha256": "ae62be8e53e1bdd05e5d9e927579d9dc5f75bf2845601177abd7a2fa3deb8223",
+      "edits": [
+        {
+          "before_offset": 11886,
+          "after_offset": 11886,
+          "old": "\t\t\t\te.world.spawnParticle(\"portal\", d7, d8, d9, (double) f, (double) f1, (double) f2);\n",
+          "new": "\t\t\t\te.world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, d7, d8, d9, (double) f, (double) f1, (double) f2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java": {
+      "before_sha256": "3840355021396040c2a5e6d037dd5640d13adf047623cddacbddf52140ecae6f",
+      "after_sha256": "555a41de85acb6e01e685a9dfe2136f6eccb5cecb6062be47d204571ac221eef",
+      "edits": [
+        {
+          "before_offset": 6778,
+          "after_offset": 6778,
+          "old": "                this.world.spawnParticle(\"bubble\", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);\n",
+          "new": "                this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "c01a3218c341baed629999312502a2b0d3c38fcc4042e8b55ac58a00685bfa66",
+      "after_sha256": "eae32c94dc4703ce74ccdbbf7fe42cae6311b52cbbe898dd72046d9f50c0a992",
+      "edits": [
+        {
+          "before_offset": 12540,
+          "after_offset": 12540,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"splash\", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n"
+        },
+        {
+          "before_offset": 12755,
+          "after_offset": 12796,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"splash\", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityDroneBase.java": {
+      "before_sha256": "8e89d11fbb2a782a9fc32ab7a8a525a7c314150ca3782ad2d2f3b954f5d65b7b",
+      "after_sha256": "ea429f2a6e36d50439000a9300547323d6b869a8a3a34ec4e1f2414f53307de8",
+      "edits": [
+        {
+          "before_offset": 2455,
+          "after_offset": 2455,
+          "old": "\t\t\tthis.world.spawnParticle(\"smoke\", posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n\t\t\tthis.world.spawnParticle(\"smoke\", posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);\n\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityFireworks.java": {
+      "before_sha256": "1c02ae9c42bba50c5fbb1e3d366f8e28da22fd2da73bd9d965da711fc1d9a0da",
+      "after_sha256": "c94b30296dd3b5ba2af85a53d40ac003c7afdb6cc19c6b66a0c2d4fcae4cbd0e",
+      "edits": [
+        {
+          "before_offset": 791,
+          "after_offset": 791,
+          "old": "\t\tthis.world.spawnParticle(\"flame\", posX, posY, posZ, 0.0, -0.3, 0.0);\n\t\tthis.world.spawnParticle(\"smoke\", posX, posY, posZ, 0.0, -0.2, 0.0);\n",
+          "new": "\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, posX, posY, posZ, 0.0, -0.3, 0.0);\n\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY, posZ, 0.0, -0.2, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartTest.java": {
+      "before_sha256": "eeb51e7dfc1c738085eaeccfc85ec8e3a64c31d7badab5088d2452ff7fa6557a",
+      "after_sha256": "f8cbaf24dddf7f5105b8390c1548bb3e7dcf3cf9b8e3411a27e1d098ba94bc1e",
+      "edits": [
+        {
+          "before_offset": 1222,
+          "after_offset": 1222,
+          "old": "            this.world.spawnParticle(\"smoke\", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n",
+          "new": "            this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityTNTPrimedBase.java": {
+      "before_sha256": "4b68dd92ddf6f858466c0fdcf933e722267ed271e72e61131b4472e21ee43aaf",
+      "after_sha256": "e76538dc63175cb95d3f81494f9bfeb6b61d2c9a8bf474145139f083a4d666d8",
+      "edits": [
+        {
+          "before_offset": 2688,
+          "after_offset": 2688,
+          "old": "\t\t\tthis.world.spawnParticle(\"smoke\", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java": {
+      "before_sha256": "2599f13e1a87182475b54834bf7aa0e44fd024fba20a6a24a3f50a83cf998853",
+      "after_sha256": "228798ecc536854517cce0f3122740e28c496bced7c53c2af5e18545e8b94fa9",
+      "edits": [
+        {
+          "before_offset": 2349,
+          "after_offset": 2349,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"cloud\", posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java": {
+      "before_sha256": "af2ffbd767fe767958f00aa41fe00566f8ba7ca572dfc4c4b9c3909a5382dfe4",
+      "after_sha256": "f59bf17e1169c51de000d58c78a49cf3f7cc8ee9fc6eff9c13dbe0ed94ff6775",
+      "edits": [
+        {
+          "before_offset": 3099,
+          "after_offset": 3099,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"fireworksSpark\", this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FIREWORKS_SPARK, this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityRADBeast.java": {
+      "before_sha256": "1cb5ab317c849fb75d5602e5fd147eeb5f61b21072130a1a681f38e45d3c0d71",
+      "after_sha256": "96f604fde4653ababbb1a6fb8a15fb80b0a25043dd952e070d362e22a2be22f0",
+      "edits": [
+        {
+          "before_offset": 3162,
+          "after_offset": 3162,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"townaura\", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 3469,
+          "after_offset": 3505,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"flame\", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n"
+        },
+        {
+          "before_offset": 3743,
+          "after_offset": 3814,
+          "old": "\t\t\tthis.world.spawnParticle(\"lava\", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java": {
+      "before_sha256": "96f8d19f0637b707e8b12d69c298d2b5edfdc986a004f36e7202b0827e3f9367",
+      "after_sha256": "ea08ba70ec837bbf4dfe9dc19f08b6c83d56cc86a11993a1e968c8cf70c64ad1",
+      "edits": [
+        {
+          "before_offset": 4952,
+          "after_offset": 4952,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);\r\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java": {
+      "before_sha256": "0075f98ba3700c4ba263c10386c58eb21077b50f8eca3bee9f761a4cfe9bc2e9",
+      "after_sha256": "33a13471689110612a298f3cb10607ab7ff8bd05acd0ba0ba6676ab3d1508cd9",
+      "edits": [
+        {
+          "before_offset": 941,
+          "after_offset": 941,
+          "old": "\t\t\tthis.world.spawnParticle(\"cloud\", pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "8a676c92c28ae87bf1eb8d03369f8e2f90860fd4ad183c98c7058646a7e8ac84",
+      "after_sha256": "b17d921cf1080150f97f809fef6e955a37409cbcba74b4a666bc23cee06cc282",
+      "edits": [
+        {
+          "before_offset": 25693,
+          "after_offset": 25693,
+          "old": "\t\t\t\t\t\tthis.world.spawnParticle(\"fireworksSpark\", this.posX + this.motionX * i / 8.0D,\n",
+          "new": "\t\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FIREWORKS_SPARK, this.posX + this.motionX * i / 8.0D,\n"
+        },
+        {
+          "before_offset": 25951,
+          "after_offset": 25987,
+          "old": "\t\t\t\t\t\tthis.world.spawnParticle(\"reddust\", this.posX + this.motionX * i / 8.0D,\n",
+          "new": "\t\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, this.posX + this.motionX * i / 8.0D,\n"
+        },
+        {
+          "before_offset": 27375,
+          "after_offset": 27447,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"bubble\", this.posX - this.motionX * f4, this.posY - this.motionY * f4,\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4,\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "4e90c3d304a577694bae800ef73eb66a0e8f0b1dfbbc7958c087330bc36b41b6",
+      "after_sha256": "2c5c89405f428c461fb68ab74bdecaf95ed148838f90916e7e582faa768b13c1",
+      "edits": [
+        {
+          "before_offset": 8111,
+          "after_offset": 8111,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"smoke\", this.posX, this.posY, this.posZ,\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ,\n"
+        },
+        {
+          "before_offset": 8381,
+          "after_offset": 8423,
+          "old": "\t\t\tthis.world.spawnParticle(\"flame\", this.posX + this.motionX * mod, this.posY + this.motionY * mod, this.posZ + this.motionZ * mod, 0, 0, 0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.posX + this.motionX * mod, this.posY + this.motionY * mod, this.posZ + this.motionZ * mod, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "1848c1d15c5d1f17ac5c9d9830695ec1bd2df4892b912ccd6338a050c0883546",
+      "after_sha256": "d66dda207b279d0eabcd02b960e9318f9a1b420905955e8468084eb135b0f29c",
+      "edits": [
+        {
+          "before_offset": 13085,
+          "after_offset": 13085,
+          "old": "\t\t\t\te.world.spawnParticle(\"portal\", d7, d8, d9, (double) f, (double) f1, (double) f2);\n",
+          "new": "\t\t\t\te.world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, d7, d8, d9, (double) f, (double) f1, (double) f2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "c6e8c10bfdf5b80eac6151ef9680776ed7f4e8300eac999a3049820c8177ab8f",
+      "after_sha256": "f7923b214d9ea2788d52d5a1e84a2b5173630f5003a39fe2031e65b50032a612",
+      "edits": [
+        {
+          "before_offset": 19345,
+          "after_offset": 19345,
+          "old": "                \tthis.world.spawnParticle(\"smoke\", this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);\n",
+          "new": "                \tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);\n"
+        },
+        {
+          "before_offset": 21245,
+          "after_offset": 21287,
+          "old": "                    this.world.spawnParticle(\"bubble\", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n",
+          "new": "                    this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "a3b9bf0f783561218b5feb4eabcb7ec2ab4c88ccfa33e8682631c00ddaf6c2fe",
+      "after_sha256": "369a18b96e17284454623abb59d21373fea8f59d9e9548c655a54cf1baf63a97",
+      "edits": [
+        {
+          "before_offset": 19440,
+          "after_offset": 19440,
+          "old": "                    this.world.spawnParticle(\"smoke\", this.posX, this.posY, this.posZ, 0, 0, 0 /*this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ*/);\n",
+          "new": "                    this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ, 0, 0, 0 /*this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ*/);\n"
+        },
+        {
+          "before_offset": 21180,
+          "after_offset": 21222,
+          "old": "                    this.world.spawnParticle(\"bubble\", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n",
+          "new": "                    this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java": {
+      "before_sha256": "64218ed3a7ced2d20d0c1016b758fe2702ff59069a467813d74ec4f8d7eb7946",
+      "after_sha256": "6dea03d7e43c7669998083d747e1ceb4b7f44402cf0c54a5570c944e59e8bf42",
+      "edits": [
+        {
+          "before_offset": 1408,
+          "after_offset": 1408,
+          "old": "\t\t\tthis.world.spawnParticle(\"flame\", posX, posY, posZ, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, posX, posY, posZ, 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 3389,
+          "after_offset": 3424,
+          "old": "\t\t\t\tfor(int i = 0; i < 5; i++) this.world.spawnParticle(\"lava\", posX, posY, posZ, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\t\tfor(int i = 0; i < 5; i++) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, posX, posY, posZ, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "before_sha256": "51c5f47a37927ebf4784724a2773908b450100e2823b5ca0394b38f626c57c5c",
+      "after_sha256": "a8422af16fae3ae9d5c8dfcd88ebccb1bcf4f3c98b70dec3d405328186aff15d",
+      "edits": [
+        {
+          "before_offset": 9465,
+          "after_offset": 9465,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"bubble\", this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityWaterSplash.java": {
+      "before_sha256": "ae6d0c7dde21ad17ab4f89b64b9964a37dfa2ebdf93bc7de2e97c601e42473bd",
+      "after_sha256": "9208b9a0589a16a5d316a0397e4bf490700ada4f5df7b3249afa557cce2c142c",
+      "edits": [
+        {
+          "before_offset": 1229,
+          "after_offset": 1229,
+          "old": "\t\t\tthis.world.spawnParticle(\"splash\", posX, posY, posZ, 0.0D, 0.0D, 0.0D);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, posX, posY, posZ, 0.0D, 0.0D, 0.0D);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNT.java": {
+      "before_sha256": "00a8695dd0100c779acb87c1c90e794e0a67bdc4f0112d28dff1c4d9ea8d7f1c",
+      "after_sha256": "4b69286bef9969d6f91c80d8c05c7668d2a23261286c057fb72df55460e471c4",
+      "edits": [
+        {
+          "before_offset": 9054,
+          "after_offset": 9054,
+          "old": "\t\t\t\t\tthis.worldObj.spawnParticle(\"smoke\", d0, d1, d2, d3, d4, d5);\r\n",
+          "new": "\t\t\t\t\tthis.worldObj.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, d3, d4, d5);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java": {
+      "before_sha256": "8470c01779fb375672993f4bd6c121a8b466d51cdeaff8eb8c0b34350b44dc16",
+      "after_sha256": "d7001f8a7a14447200f38d33a8e933c5504b6b2204f65b2f6eec2a73a0af43a3",
+      "edits": [
+        {
+          "before_offset": 1397,
+          "after_offset": 1397,
+          "old": "\t\t\tworld.spawnParticle(\"hugeexplosion\", x, y, z, 1.0D, 0.0D, 0.0D);\r\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_HUGE, x, y, z, 1.0D, 0.0D, 0.0D);\r\n"
+        },
+        {
+          "before_offset": 1478,
+          "after_offset": 1514,
+          "old": "\t\t\tworld.spawnParticle(\"largeexplode\", x, y, z, 1.0D, 0.0D, 0.0D);\r\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_LARGE, x, y, z, 1.0D, 0.0D, 0.0D);\r\n"
+        },
+        {
+          "before_offset": 2332,
+          "after_offset": 2406,
+          "old": "\t\t\tworld.spawnParticle(\"explode\", (oX + x * 1.0D) / 2.0D, (oY + y * 1.0D) / 2.0D, (oZ + z * 1.0D) / 2.0D, dX, dY, dZ);\r\n\t\t\tworld.spawnParticle(\"smoke\", oX, oY, oZ, dX, dY, dZ);\r\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_NORMAL, (oX + x * 1.0D) / 2.0D, (oY + y * 1.0D) / 2.0D, (oZ + z * 1.0D) / 2.0D, dX, dY, dZ);\r\n\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, oX, oY, oZ, dX, dY, dZ);\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "0c4c8058d9b05f988fa520ffddc0823fbd7a681cf849df8b4ad3e354ef46a007",
+      "after_sha256": "c17ffe883f02d10876968307e39a01b06631e034dffceff479169926df1b98d3",
+      "edits": [
+        {
+          "before_offset": 3802,
+          "after_offset": 3802,
+          "old": "\t\t\t\t\tfor(int i = 0; i < 3; i++) player.world.spawnParticle(\"townaura\", player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);\n",
+          "new": "\t\t\t\t\tfor(int i = 0; i < 3; i++) player.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemAnchorRemote.java": {
+      "before_sha256": "9487e6137ccc75d1aa930714f5969c58603943026e9ecb5eae05f00779b1fa49",
+      "after_sha256": "d7f73fa01be8d4fe5ee3c704f3f1f585ad5d5208ef4c814373f425478975db27",
+      "edits": [
+        {
+          "before_offset": 3023,
+          "after_offset": 3023,
+          "old": "\t\t\t\tworld.spawnParticle(\"portal\", player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDiscord.java": {
+      "before_sha256": "34b89f6214b33ba8f97006c39c2bdde33023eeb41b8d6c7f17bfe37f1b957e75",
+      "after_sha256": "bf9576fc585761dd41feee05ada338a0781a7e93b6cfcd3bc68321935a5fc981",
+      "edits": [
+        {
+          "before_offset": 1219,
+          "after_offset": 1219,
+          "old": "\t\t\t\tworld.spawnParticle(\"portal\", player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemLaserDetonator.java": {
+      "before_sha256": "5e682ce56cba0ff7a8ee0626002dd0dfd37dd34634c333f332499a647217de12",
+      "after_sha256": "65c0c1988302b350d4845d0bf2c04b39906f8cc7fdb649a9fdc0bca23f58773e",
+      "edits": [
+        {
+          "before_offset": 2762,
+          "after_offset": 2762,
+          "old": "\t\t\t\tworld.spawnParticle(\"reddust\", player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);\n",
+          "new": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/WeaponizedCell.java": {
+      "before_sha256": "c746bf3948fc2454daa49b8c191423ff18a37dbc9512a49b86769d71428e7e19",
+      "after_sha256": "83b0bb4b14915213fcfa207bd0dd840030dd9e5e2c47c9b63944b3e8cab32fec",
+      "edits": [
+        {
+          "before_offset": 1348,
+          "after_offset": 1348,
+          "old": "\t\t\tworld.spawnParticle(\"reddust\", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 1585,
+          "after_offset": 1621,
+          "old": "\t\t\tworld.spawnParticle(\"smoke\", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 1832,
+          "after_offset": 1910,
+          "old": "\t\t\tworld.spawnParticle(\"lava\", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "1c3ab150fad3395172fc1eb3506a427919f178c61cb27adfeb417c12e49eac1e",
+      "after_sha256": "2d3fe21a7696d69194356951ffb679ce558803e3360ea19b4ea434da7acf3b54",
+      "edits": [
+        {
+          "before_offset": 56762,
+          "after_offset": 56762,
+          "old": "\t\t\t\tplayer.world.spawnParticle(\"townaura\", player.posX + vec.x, player.posY + 1 + vec.y, player.posZ + vec.z, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\t\tplayer.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, player.posX + vec.x, player.posY + 1 + vec.y, player.posZ + vec.z, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java": {
+      "before_sha256": "329f3ce679ca8a04ba31f17de6ad33419fe846b5def53307895dac79b5a0f2a6",
+      "after_sha256": "79ae5b085f1135328c301690947c46a785cb71455a40b9714ac89c071567b126",
+      "edits": [
+        {
+          "before_offset": 2703,
+          "after_offset": 2703,
+          "old": "\t\t\tthis.world.spawnParticle(\"magicCrit\",\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CRIT_MAGIC,\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java": {
+      "before_sha256": "b5fb80fb51ce0e25105304af2fa074acbb6cafc858bf54eb12c8b2a653437da1",
+      "after_sha256": "00204330ac8f3cce2aaaa163f934c83d1def6171423e5b7a5e9d6934ae6d8a6c",
+      "edits": [
+        {
+          "before_offset": 6101,
+          "after_offset": 6101,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\",\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD,\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java": {
+      "before_sha256": "f86ef5ffe2681eb883730feebc215f8a6268aeef36aa7162b8c783cc05728fe0",
+      "after_sha256": "ba090522009cb8f0b56c036b273f779d024545be6c3d3aba798a9d14a36f80d6",
+      "edits": [
+        {
+          "before_offset": 3057,
+          "after_offset": 3057,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);\n\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);\n\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java": {
+      "before_sha256": "eeea4bdbf21c64ea165979358265929149fc89303145f1d4f8674761d422f27e",
+      "after_sha256": "17c3d28dcd366c1135fe24d9fa6fce529b7d5981f5a8866a4388746922e87465",
+      "edits": [
+        {
+          "before_offset": 1667,
+          "after_offset": 1667,
+          "old": "",
+          "new": "\t/** Raw quantity is required for dynamically valid stacks with a stale empty cache.\n\t * Admission of native-empty stacks is handled at the furnace boundaries, not here. */\n\tprivate static int quantity(ItemStack stack) {\n\t\tint count = stack.getCount();\n\t\tif(count != 0) return count;\n\t\ttry {\n\t\t\treturn QuantityField.FIELD.getInt(stack);\n\t\t} catch(IllegalAccessException ex) {\n\t\t\tthrow new IllegalStateException(\"Cannot read furnace stack quantity\", ex);\n\t\t}\n\t}\n\n\tprivate static final class QuantityField {\n\t\tprivate static final java.lang.reflect.Field FIELD = net.minecraftforge.fml.relauncher.ReflectionHelper.findField(\n\t\t\t\tItemStack.class, \"stackSize\", \"field_77994_a\");\n\t}\n\n"
+        },
+        {
+          "before_offset": 2391,
+          "after_offset": 3070,
+          "old": "\t\tif(stack == null) {\n",
+          "new": "\t\tif(stack == null || stack.isEmpty()) {\n"
+        },
+        {
+          "before_offset": 4956,
+          "after_offset": 5654,
+          "old": "\t\tif(slots[0] == null || slots[1] == null) return false;\n",
+          "new": "\t\tif(slots[0] == null || slots[0].isEmpty() || slots[1] == null || slots[1].isEmpty()) return false;\n"
+        },
+        {
+          "before_offset": 5125,
+          "after_offset": 5867,
+          "old": "\t\tif(output == null) return false;\n\t\tif(slots[3] == null) return true;\n",
+          "new": "\t\tif(output == null || output.isEmpty()) return false;\n\t\tif(slots[3] == null || slots[3].isEmpty()) return true;\n"
+        },
+        {
+          "before_offset": 5247,
+          "after_offset": 6031,
+          "old": "\t\tif(slots[3].stackSize + output.stackSize <= slots[3].getMaxStackSize()) {\n",
+          "new": "\t\tif(quantity(slots[3]) + quantity(output) <= slots[3].getMaxStackSize()) {\n"
+        },
+        {
+          "before_offset": 5471,
+          "after_offset": 6255,
+          "old": "\n\t\tif(slots[3] == null) {\n",
+          "new": "\t\tif(itemStack == null || itemStack.isEmpty()) return;\n\n\t\tif(slots[3] == null || slots[3].isEmpty()) {\n"
+        },
+        {
+          "before_offset": 5576,
+          "after_offset": 6437,
+          "old": "\t\t\tslots[3].stackSize += itemStack.stackSize;\n",
+          "new": "\t\t\tslots[3].grow(quantity(itemStack));\n"
+        },
+        {
+          "before_offset": 6780,
+          "after_offset": 7634,
+          "old": "\t\t\t\t\tthis.slots[2].stackSize--;\n\t\t\t\t\tif(this.slots[2].stackSize == 0) {\n",
+          "new": "\t\t\t\t\tthis.slots[2].shrink(1);\n\t\t\t\t\tif(this.slots[2].getCount() == 0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java": {
+      "before_sha256": "2c91fe77d0dbc4116c0140bc6a15dd5b676cd4fd858b8ebfcdfdc4f04a3c5f2c",
+      "after_sha256": "3db05a3d2e4ceae17399c11bf0fae0f8ee9be46f5346d25f49f03986c60d3475",
+      "edits": [
+        {
+          "before_offset": 4891,
+          "after_offset": 4891,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"flame\", x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java": {
+      "before_sha256": "fc6dbdab9f67388c8ae69fef85132a9c317f1d98c83d25ee3385382a1846c47c",
+      "after_sha256": "85b819ecc00a1d67e82364f782552e507db8466d84784dd9de5e946ab34f7533",
+      "edits": [
+        {
+          "before_offset": 4502,
+          "after_offset": 4502,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"lava\", this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java": {
+      "before_sha256": "c06129749e791605bcca22bc673a8bdfe0a68173610d4ee1f50ce72b4c7bd732",
+      "after_sha256": "b239a74a2c5d4046936761e1fe69b995c488f62fc2374e4cb81cd91c27e7d8d0",
+      "edits": [
+        {
+          "before_offset": 6473,
+          "after_offset": 6473,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"reddust\", this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": {
+      "before_sha256": "4ed59eef3dc147e7127f729789bef533b6e87237de98655383a7a7c0a9cd9537",
+      "after_sha256": "d6f1d81bdf075c8a3a9daeed75650ff9ceee411ef29f557813cba38da0b1cba6",
+      "edits": [
+        {
+          "before_offset": 7781,
+          "after_offset": 7781,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java": {
+      "before_sha256": "741f5f7365b8170a24e8cfa1fb2fff230fcee224120159bc2d3317e934732b46",
+      "after_sha256": "c41c69fe51d996b158dd3db961c023edec69c729449e5fd0cf94d39c74940af3",
+      "edits": [
+        {
+          "before_offset": 3046,
+          "after_offset": 3046,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 6.5D, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.1, 0.0);\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 6.5D, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.1, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHephaestus.java": {
+      "before_sha256": "c77ef484e35edb0a5a7f31324a486262024bbb1b58a6dd13d1b731fe31ee584c",
+      "after_sha256": "ac4bc9958899506285867cd9ec2f22ee80ed5e333db5f923346dca5c17a272d9",
+      "edits": [
+        {
+          "before_offset": 2801,
+          "after_offset": 2801,
+          "old": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);\n",
+          "new": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java": {
+      "before_sha256": "d846ab1d9f7c445823ee5d4c191c70c3115b2b4886a2ab11e8f14e94fbd8927f",
+      "after_sha256": "07056a1851927a883a74f54897232f70f1b8ce477048525f84382e48139ed7d7",
+      "edits": [
+        {
+          "before_offset": 7014,
+          "after_offset": 7014,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java": {
+      "before_sha256": "4e4b932462f59b3623bc20d83a8ee8b3aa6622e093261c898a865fe7d66d6e82",
+      "after_sha256": "07bc4a27bba761f7118a19326fd8ac7992eae09de638569c07917c019bb8d21e",
+      "edits": [
+        {
+          "before_offset": 5069,
+          "after_offset": 5069,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java": {
+      "before_sha256": "43b5ef68dbcf434c1623bde769491be74d0ad5f938131b7a85b261ffb4eec075",
+      "after_sha256": "266946edfe8b8f18970c98c61e7ca52d7b94309fe32b71f72a022546e224e9d6",
+      "edits": [
+        {
+          "before_offset": 5109,
+          "after_offset": 5109,
+          "old": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n",
+          "new": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java": {
+      "before_sha256": "f211b43a1dbfc0b2e8565d6fbe6469b255aaf44b4dce451ad418a70e79d4077c",
+      "after_sha256": "b16fb5665dedcf58ee444fae0ca8508d26763e9c362f152c5ed2129c024e7210",
+      "edits": [
+        {
+          "before_offset": 1739,
+          "after_offset": 1739,
+          "old": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 2084,
+          "after_offset": 2161,
+          "old": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 2429,
+          "after_offset": 2583,
+          "old": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 2774,
+          "after_offset": 3005,
+          "old": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n"
+        },
+        {
+          "before_offset": 3119,
+          "after_offset": 3427,
+          "old": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n",
+          "new": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java": {
+      "before_sha256": "93a50dcdf8f7f68ea14754831718ada665a87a1e1d68b572a54d52e9001bf105",
+      "after_sha256": "41a5a78c6edcce984a36e0a4493892256768128cabb02224fa712be9977078bb",
+      "edits": [
+        {
+          "before_offset": 1695,
+          "after_offset": 1695,
+          "old": "\t\t\t\tthis.world.spawnParticle(\"reddust\", x, y, z, 0, 0, 0);\n",
+          "new": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, x, y, z, 0, 0, 0);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

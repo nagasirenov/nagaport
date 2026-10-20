@@ -15,6 +15,15 @@ import net.minecraft.world.World;
 
 public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 
+	/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public boolean isInRangeToRenderDist(double distance) {
+		double range = this.getEntityBoundingBox().getAverageEdgeLength();
+		range *= 64.0D * 15.0D;
+		return distance < range * range;
+	}
+
 	public int aggroCooldown = 0;
 	public int courseChangeCooldown = 0;
 	public double waypointX;
@@ -50,7 +59,6 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 		super(world);
 		this.setSize(1.0F, 1.0F);
 		this.surfaceY = 60;
-		this.renderDistanceWeight = 15.0D;
 	}
 
 	public int getPartNumber() {
@@ -76,7 +84,7 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		
-		if(this.isEntityInvulnerable() || source == DamageSource.drown || source == DamageSource.inWall || ((source.getEntity() instanceof EntityWormBaseNT) && ((EntityWormBaseNT) source.getEntity()).getHeadID() == this.getHeadID())) {
+		if(this.isEntityInvulnerable() || source == DamageSource.drown || source == DamageSource.inWall || ((source.getTrueSource() instanceof EntityWormBaseNT) && ((EntityWormBaseNT) source.getTrueSource()).getHeadID() == this.getHeadID())) {
 			return false;
 		} else {
 			

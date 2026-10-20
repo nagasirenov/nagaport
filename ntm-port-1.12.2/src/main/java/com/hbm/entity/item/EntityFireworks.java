@@ -31,8 +31,8 @@ public class EntityFireworks extends Entity {
 	public void onUpdate() {
 
 		this.moveEntity(0.0, 3.0D, 0.0);
-		this.world.spawnParticle("flame", posX, posY, posZ, 0.0, -0.3, 0.0);
-		this.world.spawnParticle("smoke", posX, posY, posZ, 0.0, -0.2, 0.0);
+		this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, posX, posY, posZ, 0.0, -0.3, 0.0);
+		this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY, posZ, 0.0, -0.2, 0.0);
 
 		if(!this.world.isRemote) {
 

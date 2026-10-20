@@ -1,4 +1,7 @@
 package com.hbm.entity.mob;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 
 import com.hbm.entity.projectile.EntityBullet;
 import com.hbm.entity.projectile.EntityChopperMine;
@@ -30,6 +33,10 @@ import net.minecraft.world.World;
 
 @Spaghetti("this sucks complete donkey shit")
 public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
+	private static final DataParameter<Byte> ATTACKING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);
+	private static final DataParameter<Float> LEGACY_UNUSED_21 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);
+	private static final DataParameter<Float> LEGACY_UNUSED_22 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);
+	private static final DataParameter<Byte> DYING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);
 
 	public int courseChangeCooldown;
 	public double waypointX;
@@ -51,7 +58,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 
 	@SideOnly(Side.CLIENT)
 	public boolean func_110182_bF() {
-		return this.dataWatcher.getWatchableObjectByte(16) != 0;
+		return this.dataManager.get(ATTACKING) != 0;
 	}
 
 	/**
@@ -86,7 +93,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 
 			for(int i = 0; i < 8; i++)
 				if(this.world.isRemote)
-					this.world.spawnParticle("fireworksSpark", this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FIREWORKS_SPARK, this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);
 		}
 
 		return super.attackEntityFrom(source, amount);
@@ -95,10 +102,10 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
-		this.dataWatcher.addObject(21, Float.valueOf(0));
-		this.dataWatcher.addObject(22, Float.valueOf(0));
-		this.dataWatcher.addObject(23, Byte.valueOf((byte) 0));
+		this.dataManager.register(ATTACKING, Byte.valueOf((byte) 0));
+		this.dataManager.register(LEGACY_UNUSED_21, Float.valueOf(0));
+		this.dataManager.register(LEGACY_UNUSED_22, Float.valueOf(0));
+		this.dataManager.register(DYING, Byte.valueOf((byte) 0));
 	}
 
 	@Override
@@ -232,11 +239,11 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 			}
 
 			if(!this.world.isRemote) {
-				byte b1 = this.dataWatcher.getWatchableObjectByte(16);
+				byte b1 = this.dataManager.get(ATTACKING);
 				byte b0 = (byte) (this.attackCounter > 10 ? 1 : 0);
 
 				if(b1 != b0) {
-					this.dataWatcher.updateObject(16, Byte.valueOf(b0));
+					this.dataManager.set(ATTACKING, Byte.valueOf(b0));
 				}
 			}
 		} else {
@@ -406,10 +413,10 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 	}
 
 	public void setIsDying(boolean b) {
-		this.dataWatcher.updateObject(23, Byte.valueOf((byte) (b ? 1 : 0)));
+		this.dataManager.set(DYING, Byte.valueOf((byte) (b ? 1 : 0)));
 	}
 
 	public boolean getIsDying() {
-		return this.dataWatcher.getWatchableObjectByte(23) == 1;
+		return this.dataManager.get(DYING) == 1;
 	}
 }

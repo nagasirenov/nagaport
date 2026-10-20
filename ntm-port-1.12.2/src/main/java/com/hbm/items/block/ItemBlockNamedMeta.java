@@ -11,7 +11,7 @@ public class ItemBlockNamedMeta extends ItemBlockMeta {
 	
 	//OG class didn't have getUnlocalizedName and I didn't want to add it for fear of fucking shit up
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		return super.getTranslationKey() + "." + stack.getItemDamage();
 	}
 	

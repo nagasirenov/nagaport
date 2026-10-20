@@ -99,7 +99,7 @@ public class XFactoryDrill {
 	}
 
 	public static void breakExtraBlock(World world, int x, int y, int z, EntityPlayer playerEntity, int refX, int refY, int refZ) {
-		if(world.isAirBlock(x, y, z)) return;
+		if(world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))) return;
 		if(!(playerEntity instanceof EntityPlayerMP)) return;
 
 		EntityPlayerMP player = (EntityPlayerMP) playerEntity;

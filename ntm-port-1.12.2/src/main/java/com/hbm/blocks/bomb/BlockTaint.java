@@ -47,8 +47,9 @@ public class BlockTaint extends Block implements ITooltipProvider {
 		for(int i = -3; i <= 3; i++) for(int j = -3; j <= 3; j++) for(int k = -3; k <= 3; k++) {
 			if(Math.abs(i) + Math.abs(j) + Math.abs(k) > 4) continue;
 			if(rand.nextFloat() > 0.25F) continue;
-			Block b = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();
-			if(b.isAir(world, x + i, y + j, z + k) || b == Blocks.BEDROCK) continue;
+			net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k);
+			Block b = nativeAirState.getBlock();
+			if(b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x + i, y + j, z + k)) || b == Blocks.BEDROCK) continue;
 			int targetMeta = meta + 1;
 			boolean hasAir = false;
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {

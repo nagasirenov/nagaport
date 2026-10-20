@@ -44,9 +44,9 @@ public class GUIToolBox extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		String name = I18n.format(this.inventory.getInventoryName());
+		String name = I18n.format(this.inventory.getName());
 
-		if(inventory.hasCustomInventoryName()) {
+		if(inventory.hasCustomName()) {
 			name = inventory.target.getDisplayName();
 		}
 

@@ -193,7 +193,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 				this.setCurrentTask(previousTask, previousWaypoint);
 			}
 
-			this.setBesideClimbableBlock(isCollidedHorizontally);
+			this.setBesideClimbableBlock(this.collidedHorizontally);
 
 			if(ticksExisted % 100 == 0) {
 				this.swingItem();
@@ -235,7 +235,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 					this.setPathToEntity(PathFinderUtils.getPathEntityToEntityPartial(world, this, this.entityToAttack, 16F, true, false, true, true));
 				} else if (getCurrentTask() != TASK_IDLE) {
 
-					this.world.theProfiler.startSection("stroll");
+					this.world.profiler.startSection("stroll");
 
 					if (!isAtDestination()) {
 
@@ -272,7 +272,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 						}
 					}
 
-					this.world.theProfiler.endSection();
+					this.world.profiler.endSection();
 				}
 			}
 		}
@@ -304,7 +304,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 						if (block == ModBlocks.lantern) {
 							rotationYaw = 360F / 16 * i;
 							swingItem();
-							this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+							com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 						}
 
 					}
@@ -353,7 +353,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if(source.getEntity() instanceof EntityGlyphid) return false;
+		if(source.getTrueSource() instanceof EntityGlyphid) return false;
 		boolean wasAttacked = GlyphidStats.getStats().handleAttack(this, source, amount);
 		return wasAttacked;
 	}

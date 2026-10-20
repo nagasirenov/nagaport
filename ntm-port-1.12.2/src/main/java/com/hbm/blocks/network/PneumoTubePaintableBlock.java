@@ -74,7 +74,7 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 
 				if(tube.block != null) {
 					tube.block = null;
-					world.markBlockForUpdate(x, y, z);
+					com.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z);
 					tube.markDirty();
 				}
 			}
@@ -102,7 +102,7 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 
 			tube.markDirty();
 			if(world instanceof WorldServer)
-				((WorldServer) world).getPlayerManager().markBlockForUpdate(x, y, z);
+				((WorldServer) world).getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			return true;
 		}

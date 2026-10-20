@@ -78,4 +78,10 @@ public class WasteLeaves extends Block {
 	protected boolean canSilkHarvest() {
 		return false;
 	}
+	/** NTM construction hook for the native protected sound setter. */
+	public WasteLeaves withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 }

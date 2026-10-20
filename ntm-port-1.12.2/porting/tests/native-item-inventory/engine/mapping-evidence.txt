@@ -1,0 +1,2 @@
+/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/de/oceanlabs/mcp/mcp_stable/39/1.12.2/srgs/mcp-srg.srg:FD: net/minecraft/item/ItemStack/stackSize net/minecraft/item/ItemStack/field_77994_a
+/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/de/oceanlabs/mcp/mcp_stable/39/1.12.2/srgs/notch-srg.srg:FD: aip/c net/minecraft/item/ItemStack/field_77994_a

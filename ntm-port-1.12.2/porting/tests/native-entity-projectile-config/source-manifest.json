@@ -1,0 +1,294 @@
+{
+  "base": "89b6bfc71a8b532c2fe7cdbd43bb66b7991ee365",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java",
+      "class_name": "EntityBulletBaseMK4",
+      "key": "BULLET_CONFIG",
+      "legacy_slot": 3,
+      "serializer": "VARINT",
+      "default": "Integer.valueOf(0)",
+      "before_sha256": "2a0f3940b45e3c7accabb55fac613b47029593918a9a16bcb340dcd4b207ad9f",
+      "after_sha256": "b44685f2fd7b95c161aae61cd08c055c1cc756f7fecd1b64d4a1b64bb52c7887",
+      "original_sha256": "6a070f0ab2de6f070d88fd1ecf7fff3e88e3247a0c2118f01e40b76626e79c79",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\n\tprivate static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBaseMK4.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before_offset": 4196,
+          "before": "this.dataWatcher.addObject(3, Integer.valueOf(0))",
+          "after": "this.dataManager.register(BULLET_CONFIG, Integer.valueOf(0))",
+          "declaring_owner": "EntityBulletBaseMK4",
+          "receiver_static_type": "EntityBulletBaseMK4",
+          "legacy_slot": 3,
+          "after_offset": 4503,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before_offset": 4330,
+          "before": "this.dataWatcher.updateObject(3, config.id)",
+          "after": "this.dataManager.set(BULLET_CONFIG, config.id)",
+          "declaring_owner": "EntityBulletBaseMK4",
+          "receiver_static_type": "EntityBulletBaseMK4",
+          "legacy_slot": 3,
+          "after_offset": 4648,
+          "method": "public void setBulletConfig(BulletConfig config) {"
+        },
+        {
+          "before_offset": 4432,
+          "before": "this.dataWatcher.getWatchableObjectInt(3)",
+          "after": "this.dataManager.get(BULLET_CONFIG)",
+          "declaring_owner": "EntityBulletBaseMK4",
+          "receiver_static_type": "EntityBulletBaseMK4",
+          "legacy_slot": 3,
+          "after_offset": 4753,
+          "method": "public BulletConfig getBulletConfig() {"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java",
+      "class_name": "EntityBulletBeamBase",
+      "key": "BULLET_CONFIG",
+      "legacy_slot": 3,
+      "serializer": "VARINT",
+      "default": "Integer.valueOf(0)",
+      "before_sha256": "85ac2554c91f948e1252351d2575fc971149794e2fc9f6d99da8e44c14453047",
+      "after_sha256": "c9e75c6187c5a6b13ab6f4c29bc28e60fcd867182807e19d1840f9493a72dd7e",
+      "original_sha256": "1953fd14fce878fddecd9d698f89ee9ac47dd54033c9bf3fd3f58c5efe462200",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\n\tprivate static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBeamBase.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before_offset": 4029,
+          "before": "this.dataWatcher.addObject(3, Integer.valueOf(0))",
+          "after": "this.dataManager.register(BULLET_CONFIG, Integer.valueOf(0))",
+          "declaring_owner": "EntityBulletBeamBase",
+          "receiver_static_type": "EntityBulletBeamBase",
+          "legacy_slot": 3,
+          "after_offset": 4337,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before_offset": 4163,
+          "before": "this.dataWatcher.updateObject(3, config.id)",
+          "after": "this.dataManager.set(BULLET_CONFIG, config.id)",
+          "declaring_owner": "EntityBulletBeamBase",
+          "receiver_static_type": "EntityBulletBeamBase",
+          "legacy_slot": 3,
+          "after_offset": 4482,
+          "method": "public void setBulletConfig(BulletConfig config) {"
+        },
+        {
+          "before_offset": 4265,
+          "before": "this.dataWatcher.getWatchableObjectInt(3)",
+          "after": "this.dataManager.get(BULLET_CONFIG)",
+          "declaring_owner": "EntityBulletBeamBase",
+          "receiver_static_type": "EntityBulletBeamBase",
+          "legacy_slot": 3,
+          "after_offset": 4587,
+          "method": "public BulletConfig getBulletConfig() {"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryRocket.java",
+      "class_name": "EntityArtilleryRocket",
+      "key": "AMMO_TYPE",
+      "legacy_slot": 10,
+      "serializer": "VARINT",
+      "default": "new Integer(0)",
+      "before_sha256": "4241f9082dae9513b2b69dea845da209a580bdd186f909e38a98fb70d71fbf49",
+      "after_sha256": "c7fda860b8a2cb7b97b992c05545689655c5450714d39a0a4f83686176d84668",
+      "original_sha256": "1e10a15412588c0c7fe4d60702a6fe87ae7a4e91a9e8230254a99b96d6f63d20",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;\r\n",
+        "\r\n\r\n\tprivate static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryRocket.class, DataSerializers.VARINT);",
+        "\tpublic int getTypeId() {\r\n\t\treturn this.dataManager.get(AMMO_TYPE);\r\n\t}\r\n\r\n"
+      ],
+      "transformations": [
+        {
+          "before_offset": 1993,
+          "before": "this.dataWatcher.addObject(10, new Integer(0))",
+          "after": "this.dataManager.register(AMMO_TYPE, new Integer(0))",
+          "declaring_owner": "EntityArtilleryRocket",
+          "receiver_static_type": "EntityArtilleryRocket",
+          "legacy_slot": 10,
+          "after_offset": 2303,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before_offset": 2218,
+          "before": "this.dataWatcher.updateObject(10, type)",
+          "after": "this.dataManager.set(AMMO_TYPE, type)",
+          "declaring_owner": "EntityArtilleryRocket",
+          "receiver_static_type": "EntityArtilleryRocket",
+          "legacy_slot": 10,
+          "after_offset": 2534,
+          "method": "public EntityArtilleryRocket setType(int type) {"
+        },
+        {
+          "before_offset": 2360,
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(AMMO_TYPE)",
+          "declaring_owner": "EntityArtilleryRocket",
+          "receiver_static_type": "EntityArtilleryRocket",
+          "legacy_slot": 10,
+          "after_offset": 2750,
+          "method": "public HIMARSRocket getType() {"
+        },
+        {
+          "before_offset": 6434,
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(AMMO_TYPE)",
+          "declaring_owner": "EntityArtilleryRocket",
+          "receiver_static_type": "EntityArtilleryRocket",
+          "legacy_slot": 10,
+          "after_offset": 6813,
+          "method": "public void writeEntityToNBT(NBTTagCompound nbt) {"
+        },
+        {
+          "before_offset": 6704,
+          "before": "this.dataWatcher.updateObject(10, nbt.getInteger(\"type\"))",
+          "after": "this.dataManager.set(AMMO_TYPE, nbt.getInteger(\"type\"))",
+          "declaring_owner": "EntityArtilleryRocket",
+          "receiver_static_type": "EntityArtilleryRocket",
+          "legacy_slot": 10,
+          "after_offset": 7072,
+          "method": "public void readEntityFromNBT(NBTTagCompound nbt) {"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+      "class_name": "EntityArtilleryShell",
+      "key": "AMMO_TYPE",
+      "legacy_slot": 10,
+      "serializer": "VARINT",
+      "default": "new Integer(0)",
+      "before_sha256": "3c88644a3a544da06d2dadb02a3cd83f21490763f91e7549d3fd95a5b0041a5a",
+      "after_sha256": "66941ca8549fa3c11b55b7f1e1c5ccaf88fcd6c2ccb3a4a61c176bb52d7fa2ad",
+      "original_sha256": "376c5099c20c2adbd351b959284e382edf6f54f64c39f668c9154b0f57f46431",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;\r\n",
+        "\r\n\r\n\tprivate static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryShell.class, DataSerializers.VARINT);"
+      ],
+      "transformations": [
+        {
+          "before_offset": 1920,
+          "before": "this.dataWatcher.addObject(10, new Integer(0))",
+          "after": "this.dataManager.register(AMMO_TYPE, new Integer(0))",
+          "declaring_owner": "EntityArtilleryShell",
+          "receiver_static_type": "EntityArtilleryShell",
+          "legacy_slot": 10,
+          "after_offset": 2229,
+          "method": "protected void entityInit() {"
+        },
+        {
+          "before_offset": 2146,
+          "before": "this.dataWatcher.updateObject(10, type)",
+          "after": "this.dataManager.set(AMMO_TYPE, type)",
+          "declaring_owner": "EntityArtilleryShell",
+          "receiver_static_type": "EntityArtilleryShell",
+          "legacy_slot": 10,
+          "after_offset": 2461,
+          "method": "public EntityArtilleryShell setType(int type) {"
+        },
+        {
+          "before_offset": 2289,
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(AMMO_TYPE)",
+          "declaring_owner": "EntityArtilleryShell",
+          "receiver_static_type": "EntityArtilleryShell",
+          "legacy_slot": 10,
+          "after_offset": 2602,
+          "method": "public ArtilleryShell getType() {"
+        },
+        {
+          "before_offset": 7025,
+          "before": "this.dataWatcher.getWatchableObjectInt(10)",
+          "after": "this.dataManager.get(AMMO_TYPE)",
+          "declaring_owner": "EntityArtilleryShell",
+          "receiver_static_type": "EntityArtilleryShell",
+          "legacy_slot": 10,
+          "after_offset": 7327,
+          "method": "public void writeEntityToNBT(NBTTagCompound nbt) {"
+        },
+        {
+          "before_offset": 7513,
+          "before": "this.dataWatcher.updateObject(10, nbt.getInteger(\"type\"))",
+          "after": "this.dataManager.set(AMMO_TYPE, nbt.getInteger(\"type\"))",
+          "declaring_owner": "EntityArtilleryShell",
+          "receiver_static_type": "EntityArtilleryShell",
+          "legacy_slot": 10,
+          "after_offset": 7804,
+          "method": "public void readEntityFromNBT(NBTTagCompound nbt) {"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderArtilleryRocket.java",
+      "class_name": "RenderArtilleryRocket",
+      "before_sha256": "3dd44fdc10e2cbf9e4206856ef32b3d83cfea1e199c7805d8b3aeb3d58db62e1",
+      "after_sha256": "8206607b42aaf704193f4b8a10f7e559f058f66479ac2b59105d3273325ff550",
+      "original_sha256": "cf1b877d29070f9bc0dfeb6a4020577cdd045ec9559422b8fa4160cdf0c0347e",
+      "insertions": [],
+      "transformations": [
+        {
+          "before": "rocket.getDataWatcher().getWatchableObjectInt(10)",
+          "after": "rocket.getTypeId()",
+          "before_offset": 1781,
+          "after_offset": 1781,
+          "declaring_owner": "EntityArtilleryRocket",
+          "receiver_static_type": "EntityArtilleryRocket",
+          "legacy_slot": 10,
+          "method": "protected ResourceLocation getEntityTexture(Entity entity) {"
+        }
+      ]
+    }
+  ],
+  "unchanged_dependencies": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "sha256": "51c5f47a37927ebf4784724a2773908b450100e2823b5ca0394b38f626c57c5c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableInterp.java",
+      "sha256": "1727ed3a0643fbcbeaf22366ac1daad67ec69857672e99f5182a2632d6b61cf9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4CL.java",
+      "sha256": "426e3d86b6c141db7b3942f04a6f8cdfadeb8dd05dadfd484864f8edc4c827b0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/BulletConfig.java",
+      "sha256": "63d7ec349e5f8e2621d0968b7c859d47a23929d01dd53b261c8c29cfb5534add"
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityBulletBaseMK4",
+      "parent": "EntityThrowableInterp"
+    },
+    {
+      "class_name": "EntityBulletBaseMK4CL",
+      "parent": "EntityBulletBaseMK4"
+    },
+    {
+      "class_name": "EntityBulletBeamBase",
+      "parent": "Entity"
+    },
+    {
+      "class_name": "EntityArtilleryRocket",
+      "parent": "EntityThrowableInterp"
+    },
+    {
+      "class_name": "EntityArtilleryShell",
+      "parent": "EntityThrowableNT"
+    }
+  ]
+}

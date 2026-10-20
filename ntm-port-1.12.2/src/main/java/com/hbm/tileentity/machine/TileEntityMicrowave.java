@@ -65,7 +65,7 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 			if(canProcess()) {
 				
 				if(speed >= maxSpeed) {
-					this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+					com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 					ExplosionVNT vnt = new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5);
 					vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 50));
 					vnt.setPlayerProcessor(new PlayerProcessorStandard());

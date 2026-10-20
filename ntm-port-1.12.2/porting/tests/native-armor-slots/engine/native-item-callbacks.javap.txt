@@ -1,0 +1,20 @@
+  public boolean isValidArmor(net.minecraft.item.ItemStack, net.minecraft.inventory.EntityEquipmentSlot, net.minecraft.entity.Entity);
+    Code:
+       0: aload_1
+       1: invokestatic  #704                // Method net/minecraft/entity/EntityLiving.getSlotForItemStack:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/inventory/EntityEquipmentSlot;
+       4: aload_2
+       5: if_acmpne     12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: ireturn
+
+  public java.lang.String getArmorTexture(net.minecraft.item.ItemStack, net.minecraft.entity.Entity, net.minecraft.inventory.EntityEquipmentSlot, java.lang.String);
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public net.minecraft.client.model.ModelBiped getArmorModel(net.minecraft.entity.EntityLivingBase, net.minecraft.item.ItemStack, net.minecraft.inventory.EntityEquipmentSlot, net.minecraft.client.model.ModelBiped);
+    Code:
+       0: aconst_null
+       1: areturn

@@ -1,0 +1,6 @@
+table-offhand-anchor: Exception in thread "main" java.lang.AssertionError: actual native Slot table row selects original armor piece, not offhand
+native-inventory-index-in-model-array: Exception in thread "main" java.lang.AssertionError: ArmorAJR source oracle model identity/type slot 3 identity null
+boots-valid-in-legs: Exception in thread "main" java.lang.AssertionError: native virtual validity ItemModHeavyBoots slot 2
+radiation-head-reversed: Exception in thread "main" java.lang.AssertionError: exact original radiation coefficient slot/product
+uuid-inventory-index: Exception in thread "main" java.lang.AssertionError: exact production modifier UUID table slot 4
+lost-native-virtual-hook: Exception in thread "main" java.lang.AssertionError: ArmorAJR source oracle model identity/type slot 3 identity null

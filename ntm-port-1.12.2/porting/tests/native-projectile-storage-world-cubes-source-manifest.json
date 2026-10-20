@@ -1,0 +1,752 @@
+{
+  "baseline": "89b6bfc71a8b532c2fe7cdbd43bb66b7991ee365",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "fc5a8792d525d4593cf3454ae0ba2387a2ef4d1367f317b8ec6f7d3e3ff3e802",
+      "after_sha256": "8aed7d00d78a39ebb99ba95351e5795411a07e9471f26be4e3a470d8db89d256",
+      "edits": [
+        {
+          "before_offset": 70558,
+          "after_offset": 70558,
+          "old": "\t\tblock_uranium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium\");\r\n\t\tblock_u233 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u233\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u233\");\r\n\t\tblock_u235 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u235\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u235\");\r\n\t\tblock_u238 = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_u238\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_u238\");\r\n\t\tblock_uranium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_uranium_fuel\");\r\n\t\tblock_thorium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium\");\r\n\t\tblock_thorium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_thorium_fuel\");\r\n\t\tblock_neptunium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_neptunium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + \":block_neptunium\");\r\n\t\tblock_polonium = ((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_polonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_polonium\");\r\n\t\tblock_mox_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_mox_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_mox_fuel\");\r\n\t\tblock_plutonium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium\");\r\n\t\tblock_pu238 = ((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu238\").setCreativeTab(MainRegistry.blockTab).setLightLevel(5F/15F)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu238\");\r\n\t\tblock_pu239 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu239\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu239\");\r\n\t\tblock_pu240 = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu240\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu240\");\r\n\t\tblock_pu_mix = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu_mix\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_pu_mix\");\r\n\t\tblock_plutonium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F).setBlockTextureName(RefStrings.MODID + \":block_plutonium_fuel\");\r\n",
+          "new": "\t\tblock_uranium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_uranium\");\r\n\t\tblock_u233 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u233\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_u233\");\r\n\t\tblock_u235 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_u235\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_u235\");\r\n\t\tblock_u238 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_u238\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_u238\");\r\n\t\tblock_uranium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_uranium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_uranium_fuel\");\r\n\t\tblock_thorium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_thorium\");\r\n\t\tblock_thorium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_thorium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_thorium_fuel\");\r\n\t\tblock_neptunium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_neptunium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60.0F), RefStrings.MODID + \":block_neptunium\");\r\n\t\tblock_polonium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_polonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_polonium\");\r\n\t\tblock_mox_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_mox_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_mox_fuel\");\r\n\t\tblock_plutonium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_plutonium\");\r\n\t\tblock_pu238 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHotHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu238\").setCreativeTab(MainRegistry.blockTab).setLightLevel(5F/15F)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu238\");\r\n\t\tblock_pu239 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu239\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu239\");\r\n\t\tblock_pu240 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu240\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu240\");\r\n\t\tblock_pu_mix = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_pu_mix\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_pu_mix\");\r\n\t\tblock_plutonium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_plutonium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(50.0F), RefStrings.MODID + \":block_plutonium_fuel\");\r\n"
+        },
+        {
+          "before_offset": 80791,
+          "after_offset": 81095,
+          "old": "\t\tblock_trinitite = new BlockHazard().makeBeaconable().setTranslationKey(\"block_trinitite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_trinitite\");\r\n",
+          "new": "\t\tblock_trinitite = com.hbm.blocks.PlainCubeTextures.bind(new BlockHazard().makeBeaconable().setTranslationKey(\"block_trinitite\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_trinitite\");\r\n"
+        },
+        {
+          "before_offset": 82137,
+          "after_offset": 82460,
+          "old": "\t\tblock_corium = new BlockHazard(Material.IRON).setTranslationKey(\"block_corium\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F).setBlockTextureName(RefStrings.MODID + \":block_corium\");\r\n",
+          "new": "\t\tblock_corium = com.hbm.blocks.PlainCubeTextures.bind(new BlockHazard(Material.IRON).setTranslationKey(\"block_corium\").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F), RefStrings.MODID + \":block_corium\");\r\n"
+        },
+        {
+          "before_offset": 83459,
+          "after_offset": 83801,
+          "old": "\t\tblock_schraranium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schraranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(250.0F).setBlockTextureName(RefStrings.MODID + \":block_schraranium\");\r\n\t\tblock_schrabidium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium\");\r\n\t\tblock_schrabidate = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidate\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidate\");\r\n\t\tblock_solinium = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_solinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_solinium\");\r\n\t\tblock_schrabidium_fuel = ((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_schrabidium_fuel\");\r\n",
+          "new": "\t\tblock_schraranium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schraranium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(250.0F), RefStrings.MODID + \":block_schraranium\");\r\n\t\tblock_schrabidium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_schrabidium\");\r\n\t\tblock_schrabidate = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidate\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_schrabidate\");\r\n\t\tblock_solinium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_solinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_solinium\");\r\n\t\tblock_schrabidium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey(\"block_schrabidium_fuel\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + \":block_schrabidium_fuel\");\r\n"
+        },
+        {
+          "before_offset": 91010,
+          "after_offset": 91447,
+          "old": "\t\tblock_white_phosphorus = new BlockHazard(Material.ROCK).makeBeaconable().setTranslationKey(\"block_white_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_white_phosphorus\");\r\n",
+          "new": "\t\tblock_white_phosphorus = com.hbm.blocks.PlainCubeTextures.bind(new BlockHazard(Material.ROCK).makeBeaconable().setTranslationKey(\"block_white_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_white_phosphorus\");\r\n"
+        },
+        {
+          "before_offset": 93914,
+          "after_offset": 94370,
+          "old": "\t\tblock_ra226 = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_ra226\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_ra226\");\r\n\t\tblock_actinium = ((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_actinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_actinium\");\r\n",
+          "new": "\t\tblock_ra226 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_ra226\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_ra226\");\r\n\t\tblock_actinium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey(\"block_actinium\").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_actinium\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/PlainCubeTextures.java": {
+      "before_sha256": "89f4baae91d7e920f90244c353a68ed51b42898e28c14fdb447a7ff82214be07",
+      "after_sha256": "c8de408be634142dca07d62dbf75d2559bc1eba41a8f58098cec4feb1f360b6a",
+      "edits": [
+        {
+          "before_offset": 146,
+          "after_offset": 146,
+          "old": "/** Texture bindings for the audited plain BlockOutgas/Smolder/StepEffect cubes only.\n",
+          "new": "/** Texture bindings for the audited plain Outgas/Smolder/StepEffect and Hazard/HotHazard cubes only.\n"
+        },
+        {
+          "before_offset": 866,
+          "after_offset": 882,
+          "old": "                !owner.equals(\"com.hbm.blocks.generic.BlockStepEffect\"))\n",
+          "new": "                !owner.equals(\"com.hbm.blocks.generic.BlockStepEffect\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockHazard\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockHotHazard\"))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": {
+      "before_sha256": "95f4e275f16d9ab270df23e468db6056742c4786a595a6db139ecc88e6add50a",
+      "after_sha256": "2e67f2a06d770d56cace12e3e32c4b6746c96c8babb65a2dcc3d58f0021a490f",
+      "edits": [
+        {
+          "before_offset": 409,
+          "after_offset": 409,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\r\n"
+        },
+        {
+          "before_offset": 3739,
+          "after_offset": 3787,
+          "old": "\t\t\t\tItemStack stack = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag(\"item\" + i));\r\n",
+          "new": "\t\t\t\tItemStack stack = NullableInventoryStackNbt.read(nbt.getCompoundTag(\"item\" + i));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before_sha256": "4e03c62b8362aa45555b848ddfbb33686ff18f091fb6872ad0dbb30d1c91717a",
+      "after_sha256": "675202fd449d5d7c0687129bed445e18a9667c14357c50952b67cf25f4c1d483",
+      "edits": [
+        {
+          "before_offset": 304,
+          "after_offset": 304,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\r\n"
+        },
+        {
+          "before_offset": 4083,
+          "after_offset": 4131,
+          "old": "\t\t\tthis.item = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag(\"item\"));\r\n",
+          "new": "\t\t\tthis.item = NullableInventoryStackNbt.read(nbt.getCompoundTag(\"item\"));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "947da1e1bd9840c74792567f3bde845fa627344c6fcbb50ca0500ddc0c00baaf",
+      "after_sha256": "90626cfee2c0af2aeefca983d5b86076639f6a57a743ebcf6e7d4d06d548e378",
+      "edits": [
+        {
+          "before_offset": 737,
+          "after_offset": 737,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 11311,
+          "after_offset": 11358,
+          "old": "\t\t\t\tthis.slot = ItemStack.loadItemStackFromNBT(stack);\n",
+          "new": "\t\t\t\tthis.slot = NullableInventoryStackNbt.read(stack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "27ffb21860352d316022bac011c497d729e36b7bdfbbbd057867b5727f152bf2",
+      "after_sha256": "b9708fb96ad62a1a264eacf541b2c6faa70d55aab338da19447921a8d2902028",
+      "edits": [
+        {
+          "before_offset": 49564,
+          "after_offset": 49564,
+          "old": "\t\tdouble entry = near*(1d-Minecraft.getMinecraft().player.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));\n",
+          "new": "\t\tdouble entry = near*(1d-Minecraft.getMinecraft().player.world.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java": {
+      "before_sha256": "0fb120c487a8e36b4045c3426acd4392636b9bf132633e89bd30d497c21c9310",
+      "after_sha256": "b076da209475435d20ddb567fb9e2462eff2a3e5da3db7cbca1dee5df706d422",
+      "edits": [
+        {
+          "before_offset": 15609,
+          "after_offset": 15609,
+          "old": "\t\tdouble entry = near*(1d-Minecraft.getMinecraft().player.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));\n",
+          "new": "\t\tdouble entry = near*(1d-Minecraft.getMinecraft().player.world.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java": {
+      "before_sha256": "db03e4a572246dabdfa64c0e236ce0753db483105a6689b692646f6a9cf0e670",
+      "after_sha256": "8b1799208cf87c488860a8e35b07cc9361aebb2900925fd37d9288b1b73de40e",
+      "edits": [
+        {
+          "before_offset": 179,
+          "after_offset": 179,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 3690,
+          "after_offset": 3737,
+          "old": "\t\t\t\tthis.slots[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);\n",
+          "new": "\t\t\t\tthis.slots[j] = NullableInventoryStackNbt.read(nbttagcompound1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "a23963599d9b7a780cd3fa64a171362634deb43b95893c5f782b6139e78b2918",
+      "after_sha256": "ab6ed21de0a3c84d8b5987eb6576a095a5941685291dafffdf9427605e0d3e47",
+      "edits": [
+        {
+          "before_offset": 1950,
+          "after_offset": 1950,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 29297,
+          "after_offset": 29344,
+          "old": "\t\t\tnavDrive = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag(\"drive\"));\n",
+          "new": "\t\t\tnavDrive = NullableInventoryStackNbt.read(nbt.getCompoundTag(\"drive\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityArtilleryRocket.java": {
+      "before_sha256": "4241f9082dae9513b2b69dea845da209a580bdd186f909e38a98fb70d71fbf49",
+      "after_sha256": "c7fda860b8a2cb7b97b992c05545689655c5450714d39a0a4f83686176d84668",
+      "edits": [
+        {
+          "before_offset": 796,
+          "after_offset": 796,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;\r\n"
+        },
+        {
+          "before_offset": 1318,
+          "after_offset": 1486,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryRocket.class, DataSerializers.VARINT);\r\n\r\n"
+        },
+        {
+          "before_offset": 1991,
+          "after_offset": 2301,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\r\n",
+          "new": "\t\tthis.dataManager.register(AMMO_TYPE, new Integer(0));\r\n"
+        },
+        {
+          "before_offset": 2216,
+          "after_offset": 2532,
+          "old": "\t\tthis.dataWatcher.updateObject(10, type);\r\n",
+          "new": "\t\tthis.dataManager.set(AMMO_TYPE, type);\r\n"
+        },
+        {
+          "before_offset": 2276,
+          "after_offset": 2590,
+          "old": "",
+          "new": "\t}\r\n\r\n\tpublic int getTypeId() {\r\n\t\treturn this.dataManager.get(AMMO_TYPE);\r\n"
+        },
+        {
+          "before_offset": 2325,
+          "after_offset": 2715,
+          "old": "\t\t\treturn ItemAmmoHIMARS.itemTypes[this.dataWatcher.getWatchableObjectInt(10)];\r\n",
+          "new": "\t\t\treturn ItemAmmoHIMARS.itemTypes[this.dataManager.get(AMMO_TYPE)];\r\n"
+        },
+        {
+          "before_offset": 6409,
+          "after_offset": 6788,
+          "old": "\t\tnbt.setInteger(\"type\", this.dataWatcher.getWatchableObjectInt(10));\r\n",
+          "new": "\t\tnbt.setInteger(\"type\", this.dataManager.get(AMMO_TYPE));\r\n"
+        },
+        {
+          "before_offset": 6702,
+          "after_offset": 7070,
+          "old": "\t\tthis.dataWatcher.updateObject(10, nbt.getInteger(\"type\"));\r\n",
+          "new": "\t\tthis.dataManager.set(AMMO_TYPE, nbt.getInteger(\"type\"));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java": {
+      "before_sha256": "3c88644a3a544da06d2dadb02a3cd83f21490763f91e7549d3fd95a5b0041a5a",
+      "after_sha256": "96f8d19f0637b707e8b12d69c298d2b5edfdc986a004f36e7202b0827e3f9367",
+      "edits": [
+        {
+          "before_offset": 463,
+          "after_offset": 463,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\r\nimport net.minecraft.network.datasync.DataSerializers;\r\nimport net.minecraft.network.datasync.EntityDataManager;\r\n"
+        },
+        {
+          "before_offset": 512,
+          "after_offset": 680,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\r\n"
+        },
+        {
+          "before_offset": 1074,
+          "after_offset": 1290,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryShell.class, DataSerializers.VARINT);\r\n\r\n"
+        },
+        {
+          "before_offset": 1918,
+          "after_offset": 2275,
+          "old": "\t\tthis.dataWatcher.addObject(10, new Integer(0));\r\n",
+          "new": "\t\tthis.dataManager.register(AMMO_TYPE, new Integer(0));\r\n"
+        },
+        {
+          "before_offset": 2144,
+          "after_offset": 2507,
+          "old": "\t\tthis.dataWatcher.updateObject(10, type);\r\n",
+          "new": "\t\tthis.dataManager.set(AMMO_TYPE, type);\r\n"
+        },
+        {
+          "before_offset": 2256,
+          "after_offset": 2617,
+          "old": "\t\t\treturn ItemAmmoArty.itemTypes[this.dataWatcher.getWatchableObjectInt(10)];\r\n",
+          "new": "\t\t\treturn ItemAmmoArty.itemTypes[this.dataManager.get(AMMO_TYPE)];\r\n"
+        },
+        {
+          "before_offset": 7000,
+          "after_offset": 7350,
+          "old": "\t\tnbt.setInteger(\"type\", this.dataWatcher.getWatchableObjectInt(10));\r\n",
+          "new": "\t\tnbt.setInteger(\"type\", this.dataManager.get(AMMO_TYPE));\r\n"
+        },
+        {
+          "before_offset": 7511,
+          "after_offset": 7850,
+          "old": "\t\tthis.dataWatcher.updateObject(10, nbt.getInteger(\"type\"));\r\n",
+          "new": "\t\tthis.dataManager.set(AMMO_TYPE, nbt.getInteger(\"type\"));\r\n"
+        },
+        {
+          "before_offset": 7873,
+          "after_offset": 8210,
+          "old": "\t\tthis.setCargo(ItemStack.loadItemStackFromNBT(compound));\r\n",
+          "new": "\t\tthis.setCargo(NullableInventoryStackNbt.read(compound));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java": {
+      "before_sha256": "2a0f3940b45e3c7accabb55fac613b47029593918a9a16bcb340dcd4b207ad9f",
+      "after_sha256": "b44685f2fd7b95c161aae61cd08c055c1cc756f7fecd1b64d4a1b64bb52c7887",
+      "edits": [
+        {
+          "before_offset": 439,
+          "after_offset": 439,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 875,
+          "after_offset": 1040,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBaseMK4.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 4194,
+          "after_offset": 4501,
+          "old": "\t\tthis.dataWatcher.addObject(3, Integer.valueOf(0));\n",
+          "new": "\t\tthis.dataManager.register(BULLET_CONFIG, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 4328,
+          "after_offset": 4646,
+          "old": "\t\tthis.dataWatcher.updateObject(3, config.id);\n",
+          "new": "\t\tthis.dataManager.set(BULLET_CONFIG, config.id);\n"
+        },
+        {
+          "before_offset": 4421,
+          "after_offset": 4742,
+          "old": "\t\tint id = this.dataWatcher.getWatchableObjectInt(3);\n",
+          "new": "\t\tint id = this.dataManager.get(BULLET_CONFIG);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java": {
+      "before_sha256": "85ac2554c91f948e1252351d2575fc971149794e2fc9f6d99da8e44c14453047",
+      "after_sha256": "c9e75c6187c5a6b13ab6f4c29bc28e60fcd867182807e19d1840f9493a72dd7e",
+      "edits": [
+        {
+          "before_offset": 489,
+          "after_offset": 489,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1040,
+          "after_offset": 1205,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> BULLET_CONFIG = EntityDataManager.createKey(EntityBulletBeamBase.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 4027,
+          "after_offset": 4335,
+          "old": "\t\tthis.dataWatcher.addObject(3, Integer.valueOf(0));\n",
+          "new": "\t\tthis.dataManager.register(BULLET_CONFIG, Integer.valueOf(0));\n"
+        },
+        {
+          "before_offset": 4161,
+          "after_offset": 4480,
+          "old": "\t\tthis.dataWatcher.updateObject(3, config.id);\n",
+          "new": "\t\tthis.dataManager.set(BULLET_CONFIG, config.id);\n"
+        },
+        {
+          "before_offset": 4254,
+          "after_offset": 4576,
+          "old": "\t\tint id = this.dataWatcher.getWatchableObjectInt(3);\n",
+          "new": "\t\tint id = this.dataManager.get(BULLET_CONFIG);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/imc/IMCBlastFurnace.java": {
+      "before_sha256": "ce64d450276d73d76d36af6cf3a79cb6bd376ea83bc91980d96dfe1a61273fa9",
+      "after_sha256": "b243e0182e01b67949a8a3aefbdeab226ef1d474191101c2b6d96e639b01a4c4",
+      "edits": [
+        {
+          "before_offset": 223,
+          "after_offset": 223,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 699,
+          "after_offset": 746,
+          "old": "\t\tfinal ItemStack output = ItemStack.loadItemStackFromNBT(outputData);\n",
+          "new": "\t\tfinal ItemStack output = NullableInventoryStackNbt.read(outputData);\n"
+        },
+        {
+          "before_offset": 1310,
+          "after_offset": 1357,
+          "old": "\t\t\tinput1 = new ComparableStack(ItemStack.loadItemStackFromNBT(data.getCompoundTag(\"input1\")));\n",
+          "new": "\t\t\tinput1 = new ComparableStack(NullableInventoryStackNbt.read(data.getCompoundTag(\"input1\")));\n"
+        },
+        {
+          "before_offset": 1888,
+          "after_offset": 1935,
+          "old": "\t\t\tinput2 = new ComparableStack(ItemStack.loadItemStackFromNBT(data.getCompoundTag(\"input2\")));\n",
+          "new": "\t\t\tinput2 = new ComparableStack(NullableInventoryStackNbt.read(data.getCompoundTag(\"input2\")));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/imc/IMCCentrifuge.java": {
+      "before_sha256": "dac7b863037ea69a26b6c055723acf483c5295d7b406e8273e7ba1b36d2f0046",
+      "after_sha256": "faa4e284bb6e03d7e8f7877bb06d957605bb06838d3f451d8f672ee655ddc5ad",
+      "edits": [
+        {
+          "before_offset": 270,
+          "after_offset": 270,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 727,
+          "after_offset": 774,
+          "old": "\t\t\tItemStack out = ItemStack.loadItemStackFromNBT(output);\n",
+          "new": "\t\t\tItemStack out = NullableInventoryStackNbt.read(output);\n"
+        },
+        {
+          "before_offset": 977,
+          "after_offset": 1024,
+          "old": "\t\tItemStack in = ItemStack.loadItemStackFromNBT(input);\n",
+          "new": "\t\tItemStack in = NullableInventoryStackNbt.read(input);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/imc/IMCCrystallizer.java": {
+      "before_sha256": "f46f3570a4e7faf840a6bd5903939ae61b3500439036241d0b43a0c133077d64",
+      "after_sha256": "19c5dbf7b41e52fd3d90b264cd8cd430851ac7d4dc28890ab6d42dcc5eb627b2",
+      "edits": [
+        {
+          "before_offset": 393,
+          "after_offset": 393,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 791,
+          "after_offset": 838,
+          "old": "\t\tItemStack out = ItemStack.loadItemStackFromNBT(output);\n",
+          "new": "\t\tItemStack out = NullableInventoryStackNbt.read(output);\n"
+        },
+        {
+          "before_offset": 1009,
+          "after_offset": 1056,
+          "old": "\t\tItemStack in = ItemStack.loadItemStackFromNBT(input);\n",
+          "new": "\t\tItemStack in = NullableInventoryStackNbt.read(input);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerNT.java": {
+      "before_sha256": "493389cb4206557893da54ff7c4a7c4cc828711e3f62226cc37dfeeb348b9919",
+      "after_sha256": "fa28be5ac915150226f2a28e77d06613acd74c63a4429d4c319a0e295b9cb9f8",
+      "edits": [
+        {
+          "before_offset": 10523,
+          "after_offset": 10523,
+          "old": "\t\t\t\t\t\tif(!p.parent.parent.chunk.worldObj.blockExists(nPos.getX(), nPos.getY(), nPos.getZ()) || nPos.getY() < 0 || nPos.getY() > 255)\r\n",
+          "new": "\t\t\t\t\t\tif(!p.parent.parent.chunk.getWorld().blockExists(nPos.getX(), nPos.getY(), nPos.getZ()) || nPos.getY() < 0 || nPos.getY() > 255)\r\n"
+        },
+        {
+          "before_offset": 10844,
+          "after_offset": 10846,
+          "old": "\t\t\t\t\t\t\trebuildChunkPockets(p.parent.parent.chunk.worldObj.getChunkFromBlockCoords(nPos.getX(), nPos.getZ()), nPos.getY() >> 4);\r\n",
+          "new": "\t\t\t\t\t\t\trebuildChunkPockets(p.parent.parent.chunk.getWorld().getChunkFromBlockCoords(nPos.getX(), nPos.getZ()), nPos.getY() >> 4);\r\n"
+        },
+        {
+          "before_offset": 11147,
+          "after_offset": 11151,
+          "old": "\t\t\t\t\t\t\tSubChunkRadiationStorage sc2 = getSubChunkStorage(p.parent.parent.chunk.worldObj, nPos.getX(), nPos.getY(), nPos.getZ());\r\n",
+          "new": "\t\t\t\t\t\t\tSubChunkRadiationStorage sc2 = getSubChunkStorage(p.parent.parent.chunk.getWorld(), nPos.getX(), nPos.getY(), nPos.getZ());\r\n"
+        },
+        {
+          "before_offset": 13745,
+          "after_offset": 13751,
+          "old": "\t\tChunkRadiationStorage st = getChunkStorage(chunk.worldObj, subChunkPos.getX(), subChunkPos.getY(), subChunkPos.getZ());\r\n",
+          "new": "\t\tChunkRadiationStorage st = getChunkStorage(chunk.getWorld(), subChunkPos.getX(), subChunkPos.getY(), subChunkPos.getZ());\r\n"
+        },
+        {
+          "before_offset": 14338,
+          "after_offset": 14346,
+          "old": "\t\t\t\t\t\t\tpockets.add(buildPocket(subChunk, chunk.worldObj, new BlockPos(x, y, z), subChunkPos, blocks, pocketsByBlock, pockets.size()));\r\n",
+          "new": "\t\t\t\t\t\t\tpockets.add(buildPocket(subChunk, chunk.getWorld(), new BlockPos(x, y, z), subChunkPos, blocks, pocketsByBlock, pockets.size()));\r\n"
+        },
+        {
+          "before_offset": 15707,
+          "after_offset": 15717,
+          "old": "\t\tBlock block = chunk.worldObj.getBlock(outPos.getX(), outPos.getY(), outPos.getZ());\r\n",
+          "new": "\t\tBlock block = chunk.getWorld().getBlock(outPos.getX(), outPos.getY(), outPos.getZ());\r\n"
+        },
+        {
+          "before_offset": 15894,
+          "after_offset": 15906,
+          "old": "\t\t\tif(!isSubChunkLoaded(chunk.worldObj, outPos.getX(), outPos.getY(), outPos.getZ())){\r\n",
+          "new": "\t\t\tif(!isSubChunkLoaded(chunk.getWorld(), outPos.getX(), outPos.getY(), outPos.getZ())){\r\n"
+        },
+        {
+          "before_offset": 16133,
+          "after_offset": 16147,
+          "old": "\t\t\t\tRadPocket outPocket = getPocket(chunk.worldObj, outPos.getX(), outPos.getY(), outPos.getZ());\r\n",
+          "new": "\t\t\t\tRadPocket outPocket = getPocket(chunk.getWorld(), outPos.getX(), outPos.getY(), outPos.getZ());\r\n"
+        },
+        {
+          "before_offset": 22742,
+          "after_offset": 22758,
+          "old": "\t\t\t\tchunks[y >> 4].remove(chunk.worldObj, getWorldPos(y));\r\n",
+          "new": "\t\t\t\tchunks[y >> 4].remove(chunk.getWorld(), getWorldPos(y));\r\n"
+        },
+        {
+          "before_offset": 22881,
+          "after_offset": 22899,
+          "old": "\t\t\t\tsc.add(chunk.worldObj, getWorldPos(y));\r\n",
+          "new": "\t\t\t\tsc.add(chunk.getWorld(), getWorldPos(y));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java": {
+      "before_sha256": "135aa7d7a3bf4803f5d1af6b68e6aaf276ba8f13ce7741959eb9b5bff9acf4c1",
+      "after_sha256": "7ee7f95eb2d2516276e42cf40685d90c047c7c931339263aaac5194096068215",
+      "edits": [
+        {
+          "before_offset": 1766,
+          "after_offset": 1766,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 5008,
+          "after_offset": 5055,
+          "old": "\t\t\t\tItemStack cargo = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"cargo\"));\n",
+          "new": "\t\t\t\tItemStack cargo = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag(\"cargo\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "1ca52867ee1cbc798a6d41011a38c050afc295b0e37b36f0d1ce1c80a73b3539",
+      "after_sha256": "6558647e636775362e8594dae8897f0f34847fcc01fb4e960d4cf454a1b6ad3c",
+      "edits": [
+        {
+          "before_offset": 40969,
+          "after_offset": 40969,
+          "old": "\t\t\tCBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().player.worldObj, CBT_Invasion.class);\n",
+          "new": "\t\t\tCBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().player.world, CBT_Invasion.class);\n"
+        },
+        {
+          "before_offset": 41103,
+          "after_offset": 41100,
+          "old": "\t\t\t\tif (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().player.worldObj, CBT_Invasion.class)) {\n",
+          "new": "\t\t\t\tif (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().player.world, CBT_Invasion.class)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderArtilleryRocket.java": {
+      "before_sha256": "3dd44fdc10e2cbf9e4206856ef32b3d83cfea1e199c7805d8b3aeb3d58db62e1",
+      "after_sha256": "8206607b42aaf704193f4b8a10f7e559f058f66479ac2b59105d3273325ff550",
+      "edits": [
+        {
+          "before_offset": 1747,
+          "after_offset": 1747,
+          "old": "\t\treturn ItemAmmoHIMARS.itemTypes[rocket.getDataWatcher().getWatchableObjectInt(10)].texture;\n",
+          "new": "\t\treturn ItemAmmoHIMARS.itemTypes[rocket.getTypeId()].texture;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java": {
+      "before_sha256": "e668eff894e59b6e14820f003db65a1dbba414dcff00397610e3e29e184d669d",
+      "after_sha256": "608f859be85b8cea9389c881621872560d338e8400176c0916f5e9db60f20113",
+      "edits": [
+        {
+          "before_offset": 762,
+          "after_offset": 762,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 10542,
+          "after_offset": 10589,
+          "old": "\t\tItemStack item = ItemStack.loadItemStackFromNBT(stack);\n",
+          "new": "\t\tItemStack item = NullableInventoryStackNbt.read(stack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java": {
+      "before_sha256": "de234faca15b0bb47ab6fe6a22459c9bd9984cb9e707229402bd778efff989d8",
+      "after_sha256": "2f450f5544352fe36757607ee5950d624f043fc18c78f72b6899a5c4fd9f15b3",
+      "edits": [
+        {
+          "before_offset": 1469,
+          "after_offset": 1469,
+          "old": "\t\tif(!worldObj.isRemote) {\n",
+          "new": "\t\tif(!this.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 1562,
+          "after_offset": 1564,
+          "old": "\t\t\tif(worldObj.getBlock(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()) == ModBlocks.meteor_battery)\n",
+          "new": "\t\t\tif(this.world.getBlock(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()) == ModBlocks.meteor_battery)\n"
+        },
+        {
+          "before_offset": 1864,
+          "after_offset": 1868,
+          "old": "\t\t\t\tthis.targets = zap(worldObj, dx, dy, dz, range, null);\n",
+          "new": "\t\t\t\tthis.targets = zap(this.world, dx, dy, dz, range, null);\n"
+        },
+        {
+          "before_offset": 2068,
+          "after_offset": 2074,
+          "old": "\t\t\tthis.trySubscribe(worldObj, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);\n",
+          "new": "\t\t\tthis.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java": {
+      "before_sha256": "80a702e310e94bbdb05ce6fac1aaf829411fed0855b4ef692de68498dd93f451",
+      "after_sha256": "929447e932bb5ae53d426a621d34280b86629acd77b6d82e49e52e6a6a80d0c6",
+      "edits": [
+        {
+          "before_offset": 963,
+          "after_offset": 963,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 11607,
+          "after_offset": 11654,
+          "old": "\t\tItemStack input1 = ItemStack.loadItemStackFromNBT(particleTag.getCompoundTag(\"input1\"));\n\t\tItemStack input2 = ItemStack.loadItemStackFromNBT(particleTag.getCompoundTag(\"input2\"));\n",
+          "new": "\t\tItemStack input1 = NullableInventoryStackNbt.read(particleTag.getCompoundTag(\"input1\"));\n\t\tItemStack input2 = NullableInventoryStackNbt.read(particleTag.getCompoundTag(\"input2\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java": {
+      "before_sha256": "4979d52d2902d5a935d57d0eef70e4268296f1c42f0f327a5be2c0b6dfd925eb",
+      "after_sha256": "5fcbd3ab878d091210db4bf5f85fc985aa64dc5702ed24917eb4e1e44b050242",
+      "edits": [
+        {
+          "before_offset": 2587,
+          "after_offset": 2587,
+          "old": "\t\tif(!worldObj.isRemote) {\n",
+          "new": "\t\tif(!this.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 2789,
+          "after_offset": 2791,
+          "old": "\t\t\t\tthis.trySubscribe(worldObj, pos);\n\t\t\t\tthis.trySubscribe(compair.getTankType(), worldObj, pos);\n",
+          "new": "\t\t\t\tthis.trySubscribe(this.world, pos);\n\t\t\t\tthis.trySubscribe(compair.getTankType(), this.world, pos);\n"
+        },
+        {
+          "before_offset": 7575,
+          "after_offset": 7581,
+          "old": "\t\tif(!worldObj.isRemote) {\n\t\t\tif(this.klystronNode != null) UniNodespace.destroyNode(worldObj, klystronNode);\n",
+          "new": "\t\tif(!this.world.isRemote) {\n\t\t\tif(this.klystronNode != null) UniNodespace.destroyNode(this.world, klystronNode);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java": {
+      "before_sha256": "37ee8d3de0826f9147f1c5291f0120b1f20f212c17dcc52b68375b33418f21d0",
+      "after_sha256": "a9b81a81fd43ec8be0cce0573fab29969ace06edeef45f3e52ff2cd9cfb0ae1f",
+      "edits": [
+        {
+          "before_offset": 763,
+          "after_offset": 763,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 10550,
+          "after_offset": 10597,
+          "old": "\t\tthis.loadedItem = ItemStack.loadItemStackFromNBT(held);\n",
+          "new": "\t\tthis.loadedItem = NullableInventoryStackNbt.read(held);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java": {
+      "before_sha256": "adc672091bcad05eba35708686f64bb6f57b8814974ad1e718078de8a7a9007f",
+      "after_sha256": "c39304042297d3bdfb8ce193f2e87870a952f33a9d9eceb499da4c35a24a797d",
+      "edits": [
+        {
+          "before_offset": 3578,
+          "after_offset": 3578,
+          "old": "\t\t\tRTTYChannel chan = RTTYSystem.listen(worldObj, rtty);\n",
+          "new": "\t\t\tRTTYChannel chan = RTTYSystem.listen(TileEntityRBMKGauge.this.world, rtty);\n"
+        },
+        {
+          "before_offset": 3658,
+          "after_offset": 3680,
+          "old": "\t\t\tif(chan != null && chan.timeStamp < worldObj.getTotalWorldTime() - 1) chan = null;\n",
+          "new": "\t\t\tif(chan != null && chan.timeStamp < TileEntityRBMKGauge.this.world.getTotalWorldTime() - 1) chan = null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java": {
+      "before_sha256": "7d2ea674f3cec7131c6dbd1ba1a2e3de7a174df3b5c890006ce7581ef7487375",
+      "after_sha256": "f99d7d220cdad720267329c61119786d493c9743287efd357b0d7fee803a80c7",
+      "edits": [
+        {
+          "before_offset": 3161,
+          "after_offset": 3161,
+          "old": "\t\t\t\tif(canSend()) RTTYSystem.broadcast(worldObj, rtty, command);\n",
+          "new": "\t\t\t\tif(canSend()) RTTYSystem.broadcast(TileEntityRBMKKeyPad.this.world, rtty, command);\n"
+        },
+        {
+          "before_offset": 3380,
+          "after_offset": 3403,
+          "old": "\t\t\tworldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, \"random.click\", 1F, this.isPressed ? 1F : 0.75F);\n",
+          "new": "\t\t\tTileEntityRBMKKeyPad.this.world.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, \"random.click\", 1F, this.isPressed ? 1F : 0.75F);\n"
+        },
+        {
+          "before_offset": 3589,
+          "after_offset": 3635,
+          "old": "\t\t\t\tif(canSend()) RTTYSystem.broadcast(worldObj, rtty, command);\n",
+          "new": "\t\t\t\tif(canSend()) RTTYSystem.broadcast(TileEntityRBMKKeyPad.this.world, rtty, command);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": {
+      "before_sha256": "e38925e2cd5c0e215b5d6809ee73d2a625361aa590ee58282d7f099ff4e7c08f",
+      "after_sha256": "70a44f4c4f5d83f7a368bd9e8797320b59499c9cb845e54234712534d090e57c",
+      "edits": [
+        {
+          "before_offset": 1058,
+          "after_offset": 1058,
+          "old": "",
+          "new": "import com.hbm.util.NullableInventoryStackNbt;\n"
+        },
+        {
+          "before_offset": 5575,
+          "after_offset": 5622,
+          "old": "\t\t\t\tproj.setCargo(ItemStack.loadItemStackFromNBT(cargo));\n",
+          "new": "\t\t\t\tproj.setCargo(NullableInventoryStackNbt.read(cargo));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/MapGenNTMFeatures.java": {
+      "before_sha256": "2cfa589ea49fbdd22b007f1de28921c17e9bbc2cd088d164c3fc8b93372170f7",
+      "after_sha256": "871cc0faad86e55af53904621556378c4f8376554859a27109eb2c7bdea2bd5b",
+      "edits": [
+        {
+          "before_offset": 2805,
+          "after_offset": 2805,
+          "old": "\t\tRandom random = this.worldObj.setRandomSeed(i1, j1, 14357617);\n",
+          "new": "\t\tRandom random = this.world.setRandomSeed(i1, j1, 14357617);\n"
+        },
+        {
+          "before_offset": 4002,
+          "after_offset": 3999,
+          "old": "\t\t\treturn new BunkerStart(this.worldObj, this.rand, chunkX, chunkZ);\n",
+          "new": "\t\t\treturn new BunkerStart(this.world, this.rand, chunkX, chunkZ);\n"
+        },
+        {
+          "before_offset": 4075,
+          "after_offset": 4069,
+          "old": "\t\treturn new MapGenNTMFeatures.Start(this.worldObj, this.rand, chunkX, chunkZ);\n",
+          "new": "\t\treturn new MapGenNTMFeatures.Start(this.world, this.rand, chunkX, chunkZ);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

@@ -1,0 +1,1 @@
+PASS full parsed slot closure: 95 calls, 34 equipment reads in 0..4, 10 player armor reads in 0..3; all armor/protection wrapper inputs are literals, bounded loops, or audited forwarding

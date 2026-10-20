@@ -1,0 +1,498 @@
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.tool.ItemMirrorTool
+// javap lines 269-289
+  public com.google.common.collect.Multimap getAttributeModifiers(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #198                // Method net/minecraft/item/Item.getAttributeModifiers:(Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+       5: astore_2
+       6: aload_2
+       7: getstatic     #204                // Field net/minecraft/entity/SharedMonsterAttributes.field_111264_e:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      10: invokeinterface #209,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      15: new           #211                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      18: dup
+      19: getstatic     #215                // Field field_111210_e:Ljava/util/UUID;
+      22: ldc           #217                // String Weapon modifier
+      24: ldc2_w        #218                // double 2.0d
+      27: iconst_0
+      28: invokespecial #222                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      31: invokeinterface #228,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      36: pop
+      37: aload_2
+      38: areturn
+}
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.tool.ItemRBMKTool
+// javap lines 339-359
+  public com.google.common.collect.Multimap getAttributeModifiers(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #192                // Method net/minecraft/item/Item.getAttributeModifiers:(Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+       5: astore_2
+       6: aload_2
+       7: getstatic     #198                // Field net/minecraft/entity/SharedMonsterAttributes.field_111264_e:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      10: invokeinterface #203,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      15: new           #205                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      18: dup
+      19: getstatic     #209                // Field field_111210_e:Ljava/util/UUID;
+      22: ldc           #211                // String Weapon modifier
+      24: ldc2_w        #212                // double 2.0d
+      27: iconst_0
+      28: invokespecial #216                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      31: invokeinterface #222,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      36: pop
+      37: aload_2
+      38: areturn
+}
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.tool.ItemSwordAbility
+// javap lines 11-31
+  public com.hbm.items.tool.ItemSwordAbility(float, double, net.minecraft.item.Item$ToolMaterial);
+    Code:
+       0: aload_0
+       1: aload         4
+       3: invokespecial #28                 // Method net/minecraft/item/ItemSword."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+       6: aload_0
+       7: getstatic     #33                 // Field net/minecraft/item/EnumRarity.common:Lnet/minecraft/item/EnumRarity;
+      10: putfield      #35                 // Field rarity:Lnet/minecraft/item/EnumRarity;
+      13: aload_0
+      14: new           #37                 // class com/hbm/handler/ability/AvailableAbilities
+      17: dup
+      18: invokespecial #40                 // Method com/hbm/handler/ability/AvailableAbilities."<init>":()V
+      21: putfield      #42                 // Field abilities:Lcom/hbm/handler/ability/AvailableAbilities;
+      24: aload_0
+      25: fload_1
+      26: putfield      #44                 // Field damage:F
+      29: aload_0
+      30: dload_2
+      31: putfield      #46                 // Field movement:D
+      34: return
+
+
+// javap lines 103-136
+  public com.google.common.collect.Multimap func_111205_h();
+    Code:
+       0: invokestatic  #147                // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: astore_1
+       4: aload_1
+       5: getstatic     #153                // Field net/minecraft/entity/SharedMonsterAttributes.field_111264_e:Lnet/minecraft/entity/ai/attributes/IAttribute;
+       8: invokeinterface #159,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      13: new           #161                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      16: dup
+      17: getstatic     #165                // Field field_111210_e:Ljava/util/UUID;
+      20: ldc           #167                // String Tool modifier
+      22: aload_0
+      23: getfield      #44                 // Field damage:F
+      26: f2d
+      27: iconst_0
+      28: invokespecial #170                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      31: invokeinterface #176,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      36: pop
+      37: aload_1
+      38: getstatic     #179                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      41: invokeinterface #159,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      46: new           #161                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      49: dup
+      50: getstatic     #165                // Field field_111210_e:Ljava/util/UUID;
+      53: ldc           #167                // String Tool modifier
+      55: aload_0
+      56: getfield      #46                 // Field movement:D
+      59: iconst_1
+      60: invokespecial #170                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      63: invokeinterface #176,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      68: pop
+      69: aload_1
+      70: areturn
+
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.tool.ItemToolAbility
+// javap lines 35-90
+  public com.hbm.items.tool.ItemToolAbility(float, double, net.minecraft.item.Item$ToolMaterial, com.hbm.items.tool.ItemToolAbility$EnumToolType);
+    Code:
+       0: aload_0
+       1: fconst_0
+       2: aload         4
+       4: aload         5
+       6: getfield      #103                // Field com/hbm/items/tool/ItemToolAbility$EnumToolType.blocks:Ljava/util/Set;
+       9: invokespecial #106                // Method net/minecraft/item/ItemTool."<init>":(FLnet/minecraft/item/Item$ToolMaterial;Ljava/util/Set;)V
+      12: aload_0
+      13: iconst_0
+      14: putfield      #95                 // Field isShears:Z
+      17: aload_0
+      18: getstatic     #111                // Field net/minecraft/item/EnumRarity.common:Lnet/minecraft/item/EnumRarity;
+      21: putfield      #113                // Field rarity:Lnet/minecraft/item/EnumRarity;
+      24: aload_0
+      25: new           #115                // class com/hbm/handler/ability/AvailableAbilities
+      28: dup
+      29: invokespecial #118                // Method com/hbm/handler/ability/AvailableAbilities."<init>":()V
+      32: invokevirtual #122                // Method com/hbm/handler/ability/AvailableAbilities.addToolAbilities:()Lcom/hbm/handler/ability/AvailableAbilities;
+      35: putfield      #124                // Field availableAbilities:Lcom/hbm/handler/ability/AvailableAbilities;
+      38: aload_0
+      39: iconst_0
+      40: putfield      #126                // Field rockBreaker:Z
+      43: aload_0
+      44: fload_1
+      45: putfield      #128                // Field damage:F
+      48: aload_0
+      49: dload_2
+      50: putfield      #130                // Field movement:D
+      53: aload_0
+      54: aload         5
+      56: putfield      #132                // Field toolType:Lcom/hbm/items/tool/ItemToolAbility$EnumToolType;
+      59: aload         5
+      61: getstatic     #135                // Field com/hbm/items/tool/ItemToolAbility$EnumToolType.MINER:Lcom/hbm/items/tool/ItemToolAbility$EnumToolType;
+      64: if_acmpne     92
+      67: aload_0
+      68: ldc           #137                // String pickaxe
+      70: aload         4
+      72: invokevirtual #141                // Method net/minecraft/item/Item$ToolMaterial.func_77996_d:()I
+      75: invokevirtual #145                // Method setHarvestLevel:(Ljava/lang/String;I)V
+      78: aload_0
+      79: ldc           #147                // String shovel
+      81: aload         4
+      83: invokevirtual #141                // Method net/minecraft/item/Item$ToolMaterial.func_77996_d:()I
+      86: invokevirtual #145                // Method setHarvestLevel:(Ljava/lang/String;I)V
+      89: goto          112
+      92: aload_0
+      93: aload         5
+      95: invokevirtual #151                // Method com/hbm/items/tool/ItemToolAbility$EnumToolType.toString:()Ljava/lang/String;
+      98: getstatic     #157                // Field java/util/Locale.US:Ljava/util/Locale;
+     101: invokevirtual #163                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+     104: aload         4
+     106: invokevirtual #141                // Method net/minecraft/item/Item$ToolMaterial.func_77996_d:()I
+     109: invokevirtual #145                // Method setHarvestLevel:(Ljava/lang/String;I)V
+     112: return
+
+
+// javap lines 387-420
+  public com.google.common.collect.Multimap func_111205_h();
+    Code:
+       0: invokestatic  #376                // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: astore_1
+       4: aload_1
+       5: getstatic     #382                // Field net/minecraft/entity/SharedMonsterAttributes.field_111264_e:Lnet/minecraft/entity/ai/attributes/IAttribute;
+       8: invokeinterface #387,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      13: new           #389                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      16: dup
+      17: getstatic     #393                // Field field_111210_e:Ljava/util/UUID;
+      20: ldc_w         #395                // String Tool modifier
+      23: aload_0
+      24: getfield      #128                // Field damage:F
+      27: f2d
+      28: iconst_0
+      29: invokespecial #398                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      32: invokeinterface #404,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      37: pop
+      38: aload_1
+      39: getstatic     #407                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      42: invokeinterface #387,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      47: new           #389                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      50: dup
+      51: getstatic     #393                // Field field_111210_e:Ljava/util/UUID;
+      54: ldc_w         #395                // String Tool modifier
+      57: aload_0
+      58: getfield      #130                // Field movement:D
+      61: iconst_1
+      62: invokespecial #398                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      65: invokeinterface #404,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      70: pop
+      71: aload_1
+      72: areturn
+
+
+// javap lines 1479-1546
+  static {};
+    Code:
+       0: ldc_w         #259                // class net/minecraft/block/Block
+       3: aconst_null
+       4: iconst_1
+       5: anewarray     #159                // class java/lang/String
+       8: dup
+       9: iconst_0
+      10: ldc_w         #1014               // String captureDrops
+      13: aastore
+      14: iconst_1
+      15: anewarray     #816                // class java/lang/Class
+      18: dup
+      19: iconst_0
+      20: getstatic     #1015               // Field java/lang/Boolean.TYPE:Ljava/lang/Class;
+      23: aastore
+      24: invokestatic  #1021               // Method cpw/mods/fml/relauncher/ReflectionHelper.findMethod:(Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+      27: putstatic     #663                // Field blockCaptureDrops:Ljava/lang/reflect/Method;
+      30: new           #1023               // class java/util/HashMap
+      33: dup
+      34: invokespecial #1024               // Method java/util/HashMap."<init>":()V
+      37: putstatic     #904                // Field abilityGui:Ljava/util/Map;
+      40: getstatic     #904                // Field abilityGui:Ljava/util/Map;
+      43: getstatic     #1027               // Field com/hbm/handler/ability/IToolAreaAbility.RECURSION:Lcom/hbm/handler/ability/IToolAreaAbility;
+      46: new           #23                 // class com/hbm/util/Tuple$Pair
+      49: dup
+      50: iconst_0
+      51: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      54: sipush        138
+      57: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      60: invokespecial #1032               // Method com/hbm/util/Tuple$Pair."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+      63: invokeinterface #1035,  3         // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      68: pop
+      69: getstatic     #904                // Field abilityGui:Ljava/util/Map;
+      72: getstatic     #1038               // Field com/hbm/handler/ability/IToolAreaAbility.HAMMER:Lcom/hbm/handler/ability/IToolAreaAbility;
+      75: new           #23                 // class com/hbm/util/Tuple$Pair
+      78: dup
+      79: bipush        16
+      81: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      84: sipush        138
+      87: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      90: invokespecial #1032               // Method com/hbm/util/Tuple$Pair."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+      93: invokeinterface #1035,  3         // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      98: pop
+      99: getstatic     #904                // Field abilityGui:Ljava/util/Map;
+     102: getstatic     #1041               // Field com/hbm/handler/ability/IToolAreaAbility.HAMMER_FLAT:Lcom/hbm/handler/ability/IToolAreaAbility;
+     105: new           #23                 // class com/hbm/util/Tuple$Pair
+     108: dup
+     109: bipush        32
+     111: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     114: sipush        138
+     117: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     120: invokespecial #1032               // Method com/hbm/util/Tuple$Pair."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     123: invokeinterface #1035,  3         // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     128: pop
+     129: getstatic     #904                // Field abilityGui:Ljava/util/Map;
+     132: getstatic     #1044               // Field com/hbm/handler/ability/IToolAreaAbility.EXPLOSION:Lcom/hbm/handler/ability/IToolAreaAbility;
+     135: new           #23                 // class com/hbm/util/Tuple$Pair
+     138: dup
+     139: bipush        48
+     141: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     144: sipush        138
+     147: invokestatic  #1030               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     150: invokespecial #1032               // Method com/hbm/util/Tuple$Pair."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     153: invokeinterface #1035,  3         // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     158: pop
+     159: return
+}
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.tool.ItemToolingWeapon
+// javap lines 5-18
+  public com.hbm.items.tool.ItemToolingWeapon(api.hbm.block.IToolable$ToolType, int, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokespecial #17                 // Method com/hbm/items/tool/ItemTooling."<init>":(Lapi/hbm/block/IToolable$ToolType;I)V
+       6: aload_0
+       7: fconst_0
+       8: putfield      #19                 // Field damage:F
+      11: aload_0
+      12: fload_3
+      13: putfield      #19                 // Field damage:F
+      16: return
+
+
+// javap lines 72-109
+  public com.google.common.collect.Multimap getAttributeModifiers(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #91                 // Method com/hbm/items/tool/ItemTooling.getAttributeModifiers:(Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+       5: astore_2
+       6: aload_2
+       7: getstatic     #97                 // Field net/minecraft/entity/SharedMonsterAttributes.field_111264_e:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      10: invokeinterface #103,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      15: new           #105                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      18: dup
+      19: getstatic     #109                // Field field_111210_e:Ljava/util/UUID;
+      22: ldc           #111                // String Weapon modifier
+      24: aload_0
+      25: getfield      #19                 // Field damage:F
+      28: f2d
+      29: iconst_0
+      30: invokespecial #114                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      33: invokeinterface #120,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      38: pop
+      39: aload_0
+      40: getstatic     #39                 // Field com/hbm/items/ModItems.wrench:Lnet/minecraft/item/Item;
+      43: if_acmpne     77
+      46: aload_2
+      47: getstatic     #123                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      50: invokeinterface #103,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      55: new           #105                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      58: dup
+      59: getstatic     #109                // Field field_111210_e:Ljava/util/UUID;
+      62: ldc           #125                // String Wrench modifier
+      64: ldc2_w        #126                // double -0.1d
+      67: iconst_1
+      68: invokespecial #114                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      71: invokeinterface #120,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      76: pop
+      77: aload_2
+      78: areturn
+}
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.tool.WeaponSpecial
+// javap lines 5-16
+  public com.hbm.items.tool.WeaponSpecial(net.minecraft.item.Item$ToolMaterial);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #16                 // Method net/minecraft/item/ItemSword."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+       5: aload_0
+       6: new           #18                 // class java/util/Random
+       9: dup
+      10: invokespecial #21                 // Method java/util/Random."<init>":()V
+      13: putfield      #23                 // Field rand:Ljava/util/Random;
+      16: return
+
+
+// javap lines 631-686
+  public com.google.common.collect.Multimap func_111205_h();
+    Code:
+       0: aload_0
+       1: invokespecial #367                // Method net/minecraft/item/ItemSword.func_111205_h:()Lcom/google/common/collect/Multimap;
+       4: astore_1
+       5: aload_0
+       6: getstatic     #35                 // Field com/hbm/items/ModItems.schrabidium_hammer:Lnet/minecraft/item/Item;
+       9: if_acmpne     44
+      12: aload_1
+      13: getstatic     #373                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      16: invokeinterface #379,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      21: new           #381                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      24: dup
+      25: getstatic     #385                // Field field_111210_e:Ljava/util/UUID;
+      28: ldc_w         #387                // String Weapon modifier
+      31: ldc2_w        #388                // double -0.5d
+      34: iconst_1
+      35: invokespecial #392                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      38: invokeinterface #398,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      43: pop
+      44: aload_0
+      45: getstatic     #50                 // Field com/hbm/items/ModItems.shimmer_sledge:Lnet/minecraft/item/Item;
+      48: if_acmpeq     58
+      51: aload_0
+      52: getstatic     #53                 // Field com/hbm/items/ModItems.shimmer_axe:Lnet/minecraft/item/Item;
+      55: if_acmpne     90
+      58: aload_1
+      59: getstatic     #373                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      62: invokeinterface #379,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      67: new           #381                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      70: dup
+      71: getstatic     #385                // Field field_111210_e:Ljava/util/UUID;
+      74: ldc_w         #387                // String Weapon modifier
+      77: ldc2_w        #399                // double -0.2d
+      80: iconst_1
+      81: invokespecial #392                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      84: invokeinterface #398,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      89: pop
+      90: aload_0
+      91: getstatic     #403                // Field com/hbm/items/ModItems.wrench_flipped:Lnet/minecraft/item/Item;
+      94: if_acmpne     129
+      97: aload_1
+      98: getstatic     #373                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     101: invokeinterface #379,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+     106: new           #381                // class net/minecraft/entity/ai/attributes/AttributeModifier
+     109: dup
+     110: getstatic     #385                // Field field_111210_e:Ljava/util/UUID;
+     113: ldc_w         #387                // String Weapon modifier
+     116: ldc2_w        #404                // double -0.1d
+     119: iconst_1
+     120: invokespecial #392                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+     123: invokeinterface #398,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+     128: pop
+     129: aload_1
+     130: areturn
+
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.weapon.GunB92
+// javap lines 409-428
+  public com.google.common.collect.Multimap func_111205_h();
+    Code:
+       0: aload_0
+       1: invokespecial #279                // Method net/minecraft/item/Item.func_111205_h:()Lcom/google/common/collect/Multimap;
+       4: astore_1
+       5: aload_1
+       6: getstatic     #285                // Field net/minecraft/entity/SharedMonsterAttributes.field_111264_e:Lnet/minecraft/entity/ai/attributes/IAttribute;
+       9: invokeinterface #291,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      14: new           #293                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      17: dup
+      18: getstatic     #297                // Field field_111210_e:Ljava/util/UUID;
+      21: ldc_w         #299                // String Weapon modifier
+      24: ldc2_w        #300                // double 3.5d
+      27: iconst_0
+      28: invokespecial #304                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      31: invokeinterface #310,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      36: pop
+      37: aload_1
+      38: areturn
+
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: com.hbm.items.weapon.ItemCrucible
+// javap lines 3-11
+  public com.hbm.items.weapon.ItemCrucible(float, double, net.minecraft.item.Item$ToolMaterial);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: dload_2
+       3: aload         4
+       5: invokespecial #29                 // Method com/hbm/items/tool/ItemSwordAbility."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;)V
+       8: return
+
+
+// javap lines 239-277
+  public com.google.common.collect.Multimap getAttributeModifiers(net.minecraft.item.ItemStack);
+    Code:
+       0: invokestatic  #287                // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: astore_2
+       4: aload_1
+       5: invokevirtual #53                 // Method net/minecraft/item/ItemStack.func_77960_j:()I
+       8: aload_1
+       9: invokevirtual #56                 // Method net/minecraft/item/ItemStack.func_77958_k:()I
+      12: if_icmpge     82
+      15: aload_2
+      16: getstatic     #293                // Field net/minecraft/entity/SharedMonsterAttributes.field_111264_e:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      19: invokeinterface #298,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      24: new           #300                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      27: dup
+      28: getstatic     #304                // Field field_111210_e:Ljava/util/UUID;
+      31: ldc_w         #306                // String Tool modifier
+      34: aload_0
+      35: getfield      #308                // Field damage:F
+      38: f2d
+      39: iconst_0
+      40: invokespecial #311                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      43: invokeinterface #317,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      48: pop
+      49: aload_2
+      50: getstatic     #320                // Field net/minecraft/entity/SharedMonsterAttributes.field_111263_d:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      53: invokeinterface #298,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.func_111108_a:()Ljava/lang/String;
+      58: new           #300                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      61: dup
+      62: getstatic     #304                // Field field_111210_e:Ljava/util/UUID;
+      65: ldc_w         #306                // String Tool modifier
+      68: aload_0
+      69: getfield      #322                // Field movement:D
+      72: iconst_1
+      73: invokespecial #311                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      76: invokeinterface #317,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      81: pop
+      82: aload_2
+      83: areturn
+
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: complete declaration com.hbm.items.tool.ItemTooling
+Compiled from "ItemTooling.java"
+public class com.hbm.items.tool.ItemTooling extends com.hbm.items.tool.ItemCraftingDegradation {
+  protected api.hbm.block.IToolable$ToolType type;
+  public com.hbm.items.tool.ItemTooling(api.hbm.block.IToolable$ToolType, int);
+  public boolean func_77648_a(net.minecraft.item.ItemStack, net.minecraft.entity.player.EntityPlayer, net.minecraft.world.World, int, int, int, int, float, float, float);
+}
+
+
+// SOURCE /workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar :: complete declaration com.hbm.items.tool.ItemCraftingDegradation
+Compiled from "ItemCraftingDegradation.java"
+public class com.hbm.items.tool.ItemCraftingDegradation extends net.minecraft.item.Item {
+  public com.hbm.items.tool.ItemCraftingDegradation(int);
+  public boolean func_77630_h(net.minecraft.item.ItemStack);
+  public boolean hasContainerItem(net.minecraft.item.ItemStack);
+  public net.minecraft.item.ItemStack getContainerItem(net.minecraft.item.ItemStack);
+  public net.minecraft.item.Item func_77655_b(java.lang.String);
+}
+

@@ -1,0 +1,504 @@
+mt
+  public mq t();
+    Code:
+       0: aload_0
+       1: getfield      #160                // Field L:Lmq;
+       4: areturn
+
+
+mq
+  private mr a(int, int, boolean);
+    Code:
+       0: iload_1
+       1: i2l
+       2: ldc2_w        #19                 // long 2147483647l
+       5: ladd
+       6: iload_2
+       7: i2l
+       8: ldc2_w        #19                 // long 2147483647l
+      11: ladd
+      12: bipush        32
+      14: lshl
+      15: lor
+      16: lstore        4
+      18: aload_0
+      19: getfield      #26                 // Field d:Lqd;
+      22: lload         4
+      24: invokevirtual #62                 // Method qd.a:(J)Ljava/lang/Object;
+      27: checkcast     #8                  // class mr
+      30: astore        6
+      32: aload         6
+      34: ifnonnull     76
+      37: iload_3
+      38: ifeq          76
+      41: new           #8                  // class mr
+      44: dup
+      45: aload_0
+      46: iload_1
+      47: iload_2
+      48: invokespecial #47                 // Method mr."<init>":(Lmq;II)V
+      51: astore        6
+      53: aload_0
+      54: getfield      #26                 // Field d:Lqd;
+      57: lload         4
+      59: aload         6
+      61: invokevirtual #63                 // Method qd.a:(JLjava/lang/Object;)V
+      64: aload_0
+      65: getfield      #28                 // Field f:Ljava/util/List;
+      68: aload         6
+      70: invokeinterface #67,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      75: pop
+      76: aload         6
+      78: areturn
+
+
+mq
+  public void a(int, int, int);
+    Code:
+       0: iload_1
+       1: iconst_4
+       2: ishr
+       3: istore        4
+       5: iload_3
+       6: iconst_4
+       7: ishr
+       8: istore        5
+      10: aload_0
+      11: iload         4
+      13: iload         5
+      15: iconst_0
+      16: invokespecial #45                 // Method a:(IIZ)Lmr;
+      19: astore        6
+      21: aload         6
+      23: ifnull        40
+      26: aload         6
+      28: iload_1
+      29: bipush        15
+      31: iand
+      32: iload_2
+      33: iload_3
+      34: bipush        15
+      36: iand
+      37: invokevirtual #49                 // Method mr.a:(III)V
+      40: return
+
+
+mr
+  public void a(int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field e:I
+       4: ifne          21
+       7: aload_0
+       8: getfield      #27                 // Field a:Lmq;
+      11: invokestatic  #52                 // Method mq.d:(Lmq;)Ljava/util/List;
+      14: aload_0
+      15: invokeinterface #65,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      20: pop
+      21: aload_0
+      22: dup
+      23: getfield      #32                 // Field f:I
+      26: iconst_1
+      27: iload_2
+      28: iconst_4
+      29: ishr
+      30: ishl
+      31: ior
+      32: putfield      #32                 // Field f:I
+      35: aload_0
+      36: getfield      #31                 // Field e:I
+      39: bipush        64
+      41: if_icmpge     107
+      44: iload_1
+      45: bipush        12
+      47: ishl
+      48: iload_3
+      49: bipush        8
+      51: ishl
+      52: ior
+      53: iload_2
+      54: ior
+      55: i2s
+      56: istore        4
+      58: iconst_0
+      59: istore        5
+      61: iload         5
+      63: aload_0
+      64: getfield      #31                 // Field e:I
+      67: if_icmpge     89
+      70: aload_0
+      71: getfield      #30                 // Field d:[S
+      74: iload         5
+      76: saload
+      77: iload         4
+      79: if_icmpne     83
+      82: return
+      83: iinc          5, 1
+      86: goto          61
+      89: aload_0
+      90: getfield      #30                 // Field d:[S
+      93: aload_0
+      94: dup
+      95: getfield      #31                 // Field e:I
+      98: dup_x1
+      99: iconst_1
+     100: iadd
+     101: putfield      #31                 // Field e:I
+     104: iload         4
+     106: sastore
+     107: return
+
+
+net.minecraft.world.WorldServer
+  public net.minecraft.server.management.PlayerChunkMap getPlayerChunkMap();
+    Code:
+       0: aload_0
+       1: getfield      #153                // Field playerChunkMap:Lnet/minecraft/server/management/PlayerChunkMap;
+       4: areturn
+
+
+net.minecraft.server.management.PlayerChunkMap
+  public net.minecraft.server.management.PlayerChunkMapEntry getEntry(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #61                 // Field entryMap:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;
+       4: iload_1
+       5: iload_2
+       6: invokestatic  #249                // Method getIndex:(II)J
+       9: invokeinterface #254,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ObjectMap.get:(J)Ljava/lang/Object;
+      14: checkcast     #142                // class net/minecraft/server/management/PlayerChunkMapEntry
+      17: areturn
+
+
+net.minecraft.server.management.PlayerChunkMap
+  public void markBlockForUpdate(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: invokevirtual #281                // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: iconst_4
+       5: ishr
+       6: istore_2
+       7: aload_1
+       8: invokevirtual #284                // Method net/minecraft/util/math/BlockPos.getZ:()I
+      11: iconst_4
+      12: ishr
+      13: istore_3
+      14: aload_0
+      15: iload_2
+      16: iload_3
+      17: invokevirtual #286                // Method getEntry:(II)Lnet/minecraft/server/management/PlayerChunkMapEntry;
+      20: astore        4
+      22: aload         4
+      24: ifnull        50
+      27: aload         4
+      29: aload_1
+      30: invokevirtual #281                // Method net/minecraft/util/math/BlockPos.getX:()I
+      33: bipush        15
+      35: iand
+      36: aload_1
+      37: invokevirtual #289                // Method net/minecraft/util/math/BlockPos.getY:()I
+      40: aload_1
+      41: invokevirtual #284                // Method net/minecraft/util/math/BlockPos.getZ:()I
+      44: bipush        15
+      46: iand
+      47: invokevirtual #293                // Method net/minecraft/server/management/PlayerChunkMapEntry.blockChanged:(III)V
+      50: return
+
+
+net.minecraft.server.management.PlayerChunkMapEntry
+  public void blockChanged(int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #140                // Field sentToPlayers:Z
+       4: ifeq          129
+       7: aload_0
+       8: getfield      #209                // Field changes:I
+      11: ifne          22
+      14: aload_0
+      15: getfield      #63                 // Field playerChunkMap:Lnet/minecraft/server/management/PlayerChunkMap;
+      18: aload_0
+      19: invokevirtual #261                // Method net/minecraft/server/management/PlayerChunkMap.entryChanged:(Lnet/minecraft/server/management/PlayerChunkMapEntry;)V
+      22: aload_0
+      23: dup
+      24: getfield      #211                // Field changedSectionFilter:I
+      27: iconst_1
+      28: iload_2
+      29: iconst_4
+      30: ishr
+      31: ishl
+      32: ior
+      33: putfield      #211                // Field changedSectionFilter:I
+      36: iload_1
+      37: bipush        12
+      39: ishl
+      40: iload_3
+      41: bipush        8
+      43: ishl
+      44: ior
+      45: iload_2
+      46: ior
+      47: i2s
+      48: istore        4
+      50: iconst_0
+      51: istore        5
+      53: iload         5
+      55: aload_0
+      56: getfield      #209                // Field changes:I
+      59: if_icmpge     81
+      62: aload_0
+      63: getfield      #54                 // Field changedBlocks:[S
+      66: iload         5
+      68: saload
+      69: iload         4
+      71: if_icmpne     75
+      74: return
+      75: iinc          5, 1
+      78: goto          53
+      81: aload_0
+      82: getfield      #209                // Field changes:I
+      85: aload_0
+      86: getfield      #54                 // Field changedBlocks:[S
+      89: arraylength
+      90: if_icmpne     111
+      93: aload_0
+      94: aload_0
+      95: getfield      #54                 // Field changedBlocks:[S
+      98: aload_0
+      99: getfield      #54                 // Field changedBlocks:[S
+     102: arraylength
+     103: iconst_1
+     104: ishl
+     105: invokestatic  #267                // Method java/util/Arrays.copyOf:([SI)[S
+     108: putfield      #54                 // Field changedBlocks:[S
+     111: aload_0
+     112: getfield      #54                 // Field changedBlocks:[S
+     115: aload_0
+     116: dup
+     117: getfield      #209                // Field changes:I
+     120: dup_x1
+     121: iconst_1
+     122: iadd
+     123: putfield      #209                // Field changes:I
+     126: iload         4
+     128: sastore
+     129: return
+
+
+net.minecraft.server.management.PlayerChunkMapEntry
+  public void update();
+    Code:
+       0: aload_0
+       1: getfield      #140                // Field sentToPlayers:Z
+       4: ifeq          367
+       7: aload_0
+       8: getfield      #151                // Field chunk:Lnet/minecraft/world/chunk/Chunk;
+      11: ifnull        367
+      14: aload_0
+      15: getfield      #209                // Field changes:I
+      18: ifeq          367
+      21: aload_0
+      22: getfield      #209                // Field changes:I
+      25: iconst_1
+      26: if_icmpne     168
+      29: aload_0
+      30: getfield      #54                 // Field changedBlocks:[S
+      33: iconst_0
+      34: saload
+      35: bipush        12
+      37: ishr
+      38: bipush        15
+      40: iand
+      41: aload_0
+      42: getfield      #70                 // Field pos:Lnet/minecraft/util/math/ChunkPos;
+      45: getfield      #110                // Field net/minecraft/util/math/ChunkPos.x:I
+      48: bipush        16
+      50: imul
+      51: iadd
+      52: istore_1
+      53: aload_0
+      54: getfield      #54                 // Field changedBlocks:[S
+      57: iconst_0
+      58: saload
+      59: sipush        255
+      62: iand
+      63: istore_2
+      64: aload_0
+      65: getfield      #54                 // Field changedBlocks:[S
+      68: iconst_0
+      69: saload
+      70: bipush        8
+      72: ishr
+      73: bipush        15
+      75: iand
+      76: aload_0
+      77: getfield      #70                 // Field pos:Lnet/minecraft/util/math/ChunkPos;
+      80: getfield      #119                // Field net/minecraft/util/math/ChunkPos.z:I
+      83: bipush        16
+      85: imul
+      86: iadd
+      87: istore_3
+      88: new           #284                // class net/minecraft/util/math/BlockPos
+      91: dup
+      92: iload_1
+      93: iload_2
+      94: iload_3
+      95: invokespecial #286                // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      98: astore        4
+     100: aload_0
+     101: new           #288                // class net/minecraft/network/play/server/SPacketBlockChange
+     104: dup
+     105: aload_0
+     106: getfield      #63                 // Field playerChunkMap:Lnet/minecraft/server/management/PlayerChunkMap;
+     109: invokevirtual #76                 // Method net/minecraft/server/management/PlayerChunkMap.getWorldServer:()Lnet/minecraft/world/WorldServer;
+     112: aload         4
+     114: invokespecial #291                // Method net/minecraft/network/play/server/SPacketBlockChange."<init>":(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V
+     117: invokevirtual #292                // Method sendPacket:(Lnet/minecraft/network/Packet;)V
+     120: aload_0
+     121: getfield      #63                 // Field playerChunkMap:Lnet/minecraft/server/management/PlayerChunkMap;
+     124: invokevirtual #76                 // Method net/minecraft/server/management/PlayerChunkMap.getWorldServer:()Lnet/minecraft/world/WorldServer;
+     127: aload         4
+     129: invokevirtual #296                // Method net/minecraft/world/WorldServer.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     132: astore        5
+     134: aload         5
+     136: invokeinterface #302,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     141: aload         5
+     143: invokevirtual #308                // Method net/minecraft/block/Block.hasTileEntity:(Lnet/minecraft/block/state/IBlockState;)Z
+     146: ifeq          165
+     149: aload_0
+     150: aload_0
+     151: getfield      #63                 // Field playerChunkMap:Lnet/minecraft/server/management/PlayerChunkMap;
+     154: invokevirtual #76                 // Method net/minecraft/server/management/PlayerChunkMap.getWorldServer:()Lnet/minecraft/world/WorldServer;
+     157: aload         4
+     159: invokevirtual #312                // Method net/minecraft/world/WorldServer.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+     162: invokespecial #316                // Method sendBlockEntity:(Lnet/minecraft/tileentity/TileEntity;)V
+     165: goto          357
+     168: aload_0
+     169: getfield      #209                // Field changes:I
+     172: getstatic     #321                // Field net/minecraftforge/common/ForgeModContainer.clumpingThreshold:I
+     175: if_icmplt     200
+     178: aload_0
+     179: new           #213                // class net/minecraft/network/play/server/SPacketChunkData
+     182: dup
+     183: aload_0
+     184: getfield      #151                // Field chunk:Lnet/minecraft/world/chunk/Chunk;
+     187: aload_0
+     188: getfield      #211                // Field changedSectionFilter:I
+     191: invokespecial #217                // Method net/minecraft/network/play/server/SPacketChunkData."<init>":(Lnet/minecraft/world/chunk/Chunk;I)V
+     194: invokevirtual #292                // Method sendPacket:(Lnet/minecraft/network/Packet;)V
+     197: goto          357
+     200: aload_0
+     201: new           #323                // class net/minecraft/network/play/server/SPacketMultiBlockChange
+     204: dup
+     205: aload_0
+     206: getfield      #209                // Field changes:I
+     209: aload_0
+     210: getfield      #54                 // Field changedBlocks:[S
+     213: aload_0
+     214: getfield      #151                // Field chunk:Lnet/minecraft/world/chunk/Chunk;
+     217: invokespecial #326                // Method net/minecraft/network/play/server/SPacketMultiBlockChange."<init>":(I[SLnet/minecraft/world/chunk/Chunk;)V
+     220: invokevirtual #292                // Method sendPacket:(Lnet/minecraft/network/Packet;)V
+     223: iconst_0
+     224: istore_1
+     225: iload_1
+     226: aload_0
+     227: getfield      #209                // Field changes:I
+     230: if_icmpge     357
+     233: aload_0
+     234: getfield      #54                 // Field changedBlocks:[S
+     237: iload_1
+     238: saload
+     239: bipush        12
+     241: ishr
+     242: bipush        15
+     244: iand
+     245: aload_0
+     246: getfield      #70                 // Field pos:Lnet/minecraft/util/math/ChunkPos;
+     249: getfield      #110                // Field net/minecraft/util/math/ChunkPos.x:I
+     252: bipush        16
+     254: imul
+     255: iadd
+     256: istore_2
+     257: aload_0
+     258: getfield      #54                 // Field changedBlocks:[S
+     261: iload_1
+     262: saload
+     263: sipush        255
+     266: iand
+     267: istore_3
+     268: aload_0
+     269: getfield      #54                 // Field changedBlocks:[S
+     272: iload_1
+     273: saload
+     274: bipush        8
+     276: ishr
+     277: bipush        15
+     279: iand
+     280: aload_0
+     281: getfield      #70                 // Field pos:Lnet/minecraft/util/math/ChunkPos;
+     284: getfield      #119                // Field net/minecraft/util/math/ChunkPos.z:I
+     287: bipush        16
+     289: imul
+     290: iadd
+     291: istore        4
+     293: new           #284                // class net/minecraft/util/math/BlockPos
+     296: dup
+     297: iload_2
+     298: iload_3
+     299: iload         4
+     301: invokespecial #286                // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+     304: astore        5
+     306: aload_0
+     307: getfield      #63                 // Field playerChunkMap:Lnet/minecraft/server/management/PlayerChunkMap;
+     310: invokevirtual #76                 // Method net/minecraft/server/management/PlayerChunkMap.getWorldServer:()Lnet/minecraft/world/WorldServer;
+     313: aload         5
+     315: invokevirtual #296                // Method net/minecraft/world/WorldServer.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     318: astore        6
+     320: aload         6
+     322: invokeinterface #302,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     327: aload         6
+     329: invokevirtual #308                // Method net/minecraft/block/Block.hasTileEntity:(Lnet/minecraft/block/state/IBlockState;)Z
+     332: ifeq          351
+     335: aload_0
+     336: aload_0
+     337: getfield      #63                 // Field playerChunkMap:Lnet/minecraft/server/management/PlayerChunkMap;
+     340: invokevirtual #76                 // Method net/minecraft/server/management/PlayerChunkMap.getWorldServer:()Lnet/minecraft/world/WorldServer;
+     343: aload         5
+     345: invokevirtual #312                // Method net/minecraft/world/WorldServer.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+     348: invokespecial #316                // Method sendBlockEntity:(Lnet/minecraft/tileentity/TileEntity;)V
+     351: iinc          1, 1
+     354: goto          225
+     357: aload_0
+     358: iconst_0
+     359: putfield      #209                // Field changes:I
+     362: aload_0
+     363: iconst_0
+     364: putfield      #211                // Field changedSectionFilter:I
+     367: return
+
+
+net.minecraft.util.math.BlockPos
+  public net.minecraft.util.math.BlockPos(int, int, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: iload_3
+       4: invokespecial #41                 // Method net/minecraft/util/math/Vec3i."<init>":(III)V
+       7: return
+
+
+net.minecraft.util.math.Vec3i
+  public net.minecraft.util.math.Vec3i(int, int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #30                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iload_1
+       6: putfield      #32                 // Field x:I
+       9: aload_0
+      10: iload_2
+      11: putfield      #34                 // Field y:I
+      14: aload_0
+      15: iload_3
+      16: putfield      #36                 // Field z:I
+      19: return

@@ -1,0 +1,9 @@
+{
+  "porting/tests/MaterialTextureAtlasSpriteNativeTest.java": "2c5dfcebee1a45f08371273e503a47e6f4f55daf5fe63adccd648a21b0f011bd",
+  "src/main/java/com/hbm/render/item/nativeitem/MaterialTextureAtlasSprite.java": "54b20c4c0a78f927f4050dddd41c6217b93859c3039a3ee637ffed084db9290a",
+  "porting/tests/remaining-textured-batches/transform.py": "213a21ae5cace9f579885a882e23e22d1f84eb306dc8aca6f6151e458284459e",
+  "porting/tests/simple-textured-batches/check_source.py": "5d2bb6185524abfa4f01f13abe8b388abaaeeaee93607d5d7c75e681b84ce82b",
+  "porting/tests/simple-textured-batches/manifest.json": "167829668080f0abde17745f85f78b2c223ff95786bac3dce282203b1b0a289b",
+  "src/main/java/com/hbm/render/tileentity/RenderFurnaceSteel.java": "76dea2abbcac05bd8f5b0503e79d81e7c6f0527640a980bcd8230b7e4b5cf374",
+  "src/main/java/api/hbm/entity/RadarEntry.java": "4df6582c4fb3d628ef64523fc6318c87c907b540c26adec7c6fbda2546ef7ce5"
+}

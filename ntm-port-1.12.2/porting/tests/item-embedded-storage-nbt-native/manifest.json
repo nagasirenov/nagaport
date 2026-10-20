@@ -1,0 +1,90 @@
+{
+  "base": "d5ef20a8f1cb65fbd06faa86a4901870c8bab3f2",
+  "helper_sha256": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+  "baseline_compile_sha256": "c3204c7d6c8d6e9e40dfba0ed1eb558d2a630abd26b58499a7b7f6f6f7c38789",
+  "baseline_loader_diagnostics": 30,
+  "selected_loader_calls": 8,
+  "expected_remaining_loader_calls": 22,
+  "callers": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "before_sha256": "44baabe5c3095759fa1bdde18c85fee5eb71d2891f3208f16ee0ac1e707b18ac",
+      "after_sha256": "8f421359a3bd4eab877a049b5a6f9b412a02196816d39ea79524426ce9b5f6e1",
+      "pristine_sha256": "14b7211840d63f21a62724dfdf75c23aa33ca3455ca5f82a712c738e9618c5ef",
+      "loader_calls": 1,
+      "nbt_empty_rename": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+      "before_sha256": "3c15891bc0beb221de4251e33b9f0b92c8f1686134c09ba512bdeffc655f08ac",
+      "after_sha256": "11ea0b66076b3ed21531c7ed17a75db3ebef8138ef06234efac51ad3bac71a95",
+      "pristine_sha256": "4f5266e72c9f33c8ad1bebb79439f16133a4cd1336a73395c4c4a7d0845dfe95",
+      "loader_calls": 2,
+      "nbt_empty_rename": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+      "before_sha256": "a0e123772fb5ba6d3915ede3cfce2e0f5b6ddb326b6e0c7aeb4b8293be3804bc",
+      "after_sha256": "187bd1b81864e5860840ecc862bc1358fce39948898da169b6a7b04de9d9150d",
+      "pristine_sha256": "d73601ad2fcde2bfcba108a6f17081be53adfdfad69ead0dbb64392381100b22",
+      "loader_calls": 1,
+      "nbt_empty_rename": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/transformer/HazardTransformerRadiationContainer.java",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/hazard/transformer/HazardTransformerRadiationContainer.java",
+      "before_sha256": "4b18235a995682d6ae10f07a38e7306ac9ad68e7e1d9d2b5f0cab35098a3c508",
+      "after_sha256": "440fbe9b74d78b4b8b5c9e39b615d9f23c708a0a7145a59deca7f65bb14f3db2",
+      "pristine_sha256": "e53b819e86c356950b9019a168c244e937b0e6f109ca972cf3b88d1c21e52c1c",
+      "loader_calls": 1,
+      "nbt_empty_rename": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/ArmorModHandler.java",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/handler/ArmorModHandler.java",
+      "before_sha256": "b2360c771320211f644531b9d802585d903bc0b042a447a2472ac10f86e49022",
+      "after_sha256": "7d70535071ecd7349c66f1b894b20957c89f87cd8deb6aef27b423e2d79129d8",
+      "pristine_sha256": "f59cbad5d222eca18f4bc3f5d5b449a9dfc8228d366fdfdd68b96a4c3c7d9732",
+      "loader_calls": 2,
+      "nbt_empty_rename": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/ArmorUtil.java",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/util/ArmorUtil.java",
+      "before_sha256": "9cff36a9494c35b22a48e4e0f6f969380c21f433b72e7fa80c6ff7cce7ff7a56",
+      "after_sha256": "fb624945810ce9c5a8bdcec0fb3276f9faa5a984ecabb74826cfb700be9db41d",
+      "pristine_sha256": "e4c0d9d1944ea63ef6e7fa5f5652ee1bec4680de6ed9c8259235ce7b86fdd2f0",
+      "loader_calls": 1,
+      "nbt_empty_rename": false
+    }
+  ],
+  "ownership_sources": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ItemInventory.java",
+      "sha256": "b41934e72e7728f2c1b45566e34e752c7e8207ec3ae4502fb7346b4367934e4c"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/items/ItemInventory.java",
+      "sha256": "35d329aea3d865992600769611674fed22d753478c0cb99496e1d83e6bf6f84d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "sha256": "0659edef30b69181aad8cdd3b4029e40ea9a03bf17b532d8f102a513da77fb21"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "sha256": "24c56b5959b687adb36b9c80c669b9ed36ecd12c7316f164da283f7a05c0b85a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "sha256": "e471a26cefe14b67ed1e0bd299b685211b4edc396b987968d2c72f2d3ee67864"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "sha256": "a6d90ef2529820d14ec4cacb14b85c631387629a18ededc2002024cb3cc08b9e"
+    }
+  ]
+}

@@ -94,8 +94,8 @@ public class TileEntityCondenserPowered extends TileEntityCondenser implements I
 
 				if(this.world.getTotalWorldTime() % 4 == 0) {
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
-					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);
-					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);
 				}
 			}
 		}

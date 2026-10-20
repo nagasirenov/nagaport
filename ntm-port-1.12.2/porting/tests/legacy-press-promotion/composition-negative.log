@@ -1,0 +1,8 @@
+PASS pinned remaining-colored full-file inverse for exactly src/main/java/com/hbm/render/tileentity/RenderPumpjack.java
+Traceback (most recent call last):
+  File "/workspace/shared/nagaport-metadata-cp90/ntm-port-1.12.2/porting/tests/legacy-press-promotion/cache-audit/scan.py", line 81, in <module>
+    verify(args.module, args.compose_colored)
+  File "/workspace/shared/nagaport-metadata-cp90/ntm-port-1.12.2/porting/tests/legacy-press-promotion/cache-audit/scan.py", line 69, in verify
+    assert hashlib.sha256(data).hexdigest() == want, path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java

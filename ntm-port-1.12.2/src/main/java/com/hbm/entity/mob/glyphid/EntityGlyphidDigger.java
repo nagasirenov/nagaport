@@ -132,10 +132,11 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 				int z1 = ints[2];
 
 
-				Block b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1).getBlock();
+				net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1);
+				Block b = nativeCubeState_b.getBlock();
 				float k = b.getExplosionResistance(this, this.world, x1, y1, z1, posX, posY, posZ);
 
-				if (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube() && !(b instanceof BlockDummyable) && this.world.getTileEntity(x1, y1, z1) == null) {
+				if (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube(nativeCubeState_b) && !(b instanceof BlockDummyable) && this.world.getTileEntity(x1, y1, z1) == null) {
 
 					EntityRubble rubble = new EntityRubble(this.world);
 					rubble.posX = x1 + 0.5F;
@@ -145,11 +146,11 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 					rubble.setMetaBasedOnBlock(b, this.world.getBlockMetadata(x1, y1, z1));
 
 					if(fireVec != null)
-						rubble.setThrowableHeading(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());
+						rubble.shoot(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());
 
 					this.world.spawnEntityInWorld(rubble);
 
-					this.world.setBlock(x1, y1, z1, Blocks.AIR);
+					com.hbm.world.WorldBlockState.write(this.world, x1, y1, z1, Blocks.AIR.getStateFromMeta(0), 3);
 				}
 			}
 		}

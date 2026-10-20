@@ -59,13 +59,15 @@ public class DigammaFlame extends Block {
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z);
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
+		net.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
+		return nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP);
 	}
 
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(!canPlaceBlockAt(world, x, y, z)) {
+		if(!canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}

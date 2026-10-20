@@ -1,0 +1,13 @@
+PASS whole original owner reversed-boundary comparison, pinned original hash, exact five bindings and no descendants
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[08:25:35] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[08:25:35] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[08:25:35] [main/INFO]: Replaced 1036 ore ingredients
+[08:25:36] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[08:25:36] [main/INFO]: Processing ObjectHolder annotations
+[08:25:36] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 1951 oil native World/Chunk, reentrant notification, formula, RNG and codec checks
+PASS exact original formula bodies and five production bindings; four native BlockOre targets plus null

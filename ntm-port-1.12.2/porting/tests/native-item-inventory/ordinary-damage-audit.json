@@ -1,0 +1,16 @@
+{
+  "scope": "Bounded original registration and damage-write audit, not every external caller",
+  "source_sha256": {
+    "com/hbm/main/MainRegistry.java": "e0e1b9d388c8b5739ac21522b89ab888965cf6065e28e73a7ec8a16c8b934365",
+    "com/hbm/items/ModItems.java": "a20e4f1aae10e31b9b8c16ce02e832bd4435a01f18a86b291e5ce1a54637c97f",
+    "com/hbm/items/ModItemsArmor.java": "af96cdfd1a8fbec432ef348195025173b89e6ed5328201a31cd67d5aa417a0e9",
+    "com/hbm/items/armor/ArmorEuphemium.java": "2060c8079ad60de660b24933fa7662a69c636b7af93a6e2f6535560b0f3cd222",
+    "com/hbm/items/machine/ItemFluidIDMulti.java": "df23d80a2181f591b8961ea5887fb81854d01bf33cfaebcc29911215d6a1b76b"
+  },
+  "findings": [
+    "MainRegistry.aMatEuph uses durability factor 15000000; ArmorEuphemium.setDamage(ItemStack,int) is explicitly no-op.",
+    "Audited MainRegistry tool materials maximum durability 10000. Direct setMaxDamage item registrations and constructors used by repair kits/stamps/blades/inserts/revive/canteen/degradation are below 65536.",
+    "FluidIDMulti writes fluid1 integer to metadata; actual fluid registration range and arbitrary external control data are separate from this root.",
+    "Large batteries/armor power and fuel values are NBT energy/yield values, not raw itemDamage. No ordinary >65535 damage producer established by this bounded audit."
+  ]
+}

@@ -7,6 +7,8 @@ import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.client.IRenderHandler;
@@ -52,7 +54,8 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		this.renderStars();
 		GL11.glEndList();
 		GL11.glPopMatrix();
-		final Tessellator tessellator = Tessellator.instance;
+		final Tessellator tessellator = Tessellator.getInstance();
+		final BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 		this.glSkyList = this.starGLCallList + 1;
 		GL11.glNewList(this.glSkyList, GL11.GL_COMPILE);
 		final byte byte2 = 64;
@@ -61,11 +64,11 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 
 		for(int j = -byte2 * i; j <= byte2 * i; j += byte2) {
 			for(int l = -byte2 * i; l <= byte2 * i; l += byte2) {
-				tessellator.startDrawingQuads();
-				tessellator.addVertex(j + 0, f, l + 0);
-				tessellator.addVertex(j + byte2, f, l + 0);
-				tessellator.addVertex(j + byte2, f, l + byte2);
-				tessellator.addVertex(j + 0, f, l + byte2);
+				tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);
+				tessellatorBuffer.pos(j + 0, f, l + 0).endVertex();
+				tessellatorBuffer.pos(j + byte2, f, l + 0).endVertex();
+				tessellatorBuffer.pos(j + byte2, f, l + byte2).endVertex();
+				tessellatorBuffer.pos(j + 0, f, l + byte2).endVertex();
 				tessellator.draw();
 			}
 		}
@@ -74,14 +77,14 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		this.glSkyList2 = this.starGLCallList + 2;
 		GL11.glNewList(this.glSkyList2, GL11.GL_COMPILE);
 		f = -16F;
-		tessellator.startDrawingQuads();
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);
 
 		for(int k = -byte2 * i; k <= byte2 * i; k += byte2) {
 			for(int i1 = -byte2 * i; i1 <= byte2 * i; i1 += byte2) {
-				tessellator.addVertex(k + byte2, f, i1 + 0);
-				tessellator.addVertex(k + 0, f, i1 + 0);
-				tessellator.addVertex(k + 0, f, i1 + byte2);
-				tessellator.addVertex(k + byte2, f, i1 + byte2);
+				tessellatorBuffer.pos(k + byte2, f, i1 + 0).endVertex();
+				tessellatorBuffer.pos(k + 0, f, i1 + 0).endVertex();
+				tessellatorBuffer.pos(k + 0, f, i1 + byte2).endVertex();
+				tessellatorBuffer.pos(k + byte2, f, i1 + byte2).endVertex();
 			}
 		}
 
@@ -113,7 +116,8 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		}
 
 		GL11.glColor3f(f1, f2, f3);
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 		GL11.glDepthMask(false);
 		GL11.glEnable(GL11.GL_FOG);
 		GL11.glColor3f(f1, f2, f3);
@@ -156,21 +160,21 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
 		// Some blanking to conceal the stars
 		f10 = 30.0F;
-		tessellator.startDrawingQuads();
-		tessellator.addVertex(-f10, 99.9D, -f10);
-		tessellator.addVertex(f10, 99.9D, -f10);
-		tessellator.addVertex(f10, 99.9D, f10);
-		tessellator.addVertex(-f10, 99.9D, f10);
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);
+		tessellatorBuffer.pos(-f10, 99.9D, -f10).endVertex();
+		tessellatorBuffer.pos(f10, 99.9D, -f10).endVertex();
+		tessellatorBuffer.pos(f10, 99.9D, f10).endVertex();
+		tessellatorBuffer.pos(-f10, 99.9D, f10).endVertex();
 		tessellator.draw();
 		{
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, rain);
 			mc.renderEngine.bindTexture(this.sunTexture);
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-f10, 100.0D, -f10, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(f10, 100.0D, -f10, 1.0D, 0.0D);
-			tessellator.addVertexWithUV(f10, 100.0D, f10, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-f10, 100.0D, f10, 0.0D, 1.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-f10, 100.0D, -f10).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(f10, 100.0D, -f10).tex(1.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(f10, 100.0D, f10).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-f10, 100.0D, f10).tex(0.0D, 1.0D).endVertex();
 			tessellator.draw();
 		}
 		{
@@ -184,11 +188,11 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 			final float rand7 = (var29 + 0) / 2.0F;
 			final float zz = (cosphi + 1) / 4.0F;
 			final float rand9 = (var29 + 1) / 2.0F;
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-f10, -100.0D, f10, zz, rand9);
-			tessellator.addVertexWithUV(f10, -100.0D, f10, yy, rand9);
-			tessellator.addVertexWithUV(f10, -100.0D, -f10, yy, rand7);
-			tessellator.addVertexWithUV(-f10, -100.0D, -f10, zz, rand7);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-f10, -100.0D, f10).tex(zz, rand9).endVertex();
+			tessellatorBuffer.pos(f10, -100.0D, f10).tex(yy, rand9).endVertex();
+			tessellatorBuffer.pos(f10, -100.0D, -f10).tex(yy, rand7).endVertex();
+			tessellatorBuffer.pos(-f10, -100.0D, -f10).tex(zz, rand7).endVertex();
 			tessellator.draw();
 		}
 		{
@@ -210,11 +214,11 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 			float var12 = 1F * (1 + digamma * 0.25F);
 			double dist = 100D - digamma * 2.5;
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);
-			tessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();
 			tessellator.draw();
 			GL11.glPopMatrix();
 
@@ -229,11 +233,11 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 			var12 = 0.5F;
 			dist = 100D;
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);
-			tessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();
 			tessellator.draw();
 			GL11.glPopMatrix();
 		}
@@ -256,28 +260,29 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 			f8 = 1.0F;
 			f9 = -((float) (d0 + 65.0D));
 			f10 = -f8;
-			tessellator.startDrawingQuads();
-			tessellator.setColorRGBA_I(0, 255);
-			tessellator.addVertex(-f8, f9, f8);
-			tessellator.addVertex(f8, f9, f8);
-			tessellator.addVertex(f8, f10, f8);
-			tessellator.addVertex(-f8, f10, f8);
-			tessellator.addVertex(-f8, f10, -f8);
-			tessellator.addVertex(f8, f10, -f8);
-			tessellator.addVertex(f8, f9, -f8);
-			tessellator.addVertex(-f8, f9, -f8);
-			tessellator.addVertex(f8, f10, -f8);
-			tessellator.addVertex(f8, f10, f8);
-			tessellator.addVertex(f8, f9, f8);
-			tessellator.addVertex(f8, f9, -f8);
-			tessellator.addVertex(-f8, f9, -f8);
-			tessellator.addVertex(-f8, f9, f8);
-			tessellator.addVertex(-f8, f10, f8);
-			tessellator.addVertex(-f8, f10, -f8);
-			tessellator.addVertex(-f8, f10, -f8);
-			tessellator.addVertex(-f8, f10, f8);
-			tessellator.addVertex(f8, f10, f8);
-			tessellator.addVertex(f8, f10, -f8);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+			int tessellatorColor0Packed = 0;
+			int tessellatorColor0Alpha = Math.max(0, Math.min(255, 255));
+			tessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f10, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f10, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
 			tessellator.draw();
 		}
 
@@ -297,8 +302,9 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 
 	private void renderStars() {
 		Random random = new Random(10842L);
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);
 
 		for(int i = 0; i < 1500; ++i) {
 			double d0 = (double) (random.nextFloat() * 2.0F - 1.0F);
@@ -335,7 +341,7 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 					double d23 = d17 * d12 - d20 * d13;
 					double d24 = d23 * d9 - d21 * d10;
 					double d25 = d21 * d9 + d23 * d10;
-					tessellator.addVertex(d5 + d24, d6 + d22, d7 + d25);
+					tessellatorBuffer.pos(d5 + d24, d6 + d22, d7 + d25).endVertex();
 				}
 			}
 		}

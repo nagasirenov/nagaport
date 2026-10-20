@@ -64,7 +64,7 @@ public class TileEntityCoreReceiver extends TileEntityMachineBase implements IEn
 				if(tank.getFill() >= 20) {
 					tank.setFill(tank.getFill() - 20);
 				} else {
-					this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA);
+					com.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), Blocks.FLOWING_LAVA.getStateFromMeta(0), 3);
 					return;
 				}
 			}
@@ -118,7 +118,7 @@ public class TileEntityCoreReceiver extends TileEntityMachineBase implements IEn
 		if(dir.getOpposite().ordinal() == this.getBlockMetadata()) {
 			joules += energy;
 		} else {
-			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 			this.world.createExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 2.5F, true);
 		}
 	}

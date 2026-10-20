@@ -340,7 +340,7 @@ public class EntityMist extends Entity {
 				double d7 = targetX + (e.posX - targetX) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
 				double d8 = targetY + (e.posY - targetY) * d6 + this.rand.nextDouble() * (double) e.height;
 				double d9 = targetZ + (e.posZ - targetZ) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
-				e.world.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
+				e.world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, d7, d8, d9, (double) f, (double) f1, (double) f2);
 			}
 
 			com.hbm.sound.VanillaWorldSoundEffects.play(e.world, targetX, targetY, targetZ, "mob.endermen.portal", 1.0F, 1.0F);

@@ -1,0 +1,1778 @@
+{
+  "base": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "phases": [
+    {
+      "kind": "read",
+      "files": [
+        {
+          "path": "src/main/java/com/hbm/handler/BucketHandler.java",
+          "before": "b8623f094d2bc5fe0b6d1d3626b89247d60282bc98f43acf9929b5a973e6c505",
+          "after": "d5b754218b2e25404e3c7711a12e4a563292de21a76f360fe465eca154ddd9d8",
+          "edits": [
+            {
+              "start": 752,
+              "end": 757,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 765,
+              "end": 771,
+              "old": "target",
+              "new": "getTarget()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java",
+          "before": "12684c3abdcbe838c8b81c41723747d89f0850876430279918712b2f18120356",
+          "after": "82bc7f187b74b6a3298f994611140af990b81ccf2a420ca89d988605664b532b",
+          "edits": [
+            {
+              "start": 11818,
+              "end": 11823,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 11865,
+              "end": 11870,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 11997,
+              "end": 12002,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.BreakEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 12045,
+              "end": 12050,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.BreakEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 12584,
+              "end": 12589,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.ExplosionEvent.Detonate",
+              "owner": "net.minecraftforge.event.world.ExplosionEvent",
+              "kind": "read"
+            },
+            {
+              "start": 12767,
+              "end": 12772,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.ExplosionEvent.Detonate",
+              "owner": "net.minecraftforge.event.world.ExplosionEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13357,
+              "end": 13366,
+              "old": "explosion",
+              "new": "getExplosion()",
+              "receiver": "net.minecraftforge.event.world.ExplosionEvent.Detonate",
+              "owner": "net.minecraftforge.event.world.ExplosionEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13410,
+              "end": 13419,
+              "old": "explosion",
+              "new": "getExplosion()",
+              "receiver": "net.minecraftforge.event.world.ExplosionEvent.Detonate",
+              "owner": "net.minecraftforge.event.world.ExplosionEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13463,
+              "end": 13472,
+              "old": "explosion",
+              "new": "getExplosion()",
+              "receiver": "net.minecraftforge.event.world.ExplosionEvent.Detonate",
+              "owner": "net.minecraftforge.event.world.ExplosionEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13553,
+              "end": 13558,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.ExplosionEvent.Detonate",
+              "owner": "net.minecraftforge.event.world.ExplosionEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13624,
+              "end": 13633,
+              "old": "explosion",
+              "new": "getExplosion()",
+              "receiver": "net.minecraftforge.event.world.ExplosionEvent.Detonate",
+              "owner": "net.minecraftforge.event.world.ExplosionEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/handler/pollution/PollutionHandler.java",
+          "before": "e7244ee5cfa2d0a3f01cd8c7995ad11a373d655f4fe6e71bed80c24f455e42e4",
+          "after": "e58904f1dd781742530d30cba3f503603b0a0a9f55d51995e0cee5da63b5ecc0",
+          "edits": [
+            {
+              "start": 13867,
+              "end": 13872,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 14029,
+              "end": 14030,
+              "old": "x",
+              "new": "getX()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 14056,
+              "end": 14057,
+              "old": "y",
+              "new": "getY()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 14083,
+              "end": 14084,
+              "old": "z",
+              "new": "getZ()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/inventory/OreDictManager.java",
+          "before": "b5aa13c59a747268abece53dc979bdce895e70ee26205aa9b18dc8f1da90f740",
+          "after": "90f8f9bbfdaab37dc62bbe63b59edf6bd8e34f314ea74a25bacbf7547cff725e",
+          "edits": [
+            {
+              "start": 52778,
+              "end": 52782,
+              "old": "Name",
+              "new": "getName()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            },
+            {
+              "start": 52884,
+              "end": 52887,
+              "old": "Ore",
+              "new": "getOre()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            },
+            {
+              "start": 52950,
+              "end": 52954,
+              "old": "Name",
+              "new": "getName()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            },
+            {
+              "start": 53021,
+              "end": 53025,
+              "old": "Name",
+              "new": "getName()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            },
+            {
+              "start": 53055,
+              "end": 53059,
+              "old": "Name",
+              "new": "getName()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            },
+            {
+              "start": 53087,
+              "end": 53091,
+              "old": "Name",
+              "new": "getName()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            },
+            {
+              "start": 53121,
+              "end": 53125,
+              "old": "Name",
+              "new": "getName()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            },
+            {
+              "start": 53195,
+              "end": 53198,
+              "old": "Ore",
+              "new": "getOre()",
+              "receiver": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModGasmask.java",
+          "before": "854b78c15f6e0699cc86072d50775a67c7471b899914ce8f14abb73638f29127",
+          "after": "372bcef4f11c5a76c4c8781c174d2dc45372f16ba7994358b99572946a7c5293",
+          "edits": [
+            {
+              "start": 2511,
+              "end": 2523,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 3263,
+              "end": 3275,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java",
+          "before": "6120382a61b552607466739bfaebe198cbe2bfba438f712cb35430e722645653",
+          "after": "2f42ae867cad0209c926c67cceb399643a845783d2f586b5b9a68656b8165105",
+          "edits": [
+            {
+              "start": 3790,
+              "end": 3802,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 4729,
+              "end": 4741,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/ItemModTesla.java",
+          "before": "12f118443e82189761f75f38a4c45c3fd37b8a55ecfb2324bf986e333de8dd3e",
+          "after": "46fbfd1ee51c967c397adbcfabeac9f80a64d3e874c176de323c5426bd6f10ee",
+          "edits": [
+            {
+              "start": 2232,
+              "end": 2244,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 2785,
+              "end": 2797,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/items/armor/JetpackBase.java",
+          "before": "b858a00c48613437f8a1cee9a12eb50c71fadf360710e272f1ef5869cc6904ed",
+          "after": "afe831fffc7258ad405ec96806d5cfc4c45214f630bcb2bd2aae112470325db4",
+          "edits": [
+            {
+              "start": 2109,
+              "end": 2121,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 2740,
+              "end": 2752,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/items/tool/ItemTurretControl.java",
+          "before": "b0299288e84322be99e56741ab1b00c54d9c6b2b5cc45488c52f7ff3f8e80bf2",
+          "after": "dfe1b775fc3d91d1901b303dd8a7ae41febc26abcf7f0149d8ac51f85112bcd3",
+          "edits": [
+            {
+              "start": 5922,
+              "end": 5928,
+              "old": "charge",
+              "new": "getCharge()",
+              "receiver": "net.minecraftforge.event.entity.player.ArrowLooseEvent",
+              "owner": "net.minecraftforge.event.entity.player.ArrowLooseEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/items/weapon/GunB92.java",
+          "before": "0008133101ff93e0334fa27712f8b67e6747d799f78f3003129a05b09e1dccc2",
+          "after": "95024164af92e2a896696d9b919f83589693979193e9f51d276f5e6e9d07241d",
+          "edits": [
+            {
+              "start": 1506,
+              "end": 1512,
+              "old": "charge",
+              "new": "getCharge()",
+              "receiver": "net.minecraftforge.event.entity.player.ArrowLooseEvent",
+              "owner": "net.minecraftforge.event.entity.player.ArrowLooseEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+          "before": "8f01b57095059874ebc6789abaf9a2e294fad8f30ff58223c87b08eab989092b",
+          "after": "59296824a1c6f28d850b2a590a48c10d74d6e1acaec1f90585919c8575dcd054",
+          "edits": [
+            {
+              "start": 15591,
+              "end": 15597,
+              "old": "source",
+              "new": "getSource()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "kind": "read"
+            },
+            {
+              "start": 17103,
+              "end": 17109,
+              "old": "source",
+              "new": "getSource()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "kind": "read"
+            },
+            {
+              "start": 17905,
+              "end": 17911,
+              "old": "source",
+              "new": "getSource()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "kind": "read"
+            },
+            {
+              "start": 17972,
+              "end": 17978,
+              "old": "source",
+              "new": "getSource()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "kind": "read"
+            },
+            {
+              "start": 18058,
+              "end": 18064,
+              "old": "source",
+              "new": "getSource()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "kind": "read"
+            },
+            {
+              "start": 19646,
+              "end": 19652,
+              "old": "source",
+              "new": "getSource()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "kind": "read"
+            },
+            {
+              "start": 20278,
+              "end": 20284,
+              "old": "source",
+              "new": "getSource()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+              "kind": "read"
+            },
+            {
+              "start": 21659,
+              "end": 21664,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 21907,
+              "end": 21908,
+              "old": "x",
+              "new": "getX()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 21941,
+              "end": 21942,
+              "old": "y",
+              "new": "getY()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 21975,
+              "end": 21976,
+              "old": "z",
+              "new": "getZ()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 24089,
+              "end": 24094,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.EntityJoinWorldEvent",
+              "owner": "net.minecraftforge.event.entity.EntityJoinWorldEvent",
+              "kind": "read"
+            },
+            {
+              "start": 24491,
+              "end": 24501,
+              "old": "entityItem",
+              "new": "getEntityItem()",
+              "receiver": "net.minecraftforge.event.entity.item.ItemTossEvent",
+              "owner": "net.minecraftforge.event.entity.item.ItemEvent",
+              "kind": "read"
+            },
+            {
+              "start": 24843,
+              "end": 24853,
+              "old": "entityItem",
+              "new": "getEntityItem()",
+              "receiver": "net.minecraftforge.event.entity.item.ItemTossEvent",
+              "owner": "net.minecraftforge.event.entity.item.ItemEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25046,
+              "end": 25056,
+              "old": "entityItem",
+              "new": "getEntityItem()",
+              "receiver": "net.minecraftforge.event.entity.item.ItemTossEvent",
+              "owner": "net.minecraftforge.event.entity.item.ItemEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25218,
+              "end": 25223,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25322,
+              "end": 25327,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25490,
+              "end": 25495,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25575,
+              "end": 25580,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25685,
+              "end": 25690,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25805,
+              "end": 25810,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25916,
+              "end": 25921,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 25956,
+              "end": 25962,
+              "old": "player",
+              "new": "getPlayer()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26010,
+              "end": 26015,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26136,
+              "end": 26141,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26436,
+              "end": 26441,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26471,
+              "end": 26477,
+              "old": "target",
+              "new": "getTarget()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26539,
+              "end": 26544,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26600,
+              "end": 26605,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26667,
+              "end": 26674,
+              "old": "current",
+              "new": "getEmptyBucket()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26692,
+              "end": 26699,
+              "old": "current",
+              "new": "getEmptyBucket()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26781,
+              "end": 26787,
+              "old": "target",
+              "new": "getTarget()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26877,
+              "end": 26882,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26890,
+              "end": 26896,
+              "old": "target",
+              "new": "getTarget()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 26950,
+              "end": 26956,
+              "old": "target",
+              "new": "getTarget()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 27010,
+              "end": 27016,
+              "old": "target",
+              "new": "getTarget()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 27318,
+              "end": 27323,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "read"
+            },
+            {
+              "start": 27631,
+              "end": 27636,
+              "old": "drops",
+              "new": "getDrops()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingDropsEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingDropsEvent",
+              "kind": "read"
+            },
+            {
+              "start": 38076,
+              "end": 38081,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable",
+              "owner": "net.minecraftforge.event.terraingen.OreGenEvent",
+              "kind": "read"
+            },
+            {
+              "start": 38134,
+              "end": 38139,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable",
+              "owner": "net.minecraftforge.event.terraingen.OreGenEvent",
+              "kind": "read"
+            },
+            {
+              "start": 41910,
+              "end": 41922,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.event.entity.player.PlayerFlyableFallEvent",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 42221,
+              "end": 42229,
+              "old": "distance",
+              "new": "getDistance()",
+              "receiver": "net.minecraftforge.event.entity.player.PlayerFlyableFallEvent",
+              "owner": "net.minecraftforge.event.entity.player.PlayerFlyableFallEvent",
+              "kind": "read"
+            },
+            {
+              "start": 42415,
+              "end": 42427,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.event.entity.player.AttackEntityEvent",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 45533,
+              "end": 45541,
+              "old": "distance",
+              "new": "getDistance()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingFallEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingFallEvent",
+              "kind": "read"
+            },
+            {
+              "start": 45647,
+              "end": 45652,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.player.UseHoeEvent",
+              "owner": "net.minecraftforge.event.entity.player.UseHoeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 45930,
+              "end": 45937,
+              "old": "current",
+              "new": "getCurrent()",
+              "receiver": "net.minecraftforge.event.entity.player.UseHoeEvent",
+              "owner": "net.minecraftforge.event.entity.player.UseHoeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 45958,
+              "end": 45970,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.event.entity.player.UseHoeEvent",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 59048,
+              "end": 59053,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 59176,
+              "end": 59181,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 59262,
+              "end": 59266,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 61297,
+              "end": 61304,
+              "old": "command",
+              "new": "getCommand()",
+              "receiver": "net.minecraftforge.event.CommandEvent",
+              "owner": "net.minecraftforge.event.CommandEvent",
+              "kind": "read"
+            },
+            {
+              "start": 61338,
+              "end": 61344,
+              "old": "sender",
+              "new": "getSender()",
+              "receiver": "net.minecraftforge.event.CommandEvent",
+              "owner": "net.minecraftforge.event.CommandEvent",
+              "kind": "read"
+            },
+            {
+              "start": 61481,
+              "end": 61491,
+              "old": "parameters",
+              "new": "getParameters()",
+              "receiver": "net.minecraftforge.event.CommandEvent",
+              "owner": "net.minecraftforge.event.CommandEvent",
+              "kind": "read"
+            },
+            {
+              "start": 65126,
+              "end": 65131,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.BreakEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 65197,
+              "end": 65202,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.BreakEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 65250,
+              "end": 65255,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.BreakEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 65326,
+              "end": 65331,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.BreakEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 65586,
+              "end": 65591,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.world.BlockEvent.BreakEvent",
+              "owner": "net.minecraftforge.event.world.BlockEvent",
+              "kind": "read"
+            },
+            {
+              "start": 70163,
+              "end": 70169,
+              "old": "player",
+              "new": "getPlayer()",
+              "receiver": "net.minecraftforge.event.ServerChatEvent",
+              "owner": "net.minecraftforge.event.ServerChatEvent",
+              "kind": "read"
+            },
+            {
+              "start": 70196,
+              "end": 70203,
+              "old": "message",
+              "new": "getMessage()",
+              "receiver": "net.minecraftforge.event.ServerChatEvent",
+              "owner": "net.minecraftforge.event.ServerChatEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerClient.java",
+          "before": "14f37dc68b0283a7965fffd1da972699dbbcb4e8741f4231a0c0d101165dc3ab",
+          "after": "58001c26d396263de3398ba68c9df551f7b10857676986087c6f04568f55c63c",
+          "edits": [
+            {
+              "start": 21498,
+              "end": 21510,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 23810,
+              "end": 23822,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 29742,
+              "end": 29751,
+              "old": "itemStack",
+              "new": "getItemStack()",
+              "receiver": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+              "owner": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+              "kind": "read"
+            },
+            {
+              "start": 29781,
+              "end": 29788,
+              "old": "toolTip",
+              "new": "getToolTip()",
+              "receiver": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+              "owner": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+              "kind": "read"
+            },
+            {
+              "start": 31574,
+              "end": 31586,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 34841,
+              "end": 34853,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 60369,
+              "end": 60372,
+              "old": "gui",
+              "new": "getGui()",
+              "receiver": "net.minecraftforge.client.event.GuiOpenEvent",
+              "owner": "net.minecraftforge.client.event.GuiOpenEvent",
+              "kind": "read"
+            },
+            {
+              "start": 60488,
+              "end": 60491,
+              "old": "gui",
+              "new": "getGui()",
+              "receiver": "net.minecraftforge.client.event.GuiOpenEvent",
+              "owner": "net.minecraftforge.client.event.GuiOpenEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerImpact.java",
+          "before": "cd5f632eea4440408fbb12256955c09328e78ad61f1dd68141c6806111f72b19",
+          "after": "7d5ac62792e87500839f949a085b0a1c490731f16c15617ac0403c1ca457f228",
+          "edits": [
+            {
+              "start": 4291,
+              "end": 4296,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn",
+              "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+              "kind": "read"
+            },
+            {
+              "start": 4995,
+              "end": 4999,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate",
+              "kind": "read"
+            },
+            {
+              "start": 5083,
+              "end": 5088,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 5679,
+              "end": 5684,
+              "old": "biome",
+              "new": "getBiome()",
+              "receiver": "net.minecraftforge.event.terraingen.BiomeEvent.GetVillageBlockID",
+              "owner": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 6854,
+              "end": 6859,
+              "old": "biome",
+              "new": "getBiome()",
+              "receiver": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "owner": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 6883,
+              "end": 6888,
+              "old": "biome",
+              "new": "getBiome()",
+              "receiver": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "owner": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 6922,
+              "end": 6927,
+              "old": "biome",
+              "new": "getBiome()",
+              "receiver": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "owner": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 7027,
+              "end": 7032,
+              "old": "biome",
+              "new": "getBiome()",
+              "receiver": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "owner": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 7093,
+              "end": 7098,
+              "old": "biome",
+              "new": "getBiome()",
+              "receiver": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "owner": "net.minecraftforge.event.terraingen.BiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 7287,
+              "end": 7292,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 7342,
+              "end": 7346,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7410,
+              "end": 7414,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7437,
+              "end": 7441,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7470,
+              "end": 7474,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7498,
+              "end": 7502,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7525,
+              "end": 7529,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7555,
+              "end": 7559,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7593,
+              "end": 7597,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7622,
+              "end": 7626,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7652,
+              "end": 7656,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7780,
+              "end": 7784,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7807,
+              "end": 7811,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 7840,
+              "end": 7844,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 8044,
+              "end": 8048,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 8072,
+              "end": 8076,
+              "old": "type",
+              "new": "getType()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+              "kind": "read"
+            },
+            {
+              "start": 8321,
+              "end": 8326,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Post",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 8373,
+              "end": 8378,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Post",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 8409,
+              "end": 8415,
+              "old": "chunkX",
+              "new": "getChunkX()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Post",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 8423,
+              "end": 8429,
+              "old": "chunkZ",
+              "new": "getChunkZ()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Post",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+          "before": "71dd86c35752ba2f1b060800aa3bc4c6e40d1648ba44927236266cae54f39407",
+          "after": "f2cf07584b919f8be56ad913187e0704eba070b0744f39a3f25afc6a508b2880",
+          "edits": [
+            {
+              "start": 2978,
+              "end": 2990,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 3116,
+              "end": 3128,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.Pre",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 6557,
+              "end": 6560,
+              "old": "red",
+              "new": "getRed()",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "read"
+            },
+            {
+              "start": 6568,
+              "end": 6573,
+              "old": "green",
+              "new": "getGreen()",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "read"
+            },
+            {
+              "start": 6581,
+              "end": 6585,
+              "old": "blue",
+              "new": "getBlue()",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "read"
+            },
+            {
+              "start": 7030,
+              "end": 7033,
+              "old": "red",
+              "new": "getRed()",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "read"
+            },
+            {
+              "start": 7094,
+              "end": 7099,
+              "old": "green",
+              "new": "getGreen()",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "read"
+            },
+            {
+              "start": 7159,
+              "end": 7163,
+              "old": "blue",
+              "new": "getBlue()",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java",
+          "before": "1d88c7ffc80737faaa0209d5877d10dfb4a2bd0ca76c1417f1556ddae735323f",
+          "after": "9add72c20dd1b9951386d67e4215c0a39202afe5cdf0d394b6da99197c05ce88",
+          "edits": [
+            {
+              "start": 7283,
+              "end": 7295,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 7786,
+              "end": 7798,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 8159,
+              "end": 8171,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 8654,
+              "end": 8666,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 9016,
+              "end": 9028,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            },
+            {
+              "start": 9505,
+              "end": 9517,
+              "old": "entityPlayer",
+              "new": "getEntityPlayer()",
+              "receiver": "net.minecraftforge.client.event.RenderPlayerEvent.SetArmorModel",
+              "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/world/feature/BiomeCave.java",
+          "before": "cc078528031e7f057f9d7dff09e60408242c26d0f4752c7d09922e069fcd456c",
+          "after": "166675ebc7dcff286c810cd76e56a590258d4ebaefcc59c33e30f39446d0e5c8",
+          "edits": [
+            {
+              "start": 1860,
+              "end": 1865,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 2033,
+              "end": 2038,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/world/feature/OreCave.java",
+          "before": "90c450afa813a3232ad7101f463a01b2f296f703cf8e914ebec642685bcf08ee",
+          "after": "787cefc2e4f32c508934218d5d1e86ab47d188ad21f710c70d27a9edf1263f32",
+          "edits": [
+            {
+              "start": 2813,
+              "end": 2818,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 3363,
+              "end": 3368,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 4179,
+              "end": 4183,
+              "old": "rand",
+              "new": "getRand()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 6014,
+              "end": 6018,
+              "old": "rand",
+              "new": "getRand()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/world/feature/OreLayer.java",
+          "before": "acc85c624ffc32073b641d780e1767463e54324d6465a45f5840a97c9cc95286",
+          "after": "d43fc63fd966d8a9d33e3b49573c7df50c9432370ce25780bec5f03d07c54694",
+          "edits": [
+            {
+              "start": 2036,
+              "end": 2041,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 2216,
+              "end": 2221,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 2777,
+              "end": 2781,
+              "old": "rand",
+              "new": "getRand()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/world/feature/OreLayer3D.java",
+          "before": "bba249e693ba274f16b65181a181f8967fe04bace6c39dff19c2663442cf47e7",
+          "after": "32133790ff36fe976639420a2f1537e6efd16a39ce12b9d2757708066602376e",
+          "edits": [
+            {
+              "start": 1810,
+              "end": 1815,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/world/feature/SchistStratum.java",
+          "before": "435598c34af9436f0a308e140281a169580ec57c02176f3ceafc33d8c8570bc9",
+          "after": "0b3788595add73da2dad84d3a212c445e4dc35a12e977c1ec98243249567421a",
+          "edits": [
+            {
+              "start": 644,
+              "end": 649,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            },
+            {
+              "start": 693,
+              "end": 698,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+              "kind": "read"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/world/gen/NTMWorldGenerator.java",
+          "before": "dc554aedd01f5b4dbaa81133650164a0469720bf75b5b603929a68ff03c0dd52",
+          "after": "1fbf441d66c3fb0e04e98eaad6a80a775a789832111c7622a375f1bfbb83d29e",
+          "edits": [
+            {
+              "start": 13128,
+              "end": 13133,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13204,
+              "end": 13209,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13217,
+              "end": 13223,
+              "old": "chunkX",
+              "new": "getChunkX()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13231,
+              "end": 13237,
+              "old": "chunkZ",
+              "new": "getChunkZ()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13318,
+              "end": 13323,
+              "old": "world",
+              "new": "getWorld()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13358,
+              "end": 13364,
+              "old": "chunkX",
+              "new": "getChunkX()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            },
+            {
+              "start": 13372,
+              "end": 13378,
+              "old": "chunkZ",
+              "new": "getChunkZ()",
+              "receiver": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre",
+              "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+              "kind": "read"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "write",
+      "files": [
+        {
+          "path": "src/main/java/com/hbm/handler/BucketHandler.java",
+          "before": "d5b754218b2e25404e3c7711a12e4a563292de21a76f360fe465eca154ddd9d8",
+          "after": "0d02a85dbd15ba0aa76ae25142a16951329dafe2fa2de985e22f0bc63a0c92ae",
+          "edits": [
+            {
+              "start": 821,
+              "end": 842,
+              "old": "event.result = result",
+              "new": "event.setFilledBucket(result)",
+              "receiver": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+              "kind": "assign",
+              "field": "result",
+              "setter": "setFilledBucket"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+          "before": "59296824a1c6f28d850b2a590a48c10d74d6e1acaec1f90585919c8575dcd054",
+          "after": "3e46fac7b6a2447d499856e5d25bf8ffa07c9b15948a3a1587ab65eca8f993b5",
+          "edits": [
+            {
+              "start": 45251,
+              "end": 45269,
+              "old": "event.distance = 0",
+              "new": "event.setDistance(0)",
+              "receiver": "net.minecraftforge.event.entity.living.LivingFallEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingFallEvent",
+              "kind": "assign",
+              "field": "distance",
+              "setter": "setDistance"
+            },
+            {
+              "start": 45304,
+              "end": 45362,
+              "old": "event.distance *= gravity / AstronomyUtil.STANDARD_GRAVITY",
+              "new": "event.setDistance((float) (event.getDistance() * (gravity / AstronomyUtil.STANDARD_GRAVITY)))",
+              "receiver": "net.minecraftforge.event.entity.living.LivingFallEvent",
+              "owner": "net.minecraftforge.event.entity.living.LivingFallEvent",
+              "kind": "multiply",
+              "field": "distance",
+              "setter": "setDistance"
+            }
+          ]
+        },
+        {
+          "path": "src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+          "before": "f2cf07584b919f8be56ad913187e0704eba070b0744f39a3f25afc6a508b2880",
+          "after": "f5d6fd15f35f84e405f6d9a83a2205214798ed07d3fd3909d0908423a615acde",
+          "edits": [
+            {
+              "start": 5504,
+              "end": 5534,
+              "old": "event.density = lastFogDensity",
+              "new": "event.setDensity(lastFogDensity)",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity",
+              "kind": "assign",
+              "field": "density",
+              "setter": "setDensity"
+            },
+            {
+              "start": 6671,
+              "end": 6698,
+              "old": "event.red = (float) color.x",
+              "new": "event.setRed((float) color.x)",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "assign",
+              "field": "red",
+              "setter": "setRed"
+            },
+            {
+              "start": 6704,
+              "end": 6733,
+              "old": "event.green = (float) color.y",
+              "new": "event.setGreen((float) color.y)",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "assign",
+              "field": "green",
+              "setter": "setGreen"
+            },
+            {
+              "start": 6739,
+              "end": 6767,
+              "old": "event.blue = (float) color.z",
+              "new": "event.setBlue((float) color.z)",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "assign",
+              "field": "blue",
+              "setter": "setBlue"
+            },
+            {
+              "start": 7037,
+              "end": 7099,
+              "old": "event.red = event.getRed() * (1 - interp) + sootColor * interp",
+              "new": "event.setRed(event.getRed() * (1 - interp) + sootColor * interp)",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "assign",
+              "field": "red",
+              "setter": "setRed"
+            },
+            {
+              "start": 7104,
+              "end": 7170,
+              "old": "event.green = event.getGreen() * (1 - interp) + sootColor * interp",
+              "new": "event.setGreen(event.getGreen() * (1 - interp) + sootColor * interp)",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "assign",
+              "field": "green",
+              "setter": "setGreen"
+            },
+            {
+              "start": 7175,
+              "end": 7239,
+              "old": "event.blue = event.getBlue() * (1 - interp) + sootColor * interp",
+              "new": "event.setBlue(event.getBlue() * (1 - interp) + sootColor * interp)",
+              "receiver": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+              "kind": "assign",
+              "field": "blue",
+              "setter": "setBlue"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

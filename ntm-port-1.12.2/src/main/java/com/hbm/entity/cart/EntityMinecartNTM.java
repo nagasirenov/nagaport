@@ -12,10 +12,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 
 public abstract class EntityMinecartNTM extends EntityMinecart {
 	
-	public static final int cart_base_id = 23;
+	private static final DataParameter<Integer> CART_BASE = EntityDataManager.createKey(EntityMinecartNTM.class, DataSerializers.VARINT);
 
 	public EntityMinecartNTM(World p_i1712_1_) {
 		super(p_i1712_1_);
@@ -29,15 +33,15 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(cart_base_id, new Integer(0)); //EnumCartBase
+		this.dataManager.register(CART_BASE, new Integer(0)); //EnumCartBase
 	}
 	
 	public void setBase(EnumCartBase type) {
-		this.dataWatcher.updateObject(cart_base_id, type.ordinal());
+		this.dataManager.set(CART_BASE, type.ordinal());
 	}
 	
 	public EnumCartBase getBase() {
-		return EnumCartBase.values()[this.dataWatcher.getWatchableObjectInt(cart_base_id)];
+		return EnumCartBase.values()[this.dataManager.get(CART_BASE)];
 	}
 
 	@Override
@@ -75,13 +79,13 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setInteger("base", this.dataWatcher.getWatchableObjectInt(cart_base_id));
+		nbt.setInteger("base", this.dataManager.get(CART_BASE));
 	}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.dataWatcher.updateObject(23, nbt.getInteger("base"));
+		this.dataManager.set(CART_BASE, nbt.getInteger("base"));
 	}
 	
 	@SideOnly(Side.CLIENT)

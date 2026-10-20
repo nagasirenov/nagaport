@@ -38,7 +38,7 @@ public class EntityChopperMine extends Entity implements IProjectile {
 	}
 
 	@Override
-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
+	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
 			float p_70186_8_) {
 		
 	}

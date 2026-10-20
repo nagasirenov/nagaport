@@ -1,0 +1,304 @@
+  public net.minecraft.block.state.IBlockState setBlockState(net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_1
+       1: invokevirtual #226                // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: bipush        15
+       6: iand
+       7: istore_3
+       8: aload_1
+       9: invokevirtual #350                // Method net/minecraft/util/math/BlockPos.getY:()I
+      12: istore        4
+      14: aload_1
+      15: invokevirtual #229                // Method net/minecraft/util/math/BlockPos.getZ:()I
+      18: bipush        15
+      20: iand
+      21: istore        5
+      23: iload         5
+      25: iconst_4
+      26: ishl
+      27: iload_3
+      28: ior
+      29: istore        6
+      31: iload         4
+      33: aload_0
+      34: getfield      #101                // Field precipitationHeightMap:[I
+      37: iload         6
+      39: iaload
+      40: iconst_1
+      41: isub
+      42: if_icmplt     55
+      45: aload_0
+      46: getfield      #101                // Field precipitationHeightMap:[I
+      49: iload         6
+      51: sipush        -999
+      54: iastore
+      55: aload_0
+      56: getfield      #134                // Field heightMap:[I
+      59: iload         6
+      61: iaload
+      62: istore        7
+      64: aload_0
+      65: aload_1
+      66: invokevirtual #386                // Method getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      69: astore        8
+      71: aload         8
+      73: aload_2
+      74: if_acmpne     79
+      77: aconst_null
+      78: areturn
+      79: aload_2
+      80: invokeinterface #478,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      85: astore        9
+      87: aload         8
+      89: invokeinterface #478,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      94: astore        10
+      96: aload         8
+      98: aload_0
+      99: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     102: aload_1
+     103: invokeinterface #390,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getLightOpacity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+     108: istore        11
+     110: aload_0
+     111: getfield      #97                 // Field storageArrays:[Lnet/minecraft/world/chunk/storage/ExtendedBlockStorage;
+     114: iload         4
+     116: iconst_4
+     117: ishr
+     118: aaload
+     119: astore        12
+     121: iconst_0
+     122: istore        13
+     124: aload         12
+     126: getstatic     #197                // Field NULL_BLOCK_STORAGE:Lnet/minecraft/world/chunk/storage/ExtendedBlockStorage;
+     129: if_acmpne     192
+     132: aload         9
+     134: getstatic     #431                // Field net/minecraft/init/Blocks.AIR:Lnet/minecraft/block/Block;
+     137: if_acmpne     142
+     140: aconst_null
+     141: areturn
+     142: new           #95                 // class net/minecraft/world/chunk/storage/ExtendedBlockStorage
+     145: dup
+     146: iload         4
+     148: iconst_4
+     149: ishr
+     150: iconst_4
+     151: ishl
+     152: aload_0
+     153: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     156: getfield      #171                // Field net/minecraft/world/World.provider:Lnet/minecraft/world/WorldProvider;
+     159: invokevirtual #177                // Method net/minecraft/world/WorldProvider.hasSkyLight:()Z
+     162: invokespecial #200                // Method net/minecraft/world/chunk/storage/ExtendedBlockStorage."<init>":(IZ)V
+     165: astore        12
+     167: aload_0
+     168: getfield      #97                 // Field storageArrays:[Lnet/minecraft/world/chunk/storage/ExtendedBlockStorage;
+     171: iload         4
+     173: iconst_4
+     174: ishr
+     175: aload         12
+     177: aastore
+     178: iload         4
+     180: iload         7
+     182: if_icmplt     189
+     185: iconst_1
+     186: goto          190
+     189: iconst_0
+     190: istore        13
+     192: aload         12
+     194: iload_3
+     195: iload         4
+     197: bipush        15
+     199: iand
+     200: iload         5
+     202: aload_2
+     203: invokevirtual #204                // Method net/minecraft/world/chunk/storage/ExtendedBlockStorage.set:(IIILnet/minecraft/block/state/IBlockState;)V
+     206: aload_0
+     207: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     210: getfield      #481                // Field net/minecraft/world/World.isRemote:Z
+     213: ifne          277
+     216: aload         10
+     218: aload         9
+     220: if_acmpeq     235
+     223: aload         10
+     225: aload_0
+     226: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     229: aload_1
+     230: aload         8
+     232: invokevirtual #485                // Method net/minecraft/block/Block.breakBlock:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;)V
+     235: aload_0
+     236: aload_1
+     237: getstatic     #489                // Field net/minecraft/world/chunk/Chunk$EnumCreateEntityType.CHECK:Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;
+     240: invokevirtual #493                // Method getTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;)Lnet/minecraft/tileentity/TileEntity;
+     243: astore        14
+     245: aload         14
+     247: ifnull        274
+     250: aload         14
+     252: aload_0
+     253: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     256: aload_1
+     257: aload         8
+     259: aload_2
+     260: invokevirtual #499                // Method net/minecraft/tileentity/TileEntity.shouldRefresh:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;)Z
+     263: ifeq          274
+     266: aload_0
+     267: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     270: aload_1
+     271: invokevirtual #502                // Method net/minecraft/world/World.removeTileEntity:(Lnet/minecraft/util/math/BlockPos;)V
+     274: goto          326
+     277: aload         10
+     279: aload         8
+     281: invokevirtual #506                // Method net/minecraft/block/Block.hasTileEntity:(Lnet/minecraft/block/state/IBlockState;)Z
+     284: ifeq          326
+     287: aload_0
+     288: aload_1
+     289: getstatic     #489                // Field net/minecraft/world/chunk/Chunk$EnumCreateEntityType.CHECK:Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;
+     292: invokevirtual #493                // Method getTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;)Lnet/minecraft/tileentity/TileEntity;
+     295: astore        14
+     297: aload         14
+     299: ifnull        326
+     302: aload         14
+     304: aload_0
+     305: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     308: aload_1
+     309: aload         8
+     311: aload_2
+     312: invokevirtual #499                // Method net/minecraft/tileentity/TileEntity.shouldRefresh:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;)Z
+     315: ifeq          326
+     318: aload_0
+     319: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     322: aload_1
+     323: invokevirtual #502                // Method net/minecraft/world/World.removeTileEntity:(Lnet/minecraft/util/math/BlockPos;)V
+     326: aload         12
+     328: iload_3
+     329: iload         4
+     331: bipush        15
+     333: iand
+     334: iload         5
+     336: invokevirtual #434                // Method net/minecraft/world/chunk/storage/ExtendedBlockStorage.get:(III)Lnet/minecraft/block/state/IBlockState;
+     339: invokeinterface #478,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     344: aload         9
+     346: if_acmpeq     351
+     349: aconst_null
+     350: areturn
+     351: iload         13
+     353: ifeq          363
+     356: aload_0
+     357: invokevirtual #508                // Method generateSkylightMap:()V
+     360: goto          463
+     363: aload_2
+     364: aload_0
+     365: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     368: aload_1
+     369: invokeinterface #390,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getLightOpacity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+     374: istore        14
+     376: iload         14
+     378: ifle          402
+     381: iload         4
+     383: iload         7
+     385: if_icmplt     420
+     388: aload_0
+     389: iload_3
+     390: iload         4
+     392: iconst_1
+     393: iadd
+     394: iload         5
+     396: invokespecial #510                // Method relightBlock:(III)V
+     399: goto          420
+     402: iload         4
+     404: iload         7
+     406: iconst_1
+     407: isub
+     408: if_icmpne     420
+     411: aload_0
+     412: iload_3
+     413: iload         4
+     415: iload         5
+     417: invokespecial #510                // Method relightBlock:(III)V
+     420: iload         14
+     422: iload         11
+     424: if_icmpeq     463
+     427: iload         14
+     429: iload         11
+     431: if_icmplt     456
+     434: aload_0
+     435: getstatic     #362                // Field net/minecraft/world/EnumSkyBlock.SKY:Lnet/minecraft/world/EnumSkyBlock;
+     438: aload_1
+     439: invokevirtual #514                // Method getLightFor:(Lnet/minecraft/world/EnumSkyBlock;Lnet/minecraft/util/math/BlockPos;)I
+     442: ifgt          456
+     445: aload_0
+     446: getstatic     #517                // Field net/minecraft/world/EnumSkyBlock.BLOCK:Lnet/minecraft/world/EnumSkyBlock;
+     449: aload_1
+     450: invokevirtual #514                // Method getLightFor:(Lnet/minecraft/world/EnumSkyBlock;Lnet/minecraft/util/math/BlockPos;)I
+     453: ifle          463
+     456: aload_0
+     457: iload_3
+     458: iload         5
+     460: invokespecial #519                // Method propagateSkylightOcclusion:(II)V
+     463: aload_0
+     464: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     467: getfield      #481                // Field net/minecraft/world/World.isRemote:Z
+     470: ifne          510
+     473: aload         10
+     475: aload         9
+     477: if_acmpeq     510
+     480: aload_0
+     481: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     484: getfield      #522                // Field net/minecraft/world/World.captureBlockSnapshots:Z
+     487: ifeq          499
+     490: aload         9
+     492: aload_2
+     493: invokevirtual #506                // Method net/minecraft/block/Block.hasTileEntity:(Lnet/minecraft/block/state/IBlockState;)Z
+     496: ifeq          510
+     499: aload         9
+     501: aload_0
+     502: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     505: aload_1
+     506: aload_2
+     507: invokevirtual #525                // Method net/minecraft/block/Block.onBlockAdded:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;)V
+     510: aload         9
+     512: aload_2
+     513: invokevirtual #506                // Method net/minecraft/block/Block.hasTileEntity:(Lnet/minecraft/block/state/IBlockState;)Z
+     516: ifeq          566
+     519: aload_0
+     520: aload_1
+     521: getstatic     #489                // Field net/minecraft/world/chunk/Chunk$EnumCreateEntityType.CHECK:Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;
+     524: invokevirtual #493                // Method getTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;)Lnet/minecraft/tileentity/TileEntity;
+     527: astore        14
+     529: aload         14
+     531: ifnonnull     556
+     534: aload         9
+     536: aload_0
+     537: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     540: aload_2
+     541: invokevirtual #529                // Method net/minecraft/block/Block.createTileEntity:(Lnet/minecraft/world/World;Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/tileentity/TileEntity;
+     544: astore        14
+     546: aload_0
+     547: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     550: aload_1
+     551: aload         14
+     553: invokevirtual #533                // Method net/minecraft/world/World.setTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/tileentity/TileEntity;)V
+     556: aload         14
+     558: ifnull        566
+     561: aload         14
+     563: invokevirtual #536                // Method net/minecraft/tileentity/TileEntity.updateContainingBlockInfo:()V
+     566: aload_0
+     567: iconst_1
+     568: putfield      #266                // Field dirty:Z
+     571: aload         8
+     573: areturn
+
+  public void removeTileEntity(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #393                // Field loaded:Z
+       4: ifeq          29
+       7: aload_0
+       8: getfield      #111                // Field tileEntities:Ljava/util/Map;
+      11: aload_1
+      12: invokeinterface #672,  2          // InterfaceMethod java/util/Map.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+      17: checkcast     #495                // class net/minecraft/tileentity/TileEntity
+      20: astore_2
+      21: aload_2
+      22: ifnull        29
+      25: aload_2
+      26: invokevirtual #718                // Method net/minecraft/tileentity/TileEntity.invalidate:()V
+      29: return
+

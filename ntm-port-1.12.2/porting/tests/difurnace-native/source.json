@@ -1,0 +1,59 @@
+{
+  "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java",
+  "before": "eeea4bdbf21c64ea165979358265929149fc89303145f1d4f8674761d422f27e",
+  "after": "17c3d28dcd366c1135fe24d9fa6fce529b7d5981f5a8866a4388746922e87465",
+  "edits": [
+    [
+      "\t\tif(stack == null) {",
+      "\t\tif(stack == null || stack.isEmpty()) {"
+    ],
+    [
+      "\t\tif(slots[0] == null || slots[1] == null) return false;",
+      "\t\tif(slots[0] == null || slots[0].isEmpty() || slots[1] == null || slots[1].isEmpty()) return false;"
+    ],
+    [
+      "\t\tif(output == null) return false;",
+      "\t\tif(output == null || output.isEmpty()) return false;"
+    ],
+    [
+      "\t\tif(slots[3] == null) return true;",
+      "\t\tif(slots[3] == null || slots[3].isEmpty()) return true;"
+    ],
+    [
+      "\t\tif(slots[3].stackSize + output.stackSize <= slots[3].getMaxStackSize()) {",
+      "\t\tif(slots[3].getCount() + output.getCount() <= slots[3].getMaxStackSize()) {"
+    ],
+    [
+      "\t\tif(slots[3] == null) {",
+      "\t\tif(slots[3] == null || slots[3].isEmpty()) {"
+    ],
+    [
+      "\t\t\tslots[3].stackSize += itemStack.stackSize;",
+      "\t\t\tslots[3].grow(itemStack.getCount());"
+    ],
+    [
+      "\t\t\t\t\tthis.slots[2].stackSize--;",
+      "\t\t\t\t\tthis.slots[2].shrink(1);"
+    ],
+    [
+      "\t\t\t\t\tif(this.slots[2].stackSize == 0) {",
+      "\t\t\t\t\tif(this.slots[2].getCount() == 0) {"
+    ],
+    [
+      "\tpublic int progress;",
+      "\t/** Raw quantity is required for dynamically valid stacks with a stale empty cache.\n\t * Admission of native-empty stacks is handled at the furnace boundaries, not here. */\n\tprivate static int quantity(ItemStack stack) {\n\t\tint count = stack.getCount();\n\t\tif(count != 0) return count;\n\t\ttry {\n\t\t\treturn QuantityField.FIELD.getInt(stack);\n\t\t} catch(IllegalAccessException ex) {\n\t\t\tthrow new IllegalStateException(\"Cannot read furnace stack quantity\", ex);\n\t\t}\n\t}\n\n\tprivate static final class QuantityField {\n\t\tprivate static final java.lang.reflect.Field FIELD = net.minecraftforge.fml.relauncher.ReflectionHelper.findField(\n\t\t\t\tItemStack.class, \"stackSize\", \"field_77994_a\");\n\t}\n\n\tpublic int progress;"
+    ],
+    [
+      "slots[3].getCount() + output.getCount()",
+      "quantity(slots[3]) + quantity(output)"
+    ],
+    [
+      "slots[3].grow(itemStack.getCount());",
+      "slots[3].grow(quantity(itemStack));"
+    ],
+    [
+      "\t\tItemStack itemStack = BlastFurnaceRecipes.getOutput(slots[0], slots[1]);",
+      "\t\tItemStack itemStack = BlastFurnaceRecipes.getOutput(slots[0], slots[1]);\n\t\tif(itemStack == null || itemStack.isEmpty()) return;"
+    ]
+  ]
+}

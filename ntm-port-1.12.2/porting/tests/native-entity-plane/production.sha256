@@ -1,0 +1,4 @@
+98e9148db123d60746353b951b1cbddc588ceca4b9101cbb06a3a575eb4eb0bc  ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java
+0380fb9c40ba62c105f507645eb20cb4843ed10ad139e9f84b3b0ef5910a9979  ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java
+8a6608dc52825d9313919a76692dbbcebd04e648fb6c4969cf97345a92760924  ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java
+c3b39ba739cdab837077171ce738dc75ff1fcc861d6836c66cef8b2038ab3646  ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java

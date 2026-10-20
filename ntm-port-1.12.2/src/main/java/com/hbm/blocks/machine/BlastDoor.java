@@ -119,7 +119,7 @@ public class BlastDoor extends BlockContainer implements IBomb, IMultiblock {
 			te.placeDummy(x, y + 4, z) &&
 			te.placeDummy(x, y + 5, z) &&
 			te.placeDummy(x, y + 6, z)))
-			world.func_147480_a(x, y, z, true);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);
 	}
 
 }

@@ -1,0 +1,39 @@
+{
+  "base": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "inspection": "All module src/main/java at CP88; all .comment accesses and native Property/wildcard imports. 27 local native Property writes across the three selected owners. GUIScreenBobmazon owns its distinct comment field and is not selected.",
+  "native_property_imports": [
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:4:import net.minecraftforge.common.config.Property;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:8:import net.minecraftforge.common.config.Property;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/WeaponConfig.java:4:import net.minecraftforge.common.config.Property;"
+  ],
+  "comment_accesses": [
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:35:\t\tpropGadget.comment = \"Radius of the Gadget\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:38:\t\tpropBoy.comment = \"Radius of Little Boy\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:41:\t\tpropMan.comment = \"Radius of Fat Man\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:44:\t\tpropMike.comment = \"Radius of Ivy Mike\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:47:\t\tpropTsar.comment = \"Radius of the Tsar Bomba\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:50:\t\tpropPrototype.comment = \"Radius of the Prototype\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:53:\t\tpropFleija.comment = \"Radius of F.L.E.I.J.A.\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:56:\t\tpropMissile.comment = \"Radius of the nuclear missile\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:59:\t\tpropMirv.comment = \"Radius of a MIRV\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:62:\t\tpropFatman.comment = \"Radius of the Fatman Launcher\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:65:\t\tpropNuka.comment = \"Radius of the nuka grenade\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:68:\t\tpropASchrab.comment = \"Radius of dropped anti schrabidium\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:71:\t\tpropSolinium.comment = \"Radius of the blue rinse\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:74:\t\tpropN2.comment = \"Radius of the N2 mine\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:79:\t\tpropLimitExplosionLifespan.comment = \"How long an explosion can be unloaded until it dies in seconds. Based of system time. 0 disables the effect\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:83:\t\tpropBlastSpeed.comment = \"Base speed of MK3 system (old and schrabidium) detonations (Blocks / tick)\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:87:\t\tpropFalloutRange.comment = \"Minimum amount of milliseconds per tick allocated for mk5 chunk processing\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:91:\t\tfalloutRangeProp.comment = \"Radius of fallout area (base radius * value in percent)\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/BombConfig.java:94:\t\tfalloutDelayProp.comment = \"How many ticks to wait for the next fallout chunk computation\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:59:\t\tprop.comment = comment;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:65:\t\tprop.comment = comment;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:71:\t\tprop.comment = comment;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:77:\t\tprop.comment = comment;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:83:\t\tprop.comment = comment;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:88:\t\tprop.comment = comment;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/CommonConfig.java:93:\t\tprop.comment = comment;",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/config/WeaponConfig.java:22:\t\tpropCiwsHitrate.comment = \"Additional modifier for CIWS accuracy\";",
+    "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb:ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenBobmazon.java:222:\t\t\tthis.comment = comment;"
+  ]
+}

@@ -1,0 +1,21 @@
+/workspace/shared/nagaport-projectile-cp83/ntm-port-1.12.2/porting/tests/native-projectile-utility-data/source-inverse.patch:223: space before tab in indent.
+    	this.dataWatcher.addObject(20, Byte.valueOf((byte)0));
+warning: 1 line adds whitespace errors.
+/workspace/shared/nagaport-projectile-cp83/ntm-port-1.12.2/porting/tests/native-projectile-utility-data/production.patch:223: space before tab in indent.
+    	this.dataManager.register(BLOCK_METADATA, Byte.valueOf((byte)0));
+warning: 1 line adds whitespace errors.
+PASS projectile/utility metadata: 16 pristine calls/CP82 diagnostics; exact owner/default/serializer/full-source inverse; 4 owners and 30 consumer files; 55 unrelated same-file diagnostics retained
+Note: /workspace/shared/nagaport-projectile-cp83/ntm-port-1.12.2/porting/tests/native-projectile-utility-data/Probe.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS 3646 native projectile/utility metadata assertions (projectiles-first); genuine data managers/full+dirty packet application, bounded source execution only
+PASS 3646 native projectile/utility metadata assertions (effects-first); genuine data managers/full+dirty packet application, bounded source execution only
+PASS 65 pinned slices/whole-class inputs; whole FallingNuke and bounded Chemical/Depress/Torex; no physics, explosion, mod registry, tickets, transport, or GL claim
+ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java: OK
+ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java: OK
+ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java: OK
+ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java: OK
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java: OK
+ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java: OK
+ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java: OK

@@ -491,7 +491,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() + 0.5 - 8,
 					this.pos.getY() + 0.5 - 3,
 					this.pos.getZ() + 0.5 - 8,
@@ -511,7 +511,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 	}
 
 	public void disassemble() {
-		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+		com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 	}
 
 	@Override

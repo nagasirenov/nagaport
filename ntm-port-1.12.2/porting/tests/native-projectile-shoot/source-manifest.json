@@ -1,0 +1,1307 @@
+{
+  "base": "c2f60149e9a9fb836bade505fe566d40a54ef3cc",
+  "source_units": 4068,
+  "files": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java": {
+      "before_sha256": "555a41de85acb6e01e685a9dfe2136f6eccb5cecb6062be47d204571ac221eef",
+      "after_sha256": "2aeafcb4a2d1f9210218885232c8bbc608ecbb635be80433820722a08bb75f29",
+      "pristine_sha256": "771e2bbbd404e7aaca31305e675a063d2e3b47a245b13c8790b2a46af72e7c13",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+          "accept": true,
+          "start": 2032,
+          "end": 2125,
+          "ns": 2037,
+          "ne": 2056
+        },
+        {
+          "kind": "declaration",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": null,
+          "accept": true,
+          "start": 2939,
+          "end": 3781,
+          "ns": 2951,
+          "ne": 2970
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "d256ec3dade2660f0e81dbd6bd887f033aad8414a0a584237b5f0127b3b52c00",
+      "after_sha256": "6a5070e4cd36045f2c0f62ccb43d156efa53b6ffe94455e52f54a384bf4587a7",
+      "pristine_sha256": "4577e643d8a9915d7a84cb83cd106d95cbdc4f0e002f50c9421de265608c4034",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "accept": true,
+          "start": 9725,
+          "end": 9795,
+          "ns": 9732,
+          "ne": 9751
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "accept": true,
+          "start": 10270,
+          "end": 10340,
+          "ns": 10277,
+          "ne": 10296
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/ai/EntityAIBehemothGun.java": {
+      "before_sha256": "808ce7d8c33b5e26715cdfca58c0ea6fe2727a716b8ad00321cb7c85f833bc65",
+      "after_sha256": "d22a7011b1e5f424d5f174b6f4664c62ec4ac00b62aa0faeb9aaf34897ab6480",
+      "pristine_sha256": "d45c686c68880590cbef48859f2aa57e4c4947bd110001b951bc43e54b771f31",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityArtilleryShell",
+          "accept": true,
+          "start": 3675,
+          "end": 3766,
+          "ns": 3683,
+          "ne": 3702
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBombardier.java": {
+      "before_sha256": "91f5f705fe589e2a50caa67e617a4b1060b851616e42c9ba80e529ae7b39b2de",
+      "after_sha256": "2bfb2522071d898b5bd6b5578a597394e35ff23a1c84f0610c7cd814d32f9ccc",
+      "pristine_sha256": "e956d2766766d62317e7b479a76ad119f3aec0d15694368ebccf84e2f27db6de",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityAcidBomb",
+          "accept": true,
+          "start": 3093,
+          "end": 3183,
+          "ns": 3098,
+          "ne": 3117
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java": {
+      "before_sha256": "42708dac9794ca1f5c9644ca5fbcb71fed0c067c0dec969d79e27163fb8ae938",
+      "after_sha256": "9b6c9b7ade01df52c8896ff05a33bb89407082cf6f538b63716a91e184324227",
+      "pristine_sha256": "59c15f3c40e69092252519469086741ecff92f082d70a94aae961579aa5db17d",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityRubble",
+          "accept": true,
+          "start": 4350,
+          "end": 4439,
+          "ns": 4357,
+          "ne": 4376
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "ffb072d4dd139cdd9851215031f64d2cc36a5b853eeb599daad3d460bbbd295a",
+      "after_sha256": "16cd23dab71affc0720c6b0b55d2cd7e9132c698ee8365cc64c7fdf782f13fa7",
+      "pristine_sha256": "7631c500f7877dafa2a8bfbe2a461662ad4935de12e4d06fcc4734e33c5aa5fa",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityBullet",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBullet",
+          "accept": true,
+          "start": 4810,
+          "end": 4875,
+          "ns": 4815,
+          "ne": 4834
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityBullet",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBullet",
+          "accept": true,
+          "start": 6049,
+          "end": 6140,
+          "ns": 6054,
+          "ne": 6073
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityBullet",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBullet",
+          "accept": true,
+          "start": 8636,
+          "end": 8727,
+          "ns": 8641,
+          "ne": 8660
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityBullet",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBullet",
+          "accept": true,
+          "start": 10018,
+          "end": 10109,
+          "ns": 10023,
+          "ne": 10042
+        },
+        {
+          "kind": "declaration",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityBullet",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": null,
+          "accept": true,
+          "start": 10810,
+          "end": 11972,
+          "ns": 10833,
+          "ne": 10852
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java": {
+      "before_sha256": "27381ea60623d0275bd4042fc034f0af01c5424b90b4d2030f6a6e6d89caa1e1",
+      "after_sha256": "9cd4d51cba766c1edcad763dec9dc3143b2eccaf9cb771632b9447677032e70b",
+      "pristine_sha256": "6a070f0ab2de6f070d88fd1ecf7fff3e88e3247a0c2118f01e40b76626e79c79",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseMK4",
+          "accept": true,
+          "start": 2057,
+          "end": 2161,
+          "ns": 2062,
+          "ne": 2081
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseMK4",
+          "accept": true,
+          "start": 3396,
+          "end": 3479,
+          "ns": 3401,
+          "ne": 3420
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseMK4",
+          "accept": true,
+          "start": 4311,
+          "end": 4394,
+          "ns": 4316,
+          "ne": 4335
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": {
+      "before_sha256": "03b09776ed0e77544c4fb9865353daedc7c034fb969f341103893422c7a6db91",
+      "after_sha256": "d7b1ece6cc30ece3753941537db562a09821d0091a87a03f115f5302293d9ee3",
+      "pristine_sha256": "08799c984fb2a96881def9d493f23d7b80b3afd42a4dbfe2e2755530a86d61a1",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "accept": true,
+          "start": 5721,
+          "end": 5844,
+          "ns": 5726,
+          "ne": 5745
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "accept": true,
+          "start": 6902,
+          "end": 6957,
+          "ns": 6907,
+          "ne": 6926
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChopperMine.java": {
+      "before_sha256": "3fa4ac36d36582600226f885864e77ce3926faee94468dba9506e99a51b93237",
+      "after_sha256": "3d56e6b40d7a2f950f532b36e0e69b09040d3e8ca3d17f5b9d9197fa7e9b8358",
+      "pristine_sha256": "89149bc8592099a871623256a12ebdc18d3652944c10058dde72f07e07ab913a",
+      "edits": [
+        {
+          "kind": "declaration",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityChopperMine",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": null,
+          "accept": true,
+          "start": 994,
+          "end": 1140,
+          "ns": 1017,
+          "ne": 1036
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java": {
+      "before_sha256": "0549d61174ce07e685156b3a035be9d628035374966d5fe6e9048482a07a9907",
+      "after_sha256": "900b96555ce0842147f13da459c64cb2965ab0160a07449b4da2a33f0e1d601e",
+      "pristine_sha256": "34251071d37af3dc9e0b7dc17771c0cc45752bbc4c8e959a445c52d331c0ea57",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "accept": true,
+          "start": 3838,
+          "end": 3903,
+          "ns": 3843,
+          "ne": 3862
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "accept": true,
+          "start": 4992,
+          "end": 5083,
+          "ns": 4997,
+          "ne": 5016
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "accept": true,
+          "start": 6197,
+          "end": 6288,
+          "ns": 6202,
+          "ne": 6221
+        },
+        {
+          "kind": "declaration",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityExplosiveBeam",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": null,
+          "accept": true,
+          "start": 6871,
+          "end": 8125,
+          "ns": 6894,
+          "ne": 6913
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java": {
+      "before_sha256": "7a478d12ef4cfd57c702e6fc49f9bafd480665c094089edd32f6a3eb9707665f",
+      "after_sha256": "25fc97059fcf3d951bf33f9cc81f3363a786d57a50480da03d068c1ee22fc534",
+      "pristine_sha256": "a512d2a6b4870072d2aead0c3b70d30709e5dd9c89db254328df943e5e16225c",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityRocket",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityRocket",
+          "accept": true,
+          "start": 4139,
+          "end": 4204,
+          "ns": 4144,
+          "ne": 4163
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityRocket",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityRocket",
+          "accept": true,
+          "start": 5429,
+          "end": 5520,
+          "ns": 5434,
+          "ne": 5453
+        },
+        {
+          "kind": "declaration",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityRocket",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": null,
+          "accept": true,
+          "start": 6096,
+          "end": 7350,
+          "ns": 6119,
+          "ne": 6138
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java": {
+      "before_sha256": "5c96cb88527e71a9896057821961b030855d769ef603257f9f957917bbc60949",
+      "after_sha256": "9e321fd6d2e2e87d540e995820546e352b94ca96788dbbf2f205abfb509b504b",
+      "pristine_sha256": "b2068fde042bf06871115b9a4ae9e7f7485dff0e90ee968f3d993659618851d8",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntitySchrab",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntitySchrab",
+          "accept": true,
+          "start": 4158,
+          "end": 4223,
+          "ns": 4163,
+          "ne": 4182
+        },
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntitySchrab",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntitySchrab",
+          "accept": true,
+          "start": 5448,
+          "end": 5539,
+          "ns": 5453,
+          "ne": 5472
+        },
+        {
+          "kind": "declaration",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntitySchrab",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": null,
+          "accept": true,
+          "start": 6115,
+          "end": 7369,
+          "ns": 6138,
+          "ne": 6157
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "before_sha256": "7eb3c8094aa6927cf8d5993e70718c2a5415668877ed949d91b7d361b6fa9a71",
+      "after_sha256": "fe40e6d090fe21491cf17d239659edee80fd384dc4916368f20d8b40557ce4db",
+      "pristine_sha256": "e9deda761e1c5914ab52124ba929a0bc15dc449e682fc257b13ef077d6ae0a29",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityThrowableNT",
+          "accept": true,
+          "start": 3112,
+          "end": 3203,
+          "ns": 3117,
+          "ne": 3136
+        },
+        {
+          "kind": "declaration",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": null,
+          "accept": true,
+          "start": 3624,
+          "end": 4675,
+          "ns": 3647,
+          "ne": 3666
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/handler/guncfg/GunNPCFactory.java": {
+      "before_sha256": "813c81f031f3e3e5d59260339552a783ee026b1b4e7fc22fa9c2ef70934458bb",
+      "after_sha256": "fd47efdf30d8aff3121da5ebfac3116e84f7d9123db716e9c7755bae887480a4",
+      "pristine_sha256": "247b92af1778f9647a26f8ba691f99616f8c0bea10628e15aa7aaebdc4b8d0ab",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityBulletBaseNT",
+          "accept": true,
+          "start": 2360,
+          "end": 2427,
+          "ns": 2365,
+          "ne": 2384
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java": {
+      "before_sha256": "70a44f4c4f5d83f7a368bd9e8797320b59499c9cb845e54234712534d090e57c",
+      "after_sha256": "0615fb04fe7d221c50907e7e4d514214957e9eae5c68ec5c29bbf734d425d28b",
+      "pristine_sha256": "c2631dc5e516c96262e7500ace115cae4c92d5126384b9a0de38f5a4a0e63b87",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityArtilleryShell",
+          "accept": true,
+          "start": 5297,
+          "end": 5365,
+          "ns": 5302,
+          "ne": 5321
+        }
+      ]
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretHIMARS.java": {
+      "before_sha256": "89c554b6c3d2b7164f2b804441abd58ea0b974943de6c58aa34d1ccaa641156b",
+      "after_sha256": "ceb71a33f09b6ba5ca64c2d09457c04660b5a50d0970b3e17b557f4c37b7641f",
+      "pristine_sha256": "cada29226be2c020d4ad9ba6c0557806eed5f9ffacb342b05f70d901a6888f84",
+      "edits": [
+        {
+          "kind": "call",
+          "name": "setThrowableHeading",
+          "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+          "element": "setThrowableHeading(double,double,double,float,float)",
+          "type": "com.hbm.entity.projectile.EntityArtilleryRocket",
+          "accept": true,
+          "start": 7427,
+          "end": 7483,
+          "ns": 7432,
+          "ne": 7451
+        }
+      ]
+    }
+  },
+  "exclusions": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrawler.java",
+      "kind": "call",
+      "name": "setThrowableHeading",
+      "owner": "com.hbm.entity.mob.glyphid.EntityGlyphidBrawler",
+      "element": "setThrowableHeading(double,double,double,float,float)",
+      "type": "com.hbm.entity.mob.glyphid.EntityGlyphidBrawler",
+      "accept": false,
+      "start": 2372,
+      "end": 2459,
+      "ns": 2377,
+      "ne": 2396
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBrawler.java",
+      "kind": "declaration",
+      "name": "setThrowableHeading",
+      "owner": "com.hbm.entity.mob.glyphid.EntityGlyphidBrawler",
+      "element": "setThrowableHeading(double,double,double,float,float)",
+      "type": null,
+      "accept": false,
+      "start": 2516,
+      "end": 3497,
+      "ns": 2528,
+      "ne": 2547
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+      "kind": "call",
+      "name": "setThrowableHeading",
+      "owner": "com.hbm.entity.projectile.EntitySiegeLaser",
+      "element": "com.hbm.entity.projectile.EntitySiegeLaser.setThrowableHeading",
+      "type": "com.hbm.entity.projectile.EntitySiegeLaser",
+      "accept": true,
+      "start": 8726,
+      "end": 8785,
+      "ns": 8732,
+      "ne": 8751
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "kind": "call",
+      "name": "setThrowableHeading2",
+      "owner": "com.hbm.entity.projectile.EntityBullet",
+      "element": "setThrowableHeading2(double,double,double,float,float)",
+      "type": "com.hbm.entity.projectile.EntityBullet",
+      "accept": false,
+      "start": 7354,
+      "end": 7446,
+      "ns": 7359,
+      "ne": 7379
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "kind": "declaration",
+      "name": "setThrowableHeading2",
+      "owner": "com.hbm.entity.projectile.EntityBullet",
+      "element": "setThrowableHeading2(double,double,double,float,float)",
+      "type": null,
+      "accept": false,
+      "start": 11976,
+      "end": 13128,
+      "ns": 11988,
+      "ne": 12008
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java",
+      "kind": "declaration",
+      "name": "headingForceMult",
+      "owner": "com.hbm.entity.projectile.EntityBulletBaseMK4",
+      "element": "headingForceMult()",
+      "type": null,
+      "accept": false,
+      "start": 7798,
+      "end": 7858,
+      "ns": 7825,
+      "ne": 7841
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "kind": "declaration",
+      "name": "headingForceMult",
+      "owner": "com.hbm.entity.projectile.EntityBulletBaseNT",
+      "element": "headingForceMult()",
+      "type": null,
+      "accept": false,
+      "start": 21516,
+      "end": 21580,
+      "ns": 21544,
+      "ne": 21560
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "kind": "declaration",
+      "name": "headingForceMult",
+      "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+      "element": "headingForceMult()",
+      "type": null,
+      "accept": false,
+      "start": 3460,
+      "end": 3518,
+      "ns": 3477,
+      "ne": 3493
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "kind": "call",
+      "name": "headingForceMult",
+      "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+      "element": "headingForceMult()",
+      "type": null,
+      "accept": false,
+      "start": 3982,
+      "end": 4000,
+      "ns": 3982,
+      "ne": 3998
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "kind": "call",
+      "name": "headingForceMult",
+      "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+      "element": "headingForceMult()",
+      "type": null,
+      "accept": false,
+      "start": 4064,
+      "end": 4082,
+      "ns": 4064,
+      "ne": 4080
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "kind": "call",
+      "name": "headingForceMult",
+      "owner": "com.hbm.entity.projectile.EntityThrowableNT",
+      "element": "headingForceMult()",
+      "type": null,
+      "accept": false,
+      "start": 4146,
+      "end": 4164,
+      "ns": 4146,
+      "ne": 4162
+    }
+  ],
+  "roots": [
+    "EntityThrowableNT",
+    "EntityGrenadeBouncyBase",
+    "EntityBullet",
+    "EntityChopperMine",
+    "EntityRocket",
+    "EntityExplosiveBeam",
+    "EntitySchrab"
+  ],
+  "hierarchy": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBlackHole.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeBlackHole",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "685953e9d7ded50a9cea45f20b728af2241a7d79fb6d0c301b1b3e8e0e700cae"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "parent": "net.minecraft.entity.Entity",
+      "interfaces": "net.minecraft.entity.IProjectile",
+      "sha256": "2aeafcb4a2d1f9210218885232c8bbc608ecbb635be80433820722a08bb75f29"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeBouncyGeneric",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "com.hbm.entity.grenade.IGenericGrenade",
+      "sha256": "1de562b0daa6b8950d29e0170ee63597c2517220bc05f9ba72c3a01265309113"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBurst.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeBurst",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "dbbf666abf9c34910c3f16581f61418a6faa2f11d1b0713bfcbf345036ca2f74"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeCluster.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeCluster",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "4bc34b9acae0e647410d4add108642d5d74ff8ce0f50b4807826a3c8940d8c84"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeDynamite.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeDynamite",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "0c1174f3e91a03dc9fdf03c5a987f3ebc683004d3a79096aeb33abc23d329d16"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeElectric.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeElectric",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "237c9ce54a85b243728737dfa4bcdb74d1cd37155dbdf005347ff4bb46ea8211"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeFire.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeFire",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "a311cb056a37a5231ac1427bfcbbddc867f955e3517eff4e052bf5c012a5a955"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeFrag.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeFrag",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "e88e68728c58430455f162d2b81ae1f84673bb456a039af4a7f1002be3e56edc"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeGas.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeGas",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "45d614d95e72d405023cdfe0837a06fc92b426419f43a32a58ef3985c8081788"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeGeneric.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeGeneric",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "af72dd41c9b4360579bde651bd0e64797f23bf9fe305bcd189c24bbfb92b9877"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFBouncy.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFBouncy",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "bb0908ba67149bb8c5d3133fd3fc492f47e1befad1d7b2551833d91d26af555d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFBrimstone.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFBrimstone",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "4a4994f697063175fa9e59e40b20eacb498f4f7625f97b29c56aa105696ba4a3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFConcussion.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFConcussion",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "10ab3fcd77d38306f3daaf3ee432348bd0f15b9829c72a7113850454eff10369"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFGeneric.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFGeneric",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "d2a6ca956b5f0ca3097f931685db66049839c534e76a9a90ed6c91f083032f9b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFHE.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFHE",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "f8fc77e0daaf76b5ab2371c6a74f77c66c8bd84f3538d9029324831af5079a5e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFHopwire.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFHopwire",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "8222c66685484e119f92c4aa427bb2f71e14b93122feadaae056bad511e9f0ac"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFIncendiary.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFIncendiary",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "ca1bf46069532309a66ee7073f258c1f6b18413b28210a869ae4de40b7ff5eb6"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFMystery.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFMystery",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "be1911c1af97758ad22e9cf1298f70f6f3c6a66c21f292ade1535ec35679728b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFNull.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFNull",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "96f8ab84f9554b31e7cbed1dd9517f4f35e9550c1c10e0480706f11d1e053038"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFSpark.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFSpark",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "b2a937d1d1dd48fbc016fa82e1e653624708d9ef591c5aa5bd6c7c8bac3784bb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFSticky.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFSticky",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "1e087c817e30e47537576257e88872f53fb96d14ad2200722b60bb4c06d9a6c7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeIFToxic.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeIFToxic",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "922dc33a30079f162561a9c6413450e4495c82495662af62321a2288d1bf284b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeLemon.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeLemon",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "f355a66b2d25a724d8054fbc77d3ad18d646e36e43ccac3b675a5ea5de24000c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeMIRV.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeMIRV",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "6718f0d4cff10c8af05e5444abd2bad716aba4cd8297c5094690c2b1d5e31de3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeMk2.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeMk2",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "44f60a2cd561115e40361b9a11fee36dccf9833e43a25ab90f1cbc86c0c7060c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeNuclear.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeNuclear",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "7323ab8e2371fef5e3a60459e6d7ae85fb6c4a10f448fd40981615243115b8d4"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadePlasma.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadePlasma",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "29485bf5f3974fb36eef1893e9fb350a37902abc25213eefc93669d4bd1476ca"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadePoison.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadePoison",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "9cf355272dc81b942d358ad84952475318e4c08726dd99aa7a7012c30f6c8ddb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadePulse.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadePulse",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "9803ff6d402eaef451af9fa388e00858cdcfc067e7f81ffb27f1991dbbe5998c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeSchrabidium.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeSchrabidium",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "030606b8183fd42b9a582f2767eb7ffbd4bc0b2fc45ca567cc5848bf92e5b2a6"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeShrapnel.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeShrapnel",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "279d0317ae366ed8a73780ca9746f5543a92fc255c5d0d224b6382885315e363"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeStrong.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeStrong",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "2f0769934c245aad634ec6b60ed60aabc36d17cf219b73a73d33f3eecdd204cd"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeTau.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeTau",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "52904c566ba4409f1449a2c1e08a8cce069e5870215ec6caa7bed550002889a6"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeZOMG.java",
+      "name": "com.hbm.entity.grenade.EntityGrenadeZOMG",
+      "parent": "com.hbm.entity.grenade.EntityGrenadeBouncyBase",
+      "interfaces": "",
+      "sha256": "aef95b7624879f354a5457431ea08bc34b1ebdebc5cd8fbf394bc864ebf9c053"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileAntiBallistic.java",
+      "name": "com.hbm.entity.missile.EntityMissileAntiBallistic",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "com.hbm.entity.logic.IChunkLoader,api.hbm.entity.IRadarDetectable,api.hbm.entity.IRadarDetectableNT",
+      "sha256": "720752dc4d4a04c9ae0ee8912885a2f39429157f0f462b1e2bf8a74521d29ba1"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileBaseNT.java",
+      "name": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "com.hbm.entity.logic.IChunkLoader,api.hbm.entity.IRadarDetectableNT",
+      "sha256": "e1e92708ac826819b898b90e261771fbe843509a54bdab5207c7a393962e9892"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileCustom.java",
+      "name": "com.hbm.entity.missile.EntityMissileCustom",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "com.hbm.entity.logic.IChunkLoader",
+      "sha256": "a09c61f5f529c9e48fdfb6c9f95aea057e3051226c7c6a81e473b753b7b57332"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileShuttle.java",
+      "name": "com.hbm.entity.missile.EntityMissileShuttle",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "",
+      "sha256": "5b058ce42a53274a6831962330153fcb54734712e6260f4be8dad40fb3b970bb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileStealth.java",
+      "name": "com.hbm.entity.missile.EntityMissileStealth",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "",
+      "sha256": "e609cf0be8b0d1d60425bc2b8125be53f0aa9523614349d6763298c780a7cbfb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier0",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "",
+      "sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier0.EntityMissileBHole",
+      "parent": "com.hbm.entity.missile.EntityMissileTier0",
+      "interfaces": "",
+      "sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier0.EntityMissileEMP",
+      "parent": "com.hbm.entity.missile.EntityMissileTier0",
+      "interfaces": "",
+      "sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier0.EntityMissileMicro",
+      "parent": "com.hbm.entity.missile.EntityMissileTier0",
+      "interfaces": "",
+      "sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier0.EntityMissileSchrabidium",
+      "parent": "com.hbm.entity.missile.EntityMissileTier0",
+      "interfaces": "",
+      "sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier0.EntityMissileTaint",
+      "parent": "com.hbm.entity.missile.EntityMissileTier0",
+      "interfaces": "",
+      "sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier0.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier0.EntityMissileTest",
+      "parent": "com.hbm.entity.missile.EntityMissileTier0",
+      "interfaces": "",
+      "sha256": "d1bb5329dbadf82525ffab912a52dc58a2d00b4c41403249a83b63521ce93986"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier1",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "",
+      "sha256": "5111c4ba112f18861877b69080d91baf0cd09f154424694761e0817a2bb3a0ab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier1.EntityMissileBunkerBuster",
+      "parent": "com.hbm.entity.missile.EntityMissileTier1",
+      "interfaces": "",
+      "sha256": "5111c4ba112f18861877b69080d91baf0cd09f154424694761e0817a2bb3a0ab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier1.EntityMissileCluster",
+      "parent": "com.hbm.entity.missile.EntityMissileTier1",
+      "interfaces": "",
+      "sha256": "5111c4ba112f18861877b69080d91baf0cd09f154424694761e0817a2bb3a0ab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier1.EntityMissileDecoy",
+      "parent": "com.hbm.entity.missile.EntityMissileTier1",
+      "interfaces": "",
+      "sha256": "5111c4ba112f18861877b69080d91baf0cd09f154424694761e0817a2bb3a0ab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier1.EntityMissileGeneric",
+      "parent": "com.hbm.entity.missile.EntityMissileTier1",
+      "interfaces": "",
+      "sha256": "5111c4ba112f18861877b69080d91baf0cd09f154424694761e0817a2bb3a0ab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier1.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier1.EntityMissileIncendiary",
+      "parent": "com.hbm.entity.missile.EntityMissileTier1",
+      "interfaces": "",
+      "sha256": "5111c4ba112f18861877b69080d91baf0cd09f154424694761e0817a2bb3a0ab"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier2",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "",
+      "sha256": "68828cefb9ca16b4264b2aaaf9c58167666e7d99a5b9778254a05993d3945053"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier2.EntityMissileBusterStrong",
+      "parent": "com.hbm.entity.missile.EntityMissileTier2",
+      "interfaces": "",
+      "sha256": "68828cefb9ca16b4264b2aaaf9c58167666e7d99a5b9778254a05993d3945053"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier2.EntityMissileClusterStrong",
+      "parent": "com.hbm.entity.missile.EntityMissileTier2",
+      "interfaces": "",
+      "sha256": "68828cefb9ca16b4264b2aaaf9c58167666e7d99a5b9778254a05993d3945053"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier2.EntityMissileEMPStrong",
+      "parent": "com.hbm.entity.missile.EntityMissileTier2",
+      "interfaces": "",
+      "sha256": "68828cefb9ca16b4264b2aaaf9c58167666e7d99a5b9778254a05993d3945053"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier2.EntityMissileIncendiaryStrong",
+      "parent": "com.hbm.entity.missile.EntityMissileTier2",
+      "interfaces": "",
+      "sha256": "68828cefb9ca16b4264b2aaaf9c58167666e7d99a5b9778254a05993d3945053"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier2.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier2.EntityMissileStrong",
+      "parent": "com.hbm.entity.missile.EntityMissileTier2",
+      "interfaces": "",
+      "sha256": "68828cefb9ca16b4264b2aaaf9c58167666e7d99a5b9778254a05993d3945053"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier3",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "",
+      "sha256": "b9dee5ba5e6e4e6826456d961674f92e918d12d2773ccfbaa5a3ac2e1da0932b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier3.EntityMissileBurst",
+      "parent": "com.hbm.entity.missile.EntityMissileTier3",
+      "interfaces": "",
+      "sha256": "b9dee5ba5e6e4e6826456d961674f92e918d12d2773ccfbaa5a3ac2e1da0932b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier3.EntityMissileDrill",
+      "parent": "com.hbm.entity.missile.EntityMissileTier3",
+      "interfaces": "",
+      "sha256": "b9dee5ba5e6e4e6826456d961674f92e918d12d2773ccfbaa5a3ac2e1da0932b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier3.EntityMissileInferno",
+      "parent": "com.hbm.entity.missile.EntityMissileTier3",
+      "interfaces": "",
+      "sha256": "b9dee5ba5e6e4e6826456d961674f92e918d12d2773ccfbaa5a3ac2e1da0932b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier3.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier3.EntityMissileRain",
+      "parent": "com.hbm.entity.missile.EntityMissileTier3",
+      "interfaces": "",
+      "sha256": "b9dee5ba5e6e4e6826456d961674f92e918d12d2773ccfbaa5a3ac2e1da0932b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier4",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "",
+      "sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier4.EntityMissileDoomsday",
+      "parent": "com.hbm.entity.missile.EntityMissileTier4",
+      "interfaces": "",
+      "sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier4.EntityMissileDoomsdayRusted",
+      "parent": "com.hbm.entity.missile.EntityMissileTier4.EntityMissileDoomsday",
+      "interfaces": "",
+      "sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier4.EntityMissileMirv",
+      "parent": "com.hbm.entity.missile.EntityMissileTier4",
+      "interfaces": "",
+      "sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier4.EntityMissileNuclear",
+      "parent": "com.hbm.entity.missile.EntityMissileTier4",
+      "interfaces": "",
+      "sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+      "name": "com.hbm.entity.missile.EntityMissileTier4.EntityMissileVolcano",
+      "parent": "com.hbm.entity.missile.EntityMissileTier4",
+      "interfaces": "",
+      "sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "name": "com.hbm.entity.missile.EntityRideableRocket",
+      "parent": "com.hbm.entity.missile.EntityMissileBaseNT",
+      "interfaces": "com.hbm.blocks.ILookOverlay,com.hbm.tileentity.IBufPacketReceiver",
+      "sha256": "ab6ed21de0a3c84d8b5987eb6576a095a5941685291dafffdf9427605e0d3e47"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityAcidBomb.java",
+      "name": "com.hbm.entity.projectile.EntityAcidBomb",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "",
+      "sha256": "563b4fdeeea8237cc5c60ef1b387d636cda8575aa3686b488bf388bacb2c3ed3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryRocket.java",
+      "name": "com.hbm.entity.projectile.EntityArtilleryRocket",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "com.hbm.entity.logic.IChunkLoader,api.hbm.entity.IRadarDetectable",
+      "sha256": "c7fda860b8a2cb7b97b992c05545689655c5450714d39a0a4f83686176d84668"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+      "name": "com.hbm.entity.projectile.EntityArtilleryShell",
+      "parent": "com.hbm.entity.projectile.EntityThrowableNT",
+      "interfaces": "com.hbm.entity.logic.IChunkLoader,api.hbm.entity.IRadarDetectable",
+      "sha256": "ea08ba70ec837bbf4dfe9dc19f08b6c83d56cc86a11993a1e968c8cf70c64ad1"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "name": "com.hbm.entity.projectile.EntityBullet",
+      "parent": "net.minecraft.entity.Entity",
+      "interfaces": "net.minecraft.entity.IProjectile",
+      "sha256": "16cd23dab71affc0720c6b0b55d2cd7e9132c698ee8365cc64c7fdf782f13fa7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java",
+      "name": "com.hbm.entity.projectile.EntityBulletBaseMK4",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData",
+      "sha256": "9cd4d51cba766c1edcad763dec9dc3143b2eccaf9cb771632b9447677032e70b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4CL.java",
+      "name": "com.hbm.entity.projectile.EntityBulletBaseMK4CL",
+      "parent": "com.hbm.entity.projectile.EntityBulletBaseMK4",
+      "interfaces": "com.hbm.entity.logic.IChunkLoader",
+      "sha256": "426e3d86b6c141db7b3942f04a6f8cdfadeb8dd05dadfd484864f8edc4c827b0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "name": "com.hbm.entity.projectile.EntityBulletBaseNT",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "com.hbm.entity.projectile.IBulletBase",
+      "sha256": "d7b1ece6cc30ece3753941537db562a09821d0091a87a03f115f5302293d9ee3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "name": "com.hbm.entity.projectile.EntityChemical",
+      "parent": "com.hbm.entity.projectile.EntityThrowableNT",
+      "interfaces": "",
+      "sha256": "e798ede3a5bb21088ff85ea71fe247009445bb27e3d20b0b52b4ca2351c20f16"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChopperMine.java",
+      "name": "com.hbm.entity.projectile.EntityChopperMine",
+      "parent": "net.minecraft.entity.Entity",
+      "interfaces": "net.minecraft.entity.IProjectile",
+      "sha256": "3d56e6b40d7a2f950f532b36e0e69b09040d3e8ca3d17f5b9d9197fa7e9b8358"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityCog.java",
+      "name": "com.hbm.entity.projectile.EntityCog",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "",
+      "sha256": "20477768a3e3b747754272035e39db5d6220348f281fbd2b91b6e80ed0e61f04"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityCoin.java",
+      "name": "com.hbm.entity.projectile.EntityCoin",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "",
+      "sha256": "8eb65b01c68f58c9788a8a8172a7ee7709d2a74997f5395d0be4ba1c3d280fd7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityCombineBallNT.java",
+      "name": "com.hbm.entity.projectile.EntityCombineBallNT",
+      "parent": "com.hbm.entity.projectile.EntityBulletBaseNT",
+      "interfaces": "",
+      "sha256": "48c19de1a69d04836a22ba3892dace629c3cfd3aa562ba843faf3d24b0595741"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      "name": "com.hbm.entity.projectile.EntityExplosiveBeam",
+      "parent": "net.minecraft.entity.Entity",
+      "interfaces": "net.minecraft.entity.IProjectile",
+      "sha256": "900b96555ce0842147f13da459c64cb2965ab0160a07449b4da2a33f0e1d601e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      "name": "com.hbm.entity.projectile.EntityRocket",
+      "parent": "net.minecraft.entity.Entity",
+      "interfaces": "net.minecraft.entity.IProjectile",
+      "sha256": "25fc97059fcf3d951bf33f9cc81f3363a786d57a50480da03d068c1ee22fc534"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRubble.java",
+      "name": "com.hbm.entity.projectile.EntityRubble",
+      "parent": "com.hbm.entity.projectile.EntityThrowableNT",
+      "interfaces": "",
+      "sha256": "396682f0f5d0c253ffaf1f75b53c5ebc0e1a05e48c9f3ec92ca464a4ac05223b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySawblade.java",
+      "name": "com.hbm.entity.projectile.EntitySawblade",
+      "parent": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "interfaces": "",
+      "sha256": "e94411fed242d353f2ebbd2d1cc2d46c999888df25e02afc0a4839d804c9151c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      "name": "com.hbm.entity.projectile.EntitySchrab",
+      "parent": "net.minecraft.entity.Entity",
+      "interfaces": "net.minecraft.entity.IProjectile",
+      "sha256": "9e321fd6d2e2e87d540e995820546e352b94ca96788dbbf2f205abfb509b504b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableInterp.java",
+      "name": "com.hbm.entity.projectile.EntityThrowableInterp",
+      "parent": "com.hbm.entity.projectile.EntityThrowableNT",
+      "interfaces": "",
+      "sha256": "1727ed3a0643fbcbeaf22366ac1daad67ec69857672e99f5182a2632d6b61cf9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "name": "com.hbm.entity.projectile.EntityThrowableNT",
+      "parent": "net.minecraft.entity.Entity",
+      "interfaces": "net.minecraft.entity.IProjectile",
+      "sha256": "fe40e6d090fe21491cf17d239659edee80fd384dc4916368f20d8b40557ce4db"
+    }
+  ],
+  "native_inherited_caller": {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/siege/EntitySiegeCraft.java",
+    "receiver": "com.hbm.entity.projectile.EntitySiegeLaser",
+    "native_owner": "net.minecraft.entity.projectile.EntityThrowable",
+    "status": "deferred: engine rotation formula changes from Math.atan2/float pi to MathHelper.atan2/native conversion",
+    "class_source_sha256": "f3160ac7d823285e3a969341ceaa848ea7008ecaa07e594454c9e347cf898909"
+  }
+}

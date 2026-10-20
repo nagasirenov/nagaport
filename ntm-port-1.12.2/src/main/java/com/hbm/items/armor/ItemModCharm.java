@@ -43,12 +43,12 @@ public class ItemModCharm extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(event.source == ModDamageSource.broadcast) {
+		if(event.getSource() == ModDamageSource.broadcast) {
 			
 			if(this == ModItems.protection_charm)
-				event.ammount *= 0.5F;
+				event.setAmount((float) (event.getAmount() * (0.5F)));
 			if(this == ModItems.meteor_charm)
-				event.ammount = 0F;
+				event.setAmount(0F);
 		}
 	}
 }

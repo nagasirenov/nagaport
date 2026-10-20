@@ -25,7 +25,7 @@ public class BlockGasAsbestos extends BlockGasBase {
 		super.randomDisplayTick(world, x, y, z, rand);
 
 		if(world.rand.nextInt(5) == 0)
-			world.spawnParticle("townaura", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 	}
 
 	@Override

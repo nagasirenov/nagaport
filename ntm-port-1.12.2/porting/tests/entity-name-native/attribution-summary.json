@@ -1,0 +1,58 @@
+{
+  "baseline": "502f0b9dc3cd3e14622edd897fe3c753e309818d",
+  "changed_production_files": 3,
+  "selected_calls": 2,
+  "override_declarations": 1,
+  "excluded_calls": 32,
+  "before_errors": 12066,
+  "after_errors": 12063,
+  "removed_errors": 3,
+  "added_errors": 0,
+  "selected_attribution": [
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "line": "322",
+      "receiver": "this.thrower",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.entity.Entity",
+      "method_signature": "getName()",
+      "method_kind": "METHOD",
+      "arguments": "",
+      "source": "this.thrower.getName()"
+    },
+    {
+      "path": "src/main/java/com/hbm/util/CompatExternal.java",
+      "line": "220",
+      "receiver": "entity",
+      "receiver_type": "net.minecraft.entity.Entity",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.entity.Entity",
+      "method_signature": "getName()",
+      "method_kind": "METHOD",
+      "arguments": "",
+      "source": "entity.getName()"
+    }
+  ],
+  "removed_diagnostics": [
+    {
+      "path": "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method getCommandSenderName()\\n  location: variable thrower of type net.minecraft.entity.EntityLivingBase",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityDummy.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/util/CompatExternal.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method getCommandSenderName()\\n  location: variable entity of type net.minecraft.entity.Entity",
+      "count": 1
+    }
+  ],
+  "limitation": "All 4065 source units parsed and analyzed; code generation and Gradle/full build not invoked."
+}

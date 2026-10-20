@@ -1,0 +1,11 @@
+{
+  "receipt_sha256": "850debda9192f5b9f14685d4610dc3134dcaa0b19ba779f017740393d702d241",
+  "matching_production_sources": [
+    "com/hbm/items/ItemInventory.java",
+    "com/hbm/util/NullableInventoryStackNbt.java",
+    "com/hbm/sound/WorldSoundEffects.java",
+    "com/hbm/main/ModSoundEvents.java",
+    "com/hbm/lib/RefStrings.java"
+  ],
+  "scope": "Complete production base; actual engine classes; observed spawn, not full server gameplay"
+}

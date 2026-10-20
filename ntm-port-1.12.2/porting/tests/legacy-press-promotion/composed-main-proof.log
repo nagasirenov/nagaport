@@ -1,0 +1,75 @@
+PASS pinned remaining-colored full-file inverse for exactly src/main/java/com/hbm/render/tileentity/RenderPumpjack.java
+PASS pinned replaceability full-file inverse for exactly src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java, src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java, src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java
+PASS 518 active getter occurrences and pinned receiver/side/packet audit inputs; diagnostic boundary remains explicit
+PASS exact five-source inverse; only two source-owned promotion opt-ins; no source descendants or new guard callers
+PASS five unrelated-file mutation controls rejected by complete-file inverse
+PASS pinned complete compilation/projection inputs and supplied native/original engine jars
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks;
+                      ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+OBSERVED native whole BlockDummyable neighbor callback: 2 -> 12, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable neighbor callback: 3 -> 13, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable neighbor callback: 4 -> 14, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable neighbor callback: 5 -> 15, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 2 -> 12, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 3 -> 13, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 4 -> 14, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 5 -> 15, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED original World/Chunk metadata-only remote=false: 2 -> 12, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 3 -> 13, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 4 -> 14, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 5 -> 15, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 2 -> 12, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 3 -> 13, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 4 -> 14, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 5 -> 15, actual furnace tile identity, fuel counter 2205 and stack identity retained
+PASS 104 counterexample checks. Native marker fixture is not a production press/RBMK tile. Original engine is vanilla 1.7 bytecode; Forge1614 patch is separately audited, not executed.
+PASS full production Press/EPress blocks, complete base neighbor/tick paths: all16 inputs; callback0..11 promotions,12..15 unchanged cores; direct scoped promotions all16
+PASS ordinary same-block full writes (including exact +10), and wrong callback owners, preserve native refresh behavior
+PASS one-shot consumption precedes native notification/reentrant full write
+PASS expected-context negatives, thread/nesting, exceptions, real no-op/bounds/debug cleanup
+PASS 1539 native scoped-promotion checks; complete block and inventory bases; exact tile lifecycle/field projections, not complete machine processing
+OBSERVED original World/Chunk metadata-only remote=false: 0 -> 10, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 1 -> 11, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 2 -> 12, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 3 -> 13, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 4 -> 14, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 5 -> 15, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 6 -> 16, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 7 -> 17, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 8 -> 18, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 9 -> 19, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 10 -> 20, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 11 -> 21, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 12 -> 22, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 13 -> 23, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 14 -> 24, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 15 -> 25, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 0 -> 10, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 1 -> 11, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 2 -> 12, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 3 -> 13, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 4 -> 14, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 5 -> 15, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 6 -> 16, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 7 -> 17, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 8 -> 18, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 9 -> 19, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 10 -> 20, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 11 -> 21, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 12 -> 22, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 13 -> 23, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 14 -> 24, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 15 -> 25, actual furnace tile identity, fuel counter 2205 and stack identity retained
+PASS 224 original all-nibble storage/tile identity/raw-cache checks; raw cache differs from native for old>=6

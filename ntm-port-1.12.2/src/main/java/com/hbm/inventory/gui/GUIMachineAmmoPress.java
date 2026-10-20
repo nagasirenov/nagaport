@@ -109,7 +109,7 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 			Slot slot = (Slot) obj;
 			
 			// if the mouse is over a slot, cancel
-			if(this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y) && slot.getHasStack()) {
+			if(this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {
 				return;
 			}
 		}

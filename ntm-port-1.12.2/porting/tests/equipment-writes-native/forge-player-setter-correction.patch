@@ -1,0 +1,16 @@
+@@ -1913,7 +2074,14 @@
+ 
+     public void func_70062_b(int p_70062_1_, ItemStack p_70062_2_)
+     {
+-        this.field_71071_by.field_70460_b[p_70062_1_] = p_70062_2_;
++        if (p_70062_1_ == 0)
++        {
++            this.field_71071_by.field_70462_a[this.field_71071_by.field_70461_c] = p_70062_2_;
++        }
++        else
++        {
++            this.field_71071_by.field_70460_b[p_70062_1_ - 1] = p_70062_2_;
++        }
+     }
+ 
+     @SideOnly(Side.CLIENT)

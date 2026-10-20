@@ -6,18 +6,20 @@ import com.hbm.entity.projectile.EntityBombletZeta;
 import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.ObjMeshModel;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderBombletTheta extends Render {
+public class RenderBombletTheta extends Render<Entity> {
 	
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(/*"/assets/" + */RefStrings.MODID, "models/bombletTheta.obj");
 	private MeshModel boyModel;
     private ResourceLocation boyTexture;
 	
-	public RenderBombletTheta() {
+	public RenderBombletTheta(RenderManager renderManager) {
+		super(renderManager);
 		boyModel = new ObjMeshModel(objTesterModelRL);
 		boyTexture = new ResourceLocation(RefStrings.MODID, "textures/models/bombletThetaTexture.png");
 	}

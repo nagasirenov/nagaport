@@ -6,14 +6,16 @@ import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.ObjMeshModel;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderBalls extends Render {
+public class RenderBalls extends Render<Entity> {
 
-	public RenderBalls() {
+	public RenderBalls(RenderManager renderManager) {
+		super(renderManager);
 		this.shadowOpaque = 0.0F;
 	}
 	

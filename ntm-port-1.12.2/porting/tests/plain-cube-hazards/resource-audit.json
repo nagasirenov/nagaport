@@ -1,0 +1,132 @@
+[
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_uranium.png",
+    "sha256": "0701321fa38c456e4167cb4529186b6bd327fb9cfeeaf34a268c6bab4c01d9a9",
+    "original_sha256": "0701321fa38c456e4167cb4529186b6bd327fb9cfeeaf34a268c6bab4c01d9a9"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_u233.png",
+    "sha256": "15089113d6e11dd88cdbe4f49b392cb0af2177ac677ac5ddfc13b8dea7b923e4",
+    "original_sha256": "15089113d6e11dd88cdbe4f49b392cb0af2177ac677ac5ddfc13b8dea7b923e4"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_u235.png",
+    "sha256": "2c0e679e7d54142e5f622168ddfb0b4f0b1055f3af4f99074c13d9c420ffabbd",
+    "original_sha256": "2c0e679e7d54142e5f622168ddfb0b4f0b1055f3af4f99074c13d9c420ffabbd"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_u238.png",
+    "sha256": "5d49140d75c6306e4668e520a8e48e33402190e1e88070c51a6d017329ab92c5",
+    "original_sha256": "5d49140d75c6306e4668e520a8e48e33402190e1e88070c51a6d017329ab92c5"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_uranium_fuel.png",
+    "sha256": "0f979363a94d953db5ec25ebb2c405d465a89f9dc47fa9a080b53e539465605b",
+    "original_sha256": "0f979363a94d953db5ec25ebb2c405d465a89f9dc47fa9a080b53e539465605b"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_thorium.png",
+    "sha256": "ca0b24c6127a89b225a2d7e8614d3b8d687f8363fce5e4493fd9550ffc45f45f",
+    "original_sha256": "ca0b24c6127a89b225a2d7e8614d3b8d687f8363fce5e4493fd9550ffc45f45f"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_thorium_fuel.png",
+    "sha256": "a80aca67d1b326cd1a4764810930186db9e6b290e4407e1768f2a559eeb136c3",
+    "original_sha256": "a80aca67d1b326cd1a4764810930186db9e6b290e4407e1768f2a559eeb136c3"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_neptunium.png",
+    "sha256": "6982328db9c1531b625a65a8701ab6ec3a555f53482d5b350a512a598796f2e5",
+    "original_sha256": "6982328db9c1531b625a65a8701ab6ec3a555f53482d5b350a512a598796f2e5"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_polonium.png",
+    "sha256": "01d6b0157ef270fee45bbd5ab3d55a163000319823c9f1ccf0b5ee66ddef4912",
+    "original_sha256": "01d6b0157ef270fee45bbd5ab3d55a163000319823c9f1ccf0b5ee66ddef4912"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_mox_fuel.png",
+    "sha256": "fad52cdca63fca4614114b4d6d7d63cf9528aebf984024131309559223b355a2",
+    "original_sha256": "fad52cdca63fca4614114b4d6d7d63cf9528aebf984024131309559223b355a2"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_plutonium.png",
+    "sha256": "c271cb098e856ca42d963b571138e4a06678b79fbfd335f656f71ae6a07d09a0",
+    "original_sha256": "c271cb098e856ca42d963b571138e4a06678b79fbfd335f656f71ae6a07d09a0"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_pu238.png",
+    "sha256": "c55cf100f7849c5ded0fb5a8c0847d609e7e4bc5889b82e9ec11f9688761d029",
+    "original_sha256": "c55cf100f7849c5ded0fb5a8c0847d609e7e4bc5889b82e9ec11f9688761d029"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_pu239.png",
+    "sha256": "f9238a37fd6d22994a12f49f84ec34f6066e3954dde6b4e6c4e862b88668ee8b",
+    "original_sha256": "f9238a37fd6d22994a12f49f84ec34f6066e3954dde6b4e6c4e862b88668ee8b"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_pu240.png",
+    "sha256": "b62097a6175364c4bacc9bf53c45dd9d238c88776f3f77473a5aafedbdc0302d",
+    "original_sha256": "b62097a6175364c4bacc9bf53c45dd9d238c88776f3f77473a5aafedbdc0302d"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_pu_mix.png",
+    "sha256": "6bb40ec9ce72594992fe0de19906e7a92f93425a91e8abf5b028f6239dbb59c4",
+    "original_sha256": "6bb40ec9ce72594992fe0de19906e7a92f93425a91e8abf5b028f6239dbb59c4"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_plutonium_fuel.png",
+    "sha256": "ea632d48f40bfbc84b88457a439e63134aeb24a30ebe7bfc6c49d250af44c605",
+    "original_sha256": "ea632d48f40bfbc84b88457a439e63134aeb24a30ebe7bfc6c49d250af44c605"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_trinitite.png",
+    "sha256": "67b54efb2fed81ddb87ff312547c06269b1e16ff982131b623522732b4f69ac6",
+    "original_sha256": "67b54efb2fed81ddb87ff312547c06269b1e16ff982131b623522732b4f69ac6"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_corium.png",
+    "sha256": "a95cbf716dbc158da62b4d9eecc94c04a31e3e545313933be0276018950e17d9",
+    "original_sha256": "a95cbf716dbc158da62b4d9eecc94c04a31e3e545313933be0276018950e17d9"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_schraranium.png",
+    "sha256": "fc20c9966fe18019f3c98b5297b8f6ba63a2bffbbb93bad0652980a965799acb",
+    "original_sha256": "fc20c9966fe18019f3c98b5297b8f6ba63a2bffbbb93bad0652980a965799acb"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_schrabidium.png",
+    "sha256": "70a2b9f4eb4dbd2eb2bf89ef7e836a0f3bbee2dc5286d3f085deb9420e8c5ffd",
+    "original_sha256": "70a2b9f4eb4dbd2eb2bf89ef7e836a0f3bbee2dc5286d3f085deb9420e8c5ffd"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_schrabidate.png",
+    "sha256": "83ca922c2f5980d43c4ed52ab1804c347d4bd0fa9cc0451710a298908b2e5de2",
+    "original_sha256": "83ca922c2f5980d43c4ed52ab1804c347d4bd0fa9cc0451710a298908b2e5de2"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_solinium.png",
+    "sha256": "38f634d26fd7241ed86097dd5cf73a714ba4e537598a3d851025a67e30d5f9c0",
+    "original_sha256": "38f634d26fd7241ed86097dd5cf73a714ba4e537598a3d851025a67e30d5f9c0"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_schrabidium_fuel.png",
+    "sha256": "0860c758cf1b3c0ab42943c3273fa97ff1b19cd46e1c575730313384fe02abe9",
+    "original_sha256": "0860c758cf1b3c0ab42943c3273fa97ff1b19cd46e1c575730313384fe02abe9"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_white_phosphorus.png",
+    "sha256": "ae4b2b223625c45fdac290256f0e5dc62c777f5b14a7f461090784843b4e6d44",
+    "original_sha256": "ae4b2b223625c45fdac290256f0e5dc62c777f5b14a7f461090784843b4e6d44"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_ra226.png",
+    "sha256": "d2bc75259dab586f785de63e19b556b3f81f8081e27494a5a4b02af0e7b472ed",
+    "original_sha256": "d2bc75259dab586f785de63e19b556b3f81f8081e27494a5a4b02af0e7b472ed"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_actinium.png",
+    "sha256": "e409bd2d96ec66c7fba64ccad073f843d04a3920c15cd756c06691f6cb2977d9",
+    "original_sha256": "e409bd2d96ec66c7fba64ccad073f843d04a3920c15cd756c06691f6cb2977d9"
+  }
+]

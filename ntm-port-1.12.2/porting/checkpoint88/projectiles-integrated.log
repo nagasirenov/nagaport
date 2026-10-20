@@ -1,0 +1,13 @@
+PASS Native shoot/sync/machine source: 34 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 105 rejected mutations. Not runtime/GL proof.
+PASS 33 identifier-only edits / 16 files; full-file inverse; 7 pristine callback bodies; typed 90-class closure; 26 resolved callers; 4 source negative controls; SiegeLaser/Brawler/heading2 exclusions unchanged
+PASS original zh.c / func_70186_c DDDFF mapping; actual Forge1614 patch archives do not modify callback/interface/throwable
+PASS actual native IProjectile and dispenser invokeinterface; sqrt helper contract; SiegeLaser native rotation delta explicitly deferred
+PASS 41494 native interface/source-exact callback assertions; 90 modeled inheritance nodes, 7 complete callbacks, 3 complete heading helpers, seeded/scripted RNG and IEEE edges. No complete NTM owner/gameplay claim.
+PASS rejected runtime mutant: signed_rng_removed
+PASS rejected runtime mutant: wrong_throwable_scale
+PASS rejected runtime mutant: lost_custom_override
+PASS rejected runtime mutant: wrong_rotation
+PASS rejected runtime mutant: lost_ground_reset
+PASS rejected runtime mutant: extra_rng
+PASS seven exact legacy callback declarations fail native-interface compilation for the specific missing shoot descriptor
+PASS finite callback boundary. Complete NTM classes, native constructors, game launch, flight/collision/payloads and save/restart remain unverified.

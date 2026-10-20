@@ -1,0 +1,19 @@
+{
+  "production_source_sha256": {
+    "com/hbm/items/ItemInventory.java": "5843ef1ba3614b4076daa2531f2788c88806b3a310ed86e6ee318bdd3e10b270",
+    "com/hbm/util/NullableInventoryStackNbt.java": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+    "com/hbm/sound/WorldSoundEffects.java": "444bdd41794f26b37d368f85691ba611b3648a62b096491ba62a5d95648c8d1e",
+    "com/hbm/main/ModSoundEvents.java": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+    "com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71"
+  },
+  "test_source_sha256": "344cab911ca83748768c185bfbf8bdacf51c77fe52353994b6cece73c358d393",
+  "scope": "Complete production base; actual engine classes; observed spawn, not full server gameplay",
+  "damage_facts_sha256": "537ea3d977e9b878beb38de7a75749eba4e414b665dacc20e029a23873bbe479",
+  "native_class_sha256": "c7773c57f5fa221476c1c1a6e30fc379a0b725ea4380933ecf93be1278840a7c",
+  "srg_quantity_class_sha256": "14309f485827c442a33a5c91dd1200f0de1fcf271eedc47e2fc7b1ba45fa3b69",
+  "rejected_mutant": {
+    "name": "remove edge-only raw item/damage fallback",
+    "assertion": "malformed ejection raw registry identity",
+    "mutant_sha256": "ea6f833d5ddcf26ab3f727f965c7ff72441a2535c1d313ccfff653699ae3a707"
+  }
+}

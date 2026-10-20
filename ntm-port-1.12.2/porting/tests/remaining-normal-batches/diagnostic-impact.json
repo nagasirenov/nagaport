@@ -1,0 +1,994 @@
+{
+  "base": "0675e599e5ee31a60776b560af792372df191790",
+  "compiler_log_sha256": "fe8bd3d3aa7cf65d37ed8e735404726f1813bcb3e9c926627b90d9f10a77719a",
+  "targeted_diagnostics": 141,
+  "diagnostics": [
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 81,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 82,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 83,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 84,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 85,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 86,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 87,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 89,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 90,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 91,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 92,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 93,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 95,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 96,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 97,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 98,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 99,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 101,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 102,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 103,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 104,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 105,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 114,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 115,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 116,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 117,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 118,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 119,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 121,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 122,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 123,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 124,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 125,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 127,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 128,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 129,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 130,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 131,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 133,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 134,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 135,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 136,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "method": "render",
+      "line": 137,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 141,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 142,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 144,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 145,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 146,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 147,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 148,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 149,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 151,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 152,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 153,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 154,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 155,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 156,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 158,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 159,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 160,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 161,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 162,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 163,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 165,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 166,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 167,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 168,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 169,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderAmatBeam",
+      "line": 170,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 95,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 103,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 104,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 105,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 106,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 107,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 108,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasCloud",
+      "line": 109,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 65,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 68,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 69,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 70,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 71,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 72,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 73,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+      "method": "renderGasFire",
+      "line": 74,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 42,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 46,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 49,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 50,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 51,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 52,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 53,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 54,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 68,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 69,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 76,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 77,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 78,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 79,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 86,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 87,
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 88,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 89,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 90,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 91,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "method": "render",
+      "line": 92,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderGlow",
+      "line": 385,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderGlow",
+      "line": 387,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderGlow",
+      "line": 388,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderGlow",
+      "line": 389,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderGlow",
+      "line": 390,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderGlow",
+      "line": 391,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderGlow",
+      "line": 392,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderSmoke",
+      "line": 355,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderSmoke",
+      "line": 357,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderSmoke",
+      "line": 358,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderSmoke",
+      "line": 359,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderSmoke",
+      "line": 360,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderSmoke",
+      "line": 361,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "method": "renderSmoke",
+      "line": 362,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderGlow",
+      "line": 1342,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderGlow",
+      "line": 1344,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderGlow",
+      "line": 1345,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderGlow",
+      "line": 1346,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderGlow",
+      "line": 1347,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderGlow",
+      "line": 1348,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderGlow",
+      "line": 1349,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderSmoke",
+      "line": 1312,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderSmoke",
+      "line": 1314,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderSmoke",
+      "line": 1315,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderSmoke",
+      "line": 1316,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderSmoke",
+      "line": 1317,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderSmoke",
+      "line": 1318,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+      "method": "renderSmoke",
+      "line": 1319,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "method": "renderFirstPerson",
+      "line": 153,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "method": "renderFirstPerson",
+      "line": 161,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "method": "renderFirstPerson",
+      "line": 162,
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "method": "renderFirstPerson",
+      "line": 163,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,float,double,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "method": "renderFirstPerson",
+      "line": 164,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "method": "renderFirstPerson",
+      "line": 165,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,float,float)"
+    },
+    {
+      "file": "src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "method": "renderFirstPerson",
+      "line": 166,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,float,double,float,float)"
+    }
+  ]
+}

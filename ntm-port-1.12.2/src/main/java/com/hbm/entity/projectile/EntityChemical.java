@@ -33,6 +33,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
@@ -45,6 +48,8 @@ import com.hbm.lib.ForgeDirection;
 
 
 public class EntityChemical extends EntityThrowableNT {
+	private static final DataParameter<Integer> FLUID_ID = EntityDataManager.createKey(EntityChemical.class, DataSerializers.VARINT);
+
 
 	/*
 	 * TYPE INFO:
@@ -74,16 +79,16 @@ public class EntityChemical extends EntityThrowableNT {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(10, new Integer(0));
+		this.dataManager.register(FLUID_ID, new Integer(0));
 	}
 
 	public EntityChemical setFluid(FluidType fluid) {
-		this.dataWatcher.updateObject(10, fluid.getID());
+		this.dataManager.set(FLUID_ID, fluid.getID());
 		return this;
 	}
 
 	public FluidType getType() {
-		return Fluids.fromID(this.dataWatcher.getWatchableObjectInt(10));
+		return Fluids.fromID(this.dataManager.get(FLUID_ID));
 	}
 
 	@Override
@@ -372,7 +377,7 @@ public class EntityChemical extends EntityThrowableNT {
 				double d7 = targetX + (e.posX - targetX) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
 				double d8 = targetY + (e.posY - targetY) * d6 + this.rand.nextDouble() * (double) e.height;
 				double d9 = targetZ + (e.posZ - targetZ) * d6 + (this.rand.nextDouble() - 0.5D) * (double) e.width * 2.0D;
-				e.world.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
+				e.world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, d7, d8, d9, (double) f, (double) f1, (double) f2);
 			}
 
 			com.hbm.sound.VanillaWorldSoundEffects.play(e.world, targetX, targetY, targetZ, "mob.endermen.portal", 1.0F, 1.0F);
@@ -433,7 +438,7 @@ public class EntityChemical extends EntityThrowableNT {
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
 						if(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.FIRE) {
-							this.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, Blocks.AIR);
+							com.hbm.world.WorldBlockState.write(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, Blocks.AIR.getStateFromMeta(0), 3);
 						}
 					}
 				}
@@ -450,7 +455,7 @@ public class EntityChemical extends EntityThrowableNT {
 							for(int j = 0; j <= 1; j++) {
 								for(int k = -2; k <= 2; k++) {
 									if(com.hbm.world.WorldBlockState.read(this.world, x + i, y + j, z + k).getBlock() == ModBlocks.fallout) {
-										this.world.setBlock(x + i, y + j, z + k, Blocks.AIR);
+										com.hbm.world.WorldBlockState.write(this.world, x + i, y + j, z + k, Blocks.AIR.getStateFromMeta(0), 3);
 									}
 								}
 							}
@@ -466,7 +471,7 @@ public class EntityChemical extends EntityThrowableNT {
 							CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 							if(atmosphere != null && (atmosphere.hasFluid(Fluids.EARTHAIR) || atmosphere.hasFluid(Fluids.DUNAAIR) || atmosphere.hasFluid(Fluids.CARBONDIOXIDE) || atmosphere.hasFluid(Fluids.OXYGEN))) {
-								this.world.setBlock(x, y, z, Blocks.GRASS);
+								com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.GRASS.getStateFromMeta(0), 3);
 								ChunkAtmosphereManager.proxy.addGrowth(this.world, Blocks.GRASS, x, y, z, 4, 6);
 								int totalConversion = ChunkAtmosphereHandler.GRASS_GROWTH_CONVERSION * 4 * 6;
 
@@ -479,10 +484,10 @@ public class EntityChemical extends EntityThrowableNT {
 						}
 					}
 					int meta = this.world.getBlockMetadata(x, y, z);
-					if(block == Blocks.COBBLESTONE) this.world.setBlock(x, y, z, Blocks.MOSSY_COBBLESTONE);
+					if(block == Blocks.COBBLESTONE) com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3);
 					if(block == Blocks.STONEBRICK && meta == 0) { net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.STONEBRICK; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-					if(block == ModBlocks.waste_earth) this.world.setBlock(x, y, z, Blocks.GRASS);
-					if(block == ModBlocks.brick_concrete) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy);
+					if(block == ModBlocks.waste_earth) com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.GRASS.getStateFromMeta(0), 3);
+					if(block == ModBlocks.brick_concrete) { net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_concrete_mossy; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					if(block == ModBlocks.concrete_brick_slab && meta % 8 == 0) this.world.setBlock(x, y, z, ModBlocks.concrete_brick_slab, meta + 1, 3);
 					if(block == ModBlocks.brick_concrete_stairs) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy_stairs, meta, 3);
 				}
@@ -490,7 +495,7 @@ public class EntityChemical extends EntityThrowableNT {
 				if(type.hasTrait(FT_Terraformer.class)) {
 					FT_Terraformer terra = type.getTrait(FT_Terraformer.class);
 					if(block == terra.getTargetBlock()) {
-						this.world.setBlock(x, y, z, Blocks.DIRT);
+						com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.DIRT.getStateFromMeta(0), 3);
 						ChunkAtmosphereManager.proxy.addGrowth(this.world, block, Blocks.DIRT, x, y, z, 4, 6);
 					}
 				}

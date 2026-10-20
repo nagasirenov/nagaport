@@ -71,12 +71,12 @@ public class BlockAbsorber extends BlockEnumMulti implements IBlockMulti {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		EnumAbsorberTier tier = getTier(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 		ChunkRadiationManager.proxy.decrementRad(world, x, y, z, tier.absorbAmount);
-		world.scheduleBlockUpdate(x, y, z, this, tickRate(world));
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world));
 	}
 
 	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
-		world.scheduleBlockUpdate(x, y, z, this, tickRate(world));
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world));
 	}
 }

@@ -1,0 +1,11 @@
+PASS source negative control: dropped assignment
+PASS source negative control: wrong argument
+PASS source negative control: null return
+PASS source negative control: wrong object at registry site
+PASS source negative control: wrong owner cast
+PASS source negative control: relocated sound before tab
+PASS source negative control: constructor field assignment changed
+PASS source negative control: pillar constructor changed
+PASS source negative control: unrelated renderer changed
+PASS source negative control: unrelated sound definition changed
+PASS all ten independent in-memory source mutations rejected; production files untouched.

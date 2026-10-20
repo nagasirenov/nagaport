@@ -10,10 +10,16 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderBeam5 extends Render {
+public class RenderBeam5 extends Render<Entity> {
+
+	public RenderBeam5(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 	
 	Random rand = new Random();
 

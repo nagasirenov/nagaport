@@ -1,0 +1,318 @@
+{
+  "EntityMinecartNTM.key-0": {
+    "source": "private static final DataParameter<Integer> CART_BASE = EntityDataManager.createKey(EntityMinecartNTM.class, DataSerializers.VARINT);",
+    "sha256": "ffeb159ed3f447a43c66ef6807d785f0018afeb1ae5c1b758881b1756fe662c2"
+  },
+  "EntityMinecartNTM.constructor-0": {
+    "source": "public EntityMinecartNTM(World p_i1712_1_) {\n\t\tsuper(p_i1712_1_);\n\t}",
+    "sha256": "4c82a1425e048f4d82216cc2a3785190d9c0dcd750dc13f80603c8b1f3c67418"
+  },
+  "EntityMinecartNTM.constructor-1": {
+    "source": "public EntityMinecartNTM(World world, double x, double y, double z, EnumCartBase type) {\n\t\tsuper(world, x, y, z);\n\t\tthis.setBase(type);\n\t}",
+    "sha256": "093e27a2d12473561ff2e96d0f106857405fcfad49ff5c50d61f60f54f457206"
+  },
+  "EntityMinecartNTM.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.dataManager.register(CART_BASE, new Integer(0)); //EnumCartBase\n\t}",
+    "sha256": "5260bfd637e9a158f468bdda165ab64af5e9fb899d6424e8409f2a0df8285af3"
+  },
+  "EntityMinecartNTM.setBase": {
+    "source": "public void setBase(EnumCartBase type) {\n\t\tthis.dataManager.set(CART_BASE, type.ordinal());\n\t}",
+    "sha256": "3db2edd2300d41b4bc469286f5e98b61a7b664073917680ed82f7898b684f9c5"
+  },
+  "EntityMinecartNTM.getBase": {
+    "source": "public EnumCartBase getBase() {\n\t\treturn EnumCartBase.values()[this.dataManager.get(CART_BASE)];\n\t}",
+    "sha256": "4915a8c1eca3b2c0b41c5be86925552f8c66896db242078080b5896c6fdcc549"
+  },
+  "EntityMinecartNTM.writeEntityToNBT": {
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeEntityToNBT(nbt);\n\t\tnbt.setInteger(\"base\", this.dataManager.get(CART_BASE));\n\t}",
+    "sha256": "6d9604256ef01eb2133b564327ae2011752864c85e5f94f98a4b5c08784ca749"
+  },
+  "EntityMinecartNTM.readEntityFromNBT": {
+    "source": "protected void readEntityFromNBT(NBTTagCompound nbt) {\n\t\tsuper.readEntityFromNBT(nbt);\n\t\tthis.dataManager.set(CART_BASE, nbt.getInteger(\"base\"));\n\t}",
+    "sha256": "72a10baf9b2e865a7224ffcd1b5531c6116e1d95ccbf8b535ca29699be8fa71e"
+  },
+  "EntityMagnusCartus.key-0": {
+    "source": "private static final DataParameter<Integer> BOGIE_ID = EntityDataManager.createKey(EntityMagnusCartus.class, DataSerializers.VARINT);",
+    "sha256": "175e9163cb0a1eeb3698a82641b8013655fdeb3974e23b283a45161cde57080f"
+  },
+  "EntityMagnusCartus.constructor-0": {
+    "source": "public EntityMagnusCartus(World world) {\n\t\tsuper(world);\n\t}",
+    "sha256": "a73aedca8c3808fdbb5aabe936a7abba4609ebbeb8f504ee0427365ecdcee4f2"
+  },
+  "EntityMagnusCartus.constructor-1": {
+    "source": "public EntityMagnusCartus(World p_i1713_1_, double p_i1713_2_, double p_i1713_4_, double p_i1713_6_) {\n\t\tsuper(p_i1713_1_, p_i1713_2_, p_i1713_4_, p_i1713_6_);\n\t}",
+    "sha256": "7d82e308bcaef22e9d18642d4bd97e834c0297921950b049f032fe0b7a40798a"
+  },
+  "EntityMagnusCartus.bogie-field": {
+    "source": "public EntityMinecartBogie bogie;",
+    "sha256": "ad50a348e7f0878e2e2730d877448b1b2d829cb511bb1501262948fabf5959fd"
+  },
+  "EntityMagnusCartus.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.dataManager.register(BOGIE_ID, new Integer(0));\n\t}",
+    "sha256": "3ceea9d67ac7def978fa3afc009d89bd95ccf6de4f0c462b917f7f2c7a818395"
+  },
+  "EntityMagnusCartus.setBogie": {
+    "source": "public void setBogie(EntityMinecartBogie bogie) {\n\t\tthis.bogie = bogie;\n\t\tthis.dataManager.set(BOGIE_ID, bogie.getEntityId());\n\t}",
+    "sha256": "792a109fa34d04b8e254d10950930ba70f9d9a719a63507b706d98137ef8f712"
+  },
+  "EntityMagnusCartus.getBogieID": {
+    "source": "public int getBogieID() {\n\t\treturn this.dataManager.get(BOGIE_ID);\n\t}",
+    "sha256": "83267ae2cb06f131da512bc28d0a281ef96d8fd280ec3de0dd84d523d989bb07"
+  },
+  "EntityMagnusCartus.writeEntityToNBT": {
+    "source": "protected void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeEntityToNBT(nbt);\n\t\tnbt.setInteger(\"bogie\", this.getBogieID());\n\t}",
+    "sha256": "b83f4d99941b9dbd0c4fdd4e9c28624ba2a96ac0f1c67c8614e89a301e78b938"
+  },
+  "EntityMagnusCartus.readEntityFromNBT": {
+    "source": "protected void readEntityFromNBT(NBTTagCompound nbt) {\n\t\tsuper.readEntityFromNBT(nbt);\n\t\tint bogieID = nbt.getInteger(\"bogie\");\n\t\tEntity e = this.world.getEntityByID(bogieID);\n\n\t\tif(e instanceof EntityMinecartBogie) {\n\t\t\tthis.setBogie((EntityMinecartBogie) e);\n\t\t}\n\t}",
+    "sha256": "184e9656c84879429a6d12edcd17fd4b32ad470b6fdfd9dbb8290041031167f3"
+  },
+  "EntityUFOBase.key-0": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);",
+    "sha256": "6c7beba4c1bdbfa154a2b7c4152eb247f96218f933ae276ccad4f406a81005a1"
+  },
+  "EntityUFOBase.key-1": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);",
+    "sha256": "c269218a78edb86e88e726fc7c52defb46ed6fd69061e78aeb3b0f1a56391d44"
+  },
+  "EntityUFOBase.key-2": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFOBase.class, DataSerializers.VARINT);",
+    "sha256": "585910a421ded4aed494653e823a17d6a0402c78150f6692075543006d07aafe"
+  },
+  "EntityUFOBase.constructor-0": {
+    "source": "public EntityUFOBase(World world) {\n\t\tsuper(world);\n\t}",
+    "sha256": "bb546ff245171ace5f6423b5b7ee126a9357167caa23ef8253a6ba7b3ed6a7df"
+  },
+  "EntityUFOBase.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\t//XYZ\n\t\tthis.getDataManager().register(WAYPOINT_X, 0);\n\t\tthis.getDataManager().register(WAYPOINT_Y, 0);\n\t\tthis.getDataManager().register(WAYPOINT_Z, 0);\n\t}",
+    "sha256": "cb699e93a1964f8dce9800fc0e7c05592a9ad2e3e4dc2fe713a821b55a3c8275"
+  },
+  "EntityUFOBase.setWaypoint": {
+    "source": "public void setWaypoint(int x, int y, int z) {\n\t\tthis.dataManager.set(WAYPOINT_X, x);\n\t\tthis.dataManager.set(WAYPOINT_Y, y);\n\t\tthis.dataManager.set(WAYPOINT_Z, z);\n\t}",
+    "sha256": "6bf40aac706d5841eab76a5d4ba149a642693c25756b1aeab12ea0052bff9389"
+  },
+  "EntityUFOBase.getX": {
+    "source": "public int getX() {\n\t\treturn this.dataManager.get(WAYPOINT_X);\n\t}",
+    "sha256": "bf8028a88559e0750d7b9e35b73be2889a2ac88ec31143495bbdb9edc06d83c7"
+  },
+  "EntityUFOBase.getY": {
+    "source": "public int getY() {\n\t\treturn this.dataManager.get(WAYPOINT_Y);\n\t}",
+    "sha256": "b2a7da0ed907de5a90d61ca0e7801be2b56406e0363b89a9dc0fa12c2c0ce52f"
+  },
+  "EntityUFOBase.getZ": {
+    "source": "public int getZ() {\n\t\treturn this.dataManager.get(WAYPOINT_Z);\n\t}",
+    "sha256": "24c5838552541f6d2789b1aae320f55fbea8bd618e32d549f74c199d8133bf37"
+  },
+  "EntitySiegeUFO.key-0": {
+    "source": "private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeUFO.class, DataSerializers.VARINT);",
+    "sha256": "78a697e85e15efd115b31d74e65a4365cdb5fac52e64c1080b1a51619e518fe4"
+  },
+  "EntitySiegeUFO.constructor-0": {
+    "source": "public EntitySiegeUFO(World world) {\n\t\tsuper(world);\n\t\tthis.setSize(1.5F, 1F);\n\t}",
+    "sha256": "7c162536517585a5f88aea106bd2384b8d5ecb4978bbc1fb706b64924cf4ae04"
+  },
+  "EntitySiegeUFO.setTier-exact-metadata-prefix": {
+    "source": "this.getDataManager().set(SIEGE_TIER, tier.id);",
+    "sha256": "f9a99c863c3c1cf8164b3e886592a45b87d59ca51b19b5dcfd20888e0bb5e766"
+  },
+  "EntitySiegeUFO.read-NBT-tier-selection-expression": {
+    "source": "SiegeTier.tiers[nbt.getInteger(\"siegeTier\")]",
+    "sha256": "4f229f04a9aadb86203f061b30498a4f3172e33140c5f5b0ca950d9550c180d0"
+  },
+  "EntitySiegeUFO.private int lifetime = 0;": {
+    "source": "private int lifetime = 0;",
+    "sha256": "fa1729f6c8812201ce9744f6f76dd571af9f63ad7fed894d378266f78985f4c8"
+  },
+  "EntitySiegeUFO.private boolean isRetreating = false;": {
+    "source": "private boolean isRetreating = false;",
+    "sha256": "633f19d4d908feb7e75e19d4042b83dc28ae817da71e7e395cd3f1560492ded8"
+  },
+  "EntitySiegeUFO.read-NBT-exact-lifetime-suffix": {
+    "source": "\n\t\tthis.lifetime = nbt.getInteger(\"lifetime\");\n\t\tthis.isRetreating = nbt.getBoolean(\"isRetreating\");\n\t",
+    "sha256": "2ceee16ed24bf74bbece7230e63fbd8acefffab1c7aaa0b912de8c4eac9796a4"
+  },
+  "EntitySiegeUFO.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.getDataManager().register(SIEGE_TIER, (int) 0);\n\t}",
+    "sha256": "2468e5d6d77902bb6d715d16616d2c8761cdacdda50d373a30dfc79f309608c5"
+  },
+  "EntitySiegeUFO.getTier": {
+    "source": "public SiegeTier getTier() {\n\t\tSiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];\n\t\treturn tier != null ? tier : SiegeTier.CLAY;\n\t}",
+    "sha256": "c18da5d34970ca07c34715015630c139836671efec98499bfdedf0a7d62592ed"
+  },
+  "EntitySiegeUFO.writeEntityToNBT": {
+    "source": "public void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeEntityToNBT(nbt);\n\t\tnbt.setInteger(\"siegeTier\", this.getTier().id);\n\t\tnbt.setInteger(\"lifetime\", this.lifetime);\n\t\tnbt.setBoolean(\"isRetreating\", this.isRetreating);\n\t}",
+    "sha256": "d4541d4e2d293e043f22fa7d56ffc96ea14764a59313d9f782ca0fcc60355ba2"
+  },
+  "EntitySiegeCraft.key-0": {
+    "source": "private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.VARINT);",
+    "sha256": "503ad1d322bd299a4a106c626800ad716477a6b5510e44fc3e5f4faafd178873"
+  },
+  "EntitySiegeCraft.key-1": {
+    "source": "private static final DataParameter<Float> LOCKON_X = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);",
+    "sha256": "6f9e2a441e024110400487db9f0c731736cd2c5504e00ceb5c5eb5ffcaf8339c"
+  },
+  "EntitySiegeCraft.key-2": {
+    "source": "private static final DataParameter<Float> LOCKON_Y = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);",
+    "sha256": "0486a24abf9b807df4a1fc44a59eb0827f82fc2cfa1792e7f8d9f76430414465"
+  },
+  "EntitySiegeCraft.key-3": {
+    "source": "private static final DataParameter<Float> LOCKON_Z = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);",
+    "sha256": "b67ffb778a5588ad0272eefb2d6368a6d7a68a2143ee7175779ac04f21466cac"
+  },
+  "EntitySiegeCraft.key-4": {
+    "source": "private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.BYTE);",
+    "sha256": "f6f26f67fc5030bf30778071d95783c227081fa55552720f468228a0bb51c011"
+  },
+  "EntitySiegeCraft.constructor-0": {
+    "source": "public EntitySiegeCraft(World world) {\n\t\tsuper(world);\n\t\tthis.setSize(7F, 1F);\n\t\tthis.isImmuneToFire = true;\n\t\tthis.ignoreFrustumCheck = true;\n\t}",
+    "sha256": "ac167c6939538c9dbc30547f667f34441cab51063f525ae726b2680fa4713520"
+  },
+  "EntitySiegeCraft.setTier-exact-metadata-prefix": {
+    "source": "this.getDataManager().set(SIEGE_TIER, tier.id);",
+    "sha256": "f9a99c863c3c1cf8164b3e886592a45b87d59ca51b19b5dcfd20888e0bb5e766"
+  },
+  "EntitySiegeCraft.read-NBT-tier-selection-expression": {
+    "source": "SiegeTier.tiers[nbt.getInteger(\"siegeTier\")]",
+    "sha256": "4f229f04a9aadb86203f061b30498a4f3172e33140c5f5b0ca950d9550c180d0"
+  },
+  "EntitySiegeCraft.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.getDataManager().register(SIEGE_TIER, (int) 0);\n\t\tthis.getDataManager().register(LOCKON_X, 0F);\n\t\tthis.getDataManager().register(LOCKON_Y, 0F);\n\t\tthis.getDataManager().register(LOCKON_Z, 0F);\n\t\tthis.getDataManager().register(BEAM, (byte) 0);\n\t}",
+    "sha256": "77fa1b9070418eed4f2bbcba65e0e6c81a856f38763aff05b093030782f0648e"
+  },
+  "EntitySiegeCraft.getTier": {
+    "source": "public SiegeTier getTier() {\n\t\tSiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];\n\t\treturn tier != null ? tier : SiegeTier.CLAY;\n\t}",
+    "sha256": "c18da5d34970ca07c34715015630c139836671efec98499bfdedf0a7d62592ed"
+  },
+  "EntitySiegeCraft.writeEntityToNBT": {
+    "source": "public void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeEntityToNBT(nbt);\n\t\tnbt.setInteger(\"siegeTier\", this.getTier().id);\n\t}",
+    "sha256": "d52a5579aaafdbc1830f6d9ac8a9700b44289cf1da8354b0480c47959342b96a"
+  },
+  "EntitySiegeCraft.setBeam": {
+    "source": "public void setBeam(boolean beam) {\n\t\tthis.getDataManager().set(BEAM, beam ? (byte) 1 : (byte) 0);\n\t}",
+    "sha256": "ed2f3013c294ec55c0a602932827b5f4c852867d90e92669c41692a8ab751e18"
+  },
+  "EntitySiegeCraft.getBeam": {
+    "source": "public boolean getBeam() {\n\t\treturn this.getDataManager().get(BEAM) == 1;\n\t}",
+    "sha256": "6d2914e907bac6f3fd4929ae7704e97f510c9f484efc436e89a2e43ee76cc7a9"
+  },
+  "EntitySiegeCraft.setLockon": {
+    "source": "public void setLockon(double x, double y, double z) {\n\t\tthis.getDataManager().set(LOCKON_X, (float) x);\n\t\tthis.getDataManager().set(LOCKON_Y, (float) y);\n\t\tthis.getDataManager().set(LOCKON_Z, (float) z);\n\t}",
+    "sha256": "d04fcec63d674ecba3f3d54bba467833f7d9047e3112b4f58d0d5551ca1854e1"
+  },
+  "EntitySiegeCraft.getLockon": {
+    "source": "public Vec3d getLockon() {\n\t\treturn new Vec3d(\n\t\t\t\tthis.getDataManager().get(LOCKON_X),\n\t\t\t\tthis.getDataManager().get(LOCKON_Y),\n\t\t\t\tthis.getDataManager().get(LOCKON_Z)\n\t\t\t\t);\n\t}",
+    "sha256": "ab5eb65c435afe4a8746bc0ae4a8e30d830e1f363b0d3a614ccfb0218274fbda"
+  },
+  "EntitySiegeTunneler.key-0": {
+    "source": "private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeTunneler.class, DataSerializers.VARINT);",
+    "sha256": "0e300619817441e576d66282f67507b9de2dafa6fc3779e61ee8941ce666e9f9"
+  },
+  "EntitySiegeTunneler.setTier-exact-metadata-prefix": {
+    "source": "this.getDataManager().set(SIEGE_TIER, tier.id);",
+    "sha256": "f9a99c863c3c1cf8164b3e886592a45b87d59ca51b19b5dcfd20888e0bb5e766"
+  },
+  "EntitySiegeTunneler.read-NBT-tier-selection-expression": {
+    "source": "SiegeTier.tiers[nbt.getInteger(\"siegeTier\")]",
+    "sha256": "4f229f04a9aadb86203f061b30498a4f3172e33140c5f5b0ca950d9550c180d0"
+  },
+  "EntitySiegeTunneler.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.getDataManager().register(SIEGE_TIER, (int) 0);\n\t}",
+    "sha256": "2468e5d6d77902bb6d715d16616d2c8761cdacdda50d373a30dfc79f309608c5"
+  },
+  "EntitySiegeTunneler.getTier": {
+    "source": "public SiegeTier getTier() {\n\t\tSiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];\n\t\treturn tier != null ? tier : SiegeTier.CLAY;\n\t}",
+    "sha256": "c18da5d34970ca07c34715015630c139836671efec98499bfdedf0a7d62592ed"
+  },
+  "EntitySiegeTunneler.writeEntityToNBT": {
+    "source": "public void writeEntityToNBT(NBTTagCompound nbt) {\n\t\tsuper.writeEntityToNBT(nbt);\n\t\tnbt.setInteger(\"siegeTier\", this.getTier().id);\n\t}",
+    "sha256": "d52a5579aaafdbc1830f6d9ac8a9700b44289cf1da8354b0480c47959342b96a"
+  },
+  "EntityFBIDrone.actual-inheritance": {
+    "source": "public class EntityFBIDrone extends EntityUFOBase",
+    "sha256": "7a2202438a851dabb325eb990ff0f41bdb4da1696f128bbaf504001779cbd226"
+  },
+  "EntityMinecartContainerBase.actual-inheritance": {
+    "source": "public abstract class EntityMinecartContainerBase extends EntityMinecartNTM",
+    "sha256": "f200ae0185928b045dab66b4eab3b17974334f370bae81004beb7449c94dd5bc"
+  },
+  "EntityMinecartCrate.actual-inheritance": {
+    "source": "public class EntityMinecartCrate extends EntityMinecartContainerBase",
+    "sha256": "921ad0df78c6d90f53e27e8fa3cc6ef0e5a069ef2fed2c8819fb09e44be3f90c"
+  },
+  "EntityMinecartDestroyer.actual-inheritance": {
+    "source": "public class EntityMinecartDestroyer extends EntityMinecartContainerBase",
+    "sha256": "ba2f5728b532f5bdbdb639a299dbff2e62ef8f18dd9def01ee025eea295e6da8"
+  },
+  "EntityMinecartOre.actual-inheritance": {
+    "source": "public class EntityMinecartOre extends EntityMinecartNTM",
+    "sha256": "569952f125904c7f091b377a52ac5cd5522e8b5c51a79a589b6c386b725aee87"
+  },
+  "EntityMinecartPowder.actual-inheritance": {
+    "source": "public class EntityMinecartPowder extends EntityMinecartNTM",
+    "sha256": "a61dbef6635ebad794f126062770712b8de084ee00d7c55fe25627bf6360430e"
+  },
+  "EntityMinecartSemtex.actual-inheritance": {
+    "source": "public class EntityMinecartSemtex extends EntityMinecartNTM",
+    "sha256": "a2593540aa8e3274aa471eb454b471c88dc6c671003b99e5319516c2d3cfc8e6"
+  },
+  "EntityBurrowingBase.actual-inheritance": {
+    "source": "public abstract class EntityBurrowingBase extends EntityCreature",
+    "sha256": "2e420ee334b0ba8c8b2c015bc087826dfc2d3fe0845f16579cc9cd34895e53ff"
+  },
+  "EntityBurrowingSwingingBase.actual-inheritance": {
+    "source": "public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase",
+    "sha256": "6befa9731af29a4eb31794bb5e9c3d6cc8ad2b49b10e72431e031303d48ed010"
+  },
+  "EntityMinecartBogie.constructor": {
+    "source": "public EntityMinecartBogie(World world) {\n\t\tsuper(world);\n\t}",
+    "sha256": "a7747fa2f712e64b4e78c234468f21e70795e3c09ebfecea45f939f6cb7eae2a"
+  },
+  "ItemModMinecart.exact-base-enum": {
+    "source": "public static enum EnumCartBase {\n\t\tVANILLA,\n\t\tWOOD,\n\t\tSTEEL,\n\t\tPAINTED\n\t}",
+    "sha256": "dc076341cd9a2aa7291d6bd1e19cfb51cf0ab05fa571b7b6d7815c8f249d8f37"
+  },
+  "SiegeTier.public static SiegeTier\\[\\] tiers = [^;]+;": {
+    "source": "public static SiegeTier[] tiers = new SiegeTier[100];",
+    "sha256": "2758d4a8ff3c0a4fc67615a3c87f237df745a9722425456da11816faf622af81"
+  },
+  "SiegeTier.private static int nextID = [^;]+;": {
+    "source": "private static int nextID = 0;",
+    "sha256": "e4ef8247ec0eb542e008b6580bd3d00c666883b6919b01092041152ce321f978"
+  },
+  "SiegeTier.public static SiegeTier CLAY;": {
+    "source": "public static SiegeTier CLAY;",
+    "sha256": "a054901c5c75f8c1f0e00524ffd754a7e5f138f2d9997ae1fdc569b62929ff13"
+  },
+  "SiegeTier.public int id;": {
+    "source": "public int id;",
+    "sha256": "df4bfbc5cef0c867f29209784f5dff952da0da1cb040404e3df4504a5ce71469"
+  },
+  "SiegeTier.public float health = [^;]+;": {
+    "source": "public float health = 20F;",
+    "sha256": "675e229d60dd84a9f7f64819b0fee0ef0d88dbfe2d88fdeb2bfaff7043421891"
+  },
+  "SiegeTier.public String name = [^;]+;": {
+    "source": "public String name = \"\";",
+    "sha256": "dac613b7bae93cf98d31777f99ddf2ebc5f8eacff47b5e64c0563f708585a65c"
+  },
+  "SiegeTier.constructor": {
+    "source": "public SiegeTier(float baseHealth, String name) {\n\t\tthis.id = nextID;\n\t\tSiegeTier.tiers[this.id] = this;\n\t\tnextID++;\n\t\t\n\t\tthis.health = baseHealth;\n\t\tthis.name = name;\n\t}",
+    "sha256": "33a45b14e2df2a78b909db76dc9385fec891cc068f15e6c1f6db9ef8a0743531"
+  },
+  "RenderMagnusCartus.typed-cast": {
+    "source": "EntityMagnusCartus cart = (EntityMagnusCartus) entity;",
+    "sha256": "dc900ed3bb822ae88abef17906b96529300b9e76ae4bc1e147fd194e37e2b7f6"
+  },
+  "RenderMagnusCartus.world-bogie-lookup": {
+    "source": "Entity e = entity.world.getEntityByID(cart.getBogieID());",
+    "sha256": "1ca634a725c2766ac9fb9a0024ce29d52a091bee64b1c5fc24c733172175afee"
+  },
+  "RenderSiegeCraft.lockon-read-expression": {
+    "source": "ufo.getLockon()",
+    "sha256": "c6ab5aa7ce63d60a50c492982bca2ae3b427e3825d19c8db8daade3de4fce770"
+  },
+  "RenderSiegeCraft.tier-lookup": {
+    "source": "SiegeTier tier = entity.getTier();",
+    "sha256": "d7cf40793111f02bfef2f4dd324c73b40d9eca5e6ae90f6c5700e15b7d7b987f"
+  }
+}

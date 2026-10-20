@@ -48,10 +48,10 @@ public class ItemModHealth extends ItemArmorMod {
 	
 	@Override
 	public Multimap getModifiers(ItemStack armor) {
-		Multimap multimap = super.getAttributeModifiers(armor);
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
 		
-		multimap.put(SharedMonsterAttributes.maxHealth.getAttributeUnlocalizedName(),
-				new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Health", health, 0));
+		multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(),
+				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Health", health, 0));
 		
 		return multimap;
 	}

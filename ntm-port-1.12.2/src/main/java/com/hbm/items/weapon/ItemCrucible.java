@@ -107,13 +107,15 @@ public class ItemCrucible extends ItemSwordAbility implements IEquipReceiver, IA
 		}
 	}
 
-	public Multimap getAttributeModifiers(ItemStack stack) {
+	@Override
+	public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
 
 		Multimap multimap = HashMultimap.create();
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
 
 		if(stack.getItemDamage() < stack.getMaxDamage()) {
-			multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Tool modifier", (double) this.damage, 0));
-			multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Tool modifier", movement, 1));
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", (double) this.damage, 0));
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", movement, 1));
 		}
 
 		return multimap;

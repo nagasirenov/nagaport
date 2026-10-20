@@ -36,9 +36,9 @@ public class SlotCraftingOutput extends Slot {
 	}
 
 	@Override
-	public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
+	public ItemStack onTake(EntityPlayer player, ItemStack stack) {
 		this.onCrafting(stack);
-		super.onPickupFromSlot(player, stack);
+		return super.onTake(player, stack);
 	}
 
 	@Override

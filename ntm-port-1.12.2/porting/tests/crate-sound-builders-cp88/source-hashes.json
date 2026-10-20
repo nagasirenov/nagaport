@@ -1,0 +1,56 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before_sha256": "b57b04a9b863e28406c5119171187ac26f152d3384c4262a26e2616246244831",
+    "after_sha256": "51b16ab84ae4057aedc9193dbcd5e582f0ed06d1f3a5328ee14b5c5375ac5dc1",
+    "changed": true
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockCrate.java",
+    "before_sha256": "d3bc14dc17f8579d8417f83759eb749f486eb4952445356bf3485c0531a7e162",
+    "after_sha256": "73d614ab9403fdf52d6998d80845f22dc9359ab77fde6a149e3e4c58665b9854",
+    "changed": true
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+    "before_sha256": "594c4ead980df4270d7416e4470fe382ff57f259b8159f0798919cad04add276",
+    "after_sha256": "a1236629b140d590206283b4600089d915815baf7951642c79d0703813922761",
+    "changed": true
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModSoundType.java",
+    "before_sha256": "ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3",
+    "after_sha256": "ef486866e77591af26b3cf48df724d398a06b6dacb074186e93c2bb4e99729f3",
+    "changed": false
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/ModSoundTypes.java",
+    "before_sha256": "822fd9b8a8aae40038abbd0d0be21ed4ac92cd970ccea58b9ca538316df57b6c",
+    "after_sha256": "822fd9b8a8aae40038abbd0d0be21ed4ac92cd970ccea58b9ca538316df57b6c",
+    "changed": false
+  },
+  {
+    "path": "src/main/java/com/hbm/main/ModSoundEvents.java",
+    "before_sha256": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+    "after_sha256": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+    "changed": false
+  },
+  {
+    "path": "src/main/java/com/hbm/lib/RefStrings.java",
+    "before_sha256": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "after_sha256": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
+    "changed": false
+  },
+  {
+    "path": "porting/tests/ForgeEventNativeLauncher.java",
+    "before_sha256": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3",
+    "after_sha256": "e9231a4e4f85841e7c26bd24294b72b737a6cd599f889e79fba95dd499c4e9a3",
+    "changed": false
+  },
+  {
+    "path": "porting/tests/LegacyBlockSoundOracle.java",
+    "before_sha256": "900c630980fc71af5047bfac3ec553cf229554246b519056b49806abf19ce237",
+    "after_sha256": "900c630980fc71af5047bfac3ec553cf229554246b519056b49806abf19ce237",
+    "changed": false
+  }
+]

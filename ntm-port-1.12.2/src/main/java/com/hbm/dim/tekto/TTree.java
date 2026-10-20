@@ -59,8 +59,9 @@ public class TTree extends WorldGenAbstractTree {
 				for (int dz = -bulbRadiusXz; dz <= bulbRadiusXz; dz++) {
 
 					if (Math.pow(dx / (double)bulbRadiusXz, 2) + Math.pow(dy / (double)bulbRadiusY, 2) + Math.pow(dz / (double)bulbRadiusXz, 2) <= 1) {
-						Block block = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz).getBlock();
-						if (block.isAir(world, x + dx, bulbStartY + dy, z + dz)) {
+						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz);
+						Block block = nativeAirState.getBlock();
+						if (block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x + dx, bulbStartY + dy, z + dz))) {
 							world.setBlock(x + dx, bulbStartY + dy, z + dz, leavBlock, 0, 2);
 							if (vines) {
 								for (int i = 0; i < 4; i++) {
@@ -70,7 +71,7 @@ public class TTree extends WorldGenAbstractTree {
 									if (rand.nextInt(12) == 0) {
 										for (int j = 0; j < rand.nextInt(15); j++) {
 											int vineY = bulbStartY + dy - j;
-											if (world.isAirBlock(vineX, vineY, vineZ)) {
+											if (world.isAirBlock(new net.minecraft.util.math.BlockPos(vineX, vineY, vineZ))) {
 												world.setBlock(vineX, vineY, vineZ, ModBlocks.vinyl_vines, 0, 2);
 												if (vineX > x + dx) {
 													world.setBlockMetadataWithNotify(vineX, vineY, vineZ, 0x2, 2);

@@ -1,0 +1,38 @@
+/workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+    static Unsafe unsafe() throws Exception {
+           ^
+/workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java:28: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field f = Unsafe.class.getDeclaredField("theUnsafe");
+                  ^
+/workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java:30: warning: Unsafe is internal proprietary API and may be removed in a future release
+        return (Unsafe) f.get(null);
+                ^
+/workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java:55: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Unsafe unsafe = unsafe();
+        ^
+Note: /workspace/shared/nagaport-cp90-armor-slots/ntm-port-1.12.2/porting/tests/native-armor-slots/engine/NativeArmorEngineTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+7 warnings
+PASS 393 assertions; 20 original/native builtin material-piece constructors; 16 concrete mob armor setter cases; 4 paired virtual-dispatch cases; production ArmorSlotOrder compiled/executed.
+SCOPE: real original and native engine methods; mob objects Unsafe-allocated with actual inventory fields seeded to avoid unrelated world/AI construction. No platform stubs, custom materials, full mod build, Forge event simulation, or gameplay claimed.
+DIFFERENCES: original CLOTH maps to native LEATHER; 1.12 armor material arrays use reverse indices; original empty is null versus native ItemStack.EMPTY; native includes offhand and toughness. Original Forge1614 player setter correction is source-audited, not substituted by a vanilla player runtime test.
+PASS killed mutation wrong_head_slot
+Exception in thread "main" java.lang.AssertionError: production helper expected slot 0
+	at NativeArmorEngineTest.ok(NativeArmorEngineTest.java:25)
+	at NativeArmorEngineTest.main(NativeArmorEngineTest.java:86)
+PASS killed mutation inventory_index_confusion
+Exception in thread "main" java.lang.AssertionError: production helper round trip 0
+	at NativeArmorEngineTest.ok(NativeArmorEngineTest.java:25)
+	at NativeArmorEngineTest.main(NativeArmorEngineTest.java:87)
+PASS killed mutation accept_hand_slot
+Exception in thread "main" java.lang.AssertionError: accepted hand as armor
+	at NativeArmorEngineTest.main(NativeArmorEngineTest.java:112)

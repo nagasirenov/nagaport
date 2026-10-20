@@ -1,3 +1,5 @@
+> Historical continuation below is superseded by [../CURRENT.md](../CURRENT.md). In particular, earlier pending official Mojang/runtime-library approval language is no longer current; the approved restoration and later actual offline build outcomes are recorded there. Separate unresolved feature policies are not waived.
+
 # Resume checkpoint 37
 
 ## Identity and patch chain

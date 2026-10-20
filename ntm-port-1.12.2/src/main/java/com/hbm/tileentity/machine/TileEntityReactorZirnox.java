@@ -388,7 +388,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 		ExplosionNukeGeneric.waste(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 35);
 
 		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class,
-				AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));
+				new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));
 
 		for(EntityPlayer player : players) {
 			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achZIRNOXBoom);

@@ -1,0 +1,114 @@
+[
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+    "line": 79,
+    "owner": "com.hbm.items.tool.ItemMirrorTool",
+    "element": "getAttributeModifiers(net.minecraft.item.ItemStack)",
+    "source": "@Override\r\n\tpublic Multimap getAttributeModifiers(ItemStack stack) {\r\n\t\t\r\n\t\tMultimap multimap = super.getAttributeModifiers(stack);\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n\t\treturn multimap;\r\n\t}"
+  },
+  {
+    "kind": "call",
+    "file": "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+    "line": 82,
+    "owner": "net.minecraft.item.Item",
+    "element": "net.minecraft.item.Item.getAttributeModifiers",
+    "source": "super.getAttributeModifiers(stack)"
+  },
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+    "line": 112,
+    "owner": "com.hbm.items.tool.ItemRBMKTool",
+    "element": "getAttributeModifiers(net.minecraft.item.ItemStack)",
+    "source": "@Override\r\n\tpublic Multimap getAttributeModifiers(ItemStack stack) {\r\n\t\t\r\n\t\tMultimap multimap = super.getAttributeModifiers(stack);\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n\t\treturn multimap;\r\n\t}"
+  },
+  {
+    "kind": "call",
+    "file": "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+    "line": 115,
+    "owner": "net.minecraft.item.Item",
+    "element": "net.minecraft.item.Item.getAttributeModifiers",
+    "source": "super.getAttributeModifiers(stack)"
+  },
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/tool/ItemSwordAbility.java",
+    "line": 68,
+    "owner": "com.hbm.items.tool.ItemSwordAbility",
+    "element": "getItemAttributeModifiers()",
+    "source": "@Override\n\tpublic Multimap getItemAttributeModifiers() {\n\n\t\tMultimap multimap = HashMultimap.create();\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n\t\treturn multimap;\n\t}"
+  },
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+    "line": 268,
+    "owner": "com.hbm.items.tool.ItemToolAbility",
+    "element": "getItemAttributeModifiers()",
+    "source": "@Override\r\n\tpublic Multimap getItemAttributeModifiers() {\r\n\r\n\t\tMultimap multimap = HashMultimap.create();\r\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\r\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\r\n\t\treturn multimap;\r\n\t}"
+  },
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+    "line": 45,
+    "owner": "com.hbm.items.tool.ItemToolingWeapon",
+    "element": "getAttributeModifiers(net.minecraft.item.ItemStack)",
+    "source": "@Override\n\tpublic Multimap getAttributeModifiers(ItemStack stack) {\n\t\t\n\t\tMultimap multimap = super.getAttributeModifiers(stack);\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", damage, 0));\n\t\t\n\t\tif(this == ModItems.wrench) {\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Wrench modifier\", -0.1, 1));\n\t\t}\n\t\t\n\t\treturn multimap;\n\t}"
+  },
+  {
+    "kind": "call",
+    "file": "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+    "line": 48,
+    "owner": "com.hbm.items.tool.ItemTooling",
+    "element": "com.hbm.items.tool.ItemTooling.getAttributeModifiers",
+    "source": "super.getAttributeModifiers(stack)"
+  },
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+    "line": 218,
+    "owner": "com.hbm.items.tool.WeaponSpecial",
+    "element": "getItemAttributeModifiers()",
+    "source": "@Override\n\tpublic Multimap getItemAttributeModifiers() {\n\t\tMultimap multimap = super.getItemAttributeModifiers();\n\t\tif(this == ModItems.schrabidium_hammer) {\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.5, 1));\n\t\t}\n\t\tif(this == ModItems.shimmer_sledge || this == ModItems.shimmer_axe) {\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.2, 1));\n\t\t}\n\t\tif(this == ModItems.wrench_flipped) {\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.1, 1));\n\t\t}\n\t\treturn multimap;\n\t}"
+  },
+  {
+    "kind": "call",
+    "file": "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+    "line": 220,
+    "owner": "net.minecraft.item.ItemSword",
+    "element": "net.minecraft.item.ItemSword.getItemAttributeModifiers",
+    "source": "super.getItemAttributeModifiers()"
+  },
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/weapon/GunB92.java",
+    "line": 207,
+    "owner": "com.hbm.items.weapon.GunB92",
+    "element": "getItemAttributeModifiers()",
+    "source": "@Override\n\tpublic Multimap getItemAttributeModifiers() {\n\t\tMultimap multimap = super.getItemAttributeModifiers();\n\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),\n\t\t\t\tnew AttributeModifier(field_111210_e, \"Weapon modifier\", 3.5, 0));\n\t\treturn multimap;\n\t}"
+  },
+  {
+    "kind": "call",
+    "file": "src/main/java/com/hbm/items/weapon/GunB92.java",
+    "line": 209,
+    "owner": "net.minecraft.item.Item",
+    "element": "net.minecraft.item.Item.getItemAttributeModifiers",
+    "source": "super.getItemAttributeModifiers()"
+  },
+  {
+    "kind": "declaration",
+    "file": "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+    "line": 110,
+    "owner": "com.hbm.items.weapon.ItemCrucible",
+    "element": "getAttributeModifiers(net.minecraft.item.ItemStack)",
+    "source": "public Multimap getAttributeModifiers(ItemStack stack) {\n\n\t\tMultimap multimap = HashMultimap.create();\n\n\t\tif(stack.getItemDamage() < stack.getMaxDamage()) {\n\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n\t\t}\n\n\t\treturn multimap;\n\t}"
+  },
+  {
+    "kind": "call",
+    "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+    "line": 1097,
+    "owner": "net.minecraft.item.ItemStack",
+    "element": "net.minecraft.item.ItemStack.getAttributeModifiers",
+    "source": "com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers()"
+  }
+]

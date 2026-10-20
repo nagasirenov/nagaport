@@ -1,0 +1,3 @@
+PASS: 196 native train metadata/constructor/packet/NBT assertions (train-first)
+PASS: 196 native train metadata/constructor/packet/NBT assertions (dummies-first)
+PASS: both fresh-JVM load orders; exact constructor/init chain and dummy ticks; full Cargo NBT; bounded ancestors, not full train/game compilation

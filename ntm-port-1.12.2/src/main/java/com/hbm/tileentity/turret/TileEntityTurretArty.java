@@ -26,6 +26,7 @@ import li.cil.oc.api.machine.Context;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.Vec3d;
@@ -196,7 +197,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 
 		EntityArtilleryShell proj = new EntityArtilleryShell(this.world);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, 0.0F, 0.0F);
-		proj.setThrowableHeading(vec.x, vec.y, vec.z, (float) getV0(), 0.0F);
+		proj.shoot(vec.x, vec.y, vec.z, (float) getV0(), 0.0F);
 		proj.setTarget((int) tPos.x, (int) tPos.y, (int) tPos.z);
 		proj.setType(type.getItemDamage());
 
@@ -204,7 +205,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 			NBTTagCompound cargo = type.getTagCompound().getCompoundTag("cargo");
 
 			if(cargo != null) {
-				proj.setCargo(ItemStack.loadItemStackFromNBT(cargo));
+				proj.setCargo(NullableInventoryStackNbt.read(cargo));
 			}
 		}
 

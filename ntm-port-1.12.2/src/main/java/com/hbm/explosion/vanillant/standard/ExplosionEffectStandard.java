@@ -28,9 +28,9 @@ public class ExplosionEffectStandard implements IExplosionSFX {
 	public static void performClient(World world, double x, double y, double z, float size, List<BlockPos> affectedBlocks) {
 		
 		if(size >= 2.0F) {
-			world.spawnParticle("hugeexplosion", x, y, z, 1.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_HUGE, x, y, z, 1.0D, 0.0D, 0.0D);
 		} else {
-			world.spawnParticle("largeexplode", x, y, z, 1.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_LARGE, x, y, z, 1.0D, 0.0D, 0.0D);
 		}
 
 		int count = affectedBlocks.size();
@@ -57,8 +57,8 @@ public class ExplosionEffectStandard implements IExplosionSFX {
 			dX *= mod;
 			dY *= mod;
 			dZ *= mod;
-			world.spawnParticle("explode", (oX + x * 1.0D) / 2.0D, (oY + y * 1.0D) / 2.0D, (oZ + z * 1.0D) / 2.0D, dX, dY, dZ);
-			world.spawnParticle("smoke", oX, oY, oZ, dX, dY, dZ);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_NORMAL, (oX + x * 1.0D) / 2.0D, (oY + y * 1.0D) / 2.0D, (oZ + z * 1.0D) / 2.0D, dX, dY, dZ);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, oX, oY, oZ, dX, dY, dZ);
 		}
 	}
 }

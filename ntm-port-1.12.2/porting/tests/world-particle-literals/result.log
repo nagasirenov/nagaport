@@ -1,0 +1,9 @@
+PASS exact inverse: 115 name-token changes across 67 files; all other bytes equal CP79
+/tmp/native-world-particle-literals-sada0cm6/WorldParticleLiteralTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true);
+                        ^
+/tmp/native-world-particle-literals-sada0cm6/WorldParticleLiteralTest.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+        World w=(World)((sun.misc.Unsafe)f.get(null)).allocateInstance(WorldServer.class);
+                                 ^
+2 warnings
+PASS 282 checks: 16 genuine native enum mappings/dispatch and complete extracted production explosion callback; no whole-mod or live-render claim

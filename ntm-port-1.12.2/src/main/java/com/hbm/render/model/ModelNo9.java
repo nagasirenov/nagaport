@@ -48,7 +48,7 @@ public class ModelNo9 extends ModelArmorBase {
 
 			if(entity instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) entity;
-				ItemStack helmet = player.getEquipmentInSlot(4);
+				ItemStack helmet = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4);
 
 				if(helmet != null && helmet.hasTagCompound() && helmet.getTagCompound().getBoolean("isOn")) {
 					GL11.glColor3f(1F, 1F, 0.8F);

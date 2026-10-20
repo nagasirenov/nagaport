@@ -24,9 +24,10 @@ public class ItemFusionCore extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-		if(ArmorFSB.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory[2].getItem() instanceof ArmorFSBPowered) {
+		if(ArmorFSB.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSBPowered) {
 
 			for(ItemStack st : player.inventory.armorInventory) {
+				if (st == ItemStack.EMPTY) st = null;
 
 				if(st == null)
 					continue;

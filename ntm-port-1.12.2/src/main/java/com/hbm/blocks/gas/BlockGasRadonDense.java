@@ -48,7 +48,7 @@ public class BlockGasRadonDense extends BlockGasBase {
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 		super.randomDisplayTick(world, x, y, z, rand);
-		world.spawnParticle("townaura", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+		world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class BlockGasRadonDense extends BlockGasBase {
 			if(rand.nextInt(30) == 0) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				
-				if(ModBlocks.fallout.canPlaceBlockAt(world, x, y, z)) {
+				if(ModBlocks.fallout.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 					world.setBlock(x, y, z, ModBlocks.fallout);
 				}
 				

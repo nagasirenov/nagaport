@@ -1,0 +1,19 @@
+  public boolean isReplaceable(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: aload_2
+       2: invokeinterface #511,  2          // InterfaceMethod net/minecraft/world/IBlockAccess.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+       7: invokeinterface #242,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+      12: invokevirtual #513                // Method net/minecraft/block/material/Material.isReplaceable:()Z
+      15: ireturn
+
+  public boolean canPlaceBlockAt(net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: aload_2
+       2: invokevirtual #963                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+       5: invokeinterface #172,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      10: aload_1
+      11: aload_2
+      12: invokevirtual #965                // Method isReplaceable:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z
+      15: ireturn

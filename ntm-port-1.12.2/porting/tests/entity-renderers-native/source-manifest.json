@@ -1,0 +1,458 @@
+{
+  "base_revision": "502f0b9d",
+  "classes": [
+    {
+      "class": "RenderBlackHole",
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java",
+      "base_sha256": "51aee53a661aace503ea564e99452009c8861a6b534f7b51bee83890cc516ff7",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderCloudFleija",
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderCloudFleija.java",
+      "base_sha256": "1975eb8a0bccd10fc66f25be89f54b1ff1759084493e79591e5aeae9335661af",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderCloudRainbow",
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderCloudRainbow.java",
+      "base_sha256": "329e559e3fd2d1c2f589f83cfa022af7029bb656b805e4e11ba4a4ca5a70b645",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderCloudSolinium",
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderCloudSolinium.java",
+      "base_sha256": "8aa07da0bfe102bf90ff5664849cde622b69c3f1c443812cd4599fce04eeb3e4",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderDeathBlast",
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderDeathBlast.java",
+      "base_sha256": "469eae87bde920c5341115d1a78ef3928021ddbf7c4c96ab944bbd7b50b47ec2",
+      "had_constructor": false,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderFallout",
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderFallout.java",
+      "base_sha256": "40cf6f583b8df9a58621ac21e83518c59859739805766699c8483b6c18e024fa",
+      "had_constructor": false,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderQuasar",
+      "path": "src/main/java/com/hbm/render/entity/effect/RenderQuasar.java",
+      "base_sha256": "8be233cb55a949d9f9bc9d649540da92b368485da0f9de22321cc8d1a4114b90",
+      "had_constructor": false,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderBoatRubber",
+      "path": "src/main/java/com/hbm/render/entity/item/RenderBoatRubber.java",
+      "base_sha256": "937c694451c2c9bd9d94635a927338f682d6377e5dd9625387ac46f85c65ce70",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderBalls",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderBalls.java",
+      "base_sha256": "fd2a00172b761ef72870f7c26054664c2b208d23c2917136c732920ac082315c",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderDuck",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderDuck.java",
+      "base_sha256": "cd53a7f0bd66fd1ac93a1f3200b3595986a51a2b9354577f0fd42240787172b6",
+      "had_constructor": true,
+      "family": "chicken",
+      "full_class_test": true
+    },
+    {
+      "class": "RenderHunterChopper",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderHunterChopper.java",
+      "base_sha256": "f7db1d2f3b7da06ecaf0007d0405a28874501b23057299f505e8dc25406b78d8",
+      "had_constructor": false,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderQuacc",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderQuacc.java",
+      "base_sha256": "b52129791fddba3975fd4909e93881e77a06f97ea367cc05696488603bb79fb9",
+      "had_constructor": true,
+      "family": "chicken",
+      "full_class_test": true
+    },
+    {
+      "class": "RenderQuackos",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderQuackos.java",
+      "base_sha256": "9ac1ae3cba4acefe67ea246ed48cafb696afddffd3c48142d0670b624898ffbc",
+      "had_constructor": true,
+      "family": "chicken",
+      "full_class_test": true
+    },
+    {
+      "class": "RenderSiegeTunneler",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderSiegeTunneler.java",
+      "base_sha256": "fe16ff713b732237e83de11c52250c3d24756e047b8b271032fe49d3fcea4aa7",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderWormBody",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderWormBody.java",
+      "base_sha256": "1897e38802bc24d8772e30a239ff1efeeb5e88b8d55c337af219b4126b09039b",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": true
+    },
+    {
+      "class": "RenderWormHead",
+      "path": "src/main/java/com/hbm/render/entity/mob/RenderWormHead.java",
+      "base_sha256": "d4afdebdc47377a3b2e896bdb79dc463ba82739dfbc07b90d623c667e5d2c0c4",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderBeam5",
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderBeam5.java",
+      "base_sha256": "7537ea3e0ee1c8a3465060d1faf2775984c1a374de20e1aae2e1ef261aff8e56",
+      "had_constructor": false,
+      "family": "direct",
+      "full_class_test": true
+    },
+    {
+      "class": "RenderBombletTheta",
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderBombletTheta.java",
+      "base_sha256": "1e6ac790e083a3c94f268826da89de0e0b7faadb9fc1e562bf69521b830d7c74",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderChopperMine",
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderChopperMine.java",
+      "base_sha256": "7df16a4f2aefbaf6da898783353e946ad066b70a46829eff85ac2125995156bb",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": true
+    },
+    {
+      "class": "RenderCoin",
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderCoin.java",
+      "base_sha256": "5d3b2ad22ee2afb5e8f822e4c2d274458d0c3b3877e18754456134a224771883",
+      "had_constructor": false,
+      "family": "direct",
+      "full_class_test": true
+    },
+    {
+      "class": "RenderFallingNuke",
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+      "base_sha256": "9cb6a624d7f387cc2583df9fc4160d48bbdf8e86c3892c7dcc5426130b11cd28",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderRocket",
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderRocket.java",
+      "base_sha256": "d48f0d9c1ae7841f171387adb998edd30f2605a8a5c285a4d91a164c476ecbd6",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    },
+    {
+      "class": "RenderShrapnel",
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderShrapnel.java",
+      "base_sha256": "b31522fc4881a51281abbb8c0fd812ed7dd13487e2975fd38dcee128ef588697",
+      "had_constructor": true,
+      "family": "direct",
+      "full_class_test": false
+    }
+  ],
+  "registrations": [
+    {
+      "entity": "EntityBullet",
+      "renderer": "RenderRocket",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityExplosiveBeam",
+      "renderer": "RenderBeam5",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityBombletZeta",
+      "renderer": "RenderBombletTheta",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityFallingNuke",
+      "renderer": "RenderFallingNuke",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityChopperMine",
+      "renderer": "RenderChopperMine",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityShrapnel",
+      "renderer": "RenderShrapnel",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityFireworks",
+      "renderer": "RenderShrapnel",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityCoin",
+      "renderer": "RenderCoin",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityCloudFleija",
+      "renderer": "RenderCloudFleija",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityCloudFleijaRainbow",
+      "renderer": "RenderCloudRainbow",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityCloudSolinium",
+      "renderer": "RenderCloudSolinium",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityFalloutRain",
+      "renderer": "RenderFallout",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityBlackHole",
+      "renderer": "RenderBlackHole",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityVortex",
+      "renderer": "RenderBlackHole",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityRagingVortex",
+      "renderer": "RenderBlackHole",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityQuasar",
+      "renderer": "RenderQuasar",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityDeathBlast",
+      "renderer": "RenderDeathBlast",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityBoatRubber",
+      "renderer": "RenderBoatRubber",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityHunterChopper",
+      "renderer": "RenderHunterChopper",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityBOTPrimeHead",
+      "renderer": "RenderWormHead",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityBOTPrimeBody",
+      "renderer": "RenderWormBody",
+      "original_arguments": ""
+    },
+    {
+      "entity": "EntityDuck",
+      "renderer": "RenderDuck",
+      "original_arguments": "new ModelChicken(), 0.3F"
+    },
+    {
+      "entity": "EntityQuackos",
+      "renderer": "RenderQuacc",
+      "original_arguments": "new ModelChicken(), 7.5F"
+    },
+    {
+      "entity": "EntitySiegeTunneler",
+      "renderer": "RenderSiegeTunneler",
+      "original_arguments": ""
+    }
+  ],
+  "assets": {
+    "src/main/resources/assets/hbm/models/sphere.obj": "a3aa379204d05f35be38b1e27a15a174e570b7a5e78a86c42374eee1f276461e",
+    "src/main/resources/assets/hbm/textures/models/blackhole.png": "40bdcc3e40d653dad2eab473b717d3f7af8ed892c2c6a168fe5c5d825ccb2d5a",
+    "src/main/resources/assets/hbm/textures/entity/bhole.png": "8fbe266543bc1e59eaf32a83f9b0e8f2804ed93306e6943b97388788aeb66bed",
+    "src/main/resources/assets/hbm/textures/entity/bholedisc.png": "907f9b224489846c3a48f87b50b476648e719871cc21017797096f4b22668093",
+    "src/main/resources/assets/hbm/textures/models/blastfleija.png": "015b5fdc1894d7798497f3e650bf3765043219bd94f0dbcb21fa2c899a6f2442",
+    "src/main/resources/assets/hbm/textures/models/blastsolinium.png": "3cfc1d0a9e6582a73c195f311bc563e5eb15c67ea7acd6b4d52df0b50714a433",
+    "src/main/resources/assets/hbm/textures/entity/fallout.png": "231e854900481f7813a94947b0d6fc61cff74ce92d4e5301d4a2e97877d96bcb",
+    "src/main/resources/assets/hbm/textures/entity/bholed.png": "02b141dfab918f31bf48b75fa5aeb72de99cab9f8891787859516a934d9f64c1",
+    "src/main/resources/assets/hbm/textures/entity/boat_rubber.png": "9789bff4fb92fe7c220dcc56e42c7d6c21cec11cb2ae3420f5ecd2032bbfefe6",
+    "src/main/resources/assets/hbm/models/mobs/capsule.obj": "48f8da9c244510592cdbec073ff2c6fe89938f132bd593106aca433aabc27dc3",
+    "src/main/resources/assets/hbm/textures/entity/duck.png": "dff1082552260b59f0dfe491987b42d4dca320227731533bfecca3a219ee2305",
+    "src/main/resources/assets/hbm/textures/entity/chopper.png": "42a7bccd806c91f3ad6b691197e4a21a2a34614cf198071ccdfe46459f6770eb",
+    "src/main/resources/assets/hbm/models/mobs/tunneler.obj": "5784d7dd068771c696d7e78c89d74b7b67a8deedbe8614e883346c63b60d2e8d",
+    "src/main/resources/assets/hbm/models/mobs/bot_prime_body.obj": "a5378e1bba4c5c59bc4e4216e92a2713a3e65be2f19a02a8b90b8ed6ae927e93",
+    "src/main/resources/assets/hbm/textures/entity/mark_zero_body.png": "56da7543c44e35a385ad4ef2e9550ba649d0b3f9f2e8a6441d5931954f1deff4",
+    "src/main/resources/assets/hbm/models/mobs/bot_prime_head.obj": "287e2fe5f85f2a3901004a6174557fb3574beb4a623179846d8c017de047eb27",
+    "src/main/resources/assets/hbm/textures/entity/mark_zero_head.png": "344afef929bc1c61040a61e92d68b25c1dde92c6938536d02b59fd2e4b3c0a72",
+    "src/main/resources/assets/hbm/models/bomblettheta.obj": "a0a2fa2ec0362b5aea411234cc21e0e87d142129fb52b635ddd1f3763bd18aff",
+    "src/main/resources/assets/hbm/textures/models/bombletzetatexture.png": "4532267f576a913f7e39e282a824ab421cf9ac69328d6502e5c5a172be9cbfef",
+    "src/main/resources/assets/hbm/textures/models/chopperbomb.png": "96aa291efb807bb5cc3e89aa3e20449c74705e395632890164e33c32580c4c4e",
+    "src/main/resources/assets/hbm/models/trinkets/chip.obj": "9b5cdd87c73f293c1b6e920270c3621ad50745f9490ff301c4ce8a09fb90a974",
+    "src/main/resources/assets/hbm/textures/models/trinkets/chip_gold.png": "86eb9a0e652f904f7883eadbcad2dd062fb32eae0c1cc8a1bbd373e6fadc1f3d",
+    "src/main/resources/assets/hbm/models/lilboy1.obj": "d92058850835922d4634b962dbb0f7c383b7b987fdd34c7be856817e9aeb174a",
+    "src/main/resources/assets/hbm/textures/models/customnuke.png": "1e8cff3ec7c484998418094f7b2db6ff8a9c0493c9fdb289967e1ab603b90241",
+    "src/main/resources/assets/hbm/textures/models/thegadget3_.png": "a9c0d8597f8a90cda964b17da8737a1a19cde878848184f7b7a5e2b3037e37c4",
+    "src/main/resources/assets/hbm/textures/models/emplacer.png": "e6044f32c31cf04f0c059b60704d04ea6f5fe6aa5b7b1cf6051cb67eb8000a9c",
+    "src/main/resources/assets/hbm/textures/models/tau.png": "825f6fd506696359c19892f0b6bcb98654b9333640482c36a2f39ec700f6bc7a",
+    "src/main/resources/assets/hbm/textures/models/bullet.png": "b325a6dda8c91a9ee2d0ee9762a6ef74d3a270cd714502ed489c552b752a53d0",
+    "src/main/resources/assets/hbm/textures/entity/shrapnel.png": "2f52efb63865834adb660464f917713d2a15e6870c2fb7ec8999d18203d4e3ff"
+  },
+  "model_mesh_closure": [
+    {
+      "path": "src/main/java/com/hbm/render/mesh/MeshModel.java",
+      "sha256": "50900668f48e08430342940586e3a339f2104e2103afad22de3c18f3ae9e2fb2"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ObjMesh.java",
+      "sha256": "d4df19eed10f6e72ef992c98551e7425d47538211dff0a72455b111b024bb736"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ObjMeshModel.java",
+      "sha256": "1d0ccf4a2b32102a2929664bbc277fe96ee856abec1d7eeee5881219040d1766"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ObjMeshParser.java",
+      "sha256": "e77067fb84a6bbe1b34aac4057afd4db8ca3b273cad51b6e7ea3e9bbd7de6e9c"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ObjMeshRenderer.java",
+      "sha256": "db63437bf921357dc8beaf411f7172340bab1360e81f1bbdc364c73604186118"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ObjMeshVboPayload.java",
+      "sha256": "51fd5693d954262280a5865dccbf12ff22742e76d1225552f1ff47709af07715"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/mesh/ReloadableObjMesh.java",
+      "sha256": "e74ff45598e981a6d5d342188cb5d8797c60ed537364abd1ca3a8af71fc44ba6"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/loader/HFRWavefrontObject.java",
+      "sha256": "9cbcefffc89c46fe37ebc1cf06cfcfb2a4d7fff61a61aa6d04a69a105c21ca89"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/loader/HFRWavefrontObjectVBO.java",
+      "sha256": "3ec6a5d694f4204ecead59ecfaa630e4568576ab9b2226bcbe54f4e9a056e885"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/model/ModelChopperMine.java",
+      "sha256": "0b51da506a4db23000aa756b513455442d31e7d1a5d4ab6ecd5ca7f3de4ec4b8"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/model/ModelShrapnel.java",
+      "sha256": "e64a43abe45e3238caf29e2f27db7dcf906228e626ce3fd3581ad00236b8907b"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/model/ModelBullet.java",
+      "sha256": "21206ca27134e314026e25fb99611a2a9288d1d8b281baa8986acf1effe0b613"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/model/ModelHunterChopper.java",
+      "sha256": "11892dedea52bbf792109067a6862831f95523230dc8128e1a0e288f7ff74585"
+    }
+  ],
+  "resource_literals": {
+    "models/Sphere.obj": "src/main/resources/assets/hbm/models/sphere.obj",
+    "textures/models/BlackHole.png": "src/main/resources/assets/hbm/textures/models/blackhole.png",
+    "textures/entity/bhole.png": "src/main/resources/assets/hbm/textures/entity/bhole.png",
+    "textures/entity/bholeDisc.png": "src/main/resources/assets/hbm/textures/entity/bholedisc.png",
+    "textures/models/BlastFleija.png": "src/main/resources/assets/hbm/textures/models/blastfleija.png",
+    "textures/models/BlastSolinium.png": "src/main/resources/assets/hbm/textures/models/blastsolinium.png",
+    "textures/entity/fallout.png": "src/main/resources/assets/hbm/textures/entity/fallout.png",
+    "textures/entity/bholeD.png": "src/main/resources/assets/hbm/textures/entity/bholed.png",
+    "textures/entity/boat_rubber.png": "src/main/resources/assets/hbm/textures/entity/boat_rubber.png",
+    "models/mobs/capsule.obj": "src/main/resources/assets/hbm/models/mobs/capsule.obj",
+    "textures/entity/duck.png": "src/main/resources/assets/hbm/textures/entity/duck.png",
+    "textures/entity/chopper.png": "src/main/resources/assets/hbm/textures/entity/chopper.png",
+    "models/mobs/tunneler.obj": "src/main/resources/assets/hbm/models/mobs/tunneler.obj",
+    "models/mobs/bot_prime_body.obj": "src/main/resources/assets/hbm/models/mobs/bot_prime_body.obj",
+    "textures/entity/mark_zero_body.png": "src/main/resources/assets/hbm/textures/entity/mark_zero_body.png",
+    "models/mobs/bot_prime_head.obj": "src/main/resources/assets/hbm/models/mobs/bot_prime_head.obj",
+    "textures/entity/mark_zero_head.png": "src/main/resources/assets/hbm/textures/entity/mark_zero_head.png",
+    "models/bombletTheta.obj": "src/main/resources/assets/hbm/models/bomblettheta.obj",
+    "textures/models/bombletZetaTexture.png": "src/main/resources/assets/hbm/textures/models/bombletzetatexture.png",
+    "textures/models/chopperBomb.png": "src/main/resources/assets/hbm/textures/models/chopperbomb.png",
+    "models/trinkets/chip.obj": "src/main/resources/assets/hbm/models/trinkets/chip.obj",
+    "textures/models/trinkets/chip_gold.png": "src/main/resources/assets/hbm/textures/models/trinkets/chip_gold.png",
+    "models/LilBoy1.obj": "src/main/resources/assets/hbm/models/lilboy1.obj",
+    "textures/models/CustomNuke.png": "src/main/resources/assets/hbm/textures/models/customnuke.png",
+    "textures/models/TheGadget3_.png": "src/main/resources/assets/hbm/textures/models/thegadget3_.png",
+    "textures/models/emplacer.png": "src/main/resources/assets/hbm/textures/models/emplacer.png",
+    "textures/models/tau.png": "src/main/resources/assets/hbm/textures/models/tau.png",
+    "textures/models/bullet.png": "src/main/resources/assets/hbm/textures/models/bullet.png",
+    "textures/entity/shrapnel.png": "src/main/resources/assets/hbm/textures/entity/shrapnel.png"
+  },
+  "preexisting_unresolved_resource_literals": [
+    {
+      "class": "RenderBeam5",
+      "literal": "textures/models/PlasmaBeam.png"
+    },
+    {
+      "class": "RenderBombletTheta",
+      "literal": "textures/models/bombletThetaTexture.png"
+    },
+    {
+      "class": "RenderShrapnel",
+      "literal": "textures/models/shrapnel.png"
+    }
+  ],
+  "asset_renames": [
+    {
+      "from": "src/main/resources/assets/hbm/textures/models/chopperBomb.png",
+      "to": "src/main/resources/assets/hbm/textures/models/chopperbomb.png",
+      "sha256": "96aa291efb807bb5cc3e89aa3e20449c74705e395632890164e33c32580c4c4e"
+    }
+  ],
+  "renamed_asset_references": [
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderChopperMine.java",
+      "text": "bindTexture(new ResourceLocation(RefStrings.MODID + \":textures/models/chopperBomb.png\"));"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/entity/projectile/RenderChopperMine.java",
+      "text": "return new ResourceLocation(RefStrings.MODID + \":textures/models/chopperBomb.png\");"
+    }
+  ]
+}

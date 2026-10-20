@@ -57,7 +57,7 @@ public class GUIScreenPreview extends GuiScreen {
 		this.drawTexturedModalRect(res.getScaledWidth_double() / 2D / zoom - 9D, res.getScaledHeight_double() / 2D / zoom - 9D, 5, 87, 18, 18);
 		GL11.glPopMatrix();
 
-		String nameString = Item.itemRegistry.getNameForObject(preview.getItem()) + ", " + preview.getItemDamage();
+		String nameString = java.util.Objects.toString(Item.REGISTRY.getNameForObject(preview.getItem()), null) + ", " + preview.getItemDamage();
 		String zoomString = "Zoom: " + zoom;
 		String scaleString = "Windows Scale: " + res.getScaleFactor();
 

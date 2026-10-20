@@ -47,7 +47,7 @@ public class BlockHazardFalling extends BlockFalling {
 
 		if(this.rad > 0) {
 			ChunkRadiationManager.proxy.incrementRad(world, x, y, z, rad);
-			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 		}
 		
 		super.updateTick(world, x, y, z, rand);
@@ -68,6 +68,6 @@ public class BlockHazardFalling extends BlockFalling {
 		rad = HazardSystem.getHazardLevelFromStack(new ItemStack(this), HazardRegistry.RADIATION) * 0.1F;
 		
 		if(this.rad > 0)
-			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 }

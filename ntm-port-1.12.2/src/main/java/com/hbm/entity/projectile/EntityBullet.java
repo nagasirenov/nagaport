@@ -45,6 +45,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityBullet extends Entity implements IProjectile {
 
+	private double renderRangeWeight = 1.0D;
+
+	/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public boolean isInRangeToRenderDist(double distance) {
+		double range = this.getEntityBoundingBox().getAverageEdgeLength();
+		range *= 64.0D * this.renderRangeWeight;
+		return distance < range * range;
+	}
+
 	private static final DataParameter<Byte> CRITICAL_FLAGS = EntityDataManager.createKey(EntityBullet.class, DataSerializers.BYTE);
 	private static final DataParameter<Byte> TAU_FLAGS = EntityDataManager.createKey(EntityBullet.class, DataSerializers.BYTE);
 	private static final DataParameter<Byte> CHOPPER_FLAGS = EntityDataManager.createKey(EntityBullet.class, DataSerializers.BYTE);
@@ -74,13 +85,13 @@ public class EntityBullet extends Entity implements IProjectile {
 
 	public EntityBullet(World p_i1753_1_) {
 		super(p_i1753_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 	}
 
 	public EntityBullet(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_) {
 		super(p_i1754_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 		this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
 		this.yOffset = 0.0F;
@@ -89,7 +100,7 @@ public class EntityBullet extends Entity implements IProjectile {
 	public EntityBullet(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_,
 			float p_i1755_5_) {
 		super(p_i1755_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.shootingEntity = p_i1755_2_;
 
 		if (p_i1755_2_ instanceof EntityPlayer) {
@@ -110,14 +121,14 @@ public class EntityBullet extends Entity implements IProjectile {
 			this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
 			this.yOffset = 0.0F;
 			float f4 = 0;//(float) d3 * 0.2F;
-			this.setThrowableHeading(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
+			this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
 		}
 	}
 
 	public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax,
 			boolean instakill, boolean rad) {
 		super(p_i1756_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.shootingEntity = p_i1756_2_;
 
 		if (p_i1756_2_ instanceof EntityPlayer) {
@@ -137,7 +148,7 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
 
 		// this.dmgMin = dmgMin;
 		// this.dmgMax = dmgMax;
@@ -147,7 +158,7 @@ public class EntityBullet extends Entity implements IProjectile {
 
 	public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_) {
 		super(p_i1756_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.shootingEntity = p_i1756_2_;
 
 		if (p_i1756_2_ instanceof EntityPlayer) {
@@ -173,7 +184,7 @@ public class EntityBullet extends Entity implements IProjectile {
 	public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax,
 			boolean instakill, String isTau) {
 		super(p_i1756_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.shootingEntity = p_i1756_2_;
 
 		if (p_i1756_2_ instanceof EntityPlayer) {
@@ -192,7 +203,7 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
 		this.setTau(isTau == "tauDay");
 		this.setChopper(isTau == "chopper");
 		this.setIsCritical(isTau != "chopper");
@@ -202,7 +213,7 @@ public class EntityBullet extends Entity implements IProjectile {
 	public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax,
 			boolean instakill, String isTau, EntityGrenadeTau grenade) {
 		super(p_i1756_1_);
-		this.renderDistanceWeight = 10.0D;
+		this.renderRangeWeight = 10.0D;
 		this.shootingEntity = p_i1756_2_;
 
 		this.setSize(0.5F, 0.5F);
@@ -218,7 +229,7 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
+		this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
 		this.setTau(isTau == "tauDay");
 		this.setIsCritical(true);
 	}
@@ -248,7 +259,7 @@ public class EntityBullet extends Entity implements IProjectile {
 	 * direction.
 	 */
 	@Override
-	public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
+	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
 			float p_70186_8_) {
 		float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
 		p_70186_1_ /= f2;
@@ -364,7 +375,7 @@ public class EntityBullet extends Entity implements IProjectile {
 
 			if (block == Blocks.GLASS || block == Blocks.STAINED_GLASS || block == Blocks.GLASS_PANE
 					|| block == Blocks.STAINED_GLASS_PANE) {
-				this.world.setBlock(this.tileX, this.tileY, this.tileZ, Blocks.AIR);
+				com.hbm.world.WorldBlockState.write(this.world, this.tileX, this.tileY, this.tileZ, Blocks.AIR.getStateFromMeta(0), 3);
 				this.world.playSound(this.tileX, this.tileY, this.tileZ, "dig.glass",
 						1.0F, 1.0F, true);
 			}
@@ -621,12 +632,12 @@ public class EntityBullet extends Entity implements IProjectile {
 			if (this.getIsCritical()) {
 				for (i = 0; i < 8; ++i) {
 					if (!this.getIsTau())
-						this.world.spawnParticle("fireworksSpark", this.posX + this.motionX * i / 8.0D,
+						this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FIREWORKS_SPARK, this.posX + this.motionX * i / 8.0D,
 								this.posY + this.motionY * i / 8.0D,
 								this.posZ + this.motionZ * i / 8.0D, 0, 0,
 								0/*-this.motionX, -this.motionY + 0.2D, -this.motionZ*/);
 					else
-						this.world.spawnParticle("reddust", this.posX + this.motionX * i / 8.0D,
+						this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, this.posX + this.motionX * i / 8.0D,
 								this.posY + this.motionY * i / 8.0D,
 								this.posZ + this.motionZ * i / 8.0D, 0, 0,
 								0/*-this.motionX, -this.motionY + 0.2D, -this.motionZ*/);
@@ -668,7 +679,7 @@ public class EntityBullet extends Entity implements IProjectile {
 			if (this.isInWater()) {
 				for (int l = 0; l < 4; ++l) {
 					f4 = 0.25F;
-					this.world.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4,
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4,
 							this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
 				}
 

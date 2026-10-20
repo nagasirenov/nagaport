@@ -162,7 +162,7 @@ public class ItemTurretControl extends Item {
 		ArrowLooseEvent event = new ArrowLooseEvent(player, stack, j);
 		MinecraftForge.EVENT_BUS.post(event);
 
-		j = event.charge;
+		j = event.getCharge();
 
 		if(stack.hasTagCompound()) {
 			/// ///

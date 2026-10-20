@@ -1,0 +1,157 @@
+{
+  "baseline_commit": "abe006a0845275e8be52417967ac8ebf6f283a52",
+  "source_log": "/workspace/shared/cp85-full-compile.log",
+  "source_log_sha256": "448ddd91ecf69ff1759489c19fd9f01cf7220fa7c15a00cac4f67392996565cb",
+  "diagnostics": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java",
+      "line": 40,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java",
+      "line": 44,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "line": 77,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "line": 83,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "line": 92,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "line": 120,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "line": 150,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "line": 176,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "line": 205,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      "line": 56,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      "line": 63,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      "line": 72,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      "line": 102,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      "line": 57,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      "line": 64,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      "line": 73,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      "line": 103,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      "line": 50,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      "line": 57,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      "line": 66,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      "line": 95,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      "line": 117,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "line": 91,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "line": 101,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "line": 139,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      "line": 154,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java",
+      "line": 53,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBase.java",
+      "line": 37,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityTankbot.java",
+      "line": 59,
+      "message": "renderDistanceWeight has private access in Entity"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityGhost.java",
+      "line": 23,
+      "message": "renderDistanceWeight has private access in Entity"
+    }
+  ]
+}

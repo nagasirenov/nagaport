@@ -8,6 +8,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -82,7 +83,7 @@ public class EntityBobmazon extends Entity {
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 
 		NBTTagCompound nbt1 = (NBTTagCompound)nbt.getTag("payload");
-		this.payload = ItemStack.loadItemStackFromNBT(nbt1);
+		this.payload = NullableInventoryStackNbt.read(nbt1);
 	}
 
 	@Override

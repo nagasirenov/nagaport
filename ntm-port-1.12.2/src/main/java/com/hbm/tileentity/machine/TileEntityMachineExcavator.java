@@ -484,7 +484,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 		if(z > maxZ) maxZ = z;
 
 		if(this.enableWalling) {
-			this.world.setBlock(x, y, z, ModBlocks.barricade);
+			{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		}
 	}
 
@@ -530,7 +530,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			this.world.spawnEntity(new EntityItem(this.world, x + 0.5, y + 0.5, z + 0.5, item));
 		}
 
-		this.world.func_147480_a(x, y, z, false);
+		com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);
 	}
 
 	/** builds a wall along the specified ring, replacing fluid blocks. if wallEverything is set, it will also wall off replacable blocks like air or grass */
@@ -544,8 +544,8 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 				if(x == this.pos.getX() - ring || x == this.pos.getX() + ring || z == this.pos.getZ() - ring || z == this.pos.getZ() + ring) {
 
-					if(b.isReplaceable(this.world, x, y, z) && (wallEverything || b.getDefaultState().getMaterial().isLiquid())) {
-						this.world.setBlock(x, y, z, ModBlocks.barricade);
+					if(b.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && (wallEverything || b.getDefaultState().getMaterial().isLiquid())) {
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					}
 				} else {
 

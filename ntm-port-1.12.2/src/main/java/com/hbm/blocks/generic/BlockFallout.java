@@ -22,11 +22,13 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockFallout extends Block {
+
+	private final net.minecraft.util.math.AxisAlignedBB shape;
 	
 
 	public BlockFallout(Material mat) {
 		super(mat);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
+		this.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 		if(this==ModBlocks.salted_fallout)
 		{
 			this.setTickRandomly(true);	
@@ -45,14 +47,16 @@ public class BlockFallout extends Block {
 		return ModItems.fallout;
 	}
 
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
+		net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
+		Block block = nativeAirState.getBlock();
 
 		if (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;
-		if (block.isLeaves(world, x, y - 1, z) && !block.isAir(world, x, y - 1, z)) return true;
+		if (block.isLeaves(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) && !block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) return true;
 		if (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7) return true;
 
-		return block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement();
+		return block.isOpaqueCube(nativeAirState) && block.getDefaultState().getMaterial().blocksMovement();
 	}
 
 	@Override
@@ -78,7 +82,7 @@ public class BlockFallout extends Block {
 	}
 
 	private boolean func_150155_m(World world, int x, int y, int z) {
-		if(!this.canPlaceBlockAt(world, x, y, z)) {
+		if(!this.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return false;
 		} else {
@@ -90,7 +94,7 @@ public class BlockFallout extends Block {
 		super.onBlockAdded(world, x, y, z);
 	}
 
-	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {
+	public boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return true;
 	}
 	
@@ -101,5 +105,11 @@ public class BlockFallout extends Block {
 		{
 			ChunkRadiationManager.proxy.incrementRad(world, x, y, z, 50);
 		}
+	}
+
+
+	@Override
+	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		return shape;
 	}
 }

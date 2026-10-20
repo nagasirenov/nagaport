@@ -141,7 +141,7 @@ public class ModelM65 extends ModelBiped {
 
 		GL11.glScaled(1.01D, 1.01D, 1.01D);
 		this.mask.render(scaleFactor);
-		if(!(entity instanceof EntityLivingBase) || ArmorUtil.getGasMaskFilterRecursively(((EntityLivingBase)entity).getEquipmentInSlot(4), (EntityLivingBase)entity) != null)
+		if(!(entity instanceof EntityLivingBase) || ArmorUtil.getGasMaskFilterRecursively(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(((EntityLivingBase)entity), 4), (EntityLivingBase)entity) != null)
 			this.filter.render(scaleFactor);
 		GL11.glPopMatrix();
 	}

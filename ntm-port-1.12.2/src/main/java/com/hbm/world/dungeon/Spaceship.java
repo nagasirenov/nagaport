@@ -222,16 +222,16 @@ public class Spaceship extends WorldGenerator {
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -3, z + 29); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -3, z + 29); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + -3, z + 29, Block3);
-		world.setBlock(x + 2, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);
-		world.setBlock(x + 3, y + -3, z + 30, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 4, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -3, z + 30, ModBlocks.red_wire_coated);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -3, z + 30, ModBlocks.red_cable);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -3, z + 30, ModBlocks.red_wire_coated);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -3, z + 30, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -3, z + 30, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -3, z + 30, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -3, z + 30, Block3);
-		world.setBlock(x + 9, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);
-		world.setBlock(x + 10, y + -3, z + 30, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 11, y + -3, z + 30, ModBlocks.red_wire_coated, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -3, z + 30, ModBlocks.red_wire_coated);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -3, z + 30, ModBlocks.red_cable);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + -3, z + 30, ModBlocks.red_wire_coated);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -3, z + 31, Block2);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -3, z + 31, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -3, z + 31, Block3);
@@ -262,10 +262,10 @@ public class Spaceship extends WorldGenerator {
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -3, z + 35, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -3, z + 35, Block3);
 		world.setBlock(x + 11, y + -3, z + 35, Block4, 0, 3);
-		world.setBlock(x + 5, y + -3, z + 36, ModBlocks.red_wire_coated, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -3, z + 36, ModBlocks.red_wire_coated);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -3, z + 36, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -3, z + 36, Block3);
-		world.setBlock(x + 8, y + -3, z + 36, ModBlocks.red_wire_coated, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -3, z + 36, ModBlocks.red_wire_coated);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -3, z + 37, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -3, z + 37, Block1);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -3, z + 37, Block1);
@@ -536,12 +536,12 @@ public class Spaceship extends WorldGenerator {
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + -2, z + 30, Block3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + -2, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		world.setBlock(x + 3, y + -2, z + 30, Block6, 0, 3);
-		world.setBlock(x + 4, y + -2, z + 30, ModBlocks.red_cable, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -2, z + 30, ModBlocks.red_cable);
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + -2, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + -2, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + -2, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -2, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 9, y + -2, z + 30, ModBlocks.red_cable, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -2, z + 30, ModBlocks.red_cable);
 		world.setBlock(x + 10, y + -2, z + 30, Block6, 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 11, y + -2, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 12, y + -2, z + 30, Block3);
@@ -605,16 +605,16 @@ public class Spaceship extends WorldGenerator {
 		world.setBlock(x + 10, y + -2, z + 35, Block4, 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 11, y + -2, z + 35); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		world.setBlock(x + 12, y + -2, z + 35, Block4, 0, 3);
-		world.setBlock(x + 2, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);
-		world.setBlock(x + 3, y + -2, z + 36, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 4, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);
-		world.setBlock(x + 5, y + -2, z + 36, ModBlocks.red_cable, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -2, z + 36, ModBlocks.red_wire_coated);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 3, y + -2, z + 36, ModBlocks.red_cable);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -2, z + 36, ModBlocks.red_wire_coated);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + -2, z + 36, ModBlocks.red_cable);
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + -2, z + 36); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + -2, z + 36); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 8, y + -2, z + 36, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 9, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);
-		world.setBlock(x + 10, y + -2, z + 36, ModBlocks.red_cable, 0, 3);
-		world.setBlock(x + 11, y + -2, z + 36, ModBlocks.red_wire_coated, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -2, z + 36, ModBlocks.red_cable);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -2, z + 36, ModBlocks.red_wire_coated);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -2, z + 36, ModBlocks.red_cable);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + -2, z + 36, ModBlocks.red_wire_coated);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -2, z + 37, Block3);
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + -2, z + 37); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + -2, z + 37); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_STAIRS.getStateFromMeta(3), 3); }
@@ -895,12 +895,12 @@ public class Spaceship extends WorldGenerator {
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + -1, z + 29, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 30, Block3);
 		world.setBlock(x + 3, y + -1, z + 30, ModBlocks.pwr_control, 0, 3);
-		world.setBlock(x + 4, y + -1, z + 30, ModBlocks.red_cable, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 4, y + -1, z + 30, ModBlocks.red_cable);
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + -1, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + -1, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + -1, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -1, z + 30); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 9, y + -1, z + 30, ModBlocks.red_cable, 0, 3);
+		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -1, z + 30, ModBlocks.red_cable);
 		world.setBlock(x + 10, y + -1, z + 30, ModBlocks.pwr_control, 0, 3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + -1, z + 30, Block3);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 2, y + -1, z + 31, Block2);

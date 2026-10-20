@@ -1,0 +1,547 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java",
+    "line": 137,
+    "source": "if(this.getBlockMetadata() == 1) scout.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_INFECTED);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java",
+    "line": 172,
+    "source": "if(meta == 1) entity.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_INFECTED);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java",
+    "line": 173,
+    "source": "if(meta == 2) entity.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_RADIOACTIVE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+    "line": 244,
+    "source": "this.dataWatcher.addObject(16, 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+    "line": 285,
+    "source": "this.dataWatcher.updateObject(16, i);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+    "line": 289,
+    "source": "int scale = this.dataWatcher.getWatchableObjectInt(16);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 125,
+    "source": "this.dataWatcher.addObject(17, new Integer(0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 126,
+    "source": "this.dataWatcher.addObject(18, new Integer(1));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 127,
+    "source": "this.dataWatcher.addObject(19, new Float(0.0F));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 128,
+    "source": "this.dataWatcher.addObject(20, new Integer(0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 129,
+    "source": "this.dataWatcher.addObject(21, new Integer(6));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 130,
+    "source": "this.dataWatcher.addObject(22, Byte.valueOf((byte) 0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 884,
+    "source": "this.dataWatcher.updateObject(19, Float.valueOf(p_70492_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 902,
+    "source": "return this.dataWatcher.getWatchableObjectFloat(19);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 909,
+    "source": "this.dataWatcher.updateObject(17, Integer.valueOf(p_70497_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 916,
+    "source": "return this.dataWatcher.getWatchableObjectInt(17);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 924,
+    "source": "this.dataWatcher.updateObject(18, Integer.valueOf(p_70494_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 932,
+    "source": "return this.dataWatcher.getWatchableObjectInt(18);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 941,
+    "source": "int i = this.getDataWatcher().getWatchableObjectInt(20) & 65535;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 951,
+    "source": "return !this.hasDisplayTile() ? this.getDefaultDisplayTileData() : this.getDataWatcher().getWatchableObjectInt(20) >> 16;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 959,
+    "source": "return !this.hasDisplayTile() ? this.getDefaultDisplayTileOffset() : this.getDataWatcher().getWatchableObjectInt(21);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 967,
+    "source": "this.getDataWatcher().updateObject(20, Integer.valueOf(p_145819_1_ & 65535 | this.getDisplayTileData() << 16));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 972,
+    "source": "this.getDataWatcher().updateObject(20, Integer.valueOf(Block.getIdFromBlock(this.func_145820_n()) & 65535 | p_94092_1_ << 16));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 977,
+    "source": "this.getDataWatcher().updateObject(21, Integer.valueOf(p_94086_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 982,
+    "source": "return this.getDataWatcher().getWatchableObjectByte(22) == 1;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+    "line": 986,
+    "source": "this.getDataWatcher().updateObject(22, Byte.valueOf((byte) (p_94096_1_ ? 1 : 0)));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 121,
+    "source": "this.dataWatcher.addObject(17, new Integer(0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 122,
+    "source": "this.dataWatcher.addObject(18, new Integer(1));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 123,
+    "source": "this.dataWatcher.addObject(19, new Float(0.0F));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 124,
+    "source": "this.dataWatcher.addObject(20, new Integer(0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 125,
+    "source": "this.dataWatcher.addObject(21, new Integer(6));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 126,
+    "source": "this.dataWatcher.addObject(22, Byte.valueOf((byte)0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 127,
+    "source": "this.dataWatcher.addObject(23, new Integer(0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 128,
+    "source": "this.dataWatcher.addObject(24, new Integer(0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 301,
+    "source": "this.dataWatcher.updateObject(23, -1);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 303,
+    "source": "this.dataWatcher.updateObject(23, 1);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 305,
+    "source": "this.dataWatcher.updateObject(23, 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 307,
+    "source": "this.dataWatcher.updateObject(24, -1);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 309,
+    "source": "this.dataWatcher.updateObject(24, 1);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 311,
+    "source": "this.dataWatcher.updateObject(24, 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1081,
+    "source": "this.dataWatcher.updateObject(19, Float.valueOf(p_70492_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1103,
+    "source": "return this.dataWatcher.getWatchableObjectFloat(19);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1112,
+    "source": "this.dataWatcher.updateObject(17, Integer.valueOf(p_70497_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1121,
+    "source": "return this.dataWatcher.getWatchableObjectInt(17);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1130,
+    "source": "this.dataWatcher.updateObject(18, Integer.valueOf(p_70494_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1139,
+    "source": "return this.dataWatcher.getWatchableObjectInt(18);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1154,
+    "source": "int i = this.getDataWatcher().getWatchableObjectInt(20) & 65535;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1168,
+    "source": "return !this.hasDisplayTile() ? this.getDefaultDisplayTileData() : this.getDataWatcher().getWatchableObjectInt(20) >> 16;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1180,
+    "source": "return !this.hasDisplayTile() ? this.getDefaultDisplayTileOffset() : this.getDataWatcher().getWatchableObjectInt(21);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1192,
+    "source": "this.getDataWatcher().updateObject(20, Integer.valueOf(p_145819_1_ & 65535 | this.getDisplayTileData() << 16));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1199,
+    "source": "this.getDataWatcher().updateObject(20, Integer.valueOf(Block.getIdFromBlock(this.func_145820_n()) & 65535 | p_94092_1_ << 16));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1206,
+    "source": "this.getDataWatcher().updateObject(21, Integer.valueOf(p_94086_1_));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1213,
+    "source": "return this.getDataWatcher().getWatchableObjectByte(22) == 1;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+    "line": 1219,
+    "source": "this.getDataWatcher().updateObject(22, Byte.valueOf((byte)(p_94096_1_ ? 1 : 0)));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityWaypoint.java",
+    "line": 32,
+    "source": "// this.dataWatcher.addObject(11, 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+    "line": 28,
+    "source": "this.dataWatcher.addObject(16, Integer.valueOf(0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+    "line": 44,
+    "source": "if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataWatcher.getWatchableObjectInt(16) != 1) {"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityPigeon.java",
+    "line": 86,
+    "source": "this.dataWatcher.addObject(12, Byte.valueOf((byte) 0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityPigeon.java",
+    "line": 87,
+    "source": "this.dataWatcher.addObject(13, Byte.valueOf((byte) 0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityPigeon.java",
+    "line": 117,
+    "source": "return this.dataWatcher.getWatchableObjectByte(12);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityPigeon.java",
+    "line": 122,
+    "source": "this.dataWatcher.updateObject(12, (byte) state);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityPigeon.java",
+    "line": 126,
+    "source": "return this.dataWatcher.getWatchableObjectByte(13) == 1;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityPigeon.java",
+    "line": 130,
+    "source": "this.dataWatcher.updateObject(13, (byte) (fat ? 1 : 0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityRADBeast.java",
+    "line": 54,
+    "source": "this.dataWatcher.addObject(16, (int) 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityRADBeast.java",
+    "line": 103,
+    "source": "if(this.dataWatcher.getWatchableObjectInt(16) != entityToAttack.getEntityId())"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityRADBeast.java",
+    "line": 104,
+    "source": "this.dataWatcher.updateObject(16, entityToAttack.getEntityId());"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityRADBeast.java",
+    "line": 106,
+    "source": "this.dataWatcher.updateObject(16, 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityRADBeast.java",
+    "line": 159,
+    "source": "int id = this.dataWatcher.getWatchableObjectInt(16);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityTankbot.java",
+    "line": 107,
+    "source": "this.dataWatcher.addObject(20, (int) 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityTankbot.java",
+    "line": 117,
+    "source": "this.dataWatcher.updateObject(20, entity != null ? entity.getEntityId() : 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java",
+    "line": 41,
+    "source": "this.getDataWatcher().addObject(DW_TYPE, Byte.valueOf((byte) 0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java",
+    "line": 60,
+    "source": "this.dataWatcher.updateObject(DW_TYPE, rand.nextBoolean() ? TYPE_ZOMBIE : TYPE_SKELETON);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java",
+    "line": 81,
+    "source": "byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java",
+    "line": 89,
+    "source": "byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java",
+    "line": 97,
+    "source": "byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUndeadSoldier.java",
+    "line": 105,
+    "source": "byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityWarBehemoth.java",
+    "line": 115,
+    "source": "this.dataWatcher.addObject(19, (int) 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityWarBehemoth.java",
+    "line": 126,
+    "source": "this.dataWatcher.updateObject(19, entity != null ? entity.getEntityId() : 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBody.java",
+    "line": 28,
+    "source": "this.dataWatcher.addObject(17, (byte) 0);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 120,
+    "source": "this.dataWatcher.addObject(DW_WALL, new Byte((byte) 0));\t\t//wall climbing"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 121,
+    "source": "this.dataWatcher.addObject(DW_ARMOR, new Byte((byte) 0b11111));\t//armor"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 122,
+    "source": "this.dataWatcher.addObject(DW_SUBTYPE, new Byte((byte) 0));\t\t//subtype (i.e. normal, infected, etc)"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 128,
+    "source": "int variant = this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 329,
+    "source": "if(!this.world.isRemote && doesInfectedSpawnMaggots() && this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED) {"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 383,
+    "source": "byte armor = this.dataWatcher.getWatchableObjectByte(DW_ARMOR);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 392,
+    "source": "this.dataWatcher.updateObject(DW_ARMOR, armor);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 401,
+    "source": "byte armor = this.dataWatcher.getWatchableObjectByte(DW_ARMOR);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 440,
+    "source": "return (this.dataWatcher.getWatchableObjectByte(DW_WALL) & 1) != 0;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 444,
+    "source": "byte watchable = this.dataWatcher.getWatchableObjectByte(DW_WALL);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 452,
+    "source": "this.dataWatcher.updateObject(DW_WALL, Byte.valueOf(watchable));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 460,
+    "source": "if(this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED && victim instanceof EntityLivingBase) {"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 627,
+    "source": "nbt.setByte(\"armor\", this.dataWatcher.getWatchableObjectByte(DW_ARMOR));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 628,
+    "source": "nbt.setByte(\"subtype\", this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 646,
+    "source": "this.dataWatcher.updateObject(DW_ARMOR, nbt.getByte(\"armor\"));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+    "line": 647,
+    "source": "this.dataWatcher.updateObject(DW_SUBTYPE, nbt.getByte(\"subtype\"));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidNuclear.java",
+    "line": 141,
+    "source": "if(this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED) {"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java",
+    "line": 161,
+    "source": "GlyphidHive.generateSmall(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), rand, this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) != TYPE_NORMAL, false);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/GlyphidStats.java",
+    "line": 82,
+    "source": "byte armor = glyphid.getDataWatcher().getWatchableObjectByte(glyphid.DW_ARMOR);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ItemModDefuser.java",
+    "line": 51,
+    "source": "creeper.getDataWatcher().updateObject(18, new Byte((byte) 0));"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderMinecartTest.java",
+    "line": 78,
+    "source": "if(p_76986_1_.getDataWatcher().getWatchableObjectInt(23) < 0 || p_76986_1_.getDataWatcher().getWatchableObjectInt(24) < 0)"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderBehemoth.java",
+    "line": 59,
+    "source": "int targetId = behemoth.getDataWatcher().getWatchableObjectInt(19);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderGlyphid.java",
+    "line": 37,
+    "source": "if(entity.getDataWatcher().getWatchableObjectByte(EntityGlyphid.DW_SUBTYPE) == EntityGlyphid.TYPE_INFECTED) {"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderGlyphid.java",
+    "line": 78,
+    "source": "byte armor = living.getDataWatcher().getWatchableObjectByte(EntityGlyphid.DW_ARMOR);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderGlyphidNuclear.java",
+    "line": 107,
+    "source": "byte armor = living.getDataWatcher().getWatchableObjectByte(17);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderTankbot.java",
+    "line": 55,
+    "source": "int targetId = tankbot.getDataWatcher().getWatchableObjectInt(20);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderUndeadSoldier.java",
+    "line": 27,
+    "source": "byte type = living.getDataWatcher().getWatchableObjectByte(EntityUndeadSoldier.DW_TYPE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderUndeadSoldier.java",
+    "line": 34,
+    "source": "byte type = living.getDataWatcher().getWatchableObjectByte(EntityUndeadSoldier.DW_TYPE);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/model/ModelMaskMan.java",
+    "line": 26,
+    "source": "//boolean target = entity.worldObj.getEntityByID(man.getDataWatcher().getWatchableObjectInt(man.dwTargetPlayer)) != null;"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java",
+    "line": 119,
+    "source": "((EntityCreeper)e).getDataWatcher().updateObject(17, Byte.valueOf((byte)1));"
+  }
+]

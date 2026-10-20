@@ -78,7 +78,7 @@ public class ContainerLemegeton extends Container {
 				return null;
 			}
 
-			slot.onPickupFromSlot(p_82846_1_, itemstack1);
+			slot.onTake(p_82846_1_, itemstack1);
 		}
 
 		return itemstack;

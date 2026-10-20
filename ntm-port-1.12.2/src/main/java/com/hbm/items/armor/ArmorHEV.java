@@ -35,7 +35,7 @@ public class ArmorHEV extends ArmorFSBPowered implements IItemRendererProvider {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(models == null) {
 			models = new ModelArmorHEV[4];
@@ -44,21 +44,21 @@ public class ArmorHEV extends ArmorFSBPowered implements IItemRendererProvider {
 				models[i] = new ModelArmorHEV(i);
 		}
 
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void handleOverlay(RenderGameOverlayEvent.Pre event, EntityPlayer player) {
 
-		if(this.hasFSBArmorIgnoreCharge(player) && player.inventory.armorInventory[2].getItem() == ModItems.hev_plate) {
+		if(this.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() == ModItems.hev_plate) {
 
-			if(event.type == ElementType.ARMOR) {
+			if(event.getType() == ElementType.ARMOR) {
 				event.setCanceled(true);
 				return;
 			}
 
-			if(event.type == ElementType.HEALTH) {
+			if(event.getType() == ElementType.HEALTH) {
 				event.setCanceled(true);
 				renderOverlay(event, player);
 				return;
@@ -93,7 +93,7 @@ public class ArmorHEV extends ArmorFSBPowered implements IItemRendererProvider {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
 
-		ScaledResolution res = event.resolution;
+		ScaledResolution res = event.getResolution();
 
 		double scale = 2D;
 
@@ -110,8 +110,8 @@ public class ArmorHEV extends ArmorFSBPowered implements IItemRendererProvider {
 
 		for(int i = 0; i < 4; i++) {
 
-			ItemStack armor = player.inventory.armorInventory[i];
-			ArmorFSBPowered item = ((ArmorFSBPowered) player.inventory.armorInventory[i].getItem());
+			ItemStack armor = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);
+			ArmorFSBPowered item = ((ArmorFSBPowered) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i).getItem());
 
 			c += (double) item.getCharge(armor) / (double) item.getMaxCharge(armor);
 		}
@@ -189,7 +189,7 @@ public class ArmorHEV extends ArmorFSBPowered implements IItemRendererProvider {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_hev, armorType,
+				renderStandard(ResourceManager.armor_hev, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.hev_helmet, ResourceManager.hev_chest, ResourceManager.hev_arm, ResourceManager.hev_leg,
 						"Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftFoot", "RightFoot");
 			}};

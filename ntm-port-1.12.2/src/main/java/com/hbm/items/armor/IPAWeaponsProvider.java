@@ -13,8 +13,8 @@ public interface IPAWeaponsProvider {
 	}
 	
 	public static IPAMelee getMeleeComponentCommon(EntityPlayer player) {
-		if(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof IPAWeaponsProvider) {
-			IPAWeaponsProvider prov = (IPAWeaponsProvider) player.inventory.armorInventory[2].getItem();
+		if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof IPAWeaponsProvider) {
+			IPAWeaponsProvider prov = (IPAWeaponsProvider) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();
 			return prov.getMeleeComponent(player);
 		}
 		return null;
@@ -27,8 +27,8 @@ public interface IPAWeaponsProvider {
 	}
 	
 	public static IPARanged getRangedComponentCommon(EntityPlayer player) {
-		if(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof IPAWeaponsProvider) {
-			IPAWeaponsProvider prov = (IPAWeaponsProvider) player.inventory.armorInventory[2].getItem();
+		if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof IPAWeaponsProvider) {
+			IPAWeaponsProvider prov = (IPAWeaponsProvider) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();
 			return prov.getRangedComponent(player);
 		}
 		return null;

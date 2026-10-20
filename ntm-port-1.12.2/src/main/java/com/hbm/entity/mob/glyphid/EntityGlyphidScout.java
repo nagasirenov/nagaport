@@ -229,11 +229,12 @@ public class EntityGlyphidScout extends EntityGlyphid {
 		int nestX = rand.nextInt((homeX + scoutingRange) - (homeX - scoutingRange)) + (homeX - scoutingRange);
 		int nestZ = rand.nextInt((homeZ + scoutingRange) - (homeZ - scoutingRange)) + (homeZ - scoutingRange);
 		int nestY = this.world.getHeightValue(nestX, nestZ);
-		Block b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ).getBlock();
+		net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ);
+		Block b = nativeCubeState_b.getBlock();
 
 		boolean distanceCheck = new Vec3d(nestX - homeX, nestY - homeY, nestZ - homeZ).length() > minDistanceToHive;
 
-		if(distanceCheck && b.getDefaultState().getMaterial() != Material.AIR && b.isNormalCube() && b != ModBlocks.glyphid_base) {
+		if(distanceCheck && b.getDefaultState().getMaterial() != Material.AIR && b.isNormalCube(nativeCubeState_b) && b != ModBlocks.glyphid_base) {
 
 			if(b == ModBlocks.basalt) {
 				useLargeHive = true;

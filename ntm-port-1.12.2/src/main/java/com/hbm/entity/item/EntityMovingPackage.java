@@ -8,6 +8,7 @@ import api.hbm.conveyor.IEnterableBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -68,7 +69,7 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		this.hitByEntity(source.getEntity());
+		this.hitByEntity(source.getTrueSource());
 		return true;
 	}
 
@@ -126,7 +127,7 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 			int j = nbttagcompound1.getByte("slot") & 255;
 
 			if(j >= 0 && j < this.contents.length) {
-				this.contents[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+				this.contents[j] = NullableInventoryStackNbt.read(nbttagcompound1);
 			}
 		}
 	}

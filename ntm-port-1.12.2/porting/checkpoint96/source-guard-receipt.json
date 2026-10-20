@@ -1,0 +1,70 @@
+{
+  "baseline": "58f7f0c93cb4f5814d552e003ec9c7e2179a115f",
+  "scope": "CP96 aggregate source boundary, exact historical composition and current box source guard only",
+  "files_written": {
+    "porting/checkpoint96/generate-source-boundary.py": "4030f1b69099e218c017c0d1fecbd35c34acacc56435767d5fac2af83595e152",
+    "porting/checkpoint96/cp95-source-boundary.py": "f23172ecd12800f4f1590a2ff7461e4ed2bdb2100409d9ece789a4da3705753d",
+    "porting/checkpoint96/check-historical-composition.py": "b5e02fc34c0229774b60f02005ee42e9b51f8a719ab8ce8e1cd582df29006bd5",
+    "porting/checkpoint96/historical-composition.json": "250af703789b65c3fedc001d6a5397733d818343cea2ba7768a1e73457249f2a",
+    "porting/checkpoint96/source-guards.log": "37e0a2262fa3ab6804c062b0516da241d2ef2a432bdcaa68add6a653e044488c",
+    "porting/checkpoint96/historical-composed.log": "f4b9b3e2b30ff24939b18ec037154c27c1d3dff05694eac298eb1082de5f77d8",
+    "porting/checkpoint96/box-integrated-source.log": "53ea4de2978b42fe787bb98f091182178e4ca445053a958e50e3dd5bf480b3e8",
+    "porting/tests/check-native-box-waste-crane-source.py": "a5787a452c4fdab48e1ad4d589d009a31c0330cd563ac7b146df43a9134b6696",
+    "porting/tests/native-box-waste-crane-source-manifest.json": "39db10c2faa6bbfe2633f47d266d97b83c43a32386372932fc11960c129e239b",
+    "porting/tests/check-native-block-placement-source.py": "859a44d55bce8cf81a96b2fecf984d228269dd49dfe9b1eb2940b8eb2675f8be"
+  },
+  "results": {
+    "aggregate_boundary": {
+      "existing_sources": 8,
+      "new_sources": 1,
+      "deleted_sources": 0,
+      "binary_paths": 0,
+      "rejected_mutations": 27,
+      "status": "PASS"
+    },
+    "thermal_family_source": "PASS complete historical composition",
+    "historical_cp95_runner": "PASS immutable CP95 runner and all prior CP94/CP93/CP92 normal-stream, air, press-cache and normal-cube checks",
+    "historical_inventory": {
+      "complete_file_inverses": 9,
+      "drift_controls": 27,
+      "protected_dependency_pins": 15,
+      "native_hooks": 37,
+      "typed_owned_calls": 56,
+      "status": "PASS"
+    },
+    "historical_sound": {
+      "complete_file_inverses": 3,
+      "fresh_owner_casts": 10,
+      "scope": "three-file family only",
+      "status": "PASS"
+    },
+    "current_box_source": {
+      "complete_file_inverses": 3,
+      "drift_controls": 9,
+      "new_helpers": 1,
+      "protected_pins": 11,
+      "status": "PASS"
+    },
+    "exact_intersections": {
+      "historical_inventory": 2,
+      "historical_sound": 1,
+      "historical_press_cache": 1,
+      "historical_normal_cube": 1
+    },
+    "current_source_java_files_unchanged": 4073,
+    "historical_source_java_files": 4072,
+    "verified_new_helper_omitted_only_from_historical_view": "src/main/java/com/hbm/items/ItemInventoryTransfer.java"
+  },
+  "limitations": [
+    "Static source evidence only; no runtime, GL, build or gameplay acceptance claimed.",
+    "No production changes, builds, runtimes, commits or network operations performed by this source-guard task.",
+    "CP96 is reversed before CP95 and all older historical layers; the new helper is SHA-verified before its absent historical representation is checked.",
+    "Original CP95 checker retained byte-for-byte; all earlier historical checkers, manifests and pins remain unchanged."
+  ],
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-native-box-waste-crane-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/native-box-containers/check_source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-thermal-family-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 -u porting/checkpoint96/check-historical-composition.py"
+  ]
+}

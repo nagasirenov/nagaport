@@ -1,0 +1,12 @@
+CLASSES	1803
+3D_CALL	bma.a(Lsv;Lbmv;F)V	182	sa.h(DDD)Z
+3D_CALL	bma.a(Lsv;Lbmv;F)V	182	sa.h(DDD)Z
+FIELD	bll.<init>(Lahb;Lcom/mojang/authlib/GameProfile;)V	181	bll.jD
+FIELD	sa.<init>(Lahb;)V	181	sa.jD
+FIELD	sa.a(D)Z	180	sa.jD
+FIELD	st.a(D)Z	180	st.jD
+FIELD	zc.<init>(Lahb;)V	181	zc.jD
+FIELD	zc.<init>(Lahb;DDD)V	181	zc.jD
+FIELD	zc.<init>(Lahb;Lsv;F)V	181	zc.jD
+FIELD	zc.<init>(Lahb;Lsv;Lsv;FF)V	181	zc.jD
+RANGE_CALL	sa.h(DDD)Z	182	sa.a(D)Z

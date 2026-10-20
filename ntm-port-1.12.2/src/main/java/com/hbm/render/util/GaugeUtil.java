@@ -6,6 +6,8 @@ import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
@@ -51,12 +53,13 @@ public class GaugeUtil {
 		double singleFrame = 1D / (double)gauge.count;
 		double frameOffset = singleFrame * frameNum;
 		
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawingQuads();
-		tess.addVertexWithUV(x, 				y + gauge.height, 	z, 	0, 	frameOffset + singleFrame);
-		tess.addVertexWithUV(x + gauge.width, 	y + gauge.height, 	z, 	1, 	frameOffset + singleFrame);
-		tess.addVertexWithUV(x + gauge.width, 	y, 					z, 	1, 	frameOffset);
-		tess.addVertexWithUV(x, 				y, 					z, 	0, 	frameOffset);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessBuffer.pos(x, y + gauge.height, z).tex(0, frameOffset + singleFrame).endVertex();
+		tessBuffer.pos(x + gauge.width, y + gauge.height, z).tex(1, frameOffset + singleFrame).endVertex();
+		tessBuffer.pos(x + gauge.width, y, z).tex(1, frameOffset).endVertex();
+		tessBuffer.pos(x, y, z).tex(0, frameOffset).endVertex();
 		tess.draw();
 	}
 	
@@ -75,17 +78,18 @@ public class GaugeUtil {
 		com.hbm.util.Vec3NT right = new com.hbm.util.Vec3NT(-backSide, -backLength, 0).rotateAroundZRad(angle);
 
 		
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawing(GL11.GL_TRIANGLES);
-		tess.setColorOpaque_I(colorOuter);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
+		int tessColor0Packed = colorOuter;
 		double mult = 1.5;
-		tess.addVertex(x + tip.x * mult, y + tip.y * mult, z);
-		tess.addVertex(x + left.x * mult, y + left.y * mult, z);
-		tess.addVertex(x + right.x * mult, y + right.y * mult, z);
-		tess.setColorOpaque_I(color);
-		tess.addVertex(x + tip.x, y + tip.y, z);
-		tess.addVertex(x + left.x, y + left.y, z);
-		tess.addVertex(x + right.x, y + right.y, z);
+		tessBuffer.pos(x + tip.x * mult, y + tip.y * mult, z).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();
+		tessBuffer.pos(x + left.x * mult, y + left.y * mult, z).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();
+		tessBuffer.pos(x + right.x * mult, y + right.y * mult, z).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();
+		int tessColor1Packed = color;
+		tessBuffer.pos(x + tip.x, y + tip.y, z).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, 255).endVertex();
+		tessBuffer.pos(x + left.x, y + left.y, z).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, 255).endVertex();
+		tessBuffer.pos(x + right.x, y + right.y, z).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, 255).endVertex();
 		tess.draw();
 		
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

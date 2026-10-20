@@ -1,0 +1,7 @@
+fa821e2db4392a3d7a74ab84054e7ca8486ded815791d7663e499deb49e364da  ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java
+9d839efc70efab2df0660d2026a3efb40eadcc13120f65a34d026479fc1cd576  ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java
+a8b3ef266332b2b2e762012112e82813c027b3215560b34dd8b403593e26890d  ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java
+5107687e043d295a4e46f24de2752b67d6dea288910b1798fa4d827bdd7de8cc  ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java
+cb984a0c2b97fdf98c04b6b3cddb8a18aea64f649a1501a5f1edd97229892304  ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java
+af8d5b7265347ec2e4131c7ff326f70d3fc195dd1d67749e4e499d9ff2e512e7  ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java
+9cb6a624d7f387cc2583df9fc4160d48bbdf8e86c3892c7dcc5426130b11cd28  ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java

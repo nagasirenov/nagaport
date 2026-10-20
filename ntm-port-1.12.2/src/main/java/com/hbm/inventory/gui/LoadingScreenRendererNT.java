@@ -13,6 +13,8 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.MinecraftError;
@@ -129,15 +131,16 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 				}
 
 				if(!FMLClientHandler.instance().handleLoadingScreen(scaledresolution)) {
-					Tessellator tessellator = Tessellator.instance;
+					Tessellator tessellator = Tessellator.getInstance();
+					BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 					this.mc.getTextureManager().bindTexture(Gui.optionsBackground);
 					float f = 32.0F;
-					tessellator.startDrawingQuads();
-					tessellator.setColorOpaque_I(4210752);
-					tessellator.addVertexWithUV(0.0D, height, 0.0D, 0.0D, height / f);
-					tessellator.addVertexWithUV(width, height, 0.0D, width / f, height / f);
-					tessellator.addVertexWithUV(width, 0.0D, 0.0D, width / f, 0.0D);
-					tessellator.addVertexWithUV(0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
+					tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
+					int tessellatorColor0Packed = 4210752;
+					tessellatorBuffer.pos(0.0D, height, 0.0D).tex(0.0D, height / f).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
+					tessellatorBuffer.pos(width, height, 0.0D).tex(width / f, height / f).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
+					tessellatorBuffer.pos(width, 0.0D, 0.0D).tex(width / f, 0.0D).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
+					tessellatorBuffer.pos(0.0D, 0.0D, 0.0D).tex(0.0D, 0.0D).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();
 					tessellator.draw();
 
 					if(p_73718_1_ >= 0) {
@@ -146,17 +149,17 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 						int j1 = width / 2 - b0 / 2;
 						int k1 = height / 2 + 16;
 						GL11.glDisable(GL11.GL_TEXTURE_2D);
-						tessellator.startDrawingQuads();
-						tessellator.setColorOpaque_I(8421504);
-						tessellator.addVertex(j1, k1, 0.0D);
-						tessellator.addVertex(j1, k1 + b1, 0.0D);
-						tessellator.addVertex(j1 + b0, k1 + b1, 0.0D);
-						tessellator.addVertex(j1 + b0, k1, 0.0D);
-						tessellator.setColorOpaque_I(8454016);
-						tessellator.addVertex(j1, k1, 0.0D);
-						tessellator.addVertex(j1, (k1 + b1), 0.0D);
-						tessellator.addVertex(j1 + p_73718_1_, k1 + b1, 0.0D);
-						tessellator.addVertex(j1 + p_73718_1_, k1, 0.0D);
+						tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+						int tessellatorColor1Packed = 8421504;
+						tessellatorBuffer.pos(j1, k1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();
+						tessellatorBuffer.pos(j1, k1 + b1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();
+						tessellatorBuffer.pos(j1 + b0, k1 + b1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();
+						tessellatorBuffer.pos(j1 + b0, k1, 0.0D).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, 255).endVertex();
+						int tessellatorColor2Packed = 8454016;
+						tessellatorBuffer.pos(j1, k1, 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();
+						tessellatorBuffer.pos(j1, (k1 + b1), 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();
+						tessellatorBuffer.pos(j1 + p_73718_1_, k1 + b1, 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();
+						tessellatorBuffer.pos(j1 + p_73718_1_, k1, 0.0D).color((tessellatorColor2Packed >> 16) & 255, (tessellatorColor2Packed >> 8) & 255, tessellatorColor2Packed & 255, 255).endVertex();
 						tessellator.draw();
 						GL11.glEnable(GL11.GL_TEXTURE_2D);
 					}

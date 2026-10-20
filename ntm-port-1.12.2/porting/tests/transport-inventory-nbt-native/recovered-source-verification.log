@@ -1,0 +1,2 @@
+PASS 7 exact CP76 source reversals and pristine reader/writer slices; nullable ownership, schema and legacy unguarded writers unchanged
+PASS generated 14 production reader/writer slices without native API stubs; unchanged production helper

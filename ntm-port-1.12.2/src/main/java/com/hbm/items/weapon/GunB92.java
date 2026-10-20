@@ -44,7 +44,7 @@ public class GunB92 extends Item {
 
 			ArrowLooseEvent event = new ArrowLooseEvent(p_77615_3_, p_77615_1_, j);
 			MinecraftForge.EVENT_BUS.post(event);
-			j = event.charge;
+			j = event.getCharge();
 
 			boolean flag = true;
 			
@@ -205,10 +205,11 @@ public class GunB92 extends Item {
 	}
 
 	@Override
-	public Multimap getItemAttributeModifiers() {
-		Multimap multimap = super.getItemAttributeModifiers();
-		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
-				new AttributeModifier(field_111210_e, "Weapon modifier", 3.5, 0));
+	public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+				new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 3.5, 0));
 		return multimap;
 	}
 

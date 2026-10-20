@@ -1,0 +1,510 @@
+{
+  "baseline": "242867906a53eb7da03c879f476ced61c1170e14",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/SlotCraftingOutput.java",
+      "before_sha256": "0392574c2308b719a49cdf215f5071ace3c08ac156591ed001aaa0b139e80e00",
+      "after_sha256": "56a2f031534aa8ad48e390b41ee7e31aa21c1d546c2a7e7d11f0a3594c383035",
+      "edits": [
+        {
+          "start": 937,
+          "end": 1075,
+          "old": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\tthis.onCrafting(stack);\n\t\tsuper.onPickupFromSlot(player, stack);\n\t}",
+          "new": "public ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\tthis.onCrafting(stack);\n\t\treturn super.onTake(player, stack);\n\t}",
+          "kind": "callback"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java",
+      "before_sha256": "f608dc90d29f25a4f324368bc70a3c43c8f82e13cc844612a0450338486b05a6",
+      "after_sha256": "a9fbf559bd2f97f7c8acd1714980c43ade41ebde25fb24e6fb87b14c67f11768",
+      "edits": [
+        {
+          "start": 1761,
+          "end": 1777,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "before_sha256": "75779bb286b6ed2b9a66e30cdb05a512ae0c50784400469ce1f0fbb469338628",
+      "after_sha256": "c5827e6e9c8b2d53cba84437f272ed1391c40aa2393de34aa137a37a07199220",
+      "edits": [
+        {
+          "start": 1133,
+          "end": 1858,
+          "old": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onPickupFromSlot(player, stack);\n\t\t\t\t\n\t\t\t\tItemStack left = ContainerAnvil.this.input.getStackInSlot(0);\n\t\t\t\tItemStack right = ContainerAnvil.this.input.getStackInSlot(1);\n\t\t\t\t\n\t\t\t\tif(left == null || right == null) {\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tfor(com.hbm.inventory.recipes.anvil.AnvilSmithingRecipe rec : AnvilRecipes.getSmithing()) {\n\t\t\t\t\t\n\t\t\t\t\tint i = rec.matchesInt(left, right);\n\t\t\t\t\t\n\t\t\t\t\tif(i != -1) {\n\t\t\t\t\t\tContainerAnvil.this.input.decrStackSize(0, rec.amountConsumed(0, i == 1));\n\t\t\t\t\t\tContainerAnvil.this.input.decrStackSize(1, rec.amountConsumed(1, i == 1));\n\t\t\t\t\t\tContainerAnvil.this.updateSmithing();\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}",
+          "new": "public ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onTake(player, stack);\n\t\t\t\t\n\t\t\t\tItemStack left = ContainerAnvil.this.input.getStackInSlot(0);\n\t\t\t\tItemStack right = ContainerAnvil.this.input.getStackInSlot(1);\n\t\t\t\t\n\t\t\t\tif(left == null || right == null) {\n\t\t\t\t\treturn stack;\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tfor(com.hbm.inventory.recipes.anvil.AnvilSmithingRecipe rec : AnvilRecipes.getSmithing()) {\n\t\t\t\t\t\n\t\t\t\t\tint i = rec.matchesInt(left, right);\n\t\t\t\t\t\n\t\t\t\t\tif(i != -1) {\n\t\t\t\t\t\tContainerAnvil.this.input.decrStackSize(0, rec.amountConsumed(0, i == 1));\n\t\t\t\t\t\tContainerAnvil.this.input.decrStackSize(1, rec.amountConsumed(1, i == 1));\n\t\t\t\t\t\tContainerAnvil.this.updateSmithing();\n\t\t\t\t\t\treturn stack;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treturn stack;\n\t\t\t}",
+          "kind": "callback"
+        },
+        {
+          "start": 2862,
+          "end": 2878,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        },
+        {
+          "start": 3117,
+          "end": 3133,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        },
+        {
+          "start": 3906,
+          "end": 4061,
+          "old": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onPickupFromSlot(player, stack);\n\t\t\tContainerAnvil.this.updateSmithing();\n\t\t}",
+          "new": "public ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onTake(player, stack);\n\t\t\tContainerAnvil.this.updateSmithing();\n\t\t\treturn stack;\n\t\t}",
+          "kind": "callback"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "before_sha256": "5fee56dd07ca2eba1dac205851c4f2ad557c66b2258278b70645a6c043266a45",
+      "after_sha256": "8a86262be3716637e638ddfcfae54847549de93413c8d6c0de56e97e2f9d1c31",
+      "edits": [
+        {
+          "start": 2608,
+          "end": 3150,
+          "old": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onPickupFromSlot(player, stack);\n\t\t\t\t\n\t\t\t\t//if the armor piece is taken, absorb all armor pieces\n\t\t\t\t\n\t\t\t\tfor(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {\n\t\t\t\t\t\n\t\t\t\t\tItemStack mod = upgrades.getStackInSlot(i);\n\t\t\t\t\t\n\t\t\t\t\t//ideally, this should always return true so long as the mod slot is not null due to the insert restriction\n\t\t\t\t\tif(ArmorModHandler.isApplicable(stack, mod)) {\n\t\t\t\t\t\tupgrades.setInventorySlotContents(i, ItemStack.EMPTY);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}",
+          "new": "public ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onTake(player, stack);\n\t\t\t\t\n\t\t\t\t//if the armor piece is taken, absorb all armor pieces\n\t\t\t\t\n\t\t\t\tfor(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {\n\t\t\t\t\t\n\t\t\t\t\tItemStack mod = upgrades.getStackInSlot(i);\n\t\t\t\t\t\n\t\t\t\t\t//ideally, this should always return true so long as the mod slot is not null due to the insert restriction\n\t\t\t\t\tif(ArmorModHandler.isApplicable(stack, mod)) {\n\t\t\t\t\t\tupgrades.setInventorySlotContents(i, ItemStack.EMPTY);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treturn stack;\n\t\t\t}",
+          "kind": "callback"
+        },
+        {
+          "start": 4771,
+          "end": 4787,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        },
+        {
+          "start": 6804,
+          "end": 6994,
+          "old": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onPickupFromSlot(player, stack);\n\t\t\t\n\t\t\tArmorModHandler.removeMod(armor.getStackInSlot(0), this.slotNumber);\n\t\t}",
+          "new": "public ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onTake(player, stack);\n\t\t\t\n\t\t\tArmorModHandler.removeMod(armor.getStackInSlot(0), this.slotNumber);\n\t\t\treturn stack;\n\t\t}",
+          "kind": "callback"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerBook.java",
+      "before_sha256": "342c3f4d3435434b199ab99080e89dc0a218114e9e7d7b5be27d463619bc80cc",
+      "after_sha256": "abf94beb2935521a994c5678d5f4aba58db7f209e11cbf1e18ab842e6c1e9f28",
+      "edits": [
+        {
+          "start": 2908,
+          "end": 2924,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCasingBag.java",
+      "before_sha256": "f5cc55233cf78cd2fbf660d493869a33497306eace02dfc872255dd33405488a",
+      "after_sha256": "687595a69c75b46b8855abe84a6626347eeb062886c76b5700d69fc613b1db34",
+      "edits": [
+        {
+          "start": 1774,
+          "end": 1790,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java",
+      "before_sha256": "c30ed03c90aa4d44b89eefc63c8badc674d212109b40ad13a4809b2204bfca6c",
+      "after_sha256": "a0d2d4addcc4801edc295175a894d3f570667af2ecfdebeda6269c0d0abf7351",
+      "edits": [
+        {
+          "start": 1633,
+          "end": 1649,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCraneExtractor.java",
+      "before_sha256": "d7d40f1c73fb8cf8c1555345d5075d44995bb7a5257a9cf1762d508a609fd9ab",
+      "after_sha256": "9f937b7370ecf3f1ddee7335a8f8c78cd1fc271bfb06abef47d5c315da63907a",
+      "edits": [
+        {
+          "start": 2099,
+          "end": 2115,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCraneGrabber.java",
+      "before_sha256": "8da75d69ad40d3b63f348d619f8ced0bb205c868c297c5eecba9bed890f770db",
+      "after_sha256": "ab6b2f239fc06f8a6a6e2993b605adab58acee2ec815de8bb6e95ed2f53977ee",
+      "edits": [
+        {
+          "start": 1912,
+          "end": 1928,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java",
+      "before_sha256": "f4367b299f752a6153af93e33f219ac41e207696abc55dd980dfc6f585dc790c",
+      "after_sha256": "d1d18eead3eeb16f612c992e418333b29472ab14a11cce0046e44326f7ac57bb",
+      "edits": [
+        {
+          "start": 1640,
+          "end": 1656,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java",
+      "before_sha256": "4dd90b1ad7bb7112f03b9b6aef991869b9fa0ee56a821c977c8d0c6019d4adf7",
+      "after_sha256": "d404db752420783b69f435a9549cccac43de115aec6a690d2051be8ab31fdd4e",
+      "edits": [
+        {
+          "start": 1813,
+          "end": 1829,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java",
+      "before_sha256": "b90af0955cf6664fffac741744d2c553d57655854f0634238d9c31f97e177f23",
+      "after_sha256": "f71c13d5df6c5f4ef0d27b06561b6371ae85cbe9c8e2bf279c37812ed4009080",
+      "edits": [
+        {
+          "start": 1875,
+          "end": 1891,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerDroneRequester.java",
+      "before_sha256": "457ceba1061cd7295124ba39f8f0212a357ed8ff6c05e4ff4cc2f8e22fa42484",
+      "after_sha256": "5d484e438881539080797c5f8a2a87ffdb7344f5df5601a82e396499b06198b4",
+      "edits": [
+        {
+          "start": 1564,
+          "end": 1580,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+      "before_sha256": "670faed187ee7c63054d6862bd3813d4e75de72fd76f04cd4877778f3b2ebbb3",
+      "after_sha256": "c13c533e0823c027d3a7d8e339ebc037d13c6b27bbfbc570a1d1147f5cab6463",
+      "edits": [
+        {
+          "start": 1762,
+          "end": 1778,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerLemegeton.java",
+      "before_sha256": "130b62134d746c68d799a6392c458554d8ff2f00c9bdefad88df2a198e5b00b3",
+      "after_sha256": "3bbf214250cb3d509870e4bea268c27b426a06998988de9ea3458ec2b5fb6ccd",
+      "edits": [
+        {
+          "start": 2485,
+          "end": 2501,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMachineAnnihilator.java",
+      "before_sha256": "c9e8600ed986c4a01c14d10e8251869d8d001657c75d18310841fa41a2e880a8",
+      "after_sha256": "be33e558b2c0ff40edd0ee769c4ec59ec9f87644440c55ddeab62ff43a49e805",
+      "edits": [
+        {
+          "start": 2124,
+          "end": 2140,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyFactory.java",
+      "before_sha256": "f8e2bd02e003079a1881a93c99009225ff23bbc8fea2e2cf21049248d6ccbeb9",
+      "after_sha256": "c16abd146b4322c16d94fa5cff3cb548ec6b3a04edf295f3f29f2e36c7e7f532",
+      "edits": [
+        {
+          "start": 3198,
+          "end": 3214,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyMachine.java",
+      "before_sha256": "7ecc1e3e3b43e09e001007c390284b998826f9e11af76dc69d80a2b8eee7bb35",
+      "after_sha256": "a6e5b8c46a3f548340f88979a34edd927543c133a9b73f55a1d2551b51e631ec",
+      "edits": [
+        {
+          "start": 2358,
+          "end": 2374,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMachineChemicalFactory.java",
+      "before_sha256": "4aa76fc42b4e4ce1b7ef27bb18776ab89768bce29a642345a173d1c7a4f47160",
+      "after_sha256": "3dec6e8f7b0d2ba24a9b51905023ade18325528c15e92851728792b6b339052d",
+      "edits": [
+        {
+          "start": 3171,
+          "end": 3187,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMachineChemicalPlant.java",
+      "before_sha256": "c2075f7c982c382bb0fb82f9e87fc5b312abfb266dde05e5772c7d2113c66cf7",
+      "after_sha256": "f60dfbbb5a9cc7af39698d28d4b3e280f86eaa35d988354ef61160ba33b1d3cd",
+      "edits": [
+        {
+          "start": 2675,
+          "end": 2691,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMachinePUREX.java",
+      "before_sha256": "0fb92ee4ef3618ecddfa617b495935f9fb566949e9030390e7020df632e25d1c",
+      "after_sha256": "fc4172c9f0af2e88739ae801591e226e00ec94e89efad13a1436f1d8c80f2bc0",
+      "edits": [
+        {
+          "start": 2402,
+          "end": 2418,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMachinePrecAss.java",
+      "before_sha256": "f7e67ea75261c0bd1ffe4c3ee9f0e8748074f7b145c83c64a46a3aac4ef5bdda",
+      "after_sha256": "16d98f0a74824edf974bd1c5dc8b6a2a2473e11b0a2e4cd1ef8bd68d2faf357f",
+      "edits": [
+        {
+          "start": 2320,
+          "end": 2336,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMassStorage.java",
+      "before_sha256": "dcff671d98ae230e2f94220ad9579a8a2c85fb6c35ff5282058b79426face582",
+      "after_sha256": "94f95babc3ee4b8310824aad6e247fc1c42995d50e73cbe2032bad1356aac44f",
+      "edits": [
+        {
+          "start": 1786,
+          "end": 1802,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java",
+      "before_sha256": "5ff4504dad32df3a06a8906f15446b759df3e3c24f6d8d2cb9014a716c50f4cc",
+      "after_sha256": "c36202139eb46c3ddeae3df7eadc574be3a88a3f9a089ec66065921b476ba44f",
+      "edits": [
+        {
+          "start": 1625,
+          "end": 1641,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerSILEX.java",
+      "before_sha256": "59deaa4a73bacbac410f98299240025cdaaffea12eb03f945454acd1f85f1680",
+      "after_sha256": "720081499c14dcf82a02984bee2aee4e7c450322e55fadefd6c7700fe4bd49b2",
+      "edits": [
+        {
+          "start": 2797,
+          "end": 2813,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java",
+      "before_sha256": "188c80082724a492307c3db2db206a4aef63dc4354b43445a15c5d0bceb8fb46",
+      "after_sha256": "aabccc8cd1779a26bc611fb2f30afb2ebc4364feb2e25d4b594b769003d00d08",
+      "edits": [
+        {
+          "start": 1798,
+          "end": 1814,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+      "before_sha256": "2cd2fabae7a28b6641d84f71bb77c6ea95e26a19c49dcd57a3f494e90fe91197",
+      "after_sha256": "3cc3f2987900bebd7e6f1b7e7463bdc559c8a8739b301a7557721028a23f2d6d",
+      "edits": [
+        {
+          "start": 1755,
+          "end": 1771,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerTransporterRocket.java",
+      "before_sha256": "4b2edc25d09cf197020deda3ec03f3c4c611f8689f50325d961b5454d2d1e67c",
+      "after_sha256": "0fd4897798727ed58b2c2fcb4a22204130941abaa3d35768d0cd1d20a0186d62",
+      "edits": [
+        {
+          "start": 2030,
+          "end": 2046,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerTurretBase.java",
+      "before_sha256": "7feb292e4460d4c036660a43da06d9f52e59219a4ed5f347e4d35064478e3327",
+      "after_sha256": "b86da1471c1841299365810130a181f20b0624a9edbd158111f1b4a82ed5d67d",
+      "edits": [
+        {
+          "start": 1952,
+          "end": 1968,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerWasteDrum.java",
+      "before_sha256": "b5e5d985548bfcea238062f32fa4a9b76e57c9958dbb1012abf7a3465f65d663",
+      "after_sha256": "fa9768ab8bcb565855714afad3b18227a1d63a5cc7919f48db976cbc3e8c4622",
+      "edits": [
+        {
+          "start": 2197,
+          "end": 2213,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerWatz.java",
+      "before_sha256": "a39f6fd47d645ce558b09a667d183635f813ba2985b1d893b466abf031197023",
+      "after_sha256": "c62193d777ab3f6ef977ee10feec7ace28070a3e9aaa22853de120bf13d11a6b",
+      "edits": [
+        {
+          "start": 1816,
+          "end": 1832,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "before_sha256": "7aebf1dc4d56a70939b5e6de91438e0a34bf9145670508567b0608ab34e76eef",
+      "after_sha256": "ec9cb61f07e15c11458c86ad908e178fe35610e072862986113d5855cd3af6d9",
+      "edits": [
+        {
+          "start": 1533,
+          "end": 2216,
+          "old": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onPickupFromSlot(player, stack);\n\n\t\t\t\tXWeaponModManager.install(\n\t\t\t\t\t\tstack, index,\n\t\t\t\t\t\tmods.getStackInSlot(0),\n\t\t\t\t\t\tmods.getStackInSlot(1),\n\t\t\t\t\t\tmods.getStackInSlot(2),\n\t\t\t\t\t\tmods.getStackInSlot(3),\n\t\t\t\t\t\tmods.getStackInSlot(4),\n\t\t\t\t\t\tmods.getStackInSlot(5),\n\t\t\t\t\t\tmods.getStackInSlot(6));\n\t\t\t\t\n\t\t\t\tfor(int i = 0; i < 7; i++) {\n\t\t\t\t\tItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);\n\t\t\t\t\tif(XWeaponModManager.isApplicable(stack, mod, index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tContainerWeaponTable.this.index = 0;\n\t\t\t}",
+          "new": "public ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\t\tsuper.onTake(player, stack);\n\n\t\t\t\tXWeaponModManager.install(\n\t\t\t\t\t\tstack, index,\n\t\t\t\t\t\tmods.getStackInSlot(0),\n\t\t\t\t\t\tmods.getStackInSlot(1),\n\t\t\t\t\t\tmods.getStackInSlot(2),\n\t\t\t\t\t\tmods.getStackInSlot(3),\n\t\t\t\t\t\tmods.getStackInSlot(4),\n\t\t\t\t\t\tmods.getStackInSlot(5),\n\t\t\t\t\t\tmods.getStackInSlot(6));\n\t\t\t\t\n\t\t\t\tfor(int i = 0; i < 7; i++) {\n\t\t\t\t\tItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);\n\t\t\t\t\tif(XWeaponModManager.isApplicable(stack, mod, index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tContainerWeaponTable.this.index = 0;\n\t\t\t\treturn stack;\n\t\t\t}",
+          "kind": "callback"
+        },
+        {
+          "start": 4963,
+          "end": 4979,
+          "old": "onPickupFromSlot",
+          "new": "onTake",
+          "kind": "call"
+        },
+        {
+          "start": 5859,
+          "end": 6000,
+          "old": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onPickupFromSlot(player, stack);\n\t\t\trefreshInstalledMods();\n\t\t}",
+          "new": "public ItemStack onTake(EntityPlayer player, ItemStack stack) {\n\t\t\tsuper.onTake(player, stack);\n\t\t\trefreshInstalledMods();\n\t\t\treturn stack;\n\t\t}",
+          "kind": "callback"
+        }
+      ]
+    }
+  ],
+  "callbacks": 7,
+  "external_calls": 32,
+  "exclusions": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/advancement/LegacyCraftingCallbacks.java",
+      "reason": "Historical Javadoc describes original 1.7 callback, not an invocation; retained byte-for-byte."
+    }
+  ]
+}

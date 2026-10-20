@@ -1,0 +1,15 @@
+PASS whole-source parse-only closure: 4065 source units, zero descendants of four selected owners
+OWNER com.hbm.blocks.BlockCrop -> net.minecraft.block.BlockBush
+NATIVE_CONSTRUCTOR net.minecraft.util.math.AxisAlignedBB AxisAlignedBB(double,double,double,double,double,double)
+NATIVE_OVERRIDE com.hbm.blocks.BlockCrop getBoundingBox(net.minecraft.block.state.IBlockState,net.minecraft.world.IBlockAccess,net.minecraft.util.math.BlockPos)
+OWNER com.hbm.blocks.fluid.MeltedFlesh -> net.minecraft.block.Block
+NATIVE_CONSTRUCTOR net.minecraft.util.math.AxisAlignedBB AxisAlignedBB(double,double,double,double,double,double)
+NATIVE_OVERRIDE com.hbm.blocks.fluid.MeltedFlesh getBoundingBox(net.minecraft.block.state.IBlockState,net.minecraft.world.IBlockAccess,net.minecraft.util.math.BlockPos)
+OWNER com.hbm.blocks.generic.BlockFallout -> net.minecraft.block.Block
+NATIVE_CONSTRUCTOR net.minecraft.util.math.AxisAlignedBB AxisAlignedBB(double,double,double,double,double,double)
+NATIVE_OVERRIDE com.hbm.blocks.generic.BlockFallout getBoundingBox(net.minecraft.block.state.IBlockState,net.minecraft.world.IBlockAccess,net.minecraft.util.math.BlockPos)
+OWNER com.hbm.blocks.generic.BlockMush -> net.minecraft.block.Block
+NATIVE_CONSTRUCTOR net.minecraft.util.math.AxisAlignedBB AxisAlignedBB(double,double,double,double,double,double)
+NATIVE_OVERRIDE com.hbm.blocks.generic.BlockMush getCollisionBoundingBox(net.minecraft.block.state.IBlockState,net.minecraft.world.IBlockAccess,net.minecraft.util.math.BlockPos)
+NATIVE_OVERRIDE com.hbm.blocks.generic.BlockMush getBoundingBox(net.minecraft.block.state.IBlockState,net.minecraft.world.IBlockAccess,net.minecraft.util.math.BlockPos)
+PASS 4 genuine six-double native AABB constructors; 5 genuine Block overrides; unrelated complete-owner diagnostics remain 161

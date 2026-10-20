@@ -1,0 +1,7 @@
+{
+  "path": "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java",
+  "before": "554a85268d1139c4f71c3d7279f45872cfb655c7511df006d418fa8a9a2f1929",
+  "after": "eeea4bdbf21c64ea165979358265929149fc89303145f1d4f8674761d422f27e",
+  "old": "\t\t\t\t\tthis.slots[2].stackSize--;\n\t\t\t\t\tif(this.slots[2].stackSize == 0) {\n\t\t\t\t\t\tthis.slots[2] = this.slots[2].getItem().getContainerItem(this.slots[2]);",
+  "new": "\t\t\t\t\tItem fuelItem = this.slots[2].getItem();\n\t\t\t\t\tthis.slots[2].stackSize--;\n\t\t\t\t\tif(this.slots[2].stackSize == 0) {\n\t\t\t\t\t\tItemStack residue = fuelItem.getContainerItem(this.slots[2]);\n\t\t\t\t\t\tthis.slots[2] = residue == ItemStack.EMPTY ? null : residue;"
+}

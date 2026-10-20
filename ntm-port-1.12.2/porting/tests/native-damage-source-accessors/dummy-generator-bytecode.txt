@@ -1,0 +1,105 @@
+ForgeGradle JAR SHA256: 5e8d1af585b0936a40ccc6489fa9871da008a41b4f481e462d1dc61279f0274e
+TaskDepDummy.class SHA256: fafb44c4a199f831c6e29ac97160ae83c3d408a90863eff86e0f9d2d4ec996fe
+
+Compiled from "TaskDepDummy.java"
+public class net.minecraftforge.gradle.user.TaskDepDummy extends org.gradle.api.DefaultTask {
+  private java.lang.Object outputFile;
+
+  public net.minecraftforge.gradle.user.TaskDepDummy();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method org/gradle/api/DefaultTask."<init>":()V
+       4: return
+
+  public void makeEmptyJar() throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method getOutputFile:()Ljava/io/File;
+       4: astore_1
+       5: aload_1
+       6: invokevirtual #3                  // Method java/io/File.getParentFile:()Ljava/io/File;
+       9: invokevirtual #4                  // Method java/io/File.mkdirs:()Z
+      12: pop
+      13: new           #5                  // class java/util/jar/JarOutputStream
+      16: dup
+      17: new           #6                  // class java/io/FileOutputStream
+      20: dup
+      21: aload_1
+      22: invokespecial #7                  // Method java/io/FileOutputStream."<init>":(Ljava/io/File;)V
+      25: invokespecial #8                  // Method java/util/jar/JarOutputStream."<init>":(Ljava/io/OutputStream;)V
+      28: astore_2
+      29: aconst_null
+      30: astore_3
+      31: aload_2
+      32: new           #9                  // class java/util/jar/JarEntry
+      35: dup
+      36: ldc           #10                 // String dummyThing
+      38: invokespecial #11                 // Method java/util/jar/JarEntry."<init>":(Ljava/lang/String;)V
+      41: invokevirtual #12                 // Method java/util/jar/JarOutputStream.putNextEntry:(Ljava/util/zip/ZipEntry;)V
+      44: aload_2
+      45: iconst_m1
+      46: invokevirtual #13                 // Method java/util/jar/JarOutputStream.write:(I)V
+      49: aload_2
+      50: invokevirtual #14                 // Method java/util/jar/JarOutputStream.closeEntry:()V
+      53: aload_2
+      54: ifnull        129
+      57: aload_3
+      58: ifnull        79
+      61: aload_2
+      62: invokevirtual #15                 // Method java/util/jar/JarOutputStream.close:()V
+      65: goto          129
+      68: astore        4
+      70: aload_3
+      71: aload         4
+      73: invokevirtual #17                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+      76: goto          129
+      79: aload_2
+      80: invokevirtual #15                 // Method java/util/jar/JarOutputStream.close:()V
+      83: goto          129
+      86: astore        4
+      88: aload         4
+      90: astore_3
+      91: aload         4
+      93: athrow
+      94: astore        5
+      96: aload_2
+      97: ifnull        126
+     100: aload_3
+     101: ifnull        122
+     104: aload_2
+     105: invokevirtual #15                 // Method java/util/jar/JarOutputStream.close:()V
+     108: goto          126
+     111: astore        6
+     113: aload_3
+     114: aload         6
+     116: invokevirtual #17                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     119: goto          126
+     122: aload_2
+     123: invokevirtual #15                 // Method java/util/jar/JarOutputStream.close:()V
+     126: aload         5
+     128: athrow
+     129: return
+    Exception table:
+       from    to  target type
+          61    65    68   Class java/lang/Throwable
+          31    53    86   Class java/lang/Throwable
+          31    53    94   any
+         104   108   111   Class java/lang/Throwable
+          86    96    94   any
+
+  public java.io.File getOutputFile();
+    Code:
+       0: aload_0
+       1: invokevirtual #18                 // Method getProject:()Lorg/gradle/api/Project;
+       4: aload_0
+       5: getfield      #19                 // Field outputFile:Ljava/lang/Object;
+       8: invokeinterface #20,  2           // InterfaceMethod org/gradle/api/Project.file:(Ljava/lang/Object;)Ljava/io/File;
+      13: areturn
+
+  public void setOutputFile(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #19                 // Field outputFile:Ljava/lang/Object;
+       5: return
+}

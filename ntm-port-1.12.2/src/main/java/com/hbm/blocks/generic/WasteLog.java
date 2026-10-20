@@ -78,4 +78,10 @@ public class WasteLog extends Block {
         return 1;
     }
 
+	/** NTM construction hook for the native protected sound setter. */
+	public WasteLog withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 }

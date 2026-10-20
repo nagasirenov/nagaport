@@ -1,0 +1,77 @@
+[
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/stone_depth.png",
+    "sha256": "0aa3477b514693a670a5c7fa92e852c3e734f3e5c4e3445b80352e06a4696d60",
+    "original_sha256": "0aa3477b514693a670a5c7fa92e852c3e734f3e5c4e3445b80352e06a4696d60"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_depth_cinnebar.png",
+    "sha256": "4744d5443b2734d4cf2f5d9afd9c7a2acc86936759b7345fbaf7762ff0b0468c",
+    "original_sha256": "4744d5443b2734d4cf2f5d9afd9c7a2acc86936759b7345fbaf7762ff0b0468c"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_depth_zirconium.png",
+    "sha256": "7f6ed0a7be6849638ad972474b6762cfa65dc176210917b280e5f841ee1d1e3c",
+    "original_sha256": "7f6ed0a7be6849638ad972474b6762cfa65dc176210917b280e5f841ee1d1e3c"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_depth_borax.png",
+    "sha256": "35b7f630bb627f7b8bfa2130e431e3a2ebc49f7ee2019593a0fcf24fdf2dc185",
+    "original_sha256": "35b7f630bb627f7b8bfa2130e431e3a2ebc49f7ee2019593a0fcf24fdf2dc185"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/cluster_depth_iron.png",
+    "sha256": "5dbae7ee60d7a774d69bde9d3ae7def6e6d8a141ceeda17bc069f4b438c68a54",
+    "original_sha256": "5dbae7ee60d7a774d69bde9d3ae7def6e6d8a141ceeda17bc069f4b438c68a54"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/cluster_depth_titanium.png",
+    "sha256": "3568e69cd07d183ec0f9e1311c352b1d3da7d571589ef41c4a25f352a6181e68",
+    "original_sha256": "3568e69cd07d183ec0f9e1311c352b1d3da7d571589ef41c4a25f352a6181e68"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/cluster_depth_tungsten.png",
+    "sha256": "c13ad98cd1b3915e1d05b95ac3a2fbdd75c825fa9b4a87410a6c754fb3f7d225",
+    "original_sha256": "c13ad98cd1b3915e1d05b95ac3a2fbdd75c825fa9b4a87410a6c754fb3f7d225"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_alexandrite.png",
+    "sha256": "82ac2bca0ea6126e6965387c53f4b6ca3c9932f46022b63834d4344101d247ae",
+    "original_sha256": "82ac2bca0ea6126e6965387c53f4b6ca3c9932f46022b63834d4344101d247ae"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/depth_brick.png",
+    "sha256": "0811075cd5168bb711a3648690c88de779e06b78529965a750043be95591473d",
+    "original_sha256": "0811075cd5168bb711a3648690c88de779e06b78529965a750043be95591473d"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/depth_tiles.png",
+    "sha256": "e9095912da481c489f497d38e029e7ded0d9550f8f2775224b4f2ec000350c0f",
+    "original_sha256": "e9095912da481c489f497d38e029e7ded0d9550f8f2775224b4f2ec000350c0f"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/depth_nether_brick.png",
+    "sha256": "0c7bf942e5ef1de108699c2d1fac4b46b91145cc11a6938c35649b474c14143e",
+    "original_sha256": "0c7bf942e5ef1de108699c2d1fac4b46b91145cc11a6938c35649b474c14143e"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/depth_nether_tiles.png",
+    "sha256": "ad769e9aab9de04fb69cbd89df21cff8148aef7d10977da1a750ebb9022c8026",
+    "original_sha256": "ad769e9aab9de04fb69cbd89df21cff8148aef7d10977da1a750ebb9022c8026"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/depth_dnt.png",
+    "sha256": "020a467bdb74795b0ac1076cf7b73f6e59dc8415850a7fb516efa96691a3d280",
+    "original_sha256": "020a467bdb74795b0ac1076cf7b73f6e59dc8415850a7fb516efa96691a3d280"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/stone_depth_nether.png",
+    "sha256": "716a7d4e9182bc04d33c1371f62212c44f7c9094113f15723e361c92cc508eae",
+    "original_sha256": "716a7d4e9182bc04d33c1371f62212c44f7c9094113f15723e361c92cc508eae"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_depth_nether_neodymium.png",
+    "sha256": "24062aa04c9f635822f60dc2e382a9abfc76f67d3100372b32db110d8a67755f",
+    "original_sha256": "24062aa04c9f635822f60dc2e382a9abfc76f67d3100372b32db110d8a67755f"
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "com.hbm.items.tool.ItemSwordAbility": [
+    {
+      "attribute": "generic.attackDamage",
+      "uuid": "cb3f55d3-645c-4f38-a497-9c13a33db5cf",
+      "name": "Tool modifier",
+      "amount": 250.0,
+      "operation": 0
+    },
+    {
+      "attribute": "generic.movementSpeed",
+      "uuid": "cb3f55d3-645c-4f38-a497-9c13a33db5cf",
+      "name": "Tool modifier",
+      "amount": 1.5,
+      "operation": 1
+    }
+  ],
+  "com.hbm.items.weapon.GunB92": [
+    {
+      "attribute": "generic.attackDamage",
+      "uuid": "cb3f55d3-645c-4f38-a497-9c13a33db5cf",
+      "name": "Weapon modifier",
+      "amount": 3.5,
+      "operation": 0
+    }
+  ],
+  "com.hbm.items.weapon.ItemCrucible/damage\u003d0": [
+    {
+      "attribute": "generic.attackDamage",
+      "uuid": "cb3f55d3-645c-4f38-a497-9c13a33db5cf",
+      "name": "Tool modifier",
+      "amount": 5000.0,
+      "operation": 0
+    },
+    {
+      "attribute": "generic.movementSpeed",
+      "uuid": "cb3f55d3-645c-4f38-a497-9c13a33db5cf",
+      "name": "Tool modifier",
+      "amount": 1.0,
+      "operation": 1
+    }
+  ],
+  "com.hbm.items.weapon.ItemCrucible/damage\u003d2": [
+    {
+      "attribute": "generic.attackDamage",
+      "uuid": "cb3f55d3-645c-4f38-a497-9c13a33db5cf",
+      "name": "Tool modifier",
+      "amount": 5000.0,
+      "operation": 0
+    },
+    {
+      "attribute": "generic.movementSpeed",
+      "uuid": "cb3f55d3-645c-4f38-a497-9c13a33db5cf",
+      "name": "Tool modifier",
+      "amount": 1.0,
+      "operation": 1
+    }
+  ],
+  "com.hbm.items.weapon.ItemCrucible/damage\u003d3": [],
+  "com.hbm.items.weapon.ItemCrucible/damage\u003d4": [],
+  "com.hbm.items.tool.ItemToolAbility/runtime_limitation": "java.lang.NoSuchMethodException: aji.captureDrops(boolean)"
+}

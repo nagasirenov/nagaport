@@ -1,0 +1,58 @@
+package nameproof;
+import java.lang.reflect.*;
+import java.util.*;
+import com.mojang.authlib.GameProfile;
+import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.text.*;
+public final class NativeNameTest {
+ static sun.misc.Unsafe u;static int checks;
+ static void ok(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ static Object alloc(Class<?> c)throws Exception{return u.allocateInstance(c);}
+ static final class CustomPlayer extends EntityPlayer {
+  String custom;
+  CustomPlayer(){super(null,new GameProfile(new UUID(1,2),"not-used"));}
+  public boolean isSpectator(){return false;}public boolean isCreative(){return false;}
+  @Override public String getName(){return custom;}
+  @Override public ITextComponent getDisplayName(){return new TextComponentString("DECORATED DISPLAY");}
+ }
+ static final class DummyProjection extends EntityLiving {
+  DummyProjection(){super(null);}
+  @DUMMY_METHOD@
+ }
+ static final class OwnerProjection {
+  EntityLivingBase thrower;String throwerName;
+  void save(NBTTagCompound nbt){
+   @OWNER_BODY@
+  }
+ }
+ static boolean targeting(Entity entity){return @TARGET_EXPRESSION@;}
+ public static void main(String[] args)throws Exception {
+  net.minecraft.init.Bootstrap.register();Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);u=(sun.misc.Unsafe)uf.get(null);
+  Field profile=EntityPlayer.class.getDeclaredField("gameProfile");profile.setAccessible(true);
+  for(Class<?> c:new Class<?>[]{EntityPlayerMP.class,net.minecraft.client.entity.EntityPlayerSP.class})for(String s:new String[]{null,"","Target Practice","HbMinecraft","alice","ALICE","\u00a7cRaw Name","\u03b1\u03b2\u03b3"}) {
+   EntityPlayer p=(EntityPlayer)alloc(c);profile.set(p,new GameProfile(new UUID(1,2),s));
+   ok(p.getName()==s,"actual native raw GameProfile identity");ok(((Entity)p).getName()==s,"Entity virtual receiver remains profile identity");ok(((net.minecraft.command.ICommandSender)p).getName()==s,"native interface virtual receiver");
+   if(s!=null)ok(targeting(p)==s.equals("Target Practice"),"target comparison uses exact raw name, not display");
+   OwnerProjection owner=new OwnerProjection();owner.thrower=p;NBTTagCompound tag=new NBTTagCompound();owner.save(tag);ok(tag.getString("ownerName").equals(s==null?"":s),"actual NBT raw ownerName");
+  }
+  CustomPlayer custom=(CustomPlayer)alloc(CustomPlayer.class);custom.custom="Target Practice";
+  ok(EntityPlayer.class.isAssignableFrom(custom.getClass()),"registered EntityPlayer callback accepts subclass through actual class test");
+  ok(targeting(custom),"virtual custom override drives targeting");ok(!custom.getDisplayName().getUnformattedText().equals(custom.getName()),"formatted-display negative control");
+  OwnerProjection owner=new OwnerProjection();owner.thrower=custom;NBTTagCompound tag=new NBTTagCompound();owner.save(tag);ok("Target Practice".equals(tag.getString("ownerName")),"player subclass virtual override drives ownership");
+  owner.throwerName="saved-owner";custom.custom="changed";owner.save(tag);ok("saved-owner".equals(tag.getString("ownerName")),"nonempty saved owner preserved");
+  owner.throwerName="";owner.save(tag);ok("changed".equals(tag.getString("ownerName")),"empty owner recalculated");
+  owner.thrower=(EntityLivingBase)alloc(EntityZombie.class);owner.throwerName=null;owner.save(tag);ok("".equals(tag.getString("ownerName")),"nonplayer guard does not call getName");
+  owner.thrower=null;owner.save(tag);ok("".equals(tag.getString("ownerName")),"null thrower guard unchanged");
+  DummyProjection dummy=new DummyProjection();
+  for(float max:new float[]{1F,20F,100.25F})for(float health:new float[]{0F,0.01F,0.099F,0.1F,0.999F,1F,12.345F,19.999F,100F}) {
+   dummy.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(max);dummy.setHealth(health);
+   String expected=(int)(dummy.getHealth()*10)/10F+" / "+(int)(dummy.getMaxHealth()*10)/10F;
+   ok(dummy.getName().equals(expected),"verbatim dummy health calculation");ok(((Entity)dummy).getName().equals(expected),"dummy Entity virtual dispatch");ok(((net.minecraft.command.ICommandSender)dummy).getName().equals(expected),"dummy command interface dispatch");
+   dummy.setCustomNameTag("must not replace health status");ok(dummy.getName().equals(expected),"dummy override keeps custom-name precedence");
+  }
+  System.out.println("PASS "+checks+" native runtime checks: actual player methods/raw identities and NBT; exact projected owner guard/target expression/dummy override; virtual player+dummy dispatch and display-name negative control. No full custom owner or gameplay lifecycle claim.");
+ }
+}

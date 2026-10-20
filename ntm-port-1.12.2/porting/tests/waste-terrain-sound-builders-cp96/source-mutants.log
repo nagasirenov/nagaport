@@ -1,0 +1,13 @@
+PASS source negative control: dropped assignment
+PASS source negative control: wrong argument
+PASS source negative control: null return
+PASS source negative control: wrong registry sound object
+PASS source negative control: foreign owner cast
+PASS source negative control: relocated sound before name
+PASS source negative control: wrong frozen constructor flag
+PASS source negative control: changed constructor ticking
+PASS source negative control: changed construction-dispatched opacity
+PASS source negative control: removed texture call
+PASS source negative control: unrelated icon renderer changed
+PASS source negative control: unrelated registry entry changed
+PASS all twelve independent in-memory source mutations rejected; production files untouched.

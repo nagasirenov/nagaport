@@ -1,0 +1,54 @@
+import java.io.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.world.World;
+public class NativeRangeTest {
+ static class Probe extends Entity {
+  int boxReads;
+  Probe(){super((World)null);}
+  protected void entityInit(){}
+  protected void readEntityFromNBT(NBTTagCompound n){}
+  protected void writeEntityToNBT(NBTTagCompound n){}
+  public AxisAlignedBB getEntityBoundingBox(){boxReads++;return super.getEntityBoundingBox();}
+ }
+ @PROJECTIONS@
+ static void require(boolean b,String why){if(!b)throw new AssertionError(why);}
+ public static void main(String[] args)throws Exception {
+  double saved=Entity.getRenderDistanceWeight();int checks=0;int rows=0;
+  try {
+   long[] bits={0L,Long.MIN_VALUE,0x3ff0000000000000L,0x4024000000000000L,1L,0x7fefffffffffffffL,0x7ff0000000000000L,0xfff0000000000000L,0x7ff8000000000001L,0xfff8000000001234L};
+   for(long b:bits){Entity.setRenderDistanceWeight(Double.longBitsToDouble(b));require(Double.doubleToRawLongBits(Entity.getRenderDistanceWeight())==b,"native static setter/getter bits");checks++;}
+   Probe one=new Probe(),two=new Probe();one.setEntityBoundingBox(new AxisAlignedBB(0,0,0,1,1,1));two.setEntityBoundingBox(new AxisAlignedBB(0,0,0,1,1,1));
+   Entity.setRenderDistanceWeight(1.0);require(!one.isInRangeToRenderDist(10000)&&!two.isInRangeToRenderDist(10000),"native global1");checks++;
+   Entity.setRenderDistanceWeight(10.0);require(one.isInRangeToRenderDist(10000)&&two.isInRangeToRenderDist(10000),"native global setter affects both objects");checks++;
+   @CASES@
+   try(PrintWriter out=new PrintWriter(args[0])) {
+    for(int c=0;c<entities.length;c++) {
+     Probe e=entities[c];
+     e.posX=1.0D;e.posY=2.0D;e.posZ=3.0D;
+     e.setEntityBoundingBox(new AxisAlignedBB(0,0,0,1,1,1));
+     boolean direct=e.isInRangeToRenderDist(199.0D*199.0D);
+     e.boxReads=0;require(e.isInRangeToRender3d(200.0D,2.0D,3.0D)==direct&&e.boxReads==1,"native 3D caller virtual dispatch to selected override");checks++;
+     for(int bi=0;bi<RangeVectors.BOXES.length;bi++) {
+      double[] b=RangeVectors.BOXES[bi];e.setEntityBoundingBox(new AxisAlignedBB(b[0],b[1],b[2],b[3],b[4],b[5]));
+      double edge=e.getEntityBoundingBox().getAverageEdgeLength();double r=edge*(64.0D*weights[c]);double threshold=r*r;
+      double[] ds=RangeVectors.distances(threshold);
+      for(int di=0;di<ds.length;di++) {
+       Boolean first=null;
+       for(double global: new double[]{0.0,1.0,10.0,24.0,Double.NaN,Double.POSITIVE_INFINITY}) {
+        Entity.setRenderDistanceWeight(global);e.boxReads=0;boolean got=e.isInRangeToRenderDist(ds[di]);require(e.boxReads==1,"one bounding-box read");checks++;
+        if(first==null)first=got;else require(first.booleanValue()==got,"must ignore native global multiplier");checks++;
+       }
+       out.println(c+"\t"+bi+"\t"+di+"\t"+first);rows++;
+      }
+     }
+    }
+   }
+   Probe nan=new Probe();nan.setEntityBoundingBox(new AxisAlignedBB(0,0,0,Double.NaN,1,1));Entity.setRenderDistanceWeight(1.0);
+   require(nan.isInRangeToRenderDist(1.0),"native NaN fallback negative control");checks++;
+   @NULL_CHECKS@
+   System.out.println("PASS "+checks+" actual native/projection assertions, "+rows+" differential range rows; static bits, isolated weights, one-read evaluation, strict boundaries, NaN and infinities.");
+  } finally {Entity.setRenderDistanceWeight(saved);}
+ }
+}

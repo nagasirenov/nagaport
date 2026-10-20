@@ -61,10 +61,10 @@ public class TileEntityDecon extends TileEntity implements net.minecraft.util.IT
 
 			if(e instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) e;
-				for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+				for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 					HazardTypeNeutron.decay(player.inventory.getStackInSlot(i), 0.899916F);
 				}
-				for(int i = 0; i < player.inventory.armorInventory.length; i++) {
+				for(int i = 0; i < player.inventory.armorInventory.size(); i++) {
 					HazardTypeNeutron.decay(player.inventory.armorItemInSlot(i), 0.899916F);
 				}
 			}

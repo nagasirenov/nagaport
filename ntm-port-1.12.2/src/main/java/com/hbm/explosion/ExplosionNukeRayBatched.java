@@ -223,7 +223,7 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 
 				inChunk = true;
 
-				if(!world.isAirBlock(x0, y0, z0)) {
+				if(!world.isAirBlock(new net.minecraft.util.math.BlockPos(x0, y0, z0))) {
 
 					BlockPos pos = new BlockPos(x0, y0, z0);
 
@@ -239,7 +239,7 @@ public class ExplosionNukeRayBatched implements IExplosionRay {
 			if(toRemTips.contains(pos)) {
 				this.handleTip(pos.getX(), pos.getY(), pos.getZ());
 			} else {
-				world.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR, 0, 2);
+				com.hbm.world.WorldBlockState.write(world, pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR.getStateFromMeta(0), 2);
 			}
 		}
 

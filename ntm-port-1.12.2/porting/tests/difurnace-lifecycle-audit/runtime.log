@@ -1,0 +1,1 @@
+PASS 39 genuine old/native boundary checks; no reflection writes, no singleton mutation; machine execution NOT claimed

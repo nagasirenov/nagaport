@@ -1,0 +1,7 @@
+PASS 28 byte-exact inverses and round trips; 36 parameter edits; 84 rejected mutations
+PASS scoped javac: genuine BlockLayering and three production helpers; six exact method projections; three explicitly test-only NTM registry/type fixtures
+PASS 11080 native checks; 5392 actual registry base states; actual BlockLayering; six complete source/original-bytecode method projections; evaluation and exclusion counterexample
+PASS full-source syntax and original-JAR owner closure: seven override owners, 16 migrated owner/descendant types, two explicitly excluded OilWell calls; exact native dependency method inventory
+PARTIAL_ATTRIBUTION_DIAGNOSTICS=538; not a successful project compile
+PARTIAL_ATTRIBUTION_DIAGNOSTICS=504; not a successful project compile
+PASS all 30 exact Block receiver attributions, before and after; original artifact is only an ancestry/type dependency, not native runtime code

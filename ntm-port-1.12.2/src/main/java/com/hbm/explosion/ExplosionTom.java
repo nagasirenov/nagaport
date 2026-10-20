@@ -111,9 +111,9 @@ public class ExplosionTom {
 				if(y <= craterFloor) {
 
 					if(worldObj.rand.nextInt(200) == 0) {
-						worldObj.setBlock(pX, y, pZ, ModBlocks.ore_tektite_osmiridium, 0, 2);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = worldObj; int nativeRegisteredWriteX = pX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = pZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_tektite_osmiridium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					} else {
-						worldObj.setBlock(pX, y, pZ, ModBlocks.tektite, 0, 2);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = worldObj; int nativeRegisteredWriteX = pX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = pZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.tektite; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					}
 
 				} else {

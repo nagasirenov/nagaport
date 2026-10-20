@@ -23,7 +23,7 @@ public class TileEntityBroadcaster extends TileEntityLoadedBase implements net.m
 	@Override
 	public void update() {
 
-		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5 - 25, this.pos.getY() + 0.5 - 25, this.pos.getZ() + 0.5 - 25, this.pos.getX() + 0.5 + 25, this.pos.getY() + 0.5 + 25, this.pos.getZ() + 0.5 + 25));
+		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5 - 25, this.pos.getY() + 0.5 - 25, this.pos.getZ() + 0.5 - 25, this.pos.getX() + 0.5 + 25, this.pos.getY() + 0.5 + 25, this.pos.getZ() + 0.5 + 25));
 
 		for(int i = 0; i < list.size(); i++) {
 			if(list.get(i) instanceof EntityLivingBase) {

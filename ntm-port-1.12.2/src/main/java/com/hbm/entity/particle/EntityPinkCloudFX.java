@@ -80,7 +80,7 @@ public class EntityPinkCloudFX extends EntityModFX {
 				this.world.setBlock((int) posX, (int) posY, (int) posZ, ModBlocks.broadcaster_pc, meta, 2);
 			}
 			
-			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isNormalCube()) {
+			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).isNormalCube()) {
 	
 				if(rand.nextInt(5) != 0)
 					this.setDead();

@@ -1,0 +1,2 @@
+PASS 36 source drift controls
+PASS strict source guard: 12 complete-file inverses, 7 dependency pins, global API census, 3 native overrides and 9 native bridges

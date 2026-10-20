@@ -24,7 +24,7 @@ public class ArmorT51 extends ArmorFSBPowered implements IItemRendererProvider {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(models == null) {
 			models = new ModelArmorT51[4];
@@ -33,7 +33,7 @@ public class ArmorT51 extends ArmorFSBPowered implements IItemRendererProvider {
 				models[i] = new ModelArmorT51(i);
 		}
 		
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@Override public Item getItemForRenderer() { return this; }
@@ -45,7 +45,7 @@ public class ArmorT51 extends ArmorFSBPowered implements IItemRendererProvider {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_t51, armorType,
+				renderStandard(ResourceManager.armor_t51, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.t51_helmet, ResourceManager.t51_chest, ResourceManager.t51_arm, ResourceManager.t51_leg,
 						"Helmet", "Chest", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

@@ -60,7 +60,7 @@ public class BlockHazard extends Block implements ITooltipProvider {
 			break;
 			
 		case LAVAPOP:
-			world.spawnParticle("lava", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 			break;
 			
 		default: break;
@@ -88,7 +88,7 @@ public class BlockHazard extends Block implements ITooltipProvider {
 					iz = z + 0.5F + dir.offsetZ * 0.5 + rand.nextDouble() * dir.offsetZ;
 
 				if(this.extEffect == ExtDisplayEffect.RADFOG) {
-					world.spawnParticle("townaura", ix, iy, iz, 0.0, 0.0, 0.0);
+					world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, ix, iy, iz, 0.0, 0.0, 0.0);
 				}
 				if(this.extEffect == ExtDisplayEffect.SCHRAB) {
 					NBTTagCompound data = new NBTTagCompound();
@@ -99,9 +99,9 @@ public class BlockHazard extends Block implements ITooltipProvider {
 					MainRegistry.proxy.effectNT(data);
 				}
 				if(this.extEffect == ExtDisplayEffect.FLAMES) {
-					world.spawnParticle("flame", ix, iy, iz, 0.0, 0.0, 0.0);
-					world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.0, 0.0);
-					world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.1, 0.0);
+					world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);
+					world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);
+					world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);
 				}
 			}
 		}
@@ -128,7 +128,7 @@ public class BlockHazard extends Block implements ITooltipProvider {
 
 		if(this.rad > 0) {
 			ChunkRadiationManager.proxy.incrementRad(world, x, y, z, rad);
-			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 		}
 	}
 
@@ -148,7 +148,7 @@ public class BlockHazard extends Block implements ITooltipProvider {
 		rad = HazardSystem.getHazardLevelFromStack(new ItemStack(this), HazardRegistry.RADIATION) * 0.1F;
 
 		if(this.rad > 0)
-			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 	
 	public static enum ExtDisplayEffect {

@@ -56,12 +56,12 @@ public class BiomeCave {
 	@SubscribeEvent
 	public void onDecorate(DecorateBiomeEvent.Pre event) {
 		
-		World world = event.world;
+		World world = event.getWorld();
 		
 		if(world.provider == null || world.provider.getDimension() != 0) return;
 		
 		if(this.noise == null) {
-			this.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() - 1916169 + yLevel), 2);
+			this.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() - 1916169 + yLevel), 2);
 		}
 		
 		int cX = event.chunkX;
@@ -95,9 +95,10 @@ public class BiomeCave {
 	}
 	
 	private static void handleBiome(World world, int x, int y, int z, EnumBiomeType type) {
-		Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		net.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);
+		Block target = nativeCubeState_target.getBlock();
 		
-		if(target.isNormalCube() && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {
+		if(target.isNormalCube(nativeCubeState_target) && target.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {
 			
 			boolean shouldGen = false;
 			
@@ -111,7 +112,7 @@ public class BiomeCave {
 			}
 			
 			if(shouldGen) {
-				world.setBlock(x, y, z, ModBlocks.stone_biome, type.ordinal(), 2);
+				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.stone_biome; int nativeRegisteredWriteMeta = type.ordinal(); int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			}
 		}
 	}

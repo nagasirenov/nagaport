@@ -1,0 +1,6 @@
+PASS 24 exact replacements / 15 whole-file inverses; 30 source mutations rejected
+PASS actual original raw factory vs native normalizing constructor; native TileEntity.setPos calls toImmutable; native Vec3i getters read final int fields; mutable BlockPos snapshots verified. No binaries copied to evidence.
+PASS 1525082 actual old/native assertions; 24 exact expressions, both door ternary states, 985 int coordinate triples, 7 unsafe-rewrite counterexamples; geometry only, not complete gameplay methods
+Attribution only; production inputs=1; unfinished-port errors=17
+Native TileEntity position source writes=0; setPos overrides=0
+PASS 4 positive / 14 negative exact-owner, type, getter ownership and arithmetic attribution controls

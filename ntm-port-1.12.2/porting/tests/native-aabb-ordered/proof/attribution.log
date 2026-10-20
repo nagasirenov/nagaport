@@ -1,0 +1,1 @@
+PASS 24 exact native (DDDDDD)V bindings; javac attribution errors 12169 -> 12145; exactly 24 selected factory diagnostics removed, 0 added; all unrelated line/code/message diagnostic multiplicities equal (not a full build)

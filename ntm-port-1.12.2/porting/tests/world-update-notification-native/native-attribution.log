@@ -1,0 +1,6 @@
+/workspace/shared/nagaport-world-updates-cp88/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockCablePaintable.java	4576	notifyAt(net.minecraft.world.World,int,int,int)
+/workspace/shared/nagaport-world-updates-cp88/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockOpenComputersCablePaintable.java	5630	notifyAt(net.minecraft.world.World,int,int,int)
+/workspace/shared/nagaport-world-updates-cp88/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctPaintable.java	4369	notifyAt(net.minecraft.world.World,int,int,int)
+/workspace/shared/nagaport-world-updates-cp88/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctPaintableBlockExhaust.java	3720	notifyAt(net.minecraft.world.World,int,int,int)
+/workspace/shared/nagaport-world-updates-cp88/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java	3828	notifyAt(net.minecraft.world.World,int,int,int)
+Unrelated unfinished-port diagnostics: 11640

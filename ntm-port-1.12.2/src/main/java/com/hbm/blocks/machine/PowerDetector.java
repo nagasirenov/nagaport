@@ -40,7 +40,7 @@ public class PowerDetector extends BlockContainer {
 		return new TileEntityMachineDetector();
 	}
 	
-    public boolean canProvidePower() {
+    public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {
         return true;
     }
     

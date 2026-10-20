@@ -101,7 +101,7 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 					double x = this.world.rand.nextGaussian() * 2;
 					double y = this.world.rand.nextGaussian() * 3;
 					double z = this.world.rand.nextGaussian() * 2;
-					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);
 				}
 
 				if(audio == null) {

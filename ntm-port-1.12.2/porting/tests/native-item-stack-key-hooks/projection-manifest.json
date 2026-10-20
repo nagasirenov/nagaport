@@ -1,0 +1,96 @@
+[
+  {
+    "mode": "Native",
+    "owner": "ItemAmmoArty",
+    "array_names_in_index_order": [
+      "ammo_arty",
+      "ammo_arty_classic",
+      "ammo_arty_he",
+      "ammo_arty_mini_nuke",
+      "ammo_arty_nuke",
+      "ammo_arty_phosphorus",
+      "ammo_arty_mini_nuke_multi",
+      "ammo_arty_phosphorus_multi",
+      "ammo_arty_cargo",
+      "ammo_arty_chlorine",
+      "ammo_arty_phosgene",
+      "ammo_arty_mustard_gas"
+    ],
+    "scope": "fixture read-surface projection only; no gameplay initialization or nested constructors certified"
+  },
+  {
+    "mode": "Native",
+    "owner": "ItemAmmoHIMARS",
+    "array_names_in_index_order": [
+      "standard",
+      "single",
+      "standard_he",
+      "standard_wp",
+      "standard_tb",
+      "single_tb",
+      "standard_mini_nuke",
+      "standard_lava"
+    ],
+    "scope": "fixture read-surface projection only; no gameplay initialization or nested constructors certified"
+  },
+  {
+    "mode": "Native",
+    "owner": "ItemMineralOre",
+    "array_names_in_index_order": [
+      "clump_peroxide",
+      "clump_nitric",
+      "clump_sulfuric",
+      "clump_solvent",
+      "clump_hydrochloric",
+      "clump_schrabidic"
+    ],
+    "scope": "fixture read-surface projection only; no gameplay initialization or nested constructors certified"
+  },
+  {
+    "mode": "Legacy",
+    "owner": "ItemAmmoArty",
+    "array_names_in_index_order": [
+      "ammo_arty",
+      "ammo_arty_classic",
+      "ammo_arty_he",
+      "ammo_arty_mini_nuke",
+      "ammo_arty_nuke",
+      "ammo_arty_phosphorus",
+      "ammo_arty_mini_nuke_multi",
+      "ammo_arty_phosphorus_multi",
+      "ammo_arty_cargo",
+      "ammo_arty_chlorine",
+      "ammo_arty_phosgene",
+      "ammo_arty_mustard_gas"
+    ],
+    "scope": "fixture read-surface projection only; no gameplay initialization or nested constructors certified"
+  },
+  {
+    "mode": "Legacy",
+    "owner": "ItemAmmoHIMARS",
+    "array_names_in_index_order": [
+      "standard",
+      "single",
+      "standard_he",
+      "standard_wp",
+      "standard_tb",
+      "single_tb",
+      "standard_mini_nuke",
+      "standard_lava"
+    ],
+    "scope": "fixture read-surface projection only; no gameplay initialization or nested constructors certified"
+  },
+  {
+    "mode": "Legacy",
+    "owner": "ItemMineralOre",
+    "array_names_in_index_order": [
+      "clump_peroxide",
+      "clump_nitric",
+      "clump_sulfuric",
+      "clump_solvent",
+      "clump_hydrochloric",
+      "clump_schrabidic"
+    ],
+    "scope": "fixture read-surface projection only; no gameplay initialization or nested constructors certified"
+  }
+]

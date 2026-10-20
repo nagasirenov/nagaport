@@ -1,0 +1,7 @@
+PASS 14 byte-exact inverses and round trips; 17 native state captures and air calls; 42 rejected mutations
+PASS scoped javac: full genuine BlockBeamBase and two production helpers; original Forge body projection on actual old Block/Material; no NTM dependency stubs
+PASS 11049 assertions; 5485 actual native registry states; actual BlockBeamBase and AE2 BlockPaint; original Beam bytecode and Forge-base method projections; capture/evaluation/mismatch fixtures
+PASS full-source/native-dependency ownership inventory: one NTM air override, three genuine owner/descendant types, no source material getter overrides, exact native air/material getter inventory; 24 exclusions retained
+PARTIAL_ATTRIBUTION_DIAGNOSTICS=217; not a successful project compile
+PARTIAL_ATTRIBUTION_DIAGNOSTICS=200; not a successful project compile
+PASS all 17 genuine Block receiver attributions before/after and exact native state/method attribution after; partial source errors are not a successful project build

@@ -13,6 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -187,7 +188,7 @@ public class EntitySoyuz extends Entity {
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 			byte b0 = nbt1.getByte("slot");
 			if (b0 >= 0 && b0 < payload.length) {
-				payload[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				payload[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 	}

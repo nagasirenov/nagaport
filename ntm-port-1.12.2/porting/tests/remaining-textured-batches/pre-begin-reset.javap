@@ -1,0 +1,239 @@
+Actual official Minecraft 1.7.10 client bmh selected methods.
+  public void b();
+    Code:
+       0: aload_0
+       1: bipush        7
+       3: invokevirtual #62                 // Method a:(I)V
+       6: return
+
+  public void a(int);
+    Code:
+       0: aload_0
+       1: getfield      #51                 // Field x:Z
+       4: ifeq          17
+       7: new           #17                 // class java/lang/IllegalStateException
+      10: dup
+      11: ldc           #8                  // String Already tesselating!
+      13: invokespecial #76                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      16: athrow
+      17: aload_0
+      18: iconst_1
+      19: putfield      #51                 // Field x:Z
+      22: aload_0
+      23: invokespecial #65                 // Method d:()V
+      26: aload_0
+      27: iload_1
+      28: putfield      #46                 // Field s:I
+      31: aload_0
+      32: iconst_0
+      33: putfield      #42                 // Field o:Z
+      36: aload_0
+      37: iconst_0
+      38: putfield      #39                 // Field l:Z
+      41: aload_0
+      42: iconst_0
+      43: putfield      #40                 // Field m:Z
+      46: aload_0
+      47: iconst_0
+      48: putfield      #41                 // Field n:Z
+      51: aload_0
+      52: iconst_0
+      53: putfield      #45                 // Field r:Z
+      56: return
+
+  public void a(double, double);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #40                 // Field m:Z
+       5: aload_0
+       6: dload_1
+       7: putfield      #35                 // Field h:D
+      10: aload_0
+      11: dload_3
+      12: putfield      #36                 // Field i:D
+      15: return
+
+  public void b(int);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #41                 // Field n:Z
+       5: aload_0
+       6: iload_1
+       7: putfield      #37                 // Field j:I
+      10: return
+
+  public void b(float, float, float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: ldc           #7                  // float 255.0f
+       4: fmul
+       5: f2i
+       6: fload_2
+       7: ldc           #7                  // float 255.0f
+       9: fmul
+      10: f2i
+      11: fload_3
+      12: ldc           #7                  // float 255.0f
+      14: fmul
+      15: f2i
+      16: invokevirtual #63                 // Method a:(III)V
+      19: return
+
+  public void a(float, float, float, float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: ldc           #7                  // float 255.0f
+       4: fmul
+       5: f2i
+       6: fload_2
+       7: ldc           #7                  // float 255.0f
+       9: fmul
+      10: f2i
+      11: fload_3
+      12: ldc           #7                  // float 255.0f
+      14: fmul
+      15: f2i
+      16: fload         4
+      18: ldc           #7                  // float 255.0f
+      20: fmul
+      21: f2i
+      22: invokevirtual #64                 // Method a:(IIII)V
+      25: return
+
+  public void a(int, int, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: iload_3
+       4: sipush        255
+       7: invokevirtual #64                 // Method a:(IIII)V
+      10: return
+
+  public void a(int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #45                 // Field r:Z
+       4: ifeq          8
+       7: return
+       8: iload_1
+       9: sipush        255
+      12: if_icmple     19
+      15: sipush        255
+      18: istore_1
+      19: iload_2
+      20: sipush        255
+      23: if_icmple     30
+      26: sipush        255
+      29: istore_2
+      30: iload_3
+      31: sipush        255
+      34: if_icmple     41
+      37: sipush        255
+      40: istore_3
+      41: iload         4
+      43: sipush        255
+      46: if_icmple     54
+      49: sipush        255
+      52: istore        4
+      54: iload_1
+      55: ifge          60
+      58: iconst_0
+      59: istore_1
+      60: iload_2
+      61: ifge          66
+      64: iconst_0
+      65: istore_2
+      66: iload_3
+      67: ifge          72
+      70: iconst_0
+      71: istore_3
+      72: iload         4
+      74: ifge          80
+      77: iconst_0
+      78: istore        4
+      80: aload_0
+      81: iconst_1
+      82: putfield      #39                 // Field l:Z
+      85: invokestatic  #87                 // Method java/nio/ByteOrder.nativeOrder:()Ljava/nio/ByteOrder;
+      88: getstatic     #55                 // Field java/nio/ByteOrder.LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+      91: if_acmpne     118
+      94: aload_0
+      95: iload         4
+      97: bipush        24
+      99: ishl
+     100: iload_3
+     101: bipush        16
+     103: ishl
+     104: ior
+     105: iload_2
+     106: bipush        8
+     108: ishl
+     109: ior
+     110: iload_1
+     111: ior
+     112: putfield      #38                 // Field k:I
+     115: goto          139
+     118: aload_0
+     119: iload_1
+     120: bipush        24
+     122: ishl
+     123: iload_2
+     124: bipush        16
+     126: ishl
+     127: ior
+     128: iload_3
+     129: bipush        8
+     131: ishl
+     132: ior
+     133: iload         4
+     135: ior
+     136: putfield      #38                 // Field k:I
+     139: return
+
+  public void c(float, float, float);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #42                 // Field o:Z
+       5: fload_1
+       6: ldc           #6                  // float 127.0f
+       8: fmul
+       9: f2i
+      10: i2b
+      11: istore        4
+      13: fload_2
+      14: ldc           #6                  // float 127.0f
+      16: fmul
+      17: f2i
+      18: i2b
+      19: istore        5
+      21: fload_3
+      22: ldc           #6                  // float 127.0f
+      24: fmul
+      25: f2i
+      26: i2b
+      27: istore        6
+      29: aload_0
+      30: iload         4
+      32: sipush        255
+      35: iand
+      36: iload         5
+      38: sipush        255
+      41: iand
+      42: bipush        8
+      44: ishl
+      45: ior
+      46: iload         6
+      48: sipush        255
+      51: iand
+      52: bipush        16
+      54: ishl
+      55: ior
+      56: putfield      #50                 // Field w:I
+      59: return
+

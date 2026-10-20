@@ -31,6 +31,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
@@ -49,6 +50,12 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 	public BlockStorageCrate(Material p_i45394_1_) {
 		super(p_i45394_1_);
+	}
+
+	/** NTM construction hook for the native protected sound setter. */
+	public BlockStorageCrate withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
 	}
 
 	@Override
@@ -320,12 +327,15 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 	}
 
 	@Override
-	public boolean hasComparatorInputOverride() {
+	public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+	public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {
+		int x = blockPos.getX();
+		int y = blockPos.getY();
+		int z = blockPos.getZ();
 		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 
@@ -345,7 +355,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 				list.add(TextFormatting.RED + "This container is locked."); // Sorry people who want to see what's in it while it's locked...
 
 				for(int i = 0; i < 104; i++) {
-					ItemStack content = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot" + i));
+					ItemStack content = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag("slot" + i));
 					if(content != null) {
 						list.add(TextFormatting.YELLOW + "It feels heavy...");
 						return;
@@ -359,7 +369,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 			int amount = 0;
 
 			for(int i = 0; i < 104; i++) { //whatever the biggest container is, i can't be bothered to check
-				ItemStack content = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot" + i));
+				ItemStack content = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag("slot" + i));
 
 				if(content != null) {
 					amount++;

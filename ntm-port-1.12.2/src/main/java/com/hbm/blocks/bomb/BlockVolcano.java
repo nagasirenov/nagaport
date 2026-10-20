@@ -231,11 +231,12 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 				//gaussian distribution makes conversions more likely on the surface and rarer at the bottom
 				int y = this.world.getHeightValue(x, z) + 1 - (int) Math.floor(Math.abs(this.world.rand.nextGaussian() * depth));
 
-				Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);
+				Block b = nativeAirState.getBlock();
 
-				if(!b.isAir(this.world, x, y, z) && b.getExplosionResistance(null) < Blocks.OBSIDIAN.getExplosionResistance(null)) {
+				if(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && b.getExplosionResistance(null) < Blocks.OBSIDIAN.getExplosionResistance(null)) {
 					//turn into lava if solid block, otherwise just break
-					this.world.setBlock(x, y, z, b.isNormalCube() ? this.getLava() : Blocks.AIR);
+					this.world.setBlock(x, y, z, b.isNormalCube(nativeAirState) ? this.getLava() : Blocks.AIR);
 				}
 			}
 		}

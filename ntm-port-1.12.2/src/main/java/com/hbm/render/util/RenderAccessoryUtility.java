@@ -154,20 +154,20 @@ public class RenderAccessoryUtility {
 		if(wingModels[mode] == null)
 			wingModels[mode] = new ModelArmorWings(mode);
 
-		RenderPlayer renderer = event.renderer;
+		RenderPlayer renderer = event.getRenderer();
 		ModelBiped model = renderer.modelArmor;
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 
 		wingModels[mode].isSneak = model.isSneak;
 
-		float interp = event.partialRenderTick;
+		float interp = event.getPartialRenderTick();
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
 		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 
-		wingModels[mode].render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
+		wingModels[mode].render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
 	}
 
 	private static ModelBiped axePackModel;
@@ -176,20 +176,20 @@ public class RenderAccessoryUtility {
 		if(axePackModel == null)
 			axePackModel = new ModelArmorWingsPheo();
 
-		RenderPlayer renderer = event.renderer;
+		RenderPlayer renderer = event.getRenderer();
 		ModelBiped model = renderer.modelArmor;
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 
 		axePackModel.isSneak = model.isSneak;
 
-		float interp = event.partialRenderTick;
+		float interp = event.getPartialRenderTick();
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
 		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 
-		axePackModel.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
+		axePackModel.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
 	}
 
 	private static ModelBiped tailModel;
@@ -198,19 +198,19 @@ public class RenderAccessoryUtility {
 		if(tailModel == null)
 			tailModel = new ModelArmorTailPeep();
 
-		RenderPlayer renderer = event.renderer;
+		RenderPlayer renderer = event.getRenderer();
 		ModelBiped model = renderer.modelArmor;
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 
 		tailModel.isSneak = model.isSneak;
 
-		float interp = event.partialRenderTick;
+		float interp = event.getPartialRenderTick();
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
 		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 
-		tailModel.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
+		tailModel.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
 	}
 }

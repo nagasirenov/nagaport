@@ -1,0 +1,5 @@
+DEFERRED	src/main/java/com/hbm/dim/CelestialBodyWorldSavedData.java:21	provider.worldObj	com.hbm.dim.WorldProviderCelestial
+DEFERRED	src/main/java/com/hbm/dim/CelestialBodyWorldSavedData.java:24	provider.worldObj	com.hbm.dim.WorldProviderCelestial
+DEFERRED	src/main/java/com/hbm/dim/CelestialBodyWorldSavedData.java:25	provider.worldObj	com.hbm.dim.WorldProviderCelestial
+Source Chunk descendants: []
+Attribution diagnostics (unfinished source, NOT compilation success): 12775

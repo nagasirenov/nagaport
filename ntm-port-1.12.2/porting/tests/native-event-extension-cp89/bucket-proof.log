@@ -1,0 +1,3 @@
+[12:27:54] [main/INFO]: Processing ObjectHolder annotations
+[12:27:54] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 18 actual native event-bus and full production BucketHandler checks; explicit in-memory World fixture, no whole-game claim.

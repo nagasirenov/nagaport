@@ -129,7 +129,7 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 
 			if(pipe.block != null) {
 				pipe.block = null;
-				world.markBlockForUpdate(x, y, z);
+				com.hbm.world.TileEntityBlockUpdate.notifyAt(world, x, y, z);
 				pipe.markDirty();
 				return true;
 			}

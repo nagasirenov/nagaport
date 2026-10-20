@@ -1,0 +1,44 @@
+[
+  {
+    "owner": "BlockLogNT",
+    "mutant": "drop-assignment",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: native setter stores exact argument including custom/null"
+  },
+  {
+    "owner": "BlockLogNT",
+    "mutant": "wrong-argument",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object identity"
+  },
+  {
+    "owner": "BlockLogNT",
+    "mutant": "null-return",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.NullPointerException"
+  },
+  {
+    "owner": "BlockRotatablePillar",
+    "mutant": "drop-assignment",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object identity"
+  },
+  {
+    "owner": "BlockRotatablePillar",
+    "mutant": "wrong-argument",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object identity"
+  },
+  {
+    "owner": "BlockRotatablePillar",
+    "mutant": "null-return",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.NullPointerException"
+  }
+]

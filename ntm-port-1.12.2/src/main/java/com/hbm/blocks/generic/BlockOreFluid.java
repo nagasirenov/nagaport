@@ -11,6 +11,8 @@ import com.hbm.inventory.fluid.Fluids;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 
 public class BlockOreFluid extends BlockOre {
 
@@ -119,7 +121,10 @@ public class BlockOreFluid extends BlockOre {
 		if(empty == null) return;
 
 		if(world.rand.nextDouble() < getDrainChance(meta) * chanceMultiplier) {
-			world.setBlock(x, y, z, empty, meta, 3);
+			// Original world bounds are checked before converting the target state.
+			if(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y >= 0 && y < 256) {
+				world.setBlockState(new BlockPos(x, y, z), empty.getStateFromMeta(meta), 3);
+			}
 		}
 	}
 
@@ -128,14 +133,22 @@ public class BlockOreFluid extends BlockOre {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
 		if(empty == null) return;
 
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
+		// Read the live world, including during synchronous nested notifications.
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == empty) {
-			world.setBlock(x, y, z, empty, meta, 3);
-			world.setBlock(x, y - 1, z, this, meta, 3);
+			// Original world bounds are checked before converting the target state.
+			if(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y >= 0 && y < 256) {
+				world.setBlockState(new BlockPos(x, y, z), empty.getStateFromMeta(meta), 3);
+			}
+			if(x >= -30000000 && x < 30000000 && z >= -30000000 && z < 30000000 && y - 1 >= 0 && y - 1 < 256) {
+				world.setBlockState(new BlockPos(x, y - 1, z), getStateFromMeta(meta), 3);
+			}
 		}
 	}
 

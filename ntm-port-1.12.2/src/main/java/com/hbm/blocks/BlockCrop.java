@@ -25,6 +25,8 @@ import net.minecraft.world.World;
 
 public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathing {
 
+	private final net.minecraft.util.math.AxisAlignedBB shape;
+
 	protected int maxGrowthStage = 7;
 	protected Block soilBlock;
 
@@ -38,7 +40,7 @@ public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathi
 	public BlockCrop(Block block, Predicate<CBT_Atmosphere> atmospherePredicate, boolean canHydro) {
 		setTickRandomly(true);
 		float f = 0.5F;
-		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
+		this.shape = new net.minecraft.util.math.AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
 		setHardness(0.0F);
 		setSoundType(net.minecraft.block.SoundType.PLANT);
 		disableStats();
@@ -210,4 +212,10 @@ public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathi
 		blockIcons[8] = parIIconRegister.registerIcon(getTextureName() + "_5");
 	}
 
+
+
+	@Override
+	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		return shape;
+	}
 }

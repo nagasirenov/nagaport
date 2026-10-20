@@ -13,6 +13,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -22,6 +25,9 @@ import net.minecraft.world.World;
  * Tor                             Ex
  */
 public class EntityNukeTorex extends Entity {
+	private static final DataParameter<Float> SCALE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.FLOAT);
+	private static final DataParameter<Integer> COLOR_TYPE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.VARINT);
+
 
 	public double coreHeight = 3;
 	public double convectionHeight = 3;
@@ -51,8 +57,8 @@ public class EntityNukeTorex extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(10, new Float(1));
-		this.dataWatcher.addObject(11, new Integer(0));
+		this.dataManager.register(SCALE, new Float(1));
+		this.dataManager.register(COLOR_TYPE, new Integer(0));
 	}
 
 	@Override @SideOnly(Side.CLIENT) public int getBrightnessForRender(float interp) { return 15728880; }
@@ -220,7 +226,7 @@ public class EntityNukeTorex extends Entity {
 	}
 
 	public EntityNukeTorex setScale(float scale) {
-		if(!this.world.isRemote) getDataWatcher().updateObject(10, scale);
+		if(!this.world.isRemote) getDataManager().set(SCALE, scale);
 		this.coreHeight = this.coreHeight / 1.5D * scale;
 		this.convectionHeight = this.convectionHeight / 1.5D * scale;
 		this.torusWidth = this.torusWidth / 1.5D * scale;
@@ -228,8 +234,13 @@ public class EntityNukeTorex extends Entity {
 		return this;
 	}
 
+	/** Updates synchronized scale only, without resizing local simulation fields. */
+	public void setSynchronizedScale(float scale) {
+		this.dataManager.set(SCALE, scale);
+	}
+
 	public EntityNukeTorex setType(int type) {
-		this.dataWatcher.updateObject(11, type);
+		this.dataManager.set(COLOR_TYPE, type);
 		return this;
 	}
 
@@ -252,7 +263,7 @@ public class EntityNukeTorex extends Entity {
 	}
 
 	public double getScale() {
-		return this.dataWatcher.getWatchableObjectFloat(10);
+		return this.dataManager.get(SCALE);
 	}
 
 	public double getSaturation() {
@@ -499,7 +510,7 @@ public class EntityNukeTorex extends Entity {
 			dist = Math.max(dist, 1);
 			double col = 2D / dist;
 
-			int type = EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11);
+			int type = EntityNukeTorex.this.dataManager.get(COLOR_TYPE);
 
 			if(this.type == TorexType.STARFISH) {
 				this.color = new Vec3d(

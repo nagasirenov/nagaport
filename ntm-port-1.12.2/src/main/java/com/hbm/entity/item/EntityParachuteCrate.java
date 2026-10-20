@@ -10,6 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -58,7 +59,7 @@ public class EntityParachuteCrate extends Entity {
 		NBTTagList list = nbt.getTagList("items", 10);
 		for(int i = 0; i < list.tagCount(); i++) {
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
-			items.add(ItemStack.loadItemStackFromNBT(nbt1));
+			items.add(NullableInventoryStackNbt.read(nbt1));
 		}
 	}
 

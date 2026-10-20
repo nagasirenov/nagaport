@@ -1,0 +1,575 @@
+CL: sa net/minecraft/entity/Entity
+CL: sr net/minecraft/entity/EntityFlying
+CL: sv net/minecraft/entity/EntityLivingBase
+CL: sw net/minecraft/entity/EntityLiving
+CL: te net/minecraft/entity/DataWatcher
+CL: xl net/minecraft/entity/item/EntityMinecart
+FD: sa/A net/minecraft/entity/Entity/field_70126_B
+FD: sa/B net/minecraft/entity/Entity/field_70127_C
+FD: sa/C net/minecraft/entity/Entity/field_70121_D
+FD: sa/D net/minecraft/entity/Entity/field_70122_E
+FD: sa/E net/minecraft/entity/Entity/field_70123_F
+FD: sa/F net/minecraft/entity/Entity/field_70124_G
+FD: sa/G net/minecraft/entity/Entity/field_70132_H
+FD: sa/H net/minecraft/entity/Entity/field_70133_I
+FD: sa/I net/minecraft/entity/Entity/field_70134_J
+FD: sa/J net/minecraft/entity/Entity/field_70135_K
+FD: sa/K net/minecraft/entity/Entity/field_70128_L
+FD: sa/L net/minecraft/entity/Entity/field_70129_M
+FD: sa/M net/minecraft/entity/Entity/field_70130_N
+FD: sa/N net/minecraft/entity/Entity/field_70131_O
+FD: sa/O net/minecraft/entity/Entity/field_70141_P
+FD: sa/P net/minecraft/entity/Entity/field_70140_Q
+FD: sa/Q net/minecraft/entity/Entity/field_82151_R
+FD: sa/R net/minecraft/entity/Entity/field_70143_R
+FD: sa/S net/minecraft/entity/Entity/field_70142_S
+FD: sa/T net/minecraft/entity/Entity/field_70137_T
+FD: sa/U net/minecraft/entity/Entity/field_70136_U
+FD: sa/V net/minecraft/entity/Entity/field_70139_V
+FD: sa/W net/minecraft/entity/Entity/field_70138_W
+FD: sa/X net/minecraft/entity/Entity/field_70145_X
+FD: sa/Y net/minecraft/entity/Entity/field_70144_Y
+FD: sa/Z net/minecraft/entity/Entity/field_70146_Z
+FD: sa/aa net/minecraft/entity/Entity/field_70173_aa
+FD: sa/ab net/minecraft/entity/Entity/field_70174_ab
+FD: sa/ac net/minecraft/entity/Entity/field_70171_ac
+FD: sa/ad net/minecraft/entity/Entity/field_70172_ad
+FD: sa/ae net/minecraft/entity/Entity/field_70178_ae
+FD: sa/af net/minecraft/entity/Entity/field_70180_af
+FD: sa/ag net/minecraft/entity/Entity/field_70175_ag
+FD: sa/ah net/minecraft/entity/Entity/field_70176_ah
+FD: sa/ai net/minecraft/entity/Entity/field_70162_ai
+FD: sa/aj net/minecraft/entity/Entity/field_70164_aj
+FD: sa/ak net/minecraft/entity/Entity/field_70158_ak
+FD: sa/al net/minecraft/entity/Entity/field_70160_al
+FD: sa/am net/minecraft/entity/Entity/field_71088_bW
+FD: sa/an net/minecraft/entity/Entity/field_71087_bX
+FD: sa/ao net/minecraft/entity/Entity/field_82153_h
+FD: sa/ap net/minecraft/entity/Entity/field_71093_bK
+FD: sa/aq net/minecraft/entity/Entity/field_82152_aq
+FD: sa/ar net/minecraft/entity/Entity/field_96093_i
+FD: sa/as net/minecraft/entity/Entity/field_70168_am
+FD: sa/b net/minecraft/entity/Entity/field_70152_a
+FD: sa/bZ net/minecraft/entity/Entity/field_70118_ct
+FD: sa/c net/minecraft/entity/Entity/field_145783_c
+FD: sa/ca net/minecraft/entity/Entity/field_70117_cu
+FD: sa/cb net/minecraft/entity/Entity/field_70116_cv
+FD: sa/d net/minecraft/entity/Entity/field_70150_b
+FD: sa/e net/minecraft/entity/Entity/field_70151_c
+FD: sa/f net/minecraft/entity/Entity/field_70148_d
+FD: sa/g net/minecraft/entity/Entity/field_70149_e
+FD: sa/h net/minecraft/entity/Entity/field_70147_f
+FD: sa/i net/minecraft/entity/Entity/field_83001_bt
+FD: sa/j net/minecraft/entity/Entity/field_70155_l
+FD: sa/k net/minecraft/entity/Entity/field_70156_m
+FD: sa/l net/minecraft/entity/Entity/field_70153_n
+FD: sa/m net/minecraft/entity/Entity/field_70154_o
+FD: sa/n net/minecraft/entity/Entity/field_98038_p
+FD: sa/o net/minecraft/entity/Entity/field_70170_p
+FD: sa/p net/minecraft/entity/Entity/field_70169_q
+FD: sa/q net/minecraft/entity/Entity/field_70167_r
+FD: sa/r net/minecraft/entity/Entity/field_70166_s
+FD: sa/s net/minecraft/entity/Entity/field_70165_t
+FD: sa/t net/minecraft/entity/Entity/field_70163_u
+FD: sa/u net/minecraft/entity/Entity/field_70161_v
+FD: sa/v net/minecraft/entity/Entity/field_70159_w
+FD: sa/w net/minecraft/entity/Entity/field_70181_x
+FD: sa/x net/minecraft/entity/Entity/field_70179_y
+FD: sa/y net/minecraft/entity/Entity/field_70177_z
+FD: sa/z net/minecraft/entity/Entity/field_70125_A
+FD: sv/aA net/minecraft/entity/EntityLivingBase/field_70725_aQ
+FD: sv/aB net/minecraft/entity/EntityLivingBase/field_70724_aR
+FD: sv/aC net/minecraft/entity/EntityLivingBase/field_70732_aI
+FD: sv/aD net/minecraft/entity/EntityLivingBase/field_70733_aJ
+FD: sv/aE net/minecraft/entity/EntityLivingBase/field_70722_aY
+FD: sv/aF net/minecraft/entity/EntityLivingBase/field_70721_aZ
+FD: sv/aG net/minecraft/entity/EntityLivingBase/field_70754_ba
+FD: sv/aH net/minecraft/entity/EntityLivingBase/field_70771_an
+FD: sv/aI net/minecraft/entity/EntityLivingBase/field_70727_aS
+FD: sv/aJ net/minecraft/entity/EntityLivingBase/field_70726_aT
+FD: sv/aK net/minecraft/entity/EntityLivingBase/field_70769_ao
+FD: sv/aL net/minecraft/entity/EntityLivingBase/field_70770_ap
+FD: sv/aM net/minecraft/entity/EntityLivingBase/field_70761_aq
+FD: sv/aN net/minecraft/entity/EntityLivingBase/field_70760_ar
+FD: sv/aO net/minecraft/entity/EntityLivingBase/field_70759_as
+FD: sv/aP net/minecraft/entity/EntityLivingBase/field_70758_at
+FD: sv/aQ net/minecraft/entity/EntityLivingBase/field_70747_aH
+FD: sv/aR net/minecraft/entity/EntityLivingBase/field_70717_bb
+FD: sv/aS net/minecraft/entity/EntityLivingBase/field_70718_bc
+FD: sv/aT net/minecraft/entity/EntityLivingBase/field_70729_aU
+FD: sv/aU net/minecraft/entity/EntityLivingBase/field_70708_bq
+FD: sv/aV net/minecraft/entity/EntityLivingBase/field_70768_au
+FD: sv/aW net/minecraft/entity/EntityLivingBase/field_110154_aX
+FD: sv/aX net/minecraft/entity/EntityLivingBase/field_70764_aw
+FD: sv/aY net/minecraft/entity/EntityLivingBase/field_70763_ax
+FD: sv/aZ net/minecraft/entity/EntityLivingBase/field_70741_aB
+FD: sv/at net/minecraft/entity/EntityLivingBase/field_82175_bq
+FD: sv/au net/minecraft/entity/EntityLivingBase/field_110158_av
+FD: sv/av net/minecraft/entity/EntityLivingBase/field_70720_be
+FD: sv/aw net/minecraft/entity/EntityLivingBase/field_70735_aL
+FD: sv/ax net/minecraft/entity/EntityLivingBase/field_70737_aN
+FD: sv/ay net/minecraft/entity/EntityLivingBase/field_70738_aO
+FD: sv/az net/minecraft/entity/EntityLivingBase/field_70739_aP
+FD: sv/b net/minecraft/entity/EntityLivingBase/field_110156_b
+FD: sv/ba net/minecraft/entity/EntityLivingBase/field_70744_aE
+FD: sv/bb net/minecraft/entity/EntityLivingBase/field_110153_bc
+FD: sv/bc net/minecraft/entity/EntityLivingBase/field_70703_bu
+FD: sv/bd net/minecraft/entity/EntityLivingBase/field_70702_br
+FD: sv/be net/minecraft/entity/EntityLivingBase/field_70701_bs
+FD: sv/bf net/minecraft/entity/EntityLivingBase/field_70704_bt
+FD: sv/bg net/minecraft/entity/EntityLivingBase/field_70716_bi
+FD: sv/bh net/minecraft/entity/EntityLivingBase/field_70709_bj
+FD: sv/bi net/minecraft/entity/EntityLivingBase/field_70710_bk
+FD: sv/bj net/minecraft/entity/EntityLivingBase/field_110152_bk
+FD: sv/bk net/minecraft/entity/EntityLivingBase/field_70712_bm
+FD: sv/bl net/minecraft/entity/EntityLivingBase/field_70705_bn
+FD: sv/bm net/minecraft/entity/EntityLivingBase/field_70756_c
+FD: sv/bn net/minecraft/entity/EntityLivingBase/field_110150_bn
+FD: sv/bo net/minecraft/entity/EntityLivingBase/field_142016_bo
+FD: sv/bp net/minecraft/entity/EntityLivingBase/field_70746_aG
+FD: sv/bq net/minecraft/entity/EntityLivingBase/field_70773_bE
+FD: sv/br net/minecraft/entity/EntityLivingBase/field_110151_bq
+FD: sv/c net/minecraft/entity/EntityLivingBase/field_110157_c
+FD: sv/d net/minecraft/entity/EntityLivingBase/field_110155_d
+FD: sv/e net/minecraft/entity/EntityLivingBase/field_94063_bt
+FD: sv/f net/minecraft/entity/EntityLivingBase/field_70713_bf
+FD: sv/g net/minecraft/entity/EntityLivingBase/field_82180_bT
+FD: sv/h net/minecraft/entity/EntityLivingBase/field_70752_e
+FD: sv/i net/minecraft/entity/EntityLivingBase/field_70755_b
+FD: sw/a_ net/minecraft/entity/EntityLiving/field_70757_a
+FD: sw/b net/minecraft/entity/EntityLiving/field_70728_aV
+FD: sw/bm net/minecraft/entity/EntityLiving/field_70767_i
+FD: sw/bn net/minecraft/entity/EntityLiving/field_70762_j
+FD: sw/bo net/minecraft/entity/EntityLiving/field_70699_by
+FD: sw/bp net/minecraft/entity/EntityLiving/field_70696_bz
+FD: sw/bq net/minecraft/entity/EntityLiving/field_70723_bA
+FD: sw/br net/minecraft/entity/EntityLiving/field_82182_bS
+FD: sw/bs net/minecraft/entity/EntityLiving/field_82172_bs
+FD: sw/bt net/minecraft/entity/EntityLiving/field_82179_bU
+FD: sw/bu net/minecraft/entity/EntityLiving/field_70776_bF
+FD: sw/bv net/minecraft/entity/EntityLiving/field_110169_bv
+FD: sw/bw net/minecraft/entity/EntityLiving/field_110168_bw
+FD: sw/bx net/minecraft/entity/EntityLiving/field_110170_bx
+FD: sw/c net/minecraft/entity/EntityLiving/field_70714_bg
+FD: sw/d net/minecraft/entity/EntityLiving/field_70715_bh
+FD: sw/e net/minecraft/entity/EntityLiving/field_82174_bp
+FD: sw/f net/minecraft/entity/EntityLiving/field_70698_bv
+FD: sw/g net/minecraft/entity/EntityLiving/field_70700_bx
+FD: sw/h net/minecraft/entity/EntityLiving/field_70749_g
+FD: sw/i net/minecraft/entity/EntityLiving/field_70765_h
+FD: te/a net/minecraft/entity/DataWatcher/field_151511_a
+FD: te/b net/minecraft/entity/DataWatcher/field_92086_a
+FD: te/c net/minecraft/entity/DataWatcher/field_75697_a
+FD: te/d net/minecraft/entity/DataWatcher/field_75695_b
+FD: te/e net/minecraft/entity/DataWatcher/field_75696_c
+FD: te/f net/minecraft/entity/DataWatcher/field_75694_d
+FD: xl/a net/minecraft/entity/item/EntityMinecart/field_70499_f
+FD: xl/at net/minecraft/entity/item/EntityMinecart/field_70508_aq
+FD: xl/au net/minecraft/entity/item/EntityMinecart/field_70507_ar
+FD: xl/av net/minecraft/entity/item/EntityMinecart/field_70506_as
+FD: xl/b net/minecraft/entity/item/EntityMinecart/field_94102_c
+FD: xl/c net/minecraft/entity/item/EntityMinecart/field_70500_g
+FD: xl/d net/minecraft/entity/item/EntityMinecart/field_70510_h
+FD: xl/e net/minecraft/entity/item/EntityMinecart/field_70511_i
+FD: xl/f net/minecraft/entity/item/EntityMinecart/field_70509_j
+FD: xl/g net/minecraft/entity/item/EntityMinecart/field_70514_an
+FD: xl/h net/minecraft/entity/item/EntityMinecart/field_70512_ao
+FD: xl/i net/minecraft/entity/item/EntityMinecart/field_70513_ap
+MD: sa/A ()V net/minecraft/entity/Entity/func_70065_x ()V
+MD: sa/B ()V net/minecraft/entity/Entity/func_70106_y ()V
+MD: sa/C ()V net/minecraft/entity/Entity/func_70030_z ()V
+MD: sa/D ()I net/minecraft/entity/Entity/func_82145_z ()I
+MD: sa/E ()V net/minecraft/entity/Entity/func_70044_A ()V
+MD: sa/F ()V net/minecraft/entity/Entity/func_70066_B ()V
+MD: sa/G ()V net/minecraft/entity/Entity/func_70076_C ()V
+MD: sa/H ()Ljava/lang/String; net/minecraft/entity/Entity/func_145776_H ()Ljava/lang/String;
+MD: sa/I ()V net/minecraft/entity/Entity/func_145775_I ()V
+MD: sa/J ()Lazt; net/minecraft/entity/Entity/func_70046_E ()Lnet/minecraft/util/AxisAlignedBB;
+MD: sa/K ()Z net/minecraft/entity/Entity/func_70045_F ()Z
+MD: sa/L ()Z net/minecraft/entity/Entity/func_70026_G ()Z
+MD: sa/M ()Z net/minecraft/entity/Entity/func_70090_H ()Z
+MD: sa/N ()Z net/minecraft/entity/Entity/func_70072_I ()Z
+MD: sa/O ()Ljava/lang/String; net/minecraft/entity/Entity/func_145777_O ()Ljava/lang/String;
+MD: sa/P ()Z net/minecraft/entity/Entity/func_70058_J ()Z
+MD: sa/Q ()V net/minecraft/entity/Entity/func_70018_K ()V
+MD: sa/R ()Z net/minecraft/entity/Entity/func_70067_L ()Z
+MD: sa/S ()Z net/minecraft/entity/Entity/func_70104_M ()Z
+MD: sa/V ()Z net/minecraft/entity/Entity/func_142008_O ()Z
+MD: sa/W ()Ljava/lang/String; net/minecraft/entity/Entity/func_70022_Q ()Ljava/lang/String;
+MD: sa/X ()V net/minecraft/entity/Entity/func_110123_P ()V
+MD: sa/Y ()F net/minecraft/entity/Entity/func_70053_R ()F
+MD: sa/Z ()Z net/minecraft/entity/Entity/func_70089_S ()Z
+MD: sa/a (B)V net/minecraft/entity/Entity/func_70103_a (B)V
+MD: sa/a (D)Z net/minecraft/entity/Entity/func_70112_a (D)Z
+MD: sa/a (DDDFF)V net/minecraft/entity/Entity/func_70080_a (DDDFF)V
+MD: sa/a (DDDFFI)V net/minecraft/entity/Entity/func_70056_a (DDDFFI)V
+MD: sa/a (DZ)V net/minecraft/entity/Entity/func_70064_a (DZ)V
+MD: sa/a (FF)V net/minecraft/entity/Entity/func_70105_a (FF)V
+MD: sa/a (FFF)V net/minecraft/entity/Entity/func_70060_a (FFF)V
+MD: sa/a (IIILaji;)V net/minecraft/entity/Entity/func_145780_a (IIILnet/minecraft/block/Block;)V
+MD: sa/a (IZ)V net/minecraft/entity/Entity/func_70052_a (IZ)V
+MD: sa/a (Ladb;I)Lxk; net/minecraft/entity/Entity/func_145779_a (Lnet/minecraft/item/Item;I)Lnet/minecraft/entity/item/EntityItem;
+MD: sa/a (Ladb;IF)Lxk; net/minecraft/entity/Entity/func_145778_a (Lnet/minecraft/item/Item;IF)Lnet/minecraft/entity/item/EntityItem;
+MD: sa/a (Ladd;F)Lxk; net/minecraft/entity/Entity/func_70099_a (Lnet/minecraft/item/ItemStack;F)Lnet/minecraft/entity/item/EntityItem;
+MD: sa/a (Lagw;Lahb;IIILaji;)F net/minecraft/entity/Entity/func_145772_a (Lnet/minecraft/world/Explosion;Lnet/minecraft/world/World;IIILnet/minecraft/block/Block;)F
+MD: sa/a (Lagw;Lahb;IIILaji;F)Z net/minecraft/entity/Entity/func_145774_a (Lnet/minecraft/world/Explosion;Lnet/minecraft/world/World;IIILnet/minecraft/block/Block;F)Z
+MD: sa/a (Lahb;)V net/minecraft/entity/Entity/func_70029_a (Lnet/minecraft/world/World;)V
+MD: sa/a (Lawt;)Z net/minecraft/entity/Entity/func_70055_a (Lnet/minecraft/block/material/Material;)Z
+MD: sa/a (Ldh;)V net/minecraft/entity/Entity/func_70037_a (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sa/a (Ljava/lang/String;FF)V net/minecraft/entity/Entity/func_85030_a (Ljava/lang/String;FF)V
+MD: sa/a (Lk;)V net/minecraft/entity/Entity/func_85029_a (Lnet/minecraft/crash/CrashReportCategory;)V
+MD: sa/a (Lro;F)Z net/minecraft/entity/Entity/func_70097_a (Lnet/minecraft/util/DamageSource;F)Z
+MD: sa/a (Lsa;)V net/minecraft/entity/Entity/func_70078_a (Lnet/minecraft/entity/Entity;)V
+MD: sa/a (Lsa;Z)V net/minecraft/entity/Entity/func_82141_a (Lnet/minecraft/entity/Entity;Z)V
+MD: sa/a (Lsv;)V net/minecraft/entity/Entity/func_70074_a (Lnet/minecraft/entity/EntityLivingBase;)V
+MD: sa/a (Lxh;)V net/minecraft/entity/Entity/func_70077_a (Lnet/minecraft/entity/effect/EntityLightningBolt;)V
+MD: sa/a ([D)Ldq; net/minecraft/entity/Entity/func_70087_a ([D)Lnet/minecraft/nbt/NBTTagList;
+MD: sa/a ([F)Ldq; net/minecraft/entity/Entity/func_70049_a ([F)Lnet/minecraft/nbt/NBTTagList;
+MD: sa/aA ()Z net/minecraft/entity/Entity/func_90999_ad ()Z
+MD: sa/aB ()Ljava/util/UUID; net/minecraft/entity/Entity/func_110124_au ()Ljava/util/UUID;
+MD: sa/aC ()Z net/minecraft/entity/Entity/func_96092_aw ()Z
+MD: sa/aa ()Z net/minecraft/entity/Entity/func_70094_T ()Z
+MD: sa/ab ()V net/minecraft/entity/Entity/func_70098_U ()V
+MD: sa/ac ()V net/minecraft/entity/Entity/func_70043_V ()V
+MD: sa/ad ()D net/minecraft/entity/Entity/func_70033_W ()D
+MD: sa/ae ()D net/minecraft/entity/Entity/func_70042_X ()D
+MD: sa/af ()F net/minecraft/entity/Entity/func_70111_Y ()F
+MD: sa/ag ()Lazw; net/minecraft/entity/Entity/func_70040_Z ()Lnet/minecraft/util/Vec3;
+MD: sa/ah ()V net/minecraft/entity/Entity/func_70063_aa ()V
+MD: sa/ai ()I net/minecraft/entity/Entity/func_82147_ab ()I
+MD: sa/aj ()V net/minecraft/entity/Entity/func_70057_ab ()V
+MD: sa/ak ()[Ladd; net/minecraft/entity/Entity/func_70035_c ()[Lnet/minecraft/item/ItemStack;
+MD: sa/al ()Z net/minecraft/entity/Entity/func_70027_ad ()Z
+MD: sa/am ()Z net/minecraft/entity/Entity/func_70115_ae ()Z
+MD: sa/an ()Z net/minecraft/entity/Entity/func_70093_af ()Z
+MD: sa/ao ()Z net/minecraft/entity/Entity/func_70051_ag ()Z
+MD: sa/ap ()Z net/minecraft/entity/Entity/func_82150_aj ()Z
+MD: sa/aq ()Z net/minecraft/entity/Entity/func_70113_ah ()Z
+MD: sa/ar ()I net/minecraft/entity/Entity/func_70086_ai ()I
+MD: sa/as ()V net/minecraft/entity/Entity/func_70110_aj ()V
+MD: sa/at ()[Lsa; net/minecraft/entity/Entity/func_70021_al ()[Lnet/minecraft/entity/Entity;
+MD: sa/au ()F net/minecraft/entity/Entity/func_70079_am ()F
+MD: sa/av ()Z net/minecraft/entity/Entity/func_70075_an ()Z
+MD: sa/aw ()Z net/minecraft/entity/Entity/func_85032_ar ()Z
+MD: sa/ax ()I net/minecraft/entity/Entity/func_82143_as ()I
+MD: sa/ay ()I net/minecraft/entity/Entity/func_82148_at ()I
+MD: sa/az ()Z net/minecraft/entity/Entity/func_145773_az ()Z
+MD: sa/b (DDD)V net/minecraft/entity/Entity/func_70107_b (DDD)V
+MD: sa/b (DDDFF)V net/minecraft/entity/Entity/func_70012_b (DDDFF)V
+MD: sa/b (F)V net/minecraft/entity/Entity/func_70069_a (F)V
+MD: sa/b (FF)V net/minecraft/entity/Entity/func_70101_b (FF)V
+MD: sa/b (I)V net/minecraft/entity/Entity/func_71027_c (I)V
+MD: sa/b (Ldh;)V net/minecraft/entity/Entity/func_70014_b (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sa/b (Lsa;I)V net/minecraft/entity/Entity/func_70084_c (Lnet/minecraft/entity/Entity;I)V
+MD: sa/b (Z)V net/minecraft/entity/Entity/func_70095_a (Z)V
+MD: sa/b_ ()Ljava/lang/String; net/minecraft/entity/Entity/func_70005_c_ ()Ljava/lang/String;
+MD: sa/b_ (Lyz;)V net/minecraft/entity/Entity/func_70100_b_ (Lnet/minecraft/entity/player/EntityPlayer;)V
+MD: sa/c ()V net/minecraft/entity/Entity/func_70088_a ()V
+MD: sa/c (DDD)Z net/minecraft/entity/Entity/func_70038_c (DDD)Z
+MD: sa/c (F)I net/minecraft/entity/Entity/func_70070_b (F)I
+MD: sa/c (FF)V net/minecraft/entity/Entity/func_70082_c (FF)V
+MD: sa/c (ILadd;)V net/minecraft/entity/Entity/func_70062_b (ILnet/minecraft/item/ItemStack;)V
+MD: sa/c (Ldh;)Z net/minecraft/entity/Entity/func_98035_c (Lnet/minecraft/nbt/NBTTagCompound;)Z
+MD: sa/c (Lyz;)Z net/minecraft/entity/Entity/func_130002_c (Lnet/minecraft/entity/player/EntityPlayer;)Z
+MD: sa/c (Z)V net/minecraft/entity/Entity/func_70031_b (Z)V
+MD: sa/c_ ()Lfj; net/minecraft/entity/Entity/func_145748_c_ ()Lnet/minecraft/util/IChatComponent;
+MD: sa/d (DDD)V net/minecraft/entity/Entity/func_70091_d (DDD)V
+MD: sa/d (F)F net/minecraft/entity/Entity/func_70013_c (F)F
+MD: sa/d (I)V net/minecraft/entity/Entity/func_145769_d (I)V
+MD: sa/d (Ldh;)Z net/minecraft/entity/Entity/func_70039_c (Lnet/minecraft/nbt/NBTTagCompound;)Z
+MD: sa/d (Lyz;)Z net/minecraft/entity/Entity/func_98034_c (Lnet/minecraft/entity/player/EntityPlayer;)Z
+MD: sa/d (Z)V net/minecraft/entity/Entity/func_82142_c (Z)V
+MD: sa/e (DDD)D net/minecraft/entity/Entity/func_70092_e (DDD)D
+MD: sa/e (F)V net/minecraft/entity/Entity/func_70034_d (F)V
+MD: sa/e (I)V net/minecraft/entity/Entity/func_70015_d (I)V
+MD: sa/e (Ldh;)V net/minecraft/entity/Entity/func_70109_d (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sa/e (Lsa;)F net/minecraft/entity/Entity/func_70032_d (Lnet/minecraft/entity/Entity;)F
+MD: sa/e (Z)V net/minecraft/entity/Entity/func_70019_c (Z)V
+MD: sa/equals (Ljava/lang/Object;)Z net/minecraft/entity/Entity/equals (Ljava/lang/Object;)Z
+MD: sa/f (DDD)D net/minecraft/entity/Entity/func_70011_f (DDD)D
+MD: sa/f (I)V net/minecraft/entity/Entity/func_70081_e (I)V
+MD: sa/f (Ldh;)V net/minecraft/entity/Entity/func_70020_e (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sa/f (Lsa;)D net/minecraft/entity/Entity/func_70068_e (Lnet/minecraft/entity/Entity;)D
+MD: sa/g ()F net/minecraft/entity/Entity/func_70047_e ()F
+MD: sa/g (DDD)V net/minecraft/entity/Entity/func_70024_g (DDD)V
+MD: sa/g (I)Z net/minecraft/entity/Entity/func_70083_f (I)Z
+MD: sa/g (Lsa;)V net/minecraft/entity/Entity/func_70108_f (Lnet/minecraft/entity/Entity;)V
+MD: sa/g_ ()Z net/minecraft/entity/Entity/func_70041_e_ ()Z
+MD: sa/h ()V net/minecraft/entity/Entity/func_70071_h_ ()V
+MD: sa/h (DDD)Z net/minecraft/entity/Entity/func_145770_h (DDD)Z
+MD: sa/h (I)V net/minecraft/entity/Entity/func_70050_g (I)V
+MD: sa/h (Lsa;)Lazt; net/minecraft/entity/Entity/func_70114_g (Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/AxisAlignedBB;
+MD: sa/hashCode ()I net/minecraft/entity/Entity/hashCode ()I
+MD: sa/i (DDD)V net/minecraft/entity/Entity/func_70016_h (DDD)V
+MD: sa/i (I)V net/minecraft/entity/Entity/func_145781_i (I)V
+MD: sa/i (Lsa;)Z net/minecraft/entity/Entity/func_70028_i (Lnet/minecraft/entity/Entity;)Z
+MD: sa/j (DDD)Z net/minecraft/entity/Entity/func_145771_j (DDD)Z
+MD: sa/j (Lsa;)Z net/minecraft/entity/Entity/func_85031_j (Lnet/minecraft/entity/Entity;)Z
+MD: sa/k (Lsa;)V net/minecraft/entity/Entity/func_82149_j (Lnet/minecraft/entity/Entity;)V
+MD: sa/toString ()Ljava/lang/String; net/minecraft/entity/Entity/toString ()Ljava/lang/String;
+MD: sa/y ()I net/minecraft/entity/Entity/func_145782_y ()I
+MD: sa/z ()Lte; net/minecraft/entity/Entity/func_70096_w ()Lnet/minecraft/entity/DataWatcher;
+MD: sr/a (DZ)V net/minecraft/entity/EntityFlying/func_70064_a (DZ)V
+MD: sr/b (F)V net/minecraft/entity/EntityFlying/func_70069_a (F)V
+MD: sr/e (FF)V net/minecraft/entity/EntityFlying/func_70612_e (FF)V
+MD: sr/h_ ()Z net/minecraft/entity/EntityFlying/func_70617_f_ ()Z
+MD: sv/C ()V net/minecraft/entity/EntityLivingBase/func_70030_z ()V
+MD: sv/G ()V net/minecraft/entity/EntityLivingBase/func_70076_C ()V
+MD: sv/Q ()V net/minecraft/entity/EntityLivingBase/func_70018_K ()V
+MD: sv/R ()Z net/minecraft/entity/EntityLivingBase/func_70067_L ()Z
+MD: sv/S ()Z net/minecraft/entity/EntityLivingBase/func_70104_M ()Z
+MD: sv/Z ()Z net/minecraft/entity/EntityLivingBase/func_70089_S ()Z
+MD: sv/a (B)V net/minecraft/entity/EntityLivingBase/func_70103_a (B)V
+MD: sv/a (DDD)V net/minecraft/entity/EntityLivingBase/func_70634_a (DDD)V
+MD: sv/a (DDDFFI)V net/minecraft/entity/EntityLivingBase/func_70056_a (DDDFFI)V
+MD: sv/a (DF)Lazu; net/minecraft/entity/EntityLivingBase/func_70614_a (DF)Lnet/minecraft/util/MovingObjectPosition;
+MD: sv/a (DZ)V net/minecraft/entity/EntityLivingBase/func_70064_a (DZ)V
+MD: sv/a (Ladd;)V net/minecraft/entity/EntityLivingBase/func_70669_a (Lnet/minecraft/item/ItemStack;)V
+MD: sv/a (Lbae;)Z net/minecraft/entity/EntityLivingBase/func_142012_a (Lnet/minecraft/scoreboard/Team;)Z
+MD: sv/a (Ldh;)V net/minecraft/entity/EntityLivingBase/func_70037_a (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sv/a (Lro;)V net/minecraft/entity/EntityLivingBase/func_70645_a (Lnet/minecraft/util/DamageSource;)V
+MD: sv/a (Lro;F)Z net/minecraft/entity/EntityLivingBase/func_70097_a (Lnet/minecraft/util/DamageSource;F)Z
+MD: sv/a (Lrv;)Z net/minecraft/entity/EntityLivingBase/func_70644_a (Lnet/minecraft/potion/Potion;)Z
+MD: sv/a (Lrw;)V net/minecraft/entity/EntityLivingBase/func_70670_a (Lnet/minecraft/potion/PotionEffect;)V
+MD: sv/a (Lrw;Z)V net/minecraft/entity/EntityLivingBase/func_70695_b (Lnet/minecraft/potion/PotionEffect;Z)V
+MD: sv/a (Lsa;FDD)V net/minecraft/entity/EntityLivingBase/func_70653_a (Lnet/minecraft/entity/Entity;FDD)V
+MD: sv/a (Lsa;I)V net/minecraft/entity/EntityLivingBase/func_71001_a (Lnet/minecraft/entity/Entity;I)V
+MD: sv/a (Lth;)Lti; net/minecraft/entity/EntityLivingBase/func_110148_a (Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+MD: sv/a (ZI)V net/minecraft/entity/EntityLivingBase/func_82160_b (ZI)V
+MD: sv/aD ()V net/minecraft/entity/EntityLivingBase/func_110147_ax ()V
+MD: sv/aE ()Z net/minecraft/entity/EntityLivingBase/func_70648_aU ()Z
+MD: sv/aF ()V net/minecraft/entity/EntityLivingBase/func_70609_aI ()V
+MD: sv/aG ()Z net/minecraft/entity/EntityLivingBase/func_146066_aG ()Z
+MD: sv/aH ()Z net/minecraft/entity/EntityLivingBase/func_70684_aJ ()Z
+MD: sv/aI ()Ljava/util/Random; net/minecraft/entity/EntityLivingBase/func_70681_au ()Ljava/util/Random;
+MD: sv/aJ ()Lsv; net/minecraft/entity/EntityLivingBase/func_70643_av ()Lnet/minecraft/entity/EntityLivingBase;
+MD: sv/aK ()I net/minecraft/entity/EntityLivingBase/func_142015_aE ()I
+MD: sv/aL ()Lsv; net/minecraft/entity/EntityLivingBase/func_110144_aD ()Lnet/minecraft/entity/EntityLivingBase;
+MD: sv/aM ()I net/minecraft/entity/EntityLivingBase/func_142013_aG ()I
+MD: sv/aN ()I net/minecraft/entity/EntityLivingBase/func_70654_ax ()I
+MD: sv/aO ()V net/minecraft/entity/EntityLivingBase/func_70679_bo ()V
+MD: sv/aP ()V net/minecraft/entity/EntityLivingBase/func_70674_bp ()V
+MD: sv/aQ ()Ljava/util/Collection; net/minecraft/entity/EntityLivingBase/func_70651_bq ()Ljava/util/Collection;
+MD: sv/aR ()Z net/minecraft/entity/EntityLivingBase/func_70662_br ()Z
+MD: sv/aS ()F net/minecraft/entity/EntityLivingBase/func_110143_aJ ()F
+MD: sv/aT ()Ljava/lang/String; net/minecraft/entity/EntityLivingBase/func_70621_aR ()Ljava/lang/String;
+MD: sv/aU ()Ljava/lang/String; net/minecraft/entity/EntityLivingBase/func_70673_aS ()Ljava/lang/String;
+MD: sv/aV ()I net/minecraft/entity/EntityLivingBase/func_70658_aO ()I
+MD: sv/aW ()Lrn; net/minecraft/entity/EntityLivingBase/func_110142_aN ()Lnet/minecraft/util/CombatTracker;
+MD: sv/aX ()Lsv; net/minecraft/entity/EntityLivingBase/func_94060_bK ()Lnet/minecraft/entity/EntityLivingBase;
+MD: sv/aY ()F net/minecraft/entity/EntityLivingBase/func_110138_aP ()F
+MD: sv/aZ ()I net/minecraft/entity/EntityLivingBase/func_85035_bI ()I
+MD: sv/ab ()V net/minecraft/entity/EntityLivingBase/func_70098_U ()V
+MD: sv/ag ()Lazw; net/minecraft/entity/EntityLivingBase/func_70040_Z ()Lnet/minecraft/util/Vec3;
+MD: sv/aj ()V net/minecraft/entity/EntityLivingBase/func_70057_ab ()V
+MD: sv/ak ()[Ladd; net/minecraft/entity/EntityLivingBase/func_70035_c ()[Lnet/minecraft/item/ItemStack;
+MD: sv/au ()F net/minecraft/entity/EntityLivingBase/func_70079_am ()F
+MD: sv/b (F)V net/minecraft/entity/EntityLivingBase/func_70069_a (F)V
+MD: sv/b (Ladd;I)Lrf; net/minecraft/entity/EntityLivingBase/func_70620_b (Lnet/minecraft/item/ItemStack;I)Lnet/minecraft/util/IIcon;
+MD: sv/b (Ldh;)V net/minecraft/entity/EntityLivingBase/func_70014_b (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sv/b (Lro;F)F net/minecraft/entity/EntityLivingBase/func_70655_b (Lnet/minecraft/util/DamageSource;F)F
+MD: sv/b (Lrv;)Lrw; net/minecraft/entity/EntityLivingBase/func_70660_b (Lnet/minecraft/potion/Potion;)Lnet/minecraft/potion/PotionEffect;
+MD: sv/b (Lrw;)V net/minecraft/entity/EntityLivingBase/func_70688_c (Lnet/minecraft/potion/PotionEffect;)V
+MD: sv/b (Lsv;)V net/minecraft/entity/EntityLivingBase/func_70604_c (Lnet/minecraft/entity/EntityLivingBase;)V
+MD: sv/b (ZI)V net/minecraft/entity/EntityLivingBase/func_70628_a (ZI)V
+MD: sv/ba ()V net/minecraft/entity/EntityLivingBase/func_71038_i ()V
+MD: sv/bb ()V net/minecraft/entity/EntityLivingBase/func_82168_bl ()V
+MD: sv/bc ()Ltl; net/minecraft/entity/EntityLivingBase/func_110140_aT ()Lnet/minecraft/entity/ai/attributes/BaseAttributeMap;
+MD: sv/bd ()Lsz; net/minecraft/entity/EntityLivingBase/func_70668_bt ()Lnet/minecraft/entity/EnumCreatureAttribute;
+MD: sv/be ()Ladd; net/minecraft/entity/EntityLivingBase/func_70694_bm ()Lnet/minecraft/item/ItemStack;
+MD: sv/bf ()F net/minecraft/entity/EntityLivingBase/func_70599_aP ()F
+MD: sv/bg ()F net/minecraft/entity/EntityLivingBase/func_70647_i ()F
+MD: sv/bh ()Z net/minecraft/entity/EntityLivingBase/func_70610_aX ()Z
+MD: sv/bi ()Z net/minecraft/entity/EntityLivingBase/func_94059_bO ()Z
+MD: sv/bj ()V net/minecraft/entity/EntityLivingBase/func_70664_aZ ()V
+MD: sv/bk ()Z net/minecraft/entity/EntityLivingBase/func_70650_aV ()Z
+MD: sv/bl ()F net/minecraft/entity/EntityLivingBase/func_70689_ay ()F
+MD: sv/bm ()Z net/minecraft/entity/EntityLivingBase/func_70608_bn ()Z
+MD: sv/bn ()V net/minecraft/entity/EntityLivingBase/func_70619_bc ()V
+MD: sv/bo ()V net/minecraft/entity/EntityLivingBase/func_85033_bc ()V
+MD: sv/bp ()V net/minecraft/entity/EntityLivingBase/func_70629_bd ()V
+MD: sv/bq ()V net/minecraft/entity/EntityLivingBase/func_70626_be ()V
+MD: sv/br ()Z net/minecraft/entity/EntityLivingBase/func_70613_aW ()Z
+MD: sv/bs ()F net/minecraft/entity/EntityLivingBase/func_110139_bj ()F
+MD: sv/bt ()Lbae; net/minecraft/entity/EntityLivingBase/func_96124_cp ()Lnet/minecraft/scoreboard/Team;
+MD: sv/bu ()V net/minecraft/entity/EntityLivingBase/func_152111_bt ()V
+MD: sv/bv ()V net/minecraft/entity/EntityLivingBase/func_152112_bu ()V
+MD: sv/c ()V net/minecraft/entity/EntityLivingBase/func_70088_a ()V
+MD: sv/c (ILadd;)V net/minecraft/entity/EntityLivingBase/func_70062_b (ILnet/minecraft/item/ItemStack;)V
+MD: sv/c (Lro;F)F net/minecraft/entity/EntityLivingBase/func_70672_c (Lnet/minecraft/util/DamageSource;F)F
+MD: sv/c (Lrw;)V net/minecraft/entity/EntityLivingBase/func_70690_d (Lnet/minecraft/potion/PotionEffect;)V
+MD: sv/c (Lsv;)Z net/minecraft/entity/EntityLivingBase/func_142014_c (Lnet/minecraft/entity/EntityLivingBase;)Z
+MD: sv/c (Z)V net/minecraft/entity/EntityLivingBase/func_70031_b (Z)V
+MD: sv/d (Lro;F)V net/minecraft/entity/EntityLivingBase/func_70665_d (Lnet/minecraft/util/DamageSource;F)V
+MD: sv/d (Lrw;)Z net/minecraft/entity/EntityLivingBase/func_70687_e (Lnet/minecraft/potion/PotionEffect;)Z
+MD: sv/e ()V net/minecraft/entity/EntityLivingBase/func_70636_d ()V
+MD: sv/e (F)V net/minecraft/entity/EntityLivingBase/func_70034_d (F)V
+MD: sv/e (FF)V net/minecraft/entity/EntityLivingBase/func_70612_e (FF)V
+MD: sv/e (Lyz;)I net/minecraft/entity/EntityLivingBase/func_70693_a (Lnet/minecraft/entity/player/EntityPlayer;)I
+MD: sv/f ()Z net/minecraft/entity/EntityLivingBase/func_70631_g_ ()Z
+MD: sv/f (F)V net/minecraft/entity/EntityLivingBase/func_70691_i (F)V
+MD: sv/f (FF)F net/minecraft/entity/EntityLivingBase/func_110146_f (FF)F
+MD: sv/f (Z)V net/minecraft/entity/EntityLivingBase/func_70637_d (Z)V
+MD: sv/g ()F net/minecraft/entity/EntityLivingBase/func_70047_e ()F
+MD: sv/g (F)V net/minecraft/entity/EntityLivingBase/func_70606_j (F)V
+MD: sv/h ()V net/minecraft/entity/EntityLivingBase/func_70071_h_ ()V
+MD: sv/h (F)V net/minecraft/entity/EntityLivingBase/func_70675_k (F)V
+MD: sv/h_ ()Z net/minecraft/entity/EntityLivingBase/func_70617_f_ ()Z
+MD: sv/i (F)V net/minecraft/entity/EntityLivingBase/func_70659_e (F)V
+MD: sv/j ()I net/minecraft/entity/EntityLivingBase/func_82166_i ()I
+MD: sv/j (F)Lazw; net/minecraft/entity/EntityLivingBase/func_70676_i (F)Lnet/minecraft/util/Vec3;
+MD: sv/j (I)I net/minecraft/entity/EntityLivingBase/func_70682_h (I)I
+MD: sv/k (F)F net/minecraft/entity/EntityLivingBase/func_70678_g (F)F
+MD: sv/k (I)Z net/minecraft/entity/EntityLivingBase/func_82165_m (I)Z
+MD: sv/l (F)Lazw; net/minecraft/entity/EntityLivingBase/func_70666_h (F)Lnet/minecraft/util/Vec3;
+MD: sv/l (I)V net/minecraft/entity/EntityLivingBase/func_70618_n (I)V
+MD: sv/l (Lsa;)V net/minecraft/entity/EntityLivingBase/func_130011_c (Lnet/minecraft/entity/Entity;)V
+MD: sv/m (F)V net/minecraft/entity/EntityLivingBase/func_110149_m (F)V
+MD: sv/m (I)V net/minecraft/entity/EntityLivingBase/func_82170_o (I)V
+MD: sv/m (Lsa;)V net/minecraft/entity/EntityLivingBase/func_110145_l (Lnet/minecraft/entity/Entity;)V
+MD: sv/n (I)V net/minecraft/entity/EntityLivingBase/func_70600_l (I)V
+MD: sv/n (Lsa;)Z net/minecraft/entity/EntityLivingBase/func_70652_k (Lnet/minecraft/entity/Entity;)Z
+MD: sv/o (I)Ljava/lang/String; net/minecraft/entity/EntityLivingBase/func_146067_o (I)Ljava/lang/String;
+MD: sv/o (Lsa;)V net/minecraft/entity/EntityLivingBase/func_82167_n (Lnet/minecraft/entity/Entity;)V
+MD: sv/p (I)V net/minecraft/entity/EntityLivingBase/func_85034_r (I)V
+MD: sv/p (Lsa;)Z net/minecraft/entity/EntityLivingBase/func_70685_l (Lnet/minecraft/entity/Entity;)Z
+MD: sv/q (I)Ladd; net/minecraft/entity/EntityLivingBase/func_71124_b (I)Lnet/minecraft/item/ItemStack;
+MD: sw/C ()V net/minecraft/entity/EntityLiving/func_70030_z ()V
+MD: sw/a (IF)V net/minecraft/entity/EntityLiving/func_96120_a (IF)V
+MD: sw/a (II)Ladb; net/minecraft/entity/EntityLiving/func_82161_a (II)Lnet/minecraft/item/Item;
+MD: sw/a (Ldh;)V net/minecraft/entity/EntityLiving/func_70037_a (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sw/a (Ljava/lang/Class;)Z net/minecraft/entity/EntityLiving/func_70686_a (Ljava/lang/Class;)Z
+MD: sw/a (Ljava/lang/String;)V net/minecraft/entity/EntityLiving/func_94058_c (Ljava/lang/String;)V
+MD: sw/a (Lsa;FF)V net/minecraft/entity/EntityLiving/func_70625_a (Lnet/minecraft/entity/Entity;FF)V
+MD: sw/a (Lsy;)Lsy; net/minecraft/entity/EntityLiving/func_110161_a (Lnet/minecraft/entity/IEntityLivingData;)Lnet/minecraft/entity/IEntityLivingData;
+MD: sw/a (Lyz;)Z net/minecraft/entity/EntityLiving/func_70085_c (Lnet/minecraft/entity/player/EntityPlayer;)Z
+MD: sw/a (ZI)V net/minecraft/entity/EntityLiving/func_82160_b (ZI)V
+MD: sw/a (ZZ)V net/minecraft/entity/EntityLiving/func_110160_i (ZZ)V
+MD: sw/aD ()V net/minecraft/entity/EntityLiving/func_110147_ax ()V
+MD: sw/ak ()[Ladd; net/minecraft/entity/EntityLiving/func_70035_c ()[Lnet/minecraft/item/ItemStack;
+MD: sw/ax ()I net/minecraft/entity/EntityLiving/func_82143_as ()I
+MD: sw/b (FFF)F net/minecraft/entity/EntityLiving/func_70663_b (FFF)F
+MD: sw/b (Ladd;)I net/minecraft/entity/EntityLiving/func_82159_b (Lnet/minecraft/item/ItemStack;)I
+MD: sw/b (Ldh;)V net/minecraft/entity/EntityLiving/func_70014_b (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: sw/b (Lsa;Z)V net/minecraft/entity/EntityLiving/func_110162_b (Lnet/minecraft/entity/Entity;Z)V
+MD: sw/b (ZI)V net/minecraft/entity/EntityLiving/func_70628_a (ZI)V
+MD: sw/bB ()I net/minecraft/entity/EntityLiving/func_70641_bl ()I
+MD: sw/bC ()V net/minecraft/entity/EntityLiving/func_82164_bB ()V
+MD: sw/bD ()V net/minecraft/entity/EntityLiving/func_82162_bC ()V
+MD: sw/bE ()Z net/minecraft/entity/EntityLiving/func_82171_bF ()Z
+MD: sw/bF ()V net/minecraft/entity/EntityLiving/func_110163_bv ()V
+MD: sw/bG ()Ljava/lang/String; net/minecraft/entity/EntityLiving/func_94057_bL ()Ljava/lang/String;
+MD: sw/bH ()Z net/minecraft/entity/EntityLiving/func_94056_bM ()Z
+MD: sw/bI ()Z net/minecraft/entity/EntityLiving/func_94062_bN ()Z
+MD: sw/bJ ()Z net/minecraft/entity/EntityLiving/func_98052_bS ()Z
+MD: sw/bK ()Z net/minecraft/entity/EntityLiving/func_104002_bU ()Z
+MD: sw/bL ()V net/minecraft/entity/EntityLiving/func_110159_bB ()V
+MD: sw/bM ()Z net/minecraft/entity/EntityLiving/func_110164_bC ()Z
+MD: sw/bN ()Z net/minecraft/entity/EntityLiving/func_110167_bD ()Z
+MD: sw/bO ()Lsa; net/minecraft/entity/EntityLiving/func_110166_bE ()Lnet/minecraft/entity/Entity;
+MD: sw/bP ()V net/minecraft/entity/EntityLiving/func_110165_bF ()V
+MD: sw/b_ ()Ljava/lang/String; net/minecraft/entity/EntityLiving/func_70005_c_ ()Ljava/lang/String;
+MD: sw/be ()Ladd; net/minecraft/entity/EntityLiving/func_70694_bm ()Lnet/minecraft/item/ItemStack;
+MD: sw/bi ()Z net/minecraft/entity/EntityLiving/func_94059_bO ()Z
+MD: sw/bk ()Z net/minecraft/entity/EntityLiving/func_70650_aV ()Z
+MD: sw/bn ()V net/minecraft/entity/EntityLiving/func_70619_bc ()V
+MD: sw/bq ()V net/minecraft/entity/EntityLiving/func_70626_be ()V
+MD: sw/by ()Z net/minecraft/entity/EntityLiving/func_70601_bi ()Z
+MD: sw/bz ()F net/minecraft/entity/EntityLiving/func_70603_bj ()F
+MD: sw/c ()V net/minecraft/entity/EntityLiving/func_70088_a ()V
+MD: sw/c (ILadd;)V net/minecraft/entity/EntityLiving/func_70062_b (ILnet/minecraft/item/ItemStack;)V
+MD: sw/c (Lyz;)Z net/minecraft/entity/EntityLiving/func_130002_c (Lnet/minecraft/entity/player/EntityPlayer;)Z
+MD: sw/d (Lsv;)V net/minecraft/entity/EntityLiving/func_70624_b (Lnet/minecraft/entity/EntityLivingBase;)V
+MD: sw/e ()V net/minecraft/entity/EntityLiving/func_70636_d ()V
+MD: sw/e (Lyz;)I net/minecraft/entity/EntityLiving/func_70693_a (Lnet/minecraft/entity/player/EntityPlayer;)I
+MD: sw/f (FF)F net/minecraft/entity/EntityLiving/func_110146_f (FF)F
+MD: sw/g (Z)V net/minecraft/entity/EntityLiving/func_94061_f (Z)V
+MD: sw/h ()V net/minecraft/entity/EntityLiving/func_70071_h_ ()V
+MD: sw/h (Z)V net/minecraft/entity/EntityLiving/func_98053_h (Z)V
+MD: sw/i (F)V net/minecraft/entity/EntityLiving/func_70659_e (F)V
+MD: sw/j ()Ltu; net/minecraft/entity/EntityLiving/func_70671_ap ()Lnet/minecraft/entity/ai/EntityLookHelper;
+MD: sw/k ()Ltv; net/minecraft/entity/EntityLiving/func_70605_aq ()Lnet/minecraft/entity/ai/EntityMoveHelper;
+MD: sw/l ()Ltt; net/minecraft/entity/EntityLiving/func_70683_ar ()Lnet/minecraft/entity/ai/EntityJumpHelper;
+MD: sw/m ()Lvv; net/minecraft/entity/EntityLiving/func_70661_as ()Lnet/minecraft/pathfinding/PathNavigate;
+MD: sw/n ()Lvw; net/minecraft/entity/EntityLiving/func_70635_at ()Lnet/minecraft/entity/ai/EntitySenses;
+MD: sw/n (F)V net/minecraft/entity/EntityLiving/func_70657_f (F)V
+MD: sw/o ()Lsv; net/minecraft/entity/EntityLiving/func_70638_az ()Lnet/minecraft/entity/EntityLivingBase;
+MD: sw/p ()V net/minecraft/entity/EntityLiving/func_70615_aA ()V
+MD: sw/q ()I net/minecraft/entity/EntityLiving/func_70627_aG ()I
+MD: sw/q (I)Ladd; net/minecraft/entity/EntityLiving/func_71124_b (I)Lnet/minecraft/item/ItemStack;
+MD: sw/r ()V net/minecraft/entity/EntityLiving/func_70642_aH ()V
+MD: sw/r (I)Ladd; net/minecraft/entity/EntityLiving/func_130225_q (I)Lnet/minecraft/item/ItemStack;
+MD: sw/s ()V net/minecraft/entity/EntityLiving/func_70656_aK ()V
+MD: sw/t ()Ljava/lang/String; net/minecraft/entity/EntityLiving/func_70639_aQ ()Ljava/lang/String;
+MD: sw/u ()Ladb; net/minecraft/entity/EntityLiving/func_146068_u ()Lnet/minecraft/item/Item;
+MD: sw/v ()Z net/minecraft/entity/EntityLiving/func_70692_ba ()Z
+MD: sw/w ()V net/minecraft/entity/EntityLiving/func_70623_bb ()V
+MD: sw/x ()I net/minecraft/entity/EntityLiving/func_70646_bf ()I
+MD: te/a ()Z net/minecraft/entity/DataWatcher/func_75684_a ()Z
+MD: te/a (I)B net/minecraft/entity/DataWatcher/func_75683_a (I)B
+MD: te/a (II)V net/minecraft/entity/DataWatcher/func_82709_a (II)V
+MD: te/a (ILjava/lang/Object;)V net/minecraft/entity/DataWatcher/func_75682_a (ILjava/lang/Object;)V
+MD: te/a (Let;)V net/minecraft/entity/DataWatcher/func_151509_a (Lnet/minecraft/network/PacketBuffer;)V
+MD: te/a (Let;Ltf;)V net/minecraft/entity/DataWatcher/func_151510_a (Lnet/minecraft/network/PacketBuffer;Lnet/minecraft/entity/DataWatcher$WatchableObject;)V
+MD: te/a (Ljava/util/List;)V net/minecraft/entity/DataWatcher/func_75687_a (Ljava/util/List;)V
+MD: te/a (Ljava/util/List;Let;)V net/minecraft/entity/DataWatcher/func_151507_a (Ljava/util/List;Lnet/minecraft/network/PacketBuffer;)V
+MD: te/b ()Ljava/util/List; net/minecraft/entity/DataWatcher/func_75688_b ()Ljava/util/List;
+MD: te/b (I)S net/minecraft/entity/DataWatcher/func_75693_b (I)S
+MD: te/b (ILjava/lang/Object;)V net/minecraft/entity/DataWatcher/func_75692_b (ILjava/lang/Object;)V
+MD: te/b (Let;)Ljava/util/List; net/minecraft/entity/DataWatcher/func_151508_b (Lnet/minecraft/network/PacketBuffer;)Ljava/util/List;
+MD: te/c ()Ljava/util/List; net/minecraft/entity/DataWatcher/func_75685_c ()Ljava/util/List;
+MD: te/c (I)I net/minecraft/entity/DataWatcher/func_75679_c (I)I
+MD: te/d ()Z net/minecraft/entity/DataWatcher/func_92085_d ()Z
+MD: te/d (I)F net/minecraft/entity/DataWatcher/func_111145_d (I)F
+MD: te/e ()V net/minecraft/entity/DataWatcher/func_111144_e ()V
+MD: te/e (I)Ljava/lang/String; net/minecraft/entity/DataWatcher/func_75681_e (I)Ljava/lang/String;
+MD: te/f (I)Ladd; net/minecraft/entity/DataWatcher/func_82710_f (I)Lnet/minecraft/item/ItemStack;
+MD: te/h (I)V net/minecraft/entity/DataWatcher/func_82708_h (I)V
+MD: te/i (I)Ltf; net/minecraft/entity/DataWatcher/func_75691_i (I)Lnet/minecraft/entity/DataWatcher$WatchableObject;
+MD: xl/B ()V net/minecraft/entity/item/EntityMinecart/func_70106_y ()V
+MD: xl/J ()Lazt; net/minecraft/entity/item/EntityMinecart/func_70046_E ()Lnet/minecraft/util/AxisAlignedBB;
+MD: xl/R ()Z net/minecraft/entity/item/EntityMinecart/func_70067_L ()Z
+MD: xl/S ()Z net/minecraft/entity/item/EntityMinecart/func_70104_M ()Z
+MD: xl/Y ()F net/minecraft/entity/item/EntityMinecart/func_70053_R ()F
+MD: xl/a (DDD)Lazw; net/minecraft/entity/item/EntityMinecart/func_70489_a (DDD)Lnet/minecraft/util/Vec3;
+MD: xl/a (DDDD)Lazw; net/minecraft/entity/item/EntityMinecart/func_70495_a (DDDD)Lnet/minecraft/util/Vec3;
+MD: xl/a (DDDFFI)V net/minecraft/entity/item/EntityMinecart/func_70056_a (DDDFFI)V
+MD: xl/a (F)V net/minecraft/entity/item/EntityMinecart/func_70492_c (F)V
+MD: xl/a (IIIDDLaji;I)V net/minecraft/entity/item/EntityMinecart/func_145821_a (IIIDDLnet/minecraft/block/Block;I)V
+MD: xl/a (IIIZ)V net/minecraft/entity/item/EntityMinecart/func_96095_a (IIIZ)V
+MD: xl/a (Lahb;DDDI)Lxl; net/minecraft/entity/item/EntityMinecart/func_94090_a (Lnet/minecraft/world/World;DDDI)Lnet/minecraft/entity/item/EntityMinecart;
+MD: xl/a (Ldh;)V net/minecraft/entity/item/EntityMinecart/func_70037_a (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: xl/a (Ljava/lang/String;)V net/minecraft/entity/item/EntityMinecart/func_96094_a (Ljava/lang/String;)V
+MD: xl/a (Lro;)V net/minecraft/entity/item/EntityMinecart/func_94095_a (Lnet/minecraft/util/DamageSource;)V
+MD: xl/a (Lro;F)Z net/minecraft/entity/item/EntityMinecart/func_70097_a (Lnet/minecraft/util/DamageSource;F)Z
+MD: xl/a (Z)V net/minecraft/entity/item/EntityMinecart/func_94096_e (Z)V
+MD: xl/ae ()D net/minecraft/entity/item/EntityMinecart/func_70042_X ()D
+MD: xl/aj ()V net/minecraft/entity/item/EntityMinecart/func_70057_ab ()V
+MD: xl/b (D)V net/minecraft/entity/item/EntityMinecart/func_94088_b (D)V
+MD: xl/b (Ldh;)V net/minecraft/entity/item/EntityMinecart/func_70014_b (Lnet/minecraft/nbt/NBTTagCompound;)V
+MD: xl/b_ ()Ljava/lang/String; net/minecraft/entity/item/EntityMinecart/func_70005_c_ ()Ljava/lang/String;
+MD: xl/c ()V net/minecraft/entity/item/EntityMinecart/func_70088_a ()V
+MD: xl/c (I)V net/minecraft/entity/item/EntityMinecart/func_70497_h (I)V
+MD: xl/g (Lsa;)V net/minecraft/entity/item/EntityMinecart/func_70108_f (Lnet/minecraft/entity/Entity;)V
+MD: xl/g_ ()Z net/minecraft/entity/item/EntityMinecart/func_70041_e_ ()Z
+MD: xl/h ()V net/minecraft/entity/item/EntityMinecart/func_70071_h_ ()V
+MD: xl/h (Lsa;)Lazt; net/minecraft/entity/item/EntityMinecart/func_70114_g (Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/AxisAlignedBB;
+MD: xl/i ()V net/minecraft/entity/item/EntityMinecart/func_94101_h ()V
+MD: xl/i (DDD)V net/minecraft/entity/item/EntityMinecart/func_70016_h (DDD)V
+MD: xl/j ()F net/minecraft/entity/item/EntityMinecart/func_70491_i ()F
+MD: xl/j (I)V net/minecraft/entity/item/EntityMinecart/func_70494_i (I)V
+MD: xl/k ()I net/minecraft/entity/item/EntityMinecart/func_70496_j ()I
+MD: xl/k (I)V net/minecraft/entity/item/EntityMinecart/func_145819_k (I)V
+MD: xl/k_ ()Z net/minecraft/entity/item/EntityMinecart/func_145818_k_ ()Z
+MD: xl/l ()I net/minecraft/entity/item/EntityMinecart/func_70493_k ()I
+MD: xl/l (I)V net/minecraft/entity/item/EntityMinecart/func_94092_k (I)V
+MD: xl/m ()I net/minecraft/entity/item/EntityMinecart/func_94087_l ()I
+MD: xl/m (I)V net/minecraft/entity/item/EntityMinecart/func_94086_l (I)V
+MD: xl/n ()Laji; net/minecraft/entity/item/EntityMinecart/func_145820_n ()Lnet/minecraft/block/Block;
+MD: xl/o ()Laji; net/minecraft/entity/item/EntityMinecart/func_145817_o ()Lnet/minecraft/block/Block;
+MD: xl/p ()I net/minecraft/entity/item/EntityMinecart/func_94098_o ()I
+MD: xl/q ()I net/minecraft/entity/item/EntityMinecart/func_94097_p ()I
+MD: xl/r ()I net/minecraft/entity/item/EntityMinecart/func_94099_q ()I
+MD: xl/s ()I net/minecraft/entity/item/EntityMinecart/func_94085_r ()I
+MD: xl/t ()Z net/minecraft/entity/item/EntityMinecart/func_94100_s ()Z
+MD: xl/u ()Ljava/lang/String; net/minecraft/entity/item/EntityMinecart/func_95999_t ()Ljava/lang/String;

@@ -39,7 +39,7 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(models == null) {
 			models = new ModelArmorEnvsuit[4];
@@ -48,7 +48,7 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 				models[i] = new ModelArmorEnvsuit(i);
 		}
 
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	private static final UUID speed = UUID.fromString("6ab858ba-d712-485c-bae9-e5e765fc555a");
@@ -62,8 +62,8 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 			return;
 
 		/// SPEED ///
-		Multimap multimap = super.getAttributeModifiers(stack);
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, "SQUIRREL SPEED", 0.1, 0));
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "SQUIRREL SPEED", 0.1, 0));
 		player.getAttributeMap().removeAttributeModifiers(multimap);
 
 		if(this.hasFSBArmor(player)) {
@@ -85,7 +85,7 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 				player.motionZ += vec.z;
 			} else {
 				boolean canRemoveNightVision = true;
-				ItemStack helmet = player.inventory.armorInventory[3];
+				ItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);
 				ItemStack helmetMod = ArmorModHandler.pryMod(helmet, ArmorModHandler.helmet_only); // Get the modification!
 				if (helmetMod != null && helmetMod.getItem() instanceof ItemModNightVision) {
 					canRemoveNightVision = false;
@@ -107,7 +107,7 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				if(armorType == 0) {
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {
 					GL11.glScaled(0.3125, 0.3125, 0.3125);
 					GL11.glTranslated(0, 1, 0);
 					Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.envsuit_helmet);
@@ -120,7 +120,7 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 					GL11.glEnable(GL11.GL_TEXTURE_2D);
 					GL11.glEnable(GL11.GL_LIGHTING);
 				} else {
-					renderStandard(ResourceManager.armor_envsuit, armorType,
+					renderStandard(ResourceManager.armor_envsuit, com.hbm.util.ArmorSlotOrder.index(armorType),
 							ResourceManager.envsuit_helmet, ResourceManager.envsuit_chest, ResourceManager.envsuit_arm, ResourceManager.envsuit_leg,
 							"Helmet,Lamps", "Chest", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftFoot", "RightFoot");
 				}

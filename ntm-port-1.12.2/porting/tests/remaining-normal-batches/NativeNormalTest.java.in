@@ -1,0 +1,101 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.io.*;
+import java.nio.*;
+import java.util.*;
+import java.awt.Color;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.vertex.*;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.MathHelper;
+import org.lwjgl.opengl.*;
+
+/** Actual original/native singleton emission and driver execution, not owner-class stubs. */
+public final class NativeNormalTest {
+ static Class<?> legacyClass;
+ static int batches,vertices,draws,executions,emptyBatches,listReplays;
+ static int randomCalls;
+ static int[] formats=new int[8];
+ static int[] textures=new int[2];
+ float zLevel=-90.125F;
+ static final class CountRandom extends Random {int calls;CountRandom(long seed){super(seed);}public double nextDouble(){calls++;randomCalls++;return super.nextDouble();}public float nextFloat(){calls++;randomCalls++;return super.nextFloat();}public int nextInt(int bound){calls++;randomCalls++;return super.nextInt(bound);}}
+ static Object get(Object o,String name)throws Exception{Field f=legacyClass.getDeclaredField(name);f.setAccessible(true);return f.get(o);}
+ static class Legacy {
+  final Object actual;
+  Legacy(double t)throws Exception {actual=legacyClass.getField("a").get(null);legacyClass.getMethod("b",double.class,double.class,double.class).invoke(actual,t,-t,t*.25);}
+  void startDrawingQuads()throws Exception{startDrawing(7);}
+  void startDrawing(int mode)throws Exception{legacyClass.getMethod("a",int.class).invoke(actual,mode);}
+  void setColorOpaque_I(int rgb)throws Exception{legacyClass.getMethod("c",int.class).invoke(actual,rgb);}
+  void setColorRGBA_I(int rgb,int alpha)throws Exception{legacyClass.getMethod("a",int.class,int.class).invoke(actual,rgb,alpha);}
+  void addVertex(double x,double y,double z)throws Exception{legacyClass.getMethod("a",double.class,double.class,double.class).invoke(actual,x,y,z);}
+  void setNormal(float x,float y,float z)throws Exception{legacyClass.getMethod("c",float.class,float.class,float.class).invoke(actual,x,y,z);}
+  void setBrightness(int v)throws Exception{legacyClass.getMethod("b",int.class).invoke(actual,v);}
+  void setColorOpaque_F(float r,float g,float b)throws Exception{legacyClass.getMethod("b",float.class,float.class,float.class).invoke(actual,r,g,b);}
+  void setColorRGBA_F(float r,float g,float b,float a)throws Exception{legacyClass.getMethod("a",float.class,float.class,float.class,float.class).invoke(actual,r,g,b,a);}
+  void addVertexWithUV(double x,double y,double z,double u,double v)throws Exception{legacyClass.getMethod("a",double.class,double.class,double.class,double.class,double.class).invoke(actual,x,y,z,u,v);}
+  void draw()throws Exception{legacyClass.getMethod("a").invoke(actual);}
+ }
+ static class Record {int count,mode;int attributes;int[] bytes,state;}
+ static void floats(List<Integer> out,int name,int n){FloatBuffer f=org.lwjgl.BufferUtils.createFloatBuffer(16);GL11.glGetFloat(name,f);for(int i=0;i<n;i++)out.add(Float.floatToRawIntBits(f.get(i)));}
+ static int[] state(){List<Integer>s=new ArrayList<>();floats(s,GL11.GL_CURRENT_COLOR,4);floats(s,GL11.GL_CURRENT_NORMAL,3);
+  for(int v:new int[]{GL11.GL_VERTEX_ARRAY,GL11.GL_COLOR_ARRAY,GL11.GL_NORMAL_ARRAY,GL11.GL_LIGHTING,GL11.GL_BLEND,GL11.GL_CULL_FACE,GL11.GL_ALPHA_TEST,GL11.GL_DEPTH_TEST,GL11.GL_FOG})s.add(GL11.glIsEnabled(v)?1:0);
+  for(int v:new int[]{GL11.GL_SHADE_MODEL,GL13.GL_CLIENT_ACTIVE_TEXTURE,GL13.GL_ACTIVE_TEXTURE,GL11.GL_BLEND_SRC,GL11.GL_BLEND_DST,GL11.GL_ALPHA_TEST_FUNC,GL11.GL_MATRIX_MODE})s.add(GL11.glGetInteger(v));
+  s.add(GL11.glGetBoolean(GL11.GL_DEPTH_WRITEMASK)?1:0);floats(s,GL11.GL_ALPHA_TEST_REF,1);floats(s,GL11.GL_MODELVIEW_MATRIX,16);floats(s,GL11.GL_PROJECTION_MATRIX,16);
+  int active=GL11.glGetInteger(GL13.GL_ACTIVE_TEXTURE),client=GL11.glGetInteger(GL13.GL_CLIENT_ACTIVE_TEXTURE);
+  if(GL11.glGetInteger(GL11.GL_LIST_INDEX)!=0)return s.stream().mapToInt(Integer::intValue).toArray(); // Never insert instrumentation into a compiling display list.
+  for(int unit:new int[]{GL13.GL_TEXTURE0,GL13.GL_TEXTURE1}){GL13.glActiveTexture(unit);floats(s,GL11.GL_CURRENT_TEXTURE_COORDS,4);floats(s,GL11.GL_TEXTURE_MATRIX,16);s.add(GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D));s.add(GL11.glIsEnabled(GL11.GL_TEXTURE_2D)?1:0);GL13.glClientActiveTexture(unit);s.add(GL11.glIsEnabled(GL11.GL_TEXTURE_COORD_ARRAY)?1:0);}
+  GL13.glActiveTexture(active);GL13.glClientActiveTexture(client);return s.stream().mapToInt(Integer::intValue).toArray();
+ }
+ static void enable(int what,boolean enabled){if(enabled)GL11.glEnable(what);else GL11.glDisable(what);}
+ static void reset(int seed){
+  GlStateManager.resetColor();GlStateManager.color(.23F+seed*.1F,.47F,.61F,seed*.2F);GL11.glNormal3f(.2F,.5F,.8F);
+  for(int i=0;i<2;i++){GL13.glActiveTexture(GL13.GL_TEXTURE0+i);GL13.glClientActiveTexture(GL13.GL_TEXTURE0+i);GL11.glDisableClientState(GL11.GL_TEXTURE_COORD_ARRAY);GL11.glMatrixMode(GL11.GL_TEXTURE);GL11.glLoadIdentity();GL11.glBindTexture(GL11.GL_TEXTURE_2D,textures[i]);enable(GL11.GL_TEXTURE_2D,(seed+i)%2==0);GL13.glMultiTexCoord2f(GL13.GL_TEXTURE0+i,.3F+i*37F,.7F+i*19F);}
+  GL13.glActiveTexture(GL13.GL_TEXTURE0);GL13.glClientActiveTexture(GL13.GL_TEXTURE0);GL11.glDisableClientState(GL11.GL_VERTEX_ARRAY);GL11.glDisableClientState(GL11.GL_COLOR_ARRAY);GL11.glDisableClientState(GL11.GL_NORMAL_ARRAY);
+  enable(GL11.GL_LIGHTING,seed%2==0);enable(GL11.GL_CULL_FACE,seed%3==0);enable(GL11.GL_BLEND,seed%2!=0);enable(GL11.GL_ALPHA_TEST,seed%3!=0);enable(GL11.GL_DEPTH_TEST,seed%2==0);enable(GL11.GL_FOG,seed%3==1);
+  GL11.glAlphaFunc(GL11.GL_GREATER,.1F);GL11.glBlendFunc(GL11.GL_SRC_ALPHA,seed%2==0?GL11.GL_ONE:GL11.GL_ONE_MINUS_SRC_ALPHA);GL11.glShadeModel(seed%2==0?GL11.GL_SMOOTH:GL11.GL_FLAT);GL11.glDepthMask(seed%2==0);
+  GL11.glMatrixMode(GL11.GL_MODELVIEW);GL11.glLoadIdentity();GL11.glTranslatef(seed*.1F,-seed*.2F,seed*.3F);GL11.glRotatef(seed*17F,1,0,0);GL11.glMatrixMode(GL11.GL_PROJECTION);GL11.glLoadIdentity();GL11.glMatrixMode(GL11.GL_MODELVIEW);
+  if(GL11.glGetError()!=0)throw new AssertionError("fixture GL error");
+ }
+ static VertexFormat format(int attributes){switch(attributes){case 0:return DefaultVertexFormats.POSITION;case 1:return DefaultVertexFormats.POSITION_TEX;case 2:return DefaultVertexFormats.POSITION_COLOR;case 3:return DefaultVertexFormats.POSITION_TEX_COLOR;case 5:return DefaultVertexFormats.POSITION_TEX_NORMAL;case 7:return DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL;default:throw new AssertionError("format");}}
+ static int words(int attributes){return 3+((attributes&1)!=0?2:0)+((attributes&2)!=0?1:0)+((attributes&4)!=0?1:0);}
+ static void captureNative(Tessellator owner,List<Record> records,int attributes)throws Exception{
+  BufferBuilder b=owner.getBuffer();Record r=new Record();r.count=b.getVertexCount();r.mode=b.getDrawMode();r.attributes=attributes;
+  int words=words(attributes),stride=words*4;
+  if(!b.getVertexFormat().equals(format(attributes))||b.getVertexFormat().getSize()!=stride)throw new AssertionError("native format");
+  r.bytes=new int[r.count*words];ByteBuffer bytes=b.getByteBuffer().duplicate().order(ByteOrder.nativeOrder());bytes.clear();
+  for(int v=0;v<r.count;v++)for(int c=0;c<words;c++)r.bytes[v*words+c]=bytes.getInt(v*stride+c*4)&((attributes&4)!=0&&c==words-1?0xFFFFFF:-1);
+  int[] before=state();owner.draw();r.state=state();records.add(r);if(b.getVertexCount()!=0)throw new AssertionError("native owner reset");if(GL11.glGetError()!=0)throw new AssertionError("native GL error");
+  if(r.count==0){if(!Arrays.equals(before,r.state))throw new AssertionError("empty native changed driver state");emptyBatches++;}else draws++;
+ }
+ static void captureOld(Legacy old,List<Record> records,int attributes)throws Exception{
+  Record r=new Record();r.count=(Integer)get(old.actual,"g");r.mode=(Integer)get(old.actual,"s");r.attributes=attributes;
+  int expected=r.count==0?0:attributes;
+  if((Boolean)get(old.actual,"m")!=((expected&1)!=0)||(Boolean)get(old.actual,"l")!=((expected&2)!=0)||(Boolean)get(old.actual,"n")||(Boolean)get(old.actual,"o")!=((expected&4)!=0))throw new AssertionError("old attributes "+attributes+"/"+r.count);
+  int[] raw=(int[])get(old.actual,"f");int words=words(attributes);r.bytes=new int[r.count*words];for(int v=0;v<r.count;v++){int c=0;for(;c<3;c++)r.bytes[v*words+c]=raw[v*8+c];if((attributes&1)!=0){r.bytes[v*words+c++]=raw[v*8+3];r.bytes[v*words+c++]=raw[v*8+4];}if((attributes&2)!=0)r.bytes[v*words+c++]=raw[v*8+5];if((attributes&4)!=0)r.bytes[v*words+c]=raw[v*8+6]&0xFFFFFF;}
+  int[] before=state();old.draw();r.state=state();records.add(r);if((Integer)get(old.actual,"g")!=0)throw new AssertionError("original owner reset");if(GL11.glGetError()!=0)throw new AssertionError("original GL error");
+  if(r.count==0){if(!Arrays.equals(before,r.state))throw new AssertionError("empty old changed driver state");emptyBatches++;}else draws++;
+ }
+ static int[][] replayLists(int first,int seed){int[][] states=new int[3][];for(int i=0;i<3;i++){reset(seed);if(!GL11.glIsList(first+i))throw new AssertionError("missing compiled list");GL11.glCallList(first+i);states[i]=state();if(GL11.glGetError()!=0)throw new AssertionError("display-list replay error");listReplays++;}return states;}
+ static void compare(List<Record> nr,List<Record> or,int nc,int oc,int expectedRng,int expectedDraws,int[] nativeFinal,int[] oldFinal,String label){
+  if(nc!=oc||nc!=expectedRng||nr.size()!=or.size()||nr.size()!=expectedDraws)throw new AssertionError(label+" batch/RNG count: "+nc+"/"+oc+" expected "+expectedRng+"; "+nr.size()+"/"+or.size()+" expected "+expectedDraws);
+  if(!Arrays.equals(nativeFinal,oldFinal))throw new AssertionError(label+" final GL state");
+  for(int i=0;i<nr.size();i++){Record n=nr.get(i),o=or.get(i);if(n.count!=o.count||n.mode!=o.mode||n.attributes!=o.attributes||!Arrays.equals(n.bytes,o.bytes))throw new AssertionError(label+" position/UV/RGBA bytes/count/mode "+i);if(!Arrays.equals(n.state,o.state))throw new AssertionError(label+" GL state "+i+"\n"+Arrays.toString(n.state)+"\n"+Arrays.toString(o.state));formats[n.attributes]++;batches++;vertices+=n.count;}executions++;
+ }
+ /*METHODS*/
+ public static void main(String[] args)throws Exception{
+  if(ByteOrder.nativeOrder()!=ByteOrder.LITTLE_ENDIAN)throw new AssertionError("Retained oracle scoped to little-endian Linux/Mesa");
+  Constructor<?> c=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();c.setAccessible(true);
+  try(AutoCloseable context=(AutoCloseable)c.newInstance();URLClassLoader loader=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},NativeNormalTest.class.getClassLoader())){
+   Method initialize=Class.forName("MaterialTextureAtlasSpriteNativeTest").getDeclaredMethod("initializeNativeClientSettings");initialize.setAccessible(true);initialize.invoke(null);
+   OpenGlHelper.initializeTextures();legacyClass=Class.forName("bmh",true,loader);Class.forName("buu",true,loader).getMethod("a").invoke(null);
+   for(int i=0;i<2;i++){textures[i]=GL11.glGenTextures();GL11.glBindTexture(GL11.GL_TEXTURE_2D,textures[i]);ByteBuffer pixel=org.lwjgl.BufferUtils.createByteBuffer(4);pixel.putInt(-1).flip();GL11.glTexImage2D(GL11.GL_TEXTURE_2D,0,GL11.GL_RGBA,1,1,0,GL11.GL_RGBA,GL11.GL_UNSIGNED_BYTE,pixel);}
+   NativeNormalTest test=new NativeNormalTest();
+   for(int seed=0;seed<6;seed++)for(double translation:new double[]{0,.125,-16777216.25}){/*CALLS*/}
+   if(executions!=/*EXPECT_EXECUTIONS*/||batches!=/*EXPECT_BATCHES*/||vertices!=/*EXPECT_VERTICES*/||draws!=/*EXPECT_DRAWS*/)throw new AssertionError("Incomplete fixture coverage: "+executions+"/"+batches+"/"+vertices+"/"+draws);
+   if(!Arrays.equals(formats,new int[]{0,0,30,0,0,405,0,42}))throw new AssertionError("format coverage "+Arrays.toString(formats));
+   if(emptyBatches!=/*EXPECT_EMPTY*/||listReplays!=0)throw new AssertionError("empty/list coverage "+emptyBatches+"/"+listReplays);
+   for(int texture:textures)GL11.glDeleteTextures(texture);
+   System.out.println("PASS actual original/native singleton per-batch formats and Mesa uploads: "+executions+" paired streams, "+batches+" batch comparisons, "+vertices+" vertices, "+draws+" nonempty engine draw submissions (no display-list fixture), "+emptyBatches+" empty engine submissions. Exact XYZ/UV float words and RGBA bytes, exact signed normal bytes, absent lightmap, owner resets, complete loops and RNG call counts, and post-draw GL/current-color/current-normal/UV0/UV1/texture/matrix state. Not full renderer linkage or in-game pixels.");
+  }
+ }
+}

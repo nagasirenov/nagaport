@@ -55,8 +55,9 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 						int a = rand.nextInt(15) + (int) posX - 7;
 						int b = rand.nextInt(15) + (int) posY - 7;
 						int c = rand.nextInt(15) + (int) posZ - 7;
-						Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();
-						if(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {
+						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);
+						Block block = nativeAirState.getBlock();
+						if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
 							if(!ServerConfig.TAINT_TRAILS.get()) {
 								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 5, 2);
 							} else {
@@ -71,8 +72,9 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 						int a = rand.nextInt(7) + (int) posX - 3;
 						int b = rand.nextInt(7) + (int) posY - 3;
 						int c = rand.nextInt(7) + (int) posZ - 3;
-						Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();
-						if(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {
+						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);
+						Block block = nativeAirState.getBlock();
+						if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
 							if(!ServerConfig.TAINT_TRAILS.get()) {
 								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(6) + 10, 2);
 							} else {

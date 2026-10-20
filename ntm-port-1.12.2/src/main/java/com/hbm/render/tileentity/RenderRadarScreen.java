@@ -11,6 +11,8 @@ import com.hbm.tileentity.machine.TileEntityMachineRadarScreen;
 
 import api.hbm.entity.RadarEntry;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -39,19 +41,22 @@ public class RenderRadarScreen extends TileEntitySpecialRenderer implements IIte
 		ResourceManager.radar_screen.renderAll();
 
 		bindTexture(GUIMachineRadarNT.texture);
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		
 		if(screen.linked) {
 			GL11.glDepthMask(false);
-			tess.startDrawingQuads();
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
 			
 			double offset = ((tileEntity.getWorld().getTotalWorldTime() % 56) + f) / 30D;
-			tess.setColorRGBA_I(0x00ff00, 0);
-			tess.addVertex(0.38, 2 - offset, 1.375);
-			tess.addVertex(0.38, 2 - offset, -0.375);
-			tess.setColorRGBA_I(0x00ff00, 50);
-			tess.addVertex(0.38, 2 - offset - 0.125, -0.375);
-			tess.addVertex(0.38, 2 - offset - 0.125, 1.375);
+			int tessColor0Packed = 0x00ff00;
+			int tessColor0Alpha = Math.max(0, Math.min(255, 0));
+			tessBuffer.pos(0.38, 2 - offset, 1.375).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).endVertex();
+			tessBuffer.pos(0.38, 2 - offset, -0.375).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).endVertex();
+			int tessColor1Packed = 0x00ff00;
+			int tessColor1Alpha = Math.max(0, Math.min(255, 50));
+			tessBuffer.pos(0.38, 2 - offset - 0.125, -0.375).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();
+			tessBuffer.pos(0.38, 2 - offset - 0.125, 1.375).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();
 	
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glEnable(GL11.GL_BLEND);
@@ -65,31 +70,31 @@ public class RenderRadarScreen extends TileEntitySpecialRenderer implements IIte
 			GL11.glShadeModel(GL11.GL_FLAT);
 	
 			if(!screen.entries.isEmpty()) {
-				tess.startDrawingQuads();
-				tess.setNormal(0F, 1F, 0F);
+				tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
+				float tessNormal0X = 0F, tessNormal0Y = 1F, tessNormal0Z = 0F;
 				
 				for(RadarEntry entry : screen.entries) {
 	
 					double sX = (entry.posX - screen.refX) / ((double) screen.range + 1) * (0.875D);
 					double sZ = (entry.posZ - screen.refZ) / ((double) screen.range + 1) * (0.875D);
 					double size = 0.0625D;
-					tess.addVertexWithUV(0.38, 1 - sZ + size, 0.5 - sX + size, 216D / 256D, (entry.blipLevel * 8F + 8F) / 256F);
-					tess.addVertexWithUV(0.38, 1 - sZ + size, 0.5 - sX - size, 224D / 256D, (entry.blipLevel * 8F + 8F) / 256F);
-					tess.addVertexWithUV(0.38, 1 - sZ - size, 0.5 - sX - size, 224D / 256D, entry.blipLevel * 8F / 256F);
-					tess.addVertexWithUV(0.38, 1 - sZ - size, 0.5 - sX + size, 216D / 256D, entry.blipLevel * 8F / 256F);
+					tessBuffer.pos(0.38, 1 - sZ + size, 0.5 - sX + size).tex(216D / 256D, (entry.blipLevel * 8F + 8F) / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+					tessBuffer.pos(0.38, 1 - sZ + size, 0.5 - sX - size).tex(224D / 256D, (entry.blipLevel * 8F + 8F) / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+					tessBuffer.pos(0.38, 1 - sZ - size, 0.5 - sX - size).tex(224D / 256D, entry.blipLevel * 8F / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+					tessBuffer.pos(0.38, 1 - sZ - size, 0.5 - sX + size).tex(216D / 256D, entry.blipLevel * 8F / 256F).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
 				}
 				tess.draw();
 			}
 			GL11.glDepthMask(true);
 		} else {
 			int offset = 118 + tileEntity.getWorld().rand.nextInt(81);
-			tess.startDrawingQuads();
-			tess.setColorOpaque_I(0xffffff);
-			tess.setNormal(0F, 1F, 0F);
-			tess.addVertexWithUV(0.38, 1.875, 1.375, 216D / 256D, (offset + 40F) / 256F);
-			tess.addVertexWithUV(0.38, 1.875, -0.375, 256D / 256D, (offset + 40F) / 256F);
-			tess.addVertexWithUV(0.38, 0.125, -0.375, 256D / 256D, offset / 256F);
-			tess.addVertexWithUV(0.38, 0.125, 1.375, 216D / 256D, offset / 256F);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);
+			int tessColor2Packed = 0xffffff;
+			float tessNormal1X = 0F, tessNormal1Y = 1F, tessNormal1Z = 0F;
+			tessBuffer.pos(0.38, 1.875, 1.375).tex(216D / 256D, (offset + 40F) / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();
+			tessBuffer.pos(0.38, 1.875, -0.375).tex(256D / 256D, (offset + 40F) / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();
+			tessBuffer.pos(0.38, 0.125, -0.375).tex(256D / 256D, offset / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();
+			tessBuffer.pos(0.38, 0.125, 1.375).tex(216D / 256D, offset / 256F).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, 255).normal(tessNormal1X, tessNormal1Y, tessNormal1Z).endVertex();
 			tess.draw();
 		}
 

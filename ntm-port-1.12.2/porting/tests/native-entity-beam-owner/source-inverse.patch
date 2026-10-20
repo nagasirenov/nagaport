@@ -1,0 +1,73 @@
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamBase.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamBase.java
+index 7b04896d..60824f5a 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamBase.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamBase.java
+@@ -2,9 +2,6 @@ package com.hbm.entity.projectile;
+ 
+ import net.minecraftforge.fml.relauncher.Side;
+ import net.minecraftforge.fml.relauncher.SideOnly;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.entity.Entity;
+ import net.minecraft.entity.player.EntityPlayer;
+ import net.minecraft.nbt.NBTTagCompound;
+@@ -13,8 +10,6 @@ import net.minecraft.world.World;
+ 
+ public abstract class EntityBeamBase extends Entity {
+ 
+-	protected static final DataParameter<String> PLAYER_NAME = EntityDataManager.createKey(EntityBeamBase.class, DataSerializers.STRING);
+-
+ 	public EntityBeamBase(World world) {
+ 		super(world);
+ 		this.ignoreFrustumCheck = true;
+@@ -24,7 +19,7 @@ public abstract class EntityBeamBase extends Entity {
+ 		super(world);
+ 		
+ 		this.ignoreFrustumCheck = true;
+-		this.dataManager.set(PLAYER_NAME, player.getDisplayNameString());
++		this.dataWatcher.updateObject(20, player.getDisplayName());
+ 		
+ 		Vec3d vec = player.getLookVec();
+ 		vec = vec.rotateYaw(-90F);
+@@ -38,13 +33,9 @@ public abstract class EntityBeamBase extends Entity {
+ 		this.setPosition(player.posX + vec.x + vec0.x, player.posY + player.getEyeHeight() + vec0.y, player.posZ + vec.z + vec0.z);
+ 	}
+ 
+-	public String getOwnerDisplayName() {
+-		return this.dataManager.get(PLAYER_NAME);
+-	}
+-
+ 	@Override
+ 	protected void entityInit() {
+-        this.dataManager.register(PLAYER_NAME, "");
++        this.dataWatcher.addObject(20, "");
+ 	}
+ 
+ 	@Override
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java
+index 674ae91f..39d516f0 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java
+@@ -32,7 +32,7 @@ public class EntityBeamVortex extends EntityBeamBase {
+ 		
+ 		int range = 100;
+ 		
+-		EntityPlayer player = this.world.getPlayerEntityByName(this.dataManager.get(PLAYER_NAME));
++		EntityPlayer player = this.world.getPlayerEntityByName(this.dataWatcher.getWatchableObjectString(20));
+ 		
+ 		if(player != null) {
+ 			
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java a/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java
+index f2a500ba..48580302 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java
+@@ -31,7 +31,7 @@ public class RenderVortexBeam extends Render {
+ 		
+ 		GL11.glPushMatrix();
+ 		
+-		EntityPlayer player = laser.world.getPlayerEntityByName(laser.getOwnerDisplayName());
++		EntityPlayer player = laser.world.getPlayerEntityByName(laser.getDataWatcher().getWatchableObjectString(20));
+ 		
+ 		if(player != null) {
+ 			

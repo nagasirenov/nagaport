@@ -227,7 +227,7 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 				Vec3d vec = new Vec3d(0.625, 0, 1.625);
 				vec = vec.rotateYaw(-(float) Math.toRadians(rotationYaw));
 
-				this.world.spawnParticle("smoke", this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);
 			}
 
 			if(this.spin >= 360F) {
@@ -478,10 +478,10 @@ public class TileEntityMachineAutosaw extends TileEntityLoadedBase implements IB
 				} else if(b == Blocks.LOG2) {
 					sapMeta = (bmeta & 3) + 4;
 				}
-				this.world.func_147480_a(bx, by, bz, true);
+				com.hbm.world.WorldBlockDestruction.destroy(this.world, bx, by, bz, true);
 				this.world.setBlock(bx, by, bz, Blocks.SAPLING, sapMeta, 3);
 			} else {
-				this.world.func_147480_a(bx, by, bz, true);
+				com.hbm.world.WorldBlockDestruction.destroy(this.world, bx, by, bz, true);
 			}
 		}
 	}

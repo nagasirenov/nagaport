@@ -1,0 +1,86 @@
+--- ../src-base/minecraft/net/minecraft/world/chunk/Chunk.java
++++ ../src-work/minecraft/net/minecraft/world/chunk/Chunk.java
+@@ -579,20 +585,33 @@
+             int l1 = this.field_76635_g * 16 + p_150807_1_;
+             int i2 = this.field_76647_h * 16 + p_150807_3_;
+ 
++            int k2 = block1.getLightOpacity(this.field_76637_e, l1, p_150807_2_, i2);
++
+             if (!this.field_76637_e.field_72995_K)
+             {
+                 block1.func_149725_f(this.field_76637_e, l1, p_150807_2_, i2, k1);
+             }
+ 
+             extendedblockstorage.func_150818_a(p_150807_1_, p_150807_2_ & 15, p_150807_3_, p_150807_4_);
++            extendedblockstorage.func_76654_b(p_150807_1_, p_150807_2_ & 15, p_150807_3_, p_150807_5_); // This line duplicates the one below, so breakBlock fires with valid worldstate
+ 
+             if (!this.field_76637_e.field_72995_K)
+             {
+                 block1.func_149749_a(this.field_76637_e, l1, p_150807_2_, i2, block1, k1);
++                // After breakBlock a phantom TE might have been created with incorrect meta. This attempts to kill that phantom TE so the normal one can be create properly later
++                TileEntity te = this.getTileEntityUnsafe(p_150807_1_ & 0x0F, p_150807_2_, p_150807_3_ & 0x0F);
++                if (te != null && te.shouldRefresh(block1, func_150810_a(p_150807_1_ & 0x0F, p_150807_2_, p_150807_3_ & 0x0F), k1, func_76628_c(p_150807_1_ & 0x0F, p_150807_2_, p_150807_3_ & 0x0F), field_76637_e, l1, p_150807_2_, i2))
++                {
++                    this.func_150805_f(p_150807_1_ & 0x0F, p_150807_2_, p_150807_3_ & 0x0F);
++                }
+             }
+-            else if (block1 instanceof ITileEntityProvider && block1 != p_150807_4_)
++            else if (block1.hasTileEntity(k1))
+             {
+-                this.field_76637_e.func_147475_p(l1, p_150807_2_, i2);
++                TileEntity te = this.getTileEntityUnsafe(p_150807_1_ & 0x0F, p_150807_2_, p_150807_3_ & 0x0F);
++                if (te != null && te.shouldRefresh(block1, p_150807_4_, k1, p_150807_5_, field_76637_e, l1, p_150807_2_, i2))
++                {
++                    this.field_76637_e.func_147475_p(l1, p_150807_2_, i2);
++                }
+             }
+ 
+             if (extendedblockstorage.func_150819_a(p_150807_1_, p_150807_2_ & 15, p_150807_3_) != p_150807_4_)
+@@ -690,7 +693,7 @@
+                 this.field_76643_l = true;
+                 extendedblockstorage.func_76654_b(p_76589_1_, p_76589_2_ & 15, p_76589_3_, p_76589_4_);
+ 
+-                if (extendedblockstorage.func_150819_a(p_76589_1_, p_76589_2_ & 15, p_76589_3_) instanceof ITileEntityProvider)
++                if (extendedblockstorage.func_150819_a(p_76589_1_, p_76589_2_ & 15, p_76589_3_).hasTileEntity(p_76589_4_))
+                 {
+                     TileEntity tileentity = this.func_150806_e(p_76589_1_, p_76589_2_, p_76589_3_);
+ 
+@@ -827,28 +831,27 @@
+         ChunkPosition chunkposition = new ChunkPosition(p_150806_1_, p_150806_2_, p_150806_3_);
+         TileEntity tileentity = (TileEntity)this.field_150816_i.get(chunkposition);
+ 
++        if (tileentity != null && tileentity.func_145837_r())
++        {
++            field_150816_i.remove(chunkposition);
++            tileentity = null;
++        }
++
+         if (tileentity == null)
+         {
+             Block block = this.func_150810_a(p_150806_1_, p_150806_2_, p_150806_3_);
++            int meta = this.func_76628_c(p_150806_1_, p_150806_2_, p_150806_3_);
+ 
+-            if (!block.func_149716_u())
++            if (!block.hasTileEntity(meta))
+             {
+                 return null;
+             }
+ 
+-            tileentity = ((ITileEntityProvider)block).func_149915_a(this.field_76637_e, this.func_76628_c(p_150806_1_, p_150806_2_, p_150806_3_));
++            tileentity = block.createTileEntity(field_76637_e, meta);
+             this.field_76637_e.func_147455_a(this.field_76635_g * 16 + p_150806_1_, p_150806_2_, this.field_76647_h * 16 + p_150806_3_, tileentity);
+         }
+ 
+-        if (tileentity != null && tileentity.func_145837_r())
+-        {
+-            this.field_150816_i.remove(chunkposition);
+-            return null;
+-        }
+-        else
+-        {
+-            return tileentity;
+-        }
++        return tileentity;
+     }
+ 
+     public void func_150813_a(TileEntity p_150813_1_)

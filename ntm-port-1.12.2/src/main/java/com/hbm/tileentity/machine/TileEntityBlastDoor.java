@@ -291,7 +291,7 @@ public class TileEntityBlastDoor extends TileEntityLockableBase implements net.m
 	public boolean placeDummy(int x, int y, int z) {
 
 		Block present = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
-		if(!present.isReplaceable(this.world, x, y, z) && present != ModBlocks.dummy_block_blast) this.world.func_147480_a(x, y, z, false);
+		if(!present.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && present != ModBlocks.dummy_block_blast) com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);
 
 		this.world.setBlock(x, y, z, ModBlocks.dummy_block_blast);
 
@@ -311,7 +311,7 @@ public class TileEntityBlastDoor extends TileEntityLockableBase implements net.m
 
 		if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock() == ModBlocks.dummy_block_blast) {
 			DummyBlockBlast.safeBreak = true;
-			this.world.setBlock(x, y, z, Blocks.AIR);
+			com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.AIR.getStateFromMeta(0), 3);
 			DummyBlockBlast.safeBreak = false;
 		}
 	}

@@ -207,7 +207,7 @@ public class HazmatRegistry {
 		}
 		
 		for(int i = 0; i < 4; i++) {
-			res += getResistance(player.inventory.armorInventory[i]);
+			res += getResistance(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i));
 		}
 		
 		if(player.isPotionActive(HbmPotion.radx))
@@ -249,7 +249,7 @@ public class HazmatRegistry {
 			
 			for(Entry<Item, Double> entry : entries.entrySet()) {
 				writer.beginObject();				//begin object for a single recipe
-				writer.name("item").value(Item.itemRegistry.getNameForObject(entry.getKey()));
+				writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null));
 				writer.name("resistance").value(entry.getValue());
 				writer.endObject();					//end recipe object
 			}

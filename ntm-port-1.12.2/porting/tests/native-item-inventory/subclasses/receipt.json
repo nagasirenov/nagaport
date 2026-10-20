@@ -1,0 +1,24 @@
+{
+  "scope": "Four exact complete nested declarations, explicit outer type/registry hosts and six crate-type projections; not complete outer items or tile classes",
+  "production_sha256": {
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateIron.java": "9103dc1fb6c6f9323fd67ec6e560496036f921467a9ca33b047ab65520ba4b7d",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateSteel.java": "836c960eec7452d1eacfc09ddf20eef1ec294a22099658611b3ee31b820b8fc3",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateDesh.java": "2ab2ebc89a6a5399d4b0e103ec4fe42a155262b35c1571659739fe3352468675",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java": "b16fb5665dedcf58ee444fae0ca8508d26763e9c362f152c5ed2129c024e7210",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTemplate.java": "94d1937d55c143128dc2506cc1227926da26e03f9e994ed74ff00d9d07c599a2",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntitySafe.java": "1bb81bb2cc256403027574b8791c2dbb1895f79e5826177f468b984805f4f488",
+    "src/main/java/com/hbm/items/tool/ItemLeadBox.java": "6c46417c97a1472a9c0656e2ed4c2728f313fafb83d73698c07bab6da3d047ae",
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java": "c1f21456f82c753e5d9f88bf00c80b69ff77676fb2fd45e7c5cf47f94fa9370a",
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": "7a5342e8c1dd1b148dab579163b87eaf9fecce3f5dd78afebd5107627f66fe5d",
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": "c636aa3a84777d6cc135804975cf88944c9e88359c0958653d9b24628c00a50d",
+    "src/main/java/com/hbm/items/ItemInventory.java": "5843ef1ba3614b4076daa2531f2788c88806b3a310ed86e6ee318bdd3e10b270",
+    "src/main/java/com/hbm/util/NullableInventoryStackNbt.java": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+    "src/main/java/com/hbm/util/NativeHeldItem.java": "c9cc68d6853ca7f9d080914452b5d7592a90a4cfb4ce86f447099113089b2692",
+    "src/main/java/com/hbm/sound/WorldSoundEffects.java": "444bdd41794f26b37d368f85691ba611b3648a62b096491ba62a5d95648c8d1e",
+    "src/main/java/com/hbm/main/ModSoundEvents.java": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+    "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71"
+  },
+  "assertions": 1418,
+  "test_sha256": "9016cbd12b52eb335179112dbc1a264ff6fa3fb054a3e872d85ca82215f74984",
+  "generator_sha256": "a4f4e02c97fa93773bab745f9002490afbaae84fb92c3b0a20b9b20501a2762f"
+}

@@ -43,7 +43,7 @@ public abstract class DummyOldBase extends BlockContainer implements IDummy, IEn
 				int c = ((TileEntityDummy) te).targetZ;
 
 				if(!world.isRemote && com.hbm.world.WorldBlockState.read(world, a, b, c).getBlock() instanceof IMultiblock)
-					world.func_147480_a(a, b, c, true);
+					com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true);
 			}
 		}
 		world.removeTileEntity(x, y, z);

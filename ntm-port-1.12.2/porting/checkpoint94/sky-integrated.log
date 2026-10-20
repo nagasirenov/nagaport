@@ -1,0 +1,1 @@
+PASS exact full CP93 celestial owner inverse; 6 closed scopes, 5 acquisitions, 13 batch sites, 54 vertex expressions, 3 color setters, 6 exact private-helper calls; 76 source mutations rejected by BOTH hash and independent audit, 2 manifest-hash mutations rejected; exact arguments, closed helper ownership, per-batch attributes, and all surrounding source preserved.

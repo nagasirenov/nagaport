@@ -1,0 +1,99 @@
+{
+  "base": "77b595c32b46e2f9309bcf9924d654ddc29a3c95",
+  "group": "beam-owner",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamBase.java",
+      "class_name": "EntityBeamBase",
+      "before_sha256": "ea2fbc0750ee1c756b91ec362deab9c9dbba665889b5b3a7a8ba6736db5dbefd",
+      "after_sha256": "23f817c6e23cfcfb17b3b6ee5fd0b3cd9652c5bcc6b1ce6e779af248c19aa201",
+      "original_sha256": "9b7e19dd835bf570fa49ae66611d7ebc1c037e96b6f1327e1b39dd2f7473c38d",
+      "key": "PLAYER_NAME",
+      "type": "String",
+      "serializer": "STRING",
+      "default": "\"\"",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\n\tprotected static final DataParameter<String> PLAYER_NAME = EntityDataManager.createKey(EntityBeamBase.class, DataSerializers.STRING);",
+        "\tpublic String getOwnerDisplayName() {\n\t\treturn this.dataManager.get(PLAYER_NAME);\n\t}\n\n"
+      ],
+      "transformations": [
+        {
+          "before_offset": 594,
+          "before": "this.dataWatcher.updateObject(20, player.getDisplayName())",
+          "after": "this.dataManager.set(PLAYER_NAME, player.getDisplayNameString())",
+          "method": "public EntityBeamBase(World world, EntityPlayer player) {",
+          "declaring_owner": "EntityBeamBase",
+          "receiver_static_type": "EntityBeamBase",
+          "legacy_slot": 20,
+          "after_offset": 895
+        },
+        {
+          "before_offset": 1027,
+          "before": "this.dataWatcher.addObject(20, \"\")",
+          "after": "this.dataManager.register(PLAYER_NAME, \"\")",
+          "method": "protected void entityInit() {",
+          "declaring_owner": "EntityBeamBase",
+          "receiver_static_type": "EntityBeamBase",
+          "legacy_slot": 20,
+          "after_offset": 1421
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java",
+      "class_name": "EntityBeamVortex",
+      "before_sha256": "8a23f8b253f4dda66bc7a4b05c833f11630ce4284b586821a04d3aabf48d5a03",
+      "after_sha256": "0075f98ba3700c4ba263c10386c58eb21077b50f8eca3bee9f761a4cfe9bc2e9",
+      "original_sha256": "184a5566307cdd717c2350bd60b94f5188198fbc2716f2ff7dc670f1b3a75ef4",
+      "key": null,
+      "type": null,
+      "serializer": null,
+      "default": null,
+      "insertions": [],
+      "transformations": [
+        {
+          "before_offset": 756,
+          "before": "this.dataWatcher.getWatchableObjectString(20)",
+          "after": "this.dataManager.get(PLAYER_NAME)",
+          "method": "public void onUpdate() {",
+          "declaring_owner": "EntityBeamBase",
+          "receiver_static_type": "EntityBeamVortex",
+          "legacy_slot": 20,
+          "after_offset": 756
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java",
+      "class_name": "RenderVortexBeam",
+      "key": null,
+      "before_sha256": "da7b9e336dae71f7a695cd7c90f373294b6bd56c75b05f00f30d211651f57618",
+      "after_sha256": "ed57e5fbbefc93ed9c70b0c9a58e08a07962021243b59547c55c7b17168ff739",
+      "original_sha256": "7da71cc06bad6a359fb56d51b7be0f443e3d95c1dbae8196a3972b440a2a3c36",
+      "insertions": [],
+      "transformations": [
+        {
+          "before_offset": 1211,
+          "after_offset": 1211,
+          "before": "laser.getDataWatcher().getWatchableObjectString(20)",
+          "after": "laser.getOwnerDisplayName()",
+          "method": "public void doRender(EntityBeamBase laser, double x, double y, double z, float p_76986_8_, float p_76986_9_) {",
+          "declaring_owner": "EntityBeamBase",
+          "receiver_static_type": "EntityBeamBase",
+          "legacy_slot": 20
+        }
+      ]
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityBeamBase",
+      "parent": "Entity"
+    },
+    {
+      "class_name": "EntityBeamVortex",
+      "parent": "EntityBeamBase"
+    }
+  ]
+}

@@ -79,7 +79,7 @@ public class XFactoryAccelerator {
 				Block b = com.hbm.world.WorldBlockState.read(entity.world, x, y, z).getBlock();
 				float hardness = b.getBlockHardness(entity.world, x, y, z);
 				if(b.getDefaultState().getMaterial() != Material.AIR && hardness >= 0 && hardness < threshold) {
-					entity.world.func_147480_a(x, y, z, false);
+					com.hbm.world.WorldBlockDestruction.destroy(entity.world, x, y, z, false);
 				}
 			}
 		}

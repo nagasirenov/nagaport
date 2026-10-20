@@ -1,0 +1,8 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockNTMGlass.java": "71e432fc6fd478ba8d2f023e7d5e8b4266bdb8613dba55e477589ea5da775f3c",
+  "src/main/java/com/hbm/blocks/machine/BlockBeamBase.java": "f4a79c6aae1c89a54fad2d2f936fac96edc8c5db91efe71de3d6e35f71758cb9",
+  "src/main/java/com/hbm/world/WorldBlockState.java": "554240513caba36cf5d1ab87850ba194967ead30fa25472393533dbdfb9dc718",
+  "src/main/java/com/hbm/lib/ForgeDirection.java": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
+  "porting/tests/native-normal-cube-queries/material-mapping.tsv": "d357499eb5d2ce0e155ffa972b20b0cfb580e05d306a07c5681475cf9c66cc83",
+  "src/main/java/com/hbm/blocks/MaterialGas.java": "b1111aea4a58556ca9b1439e61750881fb36f9e179f3a352ee19f15a90fda1c9"
+}

@@ -1,0 +1,805 @@
+Compiled from "BlockFence.java"
+public class net.minecraft.block.BlockFence extends net.minecraft.block.Block {
+  public static final net.minecraft.block.properties.PropertyBool NORTH;
+
+  public static final net.minecraft.block.properties.PropertyBool EAST;
+
+  public static final net.minecraft.block.properties.PropertyBool SOUTH;
+
+  public static final net.minecraft.block.properties.PropertyBool WEST;
+
+  protected static final net.minecraft.util.math.AxisAlignedBB[] BOUNDING_BOXES;
+
+  public static final net.minecraft.util.math.AxisAlignedBB PILLAR_AABB;
+
+  public static final net.minecraft.util.math.AxisAlignedBB SOUTH_AABB;
+
+  public static final net.minecraft.util.math.AxisAlignedBB WEST_AABB;
+
+  public static final net.minecraft.util.math.AxisAlignedBB NORTH_AABB;
+
+  public static final net.minecraft.util.math.AxisAlignedBB EAST_AABB;
+
+  public net.minecraft.block.BlockFence(net.minecraft.block.material.Material, net.minecraft.block.material.MapColor);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #24                 // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;Lnet/minecraft/block/material/MapColor;)V
+       6: aload_0
+       7: aload_0
+       8: getfield      #28                 // Field blockState:Lnet/minecraft/block/state/BlockStateContainer;
+      11: invokevirtual #34                 // Method net/minecraft/block/state/BlockStateContainer.getBaseState:()Lnet/minecraft/block/state/IBlockState;
+      14: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+      17: iconst_0
+      18: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      21: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      26: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      29: iconst_0
+      30: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      33: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      38: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      41: iconst_0
+      42: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      45: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      50: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      53: iconst_0
+      54: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      57: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      62: invokevirtual #58                 // Method setDefaultState:(Lnet/minecraft/block/state/IBlockState;)V
+      65: aload_0
+      66: getstatic     #64                 // Field net/minecraft/creativetab/CreativeTabs.DECORATIONS:Lnet/minecraft/creativetab/CreativeTabs;
+      69: invokevirtual #68                 // Method setCreativeTab:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/block/Block;
+      72: pop
+      73: return
+
+  public void addCollisionBoxToList(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.math.AxisAlignedBB, java.util.List<net.minecraft.util.math.AxisAlignedBB>, net.minecraft.entity.Entity, boolean);
+    Code:
+       0: iload         7
+       2: ifne          14
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokeinterface #81,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.getActualState:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      13: astore_1
+      14: aload_3
+      15: aload         4
+      17: aload         5
+      19: getstatic     #83                 // Field PILLAR_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+      22: invokestatic  #86                 // Method addCollisionBoxToList:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/util/math/AxisAlignedBB;)V
+      25: aload_1
+      26: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+      29: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      34: checkcast     #38                 // class java/lang/Boolean
+      37: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+      40: ifeq          54
+      43: aload_3
+      44: aload         4
+      46: aload         5
+      48: getstatic     #96                 // Field NORTH_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+      51: invokestatic  #86                 // Method addCollisionBoxToList:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/util/math/AxisAlignedBB;)V
+      54: aload_1
+      55: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      58: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      63: checkcast     #38                 // class java/lang/Boolean
+      66: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+      69: ifeq          83
+      72: aload_3
+      73: aload         4
+      75: aload         5
+      77: getstatic     #98                 // Field EAST_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+      80: invokestatic  #86                 // Method addCollisionBoxToList:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/util/math/AxisAlignedBB;)V
+      83: aload_1
+      84: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      87: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      92: checkcast     #38                 // class java/lang/Boolean
+      95: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+      98: ifeq          112
+     101: aload_3
+     102: aload         4
+     104: aload         5
+     106: getstatic     #100                // Field SOUTH_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     109: invokestatic  #86                 // Method addCollisionBoxToList:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/util/math/AxisAlignedBB;)V
+     112: aload_1
+     113: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+     116: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     121: checkcast     #38                 // class java/lang/Boolean
+     124: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+     127: ifeq          141
+     130: aload_3
+     131: aload         4
+     133: aload         5
+     135: getstatic     #102                // Field WEST_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     138: invokestatic  #86                 // Method addCollisionBoxToList:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/util/math/AxisAlignedBB;)V
+     141: return
+
+  public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokevirtual #121                // Method getActualState:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+       7: astore_1
+       8: getstatic     #123                // Field BOUNDING_BOXES:[Lnet/minecraft/util/math/AxisAlignedBB;
+      11: aload_1
+      12: invokestatic  #127                // Method getBoundingBoxIdx:(Lnet/minecraft/block/state/IBlockState;)I
+      15: aaload
+      16: areturn
+
+  private static int getBoundingBoxIdx(net.minecraft.block.state.IBlockState);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: aload_0
+       3: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+       6: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      11: checkcast     #38                 // class java/lang/Boolean
+      14: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+      17: ifeq          31
+      20: iload_1
+      21: iconst_1
+      22: getstatic     #136                // Field net/minecraft/util/EnumFacing.NORTH:Lnet/minecraft/util/EnumFacing;
+      25: invokevirtual #140                // Method net/minecraft/util/EnumFacing.getHorizontalIndex:()I
+      28: ishl
+      29: ior
+      30: istore_1
+      31: aload_0
+      32: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      35: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      40: checkcast     #38                 // class java/lang/Boolean
+      43: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+      46: ifeq          60
+      49: iload_1
+      50: iconst_1
+      51: getstatic     #142                // Field net/minecraft/util/EnumFacing.EAST:Lnet/minecraft/util/EnumFacing;
+      54: invokevirtual #140                // Method net/minecraft/util/EnumFacing.getHorizontalIndex:()I
+      57: ishl
+      58: ior
+      59: istore_1
+      60: aload_0
+      61: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      64: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      69: checkcast     #38                 // class java/lang/Boolean
+      72: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+      75: ifeq          89
+      78: iload_1
+      79: iconst_1
+      80: getstatic     #144                // Field net/minecraft/util/EnumFacing.SOUTH:Lnet/minecraft/util/EnumFacing;
+      83: invokevirtual #140                // Method net/minecraft/util/EnumFacing.getHorizontalIndex:()I
+      86: ishl
+      87: ior
+      88: istore_1
+      89: aload_0
+      90: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      93: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      98: checkcast     #38                 // class java/lang/Boolean
+     101: invokevirtual #94                 // Method java/lang/Boolean.booleanValue:()Z
+     104: ifeq          118
+     107: iload_1
+     108: iconst_1
+     109: getstatic     #146                // Field net/minecraft/util/EnumFacing.WEST:Lnet/minecraft/util/EnumFacing;
+     112: invokevirtual #140                // Method net/minecraft/util/EnumFacing.getHorizontalIndex:()I
+     115: ishl
+     116: ior
+     117: istore_1
+     118: iload_1
+     119: ireturn
+
+  public boolean isOpaqueCube(net.minecraft.block.state.IBlockState);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean isFullCube(net.minecraft.block.state.IBlockState);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean isPassable(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean canConnectTo(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_1
+       1: aload_2
+       2: invokeinterface #166,  2          // InterfaceMethod net/minecraft/world/IBlockAccess.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+       7: astore        4
+       9: aload         4
+      11: aload_1
+      12: aload_2
+      13: aload_3
+      14: invokeinterface #170,  4          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlockFaceShape:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/block/state/BlockFaceShape;
+      19: astore        5
+      21: aload         4
+      23: invokeinterface #174,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      28: astore        6
+      30: aload         5
+      32: getstatic     #180                // Field net/minecraft/block/state/BlockFaceShape.MIDDLE_POLE:Lnet/minecraft/block/state/BlockFaceShape;
+      35: if_acmpne     64
+      38: aload         4
+      40: invokeinterface #184,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+      45: aload_0
+      46: getfield      #187                // Field material:Lnet/minecraft/block/material/Material;
+      49: if_acmpeq     60
+      52: aload         6
+      54: instanceof    #189                // class net/minecraft/block/BlockFenceGate
+      57: ifeq          64
+      60: iconst_1
+      61: goto          65
+      64: iconst_0
+      65: istore        7
+      67: aload         6
+      69: invokestatic  #193                // Method isExcepBlockForAttachWithPiston:(Lnet/minecraft/block/Block;)Z
+      72: ifne          83
+      75: aload         5
+      77: getstatic     #196                // Field net/minecraft/block/state/BlockFaceShape.SOLID:Lnet/minecraft/block/state/BlockFaceShape;
+      80: if_acmpeq     88
+      83: iload         7
+      85: ifeq          92
+      88: iconst_1
+      89: goto          93
+      92: iconst_0
+      93: ireturn
+
+  protected static boolean isExcepBlockForAttachWithPiston(net.minecraft.block.Block);
+    Code:
+       0: aload_0
+       1: invokestatic  #207                // Method net/minecraft/block/Block.isExceptBlockForAttachWithPiston:(Lnet/minecraft/block/Block;)Z
+       4: ifne          35
+       7: aload_0
+       8: getstatic     #212                // Field net/minecraft/init/Blocks.BARRIER:Lnet/minecraft/block/Block;
+      11: if_acmpeq     35
+      14: aload_0
+      15: getstatic     #215                // Field net/minecraft/init/Blocks.MELON_BLOCK:Lnet/minecraft/block/Block;
+      18: if_acmpeq     35
+      21: aload_0
+      22: getstatic     #218                // Field net/minecraft/init/Blocks.PUMPKIN:Lnet/minecraft/block/Block;
+      25: if_acmpeq     35
+      28: aload_0
+      29: getstatic     #221                // Field net/minecraft/init/Blocks.LIT_PUMPKIN:Lnet/minecraft/block/Block;
+      32: if_acmpne     39
+      35: iconst_1
+      36: goto          40
+      39: iconst_0
+      40: ireturn
+
+  public boolean shouldSideBeRendered(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_1
+       1: getfield      #239                // Field net/minecraft/world/World.isRemote:Z
+       4: ifne          15
+       7: aload         4
+       9: aload_1
+      10: aload_2
+      11: invokestatic  #245                // Method net/minecraft/item/ItemLead.attachToFence:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Z
+      14: ireturn
+      15: aload         4
+      17: aload         5
+      19: invokevirtual #251                // Method net/minecraft/entity/player/EntityPlayer.getHeldItem:(Lnet/minecraft/util/EnumHand;)Lnet/minecraft/item/ItemStack;
+      22: astore        10
+      24: aload         10
+      26: invokevirtual #257                // Method net/minecraft/item/ItemStack.getItem:()Lnet/minecraft/item/Item;
+      29: getstatic     #263                // Field net/minecraft/init/Items.LEAD:Lnet/minecraft/item/Item;
+      32: if_acmpeq     43
+      35: aload         10
+      37: invokevirtual #266                // Method net/minecraft/item/ItemStack.isEmpty:()Z
+      40: ifeq          47
+      43: iconst_1
+      44: goto          48
+      47: iconst_0
+      48: ireturn
+
+  public int getMetaFromState(net.minecraft.block.state.IBlockState);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public net.minecraft.block.state.IBlockState getActualState(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_1
+       1: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+       4: aload_0
+       5: aload_2
+       6: aload_3
+       7: getstatic     #136                // Field net/minecraft/util/EnumFacing.NORTH:Lnet/minecraft/util/EnumFacing;
+      10: invokespecial #285                // Method canFenceConnectTo:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      13: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      16: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      21: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      24: aload_0
+      25: aload_2
+      26: aload_3
+      27: getstatic     #142                // Field net/minecraft/util/EnumFacing.EAST:Lnet/minecraft/util/EnumFacing;
+      30: invokespecial #285                // Method canFenceConnectTo:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      33: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      36: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      41: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      44: aload_0
+      45: aload_2
+      46: aload_3
+      47: getstatic     #144                // Field net/minecraft/util/EnumFacing.SOUTH:Lnet/minecraft/util/EnumFacing;
+      50: invokespecial #285                // Method canFenceConnectTo:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      53: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      56: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      61: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      64: aload_0
+      65: aload_2
+      66: aload_3
+      67: getstatic     #146                // Field net/minecraft/util/EnumFacing.WEST:Lnet/minecraft/util/EnumFacing;
+      70: invokespecial #285                // Method canFenceConnectTo:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      73: invokestatic  #42                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      76: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      81: areturn
+
+  public net.minecraft.block.state.IBlockState withRotation(net.minecraft.block.state.IBlockState, net.minecraft.util.Rotation);
+    Code:
+       0: getstatic     #294                // Field net/minecraft/block/BlockFence$1.$SwitchMap$net$minecraft$util$Rotation:[I
+       3: aload_2
+       4: invokevirtual #299                // Method net/minecraft/util/Rotation.ordinal:()I
+       7: iaload
+       8: tableswitch   { // 1 to 3
+                     1: 36
+                     2: 106
+                     3: 176
+               default: 246
+          }
+      36: aload_1
+      37: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+      40: aload_1
+      41: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      44: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      49: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      54: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      57: aload_1
+      58: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      61: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      66: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      71: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      74: aload_1
+      75: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+      78: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      83: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      88: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      91: aload_1
+      92: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      95: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     100: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     105: areturn
+     106: aload_1
+     107: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+     110: aload_1
+     111: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+     114: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     119: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     124: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+     127: aload_1
+     128: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+     131: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     136: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     141: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+     144: aload_1
+     145: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+     148: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     153: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     158: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+     161: aload_1
+     162: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+     165: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     170: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     175: areturn
+     176: aload_1
+     177: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+     180: aload_1
+     181: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+     184: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     189: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     194: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+     197: aload_1
+     198: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+     201: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     206: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     211: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+     214: aload_1
+     215: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+     218: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     223: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     228: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+     231: aload_1
+     232: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+     235: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     240: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     245: areturn
+     246: aload_1
+     247: areturn
+
+  public net.minecraft.block.state.IBlockState withMirror(net.minecraft.block.state.IBlockState, net.minecraft.util.Mirror);
+    Code:
+       0: getstatic     #307                // Field net/minecraft/block/BlockFence$1.$SwitchMap$net$minecraft$util$Mirror:[I
+       3: aload_2
+       4: invokevirtual #310                // Method net/minecraft/util/Mirror.ordinal:()I
+       7: iaload
+       8: lookupswitch  { // 2
+                     1: 36
+                     2: 72
+               default: 108
+          }
+      36: aload_1
+      37: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+      40: aload_1
+      41: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      44: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      49: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      54: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      57: aload_1
+      58: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+      61: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      66: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      71: areturn
+      72: aload_1
+      73: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      76: aload_1
+      77: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      80: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      85: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      90: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      93: aload_1
+      94: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      97: invokeinterface #90,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+     102: invokeinterface #48,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+     107: areturn
+     108: aload_0
+     109: aload_1
+     110: aload_2
+     111: invokespecial #312                // Method net/minecraft/block/Block.withMirror:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/util/Mirror;)Lnet/minecraft/block/state/IBlockState;
+     114: areturn
+
+  protected net.minecraft.block.state.BlockStateContainer createBlockState();
+    Code:
+       0: new           #30                 // class net/minecraft/block/state/BlockStateContainer
+       3: dup
+       4: aload_0
+       5: iconst_4
+       6: anewarray     #319                // class net/minecraft/block/properties/IProperty
+       9: dup
+      10: iconst_0
+      11: getstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+      14: aastore
+      15: dup
+      16: iconst_1
+      17: getstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      20: aastore
+      21: dup
+      22: iconst_2
+      23: getstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      26: aastore
+      27: dup
+      28: iconst_3
+      29: getstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      32: aastore
+      33: invokespecial #322                // Method net/minecraft/block/state/BlockStateContainer."<init>":(Lnet/minecraft/block/Block;[Lnet/minecraft/block/properties/IProperty;)V
+      36: areturn
+
+  public boolean canBeConnectedTo(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokevirtual #329                // Method net/minecraft/util/math/BlockPos.offset:(Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/math/BlockPos;
+       7: aload_3
+       8: invokevirtual #333                // Method net/minecraft/util/EnumFacing.getOpposite:()Lnet/minecraft/util/EnumFacing;
+      11: invokevirtual #335                // Method canConnectTo:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      14: ireturn
+
+  private boolean canFenceConnectTo(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_2
+       1: aload_3
+       2: invokevirtual #329                // Method net/minecraft/util/math/BlockPos.offset:(Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/math/BlockPos;
+       5: astore        4
+       7: aload_1
+       8: aload         4
+      10: invokeinterface #166,  2          // InterfaceMethod net/minecraft/world/IBlockAccess.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      15: invokeinterface #174,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      20: astore        5
+      22: aload         5
+      24: aload_1
+      25: aload         4
+      27: aload_3
+      28: invokevirtual #333                // Method net/minecraft/util/EnumFacing.getOpposite:()Lnet/minecraft/util/EnumFacing;
+      31: invokevirtual #340                // Method net/minecraft/block/Block.canBeConnectedTo:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      34: ifne          51
+      37: aload_0
+      38: aload_1
+      39: aload         4
+      41: aload_3
+      42: invokevirtual #333                // Method net/minecraft/util/EnumFacing.getOpposite:()Lnet/minecraft/util/EnumFacing;
+      45: invokevirtual #335                // Method canConnectTo:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      48: ifeq          55
+      51: iconst_1
+      52: goto          56
+      55: iconst_0
+      56: ireturn
+
+  public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(net.minecraft.world.IBlockAccess, net.minecraft.block.state.IBlockState, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload         4
+       2: getstatic     #348                // Field net/minecraft/util/EnumFacing.UP:Lnet/minecraft/util/EnumFacing;
+       5: if_acmpeq     22
+       8: aload         4
+      10: getstatic     #351                // Field net/minecraft/util/EnumFacing.DOWN:Lnet/minecraft/util/EnumFacing;
+      13: if_acmpeq     22
+      16: getstatic     #180                // Field net/minecraft/block/state/BlockFaceShape.MIDDLE_POLE:Lnet/minecraft/block/state/BlockFaceShape;
+      19: goto          25
+      22: getstatic     #354                // Field net/minecraft/block/state/BlockFaceShape.CENTER:Lnet/minecraft/block/state/BlockFaceShape;
+      25: areturn
+
+  static {};
+    Code:
+       0: ldc_w         #362                // String north
+       3: invokestatic  #368                // Method net/minecraft/block/properties/PropertyBool.create:(Ljava/lang/String;)Lnet/minecraft/block/properties/PropertyBool;
+       6: putstatic     #36                 // Field NORTH:Lnet/minecraft/block/properties/PropertyBool;
+       9: ldc_w         #370                // String east
+      12: invokestatic  #368                // Method net/minecraft/block/properties/PropertyBool.create:(Ljava/lang/String;)Lnet/minecraft/block/properties/PropertyBool;
+      15: putstatic     #50                 // Field EAST:Lnet/minecraft/block/properties/PropertyBool;
+      18: ldc_w         #372                // String south
+      21: invokestatic  #368                // Method net/minecraft/block/properties/PropertyBool.create:(Ljava/lang/String;)Lnet/minecraft/block/properties/PropertyBool;
+      24: putstatic     #52                 // Field SOUTH:Lnet/minecraft/block/properties/PropertyBool;
+      27: ldc_w         #374                // String west
+      30: invokestatic  #368                // Method net/minecraft/block/properties/PropertyBool.create:(Ljava/lang/String;)Lnet/minecraft/block/properties/PropertyBool;
+      33: putstatic     #54                 // Field WEST:Lnet/minecraft/block/properties/PropertyBool;
+      36: bipush        16
+      38: anewarray     #376                // class net/minecraft/util/math/AxisAlignedBB
+      41: dup
+      42: iconst_0
+      43: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+      46: dup
+      47: ldc2_w        #377                // double 0.375d
+      50: dconst_0
+      51: ldc2_w        #377                // double 0.375d
+      54: ldc2_w        #379                // double 0.625d
+      57: dconst_1
+      58: ldc2_w        #379                // double 0.625d
+      61: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+      64: aastore
+      65: dup
+      66: iconst_1
+      67: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+      70: dup
+      71: ldc2_w        #377                // double 0.375d
+      74: dconst_0
+      75: ldc2_w        #377                // double 0.375d
+      78: ldc2_w        #379                // double 0.625d
+      81: dconst_1
+      82: dconst_1
+      83: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+      86: aastore
+      87: dup
+      88: iconst_2
+      89: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+      92: dup
+      93: dconst_0
+      94: dconst_0
+      95: ldc2_w        #377                // double 0.375d
+      98: ldc2_w        #379                // double 0.625d
+     101: dconst_1
+     102: ldc2_w        #379                // double 0.625d
+     105: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     108: aastore
+     109: dup
+     110: iconst_3
+     111: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     114: dup
+     115: dconst_0
+     116: dconst_0
+     117: ldc2_w        #377                // double 0.375d
+     120: ldc2_w        #379                // double 0.625d
+     123: dconst_1
+     124: dconst_1
+     125: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     128: aastore
+     129: dup
+     130: iconst_4
+     131: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     134: dup
+     135: ldc2_w        #377                // double 0.375d
+     138: dconst_0
+     139: dconst_0
+     140: ldc2_w        #379                // double 0.625d
+     143: dconst_1
+     144: ldc2_w        #379                // double 0.625d
+     147: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     150: aastore
+     151: dup
+     152: iconst_5
+     153: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     156: dup
+     157: ldc2_w        #377                // double 0.375d
+     160: dconst_0
+     161: dconst_0
+     162: ldc2_w        #379                // double 0.625d
+     165: dconst_1
+     166: dconst_1
+     167: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     170: aastore
+     171: dup
+     172: bipush        6
+     174: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     177: dup
+     178: dconst_0
+     179: dconst_0
+     180: dconst_0
+     181: ldc2_w        #379                // double 0.625d
+     184: dconst_1
+     185: ldc2_w        #379                // double 0.625d
+     188: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     191: aastore
+     192: dup
+     193: bipush        7
+     195: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     198: dup
+     199: dconst_0
+     200: dconst_0
+     201: dconst_0
+     202: ldc2_w        #379                // double 0.625d
+     205: dconst_1
+     206: dconst_1
+     207: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     210: aastore
+     211: dup
+     212: bipush        8
+     214: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     217: dup
+     218: ldc2_w        #377                // double 0.375d
+     221: dconst_0
+     222: ldc2_w        #377                // double 0.375d
+     225: dconst_1
+     226: dconst_1
+     227: ldc2_w        #379                // double 0.625d
+     230: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     233: aastore
+     234: dup
+     235: bipush        9
+     237: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     240: dup
+     241: ldc2_w        #377                // double 0.375d
+     244: dconst_0
+     245: ldc2_w        #377                // double 0.375d
+     248: dconst_1
+     249: dconst_1
+     250: dconst_1
+     251: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     254: aastore
+     255: dup
+     256: bipush        10
+     258: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     261: dup
+     262: dconst_0
+     263: dconst_0
+     264: ldc2_w        #377                // double 0.375d
+     267: dconst_1
+     268: dconst_1
+     269: ldc2_w        #379                // double 0.625d
+     272: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     275: aastore
+     276: dup
+     277: bipush        11
+     279: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     282: dup
+     283: dconst_0
+     284: dconst_0
+     285: ldc2_w        #377                // double 0.375d
+     288: dconst_1
+     289: dconst_1
+     290: dconst_1
+     291: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     294: aastore
+     295: dup
+     296: bipush        12
+     298: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     301: dup
+     302: ldc2_w        #377                // double 0.375d
+     305: dconst_0
+     306: dconst_0
+     307: dconst_1
+     308: dconst_1
+     309: ldc2_w        #379                // double 0.625d
+     312: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     315: aastore
+     316: dup
+     317: bipush        13
+     319: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     322: dup
+     323: ldc2_w        #377                // double 0.375d
+     326: dconst_0
+     327: dconst_0
+     328: dconst_1
+     329: dconst_1
+     330: dconst_1
+     331: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     334: aastore
+     335: dup
+     336: bipush        14
+     338: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     341: dup
+     342: dconst_0
+     343: dconst_0
+     344: dconst_0
+     345: dconst_1
+     346: dconst_1
+     347: ldc2_w        #379                // double 0.625d
+     350: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     353: aastore
+     354: dup
+     355: bipush        15
+     357: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     360: dup
+     361: dconst_0
+     362: dconst_0
+     363: dconst_0
+     364: dconst_1
+     365: dconst_1
+     366: dconst_1
+     367: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     370: aastore
+     371: putstatic     #123                // Field BOUNDING_BOXES:[Lnet/minecraft/util/math/AxisAlignedBB;
+     374: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     377: dup
+     378: ldc2_w        #377                // double 0.375d
+     381: dconst_0
+     382: ldc2_w        #377                // double 0.375d
+     385: ldc2_w        #379                // double 0.625d
+     388: ldc2_w        #384                // double 1.5d
+     391: ldc2_w        #379                // double 0.625d
+     394: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     397: putstatic     #83                 // Field PILLAR_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     400: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     403: dup
+     404: ldc2_w        #377                // double 0.375d
+     407: dconst_0
+     408: ldc2_w        #379                // double 0.625d
+     411: ldc2_w        #379                // double 0.625d
+     414: ldc2_w        #384                // double 1.5d
+     417: dconst_1
+     418: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     421: putstatic     #100                // Field SOUTH_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     424: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     427: dup
+     428: dconst_0
+     429: dconst_0
+     430: ldc2_w        #377                // double 0.375d
+     433: ldc2_w        #377                // double 0.375d
+     436: ldc2_w        #384                // double 1.5d
+     439: ldc2_w        #379                // double 0.625d
+     442: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     445: putstatic     #102                // Field WEST_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     448: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     451: dup
+     452: ldc2_w        #377                // double 0.375d
+     455: dconst_0
+     456: dconst_0
+     457: ldc2_w        #379                // double 0.625d
+     460: ldc2_w        #384                // double 1.5d
+     463: ldc2_w        #377                // double 0.375d
+     466: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     469: putstatic     #96                 // Field NORTH_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     472: new           #376                // class net/minecraft/util/math/AxisAlignedBB
+     475: dup
+     476: ldc2_w        #379                // double 0.625d
+     479: dconst_0
+     480: ldc2_w        #377                // double 0.375d
+     483: dconst_1
+     484: ldc2_w        #384                // double 1.5d
+     487: ldc2_w        #379                // double 0.625d
+     490: invokespecial #383                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     493: putstatic     #98                 // Field EAST_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     496: return
+}

@@ -123,7 +123,7 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 		}
 		
 		if(this.world.isRemote && this.ticksExisted % 5 == 0) {
-			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);
 		}
 	}
 

@@ -1,0 +1,1 @@
+PASS 7 exact reversible complete files, 10 nonescaping local scopes, 29 owned POSITION_TEX sites, 116 XYZUV expressions, 5 reset-setter argument evaluations and 49 mutation rejections; unchanged GL/matrix/material/animation/RNG/clock/control-flow surroundings.

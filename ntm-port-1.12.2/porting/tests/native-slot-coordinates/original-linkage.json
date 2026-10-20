@@ -1,0 +1,50 @@
+{
+  "original_class_sha256": "de1eccd82ea42f540d794a36022931d9a3387d24d3e677a36c50547de3bdcadd",
+  "unchanged_post_constant_pool_sha256": "49b865b911ce262b43f2f50358bb8be7bb54a295cff81fb8236838c5374a720c",
+  "symbol_changes": [
+    [
+      "com/hbm/inventory/SlotLayer",
+      "LegacySlotLayer"
+    ],
+    [
+      "net/minecraft/inventory/Slot",
+      "aay"
+    ],
+    [
+      "(Lnet/minecraft/inventory/IInventory;IIII)V",
+      "(Lrb;IIII)V"
+    ],
+    [
+      "(Lnet/minecraft/inventory/IInventory;III)V",
+      "(Lrb;III)V"
+    ],
+    [
+      "net/minecraft/inventory/IInventory",
+      "rb"
+    ],
+    [
+      "Lcom/hbm/inventory/SlotLayer;",
+      "LLegacySlotLayer;"
+    ],
+    [
+      "Lnet/minecraft/inventory/IInventory;",
+      "Lrb;"
+    ],
+    [
+      "field_75221_f",
+      "i"
+    ],
+    [
+      "func_75214_a",
+      "a"
+    ],
+    [
+      "(Lnet/minecraft/item/ItemStack;)Z",
+      "(Ladd;)Z"
+    ],
+    [
+      "Lnet/minecraft/item/ItemStack;",
+      "Ladd;"
+    ]
+  ]
+}

@@ -1,0 +1,9 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadar.java:62: error: method does not override or implement a method from a supertype
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadar.java:67: error: method does not override or implement a method from a supertype
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadar.java:69: error: method getTileEntity in interface IBlockAccess cannot be applied to given types;
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadar.java:73: error: method does not override or implement a method from a supertype
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadarLarge.java:75: error: method does not override or implement a method from a supertype
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadarLarge.java:80: error: method does not override or implement a method from a supertype
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadarLarge.java:82: error: cannot find symbol
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadarLarge.java:85: error: method getTileEntity in interface IBlockAccess cannot be applied to given types;
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineRadarLarge.java:94: error: method does not override or implement a method from a supertype

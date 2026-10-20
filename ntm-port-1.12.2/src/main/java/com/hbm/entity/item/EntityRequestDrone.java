@@ -16,6 +16,7 @@ import com.hbm.util.fauxpointtwelve.BlockPos;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -210,7 +211,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 		
 		if(nbt.hasKey("held")) {
 			NBTTagCompound stack = nbt.getCompoundTag("held");
-			this.heldItem = ItemStack.loadItemStackFromNBT(stack);
+			this.heldItem = NullableInventoryStackNbt.read(stack);
 		}
 		
 		nextActionTimer = 5;

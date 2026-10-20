@@ -1,0 +1,31 @@
+/workspace/shared/nagaport-cp92-tool-attributes/ntm-port-1.12.2/porting/tests/native-tool-attributes/engine/OriginalToolPayloadOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp92-tool-attributes/ntm-port-1.12.2/porting/tests/native-tool-attributes/engine/OriginalToolPayloadOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp92-tool-attributes/ntm-port-1.12.2/porting/tests/native-tool-attributes/engine/OriginalToolPayloadOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-cp92-tool-attributes/ntm-port-1.12.2/porting/tests/native-tool-attributes/engine/OriginalToolPayloadOracle.java:92: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field uf=Unsafe.class.getDeclaredField("theUnsafe"); uf.setAccessible(true); Unsafe unsafe=(Unsafe)uf.get(null);
+                 ^
+/workspace/shared/nagaport-cp92-tool-attributes/ntm-port-1.12.2/porting/tests/native-tool-attributes/engine/OriginalToolPayloadOracle.java:92: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field uf=Unsafe.class.getDeclaredField("theUnsafe"); uf.setAccessible(true); Unsafe unsafe=(Unsafe)uf.get(null);
+                                                                                     ^
+/workspace/shared/nagaport-cp92-tool-attributes/ntm-port-1.12.2/porting/tests/native-tool-attributes/engine/OriginalToolPayloadOracle.java:92: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Field uf=Unsafe.class.getDeclaredField("theUnsafe"); uf.setAccessible(true); Unsafe unsafe=(Unsafe)uf.get(null);
+                                                                                                    ^
+6 warnings
+PASS actual native ItemSword = float(3 + material.attack), speed = -2.4000000953674316, MAINHAND only; ItemTool two-arg = four-arg (0F,0F,material,blocks), damage = material.attack, speed = 0.0, MAINHAND only
+PASS exact legacy Sword damage restoration uses (double)(4F + super.getAttackDamage()); real accessor is raw material. UUID-equal remove succeeds despite changed amount, retains native attack speed and unrelated damage UUID. Hammer 1.0E9F and 16777214F disprove adding 1 after rounding.
+PASS counterexample: native IRON sword super map + same UUID explicit damage 75 returns put=false and damage stays 5, not 75
+PASS actual ItemStack five-old-slot dispatch and no default OFFHAND; metadata/charge NBT unchanged; explicit AttributeModifiers NBT remains authoritative, slot-filtered and bypasses hooks
+PASS replacement maps contain no ATTACK_SPEED tuple; actual AttributeMap speed remains 4 versus superclass sword 1.5999999046325684; super(slot,stack) revives inherited replacement payload in spent-state counterexample
+PASS actual legacy ItemSword = float(4 + material.attack), ItemTool base0 = material.attack; neither has ATTACK_SPEED. Hammer 999999996F rounds to 1.0E9F, so adding 3F or 4F is equal.
+PASS 191 bounded actual-engine assertions; test descendants demonstrate candidate policies, not compiled full mod.
+PASS complete original classfile map com.hbm.items.tool.ItemSwordAbility
+PASS complete original classfile map com.hbm.items.weapon.GunB92
+PASS complete original classfile map com.hbm.items.weapon.ItemCrucible
+STATIC-ONLY com.hbm.items.tool.ItemToolAbility: java.lang.NoSuchMethodException: aji.captureDrops(boolean)
+SCOPE: complete original classfiles, symbol remapping only. Unsafe skips unrelated constructors, not static initializers. Forge-dependent unavailable classes are explicit limitations; no stub or replacement bytecode.

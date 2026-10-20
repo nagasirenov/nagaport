@@ -63,17 +63,17 @@ public class EntityUndeadSoldier extends EntityMob {
 
 	@Override
 	protected void addRandomArmor() {
-		this.setCurrentItemOrArmor(4, new ItemStack(ModItems.taurun_helmet));
-		this.setCurrentItemOrArmor(3, new ItemStack(ModItems.taurun_plate));
-		this.setCurrentItemOrArmor(2, new ItemStack(ModItems.taurun_legs));
-		this.setCurrentItemOrArmor(1, new ItemStack(ModItems.taurun_boots));
+		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(ModItems.taurun_helmet));
+		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(ModItems.taurun_plate));
+		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(ModItems.taurun_legs));
+		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.FEET, new ItemStack(ModItems.taurun_boots));
 
 		int gun = rand.nextInt(5);
-		if(gun == 0) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_heavy_revolver));
-		if(gun == 1) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_light_revolver));
-		if(gun == 2) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_carbine));
-		if(gun == 3) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_maresleg));
-		if(gun == 4) this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_greasegun));
+		if(gun == 0) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_heavy_revolver));
+		if(gun == 1) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_light_revolver));
+		if(gun == 2) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_carbine));
+		if(gun == 3) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_maresleg));
+		if(gun == 4) this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_greasegun));
 	}
 
 	@Override

@@ -1,0 +1,2 @@
+PASS 1,803 original / 4,876 native classes; complete equipment/armor reader declaration census and exact selected bytecode/SRG mappings
+PASS full relevant Forge1614/FML patch evidence: selected reads unchanged; player setter mapping explicitly corrected by Forge (vanilla setter is not a mod-behavior oracle)

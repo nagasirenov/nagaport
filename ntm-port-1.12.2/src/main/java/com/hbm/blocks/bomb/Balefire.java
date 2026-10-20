@@ -56,13 +56,13 @@ public class Balefire extends BlockFire {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		if(world.getGameRules().getGameRuleBooleanValue("doFireTick")) {
 
-			if(!this.canPlaceBlockAt(world, x, y, z)) {
+			if(!this.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			}
 
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
-			if(meta < 15) world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world) + rand.nextInt(10));
+			if(meta < 15) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world) + rand.nextInt(10));
 
 			if(!this.canNeighborBurn(world, x, y, z) && !World.doesBlockHaveSolidTopSurface(world, x, y - 1, z)) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
@@ -146,7 +146,7 @@ public class Balefire extends BlockFire {
 
 	private int getChanceOfNeighborsEncouragingFire(World world, int x, int y, int z) {
 
-		if(!world.isAirBlock(x, y, z)) {
+		if(!world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			return 0;
 		} else {
 			int spread = 0;

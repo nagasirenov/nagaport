@@ -1,0 +1,21 @@
+{
+  "baseline": "d3e012b1ee72c0170cb8e4ff89bfabadb25ac553",
+  "placements": 105,
+  "files": {
+    "src/main/java/com/hbm/world/dungeon/DesertAtom001.java": {
+      "before": "da5bb32cb0b01f85ac903129b8bf77aeb88fe6b432590020358bc815ab291658",
+      "after": "d38e47c4483230f1f13b66c273fc9d7a30722d0207c00742414348b0e4e44de8",
+      "placements": 9
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
+      "before": "139d09f508b02cd1dec7077c4305d9c05c9fff25ccd70a3a09d53357de4bf2e6",
+      "after": "bbd9f4388170b0e2e233c2896dfc28e9e56289c2ba2d7dacb21d216aad2787e7",
+      "placements": 81
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
+      "before": "e3d270b9a29156797ed7477b8f61872a1ec51aad8e70d6cf602085a8349e513c",
+      "after": "8f6e9d3625ceda049e7309977f57e20d91bc510963de5a91d624beff951d88d3",
+      "placements": 15
+    }
+  }
+}

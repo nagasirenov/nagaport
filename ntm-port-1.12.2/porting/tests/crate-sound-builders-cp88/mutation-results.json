@@ -1,0 +1,44 @@
+[
+  {
+    "owner": "BlockCrate",
+    "mutant": "drop-assignment",
+    "compiled": true,
+    "exit": 1,
+    "killed_by": "Caused by: java.lang.AssertionError: exact original sound argument identity"
+  },
+  {
+    "owner": "BlockCrate",
+    "mutant": "wrong-argument",
+    "compiled": true,
+    "exit": 1,
+    "killed_by": "Caused by: java.lang.AssertionError: exact original sound argument identity"
+  },
+  {
+    "owner": "BlockCrate",
+    "mutant": "null-return",
+    "compiled": true,
+    "exit": 1,
+    "killed_by": "Caused by: java.lang.NullPointerException"
+  },
+  {
+    "owner": "BlockStorageCrate",
+    "mutant": "drop-assignment",
+    "compiled": true,
+    "exit": 1,
+    "killed_by": "Caused by: java.lang.AssertionError: exact original sound argument identity"
+  },
+  {
+    "owner": "BlockStorageCrate",
+    "mutant": "wrong-argument",
+    "compiled": true,
+    "exit": 1,
+    "killed_by": "Caused by: java.lang.AssertionError: exact original sound argument identity"
+  },
+  {
+    "owner": "BlockStorageCrate",
+    "mutant": "null-return",
+    "compiled": true,
+    "exit": 1,
+    "killed_by": "Caused by: java.lang.NullPointerException"
+  }
+]

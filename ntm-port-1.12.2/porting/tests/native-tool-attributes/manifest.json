@@ -1,0 +1,203 @@
+{
+  "baseline": "f5ce86cd607379cc9810896cf91d1fee86ce6331",
+  "files": {
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java": {
+      "before_sha256": "042f1871ac458eddb5d2f6e8e2908d338866a512e9529967bf288b16c2f9b32c",
+      "after_sha256": "245c808ca5e745603a6bce2ceae4f885545d133df0d3ff1b184644116ae93a78",
+      "rules": [
+        [
+          "public Multimap getAttributeModifiers(ItemStack stack)",
+          "public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack)",
+          1
+        ],
+        [
+          "Multimap multimap = super.getAttributeModifiers(stack);",
+          "Multimap multimap = super.getAttributeModifiers(slot, stack);\r\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java": {
+      "before_sha256": "a6c3425bd95ffcf20ffe57a638fff16d414868c0b48733741ef80b2206522b71",
+      "after_sha256": "3a0e143d920b38c886e1b1fc89813483bdee2dc329e80cb8422374786a77c657",
+      "rules": [
+        [
+          "public Multimap getAttributeModifiers(ItemStack stack)",
+          "public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack)",
+          1
+        ],
+        [
+          "Multimap multimap = super.getAttributeModifiers(stack);",
+          "Multimap multimap = super.getAttributeModifiers(slot, stack);\r\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java": {
+      "before_sha256": "f73049f048ae9a9e822a749a8934ac005ac639ed2afda6282c1e3dfbf356413d",
+      "after_sha256": "ca100d069fe6410f4594a5df44baeefeb72388b70fd9c9c4bc6f6a9c28f28edd",
+      "rules": [
+        [
+          "public Multimap getAttributeModifiers(ItemStack stack)",
+          "public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack)",
+          1
+        ],
+        [
+          "Multimap multimap = super.getAttributeModifiers(stack);",
+          "Multimap multimap = super.getAttributeModifiers(slot, stack);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          2
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemSwordAbility.java": {
+      "before_sha256": "9a37d87a100cafba1ead52e6f46091ba53fb3acbb733a86427cad0043355333a",
+      "after_sha256": "ee7f7555554becd1dc3e88ee96af2aa0bae2b5332ebb644579bea2233df9aff3",
+      "rules": [
+        [
+          "public Multimap getItemAttributeModifiers()",
+          "public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot)",
+          1
+        ],
+        [
+          "Multimap multimap = HashMultimap.create();",
+          "Multimap multimap = HashMultimap.create();\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          2
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+      "before_sha256": "685d730b2d86d9a72685f04ca2b6ca5220f88d25448224d1b7056267cc382198",
+      "after_sha256": "d1976684752da85f836ead6742a1b30f3266ce7a91f8a39a8c7d9ade92eea9ec",
+      "rules": [
+        [
+          "public Multimap getItemAttributeModifiers()",
+          "public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot)",
+          1
+        ],
+        [
+          "Multimap multimap = HashMultimap.create();",
+          "Multimap multimap = HashMultimap.create();\r\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          2
+        ],
+        [
+          "super(0, material, type.blocks);",
+          "super(material, type.blocks);",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "before_sha256": "95024164af92e2a896696d9b919f83589693979193e9f51d276f5e6e9d07241d",
+      "after_sha256": "bc47859d7796a5f5d91ec33571193811f29e479f95ad978e3db29ef17f94ef71",
+      "rules": [
+        [
+          "public Multimap getItemAttributeModifiers()",
+          "public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot)",
+          1
+        ],
+        [
+          "Multimap multimap = super.getItemAttributeModifiers();",
+          "Multimap multimap = super.getItemAttributeModifiers(slot);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCrucible.java": {
+      "before_sha256": "7297ec30153a744646fd1ef5883fbe010394ab0af6a25c6b3525613b2399f331",
+      "after_sha256": "7abd989c7ecb84d5d10d8fae338bf4f216b38bc843d677974dbb73faa2a72f31",
+      "rules": [
+        [
+          "public Multimap getAttributeModifiers(ItemStack stack)",
+          "public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack)",
+          1
+        ],
+        [
+          "Multimap multimap = HashMultimap.create();",
+          "Multimap multimap = HashMultimap.create();\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          2
+        ],
+        [
+          "\tpublic Multimap getAttributeModifiers(",
+          "\t@Override\n\tpublic Multimap getAttributeModifiers(",
+          1
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "a35490a1a04c4fbf7f63ee0c40f4de65fc980ad34f0a154bb3e95ec8270b3592",
+      "after_sha256": "ff263d68ec5bbb02eb2e64dddbc11fa0a0558dcf7272b8fee09675a045151ac5",
+      "rules": [
+        [
+          "public Multimap getItemAttributeModifiers()",
+          "public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot)",
+          1
+        ],
+        [
+          "Multimap multimap = super.getItemAttributeModifiers();",
+          "Multimap multimap = super.getItemAttributeModifiers(slot);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.MAINHAND) {\n\t\t\tAttributeModifier damage = new AttributeModifier(ATTACK_DAMAGE_MODIFIER, \"Weapon modifier\", (double) (4.0F + super.getAttackDamage()), 0);\n\t\t\tmultimap.remove(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);\n\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);\n\t\t}\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;",
+          1
+        ],
+        [
+          "field_111210_e",
+          "ATTACK_DAMAGE_MODIFIER",
+          3
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "3e46fac7b6a2447d499856e5d25bf8ffa07c9b15948a3a1587ab65eca8f993b5",
+      "after_sha256": "6335f19cf5014007b44872aafc5e1b1246a007183c80a0b248810740e5623050",
+      "rules": [
+        [
+          "com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers()",
+          "com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND)",
+          1
+        ]
+      ]
+    }
+  },
+  "protected": {
+    "src/main/java/com/hbm/items/tool/ItemTooling.java": "95b13cb5c0a37573128818177efd165c61096ec8cf5e2ccb440c4741ec6bee4e",
+    "src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java": "e56b3ebfad755660babfcc825f6784ceb59edd0910162bb574c14beb409d3e4d",
+    "src/main/java/com/hbm/items/tool/ItemSwordAbilityPower.java": "8047af9a8f14f5474f5cb260f8db54725bc3537ec2795f1f49855892d08494e2",
+    "src/main/java/com/hbm/items/tool/ItemSwordMeteorite.java": "7ac594fad7fe2fcda401335211acbd94b80e1e2f164f1348672328574df7ad2b",
+    "src/main/java/com/hbm/items/tool/ItemToolAbilityFueled.java": "df834b6665a30debd8c601c53921d4a7a4f1b8ddb3dce294b3ce3753afec3856",
+    "src/main/java/com/hbm/items/tool/ItemToolAbilityPower.java": "2453b3569cfc20ef42a4afbd67709aa76472cd35e363f66de65cf02c98e48180",
+    "src/main/java/com/hbm/items/tool/ItemChainsaw.java": "3bafa2d1adb71ff6e12eec32062ff3f58c5d44c21c8ab34364ef90c47c68f57d"
+  }
+}

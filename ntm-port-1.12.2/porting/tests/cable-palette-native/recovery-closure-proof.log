@@ -1,0 +1,2 @@
+CURRENT SOURCE RECOVERY PASS: 4065 tracked sources; sole exact three constructors, no owner subclasses, six rejected closure mutations.
+CURRENT SOURCE RECOVERY PASS:44 exact original statements/order; helper and eight native owner/context files unchanged from restored CP76. No native compile or execution performed.

@@ -27,7 +27,7 @@ public class ArmorRPA extends ArmorFSBPowered implements IItemRendererProvider, 
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(models == null) {
 			models = new ModelArmorRPA[4];
@@ -36,7 +36,7 @@ public class ArmorRPA extends ArmorFSBPowered implements IItemRendererProvider, 
 				models[i] = new ModelArmorRPA(i);
 		}
 		
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@Override public Item getItemForRenderer() { return this; }
@@ -48,8 +48,8 @@ public class ArmorRPA extends ArmorFSBPowered implements IItemRendererProvider, 
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				if(armorType == 1) GL11.glTranslated(0, 0.25, 0);
-				renderStandard(ResourceManager.armor_remnant, armorType,
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) GL11.glTranslated(0, 0.25, 0);
+				renderStandard(ResourceManager.armor_remnant, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.rpa_helmet, ResourceManager.rpa_chest, ResourceManager.rpa_arm, ResourceManager.rpa_leg,
 						"Head", "Body,Fan,Glow", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

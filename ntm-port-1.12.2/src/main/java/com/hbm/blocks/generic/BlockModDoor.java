@@ -347,11 +347,13 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 	 * Checks to see if its valid to put this block at the specified
 	 * coordinates. Args: world, x, y, z
 	 */
-	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
-		return p_149742_3_ >= p_149742_1_.getHeight() - 1 ? false
-				: World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_)
-						&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_)
-						&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_ + 1, p_149742_4_);
+	public boolean canPlaceBlockAt(World p_149742_1_, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int p_149742_2_ = nativePlacementPos.getX(), p_149742_3_ = nativePlacementPos.getY(), p_149742_4_ = nativePlacementPos.getZ();
+		if (p_149742_3_ >= p_149742_1_.getHeight() - 1) return false;
+		net.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_);
+		return nativeSupportState.getBlock().isSideSolid(nativeSupportState, p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_ - 1, p_149742_4_), net.minecraft.util.EnumFacing.UP)
+						&& super.canPlaceBlockAt(p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_, p_149742_4_))
+						&& super.canPlaceBlockAt(p_149742_1_, new net.minecraft.util.math.BlockPos(p_149742_2_, p_149742_3_ + 1, p_149742_4_));
 	}
 
 	/**

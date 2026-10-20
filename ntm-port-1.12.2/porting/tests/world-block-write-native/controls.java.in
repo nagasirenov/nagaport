@@ -1,0 +1,22 @@
+import net.minecraft.world.World;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+class Controls {
+ static class Other { void setBlock(int x,int y,int z,Block b) {} }
+ void check(World world,Other other,Block block,int flags,double d){
+  world.setBlock(0,64,0,Blocks.AIR);
+  world.setBlock(0,64,0,Blocks.DIRT,1,3);
+  other.setBlock(0,64,0,Blocks.AIR);
+  world.setBlock(0,64,0,block);
+  world.setBlock(0.0,64,0,Blocks.AIR);
+  world.setBlock(d,64,0,Blocks.AIR);
+  world.setBlock(unresolved+1,64,0,Blocks.AIR);
+  world.setBlock(0,64,0,Blocks.DIRT,1+0,3);
+  world.setBlock(0,64,0,Blocks.DIRT,1,flags);
+  world.setBlock(0,64,0,Blocks.DIRT,16,3);
+  world.setBlock(0,64,0,Blocks.DIRT,0,16);
+  world.setBlockToAir(0,64,0);
+  String ignored="world.setBlock(0,64,0,Blocks.AIR)";
+  // world.setBlock(0,64,0,Blocks.AIR);
+ }
+}

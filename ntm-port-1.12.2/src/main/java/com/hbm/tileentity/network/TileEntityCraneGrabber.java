@@ -96,7 +96,7 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 					double y = this.pos.getY() + inputSide.offsetY * reach;
 					double z = this.pos.getZ() + inputSide.offsetZ * reach;
 
-					List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
+					List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, new AxisAlignedBB(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
 
 					for(EntityMovingItem item : items) {
 						if(item.isDead) continue;
@@ -146,7 +146,7 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 						double x = this.pos.getX() + inputSide.offsetX * reach;
 						double y = this.pos.getY() + inputSide.offsetY * reach;
 						double z = this.pos.getZ() + inputSide.offsetZ * reach;
-						List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
+						List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, new AxisAlignedBB(x + 0.1875D, y + 0.1875D, z + 0.1875D, x + 0.8125D, y + 0.8125D, z + 0.8125D));
 
 						for(EntityMovingItem item : items) {
 							ItemStack stack = item.getItemStack();

@@ -1,0 +1,32 @@
+// SOURCE: /tmp/nagaport-forge1614-userdev.jar!/src/main/java/net/minecraftforge/common/ForgeHooks.java
+// EXCERPT containing public static int getTotalArmorValue; source lines 192-221
+    public static int getTotalArmorValue(EntityPlayer player)
+    {
+        int ret = 0;
+        for (int x = 0; x < player.field_71071_by.field_70460_b.length; x++)
+        {
+            ItemStack stack = player.field_71071_by.field_70460_b[x];
+            if (stack != null && stack.func_77973_b() instanceof ISpecialArmor)
+            {
+                ret += ((ISpecialArmor)stack.func_77973_b()).getArmorDisplay(player, stack, x);
+            }
+            else if (stack != null && stack.func_77973_b() instanceof ItemArmor)
+            {
+                ret += ((ItemArmor)stack.func_77973_b()).field_77879_b;
+            }
+        }
+        return ret;
+    }
+
+    static
+    {
+        seedList.add(new SeedEntry(new ItemStack(Items.field_151014_N), 10));
+        initTools();
+    }
+
+    /**
+     * Called when a player uses 'pick block', calls new Entity and Block hooks.
+     */
+    public static boolean onPickBlock(MovingObjectPosition target, EntityPlayer player, World world)
+    {
+        ItemStack result = null;

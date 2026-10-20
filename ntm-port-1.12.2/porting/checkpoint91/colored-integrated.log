@@ -1,0 +1,1 @@
+PASS 9 exact reversible full files, 11 nonescaping scopes, 12 color-stream sites, 89 vertices, 41 exact setter sites and 54 mutation rejections; unchanged complete loops, comments, GL, materials, RNG and animation.

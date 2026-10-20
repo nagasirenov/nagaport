@@ -161,7 +161,7 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 				float rad = (float) heat / (float) maxHeat * 50F;
 				double range = 25D;
 				ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), rad);
-				List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));
+				List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));
 				
 				if(!RadiationConfig.disableNeutron) {
 					for(EntityLivingBase e : entities) {
@@ -190,10 +190,10 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 						ContaminationUtil.contaminate(e, HazardType.NEUTRON, ContaminationType.CREATIVE, eRads);
 						if(e instanceof EntityPlayer) {
 							EntityPlayer player = (EntityPlayer) e;
-							for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+							for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 								HazardTypeNeutron.apply(player.inventory.getStackInSlot(i), eRads);
 							}
-							for(int i = 0; i < player.inventory.armorInventory.length; i++) {
+							for(int i = 0; i < player.inventory.armorInventory.size(); i++) {
 								HazardTypeNeutron.apply(player.inventory.armorItemInSlot(i), eRads);
 							}
 						}
@@ -371,14 +371,14 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 		}
 		
 		this.world.createExplosion(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 18.0F, true);
-		this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.deco_steel);
+		{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY(); int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		this.world.setBlock(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), ModBlocks.corium_block);
-		this.world.setBlock(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), ModBlocks.deco_steel);
+		{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY() + 2; int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 
 		ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50);
 		
 		if(MobConfig.enableElementals) {
-			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));
+			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));
 			
 			for(EntityPlayer player : players) {
 				player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG).setBoolean("radMark", true);

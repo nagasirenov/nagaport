@@ -1,0 +1,95 @@
+{
+  "baseline": "a0dc7d14f453a1d6f01b0d5abdcd455358bf2714",
+  "operations": [
+    {
+      "path": "com/hbm/blocks/generic/BlockStorageCrate.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStorageCrate.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMassStorage.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMassStorage.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/GeigerCounter.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/GeigerCounter.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBattery.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBattery.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBigAssTank9000.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBigAssTank9000.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFluidTank.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFluidTank.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int p_149736_5_)\n    {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos)\n    {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/pile/BlockGraphiteFuel.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/pile/BlockGraphiteFuel.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/network/MachineBatterySocket.java",
+      "old": "public boolean hasComparatorInputOverride()",
+      "new": "public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/network/MachineBatterySocket.java",
+      "old": "public int getComparatorInputOverride(World world, int x, int y, int z, int side) {",
+      "new": "public int getComparatorInputOverride(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos blockPos) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    }
+  ]
+}

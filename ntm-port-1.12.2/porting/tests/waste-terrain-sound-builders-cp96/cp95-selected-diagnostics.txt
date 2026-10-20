@@ -1,0 +1,41 @@
+com/hbm/blocks/ModBlocks.java:1936: error: cannot find symbol
+		waste_earth = new WasteEarth(Material.GROUND, true).setTranslationKey("waste_earth").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + ":waste_earth");
+		                                                                                    ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+com/hbm/blocks/ModBlocks.java:1937: error: cannot find symbol
+		waste_mycelium = new WasteEarth(Material.GROUND, true).setTranslationKey("waste_mycelium").setStepSound(SoundType.PLANT).setLightLevel(1F).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + ":waste_mycelium_side");
+		                                                                                          ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+com/hbm/blocks/ModBlocks.java:1940: error: cannot find symbol
+		waste_log = new WasteLog(Material.WOOD).setTranslationKey("waste_log").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(2.5F);
+		                                                                      ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+com/hbm/blocks/ModBlocks.java:1941: error: cannot find symbol
+		waste_leaves = new WasteLeaves(Material.LEAVES).setTranslationKey("waste_leaves").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setBlockTextureName(RefStrings.MODID + ":waste_leaves");
+		                                                                                 ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+com/hbm/blocks/ModBlocks.java:1944: error: cannot find symbol
+		frozen_grass = new WasteEarth(Material.GROUND, false).setTranslationKey("frozen_grass").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                                       ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+com/hbm/blocks/ModBlocks.java:1945: error: cannot find symbol
+		frozen_log = new WasteLog(Material.WOOD).setTranslationKey("frozen_log").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                        ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+com/hbm/blocks/ModBlocks.java:1954: error: cannot find symbol
+		burning_earth = new WasteEarth(Material.GROUND, true).setTranslationKey("burning_earth").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + ":burning_earth");
+		                                                                                        ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block

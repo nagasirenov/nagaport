@@ -1,0 +1,3499 @@
+{
+  "base": "0be133c9fb9f07053e26f081371487e641c95214",
+  "active_occurrences": [
+    [
+      "src/main/java/com/hbm/blocks/BlockVolcanoV2.java",
+      64,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      126,
+      "this",
+      "this.world.setBlock(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.getBlockType(), this.getBlockMetadata(), 3);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      168,
+      "this",
+      "int meta = this.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      173,
+      "this",
+      "int meta = this.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      178,
+      "this",
+      "return this.getBlockMetadata() != META_SMOLDERING;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      182,
+      "this",
+      "return this.getBlockMetadata() != META_SMOLDERING;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      186,
+      "this",
+      "return this.getBlockMetadata() != META_SMOLDERING;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      190,
+      "this",
+      "return this.getBlockMetadata() == META_SMOLDERING ? 15 : 0;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      195,
+      "this",
+      "return this.getBlockMetadata() == META_SMOLDERING ? new Object[] {50, 50D, 10D} : null;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      199,
+      "this",
+      "switch(this.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockDoorGeneric.java",
+      184,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(te2.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockDoorGeneric.java",
+      188,
+      "qualified",
+      "switch(te2.getBlockMetadata() - offset){"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+      120,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+      157,
+      "this",
+      "if(this.getBlockMetadata() == 2) {"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+      160,
+      "this",
+      "if(this.getBlockMetadata() == 3) {"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+      163,
+      "this",
+      "if(this.getBlockMetadata() == 4) {"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+      167,
+      "this",
+      "if(this.getBlockMetadata() == 5) {"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java",
+      126,
+      "this",
+      "int subtype = this.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java",
+      137,
+      "this",
+      "if(this.getBlockMetadata() == 1) scout.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_INFECTED);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockWandJigsaw.java",
+      280,
+      "this",
+      "nbt.setInteger(\"direction\", this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockWandTandem.java",
+      303,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockWandTandem.java",
+      353,
+      "this",
+      "nbt.setInteger(\"direction\", this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockICF.java",
+      99,
+      "this",
+      "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockICF.java",
+      102,
+      "this",
+      "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockICF.java",
+      164,
+      "this",
+      "if(this.getBlockMetadata() != 1) return 0;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockICF.java",
+      173,
+      "this",
+      "if(this.getBlockMetadata() != 1) return;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockICF.java",
+      180,
+      "this",
+      "if(this.getBlockMetadata() != 1) return 0;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockICF.java",
+      203,
+      "this",
+      "if(this.getBlockMetadata() != 1) return false;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      105,
+      "this",
+      "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      108,
+      "this",
+      "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      170,
+      "this",
+      "if(this.getBlockMetadata() != 1) return fluid;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      180,
+      "this",
+      "if(this.getBlockMetadata() != 1) return 0;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      189,
+      "this",
+      "if(this.getBlockMetadata() != 1) return FluidTank.EMPTY_ARRAY;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      198,
+      "this",
+      "return this.getBlockMetadata() == 1;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      204,
+      "this",
+      "if(this.getBlockMetadata() != 1) return 0;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      219,
+      "this",
+      "if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      230,
+      "this",
+      "if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      241,
+      "this",
+      "if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      252,
+      "this",
+      "if(this.getBlockMetadata() != 1) return;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      261,
+      "this",
+      "if(this.getBlockMetadata() != 1) return 0;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      278,
+      "this",
+      "if(this.getBlockMetadata() != 1) return false;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      290,
+      "this",
+      "if(this.getBlockMetadata() != 1) return new int[0];"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      302,
+      "this",
+      "if(this.getBlockMetadata() != 1) return false;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      314,
+      "this",
+      "if(this.getBlockMetadata() != 1) return false;"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      337,
+      "this",
+      "if(this.getBlockMetadata() != 1) return new String[0];"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      345,
+      "this",
+      "if(this.getBlockMetadata() != 1) return \"\";"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/BlockPWR.java",
+      353,
+      "this",
+      "if(this.getBlockMetadata() != 1) return \"\";"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+      149,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() % 6).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+      222,
+      "this",
+      "int meta = this.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java",
+      187,
+      "this",
+      "ForgeDirection opp = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java",
+      290,
+      "this",
+      "return dir == ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineChungus.java",
+      60,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(entity.getBlockMetadata() - offset);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java",
+      104,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(distill.getBlockMetadata() - offset);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+      49,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+      108,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java",
+      54,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(entity.getBlockMetadata() - this.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineRotaryFurnace.java",
+      81,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(furnace.getBlockMetadata() - offset);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineTurbineGas.java",
+      83,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(turbine.getBlockMetadata() - this.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      86,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(piston.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      257,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      348,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+      234,
+      "qualified",
+      "int i = rbmk.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+      71,
+      "qualified",
+      "switch(entity.getBlockMetadata() - this.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/CableDiode.java",
+      187,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/CraneSplitter.java",
+      76,
+      "qualified",
+      "ForgeDirection rot = ForgeDirection.getOrientation(splitter.getBlockMetadata() - offset).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+      95,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(pipe.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/FluidPump.java",
+      156,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java",
+      87,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java",
+      85,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/entity/mob/EntityBlockSpider.java",
+      63,
+      "implicit_or_decl",
+      "public int getBlockMetadata() { return this.dataManager.get(BLOCK_META); }"
+    ],
+    [
+      "src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java",
+      55,
+      "implicit_or_decl",
+      "public byte getBlockMetadata() {"
+    ],
+    [
+      "src/main/java/com/hbm/entity/projectile/EntityRubble.java",
+      84,
+      "implicit_or_decl",
+      "public int getBlockMetadata() { return this.dataManager.get(BLOCK_META); }"
+    ],
+    [
+      "src/main/java/com/hbm/handler/DispenserBehaviorHandler.java",
+      300,
+      "qualified",
+      "EnumFacing facing = BlockDispenser.func_149937_b(source.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/handler/DispenserBehaviorHandler.java",
+      324,
+      "qualified",
+      "EnumFacing facing = BlockDispenser.func_149937_b(source.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/handler/neutron/PileNeutronHandler.java",
+      81,
+      "qualified",
+      "int meta = tile.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java",
+      85,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java",
+      94,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(rtty.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/items/tool/ItemModMinecart.java",
+      180,
+      "qualified",
+      "EnumFacing enumfacing = BlockDispenser.func_149937_b(source.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+      33,
+      "qualified",
+      "switch(((EntityFallingNuke) p_76986_1_).getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/entity/projectile/RenderRubble.java",
+      34,
+      "qualified",
+      "bindTexture(NativeBlockMaterial.texture(block, rocket.getBlockMetadata()));"
+    ],
+    [
+      "src/main/java/com/hbm/render/model/ModelBlockSpider.java",
+      29,
+      "qualified",
+      "int meta = ((EntityBlockSpider) entity).getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAirScrubber.java",
+      29,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAlkylation.java",
+      23,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAmmoPress.java",
+      26,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAnnihilator.java",
+      25,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAntimatter.java",
+      31,
+      "qualified",
+      "switch(te.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderArcFurnace.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderArcWelder.java",
+      28,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAshpit.java",
+      23,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAssemblyFactory.java",
+      41,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAssemblyMachine.java",
+      38,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAtmoTower.java",
+      20,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAtmosphericCompressor.java",
+      23,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderAtmosphericEmitter.java",
+      23,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java",
+      36,
+      "qualified",
+      "switch(tile.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBatterySocket.java",
+      37,
+      "qualified",
+      "switch(tile.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBigTurbine.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset)"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBlastDoor.java",
+      29,
+      "qualified",
+      "if(tileEntity.getBlockMetadata() == 2)"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBobble.java",
+      76,
+      "qualified",
+      "GL11.glRotated(22.5D * tile.getBlockMetadata() + 90, 0, -1, 0);"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBoiler.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBombMulti.java",
+      21,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBombMultiLarge.java",
+      31,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderBreeder.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset)"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCapsule.java",
+      22,
+      "qualified",
+      "if(te.getBlockMetadata() == 3)"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCatalyticCracker.java",
+      21,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCatalyticReformer.java",
+      36,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCentrifuge.java",
+      26,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCharger.java",
+      21,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderChemicalFactory.java",
+      26,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderChemicalPlant.java",
+      33,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderChungus.java",
+      29,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCombustionEngine.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCompressor.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCompressorCompact.java",
+      23,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCondenser.java",
+      26,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderConnector.java",
+      25,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderConnectorSuper.java",
+      25,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderConveyorPress.java",
+      23,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCoreComponent.java",
+      37,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCraneConsole.java",
+      26,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCrashedBomb.java",
+      42,
+      "qualified",
+      "EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, tile.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCrucible.java",
+      35,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCryoDistill.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCrystallizer.java",
+      26,
+      "qualified",
+      "switch(te.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderCustomMachine.java",
+      21,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java",
+      52,
+      "qualified",
+      "switch(tileentity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java",
+      62,
+      "qualified",
+      "switch(tileentity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java",
+      72,
+      "qualified",
+      "switch(tileentity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java",
+      89,
+      "qualified",
+      "if(b == ModBlocks.radiobox) this.model7.renderModel(0.0625F, tileentity.getBlockMetadata() > 5 ? 160 : 20);"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java",
+      98,
+      "qualified",
+      "switch(tileentity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDecoBlockAlt.java",
+      40,
+      "qualified",
+      "switch(tileentity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDemonLamp.java",
+      28,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDerrick.java",
+      24,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDeuteriumTower.java",
+      20,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDieselGen.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDishControl.java",
+      28,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDoorGeneric.java",
+      42,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDrain.java",
+      23,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDriveProcessor.java",
+      30,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDysonConverterAnatmogenesis.java",
+      27,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDysonConverterHE.java",
+      27,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDysonConverterTU.java",
+      24,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDysonLauncher.java",
+      27,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderDysonReceiver.java",
+      32,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderEPress.java",
+      29,
+      "qualified",
+      "switch(tileentity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderEPress.java",
+      51,
+      "qualified",
+      "switch(tileentity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderEPress.java",
+      78,
+      "qualified",
+      "switch(tileentity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderElectricHeater.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderElectrolyser.java",
+      21,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderEmitter.java",
+      28,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      29,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderExplosiveCharge.java",
+      21,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderExposureChamber.java",
+      31,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFEL.java",
+      29,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFENSU.java",
+      30,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFan.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFileCabinet.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata() >> 2) { //rotation"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFileCabinet.java",
+      41,
+      "qualified",
+      "switch(tile.getBlockMetadata() & 3) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFirebox.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFloodlight.java",
+      29,
+      "qualified",
+      "int meta = tileEntity.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFluidPump.java",
+      21,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFluidTank.java",
+      34,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFurnaceIron.java",
+      22,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFurnaceSteel.java",
+      24,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFusionBoiler.java",
+      22,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFusionBreeder.java",
+      22,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFusionCollector.java",
+      22,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFusionCoupler.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFusionKlystron.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFusionKlystronCreative.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderFusionMHDT.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderGeiger.java",
+      19,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderHTR3.java",
+      31,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderHTRF4.java",
+      21,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderHTRNeo.java",
+      27,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderHeaterHeatex.java",
+      21,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderHeatingOven.java",
+      24,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderHydroponic.java",
+      29,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderICF.java",
+      27,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderICFController.java",
+      27,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderICFMultiblock.java",
+      19,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderIGenerator.java",
+      20,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderIndustrialTurbine.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderIntake.java",
+      23,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderLPW2.java",
+      30,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderLaunchPad.java",
+      27,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderLaunchPadLarge.java",
+      33,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRocket.java",
+      28,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRusted.java",
+      29,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderLaunchTable.java",
+      28,
+      "qualified",
+      "switch(tileentity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderMagma.java",
+      34,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderMassStorage.java",
+      33,
+      "qualified",
+      "int dir = storage.getBlockMetadata() / 4;"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderMicrowave.java",
+      19,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderMilkReformer.java",
+      30,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderMissileAssembly.java",
+      32,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeBoy.java",
+      19,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeCustom.java",
+      19,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeFleija.java",
+      20,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeFstbmb.java",
+      25,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeGadget.java",
+      24,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeMan.java",
+      20,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeMike.java",
+      20,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeN2.java",
+      22,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukePrototype.java",
+      21,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeSolinium.java",
+      26,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderNukeTsar.java",
+      21,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderOrbitalComputer.java",
+      27,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderOrbitalStation.java",
+      44,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderOrbus.java",
+      25,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderOreSlopper.java",
+      32,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPABeamline.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPADetector.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPAQuadrupole.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPARFC.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPASource.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPUREX.java",
+      27,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPipeAnchor.java",
+      28,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPistonInserter.java",
+      28,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPlasmaHeater.java",
+      23,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPlushie.java",
+      61,
+      "qualified",
+      "GL11.glRotated(22.5D * tile.getBlockMetadata() + 90, 0, -1, 0);"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPoleSatelliteReceiver.java",
+      28,
+      "qualified",
+      "switch(tileentity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPrecAss.java",
+      38,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPuF6Tank.java",
+      18,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPump.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPumpjack.java",
+      23,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPylonBase.java",
+      54,
+      "qualified",
+      "(pyl.getBlockMetadata() - 10 == 5 && pylon.getBlockMetadata() - 10 == 2) ||"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPylonBase.java",
+      54,
+      "qualified",
+      "(pyl.getBlockMetadata() - 10 == 5 && pylon.getBlockMetadata() - 10 == 2) ||"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPylonBase.java",
+      55,
+      "qualified",
+      "(pyl.getBlockMetadata() - 10 == 2 && pylon.getBlockMetadata() - 10 == 5))) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPylonBase.java",
+      55,
+      "qualified",
+      "(pyl.getBlockMetadata() - 10 == 2 && pylon.getBlockMetadata() - 10 == 5))) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPylonLarge.java",
+      19,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPylonMedium.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderPyroOven.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRBMKConsole.java",
+      31,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRBMKDisplay.java",
+      22,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRBMKGauge.java",
+      26,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRBMKKeyPad.java",
+      25,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRadGen.java",
+      26,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      29,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRadiator.java",
+      22,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRadiolysis.java",
+      20,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRefueler.java",
+      32,
+      "qualified",
+      "switch(tile.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRocketAssembly.java",
+      34,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRotaryFurnace.java",
+      25,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderRotationTester.java",
+      27,
+      "qualified",
+      "switch(tileentity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSILEX.java",
+      21,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSawmill.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSkeletonHolder.java",
+      30,
+      "qualified",
+      "switch(te.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSnowglobe.java",
+      36,
+      "qualified",
+      "GL11.glRotated(22.5D * tile.getBlockMetadata() + 90, 0, -1, 0);"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java",
+      30,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java",
+      29,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSolderingStation.java",
+      28,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSolidifier.java",
+      23,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderStardar.java",
+      32,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSteamEngine.java",
+      26,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderStirling.java",
+      31,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderStrandCaster.java",
+      37,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderSubstation.java",
+      18,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderTelex.java",
+      22,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java",
+      31,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderTurbineGas.java",
+      23,
+      "qualified",
+      "switch(turbinegas.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderTurbofan.java",
+      25,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderUF6Tank.java",
+      18,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderVacuumCircuit.java",
+      32,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderVol2.java",
+      26,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderWandStructure.java",
+      18,
+      "qualified",
+      "if(tile.getBlockMetadata() != 0) return;"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderWoodBurner.java",
+      22,
+      "qualified",
+      "switch(tile.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderXenonThruster.java",
+      29,
+      "qualified",
+      "switch(te.getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderZirnox.java",
+      18,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/render/tileentity/RenderZirnoxDestroyed.java",
+      17,
+      "qualified",
+      "switch(tileEntity.getBlockMetadata() - 10) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/TileEntityDoorGeneric.java",
+      70,
+      "implicit_or_decl",
+      "ForgeDirection dir = ForgeDirection.getOrientation(getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java",
+      536,
+      "this",
+      "return (this.getBlockMetadata() >= 6 && this.getBlockMetadata() <= 11)"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java",
+      536,
+      "this",
+      "return (this.getBlockMetadata() >= 6 && this.getBlockMetadata() <= 11)"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityCrashedBomb.java",
+      26,
+      "this",
+      "EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPad.java",
+      52,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java",
+      347,
+      "this",
+      "missile.setDirection((byte) MathHelper.clamp(this.getBlockMetadata() - 10, 2, 5));"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java",
+      217,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+      84,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+      252,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java",
+      643,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+      68,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/deco/TileEntityObjTester.java",
+      11,
+      "implicit_or_decl",
+      "public int getBlockMetadata()"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java",
+      46,
+      "this",
+      "Trap trap = Trap.get(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java",
+      107,
+      "this",
+      "Trap trap = Trap.get(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java",
+      42,
+      "this",
+      "ForgeDirection d = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java",
+      207,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java",
+      88,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java",
+      120,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java",
+      32,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java",
+      142,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java",
+      170,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java",
+      208,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java",
+      96,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java",
+      176,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+      103,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java",
+      222,
+      "this",
+      "if(dir.getOpposite().ordinal() != this.getBlockMetadata())"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java",
+      60,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java",
+      118,
+      "this",
+      "if(dir.getOpposite().ordinal() == this.getBlockMetadata()) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java",
+      66,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java",
+      165,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java",
+      187,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java",
+      384,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java",
+      440,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumTower.java",
+      50,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java",
+      86,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java",
+      38,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java",
+      70,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java",
+      32,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java",
+      98,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java",
+      171,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java",
+      184,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java",
+      78,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java",
+      172,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java",
+      195,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java",
+      221,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+      75,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+      142,
+      "qualified",
+      "int meta = silex.getBlockMetadata() - BlockDummyable.offset;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+      143,
+      "this",
+      "if(rotationIsValid(meta, this.getBlockMetadata() - BlockDummyable.offset) && i >= 5 && silexSpacing == false\t) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java",
+      151,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryOutlet.java",
+      58,
+      "this",
+      "if(side != ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite()) return false;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java",
+      27,
+      "this",
+      "if(side != ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite()) return false;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java",
+      133,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java",
+      107,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java",
+      276,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterElectric.java",
+      39,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java",
+      139,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java",
+      200,
+      "this",
+      "ForgeDirection facing = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java",
+      77,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java",
+      244,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java",
+      165,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java",
+      66,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java",
+      127,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java",
+      175,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityICFStruct.java",
+      21,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityICFStruct.java",
+      38,
+      "this",
+      "this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.icf, this.getBlockMetadata() + BlockDummyable.offset, 3);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+      90,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+      131,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java",
+      137,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      165,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java",
+      548,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java",
+      122,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java",
+      221,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java",
+      321,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      256,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      280,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      292,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java",
+      432,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      270,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      306,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      318,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java",
+      458,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java",
+      162,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressor.java",
+      58,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorCompact.java",
+      35,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java",
+      135,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java",
+      119,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDetector.java",
+      19,
+      "this",
+      "int meta = this.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+      64,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+      84,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+      109,
+      "this",
+      "ForgeDirection dir0 = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      198,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      342,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      580,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      625,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java",
+      190,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java",
+      216,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+      102,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+      140,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java",
+      216,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+      107,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+      137,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java",
+      219,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java",
+      115,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java",
+      215,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java",
+      362,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java",
+      74,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java",
+      137,
+      "this",
+      "ForgeDirection myDir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java",
+      144,
+      "this",
+      "ForgeDirection myDir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java",
+      201,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java",
+      215,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIntake.java",
+      115,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+      102,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+      133,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java",
+      211,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.SOUTH;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java",
+      89,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java",
+      169,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java",
+      96,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java",
+      143,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java",
+      101,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java",
+      263,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java",
+      92,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java",
+      159,
+      "this",
+      "this.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java",
+      64,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java",
+      92,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java",
+      290,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java",
+      300,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java",
+      404,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java",
+      128,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java",
+      229,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java",
+      145,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java",
+      153,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java",
+      145,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      111,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      131,
+      "this",
+      "if(this.getBlockMetadata() < 12) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      133,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      209,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      355,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java",
+      117,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+      135,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+      169,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+      277,
+      "this",
+      "ForgeDirection rot = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java",
+      283,
+      "this",
+      "ForgeDirection rot = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityRadiator.java",
+      50,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityRadiator.java",
+      61,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityRadiobox.java",
+      36,
+      "this",
+      "if(!this.world.isRemote && this.getBlockMetadata() > 5 && (power >= 25000 || infinite)) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java",
+      383,
+      "this",
+      "this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.zirnox_destroyed, this.getBlockMetadata(), 3);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java",
+      384,
+      "this",
+      "MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), dimensions, ModBlocks.zirnox_destroyed, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset));"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java",
+      412,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java",
+      41,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java",
+      71,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+      99,
+      "this",
+      "aabb = BlockDummyable.getAABBRotationOffset(aabb, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getRotation(ForgeDirection.UP));"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java",
+      132,
+      "this",
+      "int orientation = this.getBlockMetadata() - BlockDummyable.offset;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java",
+      141,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java",
+      71,
+      "this",
+      "int orientation = this.getBlockMetadata() - BlockDummyable.offset;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java",
+      165,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java",
+      183,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java",
+      194,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java",
+      203,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityVaultDoorMigration.java",
+      16,
+      "implicit_or_decl",
+      "int meta = getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java",
+      86,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java",
+      152,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset) == ForgeDirection.WEST;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPABeamline.java",
+      67,
+      "this",
+      "ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPABeamline.java",
+      80,
+      "this",
+      "ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java",
+      59,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java",
+      118,
+      "this",
+      "ForgeDirection detectorDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java",
+      51,
+      "this",
+      "ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java",
+      80,
+      "this",
+      "ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java",
+      121,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java",
+      49,
+      "this",
+      "ForgeDirection rfcDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java",
+      70,
+      "this",
+      "ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java",
+      111,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      132,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      158,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      188,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java",
+      56,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java",
+      75,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java",
+      86,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java",
+      212,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionCollector.java",
+      25,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionCoupler.java",
+      29,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java",
+      159,
+      "qualified",
+      "ForgeDirection dir = ForgeDirection.getOrientation(that.getBlockMetadata() - 10).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java",
+      201,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java",
+      91,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java",
+      151,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java",
+      110,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticCracker.java",
+      144,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java",
+      134,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java",
+      164,
+      "this",
+      "this.getBlockMetadata();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java",
+      96,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java",
+      130,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java",
+      253,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java",
+      142,
+      "this",
+      "if(this.getBlockMetadata() < 12) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java",
+      143,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileBreedingFuel.java",
+      22,
+      "this",
+      "this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_tritium, this.getBlockMetadata(), 3);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java",
+      45,
+      "this",
+      "this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_plutonium, this.getBlockMetadata() & 7, 3);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java",
+      52,
+      "this",
+      "this.heat -= (this.getBlockMetadata() & 4) == 4 ? heat * 0.065 : heat * 0.05; //remove 5% of the stored heat per tick; 6.5% for windscale"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java",
+      86,
+      "this",
+      "if((this.getBlockMetadata() & 8) == 8) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java",
+      92,
+      "this",
+      "this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockMetadata() | 8, 3);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileNeutronDetector.java",
+      22,
+      "this",
+      "if(this.neutrons >= this.maxNeutrons && (this.getBlockMetadata() & 8) > 0)"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileNeutronDetector.java",
+      24,
+      "this",
+      "if(this.neutrons < this.maxNeutrons && this.lastNeutrons < this.maxNeutrons && (this.getBlockMetadata() & 8) == 0)"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      133,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      227,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      306,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      461,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java",
+      68,
+      "this",
+      "return this.getBlockMetadata() != RBMKBase.DIR_NO_LID.ordinal() + RBMKBase.offset;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java",
+      388,
+      "this",
+      "if(this.getBlockMetadata() == RBMKBase.DIR_NORMAL_LID.ordinal() + RBMKBase.offset)"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java",
+      367,
+      "this",
+      "if(this.getBlockMetadata() == RBMKBase.DIR_NORMAL_LID.ordinal() + RBMKBase.offset)"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java",
+      164,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java",
+      178,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java",
+      133,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java",
+      145,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java",
+      96,
+      "this",
+      "if(this.getBlockMetadata() < 12) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java",
+      98,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.DOWN);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java",
+      205,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java",
+      44,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityCableSwitch.java",
+      11,
+      "this",
+      "if(this.getBlockMetadata() == 0 && this.node != null) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityCableSwitch.java",
+      19,
+      "this",
+      "return this.getBlockMetadata() == 1;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityConnector.java",
+      31,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityConnector.java",
+      41,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite() == dir;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityConnectorSuper.java",
+      10,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java",
+      45,
+      "implicit_or_decl",
+      "return ForgeDirection.getOrientation(getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java",
+      50,
+      "implicit_or_decl",
+      "return override != ForgeDirection.UNKNOWN ? override : ForgeDirection.getOrientation(getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+      89,
+      "this",
+      "if(this.getBlockMetadata() > 1) { //ignore if pointing up or down"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+      140,
+      "this",
+      "if(this.getBlockMetadata() > 1) { //ignore if pointing up or down"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java",
+      26,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java",
+      73,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypointRequest.java",
+      16,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java",
+      37,
+      "this",
+      "return this.getBlockMetadata() == 1;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java",
+      43,
+      "this",
+      "if(this.getBlockMetadata() == 0 && this.node != null) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java",
+      115,
+      "implicit_or_decl",
+      "return new Object[] {getBlockMetadata() == 1 ? 1 : 0};"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java",
+      134,
+      "implicit_or_decl",
+      "return String.valueOf(getBlockMetadata() == 1 ? 1 : 0);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityFluidValve.java",
+      12,
+      "this",
+      "return this.getBlockMetadata() == 1;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityFluidValve.java",
+      19,
+      "this",
+      "if(this.getBlockMetadata() == 0 && this.node != null) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityPipeAnchor.java",
+      32,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityPipeAnchor.java",
+      42,
+      "this",
+      "return ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite() == dir && type == this.type;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityPylonLarge.java",
+      21,
+      "implicit_or_decl",
+      "switch(getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityPylonMedium.java",
+      23,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityPylonMedium.java",
+      40,
+      "this",
+      "return this.hasTransformer() ? ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite() == dir : false;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityPylonMedium.java",
+      49,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchController.java",
+      38,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java",
+      50,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchReader.java",
+      37,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchSender.java",
+      13,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/network/TileEntitySubstation.java",
+      26,
+      "implicit_or_decl",
+      "switch(getBlockMetadata() - BlockDummyable.offset) {"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseArtillery.java",
+      64,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+      289,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+      759,
+      "this",
+      "int meta = this.getBlockMetadata() - BlockDummyable.offset;"
+    ],
+    [
+      "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java",
+      162,
+      "this",
+      "ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();"
+    ],
+    [
+      "src/main/java/com/hbm/wiaj/cannery/CanneryCrucible.java",
+      221,
+      "implicit_or_decl",
+      "public int getBlockMetadata() {"
+    ]
+  ],
+  "source_sha256": {
+    "src/main/java/api/hbm/energymk2/IEnergyReceiverMK2.java": "009561cdccc240754b22a8ceb2d12e91ddab6b245570e8fc32ec42ffa7bfa7ae",
+    "src/main/java/api/hbm/tile/IInfoProviderEC.java": "ac69c14651268c99aa325a3197644a84e3b526ef5a8eea379705640f4d0a8966",
+    "src/main/java/com/hbm/blocks/BlockDummyable.java": "37d31d015839532f4e26b57d46f603f8bd81d216d0cc2a509967252a6fe89163",
+    "src/main/java/com/hbm/blocks/BlockVolcanoV2.java": "2b49877568e8e69655f229a50e26b2c495ade1184fdeaa5f8ff478f6d7533e58",
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": "c3d931415af5617835d5b18943fc1b144b76b3b0542f3ef6372f0a3166b757a1",
+    "src/main/java/com/hbm/blocks/generic/BlockDoorGeneric.java": "71404959a4ca496333503430d4cfb3ffd690cb621da5b591a8cd6dc812957ac0",
+    "src/main/java/com/hbm/blocks/generic/BlockEmitter.java": "4a75544b1aae775642c2aa4dd71541b766b77394bc376df420fc0362ca36d1af",
+    "src/main/java/com/hbm/blocks/generic/BlockGlyphidSpawner.java": "524cdb9fb62a8e8fd82e53a352ae80b2406230f897c5904a0317ed97e9bf2b63",
+    "src/main/java/com/hbm/blocks/generic/BlockWandJigsaw.java": "5a586d2ba2fbd903edff8ed8fa293544a641efe705a37bee9b3b9a67c56bed6f",
+    "src/main/java/com/hbm/blocks/generic/BlockWandTandem.java": "93a1803afd66427ff7a9cc3b4535a04365a5a33e322a4e9af16764ba92a7e4c4",
+    "src/main/java/com/hbm/blocks/machine/BlockICF.java": "5ecd62c72f90832fc9033e6555ee6c0cbea66fc9050f5ec5bcfd4201271e6126",
+    "src/main/java/com/hbm/blocks/machine/BlockPWR.java": "27dd69bda896525ec745dc805d2f97c10e9e28313ec5420abb55754bced751d2",
+    "src/main/java/com/hbm/blocks/machine/Floodlight.java": "d9d01dc4f80df7e61ad859ecfef4adc1876c7884bf305faef1ae4f75de5fb52f",
+    "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java": "802b7fb0b711b0920c9b0a04c25845ae913eea1c249756b5ce14dd900022deda",
+    "src/main/java/com/hbm/blocks/machine/MachineChungus.java": "1c9a57de26a843a24c887749e91d8a19ff196b94e282f262c45572f305df0a1d",
+    "src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java": "103473b113215e0d3826c05d3f014a33889d5066072c76a4f7e60f65f6d0110e",
+    "src/main/java/com/hbm/blocks/machine/MachineDiesel.java": "bdccff36d44d388c613179fec626884b8d6d2de9e1b8c5f44540f440f3f548eb",
+    "src/main/java/com/hbm/blocks/machine/MachineEPress.java": "fa76116c59bed70cad6e6b4123cd389fb785b4af914d3895760df3b766e282fb",
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": "a814c158eb59c33923fc2c9852cdad2c8001cd21b2990e178e84cd2a444f5173",
+    "src/main/java/com/hbm/blocks/machine/MachineIndustrialTurbine.java": "2ac5fdd38c22c114f6c032161fb2adb7d8429da71592444206951ad5ee1ba0c1",
+    "src/main/java/com/hbm/blocks/machine/MachinePress.java": "7d21ed61223f8d70cad598d0818f0e971ef439e8d7b6c01d6fe9a23bed36723b",
+    "src/main/java/com/hbm/blocks/machine/MachineRotaryFurnace.java": "60f92a21f151fb01d38bc5cd45b99b1bf365b17da4a686fae6f1585846d18f46",
+    "src/main/java/com/hbm/blocks/machine/MachineTurbineGas.java": "4cd24fd0e96e92e9a82061fbfa91daaa10acd79ff0c03b00d5646f0e7db8051e",
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": "90626cfee2c0af2aeefca983d5b86076639f6a57a743ebcf6e7d4d06d548e378",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java": "2cb8b6a0236190296f6b08b0058344175ba60af8ba0ee05779071bb84a0507c9",
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java": "8760fb6554f4c94abe2763d43750dfb9e3d2b5fb96177fb2ed0f23a48c6bd74b",
+    "src/main/java/com/hbm/blocks/network/CableDiode.java": "30159db6ac2c97605a831b2ee936c0bf528e8f536112d29f3ca63c5cfe5f8929",
+    "src/main/java/com/hbm/blocks/network/CraneSplitter.java": "e202d17d4243245ab6bcaad867a3f86eebd933e2d6f22370d204945dcdc8eb28",
+    "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java": "c33087d384c889e93db2b65110a58f1569dea09002b84ee3ab888b88c4f8f0d6",
+    "src/main/java/com/hbm/blocks/network/FluidPump.java": "76e79a4f59aa784d7e791dbeb20ae4b6f44fd0c64e5cbd92f86bf51d102eda87",
+    "src/main/java/com/hbm/blocks/rail/RailStandardSwitch.java": "b6936d8f99bf65f0fb18cde703ba0d71959dddd8beb5280c40b7fec51b5edae2",
+    "src/main/java/com/hbm/blocks/rail/RailStandardSwitchFlipped.java": "4a7df1b6683d0c1501091d6322cf7e3f98339d16579a77f286ccd3b010cd0bc8",
+    "src/main/java/com/hbm/entity/mob/EntityBlockSpider.java": "1612a75da91f7ccb775f72501f7a46d9df3fbbb52fd7bd567d1f429a607e18ca",
+    "src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java": "9d839efc70efab2df0660d2026a3efb40eadcc13120f65a34d026479fc1cd576",
+    "src/main/java/com/hbm/entity/projectile/EntityRubble.java": "396682f0f5d0c253ffaf1f75b53c5ebc0e1a05e48c9f3ec92ca464a4ac05223b",
+    "src/main/java/com/hbm/handler/DispenserBehaviorHandler.java": "59031be99f308515687febafb88c1d0617fbd70d54a38d1134ae6ef84d196536",
+    "src/main/java/com/hbm/handler/neutron/PileNeutronHandler.java": "2f5242cb2303d429cd94c032531e43c42ebe82f46ca9d1d8059f61702ee56933",
+    "src/main/java/com/hbm/handler/threading/PacketThreading.java": "fc5559f046fc3cec1f33bc9b64b1cbdf9a55d81712d216a7cf52a72320cca4d6",
+    "src/main/java/com/hbm/inventory/container/ContainerMachineEPress.java": "1df47fec8913c1821040ddccb1084b3371ce26f0c272fd6289f4f0d78c6a424e",
+    "src/main/java/com/hbm/inventory/container/ContainerMachinePress.java": "52e789dcd18c4f2f890b2418fde7d4a3e1b9154cc2baf3d281bf07e5437cd141",
+    "src/main/java/com/hbm/inventory/gui/GUIMachineEPress.java": "dbd596c928f9c9ee40a63c0f94e535075393e173225162eff9b9f6ac6ee11aa3",
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePress.java": "57ce8ca4627613f36a96c9105bce3d6032cdfa7c44ad9792ea942429e7af50e2",
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchController.java": "5009baa9720629dc9f3ab1a4f6e4190600e26e51bd38e4d182bc0dd415b8baaf",
+    "src/main/java/com/hbm/inventory/gui/GUIScreenRadioTorchReader.java": "eae066d9ab9f1c18efbc743aaa47cd8ac65805e023c4c729cfa255455106a5e6",
+    "src/main/java/com/hbm/items/tool/ItemModMinecart.java": "2e343d6d81d210aa4b20263237f7da37db4de400a39c0d276d9e5958146b1958",
+    "src/main/java/com/hbm/lib/ForgeDirection.java": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
+    "src/main/java/com/hbm/main/ClientProxy.java": "c4d91846df1aadac34fb08bcc8e2eda1a549d5443719a8205c388995e81b638c",
+    "src/main/java/com/hbm/main/MainRegistry.java": "5d2d4c831dcd98a5ae43614d44512181f6cbec2b6dd8539233e8d3a4baef0b9f",
+    "src/main/java/com/hbm/packet/PacketDispatcher.java": "7f6e03acb4aaa72e6e89fbb3e20cf1424e60a1fb4b78afa6b0fc62eff321c303",
+    "src/main/java/com/hbm/packet/threading/PrecompiledPacket.java": "77ba407769d242823edffed5554564b6b72df6b80b5aea33224d1465e12eb56a",
+    "src/main/java/com/hbm/packet/threading/ThreadedPacket.java": "235f68c8e133815b95cc144ac91da930f420a98ac65be5147cc6f0739a6b8310",
+    "src/main/java/com/hbm/packet/toclient/BufPacket.java": "00f95bb791f5671ed36c6d355e0dfff3fa9e59fd2c7526010b4cac64915edb33",
+    "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java": "1460a3dfb60435c701462437db54759251ad60d4ffca9fb38ac0dd28c265a4e4",
+    "src/main/java/com/hbm/render/entity/projectile/RenderRubble.java": "f5fed81ff4c74c870dee89bf5d1d15763473ec90fd9ccee65da887ee575b36cd",
+    "src/main/java/com/hbm/render/model/ModelBlockSpider.java": "d4eb36c878f7c5287cba6d8178c3d6f1eec2302dde09d66b8b38ecb65be0fcc9",
+    "src/main/java/com/hbm/render/tileentity/RenderAirScrubber.java": "8d196ebd1ba5c5a6b02d02aeab2ab75b24a807204191e6da075c39bbe71cc6d3",
+    "src/main/java/com/hbm/render/tileentity/RenderAlkylation.java": "33543abffb4eec5e3f153c4fd27556597260ec79dec9e19c189014978945ffb6",
+    "src/main/java/com/hbm/render/tileentity/RenderAmmoPress.java": "9658f134e3118dafe845894f93b9adc0ecb0630dd25a36a1b470e3c68a56084d",
+    "src/main/java/com/hbm/render/tileentity/RenderAnnihilator.java": "7343e33d38569dc79cc808d01e5c477875de5e79720360082cf84829a7582063",
+    "src/main/java/com/hbm/render/tileentity/RenderAntimatter.java": "64038eeace673b3b48e2d24026fd59f2c9a70a455347dc6897146b43a33860ab",
+    "src/main/java/com/hbm/render/tileentity/RenderArcFurnace.java": "1a5dfea4169f25f7ad608bd351971a942bad6f110e73ed538ce00bba49dd9767",
+    "src/main/java/com/hbm/render/tileentity/RenderArcWelder.java": "388be51b26e5a039afceb6a3551f3a635dd9e12023a2eb7c5d901e12f75e7d65",
+    "src/main/java/com/hbm/render/tileentity/RenderAshpit.java": "c5f24062c8e80a54f6f8bf7dcbd88452999f77509272c8968d74eee4801017f8",
+    "src/main/java/com/hbm/render/tileentity/RenderAssemblyFactory.java": "63a18863896d9f52a46780d6829e568b5888c620ccf9743422638e3fdda4ec77",
+    "src/main/java/com/hbm/render/tileentity/RenderAssemblyMachine.java": "3ee6ff22f9951eb36ba9b05ff5f9a8844d56f813d0d13d0ee08d8dfdd77ed8b8",
+    "src/main/java/com/hbm/render/tileentity/RenderAtmoTower.java": "8fc7dfb42cd511fd8bccfdb286449521baee9aee2cb6ac9f206c2695c80d5f16",
+    "src/main/java/com/hbm/render/tileentity/RenderAtmosphericCompressor.java": "f233d03b8ff374a23e84fcf66c2ad1555f1345000a0e031576f2bd0b9a8c00ba",
+    "src/main/java/com/hbm/render/tileentity/RenderAtmosphericEmitter.java": "5891bb8c4d864166ea9ac5b9bdf2e3d21d5262eea86683d8dd3017e570b0893a",
+    "src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java": "ae791a92c84ed13fcf6c14b697e31c227999a1fa21331db2d398d447e88ef943",
+    "src/main/java/com/hbm/render/tileentity/RenderBatterySocket.java": "7b483a7b0f065a60cab7a2d9c757e7621920d4f97de312e05b87119d35a58441",
+    "src/main/java/com/hbm/render/tileentity/RenderBigTurbine.java": "4bcb2c635aa6199df29586ba956c2175888ee1cfaa46e9e024d795f1eeb50333",
+    "src/main/java/com/hbm/render/tileentity/RenderBlastDoor.java": "71ed5386d8dd8458aa97cd0e53149b58380811d4b3a0c788183afd794fc189ce",
+    "src/main/java/com/hbm/render/tileentity/RenderBobble.java": "1fb7bbd770ffdc64beb87e4db465211736112cf17ba28fb904a4c670e49838ee",
+    "src/main/java/com/hbm/render/tileentity/RenderBoiler.java": "b73cadc385f30b61b2215844f7338238bbe22a4ec2e63e3c419b95b46a4be934",
+    "src/main/java/com/hbm/render/tileentity/RenderBombMulti.java": "31a30b2644dd695a3b42b08c4248bd415c3e6d4874cf0a70bcbaea7e2bf565fe",
+    "src/main/java/com/hbm/render/tileentity/RenderBombMultiLarge.java": "4ad4e0a67c96c6a9df6ee025ee27d8b05360bffb7cb49c7daef547a883dc8a78",
+    "src/main/java/com/hbm/render/tileentity/RenderBreeder.java": "56f14f98b490b8130d3dd199fbaae324e66a61e9edfe4be378036b6af043f661",
+    "src/main/java/com/hbm/render/tileentity/RenderCapsule.java": "7c4bac4138fb366b111517d0d367bafb6c336d267fcefb9e451d491198e2ace6",
+    "src/main/java/com/hbm/render/tileentity/RenderCatalyticCracker.java": "0688e1267de41922d1fb8c3f82db704980e363113f346cd3928a1b655cf2dfcc",
+    "src/main/java/com/hbm/render/tileentity/RenderCatalyticReformer.java": "3bee53e6e40ec59dd279db0e5478bd2fd76fe1e10869c55b80bff87035017393",
+    "src/main/java/com/hbm/render/tileentity/RenderCentrifuge.java": "0ccaf49a14b6168debcc7434cc85ca789ddc9eb595aba28444922eba6fba5ae0",
+    "src/main/java/com/hbm/render/tileentity/RenderCharger.java": "5025c4ba04bd6a3c05393092c4f1e4ba0103ae236e565b08b979e6a32c47585b",
+    "src/main/java/com/hbm/render/tileentity/RenderChemicalFactory.java": "f7441092457c3a745adf386e2735f490ead98f612ea97b77a69b0557d8d7d03d",
+    "src/main/java/com/hbm/render/tileentity/RenderChemicalPlant.java": "40e46f45bb697d59eb559dc7d9373e65890c548020fd4841ba3b4cbd6291528f",
+    "src/main/java/com/hbm/render/tileentity/RenderChungus.java": "fa12961948a6ad1bd5ce5eb9f2f633a70fa7128ac76261c3cfe301a56e87d8ce",
+    "src/main/java/com/hbm/render/tileentity/RenderCombustionEngine.java": "7c55da7a1feeb7836ae2bda3af9cfb7f844daf111ed4f8938fa138bbf508f3ef",
+    "src/main/java/com/hbm/render/tileentity/RenderCompressor.java": "219d2f399f51c54221e161c1857a9d81443d888792eca1acd9f08af612ea9091",
+    "src/main/java/com/hbm/render/tileentity/RenderCompressorCompact.java": "ac02a06feb983ccc572d73c2542b9e7c8dc20f34dbacce88e8f6fb4ef6ceeae5",
+    "src/main/java/com/hbm/render/tileentity/RenderCondenser.java": "c0f85ede6f4ff3d0d133e169f2eedf5124cc93df36effc27ed18ee2d9110f36f",
+    "src/main/java/com/hbm/render/tileentity/RenderConnector.java": "f8cb86564aba1cbfb2cda5d55a18422125807a459140c0265db2320b94490938",
+    "src/main/java/com/hbm/render/tileentity/RenderConnectorSuper.java": "5f710411e1c3b9b5b368d97cf663911e046d523fe1502222b576941f7298dafc",
+    "src/main/java/com/hbm/render/tileentity/RenderConveyorPress.java": "6a06aa6be8e8d16c3ba90a81e608a1ee091cafe413371f4e7a0a40cfc02a64ac",
+    "src/main/java/com/hbm/render/tileentity/RenderCoreComponent.java": "a80d149c611e671ccc5c677dbe9bdd8b4a2a6223ae6d3f7926e561b72cc974cb",
+    "src/main/java/com/hbm/render/tileentity/RenderCraneConsole.java": "b0e0aa9abaaf165077d23d78efab33bd7d4341133cb6d99ae697e6f586021af1",
+    "src/main/java/com/hbm/render/tileentity/RenderCrashedBomb.java": "700cca5d6eec2fb7724a2f7ca1c28f72ce68d3bedf46862af55752afac51bfb6",
+    "src/main/java/com/hbm/render/tileentity/RenderCrucible.java": "73523f1c720b7e409a5036e4abe9d6e337e0249ca4b54c71398158c524fb6160",
+    "src/main/java/com/hbm/render/tileentity/RenderCryoDistill.java": "e70a07e45f0e7e3014911b12155df7ddc247e71c7f50d7518d41fe022cc2db0d",
+    "src/main/java/com/hbm/render/tileentity/RenderCrystallizer.java": "1a1b1d3e777b19db67adc7b651ae937325c81c19c9d2e3d5c9f9bed49f41df1a",
+    "src/main/java/com/hbm/render/tileentity/RenderCustomMachine.java": "16cb1abd6c7a211de9729c219445c00d15e72f94bb3e35cfd05abf4ade104dd3",
+    "src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java": "5f82fef29fa93194d5b53a6968416c68892af716fac16726467cca919f510151",
+    "src/main/java/com/hbm/render/tileentity/RenderDecoBlockAlt.java": "45af64d18a82b61a79ed8a75922be4263f8849ec9321779868a0b31df1458ad2",
+    "src/main/java/com/hbm/render/tileentity/RenderDemonLamp.java": "9c1b72f7b83b7da4f8ddab00bf6cf6e4dd6355389dff8c2a3a7910508b6da40f",
+    "src/main/java/com/hbm/render/tileentity/RenderDerrick.java": "d9f5b7da4a9433dc74da6a22389348394203a2a4e8aecc72f65851c852a564b2",
+    "src/main/java/com/hbm/render/tileentity/RenderDeuteriumTower.java": "9fc60fcb65f9611e83fecb268c2a69d19fe01e358ba14059c416197e0143b76b",
+    "src/main/java/com/hbm/render/tileentity/RenderDieselGen.java": "97af7014c9fe77634eb1422edb9d54ff163d458d145b736135bcae0159ebd1d4",
+    "src/main/java/com/hbm/render/tileentity/RenderDishControl.java": "8de945546c48d41002387fcf80205021e7558ce80455c842f9952d0c2f706e11",
+    "src/main/java/com/hbm/render/tileentity/RenderDoorGeneric.java": "e585fc277d731b4640b32ea31fdd24ffb3f271ea7197830e320a381ae6168f0e",
+    "src/main/java/com/hbm/render/tileentity/RenderDrain.java": "9ebf949ca708e59aeef273fe962893706d807ab6c08538663a84de04503e1091",
+    "src/main/java/com/hbm/render/tileentity/RenderDriveProcessor.java": "9128816a9116345c18f9b3401543b71bcadc4a7509c6a6b9ce44d44b2fa19ccd",
+    "src/main/java/com/hbm/render/tileentity/RenderDysonConverterAnatmogenesis.java": "78dd79b0bdb3576166dc279da592b229867b8cdd41d1095b03b46570eeeb2c40",
+    "src/main/java/com/hbm/render/tileentity/RenderDysonConverterHE.java": "be3136da2f203c629b8183b7fb8bdf2214223ffac9838a9870c109da6200af11",
+    "src/main/java/com/hbm/render/tileentity/RenderDysonConverterTU.java": "01c56b846dd7989c3e78da3eea5dd3aa46b0c85f1ba6da2fa4060cc5f27d88f1",
+    "src/main/java/com/hbm/render/tileentity/RenderDysonLauncher.java": "500101a838f15022e7369db51f4bf2f2af5a726ef8f24b9f7ec09d3a64efd4d1",
+    "src/main/java/com/hbm/render/tileentity/RenderDysonReceiver.java": "633bfdd1d67540d3b2f3e5bd02beb39f18cdcb17dbd6eb82f7b2c598f60ece2e",
+    "src/main/java/com/hbm/render/tileentity/RenderEPress.java": "3daca4a3daf2b0b01990e5940e069a99c83ae8157f1b0da092777d2c95181f04",
+    "src/main/java/com/hbm/render/tileentity/RenderElectricHeater.java": "c51e7e28332aa56d5ef5139ea7e74c713ad4d1bdeeef00c4185b9bdb0337e381",
+    "src/main/java/com/hbm/render/tileentity/RenderElectrolyser.java": "659a35bb9bd0f45eedabf92a80c3489d6443dbc307ff6f3e2b2914631f58ae96",
+    "src/main/java/com/hbm/render/tileentity/RenderEmitter.java": "d72660f91e866a7b53e1a56461d0ca145d476579c730c3204f4897b9242edb60",
+    "src/main/java/com/hbm/render/tileentity/RenderExcavator.java": "1a370e5ec2e70b256a7cbd1c25ea75e82884b31fafbd5bffd5820c9bff6ae715",
+    "src/main/java/com/hbm/render/tileentity/RenderExplosiveCharge.java": "95bbfd3a1236d0d4e5140b6a8491175bf16d4447b8cb7f27706cb4158cd5cbe6",
+    "src/main/java/com/hbm/render/tileentity/RenderExposureChamber.java": "3c537c588bbaaf3cc900d285a0a85ffd547728705615372b7fffea127027a4f3",
+    "src/main/java/com/hbm/render/tileentity/RenderFEL.java": "50f567565b42937dadee91fe4481b81c1d048bdcee6bb67e323e2e1eba38e3db",
+    "src/main/java/com/hbm/render/tileentity/RenderFENSU.java": "f4c1b46a01c631037638f265aa449df7ac6cff7f361f6ce8aab5d1a013eb4bac",
+    "src/main/java/com/hbm/render/tileentity/RenderFan.java": "43edc5377001e692cb66e1de69cf88fff08487dcdb52c80b9e05d6c576835ce5",
+    "src/main/java/com/hbm/render/tileentity/RenderFileCabinet.java": "03a9eed7bd884255269d5f28467f278d377092850e4ec02186b91211d94da41c",
+    "src/main/java/com/hbm/render/tileentity/RenderFirebox.java": "d436d07115b9b4f444890afeab4a235dfd2f828e45aceb396e595db466a06ca6",
+    "src/main/java/com/hbm/render/tileentity/RenderFloodlight.java": "c9591662cab544c0cd0ce79acdc61dfb6d723c8bdae8324f907e4d2a1af3cb32",
+    "src/main/java/com/hbm/render/tileentity/RenderFluidPump.java": "b2ec124fc9ed11eb589e24db576f24356911866c079b8b627935259b28fbb7f0",
+    "src/main/java/com/hbm/render/tileentity/RenderFluidTank.java": "398035bab4cded7eeb5602af3e02e55913c450a8a09352172eafc7652aeceb9a",
+    "src/main/java/com/hbm/render/tileentity/RenderFurnaceIron.java": "f05923664e9644619a50a8deee609898f67c4b4adbc0ddd387fa978c6b850da3",
+    "src/main/java/com/hbm/render/tileentity/RenderFurnaceSteel.java": "76dea2abbcac05bd8f5b0503e79d81e7c6f0527640a980bcd8230b7e4b5cf374",
+    "src/main/java/com/hbm/render/tileentity/RenderFusionBoiler.java": "54b24478ed97008bec9e74e923c77d8a0741a4b116fc03ca1c009ae42f740b44",
+    "src/main/java/com/hbm/render/tileentity/RenderFusionBreeder.java": "5b473fd09bf6d0dd2d1571bfcf55c6377429149a5db8d4bbb7abae1697715522",
+    "src/main/java/com/hbm/render/tileentity/RenderFusionCollector.java": "da7971ef4658cb32fe76952c3c5441c68c13f413d30e00e9b2103f44d2733a22",
+    "src/main/java/com/hbm/render/tileentity/RenderFusionCoupler.java": "b2eacb54e1df1c9ccd9c004e9b9eeda8aa436ae7ecb7e52bb75629eda19c8f64",
+    "src/main/java/com/hbm/render/tileentity/RenderFusionKlystron.java": "3b8c1955a8baeb5a85301118ba00b812c959c234a8248e0650b6d4e7c6ea142a",
+    "src/main/java/com/hbm/render/tileentity/RenderFusionKlystronCreative.java": "9d7832f7951d579c61fd7a41178bc3ef8bc62a56038c7d72b6c6a22e21787f49",
+    "src/main/java/com/hbm/render/tileentity/RenderFusionMHDT.java": "ef95427f95bcd7f13f3195fdf4b3e77d309d2f29f0a93c63ca98a2ad75a031f3",
+    "src/main/java/com/hbm/render/tileentity/RenderGeiger.java": "810c3766b26b354affb60874800102a453cc7f542cb9673bde84778b8fda0e67",
+    "src/main/java/com/hbm/render/tileentity/RenderHTR3.java": "eefd042006f60c91da872a9ea91560f748c886aa1ebb93df9bb28abc520f0cab",
+    "src/main/java/com/hbm/render/tileentity/RenderHTRF4.java": "7e0319d9fcc3253e2bcb3da4382e435f878be9a03b8c1ee2a6716532b1f0082b",
+    "src/main/java/com/hbm/render/tileentity/RenderHTRNeo.java": "b032e2919abad98d5ddb1bc285c6757221ed362ee0c6920d141afcdb6c324681",
+    "src/main/java/com/hbm/render/tileentity/RenderHeaterHeatex.java": "26eddee4a9ad8cb9868425aab313a38e476ef39ec332899eb773dbe665968aff",
+    "src/main/java/com/hbm/render/tileentity/RenderHeatingOven.java": "80276299e616eae085ea258c61c833c2f4a5451de178f895e724d1ea5b961f8a",
+    "src/main/java/com/hbm/render/tileentity/RenderHydroponic.java": "c197ff265af44a9e23293fa60101c214f527dc889c357ed5b2f20daf89fbe5ba",
+    "src/main/java/com/hbm/render/tileentity/RenderICF.java": "62d5cf274e6ac34be4cec5c37318b6e6d92a033aeaf8fd133b951b011e350acf",
+    "src/main/java/com/hbm/render/tileentity/RenderICFController.java": "34418f2346352e4c97a9fd81609b2c4e70de4cda6608eeaf32108eca06a77096",
+    "src/main/java/com/hbm/render/tileentity/RenderICFMultiblock.java": "86f19f4713f33b1c16e4645aed65b067ca35849fbe47793cc417ceb8d1e653db",
+    "src/main/java/com/hbm/render/tileentity/RenderIGenerator.java": "bac561c27387aacc7d7b0ec6729425f44579fb62e2feacd19aaa6d936272ddef",
+    "src/main/java/com/hbm/render/tileentity/RenderIndustrialTurbine.java": "595597d8ce6a476c4170317add33bd031022c106cc41e4e87ad34259281c1000",
+    "src/main/java/com/hbm/render/tileentity/RenderIntake.java": "2a12af57a7777499c467edd7daea9f42bff24dffa83ce9b5b3b01372f2f2ddfa",
+    "src/main/java/com/hbm/render/tileentity/RenderLPW2.java": "74f1fc28db7c5864ef5efbd0a422957a2e2045c1045d98bc7ce6ed610583e05b",
+    "src/main/java/com/hbm/render/tileentity/RenderLaunchPad.java": "c6600aaf283675094844a850e061bfff2fb485634304e98eb32dd7d800a80bce",
+    "src/main/java/com/hbm/render/tileentity/RenderLaunchPadLarge.java": "606e2941363315ed5c4dba8cac3b52c76b6a340a17dcdf0a5037036234b8c60e",
+    "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRocket.java": "bfea5f2f5038448a9faff09e9927eb994a584d07ee9e7c03968e1c542bfd6a71",
+    "src/main/java/com/hbm/render/tileentity/RenderLaunchPadRusted.java": "1d0ac88ba9e432ac43c4acb9cf899cad7223092730dd46b40669919a555c7a33",
+    "src/main/java/com/hbm/render/tileentity/RenderLaunchTable.java": "5e897390dbd253cdb10d93482bb7acf30dcc0e4f11b6e2496dba41873d91c3a8",
+    "src/main/java/com/hbm/render/tileentity/RenderMagma.java": "39fbb210b91c31e5ecbe3eadaaab998585c6cb802a0ea4abc0158e5c07de4047",
+    "src/main/java/com/hbm/render/tileentity/RenderMassStorage.java": "0a81a7bc905d41a1fd8c89fe53283661160ed6945325809f212bf9e53515504d",
+    "src/main/java/com/hbm/render/tileentity/RenderMicrowave.java": "4c9ff22e53ff9f49cb900e80e907eccd2737636abb93eb41889dec0aaa83d692",
+    "src/main/java/com/hbm/render/tileentity/RenderMilkReformer.java": "e683495aa61bf2e884da2304c219ce604aceff47a34b3a69ff3497bff20bba78",
+    "src/main/java/com/hbm/render/tileentity/RenderMissileAssembly.java": "6aa05f27a11a093afc78403710139ce53b96fa463904213a3301d224544b576f",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeBoy.java": "3f985b15492f75eb7b7030422682171721a8ed7e7e8668b8666af8129a91b4e6",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeCustom.java": "790814583d3a3488c593529566b0b54f75cc07e34273d0f10e01415452b4b6dd",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeFleija.java": "923f6298a1c57b222d1c1f7e459350e1c08f3bd832071d6d90b30ca17349bc32",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeFstbmb.java": "1f9566adb3b1c898c0c63805279ddbd15e9a269d8687e817e64b4de8f0cee1a2",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeGadget.java": "3658e40c972178e3bf90619b3caed5e9f1e83817e77ecfd915f2706f2e26f10a",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeMan.java": "293010dcd3489574be0b512826c3555ef63d2333c4b6d49281ae0c8bca839641",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeMike.java": "92845373f0f8818dfae473b0a10b6aea8d90e53713a967ab7885230c05ccaecb",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeN2.java": "e51e30dce850f73cc85522bea9ce3af63fcd7a63e8f9635e0c9c8ee1510f6b42",
+    "src/main/java/com/hbm/render/tileentity/RenderNukePrototype.java": "67583ebeab8125099ab10f2d34eb8fda13afbe6cd2a01aa9e02a47ed551babc3",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeSolinium.java": "e21e26a847fda6efb52e21bd3d0955ad6806fe8ab62893408d8f4f12aa7dbad4",
+    "src/main/java/com/hbm/render/tileentity/RenderNukeTsar.java": "d99de2ba092f5071e3e9876c2800706dc56d485502c4ae9befe2787ee7a1a35d",
+    "src/main/java/com/hbm/render/tileentity/RenderOrbitalComputer.java": "3d3d419eeaed3ef302a7f89948223656d96f386247e09042ae5a827ec7a99e35",
+    "src/main/java/com/hbm/render/tileentity/RenderOrbitalStation.java": "c379ae75d260e944ddc148c6187cedfd7777ead2e49a4a8048f7e33288d46d8e",
+    "src/main/java/com/hbm/render/tileentity/RenderOrbus.java": "098b18604cb0fad841b986dd21ff420ad94dcb48038104abd05d2c014ebb2539",
+    "src/main/java/com/hbm/render/tileentity/RenderOreSlopper.java": "4aed11a3896b0dd7fe8588a3913a6480be431126015a4f01c535279caef3dcb8",
+    "src/main/java/com/hbm/render/tileentity/RenderPABeamline.java": "a6c6bf58cc15661d4d69d1079d5e738e57d53856340da6ca76fc5f054dc7c589",
+    "src/main/java/com/hbm/render/tileentity/RenderPADetector.java": "2d0a6d49be5d17c8fc285c5be75a3ecb7c4e8d5297112de6c7ca8daa05ae1c71",
+    "src/main/java/com/hbm/render/tileentity/RenderPAQuadrupole.java": "acdaf9de936dc5c0630abc1e737daec84404a2997a3ab04707fe57e0a529ac7e",
+    "src/main/java/com/hbm/render/tileentity/RenderPARFC.java": "b7d4ba8b6c93ad38e410db92cc8c910ca37b51ec28f49eda7e7a700b4e0ba21e",
+    "src/main/java/com/hbm/render/tileentity/RenderPASource.java": "7f466186650a99752b1d93c6aa64a54f7115b6a95f01daff14eed3e0d35bde67",
+    "src/main/java/com/hbm/render/tileentity/RenderPUREX.java": "38ca46c6f1e888d563bad4c84cb22d23e8433ea167eee25cdb0653b9e9194bcf",
+    "src/main/java/com/hbm/render/tileentity/RenderPipeAnchor.java": "41f789e97c6715dfc8daedbd3852a9ecd8a937632a1b8a420ff96a643c5af8a4",
+    "src/main/java/com/hbm/render/tileentity/RenderPistonInserter.java": "83a796abfb3eaede1cc7c01befa73038f537507d8dee8e6c4c330603a02b17c7",
+    "src/main/java/com/hbm/render/tileentity/RenderPlasmaHeater.java": "d03a99a6d71e2cb73bb140829e91f6f02a710cfaa9d1b362363e885278d96e3e",
+    "src/main/java/com/hbm/render/tileentity/RenderPlushie.java": "3f04353fd93fee682370cb25aadd707164ac81283e928d118103a663b28d0423",
+    "src/main/java/com/hbm/render/tileentity/RenderPoleSatelliteReceiver.java": "bcbdbf83fad6e18cae277c7adc66fce87cab0ff4560afcb185a72abb0bf6098b",
+    "src/main/java/com/hbm/render/tileentity/RenderPrecAss.java": "9f5256c1e4f660dc2ad741b23a6d0981ce3f8b45aef5ce0fdb2980b4b70b8173",
+    "src/main/java/com/hbm/render/tileentity/RenderPress.java": "0df8e68cb157ffedb725ec8aa5477ce79cd71ecc747d5f4117e0c3ca906fe8b4",
+    "src/main/java/com/hbm/render/tileentity/RenderPuF6Tank.java": "3a692f7c97c286da15100102d753e3ecfa93665755c06c8fdabed9dac557f115",
+    "src/main/java/com/hbm/render/tileentity/RenderPump.java": "3902bd248429a7648f1f450d36dcd285346266cbf9956954bd51c19e86a572a4",
+    "src/main/java/com/hbm/render/tileentity/RenderPumpjack.java": "3b2b19966c1730639c38c1648ff9a1833b6024ae127d693e5b9e84d92b0116a6",
+    "src/main/java/com/hbm/render/tileentity/RenderPylonBase.java": "8dd09622f16dbc94e69c617838b7f9e44efb4964b1933389f2488b3438b7090f",
+    "src/main/java/com/hbm/render/tileentity/RenderPylonLarge.java": "77a185dcd423bdb891da37d56d8a877b78602a4761daaedb15d8c881699912f5",
+    "src/main/java/com/hbm/render/tileentity/RenderPylonMedium.java": "4c6e1f2b9d0da1302d73b0af6d6f085b0d58ebe260bae031c3b864a5ce25245b",
+    "src/main/java/com/hbm/render/tileentity/RenderPyroOven.java": "35fea6f03895dd107c361eea3a2f23ae19c649c2174d51d2a8d14a01526a997c",
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKConsole.java": "ecd5ef35093f06f88f6ca6a4068a4f61df58ea63c5a1074069b4d10db0dae999",
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKDisplay.java": "4e6f3e48dbe09bc7f9bfb2fd391274c1df585c1c91338c954f00a821158e4fa3",
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKGauge.java": "6cfab71443fcda3c95f9a4f18cdbc3ecc4444790622d424d0459d683db66ab6b",
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKKeyPad.java": "fc67cc1d4340f02a8e15f7c5abe95fb05cd2d15bb933c71d81b534250a2339d1",
+    "src/main/java/com/hbm/render/tileentity/RenderRadGen.java": "3c3c3900bcfd7074ecd5c1b190dfe90f6ea60b052bab11c14075a4acb40bbf12",
+    "src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java": "676284149d489c2ffc6933d348da9c5383e96d415193dee16f61a1edb5291f64",
+    "src/main/java/com/hbm/render/tileentity/RenderRadiator.java": "e808a1711500535b4013edb40c70e3e08db345b963f666e485c4bfdc82e356cf",
+    "src/main/java/com/hbm/render/tileentity/RenderRadiolysis.java": "1071d3c802b39ad510db7c70effbfe6cf5f2ac8d6fad17ba2c2a37e11a942fb8",
+    "src/main/java/com/hbm/render/tileentity/RenderRefueler.java": "a526da3ddb0fd00b819010dcbf61d498021a63e5c045157848d21105e37b9ef6",
+    "src/main/java/com/hbm/render/tileentity/RenderRocketAssembly.java": "6e9e97933b4508a1a8e76374c99c9c50273d5cb0cb780c87b1373d2f83abc7d9",
+    "src/main/java/com/hbm/render/tileentity/RenderRotaryFurnace.java": "73004b7b16c0c29deb9fde496f5fc9ac560b3244cdec7e698ddb12691925f414",
+    "src/main/java/com/hbm/render/tileentity/RenderRotationTester.java": "5a28ee5fb58e9c7630f7147a1b4200c1bf496b7bd3af9c4ac77bd83ca4dfc660",
+    "src/main/java/com/hbm/render/tileentity/RenderSILEX.java": "3a5a1f14daabe55a1d4b56af9c974308b4672f81e3ca8a232fe47ab8f261ce31",
+    "src/main/java/com/hbm/render/tileentity/RenderSawmill.java": "b291b5e74077b90c7adc121fc170bba9beed3b8c5bffa8ace297ae6e3fbf1c23",
+    "src/main/java/com/hbm/render/tileentity/RenderSkeletonHolder.java": "c7cda41c3cee90f4bf15ec2df309f943a63fc823ba82e95d362b4078cb5a6a22",
+    "src/main/java/com/hbm/render/tileentity/RenderSnowglobe.java": "b9ea6ed9bcf20c9b6574a0e09fef3e0a6bb5d58165fedefb52de70dae4ffb98b",
+    "src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java": "a1fa536b73becf5ab6c27e103510f187b65820d682e329b885022954655c5143",
+    "src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java": "a60204b9cec4de88f4e846168fa1d6437def67fa75e403ce65b085ddef3261fe",
+    "src/main/java/com/hbm/render/tileentity/RenderSolderingStation.java": "65f4f194bd93d1ea5433719d5453c3498dad1ea8d12517652e127f6b4c05bb27",
+    "src/main/java/com/hbm/render/tileentity/RenderSolidifier.java": "2e7cb9afc28abeed8bc24b09e34727aa8207819e4f2ac1dc9584d390ac2b7ca5",
+    "src/main/java/com/hbm/render/tileentity/RenderStardar.java": "b85c7e1a7c9690bd6df7495266ed1797acd447ac30247be11ef15711752dec81",
+    "src/main/java/com/hbm/render/tileentity/RenderSteamEngine.java": "10fac6964a82247a8587b3a40252a3209a181bf27f65274415516f5ccef82088",
+    "src/main/java/com/hbm/render/tileentity/RenderStirling.java": "691ee23c05a5923e3b759312a194b5977dd101a3afe6db6ee4992c2711539273",
+    "src/main/java/com/hbm/render/tileentity/RenderStrandCaster.java": "dbd90b2edb08517750ca70154ab6b8533aa55a4c19a86a2715549427e80d3e88",
+    "src/main/java/com/hbm/render/tileentity/RenderSubstation.java": "7de424a0f491f7bd2766f3c61650c716b9f9226bc447c03f71235e506042b61f",
+    "src/main/java/com/hbm/render/tileentity/RenderTelex.java": "9ec3fab2858362a5371c7f569441afa600912e6035d2cafa769c857e1102a336",
+    "src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java": "7619b1a6dd09af71fd5771899f92e6b0ba0b11ae7dfe2af40f22dfb969109518",
+    "src/main/java/com/hbm/render/tileentity/RenderTurbineGas.java": "f4f63a67ffc9fb548d6f9b9bc396e603cb61388ac9d110dc23ecd1d6ee1341db",
+    "src/main/java/com/hbm/render/tileentity/RenderTurbofan.java": "7bd2755c9823d428dd43f1395f490c6247169b1c6ce9d585526097a3f0241b7d",
+    "src/main/java/com/hbm/render/tileentity/RenderUF6Tank.java": "f876f4daaadeaee82bed13ef0f7ce4c4eb326ce5efdc4c536a01fb214f9a9e7b",
+    "src/main/java/com/hbm/render/tileentity/RenderVacuumCircuit.java": "b38ebd1f000b075b36405f4f77b48bcb4f8911af3517b598c64d376dabd94db8",
+    "src/main/java/com/hbm/render/tileentity/RenderVol2.java": "6e0f7fd5fca760f6e85eb224a37d91d3a4f161e947c6cdfc6fc264dabc2c01d8",
+    "src/main/java/com/hbm/render/tileentity/RenderWandStructure.java": "63bfaead754364c1097b48cdfd35d23dd26f7e07c951dbbca5ebfc7bdc8a0dea",
+    "src/main/java/com/hbm/render/tileentity/RenderWoodBurner.java": "502da7aa155c45b5a6b2392e5b637ae1adb12ff80e9855c3fed3797d9a4ad532",
+    "src/main/java/com/hbm/render/tileentity/RenderXenonThruster.java": "ef1c4e15714d27c868602de17650dbe711ce9040f875d188fe2ff4a83bb827a2",
+    "src/main/java/com/hbm/render/tileentity/RenderZirnox.java": "1482930f8d081d8d5dc3488ec37b9b8f2aeba554acfcc0f17107b98aa16b4411",
+    "src/main/java/com/hbm/render/tileentity/RenderZirnoxDestroyed.java": "4543e193b453a615b47177d2cdb31704433f542d8419574010d57b721ea3e5ea",
+    "src/main/java/com/hbm/tileentity/IGUIProvider.java": "43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47",
+    "src/main/java/com/hbm/tileentity/IUpgradeInfoProvider.java": "d4c172d400c55901bb86298ef6052d178dea4147cb509cdd98a9454c885e350f",
+    "src/main/java/com/hbm/tileentity/LegacyPressMetadataUpgrade.java": "ed5d26945fbea09076e988bcda1abfb4fcc6fafb06e13201dddab476ad26d2a4",
+    "src/main/java/com/hbm/tileentity/TileEntityDoorGeneric.java": "767855573f8ae2a85839722b3f5de95112d8b42a7c799b43c30c070808dcb011",
+    "src/main/java/com/hbm/tileentity/TileEntityLoadedBase.java": "b3853d47d40045826978c19c70ba803b71b81bb63b066bf16b07b88761491cc3",
+    "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java": "c4244ca5683cb8e51c139b7e5b0116fdf2ec5deda57df09fd69d9a35f3e41e00",
+    "src/main/java/com/hbm/tileentity/TileEntityProxyCombo.java": "286a83d165f9820c13f29a3d3658995119453bf66c7880bde4a5fbedb6733b76",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityCrashedBomb.java": "117af23c4b938ee1a53defd6917b5c9f1595d693f3ebc66aea68157f49ef8a3e",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPad.java": "895d7995a02098e8fae66c85adaa3cb503060ff452df1a5044b0b8b531af2187",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java": "138fb5968535b808fc49934591c2966e60d26d38fdda1083ad3bedaf6f4695b2",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadLarge.java": "3cfa3cd535b043f15b7da45f8560e03eb8c56fa9ca912f8e5c8639a75b3b3d13",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRocket.java": "a8b0bad29619b092568ff7cc0842b7a1ea002deead4dbe4a443d657a5b7c07c3",
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java": "c3c378b2c4ac8922d2fb8ba6d3886d7136897fa5468711df2a28a9a0ba298439",
+    "src/main/java/com/hbm/tileentity/deco/TileEntityObjTester.java": "ccc3d8b13b67bce24513975fbe9f22343be7657d150417d8b77a9117aa0e7e20",
+    "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java": "39ab9d9d21972b8cf700f601c6e32fd611230b9e76ab5e2a669162af540f935e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAlgaeFilm.java": "626595a4292eb95a9b662cfecd7f08d96fc3e5f50dccb6ef0191fffbaffe15f7",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericCompressor.java": "a241132d920c7e77f4e4f59ad8ce96fe67461f3fefc29cd3e7edac2263eab23f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityAtmosphericEmitter.java": "fdb00505ed4c35225d4b8de301348728c7a5eeee9ab965ff88210ccee754675c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCharger.java": "7ad820f415590c56ade428232a74eb666a5f29b982c853d2a88d4005a7c744a3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityChungus.java": "00204330ac8f3cce2aaaa163f934c83d1def6171423e5b7a5e9d6934ae6d8a6c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java": "ba090522009cb8f0b56c036b273f779d024545be6c3d3aba798a9d14a36f80d6",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": "a91c6c26f991a42df49b8c8af43a0ebf2374c9bc9e4e0eaf9914f753d55d4417",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreInjector.java": "c85589b48c92039edf7f19a7423a39ba9c708924184479e70b77849847bb86f1",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java": "8ade5c15e490d7602801f052496e9931deb2a71e2704bc976f4bced0ba27967c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreStabilizer.java": "a2c6aed628ce0fe431882e99cc1575670109378eb0286535a262bd5884d82a32",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java": "c3c99decd40d25df69b0aefe891ac700d3f7a9aca3b3f04b5090a81891c5786f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java": "2fa643dbe83be2277a66bfa1b9c6b8ad3f802ed08ee5014527a9307f762c212f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDeuteriumTower.java": "cb5dfcef1066475c3441006b18367092171e0c95f0b131ff7eb2ef9cdd663256",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterAnatmogenesis.java": "19f37bb9a377930f98519f4a09f24c46820f3509402410c05ddf8e8790703c08",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterHE.java": "30a39391558ac4b9afa44e0b7382783b305bf15dc11e3322907129133a155985",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonConverterTU.java": "7622c3136e8561abd02f8cca8b9ad71716179b0d55618522c97a8786890753de",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonLauncher.java": "5174b847529e112d7317753660e832e8573f708462d7ce34b3474372ed157bdf",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDysonReceiver.java": "dee8283e4e399b6d867ab9f8da2a2f6bfc7d6d8f9fb67b617b53545d62b75c5b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityElectrolyser.java": "4ed034488b8240419a1b6f3edf23aaf44a3d5a5a764ef0236a0cf1a279806cd5",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": "e3a8e5e121177a1bc1f9398fbc0310a37dc847b4a902ef3b0fe0d716d63f3028",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java": "3db05a3d2e4ceae17399c11bf0fae0f8ee9be46f5346d25f49f03986c60d3475",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundryOutlet.java": "1508670dbae5404faa03a748e3d56503ff03be3af0ba454f88cbe01d49f760fc",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFoundrySlagtap.java": "73534891612b24a7a8186000d1eb126b5079fde61a545d8a3f24b8e7938aaace",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceIron.java": "92958624d3d2db0843c06f0a9c4f1367fefdc7a66a2c0de33258b4fe21a8ccb7",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFurnaceSteel.java": "e2454c5d1a0b37907d15750a2bebaedf2eea222045f381ac70d00c8bbf5f97ba",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeatBoiler.java": "fd03fc8ede1a1238ff77d0262280320e1f839a1226ae0f4a35a9d3568715aa02",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterElectric.java": "b3b67614b6514a68cd134edc128feacba288ce5df251b308b1be94cfb6009878",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHeaterHeatex.java": "1a1d219de07290423c546ce82a1ab0663b5f03019ba15b72090b1076d506c288",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java": "76eeb579125499ecf7b91bd7832ea66d8584deaf156988557c56c535e1ad930b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICF.java": "12d498e7cd19359de3c59a0554ddf7e60e6a7db45721354fa69b10a29af91c90",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java": "5a5b1e1a175777480c31ac06e0f283a90396fb680d2e2bbdfae20ca1044b3799",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFStruct.java": "f19a9b3defd5094b01932fd7f58ff8a4f8f8e3ef1e323bf3572546fdfd1b6f3a",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAnnihilator.java": "ed4f388706b59489f1b155cfd7f3107778c8366998cabafad20dfd92225c3b99",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcFurnaceLarge.java": "3d9318d6cf8e995fc3709fd1872d4d41a85f330a26f66f46e609236d5c860c17",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineArcWelder.java": "976ed46a0d6c533392033f4e5d50dd828b447899e3b111f2a2b36d24a12b1e1f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAssemblyFactory.java": "473bad93a88b87c4dacb695fb85b8e0b46cc20d2db51c795e89c8f6b46b6786e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineChemicalFactory.java": "268dcaefccd5cde447c2d8d0cd34369d0418e023dc708b9c0d4ee1f25af609f0",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCombustionEngine.java": "ca5e8e9973226dfb4c02b36cf04bd2a30fff9714eab9ab094068a9a53a1f8a7b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressor.java": "7726d350f818379f14cf63bd92894a10ece94fe5fa377eb06b5a671253cdd639",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCompressorCompact.java": "56b1c01df6b834332bc66b34df0b730578decaf5a1cd10ae61243f29a3e254b4",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCryoDistill.java": "e14ec67e840081ca21505d4d3314792c1074691edf740bfe12af99301bc4ce2e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java": "c41c69fe51d996b158dd3db961c023edec69c729449e5fd0cf94d39c74940af3",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDetector.java": "020171e39b376008cd077044eb178c9123ccf04a74fc37ad6ddb931165097be6",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java": "5fccb4d792e0da2b9bad5ebd59d1d5b46437cd4f0625695d45ae5d7a0d065877",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": "82dc2c4bc9fc0fd764a93f58ede06244fa6238e2ff7d62be54f568c9e4d51527",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": "505b0cb97d3c09b3e7214dd940af367a3597326e61aa09538ae2fece43bc6fb9",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExposureChamber.java": "e4d3e53d9cda52bb71b822e0e71c4e583e3e93f8491f42482e09b19271205c3c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineGasCent.java": "2eb2ee16d8cc2b9ec3ba819efc591543cb89a52497607341084ef91e2fcadcfb",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTR3.java": "12391e43e14ba16adb628d917f8ce13f7ec835349c5e63a9a9c2233c2bf888ac",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRF4.java": "ed4d353cdb75513178246595a70714e02e190c9deff7db8de1cc9920aa845b60",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineHTRNeo.java": "a9f1e265a601dbbbd9db010855e0e97f2037e473565301405e9f427c73c6aff5",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIGenerator.java": "58337de28883fb97ddafeb5e518720c8e7384d2050e41c81b95655a27d9eebf6",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIndustrialTurbine.java": "c60f43ba56174337ae4cdd5f8688c97914a2cee8f04812a1e98837bf8d1c219c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineIntake.java": "feb74292af0dc9cce5017b16fa0362c324d4220d5cdbb6a484782ff3bff4b7ab",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLPW2.java": "87f7a15e93a369909af8ccde8fed1933ea3069cadd1afc3fea9838d99fbf41d4",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineLargeTurbine.java": "bd1e95a080226c7fe1206e212e11a29a9175131eb8ebbb176ef194e79eaafdf8",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMagma.java": "6ba49f72c43a429feccf9e1092e89d4cdc6314ea6a597ba84d8de70468f790e6",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineOreSlopper.java": "aba51c91dd46fdccd475f68df497e0c9897975d7b4b88e501a55f908481aabe2",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePlasmaHeater.java": "b667cbb9b21ebf7656271d74c58e87220936ce2fa05b66b048934be47287672f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": "abbb6e6d355c292938d82e28bd252d1ab073e9940db75b32c6aebd8a17daa8a6",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRadGen.java": "2e51d330248b468dd0512e5c945c8cebeae0ba14a587ac1356de485459c4f108",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java": "07056a1851927a883a74f54897232f70f1b8ce477048525f84382e48139ed7d7",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSolderingStation.java": "e658955f8c81d282316545e9a5ec990c476e4661e03e76d7b061309f337a0dad",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineStrandCaster.java": "3c6af2dbf09255f5624b59f36e45fca592085c24eb059caf61bc69bfa5233eeb",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbineGas.java": "1d42fd5e1d0607da680a2c47a4178e5d38304f59d12ec4ce5e26d67c4878479f",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbofan.java": "e6488d499bb0c12d849f4800d933374760ab0f2619923d6370c961db8f6d179c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineVacuumCircuit.java": "4ba7a83398a25343528b8a2589c279a031aed0bed26b725d816cef4d4084af1b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java": "07bc4a27bba761f7118a19326fd8ac7992eae09de638569c07917c019bb8d21e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRadiator.java": "f4404907d41d6df273389cf41ea8abe9f3cfd28e1f2589b008efa989c9f355dd",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRadiobox.java": "48400c084cd51066ba6f31f160e84d178bc8a12560f17c4fb73b05ddc3ba6cad",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorZirnox.java": "9c3c79f0dcb7fd9b0269fcf2a3fdf6f28175ce9aea9445d465aeaf14467fd61c",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRefueler.java": "bf85b1d1e8a75b8a488c639dd89f13a29a4817e53fb64cb6c7bcc571983ea67a",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySILEX.java": "4f63ff0e25179d7d77ab6183b6a5475a0863b80dd597ea7f372c63425ff3f56e",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySawmill.java": "12dde50f95c8a2e6d8e9f5434aec6479bb4189ababd914031aea1b4868aa0478",
+    "src/main/java/com/hbm/tileentity/machine/TileEntitySteamEngine.java": "b3a4e6e8e8be30f0c9a63d5a7427c58689cf8320bee046765b217eceb84fc394",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityStirling.java": "699becc77f318a37c3bacaec9ff4cd5d7495763f9fdc7467281df7fd54edcfda",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTransporterRocket.java": "6f8dc9b9617104b9a271a082bcf39805f594b144023240044ccd8404529c82aa",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityVaultDoorMigration.java": "6f1fec3d9a3e83b9cbdbbd9be633a76a33f7a2a9d7a8421f15b094e837f7816a",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityXenonThruster.java": "e612bb4c474c0c3a1b87a423527c6fcbcb9013c4e716606ff0f426260e6e0681",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPABeamline.java": "937a5a95087ef93496dce4bd8f8c3cc4b6061c173f454208b47dd16611c7185d",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPADetector.java": "1e352e2aff75c018201f626698c092ff1aff578ad8f863207837027d70f6614e",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPAQuadrupole.java": "a68c52c6046098435bacb56259c9d3b661277ed1a65faf600327805b551242ae",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPARFC.java": "c9ad9bc5e8dd984fb15de2e31d36a6ac114b3e09d5bf58dd4af2b517d0a8c4fa",
+    "src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java": "929447e932bb5ae53d426a621d34280b86629acd77b6d82e49e52e6a6a80d0c6",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBoiler.java": "eaae2a0cc84141f532ece8b4ae47d07aa5ff49a8418ccd576bdc16bec7de4f11",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionBreeder.java": "163dbf9a855a9df638a57d162fa624ba4b78ebac7db03ffde79286a9d2ce58dd",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionCollector.java": "76022111a656bc733aaec53fada47b3d48c33e0ef663783eae113ef2a9f0829b",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionCoupler.java": "2f66bf2e0dbb470c894b8c17a64ccbe4b7303b8316c63c5eae254ad78752e544",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java": "5fcbd3ab878d091210db4bf5f85fc985aa64dc5702ed24917eb4e1e44b050242",
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionMHDT.java": "9057024700290650336b4c09b29cc56d0b3daec5481cd5b3b1ff6743a0b4f10b",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineAlkylation.java": "3551eafaecf4e772c159b91d78d1b8e4ab1c7597fa83948b96aed73c3921fbd6",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticCracker.java": "4065d34ebb7ceae1d482e0f07d636d3becba26ed39ebc3dc6392dce9658c2425",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticReformer.java": "0e5a88951b3fb652d72ce06a281cf7ecf34f9560f87eeef79a6d98c1014506f0",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java": "9d198a1ce9594ef32c597999628f71df92384112594dc20020722fee46281005",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java": "266946edfe8b8f18970c98c61e7ca52d7b94309fe32b71f72a022546e224e9d6",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineRefinery.java": "5f21e0d1e0e98dfaae29b931221e75bd868f951b20a8695557dd5bb865150eea",
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileBreedingFuel.java": "33e700b39ac0eb12ad15a26f56b0521d3312a3d0944e1585abfb1c3e5663ab9e",
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileFuel.java": "fc096f709839f1fb6a4efdff122310d7ef3c4a3a4b9967e00b36373b6339e3da",
+    "src/main/java/com/hbm/tileentity/machine/pile/TileEntityPileNeutronDetector.java": "d69a943bc4ea65681fb4fe6426704e43111678db9cce20748d34f0d34b553b2d",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java": "a9b81a81fd43ec8be0cce0573fab29969ace06edeef45f3e52ff2cd9cfb0ae1f",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": "8abfe5c1148c7b5db53b0e8d5f1f35584b9f335936474c7b5f9a9c197a129a3e",
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKRod.java": "48e496cfb18dea930610b1227f71e9cee831c65ef1aaf8110b19459c3f8d4ebc",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatteryREDD.java": "17fedc45dc00b39c0e55c32cb907c79e12c7240c7a5267462401cedc6eeb8b39",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBatterySocket.java": "9a2b48a5dd6f6d6d34811fc8b0418c4f2908dcd180973427ba20b758fb4ca09a",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineFluidTank.java": "ea173cf685742861ba2d324e5a452e2acd3daf11e3a207a05a3c9a0fbfe50946",
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java": "77d216d3ff7194a1dd1454bfda66bdabef95ac58fa09f652741bcff5d85f6569",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCableSwitch.java": "d46f97332707db74db1b55b16286442e3c7abdd3d709941a908e6076691f8315",
+    "src/main/java/com/hbm/tileentity/network/TileEntityConnector.java": "f14edac26ccb20af24146d849e75aa625b2928cf9453b4e75cafbd293d0aaff1",
+    "src/main/java/com/hbm/tileentity/network/TileEntityConnectorSuper.java": "cdc2269f4c3d581e5c0163db3589aeddd3d80695225c05021ad1d8b14a8f7b30",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneBase.java": "95aeabd7638417c5a90e2ea7441dd82ca1415d5f85f0b5b38c6085604ac5cc34",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java": "7309ca77e5ec26b12b5f0ecac5d8b705672f1f86d8fbe15ddba4e49c74e08a4c",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java": "41a5a78c6edcce984a36e0a4493892256768128cabb02224fa712be9977078bb",
+    "src/main/java/com/hbm/tileentity/network/TileEntityDroneWaypointRequest.java": "56e2035a410e98fdd2f989289db3a538d5811be03450fd85ef80fe2910cc5048",
+    "src/main/java/com/hbm/tileentity/network/TileEntityFluidCounterValve.java": "fa32f4fe43ef563b279b91f7844bb00bbdfb623266f95fef12306e0feff726a3",
+    "src/main/java/com/hbm/tileentity/network/TileEntityFluidValve.java": "d2052aa8aac6e5cb4b3bd65a3ab66c00b454c2066d840745cb850d4c67535552",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipeAnchor.java": "3cd877872071d8f3a93a40e1f490806a9b129933eada1e74d524b7fb48cd1209",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPylonLarge.java": "1f6ac43cb422b0b458bd76e007f7641e764928f346b7028c7f813eb2d178a401",
+    "src/main/java/com/hbm/tileentity/network/TileEntityPylonMedium.java": "49b079b425bd1e8e0c7a108315bc4b8e4cf25bc170ed2cbe70aa61af7c2df4e8",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchController.java": "10587a38e44b78f3155a4bb1dc3aa3a2e4e8501bc4865abf38c647b36ec4ea08",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchCounter.java": "1a5fd76598155a4eb4f3a2608a46f1d7776bf01324fd2d15021309ca4886f488",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchReader.java": "4a9747a0340981c1ac00cdd8fc7d989c9d06210250e80ac45946639150292bfd",
+    "src/main/java/com/hbm/tileentity/network/TileEntityRadioTorchSender.java": "2b2d681aba80a661a35aece5666475727aeb1f88d30ba58f40a4498b5c0ea778",
+    "src/main/java/com/hbm/tileentity/network/TileEntitySubstation.java": "60b113455753992570e2fe0a5ed508be6d1cbbccca030580630c981fd83c948c",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseArtillery.java": "d61e0a154dd14f69b910083b9050dd0cc3ce0abe98193887636156be3c0d0b70",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java": "3a14a96198ac6dee7da8f7c8d7bcf5378c2003eaec2395b74ee49bacd92af1c6",
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretFritz.java": "ccf944a31cc97904b41b3633dc133553cac35846a05363a9fb453c8b0e032941",
+    "src/main/java/com/hbm/util/BufferUtil.java": "ed5747a3be9db9ccdb3a09bcd097b7e90b48ae5761066f42dd27737a71be049d",
+    "src/main/java/com/hbm/wiaj/cannery/CanneryCrucible.java": "aae0a5797f151ddc0fcfeb7ffee7df9ce595c5632f517d313b2091437cf91e00"
+  },
+  "artifact_sha256": {
+    "README.md": "f825e21a8968b395def395454f2a1f68a87599523d7a32473504cec39a330763",
+    "active-zero-arg.tsv": "320a8fbeba0e6c3e37d90b63a24b3273693f9d76590bd5a6257eaf015fa48727",
+    "all-zero-arg.tsv": "56e74c4641d7154326c1d64d429f6d1140599c5ab4787231dd1a4197a4cb74e5",
+    "bytecode.zip": "33b733950f3e45f6c9a14f25eb684cacc91da91bad5ab5c5f4004f2327b8832e",
+    "native-world-crash-route.txt": "4e37b58fe6013c90ac0ee2695c5d7e33afe1b8dae277a120b29d97709633d35f"
+  }
+}

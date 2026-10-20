@@ -1,0 +1,247 @@
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java
+index 84726c70..be1c6ffc 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java
+@@ -139,7 +139,7 @@ public class NukeBoy extends BlockContainer implements IBomb {
+ 			
+ 			EntityNukeTorex torex = new EntityNukeTorex(world);
+ 			torex.setPositionAndRotation(x + 0.5, y + 1, z + 0.5, 0, 0);
+-			torex.getDataWatcher().updateObject(10, 1.5F);
++			torex.setSynchronizedScale(1.5F);
+ 			world.spawnEntityInWorld(torex);
+ 			TrackerUtil.setTrackingRange(world, torex, 1000);
+ 		}
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java
+index f905b9b2..181d19d8 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java
+@@ -279,7 +279,7 @@ public class NukeCustom extends BlockContainer implements IBomb {
+ 			} else {
+ 				
+ 				EntityFallingNuke bomb = new EntityFallingNuke(world, entity.tnt, entity.nuke, entity.hydro, entity.amat, entity.dirty, entity.schrab, entity.euph);
+-				bomb.getDataWatcher().updateObject(20, (byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
++				bomb.setBlockMetadata((byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
+ 				bomb.setPositionAndRotation(x + 0.5, y, z + 0.5, 0, 0);
+ 				entity.clearSlots();
+ 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java
+index 39c05252..5b4cdee5 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java
+@@ -9,12 +9,17 @@ import net.minecraft.entity.Entity;
+ import net.minecraft.entity.EntityLivingBase;
+ import net.minecraft.entity.player.EntityPlayer;
+ import net.minecraft.nbt.NBTTagCompound;
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.util.math.AxisAlignedBB;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+ import com.hbm.lib.ForgeDirection;
+ 
+ public class EntityDepress extends Entity {
++	private static final DataParameter<Byte> DIRECTION = EntityDataManager.createKey(EntityDepress.class, DataSerializers.BYTE);
++
+ 
+ 	public int timeToLive;
+ 
+@@ -35,16 +40,16 @@ public class EntityDepress extends Entity {
+ 	}
+ 
+ 	protected void setDir(ForgeDirection dir) {
+-		this.dataWatcher.updateObject(10, (byte)dir.ordinal());
++		this.dataManager.set(DIRECTION, (byte)dir.ordinal());
+ 	}
+ 
+ 	protected ForgeDirection getDir() {
+-		return ForgeDirection.getOrientation(this.dataWatcher.getWatchableObjectByte(10));
++		return ForgeDirection.getOrientation(this.dataManager.get(DIRECTION));
+ 	}
+ 
+ 	@Override
+ 	protected void entityInit() {
+-		this.dataWatcher.addObject(10, new Byte((byte)0));
++		this.dataManager.register(DIRECTION, new Byte((byte)0));
+ 	}
+ 
+ 	@SuppressWarnings("unchecked")
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java
+index a8a66cfd..85427e33 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java
+@@ -13,6 +13,9 @@ import net.minecraftforge.fml.relauncher.Side;
+ import net.minecraftforge.fml.relauncher.SideOnly;
+ import net.minecraft.entity.Entity;
+ import net.minecraft.nbt.NBTTagCompound;
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.util.math.MathHelper;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+@@ -22,6 +25,9 @@ import net.minecraft.world.World;
+  * Tor                             Ex
+  */
+ public class EntityNukeTorex extends Entity {
++	private static final DataParameter<Float> SCALE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.FLOAT);
++	private static final DataParameter<Integer> COLOR_TYPE = EntityDataManager.createKey(EntityNukeTorex.class, DataSerializers.VARINT);
++
+ 
+ 	public double coreHeight = 3;
+ 	public double convectionHeight = 3;
+@@ -51,8 +57,8 @@ public class EntityNukeTorex extends Entity {
+ 
+ 	@Override
+ 	protected void entityInit() {
+-		this.dataWatcher.addObject(10, new Float(1));
+-		this.dataWatcher.addObject(11, new Integer(0));
++		this.dataManager.register(SCALE, new Float(1));
++		this.dataManager.register(COLOR_TYPE, new Integer(0));
+ 	}
+ 
+ 	@Override @SideOnly(Side.CLIENT) public int getBrightnessForRender(float interp) { return 15728880; }
+@@ -220,7 +226,7 @@ public class EntityNukeTorex extends Entity {
+ 	}
+ 
+ 	public EntityNukeTorex setScale(float scale) {
+-		if(!this.world.isRemote) getDataWatcher().updateObject(10, scale);
++		if(!this.world.isRemote) getDataManager().set(SCALE, scale);
+ 		this.coreHeight = this.coreHeight / 1.5D * scale;
+ 		this.convectionHeight = this.convectionHeight / 1.5D * scale;
+ 		this.torusWidth = this.torusWidth / 1.5D * scale;
+@@ -228,8 +234,13 @@ public class EntityNukeTorex extends Entity {
+ 		return this;
+ 	}
+ 
++	/** Updates synchronized scale only, without resizing local simulation fields. */
++	public void setSynchronizedScale(float scale) {
++		this.dataManager.set(SCALE, scale);
++	}
++
+ 	public EntityNukeTorex setType(int type) {
+-		this.dataWatcher.updateObject(11, type);
++		this.dataManager.set(COLOR_TYPE, type);
+ 		return this;
+ 	}
+ 
+@@ -252,7 +263,7 @@ public class EntityNukeTorex extends Entity {
+ 	}
+ 
+ 	public double getScale() {
+-		return this.dataWatcher.getWatchableObjectFloat(10);
++		return this.dataManager.get(SCALE);
+ 	}
+ 
+ 	public double getSaturation() {
+@@ -499,7 +510,7 @@ public class EntityNukeTorex extends Entity {
+ 			dist = Math.max(dist, 1);
+ 			double col = 2D / dist;
+ 
+-			int type = EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11);
++			int type = EntityNukeTorex.this.dataManager.get(COLOR_TYPE);
+ 
+ 			if(this.type == TorexType.STARFISH) {
+ 				this.color = new Vec3d(
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java
+index d5dda5ed..85fd549d 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java
+@@ -33,6 +33,9 @@ import net.minecraft.entity.EntityLivingBase;
+ import net.minecraft.entity.player.EntityPlayer;
+ import net.minecraft.init.Blocks;
+ import net.minecraft.nbt.NBTTagCompound;
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.potion.Potion;
+ import net.minecraft.potion.PotionEffect;
+ import net.minecraft.tileentity.TileEntity;
+@@ -45,6 +48,8 @@ import com.hbm.lib.ForgeDirection;
+ 
+ 
+ public class EntityChemical extends EntityThrowableNT {
++	private static final DataParameter<Integer> FLUID_ID = EntityDataManager.createKey(EntityChemical.class, DataSerializers.VARINT);
++
+ 
+ 	/*
+ 	 * TYPE INFO:
+@@ -74,16 +79,16 @@ public class EntityChemical extends EntityThrowableNT {
+ 
+ 	@Override
+ 	protected void entityInit() {
+-		this.dataWatcher.addObject(10, new Integer(0));
++		this.dataManager.register(FLUID_ID, new Integer(0));
+ 	}
+ 
+ 	public EntityChemical setFluid(FluidType fluid) {
+-		this.dataWatcher.updateObject(10, fluid.getID());
++		this.dataManager.set(FLUID_ID, fluid.getID());
+ 		return this;
+ 	}
+ 
+ 	public FluidType getType() {
+-		return Fluids.fromID(this.dataWatcher.getWatchableObjectInt(10));
++		return Fluids.fromID(this.dataManager.get(FLUID_ID));
+ 	}
+ 
+ 	@Override
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java
+index ef9a902f..ffaf1fd2 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java
+@@ -7,10 +7,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
+ import net.minecraft.entity.projectile.EntityThrowable;
+ import net.minecraft.init.Blocks;
+ import net.minecraft.nbt.NBTTagCompound;
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.util.math.RayTraceResult;
+ import net.minecraft.world.World;
+ 
+ public class EntityFallingNuke extends EntityThrowable {
++	private static final DataParameter<Byte> BLOCK_METADATA = EntityDataManager.createKey(EntityFallingNuke.class, DataSerializers.BYTE);
++
+ 	
+ 	float tnt;
+ 	float nuke;
+@@ -43,8 +48,16 @@ public class EntityFallingNuke extends EntityThrowable {
+         this.setSize(0.98F, 0.98F);
+ 	}
+ 
++	public void setBlockMetadata(byte metadata) {
++		this.dataManager.set(BLOCK_METADATA, metadata);
++	}
++
++	public byte getBlockMetadata() {
++		return this.dataManager.get(BLOCK_METADATA);
++	}
++
+     protected void entityInit() {
+-    	this.dataWatcher.addObject(20, Byte.valueOf((byte)0));
++    	this.dataManager.register(BLOCK_METADATA, Byte.valueOf((byte)0));
+     }
+ 	
+ 	@Override
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java b/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java
+index f8aedc18..514cd236 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java
+@@ -2,6 +2,7 @@ package com.hbm.render.entity.projectile;
+ 
+ import org.lwjgl.opengl.GL11;
+ 
++import com.hbm.entity.projectile.EntityFallingNuke;
+ import com.hbm.lib.RefStrings;
+ 
+ import net.minecraft.client.renderer.entity.Render;
+@@ -27,7 +28,7 @@ public class RenderFallingNuke extends Render {
+ 		GL11.glPushMatrix();
+ 		GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
+ 
+-		switch(p_76986_1_.getDataWatcher().getWatchableObjectByte(20)) {
++		switch(((EntityFallingNuke) p_76986_1_).getBlockMetadata()) {
+ 		case 2:
+ 			GL11.glRotatef(90, 0F, 1F, 0F);
+ 			GL11.glTranslated(-2.0D, 0.0D, 0.0D);

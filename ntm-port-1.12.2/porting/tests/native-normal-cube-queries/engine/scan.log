@@ -1,0 +1,53 @@
+{
+  "counts_including_duplicate_classes": {
+    "legacy_ntm": 5255,
+    "legacy_engine": 1803,
+    "native": 48248,
+    "legacy_forge": 838
+  },
+  "original_normal_cube_owners": [],
+  "original_engine_normal_cube_owners": [
+    {
+      "class": "aji",
+      "super": "java/lang/Object",
+      "name": "r",
+      "descriptor": "()Z",
+      "access": 1
+    }
+  ],
+  "original_powerdetector_closure": [
+    "com/hbm/blocks/machine/PowerDetector"
+  ],
+  "native_states": [
+    "net/minecraft/block/state/BlockStateBase",
+    "net/minecraft/block/state/BlockStateContainer$StateImplementation",
+    "net/minecraft/block/state/IBlockProperties",
+    "net/minecraft/block/state/IBlockState",
+    "net/minecraftforge/common/property/ExtendedBlockState$ExtendedStateImplementation",
+    "net/minecraftforge/common/property/IExtendedBlockState"
+  ],
+  "pinned_source_state_type_declarations": [],
+  "pinned_source_normal_cube_methods": [],
+  "pinned_source_power_methods": [
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineRadarLarge.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/PowerDetector.java",
+      "boolean canProvidePower()"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/RadioTorchLogic.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/RadioTorchReceiver.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ]
+  ]
+}

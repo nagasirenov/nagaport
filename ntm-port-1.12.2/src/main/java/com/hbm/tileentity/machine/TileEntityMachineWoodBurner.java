@@ -134,7 +134,7 @@ public class TileEntityMachineWoodBurner extends TileEntityMachineBase implement
 			if(powerGen > 0) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-				this.world.spawnParticle("smoke", this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);
 			}
 		}
 	}

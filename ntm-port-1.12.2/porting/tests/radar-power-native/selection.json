@@ -1,0 +1,50 @@
+{
+  "baseline": "a0dc7d14f453a1d6f01b0d5abdcd455358bf2714",
+  "operations": [
+    {
+      "path": "com/hbm/blocks/machine/MachineRadar.java",
+      "old": "public boolean canProvidePower()",
+      "new": "public boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadar.java",
+      "old": "public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int m) {",
+      "new": "public int getWeakPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadar.java",
+      "old": "public int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int m) {\n\t\treturn isProvidingWeakPower(world, x, y, z, m);",
+      "new": "public int getStrongPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\treturn getWeakPower(state, world, blockPos, side);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadar.java",
+      "old": "world.getTileEntity(x, y, z)",
+      "new": "world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadarLarge.java",
+      "old": "public boolean canProvidePower()",
+      "new": "public boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadarLarge.java",
+      "old": "public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int m) {",
+      "new": "public int getWeakPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\tint x = blockPos.getX();\n\t\tint y = blockPos.getY();\n\t\tint z = blockPos.getZ();\n\t\tint m = side.getIndex();"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadarLarge.java",
+      "old": "public int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int m) {\n\t\treturn isProvidingWeakPower(world, x, y, z, m);",
+      "new": "public int getStrongPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {\n\t\treturn getWeakPower(state, world, blockPos, side);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadarLarge.java",
+      "old": "world.getBlockMetadata(x, y, z)",
+      "new": "com.hbm.world.WorldBlockState.metadata(world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)))"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadarLarge.java",
+      "old": "world.getTileEntity(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)",
+      "new": "world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ))"
+    }
+  ]
+}

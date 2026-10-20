@@ -1,0 +1,58 @@
+{
+  "baseline": "d754432647909d6840333059865d834f87bd4a7f",
+  "scope": "CP95 aggregate reversible placement source boundary and finite historical static compositions only",
+  "files_written": {
+    "porting/checkpoint95/generate-source-boundary.py": "f18cfc024ff3c5c44276e39a1da1ea6db9c0c400ec5250975fff98410ca13f3c",
+    "porting/checkpoint95/cp94-source-boundary.py": "4daa4fceee66e7fa3c1bc42f84b5db9013c94ccf2d7a19cbe8e7eb2e45bc3aa3",
+    "porting/checkpoint95/check-historical-composition.py": "a55abfff8722e3ba7d6db12a95417fff2f2b39d699211cd52849e6515b8acd81",
+    "porting/checkpoint95/historical-composition.json": "c1f7592d3953d30d509a004373bd7969dfcfb39f1567390e1cc3e99bc382158e",
+    "porting/checkpoint95/source-guards.log": "e8eaa971944f7404b932a9d28c2b4619bde834bd90421ed1cefb5ac13e9dfb27",
+    "porting/checkpoint95/historical-composed.log": "05ea7cf4c68501c98f8daaa21b21233c1cfd266599b0d92541781e9ed2ad0a43",
+    "porting/tests/check-native-block-placement-source.py": "f23172ecd12800f4f1590a2ff7461e4ed2bdb2100409d9ece789a4da3705753d",
+    "porting/tests/native-block-placement-source-manifest.json": "c6fb42093ef40396285e38ba8b1130a7a458892a7ac5d534de3ea1725bbc5fb9",
+    "porting/tests/check-native-inventory-sound-sky-source.py": "e4b7229f4e969e396d63ae7d46f6355e6d9547e664b36c4711ba615f0937d3e5"
+  },
+  "results": {
+    "aggregate_boundary": {
+      "existing_sources": 29,
+      "new_sources": 0,
+      "deleted_sources": 0,
+      "binary_paths": 0,
+      "rejected_mutations": 87,
+      "status": "PASS"
+    },
+    "placement_family": {
+      "source_inverses": 29,
+      "native_calls": 31,
+      "native_owner_signatures": 15,
+      "rejected_mutations": 87,
+      "status": "PASS"
+    },
+    "thermal_family_source": "PASS complete historical composition",
+    "historical_cp94_runner": "PASS unchanged original checker, composition pins, normal-stream, air and press-cache guards",
+    "historical_normal_cube": {
+      "complete_file_inverses": 30,
+      "normal_cube_calls": 47,
+      "state_captures": 20,
+      "rejected_mutations": 90,
+      "status": "PASS"
+    },
+    "exact_placement_intersections": {
+      "air": 1,
+      "press_cache": 2,
+      "normal_cube": 4
+    },
+    "source_java_bytes_unchanged": 4072
+  },
+  "limitations": [
+    "Static source evidence only; no runtime, GL, build or gameplay acceptance claimed.",
+    "No production changes, builds, commits or network operations performed by this source-guard task.",
+    "The placement family inverse runs before every historical CP94/CP93/CP92 layer and matches the independent CP95 aggregate inverse byte-for-byte.",
+    "Original CP94 checker retained byte-for-byte; all prior historical checker/manifests/pins remain unchanged."
+  ],
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-native-block-placement-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 porting/tests/check-thermal-family-source.py",
+    "PYTHONDONTWRITEBYTECODE=1 python3 -u porting/checkpoint95/check-historical-composition.py"
+  ]
+}

@@ -59,15 +59,15 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 	};
 
 	public ArmorGasMask() {
-		super(ArmorMaterial.IRON, 0, 0);
+		super(ArmorMaterial.IRON, 0, com.hbm.util.ArmorSlotOrder.fromIndex(0));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(this == ModItems.gas_mask) {
-			if(armorSlot == 0) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
 				if(this.modelGas == null) {
 					this.modelGas = new ModelGasMask();
 				}
@@ -76,7 +76,7 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 		}
 
 		if(this == ModItems.gas_mask_m65 || this == ModItems.gas_mask_olde || this == ModItems.gas_mask_mono) {
-			if(armorSlot == 0) {
+			if(armorSlot == net.minecraft.inventory.EntityEquipmentSlot.HEAD) {
 				if(this.modelM65 == null) {
 					this.modelM65 = new ModelM65();
 				}
@@ -88,7 +88,7 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
 
 		if(stack.getItem() == ModItems.gas_mask) {
 			return "hbm:textures/models/GasMask.png";

@@ -1,0 +1,102 @@
+  public abb(abd, int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #57                 // Method adb."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #38                 // Field p:Labd;
+       9: aload_0
+      10: iload_3
+      11: putfield      #31                 // Field b:I
+      14: aload_0
+      15: iload_2
+      16: putfield      #33                 // Field d:I
+      19: aload_0
+      20: aload_1
+      21: iload_3
+      22: invokevirtual #56                 // Method abd.b:(I)I
+      25: putfield      #32                 // Field c:I
+      28: aload_0
+      29: aload_1
+      30: iload_3
+      31: invokevirtual #54                 // Method abd.a:(I)I
+      34: invokevirtual #51                 // Method f:(I)Ladb;
+      37: pop
+      38: aload_0
+      39: iconst_1
+      40: putfield      #34                 // Field h:I
+      43: aload_0
+      44: getstatic     #42                 // Field abt.j:Labt;
+      47: invokevirtual #49                 // Method a:(Labt;)Ladb;
+      50: pop
+      51: getstatic     #48                 // Field akm.a:Lcz;
+      54: aload_0
+      55: getstatic     #37                 // Field o:Lcp;
+      58: invokeinterface #78,  3           // InterfaceMethod cz.a:(Ljava/lang/Object;Ljava/lang/Object;)V
+      63: return
+
+  static {};
+    Code:
+       0: iconst_4
+       1: newarray       int
+       3: dup
+       4: iconst_0
+       5: bipush        11
+       7: iastore
+       8: dup
+       9: iconst_1
+      10: bipush        16
+      12: iastore
+      13: dup
+      14: iconst_2
+      15: bipush        15
+      17: iastore
+      18: dup
+      19: iconst_3
+      20: bipush        13
+      22: iastore
+      23: putstatic     #35                 // Field m:[I
+      26: iconst_4
+      27: anewarray     #25                 // class java/lang/String
+      30: dup
+      31: iconst_0
+      32: ldc           #12                 // String leather_helmet_overlay
+      34: aastore
+      35: dup
+      36: iconst_1
+      37: ldc           #11                 // String leather_chestplate_overlay
+      39: aastore
+      40: dup
+      41: iconst_2
+      42: ldc           #13                 // String leather_leggings_overlay
+      44: aastore
+      45: dup
+      46: iconst_3
+      47: ldc           #10                 // String leather_boots_overlay
+      49: aastore
+      50: putstatic     #36                 // Field n:[Ljava/lang/String;
+      53: iconst_4
+      54: anewarray     #25                 // class java/lang/String
+      57: dup
+      58: iconst_0
+      59: ldc           #8                  // String empty_armor_slot_helmet
+      61: aastore
+      62: dup
+      63: iconst_1
+      64: ldc           #7                  // String empty_armor_slot_chestplate
+      66: aastore
+      67: dup
+      68: iconst_2
+      69: ldc           #9                  // String empty_armor_slot_leggings
+      71: aastore
+      72: dup
+      73: iconst_3
+      74: ldc           #6                  // String empty_armor_slot_boots
+      76: aastore
+      77: putstatic     #30                 // Field a:[Ljava/lang/String;
+      80: new           #15                 // class abc
+      83: dup
+      84: invokespecial #52                 // Method abc."<init>":()V
+      87: putstatic     #37                 // Field o:Lcp;
+      90: return
+}

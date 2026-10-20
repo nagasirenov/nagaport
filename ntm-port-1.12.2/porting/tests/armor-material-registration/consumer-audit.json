@@ -1,0 +1,1544 @@
+{
+  "baseline": "42dea8e6e3241d0c4ce4ba9c5459fab2bdfdc99b",
+  "consumer_count": 138,
+  "consumers": [
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 33,
+      "owner": "ModArmor",
+      "material": "aMatRags",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ModArmor(aMatRags, 0)",
+      "texture_owner": "ModArmor"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 34,
+      "owner": "ModArmor",
+      "material": "aMatRags",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ModArmor(aMatRags, 0)",
+      "texture_owner": "ModArmor"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 35,
+      "owner": "ArmorHat",
+      "material": "MainRegistry.aMatAlloy",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorHat(MainRegistry.aMatAlloy, 0)",
+      "texture_owner": "ArmorModel"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 36,
+      "owner": "ArmorNo9",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorNo9(MainRegistry.aMatSteel, 0)",
+      "texture_owner": "ArmorModel"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 39,
+      "owner": "ArmorEuphemium",
+      "material": "MainRegistry.aMatEuph",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorEuphemium(MainRegistry.aMatEuph, 0)",
+      "texture_owner": "ArmorEuphemium"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 40,
+      "owner": "ArmorEuphemium",
+      "material": "MainRegistry.aMatEuph",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorEuphemium(MainRegistry.aMatEuph, 1)",
+      "texture_owner": "ArmorEuphemium"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 41,
+      "owner": "ArmorEuphemium",
+      "material": "MainRegistry.aMatEuph",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorEuphemium(MainRegistry.aMatEuph, 2)",
+      "texture_owner": "ArmorEuphemium"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 42,
+      "owner": "ArmorEuphemium",
+      "material": "MainRegistry.aMatEuph",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorEuphemium(MainRegistry.aMatEuph, 3)",
+      "texture_owner": "ArmorEuphemium"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 45,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSchrab",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSchrab, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 51,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSchrab",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSchrab, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 52,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSchrab",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSchrab, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 53,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSchrab",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSchrab, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 54,
+      "owner": "ArmorBismuth",
+      "material": "MainRegistry.aMatBismuth",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorBismuth(MainRegistry.aMatBismuth, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 61,
+      "owner": "ArmorBismuth",
+      "material": "MainRegistry.aMatBismuth",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorBismuth(MainRegistry.aMatBismuth, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 62,
+      "owner": "ArmorBismuth",
+      "material": "MainRegistry.aMatBismuth",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorBismuth(MainRegistry.aMatBismuth, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 63,
+      "owner": "ArmorBismuth",
+      "material": "MainRegistry.aMatBismuth",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorBismuth(MainRegistry.aMatBismuth, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 64,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatTitan",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatTitan, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 65,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatTitan",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatTitan, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 66,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatTitan",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatTitan, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 67,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatTitan",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatTitan, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 68,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSteel, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 69,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSteel, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 70,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSteel, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 71,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSteel, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 72,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAlloy",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAlloy, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 73,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAlloy",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAlloy, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 74,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAlloy",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAlloy, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 75,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAlloy",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAlloy, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 76,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCMB",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCMB, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 81,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCMB",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCMB, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 82,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCMB",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCMB, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 83,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCMB",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCMB, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 84,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatPaa",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatPaa, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 86,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatPaa",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatPaa, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 87,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatPaa",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatPaa, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 88,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAsbestos",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAsbestos, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 89,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAsbestos",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAsbestos, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 90,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAsbestos",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAsbestos, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 91,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatAsbestos",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatAsbestos, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 92,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSecurity",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSecurity, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 93,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSecurity",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSecurity, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 94,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSecurity",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSecurity, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 95,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatSecurity",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatSecurity, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 96,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCobalt",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCobalt, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 97,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCobalt",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCobalt, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 98,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCobalt",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCobalt, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 99,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatCobalt",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatCobalt, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 100,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatStarmetal",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatStarmetal, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 102,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatStarmetal",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatStarmetal, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 103,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatStarmetal",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatStarmetal, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 104,
+      "owner": "ArmorFSB",
+      "material": "MainRegistry.aMatStarmetal",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(MainRegistry.aMatStarmetal, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 114,
+      "owner": "ArmorFSB",
+      "material": "aMatZirconium",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(aMatZirconium, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 118,
+      "owner": "ArmorFSB",
+      "material": "aMatDNT",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorFSB(aMatDNT, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 120,
+      "owner": "ArmorFSB",
+      "material": "aMatDNT",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorFSB(aMatDNT, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 121,
+      "owner": "ArmorFSB",
+      "material": "aMatDNT",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorFSB(aMatDNT, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 122,
+      "owner": "ArmorFSB",
+      "material": "aMatDNT",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorFSB(aMatDNT, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 126,
+      "owner": "ArmorT51",
+      "material": "aMatT51",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorT51(aMatT51, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 136,
+      "owner": "ArmorT51",
+      "material": "aMatT51",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorT51(aMatT51, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 137,
+      "owner": "ArmorT51",
+      "material": "aMatT51",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorT51(aMatT51, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 138,
+      "owner": "ArmorT51",
+      "material": "aMatT51",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorT51(aMatT51, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 142,
+      "owner": "ArmorDesh",
+      "material": "aMatDesh",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorDesh(aMatDesh, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 149,
+      "owner": "ArmorDesh",
+      "material": "aMatDesh",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorDesh(aMatDesh, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 150,
+      "owner": "ArmorDesh",
+      "material": "aMatDesh",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorDesh(aMatDesh, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 151,
+      "owner": "ArmorDesh",
+      "material": "aMatDesh",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorDesh(aMatDesh, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 155,
+      "owner": "ArmorDiesel",
+      "material": "aMatDiesel",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorDiesel(aMatDiesel, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 161,
+      "owner": "ArmorDiesel",
+      "material": "aMatDiesel",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorDiesel(aMatDiesel, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 162,
+      "owner": "ArmorDiesel",
+      "material": "aMatDiesel",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorDiesel(aMatDiesel, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 163,
+      "owner": "ArmorDiesel",
+      "material": "aMatDiesel",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorDiesel(aMatDiesel, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 167,
+      "owner": "ArmorAJR",
+      "material": "aMatAJR",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorAJR(aMatAJR, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 178,
+      "owner": "ArmorAJR",
+      "material": "aMatAJR",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorAJR(aMatAJR, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 179,
+      "owner": "ArmorAJR",
+      "material": "aMatAJR",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorAJR(aMatAJR, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 180,
+      "owner": "ArmorAJR",
+      "material": "aMatAJR",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorAJR(aMatAJR, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 182,
+      "owner": "ArmorAJRO",
+      "material": "aMatAJR",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorAJRO(aMatAJR, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 193,
+      "owner": "ArmorAJRO",
+      "material": "aMatAJR",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorAJRO(aMatAJR, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 194,
+      "owner": "ArmorAJRO",
+      "material": "aMatAJR",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorAJRO(aMatAJR, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 195,
+      "owner": "ArmorAJRO",
+      "material": "aMatAJR",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorAJRO(aMatAJR, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 197,
+      "owner": "ArmorRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorRPA(aMatAJR, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 209,
+      "owner": "ArmorRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorRPA(aMatAJR, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 210,
+      "owner": "ArmorRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorRPA(aMatAJR, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 211,
+      "owner": "ArmorRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorRPA(aMatAJR, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 213,
+      "owner": "ArmorNCRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorNCRPA(aMatAJR, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 225,
+      "owner": "ArmorNCRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorNCRPA(aMatAJR, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 226,
+      "owner": "ArmorNCRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorNCRPA(aMatAJR, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 227,
+      "owner": "ArmorNCRPA",
+      "material": "aMatAJR",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorNCRPA(aMatAJR, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 231,
+      "owner": "ArmorBJ",
+      "material": "aMatBJ",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorBJ(aMatBJ, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 245,
+      "owner": "ArmorBJ",
+      "material": "aMatBJ",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorBJ(aMatBJ, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 246,
+      "owner": "ArmorBJJetpack",
+      "material": "aMatBJ",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorBJJetpack(aMatBJ, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 247,
+      "owner": "ArmorBJ",
+      "material": "aMatBJ",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorBJ(aMatBJ, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 248,
+      "owner": "ArmorBJ",
+      "material": "aMatBJ",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorBJ(aMatBJ, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 252,
+      "owner": "ArmorEnvsuit",
+      "material": "aMatEnv",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorEnvsuit(aMatEnv, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 259,
+      "owner": "ArmorEnvsuit",
+      "material": "aMatEnv",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorEnvsuit(aMatEnv, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 260,
+      "owner": "ArmorEnvsuit",
+      "material": "aMatEnv",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorEnvsuit(aMatEnv, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 261,
+      "owner": "ArmorEnvsuit",
+      "material": "aMatEnv",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorEnvsuit(aMatEnv, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 265,
+      "owner": "ArmorHEV",
+      "material": "aMatHEV",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorHEV(aMatHEV, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 274,
+      "owner": "ArmorHEV",
+      "material": "aMatHEV",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorHEV(aMatHEV, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 275,
+      "owner": "ArmorHEV",
+      "material": "aMatHEV",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorHEV(aMatHEV, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 276,
+      "owner": "ArmorHEV",
+      "material": "aMatHEV",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorHEV(aMatHEV, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 278,
+      "owner": "ModArmor",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ModArmor(MainRegistry.aMatSteel, 1)",
+      "texture_owner": "ModArmor"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 279,
+      "owner": "ModArmor",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ModArmor(MainRegistry.aMatSteel, 1)",
+      "texture_owner": "ModArmor"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 283,
+      "owner": "ArmorDigamma",
+      "material": "aMatFau",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorDigamma(aMatFau, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 295,
+      "owner": "ArmorDigamma",
+      "material": "aMatFau",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorDigamma(aMatFau, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 296,
+      "owner": "ArmorDigamma",
+      "material": "aMatFau",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorDigamma(aMatFau, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 297,
+      "owner": "ArmorDigamma",
+      "material": "aMatFau",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorDigamma(aMatFau, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 301,
+      "owner": "ArmorDNT",
+      "material": "aMatDNS",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorDNT(aMatDNS, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 316,
+      "owner": "ArmorDNT",
+      "material": "aMatDNS",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorDNT(aMatDNS, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 317,
+      "owner": "ArmorDNT",
+      "material": "aMatDNS",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorDNT(aMatDNS, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 318,
+      "owner": "ArmorDNT",
+      "material": "aMatDNS",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorDNT(aMatDNS, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 322,
+      "owner": "ArmorTaurun",
+      "material": "aMatTaurun",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorTaurun(aMatTaurun, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 329,
+      "owner": "ArmorTaurun",
+      "material": "aMatTaurun",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorTaurun(aMatTaurun, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 330,
+      "owner": "ArmorTaurun",
+      "material": "aMatTaurun",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorTaurun(aMatTaurun, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 331,
+      "owner": "ArmorTaurun",
+      "material": "aMatTaurun",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorTaurun(aMatTaurun, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 334,
+      "owner": "ArmorTrenchmaster",
+      "material": "aMatTrench",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorTrenchmaster(aMatTrench, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 345,
+      "owner": "ArmorTrenchmaster",
+      "material": "aMatTrench",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorTrenchmaster(aMatTrench, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 346,
+      "owner": "ArmorTrenchmaster",
+      "material": "aMatTrench",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorTrenchmaster(aMatTrench, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 347,
+      "owner": "ArmorTrenchmaster",
+      "material": "aMatTrench",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorTrenchmaster(aMatTrench, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 349,
+      "owner": "ModArmor",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ModArmor(MainRegistry.aMatSteel, 1)",
+      "texture_owner": "ModArmor"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItemsArmor.java",
+      "line": 350,
+      "owner": "ModArmor",
+      "material": "MainRegistry.aMatSteel",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ModArmor(MainRegistry.aMatSteel, 1)",
+      "texture_owner": "ModArmor"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4882,
+      "owner": "ArmorHazmatMask",
+      "material": "MainRegistry.aMatHaz",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorHazmatMask(MainRegistry.aMatHaz, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4883,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4884,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4885,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4886,
+      "owner": "ArmorHazmatMask",
+      "material": "MainRegistry.aMatHaz2",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorHazmatMask(MainRegistry.aMatHaz2, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4887,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz2",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz2, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4888,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz2",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz2, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4889,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz2",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz2, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4890,
+      "owner": "ArmorHazmatMask",
+      "material": "MainRegistry.aMatHaz3",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorHazmatMask(MainRegistry.aMatHaz3, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4892,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz3",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz3, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4893,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz3",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz3, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4894,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatHaz3",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatHaz3, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4895,
+      "owner": "ArmorHazmatMask",
+      "material": "MainRegistry.aMatPaa",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorHazmatMask(MainRegistry.aMatPaa, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4897,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatPaa",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatPaa, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4898,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatPaa",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatPaa, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4899,
+      "owner": "ArmorHazmat",
+      "material": "MainRegistry.aMatPaa",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorHazmat(MainRegistry.aMatPaa, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4903,
+      "owner": "ArmorLiquidatorMask",
+      "material": "aMatLiquidator",
+      "legacy_slot": 0,
+      "constructor_prefix": "new ArmorLiquidatorMask(aMatLiquidator, 0,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4907,
+      "owner": "ArmorLiquidator",
+      "material": "aMatLiquidator",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorLiquidator(aMatLiquidator, 1,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4908,
+      "owner": "ArmorLiquidator",
+      "material": "aMatLiquidator",
+      "legacy_slot": 2,
+      "constructor_prefix": "new ArmorLiquidator(aMatLiquidator, 2,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4909,
+      "owner": "ArmorLiquidator",
+      "material": "aMatLiquidator",
+      "legacy_slot": 3,
+      "constructor_prefix": "new ArmorLiquidator(aMatLiquidator, 3,",
+      "texture_owner": "ArmorFSB"
+    },
+    {
+      "source": "src/main/java/com/hbm/items/ModItems.java",
+      "line": 4921,
+      "owner": "ArmorModel",
+      "material": "MainRegistry.aMatSchrab",
+      "legacy_slot": 1,
+      "constructor_prefix": "new ArmorModel(MainRegistry.aMatSchrab, 1)",
+      "texture_owner": "ArmorModel"
+    }
+  ],
+  "classes": {
+    "ModArmor": {
+      "parent": "ItemArmor",
+      "source": "src/main/java/com/hbm/items/armor/ModArmor.java",
+      "baseline_sha256": "c7f221f4d3eb70fb3a8df6a589f0de3a1487d0b933d60c1700db5c4c6ab78614",
+      "pristine_sha256": "c7f221f4d3eb70fb3a8df6a589f0de3a1487d0b933d60c1700db5c4c6ab78614",
+      "constructor_signature": "public ModArmor(ArmorMaterial material, int slot)",
+      "super_call": "super(material, 0, slot);",
+      "texture_body": "{\n\t\tif(stack.getItem().equals(ModItems.steel_helmet) || stack.getItem().equals(ModItems.steel_plate) || stack.getItem().equals(ModItems.steel_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/steel_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.steel_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/steel_2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.titanium_helmet) || stack.getItem().equals(ModItems.titanium_plate) || stack.getItem().equals(ModItems.titanium_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/titanium_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.titanium_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/titanium_2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.alloy_helmet) || stack.getItem().equals(ModItems.alloy_plate) || stack.getItem().equals(ModItems.alloy_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/alloy_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.alloy_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/alloy_2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.cmb_helmet) || stack.getItem().equals(ModItems.cmb_plate) || stack.getItem().equals(ModItems.cmb_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/cmb_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.cmb_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/cmb_2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.paa_plate) || stack.getItem().equals(ModItems.paa_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/paa_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.paa_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/paa_2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.asbestos_helmet) || stack.getItem().equals(ModItems.asbestos_plate) || stack.getItem().equals(ModItems.asbestos_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/asbestos_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.asbestos_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/asbestos_2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.jackt)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/jackt.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.jackt2)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/jackt2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.security_helmet) || stack.getItem().equals(ModItems.security_plate) || stack.getItem().equals(ModItems.security_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/security_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.security_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/security_2.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.mask_rag)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/rag_damp.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.mask_piss)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/rag_piss.png\");\n\t\t}\n\t\t\n\t\telse return null;\n\t}",
+      "texture_owner": "ModArmor"
+    },
+    "ArmorHat": {
+      "parent": "ArmorModel",
+      "source": "src/main/java/com/hbm/items/armor/ArmorHat.java",
+      "baseline_sha256": "4e1952b1ac39e833e273b0c450352c635cda4308b6bf0b594d3f43bd3b8482c8",
+      "pristine_sha256": "9afe56534081528e05ef68097f76032c6ea2e62fc8242955c6dd9f6dd51b31a5",
+      "constructor_signature": "public ArmorHat(ArmorMaterial armorMaterial, int armorType)",
+      "super_call": "super(armorMaterial, armorType);",
+      "texture_body": null,
+      "texture_owner": "ArmorModel"
+    },
+    "ArmorModel": {
+      "parent": "ItemArmor",
+      "source": "src/main/java/com/hbm/items/armor/ArmorModel.java",
+      "baseline_sha256": "58dba0c25f66659cb6c8823c6dfb11798602a8853ac487b4f1f6ee2a1329fa87",
+      "pristine_sha256": "da40ff0af9b0a98eafe916e0da2f08e53ec23a10ad7376cd8b64d448168bdb0d",
+      "constructor_signature": "public ArmorModel(ArmorMaterial armorMaterial, int armorType)",
+      "super_call": "super(armorMaterial, 0, armorType);",
+      "texture_body": "{\n\t\tif(stack.getItem() == ModItems.goggles) {\n\t\t\treturn \"hbm:textures/models/Goggles.png\";\n\t\t}\n\t\tif(stack.getItem() == ModItems.cape_radiation) {\n\t\t\treturn \"hbm:textures/models/capes/CapeRadiation.png\";\n\t\t}\n\t\tif(stack.getItem() == ModItems.cape_gasmask) {\n\t\t\treturn \"hbm:textures/models/capes/CapeGasMask.png\";\n\t\t}\n\t\tif(stack.getItem() == ModItems.cape_schrabidium) {\n\t\t\treturn \"hbm:textures/models/capes/CapeSchrabidium.png\";\n\t\t}\n\t\tif(stack.getItem() == ModItems.cape_hidden) {\n\t\t\treturn \"hbm:textures/models/capes/CapeHidden.png\";\n\t\t}\n\n\t\treturn \"hbm:textures/models/capes/CapeUnknown.png\";\n\t}",
+      "texture_owner": "ArmorModel"
+    },
+    "ArmorNo9": {
+      "parent": "ArmorModel",
+      "source": "src/main/java/com/hbm/items/armor/ArmorNo9.java",
+      "baseline_sha256": "9bb445572e96d5160c5bad73eb2af9913a33fee9a17a97a5bcf8c0f5bc1faddc",
+      "pristine_sha256": "324c1cf7da8048aad030377a91719fd46b4e8f1864c7b8145e2bc76e66e69ac8",
+      "constructor_signature": "public ArmorNo9(ArmorMaterial armorMaterial, int armorType)",
+      "super_call": "super(armorMaterial, armorType);",
+      "texture_body": null,
+      "texture_owner": "ArmorModel"
+    },
+    "ArmorEuphemium": {
+      "parent": "ItemArmor",
+      "source": "src/main/java/com/hbm/items/armor/ArmorEuphemium.java",
+      "baseline_sha256": "2060c8079ad60de660b24933fa7662a69c636b7af93a6e2f6535560b0f3cd222",
+      "pristine_sha256": "2060c8079ad60de660b24933fa7662a69c636b7af93a6e2f6535560b0f3cd222",
+      "constructor_signature": "public ArmorEuphemium(ArmorMaterial armorMaterial, int armorType)",
+      "super_call": "super(armorMaterial, 0, armorType);",
+      "texture_body": "{\n\t\tif(stack.getItem().equals(ModItems.euphemium_helmet) || stack.getItem().equals(ModItems.euphemium_plate) || stack.getItem().equals(ModItems.euphemium_boots)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/euphemium_1.png\");\n\t\t}\n\t\tif(stack.getItem().equals(ModItems.euphemium_legs)) {\n\t\t\treturn (RefStrings.MODID + \":textures/armor/euphemium_2.png\");\n\t\t}\n\t\t\n\t\telse return null;\n\t}",
+      "texture_owner": "ArmorEuphemium"
+    },
+    "ArmorFSB": {
+      "parent": "ItemArmor",
+      "source": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "baseline_sha256": "aeab5cf3a6856f1fb948390c407e49067884a36f124f82fcab3dff481c4e2d6b",
+      "pristine_sha256": "80d0bb174be5f3d4d679329f27bff511de384a5e9bcabb16727a416ddb6b1eca",
+      "constructor_signature": "public ArmorFSB(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, 0, slot);",
+      "texture_body": "{\n\t\treturn texture;\n\t}",
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorBismuth": {
+      "parent": "ArmorFSB",
+      "source": "src/main/java/com/hbm/items/armor/ArmorBismuth.java",
+      "baseline_sha256": "03e5646e2b337a3b2636d02de7f02aaffd94fe1964599c72e99e75edec989d41",
+      "pristine_sha256": "bb3382225303b7d950232c194b7b5e0a23e202bbc09e51f1ba4e3379ac4dce69",
+      "constructor_signature": "public ArmorBismuth(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorT51": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorT51.java",
+      "baseline_sha256": "31d70d6260c56f3962e425e746a1e192ac18f3da8550d661890d46cd0fecb05b",
+      "pristine_sha256": "d909a40606643f41c33144e9a98961751159604d494c838fba9118a291dd5b82",
+      "constructor_signature": "public ArmorT51(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorFSBPowered": {
+      "parent": "ArmorFSB",
+      "source": "src/main/java/com/hbm/items/armor/ArmorFSBPowered.java",
+      "baseline_sha256": "8dbc48ef29c45c58e6d3c5b20c12e109184db7659fc3a001905dffb9989d3954",
+      "pristine_sha256": "6434dd9320d81da546bd8ea20a04295f8eee89e68857d4f631753dfef5217e00",
+      "constructor_signature": "public ArmorFSBPowered(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorDesh": {
+      "parent": "ArmorFSBFueled",
+      "source": "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+      "baseline_sha256": "ee6530b6fd50b915726dd0a918607f3e7ed29e26522ebe3482ebd5dd8e7bfe4f",
+      "pristine_sha256": "7af3ba0e6acada4e9a47f8390b76b0ac020a559ab8c34c256866add517286965",
+      "constructor_signature": "public ArmorDesh(ArmorMaterial material, int slot, String texture, FluidType fuelType, int maxFuel, int fillRate, int consumption, int drain)",
+      "super_call": "super(material, slot, texture, fuelType, maxFuel, fillRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorFSBFueled": {
+      "parent": "ArmorFSB",
+      "source": "src/main/java/com/hbm/items/armor/ArmorFSBFueled.java",
+      "baseline_sha256": "7b62ebb6ff84a758d597fff366662b4f95c8065877c1ef947565567fd2394c24",
+      "pristine_sha256": "9a66757560147f186d2db5d5b628c1deda7fd26a883061227ca09f2ad40900fb",
+      "constructor_signature": "public ArmorFSBFueled(ArmorMaterial material, int slot, String texture, FluidType fuelType, int maxFuel, int fillRate, int consumption, int drain)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorDiesel": {
+      "parent": "ArmorFSBFueled",
+      "source": "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "baseline_sha256": "e410d142125dcbd60ce743d800c58a5d5e4ac16ba6f50c833a20fddaeda1b2aa",
+      "pristine_sha256": "8f6ea18239ee7b107bb04571a5517ebfbeec3f3fa6d67b27a5a48fedc661b268",
+      "constructor_signature": "public ArmorDiesel(ArmorMaterial material, int slot, String texture, FluidType fuelType, int maxFuel, int fillRate, int consumption, int drain)",
+      "super_call": "super(material, slot, texture, fuelType, maxFuel, fillRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorAJR": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorAJR.java",
+      "baseline_sha256": "61c5a62fdaeb558e6b4c33021999578f00436bf88ba4defc4be55e98e0571008",
+      "pristine_sha256": "81c545b019d03e75d43250b4268f1dd2050dea5c9ecec36e6b19862de49914f7",
+      "constructor_signature": "public ArmorAJR(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorAJRO": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorAJRO.java",
+      "baseline_sha256": "af764195e0f6527825bd0f5494c352df3a0919f00837b73e235a8c4a902d8b9a",
+      "pristine_sha256": "88594653d29cf7b1a85be0e4a08ce2fc04fa432618c72e6beb95761798c59ab4",
+      "constructor_signature": "public ArmorAJRO(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorRPA": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorRPA.java",
+      "baseline_sha256": "309e3bec76aade46a530707ade1a185ac3deaa936d31e81152ccb6c12cbdaeaa",
+      "pristine_sha256": "fcf1a8b4a192ba2c1518e504520f73d47ada52c2bae3bfec1437f19227b79c4f",
+      "constructor_signature": "public ArmorRPA(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorNCRPA": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+      "baseline_sha256": "190856cc8de59114dff20edf2a0dd5fbc4a2598b320359d052c7711d243548f2",
+      "pristine_sha256": "b89b6daac0b95b7faa1d731d6b84d77853fa2116b399e231b7a9bab7096320b0",
+      "constructor_signature": "public ArmorNCRPA(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorBJ": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorBJ.java",
+      "baseline_sha256": "77e592729dfa54985568d2f91a7e94f76525ec84c6b58beeccc23092387d14e3",
+      "pristine_sha256": "b22e4c458c409981d82203a13201e72a36814d0f5bbcfa2144fba00189f74c33",
+      "constructor_signature": "public ArmorBJ(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorBJJetpack": {
+      "parent": "ArmorBJ",
+      "source": "src/main/java/com/hbm/items/armor/ArmorBJJetpack.java",
+      "baseline_sha256": "87c1548b49138de8f6b09cdb9cef483cfa8db19b17412f1f9a5e4699ef0b9d3f",
+      "pristine_sha256": "813397bc4d2e6e66ed122b9fd874b91c52b75f815277e3336e1e69980c418a2a",
+      "constructor_signature": "public ArmorBJJetpack(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorEnvsuit": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "baseline_sha256": "6efe58e84d02e49840a42d5ffe8317ecb8348700af354ec41293e7aac6d75cb7",
+      "pristine_sha256": "9a326f2d8838cf709008a112617e311f2c5be9322c2b6286fc4c286f86f7d59d",
+      "constructor_signature": "public ArmorEnvsuit(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorHEV": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorHEV.java",
+      "baseline_sha256": "d77fb151949daf244ed8f9b31e5ff758cf6b19f6ea7bb7dc80ccbc0133bc6f0e",
+      "pristine_sha256": "d7f645c18241b68465d5cc1c0d5e23b062c07146d762e01860e6dad025de378d",
+      "constructor_signature": "public ArmorHEV(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorDigamma": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorDigamma.java",
+      "baseline_sha256": "49b3c6e10582fb0785b1cc8a377c63504fb8043fa47f2b8e6cec38551d2584af",
+      "pristine_sha256": "7c6028b82dbe5c4c0e522d8a62e6958d6b23da4a8268f2fc788decf14000d62a",
+      "constructor_signature": "public ArmorDigamma(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorDNT": {
+      "parent": "ArmorFSBPowered",
+      "source": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "baseline_sha256": "c9605f37954ac866485f046c3b96dacdf5ceb48a67107d33ad6ad6629014dd25",
+      "pristine_sha256": "c6e5616738c9b6db37c94fd3f54d1b744d756d150371d95442a6745b1f5f3852",
+      "constructor_signature": "public ArmorDNT(ArmorMaterial material, int slot, String texture, long maxPower, long chargeRate, long consumption, long drain)",
+      "super_call": "super(material, slot, texture, maxPower, chargeRate, consumption, drain);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorTaurun": {
+      "parent": "ArmorFSB",
+      "source": "src/main/java/com/hbm/items/armor/ArmorTaurun.java",
+      "baseline_sha256": "e83654de8f1572901005972534d97ffd348db9507f415bf04c85134a351cac5e",
+      "pristine_sha256": "b75bc31063e76e760de605e42d116dc89ebba89d3fdbc81a30c230618d7f8af5",
+      "constructor_signature": "public ArmorTaurun(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorTrenchmaster": {
+      "parent": "ArmorFSB",
+      "source": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "baseline_sha256": "f317e0c86ae64aedf8c364b54b4b6941e54ba7772605f2277dd4aa77330771d0",
+      "pristine_sha256": "1d41a22e4152edc24755416d59387c1010cc0151b7f8473c1ecdf4929a949135",
+      "constructor_signature": "public ArmorTrenchmaster(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorHazmatMask": {
+      "parent": "ArmorHazmat",
+      "source": "src/main/java/com/hbm/items/armor/ArmorHazmatMask.java",
+      "baseline_sha256": "2c44b86ae8f119e5feb240a0b56b458c166ffffba7f4dfb16155e11d3cac7662",
+      "pristine_sha256": "51ce454e625f9616358ec32d3a0e85ae8f36401ae9ce54a33ac090b6c8b61513",
+      "constructor_signature": "public ArmorHazmatMask(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorHazmat": {
+      "parent": "ArmorFSB",
+      "source": "src/main/java/com/hbm/items/armor/ArmorHazmat.java",
+      "baseline_sha256": "424b97b4094b1595e311f952f57c8d9e614bb20d5c2f548872bf7a6d8becf07c",
+      "pristine_sha256": "c5b6046aee267bc7a971a30e9295f306d8d34a234ec203e253b0e9a28a31f34d",
+      "constructor_signature": "public ArmorHazmat(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorLiquidatorMask": {
+      "parent": "ArmorLiquidator",
+      "source": "src/main/java/com/hbm/items/armor/ArmorLiquidatorMask.java",
+      "baseline_sha256": "334de054e5169cee8d34f23faa3d804a3bad2f16cae39b3afc1f31d9b064428e",
+      "pristine_sha256": "162f252ff42a9d0746c833556b7360aa5eb6b3e59f766070569d04279ae621fc",
+      "constructor_signature": "public ArmorLiquidatorMask(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    },
+    "ArmorLiquidator": {
+      "parent": "ArmorFSB",
+      "source": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "baseline_sha256": "9925bad3b3343838df45cdb00e06819aa3e36fccbef6da152b4906433d72d44f",
+      "pristine_sha256": "cc22e8e5fd4b07e6982f3e6c2c9c6c964f3622f837ffc76562fbe95fcb657e4b",
+      "constructor_signature": "public ArmorLiquidator(ArmorMaterial material, int slot, String texture)",
+      "super_call": "super(material, slot, texture);",
+      "texture_body": null,
+      "texture_owner": "ArmorFSB"
+    }
+  },
+  "unused_materials": [
+    "aMatAus3"
+  ],
+  "forge1614_userdev_sha256": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+  "forge1614_patch_sha256": "98398bf5d449d99f510a58b4e49a272ceee7b2b5d1f05b539fb4aed12c159051",
+  "engine_parameters": {
+    "texture_name": "leather: exact old renderIndex 0 fallback, all original custom texture callbacks remain unchanged",
+    "sound": "ITEM_ARMOR_EQUIP_GENERIC: ordinary new native equip feedback, not old step/jump/fall fields",
+    "toughness": "0.0F: no added toughness mechanic; no old equivalent"
+  },
+  "boundaries": [
+    "Native armor/combat formula differs from 1.7.10; this migration does not recreate old global combat mechanics.",
+    "Native positive ItemStack metadata above 65535 is empty; negative constructor metadata is clamped to zero. Zero/negative counts and cached-empty states differ from the original item-only predicate. See repair-engine-boundaries.tsv; no broad parity or acceptance is claimed."
+  ]
+}

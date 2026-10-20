@@ -1,0 +1,4 @@
+PASS exact three-file inverse; 2 guarded/registered player selectors + EntityDummy override; 12 drift controls rejected; 32 excluded calls and both cart declarations unchanged.
+before Parsed 4065 units; parse errors=0; analyzed errors=12066; code generation not invoked.
+after Parsed 4065 units; parse errors=0; analyzed errors=12063; code generation not invoked.
+PASS two native selector attributions and exact three-error removal with zero new errors; all other name-selector attributions unchanged.

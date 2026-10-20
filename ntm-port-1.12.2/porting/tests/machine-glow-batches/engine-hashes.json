@@ -1,0 +1,9 @@
+{
+  "net/minecraft/client/renderer/BufferBuilder.class": "9b78549d2ebbfb6ef5d1960e34fccf9b9b9cfcf3f9cba7de4ad16f7cc6e6fa70",
+  "net/minecraft/client/renderer/Tessellator.class": "2e5d2231684d1ef37423dc7385e7555286c7ad696bc7e75e4d5df4e3d2b7a985",
+  "net/minecraft/client/renderer/WorldVertexBufferUploader.class": "9cf99b72d7bb04a4e5d7f04df2f749f65661458888ba6b17fca39f3e963b1ea3",
+  "net/minecraft/client/renderer/vertex/VertexFormat.class": "0885e22733f30f4ba7a055639029096d462acae690ee1df0a5ad786e73fcaa0b",
+  "net/minecraft/client/renderer/vertex/DefaultVertexFormats.class": "f206b710ef67739b8cd53c91fc26c28a0946226c6ed5caf45e925e957a6421e4",
+  "net/minecraftforge/client/ForgeHooksClient.class": "d89b443204a4f305c9ebafb35f8202f73f3beee90cb4acc5fa303f33f7d6dcab",
+  "net/minecraft/util/math/Vec3d.class": "218b599967eaf1b44cd5a3a8787c8050f5a1ec1e51a03f37e1a95287499bcccf"
+}

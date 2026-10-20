@@ -85,7 +85,7 @@ public class GenericFluidBlock extends BlockFluidClassic {
 						}
 					}
 					if(entity.ticksExisted % 5 == 0) {
-						world.spawnParticle("cloud", entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);
+						world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);
 					}
 				} else {
 					

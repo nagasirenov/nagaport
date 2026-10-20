@@ -1,0 +1,911 @@
+{
+  "baseline": "0be133c9fb9f07053e26f081371487e641c95214",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": {
+      "before_sha256": "1d68d9348e95d1b50b09388c7a30a5f94252ec61a47ed41a5bb37d150d601845",
+      "edits": [
+        {
+          "before_offset": 3172,
+          "old": "worldObj, xCoord + k, yCoord, zCoord + l",
+          "new": "worldObj, new net.minecraft.util.math.BlockPos(xCoord + k, yCoord, zCoord + l)",
+          "kind": "CALL",
+          "after_offset": 3172
+        }
+      ],
+      "after_sha256": "5d4c49e0ac430795c6b96c347c79e2eea4688261f799d5cef9bab2825be4f895"
+    },
+    "src/main/java/com/hbm/blocks/fluid/CoriumBlock.java": {
+      "before_sha256": "19c63ef4d6ff11964d03554dbb21628da61eb6ab2daf3885ade6d2be3b994e69",
+      "edits": [
+        {
+          "before_offset": 3087,
+          "old": "IBlockAccess world, int x, int y, int z",
+          "new": "IBlockAccess world, net.minecraft.util.math.BlockPos pos",
+          "kind": "METHOD",
+          "after_offset": 3087
+        }
+      ],
+      "after_sha256": "66e615f640108a3216910d525dc7b8e8d301f4ac562ef914eaf9bc23f16132d1"
+    },
+    "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java": {
+      "before_sha256": "120c35b63f97f77acd28c6cc4e9af425af79381ff9e131a3c6befc1d33313fc4",
+      "edits": [
+        {
+          "before_offset": 2755,
+          "old": "IBlockAccess world, int x, int y, int z",
+          "new": "IBlockAccess world, net.minecraft.util.math.BlockPos pos",
+          "kind": "METHOD",
+          "after_offset": 2755
+        }
+      ],
+      "after_sha256": "9397cc0c0ace0c96cab7b03ebc3e6c4d815b12216a64b118a9d169573ad6da26"
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "596e1ebf5300ccb76f9e1960de37789f5e5a6272190d730769383dee2aa9ee53",
+      "edits": [
+        {
+          "before_offset": 2166,
+          "old": "IBlockAccess world, int x, int y, int z",
+          "new": "IBlockAccess world, net.minecraft.util.math.BlockPos pos",
+          "kind": "METHOD",
+          "after_offset": 2166
+        }
+      ],
+      "after_sha256": "956237fcef324a518333207f79a3adcfe81d0e7d650130b455512b0a50dca633"
+    },
+    "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java": {
+      "before_sha256": "42bc8286fac188648676c3ff6877dd4ade82ed19eeff84da33dfc116bca462a8",
+      "edits": [
+        {
+          "before_offset": 7982,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 7982
+        }
+      ],
+      "after_sha256": "301175a859ebac5de914c3df9bd6e917dcaa1449faf8a5e4fd0e657a198ab4f9"
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasBase.java": {
+      "before_sha256": "f859a3c0243bf499c9ad18891575b424ff3eda3065cdc8ff05e5eb6816bbcb1a",
+      "edits": [
+        {
+          "before_offset": 1803,
+          "old": "IBlockAccess world, int x, int y, int z",
+          "new": "IBlockAccess world, net.minecraft.util.math.BlockPos pos",
+          "kind": "METHOD",
+          "after_offset": 1803
+        }
+      ],
+      "after_sha256": "994844037703819ca3af3589da68e2031b8a8e3e53f4b866fb127cc7107020d2"
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": {
+      "before_sha256": "998af3b903b3631fac795cea0859a490369056e2c976c3690087da6b409d9790",
+      "edits": [
+        {
+          "before_offset": 1709,
+          "old": "IBlockAccess world, int x, int y, int z",
+          "new": "IBlockAccess world, net.minecraft.util.math.BlockPos pos",
+          "kind": "METHOD",
+          "after_offset": 1709
+        },
+        {
+          "before_offset": 2672,
+          "old": "world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ",
+          "new": "world, new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)",
+          "kind": "CALL",
+          "after_offset": 2689
+        }
+      ],
+      "after_sha256": "135207f6016effe2a61a241b0c789f6f880eea8a6b6985970c0b02793d4bde2e"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": {
+      "before_sha256": "2680debe75122918629e61a3eca74f1a5cdcecb8e4bf9ca37e4bb0898d790aef",
+      "edits": [
+        {
+          "before_offset": 5085,
+          "old": "world, x, y - 1, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y - 1, z)",
+          "kind": "CALL",
+          "after_offset": 5085
+        },
+        {
+          "before_offset": 6450,
+          "old": "world, iX, y, iZ",
+          "new": "world, new net.minecraft.util.math.BlockPos(iX, y, iZ)",
+          "kind": "CALL",
+          "after_offset": 6488
+        },
+        {
+          "before_offset": 6812,
+          "old": "world, iX, y, iZ",
+          "new": "world, new net.minecraft.util.math.BlockPos(iX, y, iZ)",
+          "kind": "CALL",
+          "after_offset": 6888
+        }
+      ],
+      "after_sha256": "cec8aac51df5e8a4bf48a38a010f95d9ef30152e1ede017fcaa245f8c8c8700b"
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "4c9af08985f6c2910fca8ba996b36798dbea58c5fb6086eee03a349edf5b4bc7",
+      "edits": [
+        {
+          "before_offset": 3079,
+          "old": "IBlockAccess world, int x, int y, int z",
+          "new": "IBlockAccess world, net.minecraft.util.math.BlockPos pos",
+          "kind": "METHOD",
+          "after_offset": 3079
+        }
+      ],
+      "after_sha256": "8e399f4852529e07924d623893b5127cdf4514f8c424e0e820b3c6974b6bac1c"
+    },
+    "src/main/java/com/hbm/blocks/generic/TrappedBrick.java": {
+      "before_sha256": "072f8a8bff2f2d02b6f24aca100ecb14a042f719ba0da32e95c8f4d1ce34ca0f",
+      "edits": [
+        {
+          "before_offset": 1934,
+          "old": "world, x, y + 1, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y + 1, z)",
+          "kind": "CALL",
+          "after_offset": 1934
+        },
+        {
+          "before_offset": 2792,
+          "old": "world, x, y + 1, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y + 1, z)",
+          "kind": "CALL",
+          "after_offset": 2830
+        },
+        {
+          "before_offset": 3363,
+          "old": "world, x, y + 1, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y + 1, z)",
+          "kind": "CALL",
+          "after_offset": 3439
+        }
+      ],
+      "after_sha256": "f20831e0e4e25523af5caa6a0cb55def0a1a9b33dc349207905946c7d434b81e"
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSatDock.java": {
+      "before_sha256": "a5094ce2b5e71dd9f783eb5caa6dfd18baab485c0ee734e37dbf3e6113143d60",
+      "edits": [
+        {
+          "before_offset": 5477,
+          "old": "worldObj, xCoord + k, yCoord, zCoord + l",
+          "new": "worldObj, new net.minecraft.util.math.BlockPos(xCoord + k, yCoord, zCoord + l)",
+          "kind": "CALL",
+          "after_offset": 5477
+        }
+      ],
+      "after_sha256": "d2b97d0e32f4409281b37db5472aa57435a281e49023a6600b74766fa56f7b25"
+    },
+    "src/main/java/com/hbm/dim/duna/WorldGeneratorDuna.java": {
+      "before_sha256": "1a732a24100736c6cbb1a0b94aed1e9b69baec312659160ff5319c4a5bf49bf0",
+      "edits": [
+        {
+          "before_offset": 3418,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 3418
+        }
+      ],
+      "after_sha256": "d29a50054a173ddc8816c7af2a5438530304bba61ab26da5b002fc695807505d"
+    },
+    "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java": {
+      "before_sha256": "43bb4021a36fb51e8293f6cd8de710dc20e989f9a965528baf45303238587128",
+      "edits": [
+        {
+          "before_offset": 7133,
+          "old": "this.world, x, y + 1, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)",
+          "kind": "CALL",
+          "after_offset": 7133
+        }
+      ],
+      "after_sha256": "6c87675237622220c2980331c110233c1a615c32ab77035ba0d0cef933fa2888"
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityWastePearl.java": {
+      "before_sha256": "ef4e9f44f6234be70e012ef4c1fc6211e681fdab34a6eeb2af46b349a5fcda06",
+      "edits": [
+        {
+          "before_offset": 1047,
+          "old": "this.world, ix, iy, iz",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)",
+          "kind": "CALL",
+          "after_offset": 1047
+        }
+      ],
+      "after_sha256": "edf7d56a2ef0c16ec6a5be4e678bd21427a76e6a3c811364b8e2ccd31379302a"
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java": {
+      "before_sha256": "6dea03d7e43c7669998083d747e1ceb4b7f44402cf0c54a5570c944e59e8bf42",
+      "edits": [
+        {
+          "before_offset": 2153,
+          "old": "this.world, blockX, blockY + 1, blockZ",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ)",
+          "kind": "CALL",
+          "after_offset": 2153
+        },
+        {
+          "before_offset": 3278,
+          "old": "this.world, blockX, blockY + 1, blockZ",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ)",
+          "kind": "CALL",
+          "after_offset": 3316
+        }
+      ],
+      "after_sha256": "a64d2a49677d771278b2b05fd06d94f335820cfedbdfa2edd1c599e5c514a13e"
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": {
+      "before_sha256": "f3160ac7d823285e3a969341ceaa848ea7008ecaa07e594454c9e347cf898909",
+      "edits": [
+        {
+          "before_offset": 3111,
+          "old": "this.world, x, y, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 3111
+        }
+      ],
+      "after_sha256": "e1c7f3e6e7bcf91e561153f4cd1e5562c821bd1225e0b7b3f834167f4562d716"
+    },
+    "src/main/java/com/hbm/handler/MultiblockHandler.java": {
+      "before_sha256": "00c9ed6bb7e35c5d0ccf131f9e1a04f72a2a90e66b28d64b135448c70f9963dd",
+      "edits": [
+        {
+          "before_offset": 5120,
+          "old": "world, a, b, c",
+          "new": "world, new net.minecraft.util.math.BlockPos(a, b, c)",
+          "kind": "CALL",
+          "after_offset": 5120
+        }
+      ],
+      "after_sha256": "c32f10a1b57726dae75730bfff676eb51c870048ed4714701631bd1e0f16f46b"
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidDuct.java": {
+      "before_sha256": "e6dbb8d6d7b6c64105cddc40e394d4d8be2210cb5e39220f0b0b223e3aaa358d",
+      "edits": [
+        {
+          "before_offset": 2719,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 2719
+        }
+      ],
+      "after_sha256": "d9469a460b575b89ad8e961bc16f19754ffd9a9c7475d30a04d826fd9e62f339"
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "before_sha256": "707b2334498a17e702925e5e4c75bb81ec9b4d7fde6a45551ee58c6f8de1441c",
+      "edits": [
+        {
+          "before_offset": 5649,
+          "old": "world, i, k, j",
+          "new": "world, new net.minecraft.util.math.BlockPos(i, k, j)",
+          "kind": "CALL",
+          "after_offset": 5649
+        }
+      ],
+      "after_sha256": "d17cdda4cda17e35046e615f72e4572cc555c7dea864984a9d0c533fd069755e"
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": {
+      "before_sha256": "10a6209395c369ac983f3fdcdeadf80395decebc6b0ee8cc2df9a49be85be811",
+      "edits": [
+        {
+          "before_offset": 5947,
+          "old": "bullet.world, ix, iy, iz",
+          "new": "bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)",
+          "kind": "CALL",
+          "after_offset": 5947
+        },
+        {
+          "before_offset": 8821,
+          "old": "bullet.world, ix, iy, iz",
+          "new": "bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)",
+          "kind": "CALL",
+          "after_offset": 8859
+        }
+      ],
+      "after_sha256": "ab663416bde3308fd7d661d677f1ccc59a7b8edd25994fb88b0f75a9340f77f1"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": {
+      "before_sha256": "ede006745222f7cc66a70e20e1efd33294899f556e34af450d4d1605c2a7ed8f",
+      "edits": [
+        {
+          "before_offset": 9867,
+          "old": "this.world, x, y, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 9867
+        }
+      ],
+      "after_sha256": "a990fb41256ba54642578b1afe02e5e5d8a9dd7b980563ae9e68bf01b829a785"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityChlorineSeal.java": {
+      "before_sha256": "85aef62e97007e1dbff06b19ae37282e986b14d1b8bfee838207e02a7c5a7867",
+      "edits": [
+        {
+          "before_offset": 643,
+          "old": "this.world, x, y, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 643
+        }
+      ],
+      "after_sha256": "ebd2e9b2105ade82822bf4a23096bf660678449ff19c716dd7c76306b12d4096"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java": {
+      "before_sha256": "5fccb4d792e0da2b9bad5ebd59d1d5b46437cd4f0625695d45ae5d7a0d065877",
+      "edits": [
+        {
+          "before_offset": 3424,
+          "old": "this.world, x, y, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 3424
+        }
+      ],
+      "after_sha256": "777bdbbece805e845cd37d696759122c0394926dafd89e1ce8a9c5f448a87030"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+      "before_sha256": "505b0cb97d3c09b3e7214dd940af367a3597326e61aa09538ae2fece43bc6fb9",
+      "edits": [
+        {
+          "before_offset": 17639,
+          "old": "this.world, x, y, z",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 17639
+        }
+      ],
+      "after_sha256": "7ad91986ed423f3540516cd52519924e3272cfa3ea921bc99a0b0a6371a69855"
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java": {
+      "before_sha256": "4f30aa699d6ebf211737c608e919ec1a02c646a71f2655503797dab4aa3d4dac",
+      "edits": [
+        {
+          "before_offset": 3553,
+          "old": "this.world, this.pos.getX(), this.pos.getY() + h, this.pos.getZ()",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + h, this.pos.getZ())",
+          "kind": "CALL",
+          "after_offset": 3553
+        }
+      ],
+      "after_sha256": "31898424da4e23a2c487bee7b39a98f7f98090982ffd66ff731ed26f5ccc7229"
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java": {
+      "before_sha256": "9d198a1ce9594ef32c597999628f71df92384112594dc20020722fee46281005",
+      "edits": [
+        {
+          "before_offset": 2438,
+          "old": "this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)",
+          "kind": "CALL",
+          "after_offset": 2438
+        },
+        {
+          "before_offset": 2972,
+          "old": "this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ",
+          "new": "this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)",
+          "kind": "CALL",
+          "after_offset": 3010
+        }
+      ],
+      "after_sha256": "5952a9b702679ec5fc52c6361818f90a1283f00f5d56a028960bdb78d91bd97a"
+    },
+    "src/main/java/com/hbm/world/feature/Meteorite.java": {
+      "before_sha256": "21ef92ed4b6190ce76be98e16e4d99de6ca0c62749576b206df52e6e05a39761",
+      "edits": [
+        {
+          "before_offset": 25315,
+          "old": "world, x, y, z",
+          "new": "world, new net.minecraft.util.math.BlockPos(x, y, z)",
+          "kind": "CALL",
+          "after_offset": 25315
+        }
+      ],
+      "after_sha256": "1a565508d24fff70db941933e79ed1aa9d2973b1379c8dd6e87bf9e8c109070c"
+    },
+    "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java": {
+      "before_sha256": "f7d0a071567f5d6f4cb46b2fb2f72f8bc391d1e3b92a8923cbee5648e15244ca",
+      "edits": [
+        {
+          "before_offset": 23388,
+          "old": "world, rx, y, rz",
+          "new": "world, new net.minecraft.util.math.BlockPos(rx, y, rz)",
+          "kind": "CALL",
+          "after_offset": 23388
+        }
+      ],
+      "after_sha256": "ac692ad7e340eea34bfb9e9b125ebfadf012232169b6a3a6ce7c601a9ecfb3a2"
+    }
+  },
+  "excluded": [
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java",
+      "line": 68,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 10, this.pos.getZ() + j).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "this.pos.getX() + j",
+        "this.pos.getY() + 7",
+        "this.pos.getZ() + k"
+      ],
+      "reason": "Receiver is read at X+j, Y+10, Z+j; query is X+j, Y+7, Z+k. Native base uses query location material instead of original receiver material. Existing discrepancy intentionally not fixed."
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java",
+      "line": 78,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 10, this.pos.getZ() + j).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "this.pos.getX() + j",
+        "this.pos.getY() + 7",
+        "this.pos.getZ() + k"
+      ],
+      "reason": "Receiver is read at X+j, Y+10, Z+j; query is X+j, Y+7, Z+k. Native base uses query location material instead of original receiver material. Existing discrepancy intentionally not fixed."
+    }
+  ],
+  "owners": [
+    {
+      "file": "src/main/java/com/hbm/blocks/fluid/CoriumBlock.java",
+      "owner": "com.hbm.blocks.fluid.CoriumBlock",
+      "old_method": "@Override\n\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n\t\treturn false;\n\t}",
+      "expected": false
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java",
+      "owner": "com.hbm.blocks.fluid.CoriumFinite",
+      "old_method": "@Override\n\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n\t\treturn false;\n\t}",
+      "expected": false
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+      "owner": "com.hbm.blocks.fluid.MeltedFlesh",
+      "old_method": "public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n\t\treturn true;\n\t}",
+      "expected": true
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "owner": "com.hbm.blocks.gas.BlockGasBase",
+      "old_method": "@Override\n\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n\t\treturn true;\n\t}",
+      "expected": true
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "owner": "com.hbm.blocks.gas.BlockVacuum",
+      "old_method": "@Override\n\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n\t\treturn false;\n\t}",
+      "expected": false
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+      "owner": "com.hbm.blocks.generic.BlockFallout",
+      "old_method": "public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n\t\treturn true;\n\t}",
+      "expected": true
+    }
+  ],
+  "callers": [
+    {
+      "file": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+      "line": 82,
+      "receiver": "com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock()",
+      "query_arguments": [
+        "worldObj",
+        "xCoord + k",
+        "yCoord",
+        "zCoord + l"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java",
+      "line": 117,
+      "receiver": "b",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "local same-target read",
+      "origin": "world.getBlock(x, y, z)",
+      "intervening": "\n\t\t\n\t\tif(Blocks.FIRE.getFlammability(b) > 0)\n\t\t\treturn true;\n\t\t\n\t\tif(b"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "line": 91,
+      "receiver": "b",
+      "query_arguments": [
+        "world",
+        "x + dir.offsetX",
+        "y + dir.offsetY",
+        "z + dir.offsetZ"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock()",
+      "intervening": "\n\t\t\t\n\t\t\tif(b == this)\n\t\t\t\tcontinue;\n\t\t\t\n\t\t\tif(isAirBlock(b)) {\n\t\t\t\t\n\t\t\t\tif(b"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "line": 140,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock()",
+      "query_arguments": [
+        "world",
+        "x",
+        "y - 1",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "line": 176,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock()",
+      "query_arguments": [
+        "world",
+        "iX",
+        "y",
+        "iZ"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "line": 188,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock()",
+      "query_arguments": [
+        "world",
+        "iX",
+        "y",
+        "iZ"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/TrappedBrick.java",
+      "line": 63,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock()",
+      "query_arguments": [
+        "world",
+        "x",
+        "y + 1",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/TrappedBrick.java",
+      "line": 67,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock()",
+      "query_arguments": [
+        "world",
+        "x",
+        "y + 1",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/generic/TrappedBrick.java",
+      "line": 78,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock()",
+      "query_arguments": [
+        "world",
+        "x",
+        "y + 1",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+      "line": 144,
+      "receiver": "com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock()",
+      "query_arguments": [
+        "worldObj",
+        "xCoord + k",
+        "yCoord",
+        "zCoord + l"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/dim/duna/WorldGeneratorDuna.java",
+      "line": 81,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java",
+      "line": 175,
+      "receiver": "ab",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y + 1",
+        "z"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, x, y + 1, z).getBlock()",
+      "intervening": "\r\n\t\t\tint meta = this.world.getBlockMetadata(x, y, z);\r\n\r\n\t\t\tif(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.AIR || (ab"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/grenade/EntityWastePearl.java",
+      "line": 37,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "ix",
+        "iy",
+        "iz"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java",
+      "line": 69,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "blockX",
+        "blockY + 1",
+        "blockZ"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java",
+      "line": 95,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "blockX",
+        "blockY + 1",
+        "blockZ"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java",
+      "line": 113,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/handler/MultiblockHandler.java",
+      "line": 96,
+      "receiver": "block",
+      "query_arguments": [
+        "world",
+        "a",
+        "b",
+        "c"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, a, b, c).getBlock()",
+      "intervening": "\n\t\t\t\t\t\tif(block != Blocks.AIR && !block"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/machine/ItemFluidDuct.java",
+      "line": 113,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+      "line": 154,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock()",
+      "query_arguments": [
+        "world",
+        "i",
+        "k",
+        "j"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+      "line": 126,
+      "receiver": "b",
+      "query_arguments": [
+        "bullet.world",
+        "ix",
+        "iy",
+        "iz"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock()",
+      "intervening": "\n\t\t\tif(b"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java",
+      "line": 165,
+      "receiver": "b",
+      "query_arguments": [
+        "bullet.world",
+        "ix",
+        "iy",
+        "iz"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock()",
+      "intervening": "\n\t\t\tif((b"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java",
+      "line": 294,
+      "receiver": "present",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "intervening": "\n\t\tif(!present"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityChlorineSeal.java",
+      "line": 21,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java",
+      "line": 74,
+      "receiver": "block",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "intervening": "\n\t\t\t\t\t\tif(!block.getDefaultState().getMaterial().isLiquid() && block"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java",
+      "line": 547,
+      "receiver": "b",
+      "query_arguments": [
+        "this.world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock()",
+      "intervening": "\n\n\t\t\t\tif(x == this.pos.getX() - ring || x == this.pos.getX() + ring || z == this.pos.getZ() - ring || z == this.pos.getZ() + ring) {\n\n\t\t\t\t\tif(b"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java",
+      "line": 102,
+      "receiver": "block",
+      "query_arguments": [
+        "this.world",
+        "this.pos.getX()",
+        "this.pos.getY() + h",
+        "this.pos.getZ()"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + h, this.pos.getZ()).getBlock()",
+      "intervening": "\n\t\t\t\t\tif(!block"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java",
+      "line": 78,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "this.pos.getX() + dir.offsetX",
+        "this.pos.getY()",
+        "this.pos.getZ() + dir.offsetZ"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java",
+      "line": 87,
+      "receiver": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock()",
+      "query_arguments": [
+        "this.world",
+        "this.pos.getX() + dir.offsetX",
+        "this.pos.getY()",
+        "this.pos.getZ() + dir.offsetZ"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock()",
+      "intervening": "none"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/feature/Meteorite.java",
+      "line": 701,
+      "receiver": "target",
+      "query_arguments": [
+        "world",
+        "x",
+        "y",
+        "z"
+      ],
+      "kind": "local same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()",
+      "intervening": "\n\n\t\tif(safeMode) {\n\t\t\tif(!target"
+    },
+    {
+      "file": "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java",
+      "line": 647,
+      "receiver": "com.hbm.world.WorldBlockState.read(world, rx, y, rz).getBlock()",
+      "query_arguments": [
+        "world",
+        "rx",
+        "y",
+        "rz"
+      ],
+      "kind": "immediate same-target read",
+      "origin": "com.hbm.world.WorldBlockState.read(world, rx, y, rz).getBlock()",
+      "intervening": "none"
+    }
+  ]
+}

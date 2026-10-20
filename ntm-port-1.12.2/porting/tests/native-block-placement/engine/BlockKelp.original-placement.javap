@@ -1,0 +1,20 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_1
+       1: iload_2
+       2: iload_3
+       3: iconst_1
+       4: isub
+       5: iload         4
+       7: invokevirtual #63                 // Method net/minecraft/world/World.func_147439_a:(III)Lnet/minecraft/block/Block;
+      10: astore        5
+      12: aload         5
+      14: aload_0
+      15: if_acmpeq     26
+      18: aload         5
+      20: getstatic     #69                 // Field com/hbm/blocks/ModBlocks.laythe_silt:Lnet/minecraft/block/Block;
+      23: if_acmpne     30
+      26: iconst_1
+      27: goto          31
+      30: iconst_0
+      31: ireturn

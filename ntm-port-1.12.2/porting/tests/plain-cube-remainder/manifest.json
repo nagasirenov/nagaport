@@ -1,0 +1,48 @@
+{
+  "baseline": "242867906a53eb7da03c879f476ced61c1170e14",
+  "production_files": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/blocks/PlainCubeTextures.java"
+  ],
+  "sites": 15,
+  "owners": {
+    "BlockNetherCoal": 1,
+    "BlockNuclearWaste": 3,
+    "BlockHazardFalling": 3,
+    "BlockSpeedy": 2,
+    "BlockRadResistant": 1,
+    "BlockFalling": 1,
+    "BlockMeteoriteTreasure": 1,
+    "FragileBrick": 1,
+    "BlockNoDrop": 2
+  },
+  "item_forms": {
+    "ItemBlock": 10,
+    "ItemBlockBlastInfo": 4,
+    "ItemBlockBase": 1
+  },
+  "attributed_units": 4065,
+  "before_full_source_attribution_errors": 12471,
+  "after_full_source_attribution_errors": 12456,
+  "before_modblocks_errors": 517,
+  "after_modblocks_errors": 502,
+  "removed_modblocks_diagnostics": 15,
+  "added_modblocks_diagnostics": 0,
+  "native_assertions": 65309,
+  "prior15_native_assertions": 51935,
+  "native_reload_cycles": 2,
+  "animated_textures": 1,
+  "animation_cycles_per_reload": 2,
+  "unchanged_original_pngs": 15,
+  "unchanged_original_animation_metadata_files": 1,
+  "headless_only": true,
+  "full_ntm_gameplay_owners_compiled": false,
+  "complete_mod_compile": false,
+  "logs": {
+    "before.log": "a1adb2e3c0af4e281e713720d2e778b41e67a9f1cc87c0ac016570d20b7b6226",
+    "after.log": "9563da22f10abad10129755183d41a5c643b8c2a907ae1c096ad93ac3b8e3a2b",
+    "native.log": "28c82a0fd8c9b67a8f9f1b7b379136add81a98c69b9fd2c00103889101e2a2f7",
+    "previous15-native.log": "3656eb30663d4fdb139bfb4f5d327296c333b406ec3234fdf0387468934851d8",
+    "source.log": "2dd47666f1f586352f82271fdaeb4dc57162b9971d1325a062c46c95014c00c7"
+  }
+}

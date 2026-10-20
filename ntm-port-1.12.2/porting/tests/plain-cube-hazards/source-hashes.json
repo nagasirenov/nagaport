@@ -1,0 +1,22 @@
+{
+  "porting/tests/plain-cube-hazards/OriginalCubeFaces.java": "3c51807d6b2c3270c764c0240959fcc646083f5f41f7b5c9695cc6cfa749a0f3",
+  "porting/tests/plain-cube-hazards/PlainCubeNativeTest.java": "bdb235f1d869a71e844d2814a5835dce6edebc655afefde36bb331da44e68979",
+  "porting/tests/plain-cube-hazards/README.md": "f6b05b3881b4ca0adef443d3074b515e10258c49f71e897e670209cf675fe0e1",
+  "porting/tests/plain-cube-hazards/TextureAttribution.java": "54c568350efdb71a44d74dd76ba2edae741b35fdf26a006d2a7797088979f04f",
+  "porting/tests/plain-cube-hazards/after-errors.tsv": "9b4396fbac6e098d6bcd496182200ec4d1b91ba9a54b404774b848a8ed875693",
+  "porting/tests/plain-cube-hazards/after.tsv": "6b3dc298cb94a2414f26dabd1faf9de518e041e709f065d7bf52483db301edd6",
+  "porting/tests/plain-cube-hazards/before-errors.tsv": "fa633fe3204419f7c9ba8ac1ecf3a334d397902433b174d8ed2744a55861dcf8",
+  "porting/tests/plain-cube-hazards/before.tsv": "3fce101d421816eba699c514a29f64258dde1457b8fa3f3e426fcc458eca6905",
+  "porting/tests/plain-cube-hazards/check-source.py": "9eb1c34336136bb9e160c40eb70e5e70e20965d2de1d82deef4386fa2e891dc8",
+  "porting/tests/plain-cube-hazards/inherited-visual-calls.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "porting/tests/plain-cube-hazards/manifest.json": "3e426e6a9f423b4f1b39d7662d471ff251b2dbe187b101b9a7c79eec4aeaee87",
+  "porting/tests/plain-cube-hazards/original-item-audit.json": "cebee3017fefd47446a4a2c4bdb3b54e1dd8a2741ca410ca29ae8b077e43a40c",
+  "porting/tests/plain-cube-hazards/owner-audit.json": "f49cd3709d7ae8c278484a5f4c3bc919ed4af684c631da936a1f8417e3b200e2",
+  "porting/tests/plain-cube-hazards/resource-audit.json": "1f4b8558ee36a19074a5bc32d7bb59702cd74d595151fe2f1771911612328fd5",
+  "porting/tests/plain-cube-hazards/run-attribution.py": "dcc0ac8f5026630c5c26e93abbcc0f6a7c8d22295d7c8f45b334e4bc77fa1230",
+  "porting/tests/plain-cube-hazards/run-native.py": "0dc920cabf9180b219a55cdd4cd99aa2cfeec358808a152e4409a355aa18b9ff",
+  "porting/tests/plain-cube-hazards/sites.json": "04b45af0757c47d026eee4d5790398c206e26c4401f903bb4bca50b7539a33fc",
+  "porting/tests/plain-cube-hazards/sites.tsv": "e8d0159b5d6e0eeeb9e256c64d7e9107f7e8dbec37d88b322be08f7e6d1653c9",
+  "src/main/java/com/hbm/blocks/ModBlocks.java": "8aed7d00d78a39ebb99ba95351e5795411a07e9471f26be4e3a470d8db89d256",
+  "src/main/java/com/hbm/blocks/PlainCubeTextures.java": "c8de408be634142dca07d62dbf75d2559bc1eba41a8f58098cec4feb1f360b6a"
+}

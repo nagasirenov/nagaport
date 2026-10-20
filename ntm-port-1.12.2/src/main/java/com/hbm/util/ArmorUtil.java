@@ -32,6 +32,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetHandlerPlayServer;
@@ -104,21 +105,21 @@ public class ArmorUtil {
 	}
 
 	public static boolean checkArmorPiece(EntityLivingBase entity, Item armor, int slot) {
-		return !checkArmorNull(entity, slot) && entity.getEquipmentInSlot(slot + 1).getItem() == armor;
+		return !checkArmorNull(entity, slot) && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).getItem() == armor;
 	}
 
 	public static boolean checkArmorNull(EntityLivingBase player, int slot) {
-		return player.getEquipmentInSlot(slot + 1) == null;
+		return com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, slot + 1) == null;
 	}
 
 	public static void damageSuit(EntityLivingBase entity, int slot, int amount) {
 
-		if(entity.getEquipmentInSlot(slot + 1) == null)
+		if(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1) == null)
 			return;
 
-		entity.getEquipmentInSlot(slot + 1).damageItem(amount, entity);
+		com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).damageItem(amount, entity);
 
-		if(entity.getEquipmentInSlot(slot + 1).stackSize == 0) {
+		if(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).stackSize == 0) {
 			entity.setCurrentItemOrArmor(slot + 1, null);
 		}
 	}
@@ -194,13 +195,13 @@ public class ArmorUtil {
 
 		// Check that all the armor pieces are sealed
 		for(int i = 0; i < 4; i++) {
-			ItemStack stack = player.getCurrentArmor(i);
+			ItemStack stack = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);
 			if(stack == null || !(stack.getItem() instanceof ArmorFSB)) return null;
 			if(!((ArmorFSB)stack.getItem()).canSeal) return null;
 		}
 
 		// Check for a non-empty oxygen tank
-		ItemStack helmet = player.getCurrentArmor(3);
+		ItemStack helmet = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 3);
 		if(ArmorModHandler.hasMods(helmet)) {
 			ItemStack tankMod = ArmorModHandler.pryMods(helmet)[ArmorModHandler.plate_only];
 			if(tankMod == null || !(tankMod.getItem() instanceof ItemModOxy)) return null;
@@ -216,7 +217,7 @@ public class ArmorUtil {
 
 		// Check DNT
 		for(int i = 0; i < 4; i++) {
-			ItemStack stack = player.getCurrentArmor(i);
+			ItemStack stack = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);
 			if(stack == null || !(stack.getItem() instanceof ArmorDNT)) return false;
 		}
 
@@ -286,7 +287,7 @@ public class ArmorUtil {
 
 			// if we have a full set of armor, deplete that rapidly first before applying damage
 			for(int i = 0; i < 4; i++) {
-				ItemStack stack = player.getCurrentArmor(i);
+				ItemStack stack = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);
 				if(stack == null || !(stack.getItem() instanceof ArmorFSB) || !((ArmorFSB)stack.getItem()).canSeal) {
 					isSealed = false;
 				}
@@ -299,7 +300,7 @@ public class ArmorUtil {
 
 				if(stack.getItemDamage() >= stack.getMaxDamage() || !(stack.getItem() instanceof ArmorFSB) || !((ArmorFSB)stack.getItem()).isArmorEnabled(stack)) {
 					stack.stackSize = 0;
-					player.inventory.armorInventory[i] = null;
+					player.inventory.armorInventory.set(i, ItemStack.EMPTY);
 					entity.world.playSoundAtEntity(entity, "random.fizz", 0.2F, 1F);
 				}
 			}
@@ -316,7 +317,7 @@ public class ArmorUtil {
 
 	public static ItemStack getCorrosionProtection(EntityPlayer player) {
 		// Check chest piece has a valid insert
-		ItemStack chest = player.getCurrentArmor(2);
+		ItemStack chest = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2);
 		if(chest != null && ArmorModHandler.hasMods(chest)) {
 			ItemStack insertMod = ArmorModHandler.pryMods(chest)[ArmorModHandler.kevlar];
 			if(insertMod == null || !(insertMod.getItem() instanceof ItemModInsert)) return null;
@@ -342,7 +343,7 @@ public class ArmorUtil {
 		if(!player.isPotionActive(HbmPotion.stability.id)) return false;
 
 		for(int i = 0; i < 4; i++) {
-			ItemStack armor = player.getCurrentArmor(i);
+			ItemStack armor = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);
 
 			if(armor != null && ArmorModHandler.hasMods(armor)) {
 				ItemStack mods[] = ArmorModHandler.pryMods(armor);
@@ -356,11 +357,11 @@ public class ArmorUtil {
 
 	public static boolean checkForFaraday(EntityPlayer player) {
 
-		ItemStack[] armor = player.inventory.armorInventory;
+		net.minecraft.util.NonNullList<ItemStack> armor = player.inventory.armorInventory;
 
-		if(armor[0] == null || armor[1] == null || armor[2] == null || armor[3] == null) return false;
+		if(com.hbm.util.PlayerInventoryRead.get(armor, 0) == null || com.hbm.util.PlayerInventoryRead.get(armor, 1) == null || com.hbm.util.PlayerInventoryRead.get(armor, 2) == null || com.hbm.util.PlayerInventoryRead.get(armor, 3) == null) return false;
 
-		if(isFaradayArmor(armor[0]) && isFaradayArmor(armor[1]) && isFaradayArmor(armor[2]) && isFaradayArmor(armor[3]))
+		if(isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 0)) && isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 1)) && isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 2)) && isFaradayArmor(com.hbm.util.PlayerInventoryRead.get(armor, 3)))
 			return true;
 
 		return false;
@@ -476,14 +477,14 @@ public class ArmorUtil {
 			return null;
 
 		NBTTagCompound attach = mask.getTagCompound().getCompoundTag(FILTERK_KEY);
-		ItemStack filter = ItemStack.loadItemStackFromNBT(attach);
+		ItemStack filter = NullableInventoryStackNbt.read(attach);
 
 		return filter;
 	}
 
 	public static void damageGasMaskFilter(EntityLivingBase entity, int damage) {
 
-		ItemStack mask = entity.getEquipmentInSlot(4);
+		ItemStack mask = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4);
 
 		if(mask == null)
 			return;
@@ -558,7 +559,7 @@ public class ArmorUtil {
 
 	public static boolean isWearingEmptyMask(EntityPlayer player) {
 
-		ItemStack mask = player.getEquipmentInSlot(4);
+		ItemStack mask = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4);
 
 		if(mask == null)
 			return false;

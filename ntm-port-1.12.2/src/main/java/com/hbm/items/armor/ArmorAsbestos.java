@@ -30,11 +30,11 @@ public class ArmorAsbestos extends ItemArmor implements ISpecialArmor {
 	private ResourceLocation asbestosBlur = new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_asbestos.png");
 
 	public ArmorAsbestos(ArmorMaterial armorMaterial, int armorType) {
-		super(armorMaterial, 0, armorType);
+		super(armorMaterial, 0, com.hbm.util.ArmorSlotOrder.fromIndex(armorType));
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
 		if(stack.getItem().equals(ModItems.asbestos_helmet) || stack.getItem().equals(ModItems.asbestos_plate) || stack.getItem().equals(ModItems.asbestos_boots)) {
 			return(RefStrings.MODID + ":textures/armor/asbestos_1.png");
 		}

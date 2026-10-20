@@ -1,0 +1,41 @@
+import java.util.*;
+import com.google.common.collect.*;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.item.ItemStack;
+public class AttributeKeyTest {
+ static int checks;
+ static void ok(boolean b,String m){checks++;if(!b)throw new AssertionError(m);}
+ static void bits(double a,double b,String m){ok(Double.doubleToLongBits(a)==Double.doubleToLongBits(b),m);}
+ /*ALL_KEYS*/
+ static class Sword {
+  // Test seam for the existing owning Item UUID field, not a production alias.
+  static final UUID field_111210_e=UUID.fromString("cb3f55d3-645c-4f38-a497-9c13a33db5cf");
+  float damage;double movement;
+  /*SWORD_METHOD*/
+ }
+ static class ModifierSource {
+  final Multimap<String,AttributeModifier> seed=HashMultimap.create();Object received;int calls;
+  Multimap getAttributeModifiers(ItemStack stack){received=stack;calls++;return seed;}
+ }
+ static class V1 extends ModifierSource {
+  private static final UUID speed=UUID.fromString("1d11e63e-28c4-4e14-b09f-fe0bd1be708f");
+  /*V1_METHOD*/
+ }
+ public static void main(String[] args)throws Exception {
+  th[] original={yj.a,yj.d,yj.e};IAttribute[] nativeFields={SharedMonsterAttributes.MAX_HEALTH,SharedMonsterAttributes.MOVEMENT_SPEED,SharedMonsterAttributes.ATTACK_DAMAGE};String[] names={"generic.maxHealth","generic.movementSpeed","generic.attackDamage"};
+  for(int i=0;i<3;i++){
+   th old=original[i];IAttribute now=nativeFields[i];ok(old.a().equals(names[i])&&now.getName().equals(names[i]),"exact original/native attribute name");ok(old.a().hashCode()==now.getName().hashCode(),"same map-key hash");ok(old.a()==old.a()&&now.getName()==now.getName(),"actual getter returns retained name object");bits(old.b(),now.getDefaultValue(),"same default metadata");ok(old.c()==now.getShouldWatch(),"same watch metadata");
+   ok(old.a(Double.POSITIVE_INFINITY)!=now.clampValue(Double.POSITIVE_INFINITY),"KNOWN cap mismatch remains, not falsely asserted equivalent");
+   System.out.println("BOUNDARY "+names[i]+" default="+now.getDefaultValue()+" originalClamp=["+old.a(Double.NEGATIVE_INFINITY)+","+old.a(Double.POSITIVE_INFINITY)+"] nativeClamp=["+now.clampValue(Double.NEGATIVE_INFINITY)+","+now.clampValue(Double.POSITIVE_INFINITY)+"]");
+  }
+  /*KEY_ASSERTIONS*/
+  for(float damage:new float[]{-100,-0.0F,0,2,15000,Float.MAX_VALUE,Float.NaN})for(double movement:new double[]{-100,-0.0,0,.25,15000,Double.POSITIVE_INFINITY,Double.NaN}){
+   Sword sword=new Sword();sword.damage=damage;sword.movement=movement;Multimap map=sword.getItemAttributeModifiers();ok(map.size()==2,"complete extracted sword map size");
+   AttributeModifier attack=(AttributeModifier)map.get("generic.attackDamage").iterator().next();AttributeModifier speed=(AttributeModifier)map.get("generic.movementSpeed").iterator().next();
+   ok(attack.getID().equals(Sword.field_111210_e)&&speed.getID().equals(Sword.field_111210_e),"preserved UUIDs");ok(attack.getName().equals("Tool modifier")&&speed.getName().equals("Tool modifier"),"preserved modifier names");bits(attack.getAmount(),(double)damage,"preserved float-to-double damage");bits(speed.getAmount(),movement,"preserved movement amount without clamping");ok(attack.getOperation()==0&&speed.getOperation()==1,"preserved modifier operations");
+  }
+  V1 v=new V1();AttributeModifier sentinel=new AttributeModifier(new UUID(3,7),"existing",-12,0);v.seed.put("existing.key",sentinel);Multimap result=v.getModifiers(null);ok(result==v.seed&&v.received==null&&v.calls==1,"complete extracted V1 keeps super map/argument/order");ok(result.get("existing.key").contains(sentinel),"unrelated map content remains");AttributeModifier speed=(AttributeModifier)result.get("generic.movementSpeed").iterator().next();ok(speed.getID().equals(V1.speed)&&speed.getName().equals("V1 SPEED")&&speed.getOperation()==2,"exact V1 UUID/name/op");bits(speed.getAmount(),.5,"exact V1 amount");
+  System.out.println("PASS "+checks+" original/native exact-key and extracted production modifier-map checks; no attribute registration, value application, clamping or gameplay equivalence claim");
+ }
+}

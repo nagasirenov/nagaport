@@ -217,7 +217,7 @@ public class CompatExternal {
 		CompatExternal.registerTurretTargetBlacklist(EntityChicken.class);
 		// An example for more complex turret behavior. Turrets will always target players named "Target Practice", and sentry turrets will never target players.
 		CompatExternal.registerTurretTargetingCondition(EntityPlayer.class, (entity, turret) -> {
-			if(entity.getCommandSenderName().equals("Target Practice")) return 1;
+			if(entity.getName().equals("Target Practice")) return 1;
 			if(turret instanceof TileEntityTurretSentry) return -1;
 			return 0;
 		});

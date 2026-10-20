@@ -48,7 +48,7 @@ public class MachineDiesel extends BlockMachineBase implements ITooltipProvider,
 				
 				ForgeDirection dir = ForgeDirection.getOrientation(tile.getBlockMetadata());
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-				world.spawnParticle("smoke", x + 0.5 - dir.offsetX * 0.6 + rot.offsetX * 0.1875, y + 0.3125, z + 0.5 - dir.offsetZ * 0.6 + rot.offsetZ * 0.1875, 0, 0, 0);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + 0.5 - dir.offsetX * 0.6 + rot.offsetX * 0.1875, y + 0.3125, z + 0.5 - dir.offsetZ * 0.6 + rot.offsetZ * 0.1875, 0, 0, 0);
 			}
 		}
 	}

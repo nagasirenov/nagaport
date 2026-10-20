@@ -1,0 +1,84 @@
+/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/de/oceanlabs/mcp/mcp_stable/39/1.12.2/srgs/mcp-srg.srg:FD: net/minecraft/item/ItemStack/stackSize net/minecraft/item/ItemStack/field_77994_a
+/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/de/oceanlabs/mcp/mcp_stable/39/1.12.2/srgs/notch-srg.srg:FD: aip/c net/minecraft/item/ItemStack/field_77994_a
+field_77994_a,stackSize,2,Size of the stack.
+  public static java.lang.reflect.Field findField(java.lang.Class<?>, java.lang.String...);
+    Code:
+       0: aconst_null
+       1: astore_2
+       2: aload_1
+       3: astore_3
+       4: aload_3
+       5: arraylength
+       6: istore        4
+       8: iconst_0
+       9: istore        5
+      11: iload         5
+      13: iload         4
+      15: if_icmpge     52
+      18: aload_3
+      19: iload         5
+      21: aaload
+      22: astore        6
+      24: aload_0
+      25: aload         6
+      27: invokevirtual #38                 // Method java/lang/Class.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+      30: astore        7
+      32: aload         7
+      34: iconst_1
+      35: invokevirtual #44                 // Method java/lang/reflect/Field.setAccessible:(Z)V
+      38: aload         7
+      40: areturn
+      41: astore        7
+      43: aload         7
+      45: astore_2
+      46: iinc          5, 1
+      49: goto          11
+      52: new           #10                 // class net/minecraftforge/fml/relauncher/ReflectionHelper$UnableToFindFieldException
+      55: dup
+      56: aload_1
+      57: aload_2
+      58: invokespecial #49                 // Method net/minecraftforge/fml/relauncher/ReflectionHelper$UnableToFindFieldException."<init>":([Ljava/lang/String;Ljava/lang/Exception;)V
+      61: athrow
+    Exception table:
+       from    to  target type
+          24    40    41   Class java/lang/Exception
+
+  public static <T, E> T getPrivateValue(java.lang.Class<? super E>, E, int);
+    Code:
+       0: aload_0
+  public byte[] transform(java.lang.String, java.lang.String, byte[]);
+    Code:
+       0: aload_3
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_1
+       8: invokespecial #57                 // Method shouldTransform:(Ljava/lang/String;)Z
+      11: ifne          16
+      14: aload_3
+      15: areturn
+      16: new           #59                 // class org/objectweb/asm/ClassReader
+      19: dup
+      20: aload_3
+      21: invokespecial #62                 // Method org/objectweb/asm/ClassReader."<init>":([B)V
+      24: astore        4
+      26: new           #64                 // class org/objectweb/asm/ClassWriter
+      29: dup
+      30: getstatic     #66                 // Field WRITER_FLAGS:I
+      33: invokespecial #69                 // Method org/objectweb/asm/ClassWriter."<init>":(I)V
+      36: astore        5
+      38: new           #71                 // class net/minecraftforge/fml/common/asm/transformers/deobf/FMLRemappingAdapter
+      41: dup
+      42: aload         5
+      44: invokespecial #74                 // Method net/minecraftforge/fml/common/asm/transformers/deobf/FMLRemappingAdapter."<init>":(Lorg/objectweb/asm/ClassVisitor;)V
+      47: astore        6
+      49: aload         4
+      51: aload         6
+      53: getstatic     #76                 // Field READER_FLAGS:I
+      56: invokevirtual #80                 // Method org/objectweb/asm/ClassReader.accept:(Lorg/objectweb/asm/ClassVisitor;I)V
+      59: aload         5
+      61: invokevirtual #84                 // Method org/objectweb/asm/ClassWriter.toByteArray:()[B
+      64: areturn
+
+  private boolean shouldTransform(java.lang.String);

@@ -76,7 +76,7 @@ public class CompactLauncher extends BlockContainer implements IMultiblock, IBom
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
 
 		if(!(com.hbm.world.WorldBlockState.read(world, x + 1, y, z + 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x + 1, y, z - 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x - 1, y, z - 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x - 1, y, z + 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock().getDefaultState().getMaterial().isReplaceable())) {
-			world.func_147480_a(x, y, z, true);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);
 			return;
 		}
 

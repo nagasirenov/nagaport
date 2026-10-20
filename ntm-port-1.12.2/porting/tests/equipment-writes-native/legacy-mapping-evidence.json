@@ -1,0 +1,16 @@
+{
+  "archive": "mcp-1.7.10-srg.zip",
+  "sha256": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2",
+  "joined_srg_sha256": "43d4376110b2638213d3096f80f8395c076eb05b58d6c0dbd22c0d999b37a357",
+  "entries": [
+    "CL: yq net/minecraft/entity/monster/EntityZombie",
+    "FD: add/b net/minecraft/item/ItemStack/field_77994_a",
+    "FD: add/d net/minecraft/item/ItemStack/field_77990_d",
+    "FD: sw/br net/minecraft/entity/EntityLiving/field_82182_bS",
+    "FD: sw/e net/minecraft/entity/EntityLiving/field_82174_bp",
+    "MD: sw/a (IF)V net/minecraft/entity/EntityLiving/func_96120_a (IF)V",
+    "MD: sw/c (ILadd;)V net/minecraft/entity/EntityLiving/func_70062_b (ILnet/minecraft/item/ItemStack;)V",
+    "MD: yl/c (ILadd;)V net/minecraft/entity/monster/EntitySkeleton/func_70062_b (ILnet/minecraft/item/ItemStack;)V",
+    "MD: yz/c (ILadd;)V net/minecraft/entity/player/EntityPlayer/func_70062_b (ILnet/minecraft/item/ItemStack;)V"
+  ]
+}

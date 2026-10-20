@@ -1,0 +1,65 @@
+[
+  {
+    "line": 1936,
+    "name": "waste_earth",
+    "owner": "WasteEarth",
+    "receiver": "new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_earth\")",
+    "sound": "SoundType.PLANT",
+    "before": "\t\twaste_earth = new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_earth\").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_earth\");",
+    "after": "\t\twaste_earth = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_earth\")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_earth\");"
+  },
+  {
+    "line": 1937,
+    "name": "waste_mycelium",
+    "owner": "WasteEarth",
+    "receiver": "new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_mycelium\")",
+    "sound": "SoundType.PLANT",
+    "before": "\t\twaste_mycelium = new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_mycelium\").setStepSound(SoundType.PLANT).setLightLevel(1F).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_mycelium_side\");",
+    "after": "\t\twaste_mycelium = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey(\"waste_mycelium\")).withSoundType(SoundType.PLANT).setLightLevel(1F).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":waste_mycelium_side\");"
+  },
+  {
+    "line": 1940,
+    "name": "waste_log",
+    "owner": "WasteLog",
+    "receiver": "new WasteLog(Material.WOOD).setTranslationKey(\"waste_log\")",
+    "sound": "SoundType.WOOD",
+    "before": "\t\twaste_log = new WasteLog(Material.WOOD).setTranslationKey(\"waste_log\").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(2.5F);",
+    "after": "\t\twaste_log = ((WasteLog) new WasteLog(Material.WOOD).setTranslationKey(\"waste_log\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(2.5F);"
+  },
+  {
+    "line": 1941,
+    "name": "waste_leaves",
+    "owner": "WasteLeaves",
+    "receiver": "new WasteLeaves(Material.LEAVES).setTranslationKey(\"waste_leaves\")",
+    "sound": "SoundType.PLANT",
+    "before": "\t\twaste_leaves = new WasteLeaves(Material.LEAVES).setTranslationKey(\"waste_leaves\").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setBlockTextureName(RefStrings.MODID + \":waste_leaves\");",
+    "after": "\t\twaste_leaves = ((WasteLeaves) new WasteLeaves(Material.LEAVES).setTranslationKey(\"waste_leaves\")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setBlockTextureName(RefStrings.MODID + \":waste_leaves\");"
+  },
+  {
+    "line": 1944,
+    "name": "frozen_grass",
+    "owner": "WasteEarth",
+    "receiver": "new WasteEarth(Material.GROUND, false).setTranslationKey(\"frozen_grass\")",
+    "sound": "SoundType.GLASS",
+    "before": "\t\tfrozen_grass = new WasteEarth(Material.GROUND, false).setTranslationKey(\"frozen_grass\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\tfrozen_grass = ((WasteEarth) new WasteEarth(Material.GROUND, false).setTranslationKey(\"frozen_grass\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  },
+  {
+    "line": 1945,
+    "name": "frozen_log",
+    "owner": "WasteLog",
+    "receiver": "new WasteLog(Material.WOOD).setTranslationKey(\"frozen_log\")",
+    "sound": "SoundType.GLASS",
+    "before": "\t\tfrozen_log = new WasteLog(Material.WOOD).setTranslationKey(\"frozen_log\").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);",
+    "after": "\t\tfrozen_log = ((WasteLog) new WasteLog(Material.WOOD).setTranslationKey(\"frozen_log\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);"
+  },
+  {
+    "line": 1954,
+    "name": "burning_earth",
+    "owner": "WasteEarth",
+    "receiver": "new WasteEarth(Material.GROUND, true).setTranslationKey(\"burning_earth\")",
+    "sound": "SoundType.PLANT",
+    "before": "\t\tburning_earth = new WasteEarth(Material.GROUND, true).setTranslationKey(\"burning_earth\").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":burning_earth\");",
+    "after": "\t\tburning_earth = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey(\"burning_earth\")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + \":burning_earth\");"
+  }
+]

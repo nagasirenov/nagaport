@@ -188,7 +188,7 @@ public class WeaponSpecial extends ItemSword {
 				if(!world.isRemote) {
 
 					world.spawnEntityInWorld(rubble);
-					world.func_147480_a(x, y, z, false);
+					com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 				}
 			}
 			return true;
@@ -200,13 +200,13 @@ public class WeaponSpecial extends ItemSword {
 
 			if(!world.isRemote) {
 				if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getExplosionResistance(null) < 6000) {
-					world.func_147480_a(x, y, z, false);
+					com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 				}
 				if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getExplosionResistance(null) < 6000) {
-					world.func_147480_a(x, y + 1, z, false);
+					com.hbm.world.WorldBlockDestruction.destroy(world, x, y + 1, z, false);
 				}
 				if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().getExplosionResistance(null) < 6000) {
-					world.func_147480_a(x, y - 1, z, false);
+					com.hbm.world.WorldBlockDestruction.destroy(world, x, y - 1, z, false);
 				}
 			}
 			return true;
@@ -216,16 +216,22 @@ public class WeaponSpecial extends ItemSword {
 	}
 
 	@Override
-	public Multimap getItemAttributeModifiers() {
-		Multimap multimap = super.getItemAttributeModifiers();
+	public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.MAINHAND) {
+			AttributeModifier damage = new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) (4.0F + super.getAttackDamage()), 0);
+			multimap.remove(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), damage);
+		}
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
 		if(this == ModItems.schrabidium_hammer) {
-			multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", -0.5, 1));
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", -0.5, 1));
 		}
 		if(this == ModItems.shimmer_sledge || this == ModItems.shimmer_axe) {
-			multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", -0.2, 1));
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", -0.2, 1));
 		}
 		if(this == ModItems.wrench_flipped) {
-			multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", -0.1, 1));
+			multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", -0.1, 1));
 		}
 		return multimap;
 	}

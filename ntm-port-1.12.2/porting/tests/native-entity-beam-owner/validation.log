@@ -1,0 +1,4 @@
+PASS beam-owner: 4 pristine calls; exact owner/default/serializer; full-source inverse; 2 named classes and 5 consumer files
+PASS original Forge cached display-name contract and actual native STRING method bytecode
+PASS 224 native beam-owner assertions; complete constructors/init/NBT and exact update-prefix only
+PASS 11 exact beam source slices; no effects, damage, rendering, whole-owner or game claim

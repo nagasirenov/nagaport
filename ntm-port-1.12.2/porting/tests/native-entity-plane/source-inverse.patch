@@ -1,0 +1,223 @@
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java
+index fe43ffd7..c88bf317 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java
+@@ -9,16 +9,11 @@ import com.hbm.main.MainRegistry;
+ import com.hbm.sound.AudioWrapper;
+ 
+ import net.minecraft.nbt.NBTTagCompound;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+ 
+ @NotableComments
+ public class EntityBomber extends EntityPlaneBase {
+-	private static final DataParameter<Byte> BOMBER_STYLE = EntityDataManager.createKey(EntityBomber.class, DataSerializers.BYTE);
+-
+ 	
+ 	/* This was probably the dumbest fucking way that I could have handled this. Not gonna change it now, be glad I made a superclass at all. */
+ 	int bombStart = 75;
+@@ -37,22 +32,18 @@ public class EntityBomber extends EntityPlaneBase {
+ 	@Override
+ 	public void entityInit() {
+ 		super.entityInit();
+-		this.dataManager.register(BOMBER_STYLE, Byte.valueOf((byte) 0));
++		this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
+ 	}
+ 	
+-	public byte getBomberStyle() {
+-		return this.dataManager.get(BOMBER_STYLE);
+-	}
+-
+ 	/** This sucks balls. Too bad! */
+ 	@Override
+ 	public void onUpdate() {
+ 		super.onUpdate();
+ 		
+ 		if(this.world.isRemote) {
+-			if(this.dataManager.get(PLANE_HEALTH) > 0) {
++			if(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {
+ 				if(audio == null || !audio.isPlaying()) {
+-					int bomberType = this.dataManager.get(BOMBER_STYLE);
++					int bomberType = this.dataWatcher.getWatchableObjectByte(16);
+ 					System.out.println();
+ 					if (bomberType >= 9) {
+ 					    audio = MainRegistry.proxy.getLoopedSound("hbm:entity.jetloopbomb", (float) posX, (float) posY, (float) posZ, 2F, 250F, 1F, 20);
+@@ -152,7 +143,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 			}
+ 		}
+ 
+-		this.dataManager.set(BOMBER_STYLE, (byte) i);
++		this.getDataWatcher().updateObject(16, (byte) i);
+ 		this.setSize(8.0F, 4.0F);
+ 	}
+ 
+@@ -218,7 +209,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 		}
+ 		if(world.rand.nextInt(100) == 0) i = 8;
+ 
+-		bomber.dataManager.set(BOMBER_STYLE, (byte) i);
++		bomber.getDataWatcher().updateObject(16, (byte) i);
+ 		bomber.type = 4;
+ 		return bomber;
+ 	}
+@@ -230,7 +221,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 		bomber.bombStop = 150;
+ 		bomber.bombRate = 10;
+ 		bomber.fac(world, x, y, z);
+-		bomber.dataManager.set(BOMBER_STYLE, (byte) 4);
++		bomber.getDataWatcher().updateObject(16, (byte) 4);
+ 		bomber.type = 5;
+ 		return bomber;
+ 	}
+@@ -242,7 +233,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 		bomber.bombStop = 150;
+ 		bomber.bombRate = 10;
+ 		bomber.fac(world, x, y, z);
+-		bomber.dataManager.set(BOMBER_STYLE, (byte) 6);
++		bomber.getDataWatcher().updateObject(16, (byte) 6);
+ 		bomber.type = 6;
+ 		return bomber;
+ 	}
+@@ -254,7 +245,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 		bomber.bombStop = 125;
+ 		bomber.bombRate = 1;
+ 		bomber.fac(world, x, y, z);
+-		bomber.dataManager.set(BOMBER_STYLE, (byte) 6);
++		bomber.getDataWatcher().updateObject(16, (byte) 6);
+ 		bomber.type = 7;
+ 		return bomber;
+ 	}
+@@ -269,7 +260,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 
+     	bomber.fac(world, x, y+16, z); //adding the y value breaks things, sorry bluehat
+     	
+-    	bomber.dataManager.set(BOMBER_STYLE, (byte)9);
++    	bomber.getDataWatcher().updateObject(16, (byte)9);
+     	
+     	bomber.type = 8;
+     	
+@@ -288,7 +279,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 		bomber.fac(world, x, y, z);
+ 		//bomber.addVelocity(0.6, 0, 0.6);
+ 
+-    	bomber.dataManager.set(BOMBER_STYLE, (byte)10);
++    	bomber.getDataWatcher().updateObject(16, (byte)10);
+ 		return bomber;
+ 	}
+ 
+@@ -299,7 +290,7 @@ public class EntityBomber extends EntityPlaneBase {
+ 		bombStop = nbt.getInteger("bombStop");
+ 		bombRate = nbt.getInteger("bombRate");
+ 		type = nbt.getInteger("type");
+-		this.dataManager.set(BOMBER_STYLE, nbt.getByte("style"));
++		this.getDataWatcher().updateObject(16, nbt.getByte("style"));
+ 		this.setSize(8.0F, 4.0F);
+ 	}
+ 
+@@ -310,6 +301,6 @@ public class EntityBomber extends EntityPlaneBase {
+ 		nbt.setInteger("bombStop", bombStop);
+ 		nbt.setInteger("bombRate", bombRate);
+ 		nbt.setInteger("type", type);
+-		nbt.setByte("style", this.dataManager.get(BOMBER_STYLE));
++		nbt.setByte("style", this.getDataWatcher().getWatchableObjectByte(16));
+ 	}
+ }
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java
+index 73340615..61ef7901 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java
+@@ -27,7 +27,7 @@ public class EntityC130 extends EntityPlaneBase {
+ 		super.onUpdate();
+ 		
+ 		if(this.world.isRemote) {
+-			if(this.dataManager.get(PLANE_HEALTH) > 0) {
++			if(this.getDataWatcher().getWatchableObjectFloat(17) > 0) {
+ 				if(audio == null || !audio.isPlaying()) {
+ 					audio = MainRegistry.proxy.getLoopedSound("hbm:entity.bomberLoop", (float) posX, (float) posY, (float) posZ, 2F, 250F, 1F, 20);
+ 					audio.startSound();
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java a/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java
+index 5299d9ea..a75743a7 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java
+@@ -15,9 +15,6 @@ import net.minecraftforge.fml.relauncher.Side;
+ import net.minecraftforge.fml.relauncher.SideOnly;
+ import net.minecraft.entity.Entity;
+ import net.minecraft.nbt.NBTTagCompound;
+-import net.minecraft.network.datasync.DataParameter;
+-import net.minecraft.network.datasync.DataSerializers;
+-import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.util.DamageSource;
+ import net.minecraft.util.math.ChunkPos;
+ import net.minecraft.util.math.MathHelper;
+@@ -26,9 +23,7 @@ import net.minecraftforge.common.ForgeChunkManager;
+ import net.minecraftforge.common.ForgeChunkManager.Ticket;
+ import net.minecraftforge.common.ForgeChunkManager.Type;
+ 
+-public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
+-	protected static final DataParameter<Float> PLANE_HEALTH = EntityDataManager.createKey(EntityPlaneBase.class, DataSerializers.FLOAT);
+-
++public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
+ 	
+ 	protected int turnProgress;
+ 	protected double syncPosX;
+@@ -75,7 +70,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
+ 	@Override
+ 	protected void entityInit() {
+ 		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
+-		this.dataManager.register(PLANE_HEALTH, 50F);
++		this.dataWatcher.addObject(17, new Float(50F));
+ 	}
+ 
+ 	@Override
+@@ -94,9 +89,9 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
+ 	public void onUpdate() {
+ 		
+ 		if(!this.world.isRemote) {
+-			this.dataManager.set(PLANE_HEALTH, health);
++			this.dataWatcher.updateObject(17, health);
+ 		} else {
+-			health = this.dataManager.get(PLANE_HEALTH);
++			health = this.dataWatcher.getWatchableObjectFloat(17);
+ 		}
+ 
+ 		if(this.world.isRemote) {
+@@ -184,13 +179,13 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
+ 	@Override
+ 	protected void readEntityFromNBT(NBTTagCompound nbt) {
+ 		ticksExisted = nbt.getInteger("ticksExisted");
+-		this.dataManager.set(PLANE_HEALTH, nbt.getFloat("health"));
++		this.getDataWatcher().updateObject(17, nbt.getFloat("health"));
+ 	}
+ 
+ 	@Override
+ 	protected void writeEntityToNBT(NBTTagCompound nbt) {
+ 		nbt.setInteger("ticksExisted", ticksExisted);
+-		nbt.setFloat("health", this.dataManager.get(PLANE_HEALTH));
++		nbt.setFloat("health", this.getDataWatcher().getWatchableObjectFloat(17));
+ 	}
+ 	
+ 	public void clearChunkLoader() {
+diff --git b/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java a/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java
+index f3aae531..5f0c4079 100644
+--- b/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java
++++ a/ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java
+@@ -3,7 +3,6 @@ package com.hbm.render.entity.item;
+ import org.lwjgl.opengl.GL11;
+ 
+ import com.hbm.main.ResourceManager;
+-import com.hbm.entity.logic.EntityBomber;
+ 
+ import net.minecraft.client.renderer.OpenGlHelper;
+ import net.minecraft.client.renderer.entity.Render;
+@@ -29,7 +28,7 @@ public class RenderBomber extends Render {
+ 		GL11.glEnable(GL11.GL_LIGHTING);
+ 		GL11.glDisable(GL11.GL_CULL_FACE);
+ 
+-		int i = ((EntityBomber) entity).getBomberStyle();
++		int i = entity.getDataWatcher().getWatchableObjectByte(16);
+ 
+ 		switch(i) {
+ 		case 0: bindTexture(ResourceManager.dornier_1_tex); break;

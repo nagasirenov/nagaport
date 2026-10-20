@@ -336,13 +336,13 @@ public class ChunkAtmosphereHandler {
 	}
 
 	public void receiveBlockPlaced(BlockEvent.PlaceEvent event) {
-		if(event.world.isRemote) return;
-		onBlockPlaced(event.world, new ThreeInts(event.x, event.y, event.z));
+		if(event.getWorld().isRemote) return;
+		onBlockPlaced(event.getWorld(), new ThreeInts(event.x, event.y, event.z));
 	}
 
 	public void receiveBlockBroken(BlockEvent.BreakEvent event) {
-		if(event.world.isRemote) return;
-		onBlockRemoved(event.world, new ThreeInts(event.x, event.y, event.z));
+		if(event.getWorld().isRemote) return;
+		onBlockRemoved(event.getWorld(), new ThreeInts(event.x, event.y, event.z));
 	}
 
 	// Stores explosion events to execute unsealing after they complete, and the blocks that actually unseal from the explosion
@@ -351,10 +351,10 @@ public class ChunkAtmosphereHandler {
 	// For every affected blob, attempt addBlock once for the first valid position only
 	// This just stores the affected blocks, since the explosion hasn't actually occurred yet
 	public void receiveDetonate(ExplosionEvent.Detonate event) {
-		if(event.world.isRemote) return;
+		if(event.getWorld().isRemote) return;
 		List<ThreeInts> unsealingBlocks = new ArrayList<ThreeInts>();
 		for(BlockPos block : event.getAffectedBlocks()) {
-			if(AtmosphereBlob.isBlockSealed(event.world, block.getX(), block.getY(), block.getZ())) {
+			if(AtmosphereBlob.isBlockSealed(event.getWorld(), block.getX(), block.getY(), block.getZ())) {
 				unsealingBlocks.add(new ThreeInts(block.getX(), block.getY(), block.getZ()));
 			}
 		}
@@ -368,8 +368,8 @@ public class ChunkAtmosphereHandler {
 
 		for(Pair<ExplosionEvent.Detonate, List<ThreeInts>> pair : explosions) {
 			ExplosionEvent.Detonate event = pair.key;
-			ThreeInts explosion = new ThreeInts(MathHelper.floor_double(event.explosion.explosionX), MathHelper.floor_double(event.explosion.explosionY), MathHelper.floor_double(event.explosion.explosionZ));
-			List<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.world, explosion, MAX_BLOB_RADIUS + MathHelper.ceiling_float_int(event.explosion.explosionSize));
+			ThreeInts explosion = new ThreeInts(MathHelper.floor_double(event.getExplosion().explosionX), MathHelper.floor_double(event.getExplosion().explosionY), MathHelper.floor_double(event.getExplosion().explosionZ));
+			List<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.getWorld(), explosion, MAX_BLOB_RADIUS + MathHelper.ceiling_float_int(event.getExplosion().explosionSize));
 
 			for(ThreeInts pos : pair.value) {
 				if(nearbyBlobs.size() == 0) break;

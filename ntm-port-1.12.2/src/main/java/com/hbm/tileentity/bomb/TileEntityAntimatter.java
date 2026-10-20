@@ -117,7 +117,7 @@ public class TileEntityAntimatter extends TileEntityMachineBase implements IGUIP
 		for(int i = 0; i < slots.length; i++)
 			slots[i] = null;
 		
-		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+		com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 		
 		EntityBalefire bf = new EntityBalefire(this.world);
 		bf.antimatter();

@@ -74,15 +74,15 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 	@Override
 	public void update() {
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 
 			this.maxPower = Math.max(1_000_000L, this.outputTarget * 100L);
 
 			this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 
 			for(DirPos pos : getConPos()) {
-				this.trySubscribe(worldObj, pos);
-				this.trySubscribe(compair.getTankType(), worldObj, pos);
+				this.trySubscribe(this.world, pos);
+				this.trySubscribe(compair.getTankType(), this.world, pos);
 			}
 
 			this.output = 0;
@@ -227,8 +227,8 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 			audio = null;
 		}
 
-		if(!worldObj.isRemote) {
-			if(this.klystronNode != null) UniNodespace.destroyNode(worldObj, klystronNode);
+		if(!this.world.isRemote) {
+			if(this.klystronNode != null) UniNodespace.destroyNode(this.world, klystronNode);
 		}
 	}
 

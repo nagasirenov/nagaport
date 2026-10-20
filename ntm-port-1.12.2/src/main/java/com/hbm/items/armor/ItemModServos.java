@@ -43,7 +43,7 @@ public class ItemModServos extends ItemArmorMod {
 		
 		ItemArmor item = (ItemArmor)armor.getItem();
 		
-		if(item.armorType == 1) {
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {
 
 			if(this == ModItems.servo_set) {
 				list.add(TextFormatting.DARK_PURPLE + "  " + stack.getDisplayName() + " (Haste I / Damage +50%)");
@@ -53,7 +53,7 @@ public class ItemModServos extends ItemArmorMod {
 			}
 		}
 		
-		if(item.armorType == 2) {
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {
 
 			if(this == ModItems.servo_set) {
 				list.add(TextFormatting.DARK_PURPLE + "  " + stack.getDisplayName() + " (Speed +25% / Jump II)");
@@ -68,7 +68,7 @@ public class ItemModServos extends ItemArmorMod {
 		
 		ItemArmor item = (ItemArmor)armor.getItem();
 		
-		if(item.armorType == 1) {
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {
 
 			if(this == ModItems.servo_set) {
 				entity.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60, 0));
@@ -78,7 +78,7 @@ public class ItemModServos extends ItemArmorMod {
 			}
 		}
 		
-		if(item.armorType == 2) {
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {
 
 			if(this == ModItems.servo_set) {
 				entity.addPotionEffect(new PotionEffect(Potion.jump.id, 60, 1));
@@ -91,28 +91,28 @@ public class ItemModServos extends ItemArmorMod {
 	
 	@Override
 	public Multimap getModifiers(ItemStack armor) {
-		Multimap multimap = super.getAttributeModifiers(armor);
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
 		
 		ItemArmor item = (ItemArmor)armor.getItem();
 		
-		if(item.armorType == 1) {
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {
 			if(this == ModItems.servo_set)
-				multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
-						new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Servos", 0.5, 2));
+				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2));
 			
 			if(this == ModItems.servo_set_desh)
-				multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
-						new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Servos", 1.5, 2));
+				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 1.5, 2));
 		}
 		
-		if(item.armorType == 2) {
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {
 			if(this == ModItems.servo_set)
-				multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),
-						new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Servos", 0.25, 2));
+				multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.25, 2));
 			
 			if(this == ModItems.servo_set_desh)
-				multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),
-						new AttributeModifier(ArmorModHandler.UUIDs[((ItemArmor)armor.getItem()).armorType], "NTM Armor Mod Servos", 0.5, 2));
+				multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2));
 		}
 		
 		return multimap;

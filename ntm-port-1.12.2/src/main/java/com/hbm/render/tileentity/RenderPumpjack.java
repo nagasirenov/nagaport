@@ -7,6 +7,8 @@ import com.hbm.main.ResourceManager;
 import com.hbm.tileentity.machine.oil.TileEntityMachinePumpjack;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.Vec3d;
@@ -65,20 +67,27 @@ public class RenderPumpjack extends TileEntitySpecialRenderer {
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawingQuads();
-		tess.setColorRGBA_F(0.5F, 0.5F, 0.5F, 1F);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+		int tessColor0Red = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));
+		int tessColor0Green = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));
+		int tessColor0Blue = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));
+		int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
 		
 		for(int i = -1; i <= 1; i += 2) {
 
-			tess.addVertex(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z - 0.0625D);
-			tess.addVertex(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z + 0.0625D);
+			tessBuffer.pos(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z - 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+			tessBuffer.pos(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z + 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 
-			tess.addVertex(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z + 0.0625D);
-			tess.addVertex(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z - 0.0625D);
+			tessBuffer.pos(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z + 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+			tessBuffer.pos(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z - 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 		}
 		
-		tess.setColorRGBA_F(0.2F, 0.2F, 0.2F, 1F);
+		int tessColor1Red = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));
+		int tessColor1Green = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));
+		int tessColor1Blue = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));
+		int tessColor1Alpha = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
 		
 		double pd = 0.03125D;
 		double width = 0.25D;
@@ -104,8 +113,8 @@ public class RenderPumpjack extends TileEntitySpecialRenderer {
 				double sumZ = frontPos.z + frontRad.z;
 				if(frontRad.y < 0) sumZ = 3.5 + dist * 0.5;
 	
-				tess.addVertex((width - pd) * i, 3.5 + sumY, -3.5 + sumZ);
-				tess.addVertex((width + pd) * i, 3.5 + sumY, -3.5 + sumZ);
+				tessBuffer.pos((width - pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+				tessBuffer.pos((width + pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 
 				frontRad.rotateAroundXRad(-(float)Math.toRadians(cutlet));
 
@@ -113,30 +122,30 @@ public class RenderPumpjack extends TileEntitySpecialRenderer {
 				sumZ = frontPos.z + frontRad.z;
 				if(frontRad.y < 0) sumZ = 3.5 + dist * 0.5;
 	
-				tess.addVertex((width + pd) * i, 3.5 + sumY, -3.5 + sumZ);
-				tess.addVertex((width - pd) * i, 3.5 + sumY, -3.5 + sumZ);
+				tessBuffer.pos((width + pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+				tessBuffer.pos((width - pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 			}
 
 			double sumY = frontPos.y + frontRad.y;
 			double sumZ = frontPos.z + frontRad.z;
 			if(frontRad.y < 0) sumZ = 3.5 + dist * 0.5;
 			
-			tess.addVertex((width + pd) * i, 3.5 + sumY, -3.5 + sumZ);
-			tess.addVertex((width - pd) * i, 3.5 + sumY, -3.5 + sumZ);
+			tessBuffer.pos((width + pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+			tessBuffer.pos((width - pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 			
-			tess.addVertex((width - pd) * i, 2 + height, 0);
-			tess.addVertex((width + pd) * i, 2 + height, 0);
+			tessBuffer.pos((width - pd) * i, 2 + height, 0).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+			tessBuffer.pos((width + pd) * i, 2 + height, 0).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 		}
 		
 		double p = 0.03125D;
-		tess.addVertex(p, height + 1.5, p);
-		tess.addVertex(-p, height + 1.5, -p);
-		tess.addVertex(-p, 0.75, -p);
-		tess.addVertex(p, 0.75,  p);
-		tess.addVertex(-p, height + 1.5, p);
-		tess.addVertex(p, height + 1.5, -p);
-		tess.addVertex(p, 0.75, -p);
-		tess.addVertex(-p, 0.75, p);
+		tessBuffer.pos(p, height + 1.5, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(-p, height + 1.5, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(-p, 0.75, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(p, 0.75, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(-p, height + 1.5, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(p, height + 1.5, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(p, 0.75, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(-p, 0.75, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 		
 		tess.draw();
 		

@@ -1,0 +1,1671 @@
+{
+  "base": "502f0b9dc3cd3e14622edd897fe3c753e309818d",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockRubberFarm.java": [
+      {
+        "start": 2903,
+        "end": 2950,
+        "line": 93,
+        "field": "rubber_silt",
+        "owner_field": "rubber_silt",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.rubber_silt"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.rubber_silt);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3353,
+        "end": 3400,
+        "line": 106,
+        "field": "rubber_silt",
+        "owner_field": "rubber_silt",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.rubber_silt"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.rubber_silt);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/RubberGrass.java": [
+      {
+        "start": 2020,
+        "end": 2067,
+        "line": 64,
+        "field": "rubber_silt",
+        "owner_field": "rubber_silt",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.rubber_silt"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.rubber_silt);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/CrystalVirus.java": [
+      {
+        "start": 3590,
+        "end": 3642,
+        "line": 51,
+        "field": "crystal_hardened",
+        "owner_field": "crystal_hardened",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.crystal_hardened"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.crystal_hardened);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 6114,
+        "end": 6166,
+        "line": 66,
+        "field": "crystal_hardened",
+        "owner_field": "crystal_hardened",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.crystal_hardened"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.crystal_hardened);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java": [
+      {
+        "start": 3914,
+        "end": 3962,
+        "line": 114,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java": [
+      {
+        "start": 3449,
+        "end": 3501,
+        "line": 102,
+        "field": "ore_basalt",
+        "owner_field": "ore_basalt",
+        "owner": "BlockOreBasalt",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.ore_basalt",
+          "0",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.ore_basalt, 0, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3520,
+        "end": 3572,
+        "line": 103,
+        "field": "ore_basalt",
+        "owner_field": "ore_basalt",
+        "owner": "BlockOreBasalt",
+        "metadata": "1",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.ore_basalt",
+          "1",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.ore_basalt, 1, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 1; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3591,
+        "end": 3643,
+        "line": 104,
+        "field": "ore_basalt",
+        "owner_field": "ore_basalt",
+        "owner": "BlockOreBasalt",
+        "metadata": "2",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.ore_basalt",
+          "2",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.ore_basalt, 2, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 2; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3662,
+        "end": 3714,
+        "line": 105,
+        "field": "ore_basalt",
+        "owner_field": "ore_basalt",
+        "owner": "BlockOreBasalt",
+        "metadata": "4",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.ore_basalt",
+          "4",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.ore_basalt, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 4; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3747,
+        "end": 3799,
+        "line": 106,
+        "field": "ore_basalt",
+        "owner_field": "ore_basalt",
+        "owner": "BlockOreBasalt",
+        "metadata": "3",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.ore_basalt",
+          "3",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.ore_basalt, 3, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 3; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockBallsSpawner.java": [
+      {
+        "start": 1042,
+        "end": 1098,
+        "line": 31,
+        "field": "brick_jungle_cracked",
+        "owner_field": "brick_jungle_cracked",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.brick_jungle_cracked"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.brick_jungle_cracked);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_cracked; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": [
+      {
+        "start": 6998,
+        "end": 7084,
+        "line": 209,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.GENERIC.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.GENERIC.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 7158,
+        "end": 7238,
+        "line": 215,
+        "field": "plant_tall",
+        "owner_field": "plant_tall",
+        "owner": "BlockTallPlant",
+        "metadata": "EnumTallFlower.WEED.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.plant_tall",
+          "EnumTallFlower.WEED.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.plant_tall, EnumTallFlower.WEED.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.WEED.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 7242,
+        "end": 7330,
+        "line": 216,
+        "field": "plant_tall",
+        "owner_field": "plant_tall",
+        "owner": "BlockTallPlant",
+        "metadata": "EnumTallFlower.WEED.ordinal() + 8",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y + 1",
+          "z",
+          "ModBlocks.plant_tall",
+          "EnumTallFlower.WEED.ordinal() + 8",
+          "3"
+        ],
+        "original": "world.setBlock(x, y + 1, z, ModBlocks.plant_tall, EnumTallFlower.WEED.ordinal() + 8, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y + 1; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.WEED.ordinal() + 8; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 7545,
+        "end": 7624,
+        "line": 226,
+        "field": "plant_tall",
+        "owner_field": "plant_tall",
+        "owner": "BlockTallPlant",
+        "metadata": "EnumTallFlower.CD2.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.plant_tall",
+          "EnumTallFlower.CD2.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.plant_tall, EnumTallFlower.CD2.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.CD2.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 7628,
+        "end": 7715,
+        "line": 227,
+        "field": "plant_tall",
+        "owner_field": "plant_tall",
+        "owner": "BlockTallPlant",
+        "metadata": "EnumTallFlower.CD2.ordinal() + 8",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y + 1",
+          "z",
+          "ModBlocks.plant_tall",
+          "EnumTallFlower.CD2.ordinal() + 8",
+          "3"
+        ],
+        "original": "world.setBlock(x, y + 1, z, ModBlocks.plant_tall, EnumTallFlower.CD2.ordinal() + 8, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y + 1; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.CD2.ordinal() + 8; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java": [
+      {
+        "start": 1896,
+        "end": 1926,
+        "line": 56,
+        "field": "this",
+        "owner_field": "sand_mix",
+        "owner": "BlockNTMSand",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "this"
+        ],
+        "original": "world.setBlock(x, y, z, this);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = this; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": [
+      {
+        "start": 5597,
+        "end": 5652,
+        "line": 173,
+        "field": "block_meteor_cobble",
+        "owner_field": "block_meteor_cobble",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.block_meteor_cobble"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.block_meteor_cobble);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.block_meteor_cobble; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": [
+      {
+        "start": 8758,
+        "end": 8846,
+        "line": 215,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.BIGFLOWER.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.BIGFLOWER.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.plant_dead, EnumDeadPlantType.BIGFLOWER.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.BIGFLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockUberConcrete.java": [
+      {
+        "start": 2054,
+        "end": 2111,
+        "line": 68,
+        "field": "concrete_super_broken",
+        "owner_field": "concrete_super_broken",
+        "owner": "BlockFalling",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.concrete_super_broken"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.concrete_super_broken);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.concrete_super_broken; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3004,
+        "end": 3061,
+        "line": 88,
+        "field": "concrete_super_broken",
+        "owner_field": "concrete_super_broken",
+        "owner": "BlockFalling",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.concrete_super_broken"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.concrete_super_broken);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.concrete_super_broken; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/TrappedBrick.java": [
+      {
+        "start": 4533,
+        "end": 4598,
+        "line": 91,
+        "field": "brick_jungle_ooze",
+        "owner_field": "brick_jungle_ooze",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x + a",
+          "y + b",
+          "z + c",
+          "ModBlocks.brick_jungle_ooze"
+        ],
+        "original": "world.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_ooze);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_ooze; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 5052,
+        "end": 5119,
+        "line": 107,
+        "field": "brick_jungle_mystic",
+        "owner_field": "brick_jungle_mystic",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x + a",
+          "y + b",
+          "z + c",
+          "ModBlocks.brick_jungle_mystic"
+        ],
+        "original": "world.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_mystic);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_mystic; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 5495,
+        "end": 5543,
+        "line": 122,
+        "field": "brick_jungle",
+        "owner_field": "brick_jungle",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.brick_jungle"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.brick_jungle);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/dim/WorldGenRubberPlant.java": [
+      {
+        "start": 1331,
+        "end": 1396,
+        "line": 45,
+        "field": "rubber_plant",
+        "owner_field": "rubber_plant",
+        "owner": "BlockRubberPlant",
+        "metadata": "plantType",
+        "flags": "2",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "px",
+          "py",
+          "pz",
+          "ModBlocks.rubber_plant",
+          "plantType",
+          "2"
+        ],
+        "original": "world.setBlock(px, py, pz, ModBlocks.rubber_plant, plantType, 2);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = plantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 2624,
+        "end": 2694,
+        "line": 85,
+        "field": "rubber_plant",
+        "owner_field": "rubber_plant",
+        "owner": "BlockRubberPlant",
+        "metadata": "OtherplantType",
+        "flags": "2",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "px",
+          "py",
+          "pz",
+          "ModBlocks.rubber_plant",
+          "OtherplantType",
+          "2"
+        ],
+        "original": "world.setBlock(px, py, pz, ModBlocks.rubber_plant, OtherplantType, 2);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = OtherplantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": [
+      {
+        "start": 18998,
+        "end": 19059,
+        "line": 490,
+        "field": "brick_concrete_mossy",
+        "owner_field": "brick_concrete_mossy",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.brick_concrete_mossy"
+        ],
+        "original": "this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_concrete_mossy; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/explosion/ExplosionChaos.java": [
+      {
+        "start": 2124,
+        "end": 2176,
+        "line": 62,
+        "field": "crystal_hardened",
+        "owner_field": "crystal_hardened",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "X",
+          "Y",
+          "Z",
+          "ModBlocks.crystal_hardened"
+        ],
+        "original": "world.setBlock(X, Y, Z, ModBlocks.crystal_hardened);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = X; int nativeRegisteredWriteY = Y; int nativeRegisteredWriteZ = Z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": [
+      {
+        "start": 5380,
+        "end": 5434,
+        "line": 157,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks",
+          "0",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks, 0, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 12325,
+        "end": 12376,
+        "line": 248,
+        "field": "waste_trinitite",
+        "owner_field": "waste_trinitite",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_trinitite"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_trinitite);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 12509,
+        "end": 12564,
+        "line": 251,
+        "field": "waste_trinitite_red",
+        "owner_field": "waste_trinitite_red",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_trinitite_red"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_trinitite_red);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite_red; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 17872,
+        "end": 17920,
+        "line": 294,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 18339,
+        "end": 18397,
+        "line": 309,
+        "field": "ore_nether_schrabidium",
+        "owner_field": "ore_nether_schrabidium",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.ore_nether_schrabidium"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.ore_nether_schrabidium);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_nether_schrabidium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 18632,
+        "end": 18690,
+        "line": 318,
+        "field": "ore_gneiss_schrabidium",
+        "owner_field": "ore_gneiss_schrabidium",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.ore_gneiss_schrabidium"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.ore_gneiss_schrabidium);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_gneiss_schrabidium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 21305,
+        "end": 21356,
+        "line": 370,
+        "field": "waste_trinitite",
+        "owner_field": "waste_trinitite",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_trinitite"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_trinitite);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 21489,
+        "end": 21544,
+        "line": 373,
+        "field": "waste_trinitite_red",
+        "owner_field": "waste_trinitite_red",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_trinitite_red"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_trinitite_red);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite_red; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 25222,
+        "end": 25270,
+        "line": 400,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/explosion/ExplosionThermo.java": [
+      {
+        "start": 4686,
+        "end": 4733,
+        "line": 136,
+        "field": "frozen_dirt",
+        "owner_field": "frozen_dirt",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.frozen_dirt"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.frozen_dirt);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.frozen_dirt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 4952,
+        "end": 5001,
+        "line": 151,
+        "field": "frozen_planks",
+        "owner_field": "frozen_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.frozen_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.frozen_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.frozen_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 5150,
+        "end": 5199,
+        "line": 161,
+        "field": "frozen_planks",
+        "owner_field": "frozen_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.frozen_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.frozen_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.frozen_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 16402,
+        "end": 16450,
+        "line": 255,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 16494,
+        "end": 16542,
+        "line": 260,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 28524,
+        "end": 28572,
+        "line": 359,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 28616,
+        "end": 28664,
+        "line": 364,
+        "field": "waste_planks",
+        "owner_field": "waste_planks",
+        "owner": "BlockStepEffect",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.waste_planks"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.waste_planks);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/explosion/ExplosionTom.java": [
+      {
+        "start": 3845,
+        "end": 3914,
+        "line": 114,
+        "field": "ore_tektite_osmiridium",
+        "owner_field": "ore_tektite_osmiridium",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "2",
+        "arity": 6,
+        "receiver": "worldObj",
+        "arguments": [
+          "pX",
+          "y",
+          "pZ",
+          "ModBlocks.ore_tektite_osmiridium",
+          "0",
+          "2"
+        ],
+        "original": "worldObj.setBlock(pX, y, pZ, ModBlocks.ore_tektite_osmiridium, 0, 2);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = worldObj; int nativeRegisteredWriteX = pX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = pZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_tektite_osmiridium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3935,
+        "end": 3989,
+        "line": 116,
+        "field": "tektite",
+        "owner_field": "tektite",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "2",
+        "arity": 6,
+        "receiver": "worldObj",
+        "arguments": [
+          "pX",
+          "y",
+          "pZ",
+          "ModBlocks.tektite",
+          "0",
+          "2"
+        ],
+        "original": "worldObj.setBlock(pX, y, pZ, ModBlocks.tektite, 0, 2);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = worldObj; int nativeRegisteredWriteX = pX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = pZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.tektite; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/items/tool/ItemWandD.java": [
+      {
+        "start": 4140,
+        "end": 4272,
+        "line": 123,
+        "field": "concrete",
+        "owner_field": "concrete",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "MathHelper.floor(player.posX)",
+          "MathHelper.floor(player.posY) - 1",
+          "MathHelper.floor(player.posZ)",
+          "ModBlocks.concrete"
+        ],
+        "original": "world.setBlock(MathHelper.floor(player.posX), MathHelper.floor(player.posY) - 1, MathHelper.floor(player.posZ), ModBlocks.concrete);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = MathHelper.floor(player.posX); int nativeRegisteredWriteY = MathHelper.floor(player.posY) - 1; int nativeRegisteredWriteZ = MathHelper.floor(player.posZ); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.concrete; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": [
+      {
+        "start": 6306,
+        "end": 6362,
+        "line": 132,
+        "field": "block_foam",
+        "owner_field": "block_foam",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "bullet.world",
+        "arguments": [
+          "ix",
+          "iy",
+          "iz",
+          "ModBlocks.block_foam"
+        ],
+        "original": "bullet.world.setBlock(ix, iy, iz, ModBlocks.block_foam);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.block_foam; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 8443,
+        "end": 8530,
+        "line": 171,
+        "field": "sand_mix",
+        "owner_field": "sand_mix",
+        "owner": "BlockNTMSand",
+        "metadata": "EnumSandType.BORON.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "bullet.world",
+        "arguments": [
+          "ix",
+          "iy",
+          "iz",
+          "ModBlocks.sand_mix",
+          "EnumSandType.BORON.ordinal()",
+          "3"
+        ],
+        "original": "bullet.world.setBlock(ix, iy, iz, ModBlocks.sand_mix, EnumSandType.BORON.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.sand_mix; int nativeRegisteredWriteMeta = EnumSandType.BORON.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java": [
+      {
+        "start": 3438,
+        "end": 3533,
+        "line": 101,
+        "field": "brick_jungle",
+        "owner_field": "brick_jungle",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "this.pos.getX()",
+          "this.pos.getY()",
+          "this.pos.getZ()",
+          "ModBlocks.brick_jungle"
+        ],
+        "original": "this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.brick_jungle);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY(); int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": [
+      {
+        "start": 14801,
+        "end": 14851,
+        "line": 487,
+        "field": "barricade",
+        "owner_field": "barricade",
+        "owner": "BlockNoDrop",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.barricade"
+        ],
+        "original": "this.world.setBlock(x, y, z, ModBlocks.barricade);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 16915,
+        "end": 16965,
+        "line": 548,
+        "field": "barricade",
+        "owner_field": "barricade",
+        "owner": "BlockNoDrop",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.barricade"
+        ],
+        "original": "this.world.setBlock(x, y, z, ModBlocks.barricade);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": [
+      {
+        "start": 7981,
+        "end": 8091,
+        "line": 254,
+        "field": "barricade",
+        "owner_field": "barricade",
+        "owner": "BlockNoDrop",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "targetX + dir.offsetX",
+          "targetY + dir.offsetY",
+          "targetZ + dir.offsetZ",
+          "ModBlocks.barricade"
+        ],
+        "original": "this.world.setBlock(targetX + dir.offsetX, targetY + dir.offsetY, targetZ + dir.offsetZ, ModBlocks.barricade);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = targetX + dir.offsetX; int nativeRegisteredWriteY = targetY + dir.offsetY; int nativeRegisteredWriteZ = targetZ + dir.offsetZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": [
+      {
+        "start": 12972,
+        "end": 13065,
+        "line": 374,
+        "field": "deco_steel",
+        "owner_field": "deco_steel",
+        "owner": "BlockDecoCT",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "this.pos.getX()",
+          "this.pos.getY()",
+          "this.pos.getZ()",
+          "ModBlocks.deco_steel"
+        ],
+        "original": "this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.deco_steel);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY(); int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 13170,
+        "end": 13267,
+        "line": 376,
+        "field": "deco_steel",
+        "owner_field": "deco_steel",
+        "owner": "BlockDecoCT",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "this.pos.getX()",
+          "this.pos.getY() + 2",
+          "this.pos.getZ()",
+          "ModBlocks.deco_steel"
+        ],
+        "original": "this.world.setBlock(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), ModBlocks.deco_steel);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY() + 2; int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java": [
+      {
+        "start": 5884,
+        "end": 5961,
+        "line": 208,
+        "field": "oil_pipe",
+        "owner_field": "oil_pipe",
+        "owner": "BlockNoDrop",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "this.world",
+        "arguments": [
+          "this.pos.getX()",
+          "y",
+          "this.pos.getZ()",
+          "ModBlocks.oil_pipe"
+        ],
+        "original": "this.world.setBlock(this.pos.getX(), y, this.pos.getZ(), ModBlocks.oil_pipe);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.oil_pipe; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/dungeon/AncientTomb.java": [
+      {
+        "start": 1113,
+        "end": 1183,
+        "line": 42,
+        "field": "reinforced_stone",
+        "owner_field": "reinforced_stone",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "x + ix",
+          "yOff + iy",
+          "z + iz",
+          "ModBlocks.reinforced_stone"
+        ],
+        "original": "world.setBlock(x + ix, yOff + iy, z + iz, ModBlocks.reinforced_stone);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + ix; int nativeRegisteredWriteY = yOff + iy; int nativeRegisteredWriteZ = z + iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.reinforced_stone; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 2851,
+        "end": 2905,
+        "line": 89,
+        "field": "deco_steel",
+        "owner_field": "deco_steel",
+        "owner": "BlockDecoCT",
+        "metadata": "0",
+        "flags": "2",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "ix",
+          "j",
+          "iz",
+          "ModBlocks.deco_steel",
+          "0",
+          "2"
+        ],
+        "original": "world.setBlock(ix, j, iz, ModBlocks.deco_steel, 0, 2);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = j; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/dungeon/DesertAtom001.java": [
+      {
+        "start": 123310,
+        "end": 123362,
+        "line": 424,
+        "field": "Block4",
+        "owner_field": "crashed_balefire",
+        "owner": "BlockCrashedBomb",
+        "metadata": "2",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x + 8",
+          "y + -3",
+          "z + 25",
+          "Block4",
+          "2",
+          "3"
+        ],
+        "original": "world.setBlock(x + 8, y + -3, z + 25, Block4, 2, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + 8; int nativeRegisteredWriteY = y + -3; int nativeRegisteredWriteZ = z + 25; net.minecraft.block.Block nativeRegisteredWriteBlock = Block4; int nativeRegisteredWriteMeta = 2; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/dungeon/Ruin001.java": [
+      {
+        "start": 135594,
+        "end": 135665,
+        "line": 317,
+        "field": "crashed_balefire",
+        "owner_field": "crashed_balefire",
+        "owner": "BlockCrashedBomb",
+        "metadata": "5",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x + 8",
+          "y + 3",
+          "z + 10",
+          "ModBlocks.crashed_balefire",
+          "5",
+          "3"
+        ],
+        "original": "world.setBlock(x + 8, y + 3, z + 10, ModBlocks.crashed_balefire, 5, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + 8; int nativeRegisteredWriteY = y + 3; int nativeRegisteredWriteZ = z + 10; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crashed_balefire; int nativeRegisteredWriteMeta = 5; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": [
+      {
+        "start": 3612,
+        "end": 3678,
+        "line": 114,
+        "field": "stone_biome",
+        "owner_field": "stone_biome",
+        "owner": "BlockBiomeStone",
+        "metadata": "type.ordinal()",
+        "flags": "2",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.stone_biome",
+          "type.ordinal()",
+          "2"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.stone_biome, type.ordinal(), 2);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.stone_biome; int nativeRegisteredWriteMeta = type.ordinal(); int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/feature/Dud.java": [
+      {
+        "start": 1630,
+        "end": 1728,
+        "line": 64,
+        "field": "crashed_balefire",
+        "owner_field": "crashed_balefire",
+        "owner": "BlockCrashedBomb",
+        "metadata": "rand.nextInt(EnumDudType.values().length)",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.crashed_balefire",
+          "rand.nextInt(EnumDudType.values().length)",
+          "3"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.crashed_balefire, rand.nextInt(EnumDudType.values().length), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crashed_balefire; int nativeRegisteredWriteMeta = rand.nextInt(EnumDudType.values().length); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/feature/OilSpot.java": [
+      {
+        "start": 2129,
+        "end": 2214,
+        "line": 48,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.FERN.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.FERN.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FERN.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.FERN.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 2239,
+        "end": 2325,
+        "line": 50,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.GRASS.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.GRASS.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GRASS.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GRASS.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3138,
+        "end": 3225,
+        "line": 56,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.FLOWER.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.FLOWER.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FLOWER.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.FLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3321,
+        "end": 3411,
+        "line": 58,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.BIGFLOWER.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.BIGFLOWER.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.BIGFLOWER.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.BIGFLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3464,
+        "end": 3552,
+        "line": 60,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.GENERIC.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.GENERIC.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 3606,
+        "end": 3694,
+        "line": 62,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "EnumDeadPlantType.GENERIC.ordinal()",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.plant_dead",
+          "EnumDeadPlantType.GENERIC.ordinal()",
+          "3"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 5760,
+        "end": 5817,
+        "line": 119,
+        "field": "plant_dead",
+        "owner_field": "plant_dead",
+        "owner": "BlockDeadPlant",
+        "metadata": "meta",
+        "flags": "3",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.plant_dead",
+          "meta",
+          "3"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.plant_dead, meta, 3);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = meta; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      },
+      {
+        "start": 5880,
+        "end": 5929,
+        "line": 124,
+        "field": "rubber_silt",
+        "owner_field": "rubber_silt",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "3",
+        "arity": 4,
+        "receiver": "world",
+        "arguments": [
+          "rX",
+          "y",
+          "rZ",
+          "ModBlocks.rubber_silt"
+        ],
+        "original": "world.setBlock(rX, y, rZ, ModBlocks.rubber_silt);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": [
+      {
+        "start": 1515,
+        "end": 1569,
+        "line": 56,
+        "field": "stone_gneiss",
+        "owner_field": "stone_gneiss",
+        "owner": "BlockGeneric",
+        "metadata": "0",
+        "flags": "2",
+        "arity": 6,
+        "receiver": "world",
+        "arguments": [
+          "x",
+          "y",
+          "z",
+          "ModBlocks.stone_gneiss",
+          "0",
+          "2"
+        ],
+        "original": "world.setBlock(x, y, z, ModBlocks.stone_gneiss, 0, 2);",
+        "replacement": "{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.stone_gneiss; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }"
+      }
+    ]
+  },
+  "sha256": {
+    "src/main/java/com/hbm/blocks/BlockRubberFarm.java": "95632e2fcddb53800e1101c1c528595c11ac6501bc03fbfd1566dcb6126d7a19",
+    "src/main/java/com/hbm/blocks/RubberGrass.java": "dc7dc793cdc1f23db754404ad61b1daecc8fc184567ebcd1cf2a9335293b7c86",
+    "src/main/java/com/hbm/blocks/bomb/CrystalVirus.java": "e0ad83c4e700898baa76b89f30b8842b7c4e3624168c78dd282ee2ef1661d4d7",
+    "src/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java": "098e0101367af60405131ef08d9500bbca7e8a1c4fe9f23829b117a215af263c",
+    "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java": "e74baceae5d8eef9e9150c1a797decddcfcd31fa3f194aaeec104a6a60e1c744",
+    "src/main/java/com/hbm/blocks/generic/BlockBallsSpawner.java": "230684d95b0f182421856ec29cc0c6f60b64a95888f3c74692c45688eaf90fb9",
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": "dd79da3b73895f793cb35451f56d4c02e081fe69a523741249b9cb1d59db4f97",
+    "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java": "d481b0a4a3a04bcabbdf07316dcd506be709cc11047bacc05c61625cbfb7c63e",
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": "6aa0d041238ced71a290270af9e29ad5ea7ec58120782e8ce5de85d0026cf6fa",
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": "1dcfffec1a11e430e3e2787b698896212191c3715c46f51bde30e576a4418682",
+    "src/main/java/com/hbm/blocks/generic/BlockUberConcrete.java": "85588a777a1779ac5d6a0d117ad77bcdeef85b6c2f9ae3acec948e1393656849",
+    "src/main/java/com/hbm/blocks/generic/TrappedBrick.java": "d0f8c79c64eb4da3666e9f44c3c1c884ffa19dc77c593ebc7f95a08c1d08b513",
+    "src/main/java/com/hbm/dim/WorldGenRubberPlant.java": "165dd03634891f520d81036f65e43581daafc70fa6362dcaaadcb28c5ded3174",
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": "fa821e2db4392a3d7a74ab84054e7ca8486ded815791d7663e499deb49e364da",
+    "src/main/java/com/hbm/explosion/ExplosionChaos.java": "b60d93b1cf2206c73005675c973065fdf7a270592b1b9caf02fe91c37bf0058d",
+    "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": "74fcd86a6a9bde515409c606aec8334dfa372cab6e4089562287a541d6c95334",
+    "src/main/java/com/hbm/explosion/ExplosionThermo.java": "e8cbe7c7a5f4c954f3dd1ff1b4337084747a67cf3a638ad8138d0a5a2d020637",
+    "src/main/java/com/hbm/explosion/ExplosionTom.java": "65da46eebf79f9d311fb2910db00a7ce6e845fe04ca2b62d8da8b71f0722801b",
+    "src/main/java/com/hbm/items/tool/ItemWandD.java": "cc70312322190d0d5a53a2037ca760b1fe9def7f5976d18f6b16c4dd285062bc",
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": "50e1bcb8f08033e10e729e1e486360b28cd371a70ef39683d4e66beda320108a",
+    "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java": "7d611a7d1446db1efe9762c2d35de7639ea7cd673e90bb21b20b523581b7175b",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": "55bd1a860ce2aad265e742d6472c155f119608a985ae46ea862e50379f630fe8",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": "eb229854239c11af9f510e930691243172caabe7cd78438469abb7419ba41577",
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": "d3c498fa9578003eec3bafda5867cc211e6be37ca1d3ba863369de19b31d10c1",
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java": "53edae67556ed83920cf3c8296e84cba1f3d8090748e123e8893a72fd9cb1c0c",
+    "src/main/java/com/hbm/world/dungeon/AncientTomb.java": "a10c822c57c4d2ee6492cf8e8db2b4097a40ee298930b65b3177c08aa062b7c6",
+    "src/main/java/com/hbm/world/dungeon/DesertAtom001.java": "d38e47c4483230f1f13b66c273fc9d7a30722d0207c00742414348b0e4e44de8",
+    "src/main/java/com/hbm/world/dungeon/Ruin001.java": "ccf5c1cd82b3e1b8956a3ec268aecf4b46c6a4ab6b379b2a292092d311e11042",
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": "91e2e84182740fd937746548b0dcabcb70376d47723d14cb31f3aa80d5845754",
+    "src/main/java/com/hbm/world/feature/Dud.java": "bb61cb4bd16916c17cc88e306bb9bfed28248965c557c88e2d4140910e4c1c77",
+    "src/main/java/com/hbm/world/feature/OilSpot.java": "cf448a60be951674dfd82be6c96fcfbf0dd76727477736843ab74ea8873d006d",
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": "44991a534332a4471c0c708d4d280dbff2cc0a1e4f3d6de1cf80193f991ef31c"
+  },
+  "assignments": {
+    "barricade": "barricade = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.SAND).setTranslationKey(\"barricade\").setHardness(1.0F).setResistance(2.5F).setCreativeTab(null), RefStrings.MODID + \":barricade\");",
+    "block_foam": "block_foam = ((BlockBase) ((BlockBase) new BlockGeneric(Material.CRAFTED_SNOW).setBlockName(\"block_foam\").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.SNOW).setHardness(0.5F).setResistance(0.0F)).setBlockTextureName(RefStrings.MODID + \":foam\");",
+    "block_meteor_cobble": "block_meteor_cobble = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).noFortune().setTranslationKey(\"block_meteor_cobble\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":meteor_cobble\");",
+    "brick_concrete_mossy": "brick_concrete_mossy = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_concrete_mossy\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + \":brick_concrete_mossy\");",
+    "brick_jungle": "brick_jungle = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_jungle\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + \":brick_jungle\");",
+    "brick_jungle_cracked": "brick_jungle_cracked = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"brick_jungle_cracked\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + \":brick_jungle_cracked\");",
+    "brick_jungle_mystic": "brick_jungle_mystic = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"brick_jungle_mystic\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F), RefStrings.MODID + \":brick_jungle_mystic\");",
+    "brick_jungle_ooze": "brick_jungle_ooze = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"brick_jungle_ooze\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F), RefStrings.MODID + \":brick_jungle_ooze\");",
+    "concrete": "concrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"concrete\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F)).setBlockTextureName(RefStrings.MODID + \":concrete_tile\");",
+    "concrete_super_broken": "concrete_super_broken = com.hbm.blocks.PlainCubeTextures.bind(new BlockFalling(Material.ROCK).setTranslationKey(\"concrete_super_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(20.0F), RefStrings.MODID + \":concrete_super_broken\");",
+    "crashed_balefire": "crashed_balefire = ((BlockBase) new BlockCrashedBomb(Material.IRON).setBlockName(\"crashed_bomb\").setCreativeTab(MainRegistry.nukeTab).setBlockUnbreakable().setResistance(6000.0F)).setBlockTextureName(RefStrings.MODID + \":block_rust\");",
+    "crystal_hardened": "crystal_hardened = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName(\"crystal_hardened\").setHardness(15.0F).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + \":crystal_hardened\");",
+    "deco_steel": "deco_steel = new BlockDecoCT(Material.IRON).noFortune().setTranslationKey(\"deco_steel\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);",
+    "frozen_dirt": "frozen_dirt = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.GROUND).setTranslationKey(\"frozen_dirt\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":frozen_dirt\");",
+    "frozen_planks": "frozen_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"frozen_planks\")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":frozen_planks\");",
+    "oil_pipe": "oil_pipe = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.IRON).setTranslationKey(\"oil_pipe\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + \":oil_pipe\");",
+    "ore_basalt": "ore_basalt = ((BlockBase) new BlockOreBasalt().setBlockName(\"ore_basalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":ore_basalt\");",
+    "ore_gneiss_schrabidium": "ore_gneiss_schrabidium = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey(\"ore_gneiss_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F), RefStrings.MODID + \":ore_gneiss_schrabidium\");",
+    "ore_nether_schrabidium": "ore_nether_schrabidium = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"ore_nether_schrabidium\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F)).setBlockTextureName(RefStrings.MODID + \":ore_nether_schrabidium\");",
+    "ore_tektite_osmiridium": "ore_tektite_osmiridium = ((BlockBase) ((BlockBase) new BlockGeneric(Material.SAND).setBlockName(\"ore_tektite_osmiridium\")).setSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F)).setBlockTextureName(RefStrings.MODID + \":ore_tektite_osmiridium\");",
+    "plant_dead": "plant_dead = ((BlockBase) new BlockDeadPlant().setBlockName(\"plant_dead\").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);",
+    "plant_tall": "plant_tall = ((BlockBase) new BlockTallPlant().setBlockName(\"plant_tall\").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);",
+    "reinforced_stone": "reinforced_stone = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"reinforced_stone\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(100.0F)).setBlockTextureName(RefStrings.MODID + \":reinforced_stone\");",
+    "rubber_plant": "rubber_plant = ((BlockBase) new BlockRubberPlant().setBlockName(\"rubber_plant\").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);",
+    "rubber_silt": "rubber_silt = ((BlockBase) ((BlockBase) new BlockGeneric(Material.SAND).setBlockName(\"rubber_silt\")).setSoundType(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F)).setBlockTextureName(RefStrings.MODID + \":rubber_silt\");",
+    "sand_mix": "sand_mix = ((BlockBase) new BlockNTMSand(Material.SAND).setBlockName(\"sand_mix\")).setSoundType(SoundType.SAND).setCreativeTab(MainRegistry.machineTab).setHardness(0.5F);",
+    "stone_biome": "stone_biome = new BlockBiomeStone().setBlockName(\"stone_biome\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);",
+    "stone_gneiss": "stone_gneiss = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName(\"stone_gneiss\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":stone_gneiss_var\");",
+    "tektite": "tektite = ((BlockBase) ((BlockBase) new BlockGeneric(Material.SAND).setBlockName(\"tektite\")).setSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F)).setBlockTextureName(RefStrings.MODID + \":tektite\");",
+    "waste_planks": "waste_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey(\"waste_planks\")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_planks\");",
+    "waste_trinitite": "waste_trinitite = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite\")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_trinitite\");",
+    "waste_trinitite_red": "waste_trinitite_red = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey(\"waste_trinitite_red\")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + \":waste_trinitite_red\");"
+  },
+  "owners": {
+    "barricade": "BlockNoDrop",
+    "block_foam": "BlockGeneric",
+    "block_meteor_cobble": "BlockStepEffect",
+    "brick_concrete_mossy": "BlockGeneric",
+    "brick_jungle": "BlockGeneric",
+    "brick_jungle_cracked": "BlockGeneric",
+    "brick_jungle_mystic": "BlockStepEffect",
+    "brick_jungle_ooze": "BlockStepEffect",
+    "concrete": "BlockGeneric",
+    "concrete_super_broken": "BlockFalling",
+    "crashed_balefire": "BlockCrashedBomb",
+    "crystal_hardened": "BlockGeneric",
+    "deco_steel": "BlockDecoCT",
+    "frozen_dirt": "BlockStepEffect",
+    "frozen_planks": "BlockStepEffect",
+    "oil_pipe": "BlockNoDrop",
+    "ore_basalt": "BlockOreBasalt",
+    "ore_gneiss_schrabidium": "BlockStepEffect",
+    "ore_nether_schrabidium": "BlockGeneric",
+    "ore_tektite_osmiridium": "BlockGeneric",
+    "plant_dead": "BlockDeadPlant",
+    "plant_tall": "BlockTallPlant",
+    "reinforced_stone": "BlockGeneric",
+    "rubber_plant": "BlockRubberPlant",
+    "rubber_silt": "BlockGeneric",
+    "sand_mix": "BlockNTMSand",
+    "stone_biome": "BlockBiomeStone",
+    "stone_gneiss": "BlockGeneric",
+    "tektite": "BlockGeneric",
+    "waste_planks": "BlockStepEffect",
+    "waste_trinitite": "BlockStepEffect",
+    "waste_trinitite_red": "BlockStepEffect"
+  }
+}

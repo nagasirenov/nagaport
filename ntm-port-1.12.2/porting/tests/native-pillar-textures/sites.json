@@ -1,0 +1,101 @@
+[
+  {
+    "name": "gneiss_chiseled",
+    "after": "gneiss_chiseled = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":gneiss_tile\").setTranslationKey(\"gneiss_chiseled\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":gneiss_chiseled\");",
+    "top": "hbm:gneiss_tile",
+    "side": "hbm:gneiss_chiseled",
+    "registration": "GameRegistry.registerBlock(gneiss_chiseled, gneiss_chiseled.getTranslationKey());",
+    "item": "ItemBlock",
+    "owner": "BlockPillar"
+  },
+  {
+    "name": "basalt",
+    "after": "basalt = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":basalt_top\").setTranslationKey(\"basalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":basalt\");",
+    "top": "hbm:basalt_top",
+    "side": "hbm:basalt",
+    "registration": "GameRegistry.registerBlock(basalt, basalt.getTranslationKey());",
+    "item": "ItemBlock",
+    "owner": "BlockPillar"
+  },
+  {
+    "name": "block_smore",
+    "after": "block_smore = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":block_smore_top\").setTranslationKey(\"block_smore\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F)).setBlockTextureName(RefStrings.MODID + \":block_smore_side\");",
+    "top": "hbm:block_smore_top",
+    "side": "hbm:block_smore_side",
+    "registration": "GameRegistry.registerBlock(block_smore, block_smore.getTranslationKey());",
+    "item": "ItemBlock",
+    "owner": "BlockPillar"
+  },
+  {
+    "name": "brick_forgotten",
+    "after": "brick_forgotten = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":brick_forgotten_top\").setTranslationKey(\"brick_forgotten\").setBlockUnbreakable().setResistance(666_666F)).setBlockTextureName(RefStrings.MODID + \":brick_forgotten\");",
+    "top": "hbm:brick_forgotten_top",
+    "side": "hbm:brick_forgotten",
+    "registration": "register(brick_forgotten);",
+    "item": "ItemBlockBase",
+    "owner": "BlockPillar"
+  },
+  {
+    "name": "meteor_battery",
+    "after": "meteor_battery = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":meteor_power\").setTranslationKey(\"meteor_battery\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + \":meteor_spawner_side\");",
+    "top": "hbm:meteor_power",
+    "side": "hbm:meteor_spawner_side",
+    "registration": "GameRegistry.registerBlock(meteor_battery, ItemBlockLore.class, meteor_battery.getTranslationKey());",
+    "item": "ItemBlockLore",
+    "owner": "BlockPillar"
+  },
+  {
+    "name": "pwr_fuel",
+    "after": "pwr_fuel = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_fuel_top\").setTranslationKey(\"pwr_fuel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":pwr_fuel_side\");",
+    "top": "hbm:pwr_fuel_top",
+    "side": "hbm:pwr_fuel_side",
+    "registration": "register(pwr_fuel);",
+    "item": "ItemBlockBase",
+    "owner": "BlockPillarPWR"
+  },
+  {
+    "name": "pwr_control",
+    "after": "pwr_control = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_control_top\").setTranslationKey(\"pwr_control\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":pwr_control_side\");",
+    "top": "hbm:pwr_control_top",
+    "side": "hbm:pwr_control_side",
+    "registration": "register(pwr_control);",
+    "item": "ItemBlockBase",
+    "owner": "BlockPillarPWR"
+  },
+  {
+    "name": "pwr_channel",
+    "after": "pwr_channel = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_channel_top\").setTranslationKey(\"pwr_channel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":pwr_channel_side\");",
+    "top": "hbm:pwr_channel_top",
+    "side": "hbm:pwr_channel_side",
+    "registration": "register(pwr_channel);",
+    "item": "ItemBlockBase",
+    "owner": "BlockPillarPWR"
+  },
+  {
+    "name": "fusion_heater",
+    "after": "fusion_heater = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + \":fusion_heater_top\").setTranslationKey(\"fusion_heater\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + \":fusion_heater_side\");",
+    "top": "hbm:fusion_heater_top",
+    "side": "hbm:fusion_heater_side",
+    "registration": "GameRegistry.registerBlock(fusion_heater, fusion_heater.getTranslationKey());",
+    "item": "ItemBlock",
+    "owner": "BlockPillar"
+  },
+  {
+    "name": "watz_element",
+    "after": "watz_element = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + \":watz_element_top\").setTranslationKey(\"watz_element\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":watz_element_side\");",
+    "top": "hbm:watz_element_top",
+    "side": "hbm:watz_element_side",
+    "registration": "register(watz_element);",
+    "item": "ItemBlockBase",
+    "owner": "BlockPillar"
+  },
+  {
+    "name": "watz_cooler",
+    "after": "watz_cooler = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + \":watz_cooler_top\").setTranslationKey(\"watz_cooler\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":watz_cooler_side\");",
+    "top": "hbm:watz_cooler_top",
+    "side": "hbm:watz_cooler_side",
+    "registration": "register(watz_cooler);",
+    "item": "ItemBlockBase",
+    "owner": "BlockPillar"
+  }
+]

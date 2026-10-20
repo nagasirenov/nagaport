@@ -116,8 +116,8 @@ public class GUICraneRouter extends GuiInfoContainer {
 		for(int i = 0; i < this.inventorySlots.inventorySlots.size(); i++) {
 			Slot s = this.inventorySlots.getSlot(i);
 
-			this.fontRenderer.drawStringWithShadow(i + "", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition, 0xffffff);
-			this.fontRenderer.drawStringWithShadow(s.getSlotIndex() + "", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition + 8, 0xff8080);
+			this.fontRenderer.drawStringWithShadow(i + "", guiLeft + s.xPos + 2, guiTop + s.yPos, 0xffffff);
+			this.fontRenderer.drawStringWithShadow(s.getSlotIndex() + "", guiLeft + s.xPos + 2, guiTop + s.yPos + 8, 0xff8080);
 		}
 	}
 }

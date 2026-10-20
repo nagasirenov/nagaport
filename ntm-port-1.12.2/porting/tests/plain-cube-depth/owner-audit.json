@@ -1,0 +1,12 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockDepth.java": {
+    "current_sha256": "ac7d28e0e6987eb369130bc976247de386e8a06b4c995e8aea66fddd293f3244",
+    "original_sha256": "c0435dd664f30d7453242e4d1dd864cd50d76b64c58d348451d6a31bad4af4e1",
+    "parent": "Block"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockDepthOre.java": {
+    "current_sha256": "963d375d735d973703d614e63f8e14b25e29a8f976feef2796ed461c7f2265b2",
+    "original_sha256": "963d375d735d973703d614e63f8e14b25e29a8f976feef2796ed461c7f2265b2",
+    "parent": "BlockDepth"
+  }
+}

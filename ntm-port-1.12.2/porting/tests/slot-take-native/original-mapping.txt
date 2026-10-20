@@ -1,0 +1,4 @@
+CL: aay net/minecraft/inventory/Slot
+CL: zs net/minecraft/inventory/Container
+MD: aay/f ()V net/minecraft/inventory/Slot/func_75218_e ()V
+MD: aay/a (Lyz;Ladd;)V net/minecraft/inventory/Slot/func_82870_a (Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)V

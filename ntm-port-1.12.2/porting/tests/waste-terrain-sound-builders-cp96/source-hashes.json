@@ -1,0 +1,22 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before_sha256": "8bcf69373279a90833404494b432deeaf2e6f0c5b1f82367d5e2dce6bfa04f87",
+    "after_sha256": "7a34b8436264dfad95f3f7214192b1f9771a4a63bfee6ce99b8e83611bc81143"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/WasteEarth.java",
+    "before_sha256": "486691a6d264d8ff681aae311beaf70697e960c1dd14d41a83ea293c6a96662a",
+    "after_sha256": "b6143528ee38eb59b16fb4b191eea8edecf21e2392ceda2bd4ae7f2df147028e"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+    "before_sha256": "1165e9ad2023a9e8332829f2bf3c568262b6a06413d8d113fd63166a10ed8cf5",
+    "after_sha256": "3b011fd9dfdc465b8d83b4e397d3f83170c303f3361ee7e8bed6a33ffda4afff"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/WasteLog.java",
+    "before_sha256": "e4457f00fbde887bbab814dcf9986cd89a65cd462090f6ff70a343ee2bac325e",
+    "after_sha256": "bf559c55e062a49e045e8f86ad38bf4c1b8a2dd85bbcb89671486e759bfc4152"
+  }
+]

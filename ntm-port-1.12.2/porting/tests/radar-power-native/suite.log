@@ -1,0 +1,9 @@
+Note: /tmp/radar-power-rinwdvkm/Test.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS 57858 assertions, 11520 cases: exact complete weak/strong/capability bodies, native IBlockState/World dispatch, all six facings, metadata0–15, missing/wrong/subclass tiles, values and original exceptions. Owner/tile sinks and legacy-access oracle adapter are bounded fixtures, not gameplay.
+
+PASS compiler rejects six old overrides and three old scalar IBlockAccess calls
+PASS mutant rejected: opposite facing
+PASS mutant rejected: metadata boundary
+PASS mutant rejected: strong forwarding
+PASS mutant rejected: coordinate swap

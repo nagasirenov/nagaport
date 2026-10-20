@@ -1,0 +1,197 @@
+{
+  "source_units": 4065,
+  "selected_owners": [
+    "EntityBOTPrimeBase",
+    "EntityBullet",
+    "EntityBulletBaseMK4",
+    "EntityBulletBaseNT",
+    "EntityBulletBeamBase",
+    "EntityExplosiveBeam",
+    "EntityGhost",
+    "EntityRocket",
+    "EntitySchrab",
+    "EntityTankbot",
+    "EntityWormBaseNT"
+  ],
+  "local_descendants": [
+    "EntityBOTPrimeBody",
+    "EntityBOTPrimeHead",
+    "EntityBulletBaseMK4CL",
+    "EntityCombineBallNT"
+  ],
+  "parents": {
+    "EntityBOTPrimeBase": "EntityWormBaseNT",
+    "EntityBOTPrimeBody": "EntityBOTPrimeBase",
+    "EntityBOTPrimeHead": "EntityBOTPrimeBase",
+    "EntityBullet": "Entity",
+    "EntityBulletBaseMK4": "EntityThrowableInterp",
+    "EntityBulletBaseMK4CL": "EntityBulletBaseMK4",
+    "EntityBulletBaseNT": "EntityThrowableInterp",
+    "EntityBulletBeamBase": "Entity",
+    "EntityBurrowingNT": "EntityCreature",
+    "EntityCombineBallNT": "EntityBulletBaseNT",
+    "EntityExplosiveBeam": "Entity",
+    "EntityGhost": "EntityCreature",
+    "EntityRocket": "Entity",
+    "EntitySchrab": "Entity",
+    "EntityTankbot": "EntityMob",
+    "EntityThrowableInterp": "EntityThrowableNT",
+    "EntityThrowableNT": "Entity",
+    "EntityWormBaseNT": "EntityBurrowingNT"
+  },
+  "baseline_range_overrides": {
+    "EntityThrowableNT": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java"
+  },
+  "all_field_occurrences": [
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityGhost.java",
+      23,
+      "\t\tthis.renderDistanceWeight *= 10;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityTankbot.java",
+      59,
+      "        this.renderDistanceWeight = 24.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityBOTPrimeBase.java",
+      37,
+      "\t\tthis.renderDistanceWeight = 15.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/botprime/EntityWormBaseNT.java",
+      53,
+      "\t\tthis.renderDistanceWeight = 15.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      77,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      83,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      92,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      120,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      150,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      176,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      205,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java",
+      40,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      91,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      101,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      139,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java",
+      154,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java",
+      44,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      50,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      57,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      66,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      95,
+      "\t\tthis.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityExplosiveBeam.java",
+      117,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      56,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      63,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      72,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityRocket.java",
+      102,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      57,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      64,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      73,
+      "        this.renderDistanceWeight = 10.0D;"
+    ],
+    [
+      "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntitySchrab.java",
+      103,
+      "        this.renderDistanceWeight = 10.0D;"
+    ]
+  ]
+}

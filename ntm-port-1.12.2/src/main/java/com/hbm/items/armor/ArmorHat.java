@@ -29,22 +29,22 @@ public class ArmorHat extends ArmorModel implements IAttackHandler, IDamageHandl
 	@Override
 	public void handleDamage(LivingHurtEvent event, ItemStack stack) {
 		
-		if(event.source.isUnblockable())
+		if(event.getSource().isUnblockable())
 			return;
 		
-		event.ammount -= 2F;
+		event.setAmount((float) (event.getAmount() - (2F)));
 		
-		if(event.ammount < 0)
-			event.ammount = 0;
+		if(event.getAmount() < 0)
+			event.setAmount(0);
 	}
 
 	@Override
 	public void handleAttack(LivingAttackEvent event, ItemStack armor) {
 		
-		if(event.source.isUnblockable())
+		if(event.getSource().isUnblockable())
 			return;
 		
-		if(event.ammount <= 2F) {
+		if(event.getAmount() <= 2F) {
 			event.getEntityLiving().world.playSoundAtEntity(event.getEntityLiving(), "random.break", 5F, 1.0F + event.getEntityLiving().getRNG().nextFloat() * 0.5F);
 			event.setCanceled(true);
 		}

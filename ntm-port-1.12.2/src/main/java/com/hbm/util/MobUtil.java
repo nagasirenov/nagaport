@@ -259,7 +259,7 @@ public class MobUtil {
 
 	// these fucking tasks keep stacking on top of themselves
 	public static void addFireTask(EntityLiving entity) {
-		entity.setEquipmentDropChance(0, 0); // Prevent dropping guns
+		entity.setDropChance(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, 0); // Prevent dropping guns
 
 		for(Object entry : entity.tasks.taskEntries) {
 			EntityAITasks.EntityAITaskEntry task = (EntityAITasks.EntityAITaskEntry) entry;

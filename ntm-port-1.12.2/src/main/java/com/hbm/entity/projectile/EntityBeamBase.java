@@ -2,6 +2,9 @@ package com.hbm.entity.projectile;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -9,6 +12,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public abstract class EntityBeamBase extends Entity {
+
+	protected static final DataParameter<String> PLAYER_NAME = EntityDataManager.createKey(EntityBeamBase.class, DataSerializers.STRING);
 
 	public EntityBeamBase(World world) {
 		super(world);
@@ -19,7 +24,7 @@ public abstract class EntityBeamBase extends Entity {
 		super(world);
 		
 		this.ignoreFrustumCheck = true;
-		this.dataWatcher.updateObject(20, player.getDisplayName());
+		this.dataManager.set(PLAYER_NAME, player.getDisplayNameString());
 		
 		Vec3d vec = player.getLookVec();
 		vec = vec.rotateYaw(-90F);
@@ -33,9 +38,13 @@ public abstract class EntityBeamBase extends Entity {
 		this.setPosition(player.posX + vec.x + vec0.x, player.posY + player.getEyeHeight() + vec0.y, player.posZ + vec.z + vec0.z);
 	}
 
+	public String getOwnerDisplayName() {
+		return this.dataManager.get(PLAYER_NAME);
+	}
+
 	@Override
 	protected void entityInit() {
-        this.dataWatcher.addObject(20, "");
+        this.dataManager.register(PLAYER_NAME, "");
 	}
 
 	@Override

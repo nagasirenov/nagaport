@@ -50,13 +50,13 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 	@Override
 	public void update() {
 		
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			
 			this.updateConnections();
 			
 			this.targets.clear();
 			
-			if(worldObj.getBlock(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()) == ModBlocks.meteor_battery)
+			if(this.world.getBlock(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()) == ModBlocks.meteor_battery)
 				power = maxPower;
 			
 			if(power >= 5000) {
@@ -66,7 +66,7 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 				double dy = this.pos.getY() + offset;
 				double dz = this.pos.getZ() + 0.5;
 				
-				this.targets = zap(worldObj, dx, dy, dz, range, null);
+				this.targets = zap(this.world, dx, dy, dz, range, null);
 			}
 			
 			this.networkPackNT(100);
@@ -76,7 +76,7 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 	private void updateConnections() {
 		
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			this.trySubscribe(worldObj, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
+			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
 	
 	public static List<double[]> zap(World worldObj, double x, double y, double z, double radius, Entity source) {

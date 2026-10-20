@@ -1,0 +1,431 @@
+{
+  "base": "89b6bfc71a8b532c2fe7cdbd43bb66b7991ee365",
+  "files": {
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "before_sha256": "27ffb21860352d316022bac011c497d729e36b7bdfbbbd057867b5727f152bf2",
+      "after_sha256": "b9708fb96ad62a1a264eacf541b2c6faa70d55aab338da19447921a8d2902028",
+      "edits": [
+        {
+          "start": 49622,
+          "end": 49630,
+          "old": "worldObj",
+          "new": "world",
+          "receiver": "net.minecraft.client.entity.EntityPlayerSP",
+          "field_owner": "net.minecraft.entity.Entity",
+          "lexical_owner": "com.hbm.dim.SkyProviderCelestial",
+          "access": "READ",
+          "after_start": 49622,
+          "line": 1334
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java": {
+      "before_sha256": "0fb120c487a8e36b4045c3426acd4392636b9bf132633e89bd30d497c21c9310",
+      "after_sha256": "b076da209475435d20ddb567fb9e2462eff2a3e5da3db7cbca1dee5df706d422",
+      "edits": [
+        {
+          "start": 15667,
+          "end": 15675,
+          "old": "worldObj",
+          "new": "world",
+          "receiver": "net.minecraft.client.entity.EntityPlayerSP",
+          "field_owner": "net.minecraft.entity.Entity",
+          "lexical_owner": "com.hbm.dim.thatmo.SkyProviderThatmo",
+          "access": "READ",
+          "after_start": 15667,
+          "line": 380
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerNT.java": {
+      "before_sha256": "493389cb4206557893da54ff7c4a7c4cc828711e3f62226cc37dfeeb348b9919",
+      "after_sha256": "fa28be5ac915150226f2a28e77d06613acd74c63a4429d4c319a0e295b9cb9f8",
+      "edits": [
+        {
+          "start": 10555,
+          "end": 10563,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 10555,
+          "line": 300
+        },
+        {
+          "start": 10893,
+          "end": 10901,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 10895,
+          "line": 304
+        },
+        {
+          "start": 11226,
+          "end": 11234,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 11230,
+          "line": 308
+        },
+        {
+          "start": 13796,
+          "end": 13804,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 13802,
+          "line": 381
+        },
+        {
+          "start": 14385,
+          "end": 14393,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 14393,
+          "line": 392
+        },
+        {
+          "start": 15729,
+          "end": 15737,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 15739,
+          "line": 421
+        },
+        {
+          "start": 15924,
+          "end": 15932,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 15936,
+          "line": 423
+        },
+        {
+          "start": 16175,
+          "end": 16183,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT",
+          "access": "READ",
+          "after_start": 16189,
+          "line": 429
+        },
+        {
+          "start": 22774,
+          "end": 22782,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT.ChunkRadiationStorage",
+          "access": "READ",
+          "after_start": 22790,
+          "line": 613
+        },
+        {
+          "start": 22898,
+          "end": 22906,
+          "old": "worldObj",
+          "new": "getWorld()",
+          "receiver": "net.minecraft.world.chunk.Chunk",
+          "field_owner": "net.minecraft.world.chunk.Chunk",
+          "lexical_owner": "com.hbm.handler.radiation.ChunkRadiationHandlerNT.ChunkRadiationStorage",
+          "access": "READ",
+          "after_start": 22916,
+          "line": 618
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "1ca52867ee1cbc798a6d41011a38c050afc295b0e37b36f0d1ce1c80a73b3539",
+      "after_sha256": "6558647e636775362e8594dae8897f0f34847fcc01fb4e960d4cf454a1b6ad3c",
+      "edits": [
+        {
+          "start": 41042,
+          "end": 41050,
+          "old": "worldObj",
+          "new": "world",
+          "receiver": "net.minecraft.client.entity.EntityPlayerSP",
+          "field_owner": "net.minecraft.entity.Entity",
+          "lexical_owner": "com.hbm.main.ModEventHandlerClient",
+          "access": "READ",
+          "after_start": 41042,
+          "line": 1046
+        },
+        {
+          "start": 41201,
+          "end": 41209,
+          "old": "worldObj",
+          "new": "world",
+          "receiver": "net.minecraft.client.entity.EntityPlayerSP",
+          "field_owner": "net.minecraft.entity.Entity",
+          "lexical_owner": "com.hbm.main.ModEventHandlerClient",
+          "access": "READ",
+          "after_start": 41198,
+          "line": 1049
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java": {
+      "before_sha256": "de234faca15b0bb47ab6fe6a22459c9bd9984cb9e707229402bd778efff989d8",
+      "after_sha256": "2f450f5544352fe36757607ee5950d624f043fc18c78f72b6899a5c4fd9f15b3",
+      "edits": [
+        {
+          "start": 1475,
+          "end": 1483,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.TileEntityTesla",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.TileEntityTesla",
+          "access": "READ",
+          "after_start": 1475,
+          "line": 53
+        },
+        {
+          "start": 1568,
+          "end": 1576,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.TileEntityTesla",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.TileEntityTesla",
+          "access": "READ",
+          "after_start": 1570,
+          "line": 59
+        },
+        {
+          "start": 1887,
+          "end": 1895,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.TileEntityTesla",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.TileEntityTesla",
+          "access": "READ",
+          "after_start": 1891,
+          "line": 69
+        },
+        {
+          "start": 2089,
+          "end": 2097,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.TileEntityTesla",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.TileEntityTesla",
+          "access": "READ",
+          "after_start": 2095,
+          "line": 79
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java": {
+      "before_sha256": "4979d52d2902d5a935d57d0eef70e4268296f1c42f0f327a5be2c0b6dfd925eb",
+      "after_sha256": "5fcbd3ab878d091210db4bf5f85fc985aa64dc5702ed24917eb4e1e44b050242",
+      "edits": [
+        {
+          "start": 2593,
+          "end": 2601,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "access": "READ",
+          "after_start": 2593,
+          "line": 77
+        },
+        {
+          "start": 2811,
+          "end": 2819,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "access": "READ",
+          "after_start": 2813,
+          "line": 84
+        },
+        {
+          "start": 2872,
+          "end": 2880,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "access": "READ",
+          "after_start": 2876,
+          "line": 85
+        },
+        {
+          "start": 7581,
+          "end": 7589,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "access": "READ",
+          "after_start": 7587,
+          "line": 230
+        },
+        {
+          "start": 7660,
+          "end": 7668,
+          "old": "worldObj",
+          "new": "this.world",
+          "receiver": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.fusion.TileEntityFusionKlystron",
+          "access": "READ",
+          "after_start": 7668,
+          "line": 231
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java": {
+      "before_sha256": "adc672091bcad05eba35708686f64bb6f57b8814974ad1e718078de8a7a9007f",
+      "after_sha256": "c39304042297d3bdfb8ce193f2e87870a952f33a9d9eceb499da4c35a24a797d",
+      "edits": [
+        {
+          "start": 3618,
+          "end": 3626,
+          "old": "worldObj",
+          "new": "TileEntityRBMKGauge.this.world",
+          "receiver": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKGauge",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKGauge.GaugeUnit",
+          "access": "READ",
+          "after_start": 3618,
+          "line": 124
+        },
+        {
+          "start": 3697,
+          "end": 3705,
+          "old": "worldObj",
+          "new": "TileEntityRBMKGauge.this.world",
+          "receiver": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKGauge",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKGauge.GaugeUnit",
+          "access": "READ",
+          "after_start": 3719,
+          "line": 127
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java": {
+      "before_sha256": "7d2ea674f3cec7131c6dbd1ba1a2e3de7a174df3b5c890006ce7581ef7487375",
+      "after_sha256": "f99d7d220cdad720267329c61119786d493c9743287efd357b0d7fee803a80c7",
+      "edits": [
+        {
+          "start": 3200,
+          "end": 3208,
+          "old": "worldObj",
+          "new": "TileEntityRBMKKeyPad.this.world",
+          "receiver": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKKeyPad",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKKeyPad.KeyUnit",
+          "access": "READ",
+          "after_start": 3200,
+          "line": 111
+        },
+        {
+          "start": 3383,
+          "end": 3391,
+          "old": "worldObj",
+          "new": "TileEntityRBMKKeyPad.this.world",
+          "receiver": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKKeyPad",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKKeyPad.KeyUnit",
+          "access": "READ",
+          "after_start": 3406,
+          "line": 119
+        },
+        {
+          "start": 3628,
+          "end": 3636,
+          "old": "worldObj",
+          "new": "TileEntityRBMKKeyPad.this.world",
+          "receiver": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKKeyPad",
+          "field_owner": "net.minecraft.tileentity.TileEntity",
+          "lexical_owner": "com.hbm.tileentity.machine.rbmk.TileEntityRBMKKeyPad.KeyUnit",
+          "access": "READ",
+          "after_start": 3674,
+          "line": 126
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/MapGenNTMFeatures.java": {
+      "before_sha256": "2cfa589ea49fbdd22b007f1de28921c17e9bbc2cd088d164c3fc8b93372170f7",
+      "after_sha256": "871cc0faad86e55af53904621556378c4f8376554859a27109eb2c7bdea2bd5b",
+      "edits": [
+        {
+          "start": 2828,
+          "end": 2836,
+          "old": "worldObj",
+          "new": "world",
+          "receiver": "com.hbm.world.gen.MapGenNTMFeatures",
+          "field_owner": "net.minecraft.world.gen.MapGenBase",
+          "lexical_owner": "com.hbm.world.gen.MapGenNTMFeatures",
+          "access": "READ",
+          "after_start": 2828,
+          "line": 71
+        },
+        {
+          "start": 4033,
+          "end": 4041,
+          "old": "worldObj",
+          "new": "world",
+          "receiver": "com.hbm.world.gen.MapGenNTMFeatures",
+          "field_owner": "net.minecraft.world.gen.MapGenBase",
+          "lexical_owner": "com.hbm.world.gen.MapGenNTMFeatures",
+          "access": "READ",
+          "after_start": 4030,
+          "line": 105
+        },
+        {
+          "start": 4117,
+          "end": 4125,
+          "old": "worldObj",
+          "new": "world",
+          "receiver": "com.hbm.world.gen.MapGenNTMFeatures",
+          "field_owner": "net.minecraft.world.gen.MapGenBase",
+          "lexical_owner": "com.hbm.world.gen.MapGenNTMFeatures",
+          "access": "READ",
+          "after_start": 4111,
+          "line": 107
+        }
+      ]
+    }
+  }
+}

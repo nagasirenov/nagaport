@@ -1,0 +1,296 @@
+[
+  {
+    "owner": "EntityGhost",
+    "signature": "public EntityGhost(World world) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight *= 10;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityTankbot",
+    "signature": "public EntityTankbot(World p_i1733_1_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 24.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBOTPrimeBase",
+    "signature": "public EntityBOTPrimeBase(World world) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 15.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityWormBaseNT",
+    "signature": "public EntityWormBaseNT(World world) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 15.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World p_i1753_1_) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_,\n\t\t\tfloat p_i1755_5_) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax,\n\t\t\tboolean instakill, boolean rad) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax,\n\t\t\tboolean instakill, String isTau) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax,\n\t\t\tboolean instakill, String isTau, EntityGrenadeTau grenade) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBullet",
+    "signature": "public EntityBullet(World world, int x, int y, int z, double mx, double my, double mz, double grav) {",
+    "old_weight_writes": [],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBulletBaseMK4",
+    "signature": "public EntityBulletBaseMK4(World world) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBulletBaseMK4",
+    "signature": "public EntityBulletBaseMK4(World world, EntityLivingBase entity, BulletConfig config, float damage, float gunSpread, double posX, double posY, double posZ, double motionX, double motionY, double motionZ) {",
+    "old_weight_writes": [],
+    "delegates_this": true
+  },
+  {
+    "owner": "EntityBulletBaseMK4",
+    "signature": "public EntityBulletBaseMK4(EntityLivingBase entity, BulletConfig config, float baseDamage, float gunSpread, double sideOffset, double heightOffset, double frontOffset) {",
+    "old_weight_writes": [],
+    "delegates_this": true
+  },
+  {
+    "owner": "EntityBulletBaseMK4",
+    "signature": "public EntityBulletBaseMK4(World world, BulletConfig config, float baseDamage, float gunSpread, float yaw, float pitch) {",
+    "old_weight_writes": [],
+    "delegates_this": true
+  },
+  {
+    "owner": "EntityBulletBaseNT",
+    "signature": "public EntityBulletBaseNT(World world) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBulletBaseNT",
+    "signature": "public EntityBulletBaseNT(World world, int config) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBulletBaseNT",
+    "signature": "public EntityBulletBaseNT(World world, int config, EntityLivingBase entity) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBulletBaseNT",
+    "signature": "public EntityBulletBaseNT(World world, int config, EntityLivingBase entity, EntityLivingBase target, float motion, float deviation) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBulletBeamBase",
+    "signature": "public EntityBulletBeamBase(World world) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityBulletBeamBase",
+    "signature": "public EntityBulletBeamBase(EntityLivingBase entity, BulletConfig config, float baseDamage) {",
+    "old_weight_writes": [],
+    "delegates_this": true
+  },
+  {
+    "owner": "EntityBulletBeamBase",
+    "signature": "public EntityBulletBeamBase(EntityLivingBase entity, BulletConfig config, float baseDamage, float angularInaccuracy, double sideOffset, double heightOffset, double frontOffset) {",
+    "old_weight_writes": [],
+    "delegates_this": true
+  },
+  {
+    "owner": "EntityExplosiveBeam",
+    "signature": "public EntityExplosiveBeam(World p_i1753_1_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityExplosiveBeam",
+    "signature": "public EntityExplosiveBeam(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityExplosiveBeam",
+    "signature": "public EntityExplosiveBeam(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityExplosiveBeam",
+    "signature": "public EntityExplosiveBeam(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax, EntityGrenadeZOMG grenade) {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityExplosiveBeam",
+    "signature": "public EntityExplosiveBeam(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityExplosiveBeam",
+    "signature": "public EntityExplosiveBeam(World world, int x, int y, int z, double mx, double my, double mz, double grav) {",
+    "old_weight_writes": [],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityRocket",
+    "signature": "public EntityRocket(World p_i1753_1_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityRocket",
+    "signature": "public EntityRocket(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityRocket",
+    "signature": "public EntityRocket(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityRocket",
+    "signature": "public EntityRocket(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntityRocket",
+    "signature": "public EntityRocket(World world, int x, int y, int z, double mx, double my, double mz, double grav) {",
+    "old_weight_writes": [],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntitySchrab",
+    "signature": "public EntitySchrab(World p_i1753_1_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntitySchrab",
+    "signature": "public EntitySchrab(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntitySchrab",
+    "signature": "public EntitySchrab(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntitySchrab",
+    "signature": "public EntitySchrab(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_)\n    {",
+    "old_weight_writes": [
+      "this.renderDistanceWeight = 10.0D;"
+    ],
+    "delegates_this": false
+  },
+  {
+    "owner": "EntitySchrab",
+    "signature": "public EntitySchrab(World world, int x, int y, int z, double mx, double my, double mz, double grav) {",
+    "old_weight_writes": [],
+    "delegates_this": false
+  }
+]

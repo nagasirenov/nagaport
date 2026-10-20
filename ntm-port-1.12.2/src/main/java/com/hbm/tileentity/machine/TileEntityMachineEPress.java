@@ -42,6 +42,21 @@ import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineEPress extends TileEntityMachineBase implements IEnergyReceiverMK2, IGUIProvider, IUpgradeInfoProvider, IInfoProviderEC {
 
+	private final com.hbm.tileentity.LegacyPressMetadataUpgrade legacyMetadataUpgrade =
+			new com.hbm.tileentity.LegacyPressMetadataUpgrade();
+
+	public void withLegacyPromotion(net.minecraft.block.Block owner, World world,
+			net.minecraft.util.math.BlockPos pos, Runnable promotion) {
+		legacyMetadataUpgrade.run(this, owner, world, pos, promotion);
+	}
+
+	@Override
+	public boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos,
+			net.minecraft.block.state.IBlockState before, net.minecraft.block.state.IBlockState after) {
+		if (legacyMetadataUpgrade.consume(this, world, pos, before, after)) return false;
+		return super.shouldRefresh(world, pos, before, after);
+	}
+
 	public long power = 0;
 	public final static long maxPower = 50000;
 
@@ -74,7 +89,7 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 
 			// Triggers the legacy monoblock fix
 			if (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) < 12) {
-				this.world.scheduleBlockUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1);
+				this.world.scheduleUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1);
 			}
 
 			this.updateConnections();
@@ -112,7 +127,7 @@ public class TileEntityMachineEPress extends TileEntityMachineBase implements IE
 								squish = "hbm:block.squeakyPain";
 
 								if(plushie.type == PlushieType.HUNDUN) {
-									this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+									com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 									ExplosionVNT vnt = new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5);
 									vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, 50));
 									vnt.setPlayerProcessor(new PlayerProcessorStandard());

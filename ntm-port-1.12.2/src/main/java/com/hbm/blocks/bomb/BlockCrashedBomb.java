@@ -76,7 +76,7 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 						new ItemStack(ModItems.ingot_cobalt, 12));
 			}
 			
-			world.func_147480_a(x, y, z, false);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 			return true;
 		}
 

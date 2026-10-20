@@ -34,7 +34,7 @@ public class EntityWastePearl extends EntityGrenadeBase {
 				for(int iy = y - 3; iy <= y + 3; iy++) {
 					for(int iz = z - 3; iz <= z + 3; iz++) {
 						
-						if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().isReplaceable(this.world, ix, iy, iz) && ModBlocks.fallout.canPlaceBlockAt(this.world, ix, iy, iz)) {
+						if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) && ModBlocks.fallout.canPlaceBlockAt(this.world, new net.minecraft.util.math.BlockPos(ix, iy, iz))) {
 							this.world.setBlock(ix, iy, iz, ModBlocks.fallout);
 						} else if(com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock() == Blocks.AIR) {
 							

@@ -12,6 +12,7 @@ import com.hbm.util.ChunkShapeHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -127,7 +128,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 			int j = nbttagcompound1.getByte("Slot") & 255;
 
 			if(j >= 0 && j < this.slots.length) {
-				this.slots[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+				this.slots[j] = NullableInventoryStackNbt.read(nbttagcompound1);
 			}
 		}
 

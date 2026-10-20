@@ -1,0 +1,26 @@
+import java.io.*;
+public class LegacyRangeTest {
+ static class Probe extends sa {
+  Probe(){super((ahb)null);}
+  protected void c(){}
+  protected void a(dh n){}
+  protected void b(dh n){}
+ }
+ static void require(boolean b,String why){if(!b)throw new AssertionError(why);}
+ public static void main(String[] args)throws Exception {
+  Probe a=new Probe(),other=new Probe();require(a.j==1.0D&&other.j==1.0D,"actual original default weight");a.j*=10;require(a.j==10&&other.j==1,"instance field isolation and Ghost multiply");
+  @WEIGHTS@
+  int rows=0;
+  try(PrintWriter out=new PrintWriter(args[0])) {
+   for(int c=0;c<weights.length;c++) {
+    Probe e=new Probe();e.j=weights[c];
+    for(int bi=0;bi<RangeVectors.BOXES.length;bi++) {
+     double[] b=RangeVectors.BOXES[bi];e.C.b(b[0],b[1],b[2],b[3],b[4],b[5]);
+     double edge=e.C.a();double r=edge*(64.0D*weights[c]);double threshold=r*r;double[] ds=RangeVectors.distances(threshold);
+     for(int di=0;di<ds.length;di++){out.println(c+"\t"+bi+"\t"+di+"\t"+e.a(ds[di]));rows++;}
+    }
+   }
+  }
+  System.out.println("PASS actual original Entity constructor, instance default/isolation, Ghost multiplication and "+rows+" original binary render-range rows.");
+ }
+}

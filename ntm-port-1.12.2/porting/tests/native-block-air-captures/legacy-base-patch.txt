@@ -1,0 +1,5 @@
+Forge1614 userdev, forgepatches.zip/net/minecraft/block/Block.java.patch
++    public boolean isAir(IBlockAccess world, int x, int y, int z)
++    {
++        return func_149688_o() == Material.field_151579_a;
++    }

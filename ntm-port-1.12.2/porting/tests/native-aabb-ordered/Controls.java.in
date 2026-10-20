@@ -1,0 +1,28 @@
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.tileentity.TileEntity;
+class Good extends TileEntity {
+ Object door(boolean collision){return AxisAlignedBB.getBoundingBox(0,0,0,1,collision?0:0.1,1);}
+ Object point(){return AxisAlignedBB.getBoundingBox(this.pos.getX()+0.5,this.pos.getY()+0.5,this.pos.getZ()+0.5,this.pos.getX()+0.5,this.pos.getY()+0.5,this.pos.getZ()+0.5);}
+ Object affine(){return net.minecraft.util.math.AxisAlignedBB.getBoundingBox(this.pos.getX()+0.5-25,this.pos.getY(),this.pos.getZ()+0.5-1,this.pos.getX()+0.5+25,this.pos.getY()+0.5,this.pos.getZ()+0.5+1);}
+ Object local(int x,int y,int z){return AxisAlignedBB.getBoundingBox(x+0.5,y+0.5,z+0.5,x+1.5,y+1.5,z+1.5);}
+ Object overflow(){return AxisAlignedBB.getBoundingBox(this.pos.getX(),0,0,this.pos.getX()+1,1,1);}
+ Object reversed(){return AxisAlignedBB.getBoundingBox(this.pos.getX()+1.5,0,0,this.pos.getX()+0.5,1,1);}
+ Object nonDyadic(){return AxisAlignedBB.getBoundingBox(this.pos.getX()+0.1,0,0,this.pos.getX()+0.8,1,1);}
+ Object dynamic(double radius){return AxisAlignedBB.getBoundingBox(this.pos.getX()+0.5-radius,0,0,this.pos.getX()+0.5+radius,1,1);}
+ Object nan(){return AxisAlignedBB.getBoundingBox(0.0/0.0,0,0,1,1,1);}
+ Object minusZero(){return AxisAlignedBB.getBoundingBox(0.0,0,0,-0.0,1,1);}
+ Object arity(){return AxisAlignedBB.getBoundingBox(0,0,0,1,1);}
+ Object sideEffect(int x){return AxisAlignedBB.getBoundingBox(x++,0,0,x++,1,1);}
+ Object foreign(net.minecraft.util.math.BlockPos pos){return AxisAlignedBB.getBoundingBox(pos.getX()+0.5,0,0,pos.getX()+1.5,1,1);}
+ Object instance(AxisAlignedBB box){return box.getBoundingBox(0,0,0,1,1,1);}
+ Object shadow(AxisAlignedBB AxisAlignedBB){return AxisAlignedBB.getBoundingBox(0,0,0,1,1,1);}
+ Object unsafeConditional(boolean b){return AxisAlignedBB.getBoundingBox(0,0,0,1,b?-1:1,1);}
+}
+class Shadow {
+ static class AxisAlignedBB {static Object getBoundingBox(double a,double b,double c,double d,double e,double f){return null;}}
+ Object nested(){return AxisAlignedBB.getBoundingBox(0,0,0,1,1,1);}
+}
+class WrongField extends TileEntity {
+ net.minecraft.util.math.BlockPos pos;
+ Object wrong(){return AxisAlignedBB.getBoundingBox(this.pos.getX()+0.5,0,0,this.pos.getX()+1.5,1,1);}
+}

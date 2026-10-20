@@ -1,0 +1,50 @@
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/NativeEventExtensionTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/BucketHandlerNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/NativeEventExtensionTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/BucketHandlerNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/NativeEventExtensionTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/BucketHandlerNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/NativeEventExtensionTest.java:25: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe u;static int checks;static String trace="";
+        ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/NativeEventExtensionTest.java:74: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);u=(Unsafe)f.get(null);
+                                                  ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/NativeEventExtensionTest.java:74: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);u=(Unsafe)f.get(null);
+                                                                                                                      ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/BucketHandlerNativeTest.java:29: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field field=Unsafe.class.getDeclaredField("theUnsafe");field.setAccessible(true);Unsafe u=(Unsafe)field.get(null);TestWorld world=(TestWorld)u.allocateInstance(TestWorld.class);world.calls=new ArrayList<>();world.expected=new BlockPos(-5,64,37);RayTraceResult target=new RayTraceResult(new Vec3d(-4.5,64.5,37.5),EnumFacing.UP,world.expected);ItemStack empty=new ItemStack(Items.BUCKET);
+                                   ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/BucketHandlerNativeTest.java:29: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field field=Unsafe.class.getDeclaredField("theUnsafe");field.setAccessible(true);Unsafe u=(Unsafe)field.get(null);TestWorld world=(TestWorld)u.allocateInstance(TestWorld.class);world.calls=new ArrayList<>();world.expected=new BlockPos(-5,64,37);RayTraceResult target=new RayTraceResult(new Vec3d(-4.5,64.5,37.5),EnumFacing.UP,world.expected);ItemStack empty=new ItemStack(Items.BUCKET);
+                                                                                                        ^
+/workspace/shared/nagaport-event-accessors-cp89/ntm-port-1.12.2/porting/tests/native-event-extension-cp89/BucketHandlerNativeTest.java:29: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Bootstrap.register();Field field=Unsafe.class.getDeclaredField("theUnsafe");field.setAccessible(true);Unsafe u=(Unsafe)field.get(null);TestWorld world=(TestWorld)u.allocateInstance(TestWorld.class);world.calls=new ArrayList<>();world.expected=new BlockPos(-5,64,37);RayTraceResult target=new RayTraceResult(new Vec3d(-4.5,64.5,37.5),EnumFacing.UP,world.expected);ItemStack empty=new ItemStack(Items.BUCKET);
+                                                                                                                  ^
+Note: /tmp/native-event-cp89-a4wdq17u/SelectedReads.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+12 warnings
+PASS 722 native payload/constructor/bytecode/selected-read/write/evaluation checks; 67 resolved dependency JARs checked for overrides. No whole handler, event-bus or game lifecycle claim.
+[12:30:36] [main/INFO]: Processing ObjectHolder annotations
+[12:30:36] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 18 actual native event-bus and full production BucketHandler checks; explicit in-memory World fixture, no whole-game claim.
+PASS 21 byte-exact CP88 source inverses; 165 read-token and 10 setter edits; 175 per-edit mutations rejected; every unrelated byte preserved.
+PASS all 165 old read sites fail actual native API; exact migrated calls compile and execute
+PASS 22 native javac ownership, shadow, override, write-shape, RHS-type and receiver-evaluation controls
+PASS 46 genuine Forge1614 public payload declarations/binary fields; Anvil hook-role mismatch explicitly excluded
+PASS 165 exact-position native getter re-attributions; other native getters: 9
+Attribution diagnostics (unfinished module, not build success): 11255
+PASS bounded CP89 native event-extension evidence. Not full-module compilation success.

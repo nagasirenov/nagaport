@@ -93,7 +93,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 			smoke_poison.changeTankSize(config.maxPollutionCap);
 
 		} else {
-			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 		}
 	}
 
@@ -108,7 +108,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 		if (!this.world.isRemote) {
 
 			if (config == null) {
-				this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+				com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 				return;
 			}
 

@@ -95,14 +95,14 @@ public class ItemModMinecart extends Item {
 	}
 	
 	@Override
-	public Item setUnlocalizedName(String unlocalizedName) {
-		super.setUnlocalizedName(unlocalizedName);
-		this.setTextureName(RefStrings.MODID + ":"+ unlocalizedName);
+	public Item setTranslationKey(String unlocalizedName) {
+		super.setTranslationKey(unlocalizedName);
+		com.hbm.render.item.NativeItemTextureRegistry.texture(this, RefStrings.MODID + ":"+ unlocalizedName);
 		return this;
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		EnumMinecart cart = EnumUtil.grabEnumSafely(EnumMinecart.class, stack.getItemDamage());
 		return super.getTranslationKey() + "." + cart.name().toLowerCase(Locale.US);
 	}
@@ -127,7 +127,7 @@ public class ItemModMinecart extends Item {
 		
 		for(int i = 0; i < EnumCartBase.values().length; i++) {
 			EnumCartBase base = EnumCartBase.values()[i];
-			bases[i] = reg.registerIcon(this.getIconString() + "." + base.name().toLowerCase(Locale.US));
+			bases[i] = reg.registerIcon(com.hbm.render.item.NativeItemTextureRegistry.texture(this) + "." + base.name().toLowerCase(Locale.US));
 		}
 		
 		EnumMinecart[] enums = EnumMinecart.values();
@@ -135,7 +135,7 @@ public class ItemModMinecart extends Item {
 
 		for(int i = 0; i < icons.length; i++) {
 			Enum num = enums[i];
-			this.icons[i] = reg.registerIcon(this.getIconString() + "_overlay." + num.name().toLowerCase(Locale.US));
+			this.icons[i] = reg.registerIcon(com.hbm.render.item.NativeItemTextureRegistry.texture(this) + "_overlay." + num.name().toLowerCase(Locale.US));
 		}
 	}
 	

@@ -1,0 +1,3 @@
+net.minecraft.potion.Potion	digSlowdown	MINING_FATIGUE	4	f	potion.digSlowDown	minecraft:mining_fatigue
+net.minecraft.potion.Potion	hunger	HUNGER	17	s	potion.hunger	minecraft:hunger
+net.minecraft.potion.Potion	weakness	WEAKNESS	18	t	potion.weakness	minecraft:weakness

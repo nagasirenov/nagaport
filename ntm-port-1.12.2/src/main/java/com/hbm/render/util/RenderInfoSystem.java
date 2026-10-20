@@ -49,7 +49,7 @@ public class RenderInfoSystem {
 	@SubscribeEvent(receiveCanceled = true)
 	public void onOverlayRender(RenderGameOverlayEvent.Pre event) {
 		
-		if(event.type != ElementType.CROSSHAIRS)
+		if(event.getType() != ElementType.CROSSHAIRS)
 			return;
 
 		//this.messages.put(-666, new InfoEntry(Minecraft.getMinecraft().theWorld.getCelestialAngle(0) + "", 666_666));
@@ -59,7 +59,7 @@ public class RenderInfoSystem {
 			return;
 		
 		Minecraft mc = Minecraft.getMinecraft();
-		ScaledResolution resolution = event.resolution;
+		ScaledResolution resolution = event.getResolution();
 		
 		List<InfoEntry> entries = new ArrayList(messages.values());
 		Collections.sort(entries);

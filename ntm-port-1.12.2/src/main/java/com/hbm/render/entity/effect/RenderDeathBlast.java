@@ -8,14 +8,22 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import com.hbm.render.mesh.ObjMeshModel;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderDeathBlast extends Render {
+public class RenderDeathBlast extends Render<Entity> {
+
+	public RenderDeathBlast(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 	
 	private static final MeshModel sphere = new ObjMeshModel(new ResourceLocation(RefStrings.MODID, "models/Sphere.obj"));
 
@@ -40,28 +48,29 @@ public class RenderDeathBlast extends Render {
 	        
 	        Vec3d vector = new Vec3d(0.5D, 0, 0);
 	
-	        Tessellator tessellator = Tessellator.instance;
+	        Tessellator tessellator = Tessellator.getInstance();
+	        BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 			RenderHelper.disableStandardItemLighting();
 			
 	        for(int i = 0; i < 8; i++) {
-	            tessellator.startDrawing(6);
-	            tessellator.addVertex(vector.x, 250.0D, vector.z);
-	            tessellator.addVertex(vector.x, 0.0D, vector.z);
+	            tessellatorBuffer.begin(6, DefaultVertexFormats.POSITION);
+	            tessellatorBuffer.pos(vector.x, 250.0D, vector.z).endVertex();
+	            tessellatorBuffer.pos(vector.x, 0.0D, vector.z).endVertex();
 	            vector = vector.rotateYaw(45);
-	            tessellator.addVertex(vector.x, 0.0D, vector.z);
-	            tessellator.addVertex(vector.x, 250.0D, vector.z);
+	            tessellatorBuffer.pos(vector.x, 0.0D, vector.z).endVertex();
+	            tessellatorBuffer.pos(vector.x, 250.0D, vector.z).endVertex();
 	            tessellator.draw();
 	        }
 
 	        GL11.glColor3f(1.0F, 0, 1.0F);
 	        
 	        for(int i = 0; i < 8; i++) {
-	            tessellator.startDrawing(6);
-	            tessellator.addVertex(vector.x / 2, 250.0D, vector.z / 2);
-	            tessellator.addVertex(vector.x / 2, 0.0D, vector.z / 2);
+	            tessellatorBuffer.begin(6, DefaultVertexFormats.POSITION);
+	            tessellatorBuffer.pos(vector.x / 2, 250.0D, vector.z / 2).endVertex();
+	            tessellatorBuffer.pos(vector.x / 2, 0.0D, vector.z / 2).endVertex();
 	            vector = vector.rotateYaw(45);
-	            tessellator.addVertex(vector.x / 2, 0.0D, vector.z / 2);
-	            tessellator.addVertex(vector.x / 2, 250.0D, vector.z / 2);
+	            tessellatorBuffer.pos(vector.x / 2, 0.0D, vector.z / 2).endVertex();
+	            tessellatorBuffer.pos(vector.x / 2, 250.0D, vector.z / 2).endVertex();
 	            tessellator.draw();
 	        }
 	    GL11.glPopMatrix();

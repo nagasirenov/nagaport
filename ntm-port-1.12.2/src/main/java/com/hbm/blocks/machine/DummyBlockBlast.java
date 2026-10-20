@@ -44,7 +44,7 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
     			int c = ((TileEntityDummy)te).targetZ;
     		
     			if(!world.isRemote)
-    				world.func_147480_a(a, b, c, true);
+    				com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true);
     		}
     	}
     	world.removeTileEntity(x, y, z);

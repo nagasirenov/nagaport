@@ -46,10 +46,9 @@ public final class NativeItemTextureModelHandler {
             // These Forge fields are stable, non-obfuscated API implementation
             // details. Read them only: never erase another model owner's entry.
             if(!hasCustomRoute(item)) {
-                // The original default Item icon is metadata-insensitive. A
-                // plain subtype item still uses that same image for every meta.
-                if(item.getHasSubtypes()) ModelLoader.setCustomMeshDefinition(item, stack -> location);
-                else ModelLoader.setCustomModelResourceLocation(item, 0, location);
+                // The original default Item icon is metadata-insensitive even
+                // for non-damageable items that do not declare subtypes.
+                ModelLoader.setCustomMeshDefinition(item, stack -> location);
             }
         }
     }

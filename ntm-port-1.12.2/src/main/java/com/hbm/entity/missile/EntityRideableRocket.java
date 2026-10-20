@@ -48,6 +48,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -687,12 +688,12 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 		if(!this.world.isRemote && !isDead) {
 			if(isEntityInvulnerable()) {
 				return false;
-			} else if(riddenByEntity == null && source.getEntity() instanceof EntityPlayer) {
+			} else if(riddenByEntity == null && source.getTrueSource() instanceof EntityPlayer) {
 				// A pickaxe is required to break, unless it's just the capsule (or it has tipped over)
 				if((getRocket().stages.size() == 0 && getRocket().capsule.part != ModItems.rp_pod_20) || getState() == RocketState.TIPPING) {
 					dropNDie(source);
 				} else {
-					ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayer) source.getEntity()));
+					ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayer) source.getTrueSource()));
 					if(stack != null && stack.getItem().canHarvestBlock(Blocks.STONE, stack)) {
 						dropNDie(source);
 					}
@@ -876,7 +877,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 		setRocket(RocketStruct.readFromNBT(nbt.getCompoundTag("rocket")));
 
 		if(nbt.hasKey("drive")) {
-			navDrive = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("drive"));
+			navDrive = NullableInventoryStackNbt.read(nbt.getCompoundTag("drive"));
 		} else {
 			navDrive = null;
 		}

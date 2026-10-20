@@ -19,7 +19,7 @@ public class BlockHotHazard extends BlockHazard {
 			float ox = rand.nextFloat();
 			float oz = rand.nextFloat();
 
-			world.spawnParticle("cloud", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);
 		}
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
@@ -40,7 +40,7 @@ public class BlockHotHazard extends BlockHazard {
 				if(dir.offsetZ != 0)
 					iz = z + 0.5F + dir.offsetZ * 0.5 + rand.nextDouble() * 0.125 * dir.offsetZ;
 
-				world.spawnParticle("cloud", ix, iy, iz, 0.0, 0.0, 0.0);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, ix, iy, iz, 0.0, 0.0, 0.0);
 			}
 		}
 	}

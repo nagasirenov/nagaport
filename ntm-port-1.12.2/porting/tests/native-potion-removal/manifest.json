@@ -1,0 +1,53 @@
+{
+  "baseline": "77b595c32b46e2f9309bcf9924d654ddc29a3c95",
+  "files": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSyringe.java": {
+      "edits": [
+        {
+          "start": 4089,
+          "end": 4110,
+          "old": "Potion.digSlowdown.id",
+          "new": "net.minecraft.init.MobEffects.MINING_FATIGUE"
+        },
+        {
+          "start": 4143,
+          "end": 4159,
+          "old": "Potion.hunger.id",
+          "new": "net.minecraft.init.MobEffects.HUNGER"
+        },
+        {
+          "start": 4332,
+          "end": 4350,
+          "old": "Potion.weakness.id",
+          "new": "net.minecraft.init.MobEffects.WEAKNESS"
+        }
+      ],
+      "before": "f40bd2e8b2e2f7213a80dcb9095b10a9d78289daf60a542f30b05a024a3fd0b5",
+      "after": "efdeca8e5f11419e3ed9135fedeef663e53823b46521134931f0600c4269f2c5"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java": {
+      "edits": [
+        {
+          "start": 1581,
+          "end": 1602,
+          "old": "Potion.digSlowdown.id",
+          "new": "net.minecraft.init.MobEffects.MINING_FATIGUE"
+        },
+        {
+          "start": 1635,
+          "end": 1651,
+          "old": "Potion.hunger.id",
+          "new": "net.minecraft.init.MobEffects.HUNGER"
+        },
+        {
+          "start": 1824,
+          "end": 1842,
+          "old": "Potion.weakness.id",
+          "new": "net.minecraft.init.MobEffects.WEAKNESS"
+        }
+      ],
+      "before": "bbae33f00337e2ca1131a8d0d4a65df9fd2708c23f8e18f340cbecbb36cb1c2e",
+      "after": "b249704a4b6987fedc8f837836832bc255297fc0b8bb64c37dbc1b2e703b4b62"
+    }
+  }
+}

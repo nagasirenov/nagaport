@@ -25,8 +25,18 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 
 public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
+	private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.VARINT);
+	private static final DataParameter<Float> LOCKON_X = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);
+	private static final DataParameter<Float> LOCKON_Y = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);
+	private static final DataParameter<Float> LOCKON_Z = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.FLOAT);
+	private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntitySiegeCraft.class, DataSerializers.BYTE);
+
 
 	private int attackCooldown;
 	private int beamCountdown;
@@ -56,7 +66,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 		}
 
 		//noFF can't be harmed by other mobs
-		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getEntity() instanceof EntityPlayer))
+		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))
 			return false;
 
 		damage -= tier.dt;
@@ -93,15 +103,15 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.getDataWatcher().addObject(12, (int) 0);
-		this.getDataWatcher().addObject(13, 0F);
-		this.getDataWatcher().addObject(14, 0F);
-		this.getDataWatcher().addObject(15, 0F);
-		this.getDataWatcher().addObject(16, (byte) 0);
+		this.getDataManager().register(SIEGE_TIER, (int) 0);
+		this.getDataManager().register(LOCKON_X, 0F);
+		this.getDataManager().register(LOCKON_Y, 0F);
+		this.getDataManager().register(LOCKON_Z, 0F);
+		this.getDataManager().register(BEAM, (byte) 0);
 	}
 
 	public void setTier(SiegeTier tier) {
-		this.getDataWatcher().updateObject(12, tier.id);
+		this.getDataManager().set(SIEGE_TIER, tier.id);
 
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 25);
@@ -109,29 +119,29 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	}
 
 	public SiegeTier getTier() {
-		SiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];
+		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
 		return tier != null ? tier : SiegeTier.CLAY;
 	}
 
 	public void setBeam(boolean beam) {
-		this.getDataWatcher().updateObject(16, beam ? (byte) 1 : (byte) 0);
+		this.getDataManager().set(BEAM, beam ? (byte) 1 : (byte) 0);
 	}
 
 	public boolean getBeam() {
-		return this.getDataWatcher().getWatchableObjectByte(16) == 1;
+		return this.getDataManager().get(BEAM) == 1;
 	}
 
 	public void setLockon(double x, double y, double z) {
-		this.getDataWatcher().updateObject(13, (float) x);
-		this.getDataWatcher().updateObject(14, (float) y);
-		this.getDataWatcher().updateObject(15, (float) z);
+		this.getDataManager().set(LOCKON_X, (float) x);
+		this.getDataManager().set(LOCKON_Y, (float) y);
+		this.getDataManager().set(LOCKON_Z, (float) z);
 	}
 
 	public Vec3d getLockon() {
 		return new Vec3d(
-				this.getDataWatcher().getWatchableObjectFloat(13),
-				this.getDataWatcher().getWatchableObjectFloat(14),
-				this.getDataWatcher().getWatchableObjectFloat(15)
+				this.getDataManager().get(LOCKON_X),
+				this.getDataManager().get(LOCKON_Y),
+				this.getDataManager().get(LOCKON_Z)
 				);
 	}
 

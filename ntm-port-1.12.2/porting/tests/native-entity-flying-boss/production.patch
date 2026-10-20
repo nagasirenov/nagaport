@@ -1,0 +1,226 @@
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java
+index 78d0130c..40f5fb95 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java
+@@ -1,4 +1,7 @@
+ package com.hbm.entity.mob;
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+@@ -50,6 +53,10 @@ import net.minecraft.world.EnumDifficulty;
+ import net.minecraft.world.World;
+ 
+ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
++	private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.BYTE);
++	private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);
++	private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);
++	private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);
+ 
+ 	public int courseChangeCooldown;
+ 	public int scanCooldown;
+@@ -561,10 +568,10 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
+-		this.dataWatcher.addObject(17, 0);
+-		this.dataWatcher.addObject(18, 0);
+-		this.dataWatcher.addObject(19, 0);
++		this.dataManager.register(BEAM, Byte.valueOf((byte) 0));
++		this.dataManager.register(WAYPOINT_X, 0);
++		this.dataManager.register(WAYPOINT_Y, 0);
++		this.dataManager.register(WAYPOINT_Z, 0);
+ 	}
+ 
+ 	private boolean isCourseTraversable(double p_70790_1_, double p_70790_3_, double p_70790_5_, double p_70790_7_) {
+@@ -611,29 +618,29 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
+ 	}
+ 
+ 	public void setBeam(boolean b) {
+-		this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)));
++		this.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)));
+ 	}
+ 
+ 	public boolean getBeam() {
+-		return this.dataWatcher.getWatchableObjectByte(16) == 1;
++		return this.dataManager.get(BEAM) == 1;
+ 	}
+ 
+ 	public void setWaypoint(int x, int y, int z) {
+-		this.dataWatcher.updateObject(17, x);
+-		this.dataWatcher.updateObject(18, y);
+-		this.dataWatcher.updateObject(19, z);
++		this.dataManager.set(WAYPOINT_X, x);
++		this.dataManager.set(WAYPOINT_Y, y);
++		this.dataManager.set(WAYPOINT_Z, z);
+ 	}
+ 
+ 	public int getX() {
+-		return this.dataWatcher.getWatchableObjectInt(17);
++		return this.dataManager.get(WAYPOINT_X);
+ 	}
+ 
+ 	public int getY() {
+-		return this.dataWatcher.getWatchableObjectInt(18);
++		return this.dataManager.get(WAYPOINT_Y);
+ 	}
+ 
+ 	public int getZ() {
+-		return this.dataWatcher.getWatchableObjectInt(19);
++		return this.dataManager.get(WAYPOINT_Z);
+ 	}
+ 
+ 	@Override
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java
+index b3227787..fb2b8fc0 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java
+@@ -1,4 +1,7 @@
+ package com.hbm.entity.mob;
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ 
+ import com.hbm.entity.projectile.EntityBullet;
+ import com.hbm.entity.projectile.EntityChopperMine;
+@@ -30,6 +33,10 @@ import net.minecraft.world.World;
+ 
+ @Spaghetti("this sucks complete donkey shit")
+ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
++	private static final DataParameter<Byte> ATTACKING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);
++	private static final DataParameter<Float> LEGACY_UNUSED_21 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);
++	private static final DataParameter<Float> LEGACY_UNUSED_22 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);
++	private static final DataParameter<Byte> DYING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);
+ 
+ 	public int courseChangeCooldown;
+ 	public double waypointX;
+@@ -51,7 +58,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
+ 
+ 	@SideOnly(Side.CLIENT)
+ 	public boolean func_110182_bF() {
+-		return this.dataWatcher.getWatchableObjectByte(16) != 0;
++		return this.dataManager.get(ATTACKING) != 0;
+ 	}
+ 
+ 	/**
+@@ -95,10 +102,10 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
+-		this.dataWatcher.addObject(21, Float.valueOf(0));
+-		this.dataWatcher.addObject(22, Float.valueOf(0));
+-		this.dataWatcher.addObject(23, Byte.valueOf((byte) 0));
++		this.dataManager.register(ATTACKING, Byte.valueOf((byte) 0));
++		this.dataManager.register(LEGACY_UNUSED_21, Float.valueOf(0));
++		this.dataManager.register(LEGACY_UNUSED_22, Float.valueOf(0));
++		this.dataManager.register(DYING, Byte.valueOf((byte) 0));
+ 	}
+ 
+ 	@Override
+@@ -232,11 +239,11 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
+ 			}
+ 
+ 			if(!this.world.isRemote) {
+-				byte b1 = this.dataWatcher.getWatchableObjectByte(16);
++				byte b1 = this.dataManager.get(ATTACKING);
+ 				byte b0 = (byte) (this.attackCounter > 10 ? 1 : 0);
+ 
+ 				if(b1 != b0) {
+-					this.dataWatcher.updateObject(16, Byte.valueOf(b0));
++					this.dataManager.set(ATTACKING, Byte.valueOf(b0));
+ 				}
+ 			}
+ 		} else {
+@@ -406,10 +413,10 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
+ 	}
+ 
+ 	public void setIsDying(boolean b) {
+-		this.dataWatcher.updateObject(23, Byte.valueOf((byte) (b ? 1 : 0)));
++		this.dataManager.set(DYING, Byte.valueOf((byte) (b ? 1 : 0)));
+ 	}
+ 
+ 	public boolean getIsDying() {
+-		return this.dataWatcher.getWatchableObjectByte(23) == 1;
++		return this.dataManager.get(DYING) == 1;
+ 	}
+ }
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java
+index d1c09014..b4a6310e 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java
+@@ -1,4 +1,7 @@
+ package com.hbm.entity.mob;
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+@@ -38,6 +41,10 @@ import net.minecraft.world.EnumDifficulty;
+ import net.minecraft.world.World;
+ 
+ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
++	private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityUFO.class, DataSerializers.BYTE);
++	private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);
++	private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);
++	private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);
+ 
+ 	public int courseChangeCooldown;
+ 	public int scanCooldown;
+@@ -357,10 +364,10 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
+ 	@Override
+ 	protected void entityInit() {
+ 		super.entityInit();
+-		this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
+-		this.dataWatcher.addObject(17, 0);
+-		this.dataWatcher.addObject(18, 0);
+-		this.dataWatcher.addObject(19, 0);
++		this.dataManager.register(BEAM, Byte.valueOf((byte) 0));
++		this.dataManager.register(WAYPOINT_X, 0);
++		this.dataManager.register(WAYPOINT_Y, 0);
++		this.dataManager.register(WAYPOINT_Z, 0);
+ 	}
+ 
+ 	private boolean isCourseTraversable(double p_70790_1_, double p_70790_3_, double p_70790_5_, double p_70790_7_) {
+@@ -407,29 +414,29 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
+ 	}
+ 
+ 	public void setBeam(boolean b) {
+-		this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)));
++		this.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)));
+ 	}
+ 
+ 	public boolean getBeam() {
+-		return this.dataWatcher.getWatchableObjectByte(16) == 1;
++		return this.dataManager.get(BEAM) == 1;
+ 	}
+ 
+ 	public void setWaypoint(int x, int y, int z) {
+-		this.dataWatcher.updateObject(17, x);
+-		this.dataWatcher.updateObject(18, y);
+-		this.dataWatcher.updateObject(19, z);
++		this.dataManager.set(WAYPOINT_X, x);
++		this.dataManager.set(WAYPOINT_Y, y);
++		this.dataManager.set(WAYPOINT_Z, z);
+ 	}
+ 
+ 	public int getX() {
+-		return this.dataWatcher.getWatchableObjectInt(17);
++		return this.dataManager.get(WAYPOINT_X);
+ 	}
+ 
+ 	public int getY() {
+-		return this.dataWatcher.getWatchableObjectInt(18);
++		return this.dataManager.get(WAYPOINT_Y);
+ 	}
+ 
+ 	public int getZ() {
+-		return this.dataWatcher.getWatchableObjectInt(19);
++		return this.dataManager.get(WAYPOINT_Z);
+ 	}
+ 
+ 	@Override

@@ -1,0 +1,30 @@
+Compiled from "MaterialGas.java"
+public class com.hbm.blocks.MaterialGas extends net.minecraft.block.material.Material {
+  public com.hbm.blocks.MaterialGas();
+    Code:
+       0: aload_0
+       1: getstatic     #13                 // Field net/minecraft/block/material/MapColor.field_151660_b:Lnet/minecraft/block/material/MapColor;
+       4: invokespecial #16                 // Method net/minecraft/block/material/Material."<init>":(Lnet/minecraft/block/material/MapColor;)V
+       7: aload_0
+       8: invokevirtual #20                 // Method func_76219_n:()Lnet/minecraft/block/material/Material;
+      11: pop
+      12: aload_0
+      13: invokevirtual #23                 // Method func_76231_i:()Lnet/minecraft/block/material/Material;
+      16: pop
+      17: return
+
+  public boolean func_76220_a();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean func_76228_b();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean func_76230_c();
+    Code:
+       0: iconst_0
+       1: ireturn
+}

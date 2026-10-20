@@ -1,0 +1,6 @@
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIAnvil.java	4123	4179	this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y)	net.minecraft.client.gui.inventory.GuiContainer
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIAnvil.java	4924	4980	this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y)	net.minecraft.client.gui.inventory.GuiContainer
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java	3186	3242	this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y)	net.minecraft.client.gui.inventory.GuiContainer
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java	1731	1787	this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y)	net.minecraft.client.gui.inventory.GuiContainer
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java	3086	3142	this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y)	net.minecraft.client.gui.inventory.GuiContainer
+/workspace/shared/nagaport-gui-hit-cp92/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GuiInfoContainer.java	5656	5712	this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y)	net.minecraft.client.gui.inventory.GuiContainer

@@ -1,0 +1,3 @@
+PASS 2372 real original/native registry, saved-key, identity, JSON/NBT and order assertions; missing-object null behavior verified; case-changing input lookups excluded
+
+PASS exact source reversal, class-qualifier attribution and shadow/value/string negative controls

@@ -1,0 +1,10 @@
+{
+  "com/hbm/blocks/machine/MachineRadar.java": {
+    "pristine_file_sha256": "2be281716a9ae5b79e454fc868b5bf7a2a84ec6b64535e1d3d8447b8c1b0ca2b",
+    "all_three_original_callback_methods_exact": true
+  },
+  "com/hbm/blocks/machine/MachineRadarLarge.java": {
+    "pristine_file_sha256": "fc0d9f09b615d10de1cbd5946eeb56a79077cc6558ed122de09a9a8504ecee0f",
+    "all_three_original_callback_methods_exact": true
+  }
+}

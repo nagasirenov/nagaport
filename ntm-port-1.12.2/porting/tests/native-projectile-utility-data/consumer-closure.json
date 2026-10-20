@@ -1,0 +1,767 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java",
+    "sha256": "79fe4de14db028139ee83a51996c795160c3a94eecd0d0a4f55e2750b530d143",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 82,
+        "source": "EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.missileRadius);"
+      },
+      {
+        "line": 87,
+        "source": "EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.missileRadius);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+    "sha256": "1728f0357c57a60b44ab80ff732eb3516ba7bd79c513c4d4d6e66082e5e784dc",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 140,
+        "source": "EntityNukeTorex torex = new EntityNukeTorex(world);"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "torex.getDataWatcher().updateObject(10, 1.5F)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+    "sha256": "010a8b4417c239460af053f9ce5d3a880e8d5d94be074c350d7293fa31fdd056",
+    "references": [
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 13,
+        "source": "import com.hbm.entity.projectile.EntityFallingNuke;"
+      },
+      {
+        "line": 198,
+        "source": "EntityNukeTorex.startFacAnti(worldObj, xCoord + 0.5, yCoord + 5, zCoord + 0.5, amat);"
+      },
+      {
+        "line": 208,
+        "source": "EntityNukeTorex.statFacStandard(worldObj, xCoord + 0.5, yCoord + 5, zCoord + 0.5, hydro);"
+      },
+      {
+        "line": 217,
+        "source": "EntityNukeTorex.statFacStandard(worldObj, xCoord + 0.5, yCoord + 5, zCoord + 0.5, nuke);"
+      },
+      {
+        "line": 225,
+        "source": "EntityNukeTorex.statFacStandard(worldObj, xCoord + 0.5, yCoord + 5, zCoord + 0.5, tnt);"
+      },
+      {
+        "line": 281,
+        "source": "EntityFallingNuke bomb = new EntityFallingNuke(world, entity.tnt, entity.nuke, entity.hydro, entity.amat, entity.dirty, entity.schrab, entity.euph);"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "bomb.getDataWatcher().updateObject(20, (byte)com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ))"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+    "sha256": "280a4e7fbc64a5f23d314bae5ecf8c5256076e83349b12c21df3fbeac8e972fb",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 142,
+        "source": "EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.gadgetRadius);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+    "sha256": "e8b5379031ce5facf9450d7b62e918cd5567b217fa84d020ede6b47d4a23bf9c",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 137,
+        "source": "EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.manRadius);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+    "sha256": "f98c4b847f19beb67522f3d371ae563b75d9f3d3ac3be3897dae8e7bdc982a26",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 144,
+        "source": "EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.mikeRadius);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+    "sha256": "6aa777ab4c2a09c03c8a1a6ec6679a467cd7fba435e285063110e10be384313a",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 133,
+        "source": "EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, r);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+    "sha256": "cd2002d84da0ecf29000a59b6261939d0b3a68f81ce295109a1b15fe026d077e",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 142,
+        "source": "EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, r);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "sha256": "a9ffc8b3769b11f10244f8f609b869aeee081cf95aa8c6a86b65f3d5e5455ed6",
+    "references": [
+      {
+        "line": 143,
+        "source": "addEntity(EntityFallingNuke.class, \"entity_falling_bomb\", 1000);"
+      },
+      {
+        "line": 198,
+        "source": "addEntity(EntityNukeTorex.class, \"entity_effect_torex\", 250, false);"
+      },
+      {
+        "line": 203,
+        "source": "addEntity(EntityChemical.class, \"entity_chemthrower_splash\", 1000);"
+      },
+      {
+        "line": 223,
+        "source": "addEntity(EntityDepress.class, \"entity_depress\", 250, false);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityDepress.java",
+    "sha256": "7116c3ad069a5c629a6b40c9d4111b71590bb2197ff92ded1d0116706c47e0f8",
+    "references": [
+      {
+        "line": 17,
+        "source": "public class EntityDepress extends Entity {"
+      },
+      {
+        "line": 23,
+        "source": "public EntityDepress(World world) {"
+      },
+      {
+        "line": 27,
+        "source": "public EntityDepress(World world, ForgeDirection dir, int timeToLive) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.updateObject(10, (byte)dir.ordinal())",
+      "this.dataWatcher.getWatchableObjectByte(10)",
+      "this.dataWatcher.addObject(10, new Byte((byte)0))"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityMist.java",
+    "sha256": "ae62be8e53e1bdd05e5d9e927579d9dc5f75bf2845601177abd7a2fa3deb8223",
+    "references": [
+      {
+        "line": 134,
+        "source": "/* can't reuse EntityChemical here, while similar or identical in some places, the actual effects are often different */"
+      },
+      {
+        "line": 285,
+        "source": "//terribly copy-pasted from EntityChemical.class, whose method was terribly copy-pasted from EntityEnderman.class"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityNukeTorex.java",
+    "sha256": "96ca61bdafa17929e7c49fcc184c42a2934e16bfcdad7f8983f64fe6bdc32632",
+    "references": [
+      {
+        "line": 24,
+        "source": "public class EntityNukeTorex extends Entity {"
+      },
+      {
+        "line": 40,
+        "source": "public EntityNukeTorex(World world) {"
+      },
+      {
+        "line": 222,
+        "source": "public EntityNukeTorex setScale(float scale) {"
+      },
+      {
+        "line": 231,
+        "source": "public EntityNukeTorex setType(int type) {"
+      },
+      {
+        "line": 241,
+        "source": "int life = EntityNukeTorex.this.ticksExisted;"
+      },
+      {
+        "line": 279,
+        "source": "int life = EntityNukeTorex.this.ticksExisted;"
+      },
+      {
+        "line": 345,
+        "source": "Vec3d simPos = new Vec3d(EntityNukeTorex.this.posX - this.posX, 0, EntityNukeTorex.this.posZ - this.posZ);"
+      },
+      {
+        "line": 346,
+        "source": "double simPosX = EntityNukeTorex.this.posX + simPos.length();"
+      },
+      {
+        "line": 347,
+        "source": "double simPosZ = EntityNukeTorex.this.posZ + 0D;"
+      },
+      {
+        "line": 353,
+        "source": "double factor = MathHelper.clamp((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, (double) (0), (double) (1));"
+      },
+      {
+        "line": 358,
+        "source": "double factor = MathHelper.clamp((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, (double) (0), (double) (1));"
+      },
+      {
+        "line": 375,
+        "source": "double factor = MathHelper.clamp((this.posY - EntityNukeTorex.this.posY) / EntityNukeTorex.this.coreHeight, (double) (0), (double) (1));"
+      },
+      {
+        "line": 393,
+        "source": "Vec3d delta = new Vec3d(posX - EntityNukeTorex.this.posX, 0, posZ - EntityNukeTorex.this.posZ);"
+      },
+      {
+        "line": 394,
+        "source": "double speed = 0.00002 * EntityNukeTorex.this.ticksExisted;"
+      },
+      {
+        "line": 400,
+        "source": "if(simPosX > EntityNukeTorex.this.posX + torusWidth * 2)"
+      },
+      {
+        "line": 405,
+        "source": "(EntityNukeTorex.this.posX + torusWidth),"
+      },
+      {
+        "line": 406,
+        "source": "(EntityNukeTorex.this.posY + coreHeight * 0.5),"
+      },
+      {
+        "line": 407,
+        "source": "EntityNukeTorex.this.posZ);"
+      },
+      {
+        "line": 413,
+        "source": "double roller = EntityNukeTorex.this.rollerSize * this.rangeMod * 0.25;"
+      },
+      {
+        "line": 444,
+        "source": "(EntityNukeTorex.this.posX + torusWidth),"
+      },
+      {
+        "line": 445,
+        "source": "(EntityNukeTorex.this.posY + coreHeight),"
+      },
+      {
+        "line": 446,
+        "source": "EntityNukeTorex.this.posZ);"
+      },
+      {
+        "line": 452,
+        "source": "double roller = EntityNukeTorex.this.rollerSize * this.rangeMod;"
+      },
+      {
+        "line": 478,
+        "source": "double scale = MathHelper.clamp(1D - (simPosX - (EntityNukeTorex.this.posX + torusWidth)), (double) (0), (double) (1));"
+      },
+      {
+        "line": 480,
+        "source": "Vec3d motion = new Vec3d(EntityNukeTorex.this.posX - this.posX, (EntityNukeTorex.this.posY + convectionHeight) - this.posY, EntityNukeTorex.this.posZ - this.posZ);"
+      },
+      {
+        "line": 487,
+        "source": "double exX = EntityNukeTorex.this.posX;"
+      },
+      {
+        "line": 488,
+        "source": "double exY = EntityNukeTorex.this.posY + EntityNukeTorex.this.coreHeight;"
+      },
+      {
+        "line": 489,
+        "source": "double exZ = EntityNukeTorex.this.posZ;"
+      },
+      {
+        "line": 496,
+        "source": "distSq /= EntityNukeTorex.this.heat;"
+      },
+      {
+        "line": 502,
+        "source": "int type = EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11);"
+      },
+      {
+        "line": 537,
+        "source": "float scale = (float) EntityNukeTorex.this.getScale();"
+      },
+      {
+        "line": 545,
+        "source": "((base.x) - EntityNukeTorex.this.posX) * scale + EntityNukeTorex.this.posX,"
+      },
+      {
+        "line": 546,
+        "source": "((base.y) - EntityNukeTorex.this.posY) * scale + EntityNukeTorex.this.posY,"
+      },
+      {
+        "line": 547,
+        "source": "((base.z) - EntityNukeTorex.this.posZ) * scale + EntityNukeTorex.this.posZ);"
+      },
+      {
+        "line": 559,
+        "source": "double greying = EntityNukeTorex.this.getGreying();"
+      },
+      {
+        "line": 572,
+        "source": "float alpha = (1F - ((float)age / (float)cloudletLife)) * EntityNukeTorex.this.getAlpha();"
+      },
+      {
+        "line": 582,
+        "source": "if(this.type != TorexType.SHOCK) base *= (float) EntityNukeTorex.this.getScale();"
+      },
+      {
+        "line": 622,
+        "source": "EntityNukeTorex torex = new EntityNukeTorex(world).setScale(MathHelper.clamp((float) BobMathUtil.squirt(scale * 0.01) * 1.5F, 0.5F, 5F));"
+      },
+      {
+        "line": 630,
+        "source": "EntityNukeTorex torex = new EntityNukeTorex(world).setScale(MathHelper.clamp(scale * 0.01F, 0.5F, 5F)).setType(2);"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(10, new Float(1))",
+      "this.dataWatcher.addObject(11, new Integer(0))",
+      "getDataWatcher().updateObject(10, scale)",
+      "this.dataWatcher.updateObject(11, type)",
+      "this.dataWatcher.getWatchableObjectFloat(10)",
+      "EntityNukeTorex.this.dataWatcher.getWatchableObjectInt(11)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileCustom.java",
+    "sha256": "a09c61f5f529c9e48fdfb6c9f95aea057e3051226c7c6a81e473b753b7b57332",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 221,
+        "source": "EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, strength);"
+      },
+      {
+        "line": 230,
+        "source": "EntityNukeTorex.statFacBale(this.world, posX, posY, posZ, strength);"
+      },
+      {
+        "line": 234,
+        "source": "EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, strength);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityMissileTier4.java",
+    "sha256": "778673fc3885c585c767bc1c164feb5290710d7ef3dcb6dbafe80826678eee34",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 70,
+        "source": "EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, BombConfig.missileRadius);"
+      },
+      {
+        "line": 81,
+        "source": "EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, BombConfig.missileRadius * 2);"
+      },
+      {
+        "line": 112,
+        "source": "EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, BombConfig.missileRadius * 2);"
+      },
+      {
+        "line": 125,
+        "source": "EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, BombConfig.missileRadius);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBehemoth.java",
+    "sha256": "9d43b8ae5067ee512d39f68aaf33cb8b013d6e60c358fad5a2685788a6f5655c",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.projectile.EntityChemical;"
+      },
+      {
+        "line": 91,
+        "source": "EntityChemical chem = new EntityChemical(this.world, this, 0, 0, 0);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+    "sha256": "a5e3baf54787788bb244109717c6c256dff2d90310f25532556bd30ca7cf885b",
+    "references": [
+      {
+        "line": 47,
+        "source": "public class EntityChemical extends EntityThrowableNT {"
+      },
+      {
+        "line": 63,
+        "source": "public EntityChemical(World world) {"
+      },
+      {
+        "line": 69,
+        "source": "public EntityChemical(World world, EntityLivingBase thrower, double sideOffset, double heightOffset, double frontOffset) {"
+      },
+      {
+        "line": 80,
+        "source": "public EntityChemical setFluid(FluidType fluid) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(10, new Integer(0))",
+      "this.dataWatcher.updateObject(10, fluid.getID())",
+      "this.dataWatcher.getWatchableObjectInt(10)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityFallingNuke.java",
+    "sha256": "586fc06ba1ccc97a1c34208612042ed7e7789f0d371662c6fd5161e730bb690e",
+    "references": [
+      {
+        "line": 13,
+        "source": "public class EntityFallingNuke extends EntityThrowable {"
+      },
+      {
+        "line": 23,
+        "source": "public EntityFallingNuke(World p_i1582_1_) {"
+      },
+      {
+        "line": 29,
+        "source": "public EntityFallingNuke(World p_i1582_1_, float tnt, float nuke, float hydro, float amat, float dirty, float schrab, float euph) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(20, Byte.valueOf((byte)0))"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/atmosphere/AtmosphereBlob.java",
+    "sha256": "913f81d39961a9aa3752a8536ceb2a2d779520085e64197377eb64c8ab86e3c6",
+    "references": [
+      {
+        "line": 18,
+        "source": "import com.hbm.entity.effect.EntityDepress;"
+      },
+      {
+        "line": 363,
+        "source": "EntityDepress depress = new EntityDepress(world, dir.getOpposite(), 20);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+    "sha256": "7ee7f95eb2d2516276e42cf40685d90c047c7c931339263aaac5194096068215",
+    "references": [
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 266,
+        "source": "EntityNukeTorex.statFacStandard(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, BombConfig.missileRadius);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryFolly.java",
+    "sha256": "587036e20f206f90719cbd21d3b60bfbdbffe353a57d96105797f13a823e7cbb",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 96,
+        "source": "EntityNukeTorex.statFacStandard(bullet.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, 100);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/impl/ItemGunChemthrower.java",
+    "sha256": "409ab91ce8f3684a8050e08974c5ac514c9ce5ebe3c3e2101ec79d69acb69a34",
+    "references": [
+      {
+        "line": 6,
+        "source": "import com.hbm.entity.projectile.EntityChemical;"
+      },
+      {
+        "line": 94,
+        "source": "EntityChemical chem = new EntityChemical(entity.world, entity, sideOffset, heightOffset, forwardOffset);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "references": [
+      {
+        "line": 58,
+        "source": "import com.hbm.render.entity.RenderEmpty;"
+      },
+      {
+        "line": 737,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityFallingNuke.class, new RenderFallingNuke());"
+      },
+      {
+        "line": 745,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityWaterSplash.class, renderManager -> new RenderEmpty(renderManager));"
+      },
+      {
+        "line": 746,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityEMP.class, renderManager -> new RenderEmpty(renderManager));"
+      },
+      {
+        "line": 755,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityChemical.class, renderManager -> new RenderChemical(renderManager));"
+      },
+      {
+        "line": 810,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityRideableRocketDummy.class, renderManager -> new RenderEmpty(renderManager));"
+      },
+      {
+        "line": 856,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityNukeTorex.class, renderManager -> new RenderTorex(renderManager));"
+      },
+      {
+        "line": 864,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(SeatDummyEntity.class, renderManager -> new RenderEmpty(renderManager));"
+      },
+      {
+        "line": 865,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(BoundingBoxDummyEntity.class, renderManager -> new RenderEmpty(renderManager));"
+      },
+      {
+        "line": 925,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityDepress.class, renderManager -> new RenderEmpty(renderManager));"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/RenderEmpty.java",
+    "sha256": "1c43b1a8facf14fea52b8e8bf440d1efc5f694fcd4ac35776f349c4a61fd38d7",
+    "references": [
+      {
+        "line": 8,
+        "source": "public class RenderEmpty extends Render {"
+      },
+      {
+        "line": 10,
+        "source": "public RenderEmpty(RenderManager renderManager) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/effect/RenderTorex.java",
+    "sha256": "76e5e2b9f15752bbe41833b8d2abdc0f15ab2ab82ff087ce333fa9f6d995f46d",
+    "references": [
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex.Cloudlet;"
+      },
+      {
+        "line": 26,
+        "source": "public class RenderTorex extends Render {"
+      },
+      {
+        "line": 28,
+        "source": "public RenderTorex(RenderManager renderManager) {"
+      },
+      {
+        "line": 42,
+        "source": "EntityNukeTorex cloud = (EntityNukeTorex)entity;"
+      },
+      {
+        "line": 72,
+        "source": "private void cloudletWrapper(EntityNukeTorex cloud, float interp) {"
+      },
+      {
+        "line": 109,
+        "source": "private void flashWrapper(EntityNukeTorex cloud, float interp) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderChemical.java",
+    "sha256": "60aea99fa48386b4c54d82675489a6434e263d31f1f7c20355ac795dbd099bec",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.projectile.EntityChemical;"
+      },
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.projectile.EntityChemical.ChemicalStyle;"
+      },
+      {
+        "line": 20,
+        "source": "public class RenderChemical extends Render {"
+      },
+      {
+        "line": 22,
+        "source": "public RenderChemical(RenderManager renderManager) {"
+      },
+      {
+        "line": 34,
+        "source": "EntityChemical chem = (EntityChemical) entity;"
+      },
+      {
+        "line": 53,
+        "source": "private void renderGasFire(EntityChemical chem, float interp) {"
+      },
+      {
+        "line": 83,
+        "source": "private void renderGasCloud(EntityChemical chem, float interp) {"
+      },
+      {
+        "line": 118,
+        "source": "private void renderAmatBeam(EntityChemical chem, float interp) {"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java",
+    "sha256": "28cccae8270bd32e02fb92070a6d3625f3fd5f28055b029721c4110c02af8413",
+    "references": [
+      {
+        "line": 13,
+        "source": "public class RenderFallingNuke extends Render {"
+      },
+      {
+        "line": 19,
+        "source": "public RenderFallingNuke() {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "p_76986_1_.getDataWatcher().getWatchableObjectByte(20)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java",
+    "sha256": "793ae5b331b2bc2f3654ae8afb89eabd9101d458b54f5aa164a1da7bc045549d",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 129,
+        "source": "EntityNukeTorex.startFacAnti(this.world, this.pos.getX() + 0.5, this.pos.getY() + 5, this.pos.getZ() + 0.5, 1000);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java",
+    "sha256": "53fa7ec40857aff2723555ed73d55038049e87a04ab3aea92292fdeddbf4f41e",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 124,
+        "source": "EntityNukeTorex.statFacBale(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 250);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java",
+    "sha256": "e732b10f06c39105159fe84ffb5e204816c10b11c5d6655bff7d81c3029d0f05",
+    "references": [
+      {
+        "line": 13,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 420,
+        "source": "EntityNukeTorex.startFacAnti(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat * 1.5F);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineOrbus.java",
+    "sha256": "77d216d3ff7194a1dd1454bfda66bdabef95ac58fa09f652741bcff5d85f6569",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.effect.EntityNukeTorex;"
+      },
+      {
+        "line": 100,
+        "source": "EntityNukeTorex.startFacAnti(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat * 1.5F);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  }
+]

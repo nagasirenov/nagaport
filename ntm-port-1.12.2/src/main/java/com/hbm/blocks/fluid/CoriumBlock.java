@@ -105,7 +105,7 @@ public class CoriumBlock extends BlockFluidClassic {
 	}
 
 	@Override
-	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {
+	public boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return false;
 	}
 }

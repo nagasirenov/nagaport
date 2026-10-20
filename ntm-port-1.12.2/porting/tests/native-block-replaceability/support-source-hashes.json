@@ -1,0 +1,10 @@
+{
+  "src/main/java/com/hbm/world/WorldBlockState.java": "554240513caba36cf5d1ab87850ba194967ead30fa25472393533dbdfb9dc718",
+  "src/main/java/com/hbm/world/WorldAirRemoval.java": "45875ef1517caf57a3baccf04c99bd0036e3a37cdfaeffe5e1ee81267c798141",
+  "src/main/java/com/hbm/lib/ForgeDirection.java": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
+  "src/main/java/com/hbm/blocks/generic/BlockLayering.java": "9366ae65ddc4049e73966edf53cec1e8d45bd53ca512d3c06daba7cc573b6417",
+  "src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java": "066717a6b81112a66c7f18df9f17d289f484cb9c12680aac635add29a0bc118d",
+  "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java": "c4244ca5683cb8e51c139b7e5b0116fdf2ec5deda57df09fd69d9a35f3e41e00",
+  "src/main/java/com/hbm/tileentity/TileEntityLoadedBase.java": "b3853d47d40045826978c19c70ba803b71b81bb63b066bf16b07b88761491cc3",
+  "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineOilWell.java": "d29aa8f5507dc4acf034748b284fc00698225de55de4e884afaf423920a874ea"
+}

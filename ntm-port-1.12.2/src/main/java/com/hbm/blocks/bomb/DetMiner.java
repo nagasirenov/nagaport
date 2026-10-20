@@ -33,7 +33,7 @@ public class DetMiner extends BlockPillar implements IBomb, IFuckingExplode {
 
 		if(!world.isRemote) {
 
-			world.func_147480_a(x, y, z, false);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 			ExplosionNT explosion = new ExplosionNT(world, null, x + 0.5, y + 0.5, z + 0.5, 4);
 			explosion.atttributes.add(ExAttrib.ALLDROP);
 			explosion.atttributes.add(ExAttrib.NOHURT);

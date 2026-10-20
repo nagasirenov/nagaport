@@ -1,0 +1,222 @@
+[
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/basalt.png",
+    "sha256": "b5fa11bc2847618786dd98ba60cd11132073c59b212d7769df3061f7d0bc2412",
+    "original_sha256": "b5fa11bc2847618786dd98ba60cd11132073c59b212d7769df3061f7d0bc2412",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/basalt_top.png",
+    "sha256": "bf4284b5263980b9706a7520aafb3d2e575543df7f6b6b776db6d2a48849041a",
+    "original_sha256": "bf4284b5263980b9706a7520aafb3d2e575543df7f6b6b776db6d2a48849041a",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_smore_side.png",
+    "sha256": "81ee99ccc5c9fb4085d1b42019d698e7df8f0f895bc0202866069d8b96c4acc3",
+    "original_sha256": "81ee99ccc5c9fb4085d1b42019d698e7df8f0f895bc0202866069d8b96c4acc3",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_smore_top.png",
+    "sha256": "5dd4165e689d1e39b8ba61993b913b3f5d386114eb5cfeb9ef8942f0a905a8a2",
+    "original_sha256": "5dd4165e689d1e39b8ba61993b913b3f5d386114eb5cfeb9ef8942f0a905a8a2",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_forgotten.png",
+    "sha256": "f9ca4d775ce5ba420f0e97592d032544a01856f571e6341cb473407290c2606b",
+    "original_sha256": "f9ca4d775ce5ba420f0e97592d032544a01856f571e6341cb473407290c2606b",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_forgotten_top.png",
+    "sha256": "5ec3e736c30b01f062f74f05f4b8ec2f2427dab0cd9a3b57392334230aa1b591",
+    "original_sha256": "5ec3e736c30b01f062f74f05f4b8ec2f2427dab0cd9a3b57392334230aa1b591",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/fusion_heater_side.png",
+    "sha256": "213a7aada6e835e5a4404195f156f7623b9cb6298a70a78d7a66b148e7ea4f09",
+    "original_sha256": "213a7aada6e835e5a4404195f156f7623b9cb6298a70a78d7a66b148e7ea4f09",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/fusion_heater_top.png",
+    "sha256": "a5d8bfca75ecf4ce27d30365d5bc9c8dd8cf0ff9ae2e8070b8bcad757b67c469",
+    "original_sha256": "a5d8bfca75ecf4ce27d30365d5bc9c8dd8cf0ff9ae2e8070b8bcad757b67c469",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/gneiss_chiseled.png",
+    "sha256": "ee3a2c4c58352b739833c7e22aac189c66b910ac9994a793e057bae9e0c9f70d",
+    "original_sha256": "ee3a2c4c58352b739833c7e22aac189c66b910ac9994a793e057bae9e0c9f70d",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/gneiss_tile.png",
+    "sha256": "09abae329cc0d195584841947a6e83cbe89c84b0b2e421a7bd12d8adcd361d59",
+    "original_sha256": "09abae329cc0d195584841947a6e83cbe89c84b0b2e421a7bd12d8adcd361d59",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor_power.png",
+    "sha256": "46c5926b4d7d0d13ba0f1a39b3fc797683d9e91642cf137153fcde7942892676",
+    "original_sha256": "46c5926b4d7d0d13ba0f1a39b3fc797683d9e91642cf137153fcde7942892676",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor_spawner_side.png",
+    "sha256": "671743321d7cfc99a5b4ec1549632dbe54bdc5bc0248224050ed09e1958679f1",
+    "original_sha256": "671743321d7cfc99a5b4ec1549632dbe54bdc5bc0248224050ed09e1958679f1",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/pwr_channel_side.png",
+    "sha256": "34a88ca2a734027737e6db72c468986d9d86a244d539ff059593dcae6669b6ad",
+    "original_sha256": "34a88ca2a734027737e6db72c468986d9d86a244d539ff059593dcae6669b6ad",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/pwr_channel_top.png",
+    "sha256": "faa13b00bb4842d5946e3a0d2b7be81711bbd308269a0c6fdd645300c091e12e",
+    "original_sha256": "faa13b00bb4842d5946e3a0d2b7be81711bbd308269a0c6fdd645300c091e12e",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/pwr_control_side.png",
+    "sha256": "2e32ca2f0608e2d980e8057b22da3f5e0a45330f2803e6902be56ecad4325059",
+    "original_sha256": "2e32ca2f0608e2d980e8057b22da3f5e0a45330f2803e6902be56ecad4325059",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/pwr_control_top.png",
+    "sha256": "c2ddb56871e4642eaca560696f89b59bfb63ef9fcb764bb28e21ee8c1547e776",
+    "original_sha256": "c2ddb56871e4642eaca560696f89b59bfb63ef9fcb764bb28e21ee8c1547e776",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/pwr_fuel_side.png",
+    "sha256": "a027bdff492907dc9fa5c642d1368ecfeeede9d9cc62e0b80ee05b5d7e1d520d",
+    "original_sha256": "a027bdff492907dc9fa5c642d1368ecfeeede9d9cc62e0b80ee05b5d7e1d520d",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/pwr_fuel_top.png",
+    "sha256": "bfaedb23da5d7561f9f9f68622b7b3f7327b7f800ea28eb2192ca6822bac05a9",
+    "original_sha256": "bfaedb23da5d7561f9f9f68622b7b3f7327b7f800ea28eb2192ca6822bac05a9",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/watz_cooler_side.png",
+    "sha256": "47798e4cf446cda8769835ff4cc7d57810bff0a6c146a6cd8cb1a065316c67bc",
+    "original_sha256": "47798e4cf446cda8769835ff4cc7d57810bff0a6c146a6cd8cb1a065316c67bc",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/watz_cooler_top.png",
+    "sha256": "5bb0b5d6f47189161e68548e446f1937c95a450ce1a887c7815d52944fc11de0",
+    "original_sha256": "5bb0b5d6f47189161e68548e446f1937c95a450ce1a887c7815d52944fc11de0",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/watz_element_side.png",
+    "sha256": "a2698068fed8de1bb7e0ca3c67125a32c21c2021bfd3809cea8b6243d8300be1",
+    "original_sha256": "a2698068fed8de1bb7e0ca3c67125a32c21c2021bfd3809cea8b6243d8300be1",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/watz_element_top.png",
+    "sha256": "c02a6048a2a210e479a2fa4380bfa1b3b68865070c1b087f46fdcdaf8689d47a",
+    "original_sha256": "c02a6048a2a210e479a2fa4380bfa1b3b68865070c1b087f46fdcdaf8689d47a",
+    "dimensions": [
+      16,
+      16
+    ],
+    "mcmeta": false
+  }
+]

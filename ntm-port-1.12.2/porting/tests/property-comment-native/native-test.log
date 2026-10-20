@@ -1,0 +1,14 @@
+PASS: 27 exact native Property substitutions; three full-file inverses; 32 source mutants rejected
+PASS native: 742 assertions; 21 native configuration files saved/reloaded
+PASS legacy: 742 assertions; 21 native configuration files saved/reloaded
+PASS native: 742 assertions; 21 native configuration files saved/reloaded
+PASS: native setter and native direct-field oracle match all 21 saved files and every snapshot byte
+PASS: legacy 1614 and native 2768 match all 21 saved files and value/default/comment/bounds/pre-save/reload snapshots
+LIMIT: 198 post-save Property changed flags differ only because native save clears them; legacy save does not
+PASS: native compiler rejects exactly 27 legacy private Property.comment writes
+PASS: genuine native setter bytecode is exactly aload_0, aload_1, putfield comment, return
+PASS: complete migrated owners emit exactly 27 real Property.setComment invocations
+PASS runtime mutant rejected: omit-helper-comment
+PASS runtime mutant rejected: corrupt-literal-comment
+PASS runtime mutant rejected: alter-helper-return
+PASS runtime mutant rejected: alter-radius-default

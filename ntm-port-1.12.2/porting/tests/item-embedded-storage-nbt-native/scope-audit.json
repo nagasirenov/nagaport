@@ -1,0 +1,120 @@
+{
+  "base": "d5ef20a8f1cb65fbd06faa86a4901870c8bab3f2",
+  "baseline_loader_calls": 30,
+  "selected_loader_calls": 8,
+  "remaining_loader_calls": 22,
+  "additional_mapping": "ArmorModHandler mods.hasNoTags() -> mods.isEmpty(), one actual NBTTagCompound method rename.",
+  "note": "Finite-scope deferrals are not incompatibility conclusions. Full compile delta must be measured separately.",
+  "owners": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+      "loader_calls": 1,
+      "disposition": "deferred: block-owned loot/display storage, separate owner lifecycle"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "loader_calls": 1,
+      "disposition": "deferred: block-owned loot/display storage, separate owner lifecycle"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+      "loader_calls": 2,
+      "disposition": "selected: item-embedded crate/armor/filter records, original null vacancy/cleanup preserved"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+      "loader_calls": 1,
+      "disposition": "selected: item-embedded crate/armor/filter records, original null vacancy/cleanup preserved"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "loader_calls": 2,
+      "disposition": "deferred: machine/sync/recipe state contracts not proven by this item-owned batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java",
+      "loader_calls": 1,
+      "disposition": "deferred: entity-owned storage/navigation, separate from item-embedded storage batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "loader_calls": 1,
+      "disposition": "deferred: entity-owned storage/navigation, separate from item-embedded storage batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java",
+      "loader_calls": 1,
+      "disposition": "deferred: artillery cargo requires joint setter/synchronization and nullable-record audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/ArmorModHandler.java",
+      "loader_calls": 2,
+      "disposition": "selected: item-embedded crate/armor/filter records, original null vacancy/cleanup preserved"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCBlastFurnace.java",
+      "loader_calls": 3,
+      "disposition": "deferred: external recipe/IMC interchange and fallback semantics need their own bounded audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCCentrifuge.java",
+      "loader_calls": 2,
+      "disposition": "deferred: external recipe/IMC interchange and fallback semantics need their own bounded audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/imc/IMCCrystallizer.java",
+      "loader_calls": 2,
+      "disposition": "deferred: external recipe/IMC interchange and fallback semantics need their own bounded audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/transformer/HazardTransformerRadiationContainer.java",
+      "loader_calls": 1,
+      "disposition": "selected: item-embedded crate/armor/filter records, original null vacancy/cleanup preserved"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "loader_calls": 1,
+      "disposition": "selected: item-embedded crate/armor/filter records, original null vacancy/cleanup preserved"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/ItemAmmoArty.java",
+      "loader_calls": 1,
+      "disposition": "deferred: artillery cargo requires joint setter/synchronization and nullable-record audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutocrafter.java",
+      "loader_calls": 1,
+      "disposition": "deferred: machine/sync/recipe state contracts not proven by this item-owned batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "loader_calls": 1,
+      "disposition": "deferred: machine/sync/recipe state contracts not proven by this item-owned batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/albion/TileEntityPASource.java",
+      "loader_calls": 2,
+      "disposition": "deferred: machine/sync/recipe state contracts not proven by this item-owned batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      "loader_calls": 1,
+      "disposition": "deferred: machine/sync/recipe state contracts not proven by this item-owned batch"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretArty.java",
+      "loader_calls": 1,
+      "disposition": "deferred: artillery cargo requires joint setter/synchronization and nullable-record audit"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/ArmorUtil.java",
+      "loader_calls": 1,
+      "disposition": "selected: item-embedded crate/armor/filter records, original null vacancy/cleanup preserved"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/Compat.java",
+      "loader_calls": 1,
+      "disposition": "deferred: compatibility input domain and integer-count override require separate audit"
+    }
+  ]
+}

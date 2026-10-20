@@ -1,0 +1,23 @@
+  public int getArmorDisplay(net.minecraft.entity.player.EntityPlayer, net.minecraft.item.ItemStack, int);
+    Code:
+       0: iload_3
+       1: ifne          6
+       4: iconst_3
+       5: ireturn
+       6: iload_3
+       7: iconst_1
+       8: if_icmpne     14
+      11: bipush        8
+      13: ireturn
+      14: iload_3
+      15: iconst_2
+      16: if_icmpne     22
+      19: bipush        6
+      21: ireturn
+      22: iload_3
+      23: iconst_3
+      24: if_icmpne     29
+      27: iconst_3
+      28: ireturn
+      29: iconst_0
+      30: ireturn

@@ -1,0 +1,496 @@
+{
+  "baseline": "502f0b9dc3cd3e14622edd897fe3c753e309818d",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "before_sha256": "a8422af16fae3ae9d5c8dfcd88ebccb1bcf4f3c98b70dec3d405328186aff15d",
+      "after_sha256": "7eb3c8094aa6927cf8d5993e70718c2a5415668877ed949d91b7d361b6fa9a71",
+      "edits": [
+        {
+          "start": 11205,
+          "end": 11240,
+          "before": "this.thrower.getCommandSenderName()",
+          "after": "this.thrower.getName()",
+          "line": 322,
+          "proof": "EntityPlayer guarded owner persistence"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/CompatExternal.java",
+      "before_sha256": "f80be000f1080141446e828f4525517e90474f4902445e7da0da0ba6a91e13c5",
+      "after_sha256": "a4caa6ddc4120e6d99b17010c03b213d85a2dbf3c1d9c393679e9f40b6388188",
+      "edits": [
+        {
+          "start": 8807,
+          "end": 8836,
+          "before": "entity.getCommandSenderName()",
+          "after": "entity.getName()",
+          "line": 220,
+          "proof": "EntityPlayer.class registered targeting callback"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityDummy.java",
+      "before_sha256": "ffa6fe4e82c1e786f20b91ac2235e573ffdc3a3d2870a9f4efe45da1e5788093",
+      "after_sha256": "7960c78e97197a3322e630c21ab7918051f41b8cc2bcd74adc8b9f2e0b9fed47",
+      "edits": [
+        {
+          "start": 1113,
+          "end": 1149,
+          "before": "public String getCommandSenderName()",
+          "after": "public String getName()",
+          "line": 30,
+          "proof": "health-status virtual override"
+        }
+      ]
+    }
+  ],
+  "census": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+      "line": 236,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockDynamite.java",
+      "line": 24,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFireworks.java",
+      "line": 108,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFissureBomb.java",
+      "line": 53,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockSemtex.java",
+      "line": 24,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockTNT.java",
+      "line": 24,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      "line": 301,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFlameWar.java",
+      "line": 68,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFloat.java",
+      "line": 59,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+      "line": 231,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombThermo.java",
+      "line": 97,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "line": 99,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "line": 226,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+      "line": 60,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+      "line": 59,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 183,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+      "line": 182,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+      "line": 182,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+      "line": 177,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+      "line": 184,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+      "line": 173,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+      "line": 192,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+      "line": 180,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+      "line": 182,
+      "receiver": "player",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "player.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/commands/CommandPacketInfo.java",
+      "line": 46,
+      "receiver": "sender",
+      "receiver_type": "net.minecraft.command.ICommandSender",
+      "before": "sender.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: generic sender/entity dispatch includes unproven custom names and getName collisions"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/commands/CommandPacketInfo.java",
+      "line": 50,
+      "receiver": "sender",
+      "receiver_type": "net.minecraft.command.ICommandSender",
+      "before": "sender.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: generic sender/entity dispatch includes unproven custom names and getName collisions"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "line": 1001,
+      "receiver": "super",
+      "receiver_type": "net.minecraft.entity.Entity",
+      "before": "super.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: minecart null fallback/custom-name channel requires full lifecycle proof"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "line": 1237,
+      "receiver": "super",
+      "receiver_type": "net.minecraft.entity.item.EntityMinecart",
+      "before": "super.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: minecart null fallback/custom-name channel requires full lifecycle proof"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java",
+      "line": 322,
+      "receiver": "this.thrower",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "this.thrower.getCommandSenderName()",
+      "selected": true,
+      "reason": "Selected: runtime player receiver"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "line": 369,
+      "receiver": "entityPlayer",
+      "receiver_type": "net.minecraft.entity.EntityLivingBase",
+      "before": "entityPlayer.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: broad EntityLivingBase may dispatch through custom/fallback semantics"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": 367,
+      "receiver": "event.getEntity()",
+      "receiver_type": "net.minecraft.entity.Entity",
+      "before": "event.getEntity().getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: generic sender/entity dispatch includes unproven custom names and getName collisions"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/packet/toclient/EntityBufPacket.java",
+      "line": 54,
+      "receiver": "entity",
+      "receiver_type": "net.minecraft.entity.Entity",
+      "before": "entity.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: generic sender/entity dispatch includes unproven custom names and getName collisions"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderFolly.java",
+      "line": 255,
+      "receiver": "mop.entityHit",
+      "receiver_type": "net.minecraft.entity.Entity",
+      "before": "mop.entityHit.getCommandSenderName()",
+      "selected": false,
+      "reason": "Excluded: generic sender/entity dispatch includes unproven custom names and getName collisions"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/CompatExternal.java",
+      "line": 220,
+      "receiver": "entity",
+      "receiver_type": "net.minecraft.entity.Entity",
+      "before": "entity.getCommandSenderName()",
+      "selected": true,
+      "reason": "Selected: runtime player receiver"
+    }
+  ],
+  "audit_files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+      "sha256": "f1b243434fd1b0ee723e7bba820d929503e42cca5859815eb209eb6174763f51"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockDynamite.java",
+      "sha256": "6909f9bf8490fa751f49b9e3ddc8a75eb5b6b237c92683c028f97f139a263fad"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFireworks.java",
+      "sha256": "761e5c4a25f670fe1c8535b0810a01a3ee6726cb5d40059e942343d4e7f68462"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFissureBomb.java",
+      "sha256": "e4f667f16b7ff34db5a530d402a5d2aa895b6702a5ec3ebbfe707591832f543e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockSemtex.java",
+      "sha256": "02700abd491bd7a454a605204ebd4804aee3d4d657aff76951a8d3e9f0272aca"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockTNT.java",
+      "sha256": "96f56c0f587e03f32da492dba15ae24a99a73a330145e083a15c8e744a79a979"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      "sha256": "c3d931415af5617835d5b18943fc1b144b76b3b0542f3ef6372f0a3166b757a1"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFlameWar.java",
+      "sha256": "af65199c7aaa71f00320e67fb5fdeb85f5aaf77fb1e0d9fc89dc6645620df699"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFloat.java",
+      "sha256": "79cd42e7941d743596440567aa7d9b70e5534cedad10edab31f0e43851bf0654"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+      "sha256": "55258a9b023747beb9ba2eafa0f6003b4d8b73e2201b980f3ac95ecba0682016"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombThermo.java",
+      "sha256": "301b8a3615058240cf5f11e3ac11695c88fd4f3db82cd77e9bd4731d1c082365"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "sha256": "79fe4de14db028139ee83a51996c795160c3a94eecd0d0a4f55e2750b530d143"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "sha256": "c63513e16a2813446a7195d4acbfcc4851fefa660152f84228a629db0d3afb9d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+      "sha256": "1ecbf9a490d9d58b79281e6db5e677936880c657be0bcef4954d368952c1e715"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+      "sha256": "0ae1f54ec23b07493addf646a3e023169243fa3a7071722c4627afec14500bf0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "sha256": "cb984a0c2b97fdf98c04b6b3cddb8a18aea64f649a1501a5f1edd97229892304"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+      "sha256": "febcb8de3e827eb2a128827f4dd9d4306b8024c531879189c9d11ba5f0516f7e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+      "sha256": "280a4e7fbc64a5f23d314bae5ecf8c5256076e83349b12c21df3fbeac8e972fb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+      "sha256": "e8b5379031ce5facf9450d7b62e918cd5567b217fa84d020ede6b47d4a23bf9c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+      "sha256": "f98c4b847f19beb67522f3d371ae563b75d9f3d3ac3be3897dae8e7bdc982a26"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+      "sha256": "6aa777ab4c2a09c03c8a1a6ec6679a467cd7fba435e285063110e10be384313a"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+      "sha256": "e9887bd3cc6167a4ac035818727a7fe29d521525680b73608ae39a9bab410fe0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+      "sha256": "85cddecebff4841733258c4bed43fdd0e5b9de4ecc7c838a201dc9d13b9a21a0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+      "sha256": "cd2002d84da0ecf29000a59b6261939d0b3a68f81ce295109a1b15fe026d077e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/commands/CommandPacketInfo.java",
+      "sha256": "3fb91c390383d17faf25698f2771122b3985379d379f4d0d4ef6559e661969d7"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "sha256": "44a5c2d1cce0c532c247c2a1e95f96b8019af4716761eb642dee832ba259b1ef"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "sha256": "99f9c24408a98cedff808af69786dde93cb049ea7209af00043ec8bd28dbbc9c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartTest.java",
+      "sha256": "f8cbaf24dddf7f5105b8390c1548bb3e7dcf3cf9b8e3411a27e1d098ba94bc1e"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarCargo.java",
+      "sha256": "e51c7a230d756fea73a7b66a62d34b08b6ab60d2c4fd212c4896998a2599654b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "sha256": "efdeca8e5f11419e3ed9135fedeef663e53823b46521134931f0600c4269f2c5"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "sha256": "2d3fe21a7696d69194356951ffb679ce558803e3360ea19b4ea434da7acf3b54"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/packet/toclient/EntityBufPacket.java",
+      "sha256": "b6b9c2964ba7316913619918c506494cea2fb1f008304b12b0f3ff78ccd47d55"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/item/weapon/sedna/ItemRenderFolly.java",
+      "sha256": "7c2a494d4f53b7e7a9dc2929530bd255133901b11bed14991712431c55f201fc"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+      "sha256": "3a14a96198ac6dee7da8f7c8d7bcf5378c2003eaec2395b74ee49bacd92af1c6"
+    }
+  ]
+}

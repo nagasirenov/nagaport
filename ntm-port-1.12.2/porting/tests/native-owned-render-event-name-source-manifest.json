@@ -1,0 +1,1415 @@
+{
+  "baseline": "502f0b9dc3cd3e14622edd897fe3c753e309818d",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockRubberFarm.java": {
+      "before_sha256": "95632e2fcddb53800e1101c1c528595c11ac6501bc03fbfd1566dcb6126d7a19",
+      "after_sha256": "ec1b38d9417f174f663e9d2e1eb19276390df0fc4cd8710f007fb25c0f30e321",
+      "edits": [
+        {
+          "before_offset": 2900,
+          "after_offset": 2900,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.rubber_silt);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3350,
+          "after_offset": 4141,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.rubber_silt);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/RubberGrass.java": {
+      "before_sha256": "dc7dc793cdc1f23db754404ad61b1daecc8fc184567ebcd1cf2a9335293b7c86",
+      "after_sha256": "aedff6ef04e49c20d4cee40c79211833619bd11d2a8e78eeb9d95c51a04cb042",
+      "edits": [
+        {
+          "before_offset": 2016,
+          "after_offset": 2016,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.rubber_silt);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/CrystalVirus.java": {
+      "before_sha256": "e0ad83c4e700898baa76b89f30b8842b7c4e3624168c78dd282ee2ef1661d4d7",
+      "after_sha256": "1b14ee3f569d0fdf290c897a47bbb44aaff07ee688502f690d3b7200f4b0a973",
+      "edits": [
+        {
+          "before_offset": 3587,
+          "after_offset": 3587,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.crystal_hardened);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 6111,
+          "after_offset": 6902,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.crystal_hardened);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java": {
+      "before_sha256": "098e0101367af60405131ef08d9500bbca7e8a1c4fe9f23829b117a215af263c",
+      "after_sha256": "ce95959f7ccfa7b48b1f21cbdf6d371ad2545a13d4f9a8dbefa8672cc2282ef0",
+      "edits": [
+        {
+          "before_offset": 3908,
+          "after_offset": 3908,
+          "old": "\t\t    world.setBlock(x, y, z, ModBlocks.waste_planks);\n",
+          "new": "\t\t    { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java": {
+      "before_sha256": "e74baceae5d8eef9e9150c1a797decddcfcd31fa3f194aaeec104a6a60e1c744",
+      "after_sha256": "42bc8286fac188648676c3ff6877dd4ade82ed19eeff84da33dfc116bca462a8",
+      "edits": [
+        {
+          "before_offset": 3437,
+          "after_offset": 3437,
+          "old": "\t\tif(r < 2) world.setBlock(x, y, z, ModBlocks.ore_basalt, 0, 3);\n\t\telse if(r == 2) world.setBlock(x, y, z, ModBlocks.ore_basalt, 1, 3);\n\t\telse if(r == 3) world.setBlock(x, y, z, ModBlocks.ore_basalt, 2, 3);\n\t\telse if(r == 4) world.setBlock(x, y, z, ModBlocks.ore_basalt, 4, 3);\n\t\telse if(r < 15 && canMakeGem) world.setBlock(x, y, z, ModBlocks.ore_basalt, 3, 3);\n",
+          "new": "\t\tif(r < 2) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n\t\telse if(r == 2) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 1; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n\t\telse if(r == 3) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 2; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n\t\telse if(r == 4) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 4; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n\t\telse if(r < 15 && canMakeGem) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 3; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBallsSpawner.java": {
+      "before_sha256": "230684d95b0f182421856ec29cc0c6f60b64a95888f3c74692c45688eaf90fb9",
+      "after_sha256": "ad24ff71612c9e7298410ec6a12b1cd7a94226f6fc0707a39d66b79b68e720e0",
+      "edits": [
+        {
+          "before_offset": 1038,
+          "after_offset": 1038,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.brick_jungle_cracked);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_cracked; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": {
+      "before_sha256": "dd79da3b73895f793cb35451f56d4c02e081fe69a523741249b9cb1d59db4f97",
+      "after_sha256": "7a41e94a3a8100b602231266248eae1d526dc4bf40ce7067daef3e548175be3d",
+      "edits": [
+        {
+          "before_offset": 6994,
+          "after_offset": 6994,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 7155,
+          "after_offset": 7940,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.plant_tall, EnumTallFlower.WEED.ordinal(), 3);\n\t\t\tworld.setBlock(x, y + 1, z, ModBlocks.plant_tall, EnumTallFlower.WEED.ordinal() + 8, 3);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.WEED.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y + 1; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.WEED.ordinal() + 8; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 7542,
+          "after_offset": 9897,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.plant_tall, EnumTallFlower.CD2.ordinal(), 3);\n\t\t\tworld.setBlock(x, y + 1, z, ModBlocks.plant_tall, EnumTallFlower.CD2.ordinal() + 8, 3);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.CD2.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y + 1; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.CD2.ordinal() + 8; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMSand.java": {
+      "before_sha256": "d481b0a4a3a04bcabbdf07316dcd506be709cc11047bacc05c61625cbfb7c63e",
+      "after_sha256": "f3e5adeb54774fa554a1b14cff7bf31fbde12082536ab8d6b901c6bb57af8ce6",
+      "edits": [
+        {
+          "before_offset": 1891,
+          "after_offset": 1891,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, this);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = this; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": {
+      "before_sha256": "6aa0d041238ced71a290270af9e29ad5ea7ec58120782e8ce5de85d0026cf6fa",
+      "after_sha256": "4daa5ab4c8ca0af2401a8f979398fd5c66ee1eda71ce94df6fc6588c2ecb1657",
+      "edits": [
+        {
+          "before_offset": 5593,
+          "after_offset": 5593,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.block_meteor_cobble);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.block_meteor_cobble; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before_sha256": "1dcfffec1a11e430e3e2787b698896212191c3715c46f51bde30e576a4418682",
+      "after_sha256": "5803106864d55b9cb46e5d3c9317140c053e1076ac1cb78f5aa78b26a4c1ba4e",
+      "edits": [
+        {
+          "before_offset": 8754,
+          "after_offset": 8754,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.plant_dead, EnumDeadPlantType.BIGFLOWER.ordinal(), 3);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.BIGFLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockUberConcrete.java": {
+      "before_sha256": "85588a777a1779ac5d6a0d117ad77bcdeef85b6c2f9ae3acec948e1393656849",
+      "after_sha256": "52d3b2d82da38324d1b823aa3eae3e967418bb8bf859a7aa75dd76fa4d62337b",
+      "edits": [
+        {
+          "before_offset": 2050,
+          "after_offset": 2050,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.concrete_super_broken);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.concrete_super_broken; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3001,
+          "after_offset": 3792,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.concrete_super_broken);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.concrete_super_broken; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/TrappedBrick.java": {
+      "before_sha256": "d0f8c79c64eb4da3666e9f44c3c1c884ffa19dc77c593ebc7f95a08c1d08b513",
+      "after_sha256": "072f8a8bff2f2d02b6f24aca100ecb14a042f719ba0da32e95c8f4d1ce34ca0f",
+      "edits": [
+        {
+          "before_offset": 4526,
+          "after_offset": 4526,
+          "old": "\t\t\t\t\t\t\tworld.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_ooze);\n",
+          "new": "\t\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_ooze; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 5045,
+          "after_offset": 5836,
+          "old": "\t\t\t\t\t\t\tworld.setBlock(x + a, y + b, z + c, ModBlocks.brick_jungle_mystic);\n",
+          "new": "\t\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_mystic; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 5493,
+          "after_offset": 7075,
+          "old": "\t\tworld.setBlock(x, y, z, ModBlocks.brick_jungle);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/WorldGenRubberPlant.java": {
+      "before_sha256": "165dd03634891f520d81036f65e43581daafc70fa6362dcaaadcb28c5ded3174",
+      "after_sha256": "b2f1ad66ad298e6d45d2f26610faac2ac461b7ad6e894226ff398c3870fad270",
+      "edits": [
+        {
+          "before_offset": 1327,
+          "after_offset": 1327,
+          "old": "\t\t\t\tworld.setBlock(px, py, pz, ModBlocks.rubber_plant, plantType, 2);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = plantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 2618,
+          "after_offset": 3403,
+          "old": "\t\t\t\t\t\tworld.setBlock(px, py, pz, ModBlocks.rubber_plant, OtherplantType, 2);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = OtherplantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityDummy.java": {
+      "before_sha256": "ffa6fe4e82c1e786f20b91ac2235e573ffdc3a3d2870a9f4efe45da1e5788093",
+      "after_sha256": "7960c78e97197a3322e630c21ab7918051f41b8cc2bcd74adc8b9f2e0b9fed47",
+      "edits": [
+        {
+          "before_offset": 1102,
+          "after_offset": 1102,
+          "old": "\t@Override public String getCommandSenderName() {\n",
+          "new": "\t@Override public String getName() {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "fa821e2db4392a3d7a74ab84054e7ca8486ded815791d7663e499deb49e364da",
+      "after_sha256": "e798ede3a5bb21088ff85ea71fe247009445bb27e3d20b0b52b4ca2351c20f16",
+      "edits": [
+        {
+          "before_offset": 18955,
+          "after_offset": 18955,
+          "old": "\t\t\t\t\tif(block == ModBlocks.brick_concrete) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy);\n",
+          "new": "\t\t\t\t\tif(block == ModBlocks.brick_concrete) { net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_concrete_mossy; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityThrowableNT.java": {
+      "before_sha256": "a8422af16fae3ae9d5c8dfcd88ebccb1bcf4f3c98b70dec3d405328186aff15d",
+      "after_sha256": "7eb3c8094aa6927cf8d5993e70718c2a5415668877ed949d91b7d361b6fa9a71",
+      "edits": [
+        {
+          "before_offset": 11183,
+          "after_offset": 11183,
+          "old": "\t\t\tthis.throwerName = this.thrower.getCommandSenderName();\n",
+          "new": "\t\t\tthis.throwerName = this.thrower.getName();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionChaos.java": {
+      "before_sha256": "b60d93b1cf2206c73005675c973065fdf7a270592b1b9caf02fe91c37bf0058d",
+      "after_sha256": "2ac32f5cd26969c5792254b747d35ffd2bd74580dccebbfd1181b2df7e3ea5eb",
+      "edits": [
+        {
+          "before_offset": 2117,
+          "after_offset": 2117,
+          "old": "\t\t\t\t\t\t\tworld.setBlock(X, Y, Z, ModBlocks.crystal_hardened);\n",
+          "new": "\t\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = X; int nativeRegisteredWriteY = Y; int nativeRegisteredWriteZ = Z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionNukeGeneric.java": {
+      "before_sha256": "74fcd86a6a9bde515409c606aec8334dfa372cab6e4089562287a541d6c95334",
+      "after_sha256": "7f812e6a261baf4a4149abb2ae6a7bc4ff26cc312080b21adbb1858d0cb0bcf3",
+      "edits": [
+        {
+          "before_offset": 5374,
+          "after_offset": 5374,
+          "old": "\t\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_planks, 0, 3);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 12320,
+          "after_offset": 13105,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_trinitite);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 12504,
+          "after_offset": 14080,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_trinitite_red);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite_red; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 17868,
+          "after_offset": 20235,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_planks);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 18334,
+          "after_offset": 21492,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.ore_nether_schrabidium);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_nether_schrabidium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 18627,
+          "after_offset": 22576,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.ore_gneiss_schrabidium);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_gneiss_schrabidium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 21300,
+          "after_offset": 26040,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_trinitite);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 21484,
+          "after_offset": 27015,
+          "old": "\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_trinitite_red);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_trinitite_red; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 25218,
+          "after_offset": 31540,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_planks);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionThermo.java": {
+      "before_sha256": "e8cbe7c7a5f4c954f3dd1ff1b4337084747a67cf3a638ad8138d0a5a2d020637",
+      "after_sha256": "77e10bbcdd5461b8ee3b3bd19632c744c71929ad30a2053b82e250eaf4917d80",
+      "edits": [
+        {
+          "before_offset": 4683,
+          "after_offset": 4683,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.frozen_dirt);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.frozen_dirt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 4949,
+          "after_offset": 5740,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.frozen_planks);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.frozen_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 5147,
+          "after_offset": 6729,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.frozen_planks);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.frozen_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 16399,
+          "after_offset": 18772,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_planks);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 16491,
+          "after_offset": 19655,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_planks);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 28521,
+          "after_offset": 32476,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_planks);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 28613,
+          "after_offset": 33359,
+          "old": "\t\t\tworld.setBlock(x, y, z, ModBlocks.waste_planks);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionTom.java": {
+      "before_sha256": "65da46eebf79f9d311fb2910db00a7ce6e845fe04ca2b62d8da8b71f0722801b",
+      "after_sha256": "d07138b0a432584009d082f72ccd4f4fae5e8ec190d74e565619665e6c90ae07",
+      "edits": [
+        {
+          "before_offset": 3839,
+          "after_offset": 3839,
+          "old": "\t\t\t\t\t\tworldObj.setBlock(pX, y, pZ, ModBlocks.ore_tektite_osmiridium, 0, 2);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = worldObj; int nativeRegisteredWriteX = pX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = pZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_tektite_osmiridium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3929,
+          "after_offset": 4714,
+          "old": "\t\t\t\t\t\tworldObj.setBlock(pX, y, pZ, ModBlocks.tektite, 0, 2);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = worldObj; int nativeRegisteredWriteX = pX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = pZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.tektite; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModGasmask.java": {
+      "before_sha256": "8f39add764b8f58276ae5e93f5005c78d96a25f2196645c953673dea26427faa",
+      "after_sha256": "854b78c15f6e0699cc86072d50775a67c7471b899914ce8f14abb73638f29127",
+      "edits": [
+        {
+          "before_offset": 2392,
+          "after_offset": 2392,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 2614,
+          "after_offset": 2619,
+          "old": "\t\tfloat interp = event.partialRenderTick;\n",
+          "new": "\t\tfloat interp = event.getPartialRenderTick();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java": {
+      "before_sha256": "a8c261355eda2df86ff9b837c9eaa71cdc591fcab79480b9ba6650d081be5cad",
+      "after_sha256": "6120382a61b552607466739bfaebe198cbe2bfba438f712cb35430e722645653",
+      "edits": [
+        {
+          "before_offset": 3183,
+          "after_offset": 3183,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 3800,
+          "after_offset": 3805,
+          "old": "\t\tfloat interp = event.partialRenderTick;\n",
+          "new": "\t\tfloat interp = event.getPartialRenderTick();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModTesla.java": {
+      "before_sha256": "672759fcb49a3c92af3804f3b203069f2769146fe956eb8642bf99549eb5597d",
+      "after_sha256": "12f118443e82189761f75f38a4c45c3fd37b8a55ecfb2324bf986e333de8dd3e",
+      "edits": [
+        {
+          "before_offset": 2113,
+          "after_offset": 2113,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 2341,
+          "after_offset": 2346,
+          "old": "\t\tfloat interp = event.partialRenderTick;\n",
+          "new": "\t\tfloat interp = event.getPartialRenderTick();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBase.java": {
+      "before_sha256": "2768a56a3e798f21c4ef0f7464707754b562cf7a688c5f9bec0a6eff95896432",
+      "after_sha256": "b858a00c48613437f8a1cee9a12eb50c71fadf360710e272f1ef5869cc6904ed",
+      "edits": [
+        {
+          "before_offset": 1990,
+          "after_offset": 1990,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 2162,
+          "after_offset": 2167,
+          "old": "\t\tfloat interp = event.partialRenderTick;\n",
+          "new": "\t\tfloat interp = event.getPartialRenderTick();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandD.java": {
+      "before_sha256": "cc70312322190d0d5a53a2037ca760b1fe9def7f5976d18f6b16c4dd285062bc",
+      "after_sha256": "ce2216a6f1d1d8a483cb89f561cd65267c0cde78a8dcb90260fdb3969ed35cf7",
+      "edits": [
+        {
+          "before_offset": 4137,
+          "after_offset": 4137,
+          "old": "\t\t\tworld.setBlock(MathHelper.floor(player.posX), MathHelper.floor(player.posY) - 1, MathHelper.floor(player.posZ), ModBlocks.concrete);\r\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = MathHelper.floor(player.posX); int nativeRegisteredWriteY = MathHelper.floor(player.posY) - 1; int nativeRegisteredWriteZ = MathHelper.floor(player.posZ); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.concrete; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": {
+      "before_sha256": "50e1bcb8f08033e10e729e1e486360b28cd371a70ef39683d4e66beda320108a",
+      "after_sha256": "10a6209395c369ac983f3fdcdeadf80395decebc6b0ee8cc2df9a49be85be811",
+      "edits": [
+        {
+          "before_offset": 6296,
+          "after_offset": 6296,
+          "old": "\t\t\t\t\telse bullet.world.setBlock(ix, iy, iz, ModBlocks.block_foam);\n",
+          "new": "\t\t\t\t\telse { net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.block_foam; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 8433,
+          "after_offset": 9224,
+          "old": "\t\t\t\t\telse bullet.world.setBlock(ix, iy, iz, ModBlocks.sand_mix, EnumSandType.BORON.ordinal(), 3);\n",
+          "new": "\t\t\t\t\telse { net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.sand_mix; int nativeRegisteredWriteMeta = EnumSandType.BORON.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ClientProxy.java": {
+      "before_sha256": "21016a7aefb86b6ad1812096aee965dc07002f4f9d4bc69371ab6fdfe1381d1c",
+      "after_sha256": "c4d91846df1aadac34fb08bcc8e2eda1a549d5443719a8205c388995e81b638c",
+      "edits": [
+        {
+          "before_offset": 54198,
+          "after_offset": 54198,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderRocket());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, renderManager -> new RenderRocket(renderManager));\n"
+        },
+        {
+          "before_offset": 54781,
+          "after_offset": 54811,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityExplosiveBeam.class, new RenderBeam5());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityExplosiveBeam.class, renderManager -> new RenderBeam5(renderManager));\n"
+        },
+        {
+          "before_offset": 55009,
+          "after_offset": 55069,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBombletZeta.class, new RenderBombletTheta());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBombletZeta.class, renderManager -> new RenderBombletTheta(renderManager));\n"
+        },
+        {
+          "before_offset": 56097,
+          "after_offset": 56187,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFallingNuke.class, new RenderFallingNuke());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFallingNuke.class, renderManager -> new RenderFallingNuke(renderManager));\n"
+        },
+        {
+          "before_offset": 56576,
+          "after_offset": 56696,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityChopperMine.class, new RenderChopperMine());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityChopperMine.class, renderManager -> new RenderChopperMine(renderManager));\n"
+        },
+        {
+          "before_offset": 56769,
+          "after_offset": 56919,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityShrapnel.class, new RenderShrapnel());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFireworks.class, new RenderShrapnel());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityShrapnel.class, renderManager -> new RenderShrapnel(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFireworks.class, renderManager -> new RenderShrapnel(renderManager));\n"
+        },
+        {
+          "before_offset": 58120,
+          "after_offset": 58330,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCoin.class, new RenderCoin());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCoin.class, renderManager -> new RenderCoin(renderManager));\n"
+        },
+        {
+          "before_offset": 72728,
+          "after_offset": 72968,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudFleija.class, new RenderCloudFleija());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudFleijaRainbow.class, new RenderCloudRainbow());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudSolinium.class, new RenderCloudSolinium());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudFleija.class, renderManager -> new RenderCloudFleija(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudFleijaRainbow.class, renderManager -> new RenderCloudRainbow(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityCloudSolinium.class, renderManager -> new RenderCloudSolinium(renderManager));\n"
+        },
+        {
+          "before_offset": 73172,
+          "after_offset": 73502,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFalloutRain.class, new RenderFallout());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBlackHole.class, new RenderBlackHole());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityVortex.class, new RenderBlackHole());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRagingVortex.class, new RenderBlackHole());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityQuasar.class, new RenderQuasar());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDeathBlast.class, new RenderDeathBlast());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityFalloutRain.class, renderManager -> new RenderFallout(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBlackHole.class, renderManager -> new RenderBlackHole(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityVortex.class, renderManager -> new RenderBlackHole(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityRagingVortex.class, renderManager -> new RenderBlackHole(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityQuasar.class, renderManager -> new RenderQuasar(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDeathBlast.class, renderManager -> new RenderDeathBlast(renderManager));\n"
+        },
+        {
+          "before_offset": 74481,
+          "after_offset": 74991,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBoatRubber.class, new RenderBoatRubber());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBoatRubber.class, renderManager -> new RenderBoatRubber(renderManager));\n"
+        },
+        {
+          "before_offset": 77237,
+          "after_offset": 77777,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityHunterChopper.class, new RenderHunterChopper());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityHunterChopper.class, renderManager -> new RenderHunterChopper(renderManager));\n"
+        },
+        {
+          "before_offset": 77731,
+          "after_offset": 78301,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBOTPrimeHead.class, new RenderWormHead());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBOTPrimeBody.class, new RenderWormBody());\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDuck.class, new RenderDuck(new ModelChicken(), 0.3F));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityQuackos.class, new RenderQuacc(new ModelChicken(), 7.5F));\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBOTPrimeHead.class, renderManager -> new RenderWormHead(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityBOTPrimeBody.class, renderManager -> new RenderWormBody(renderManager));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityDuck.class, renderManager -> new RenderDuck(renderManager, new ModelChicken(), 0.3F));\n\t\tRenderingRegistry.registerEntityRenderingHandler(EntityQuackos.class, renderManager -> new RenderQuacc(renderManager, new ModelChicken(), 7.5F));\n"
+        },
+        {
+          "before_offset": 78808,
+          "after_offset": 79502,
+          "old": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeTunneler.class, new RenderSiegeTunneler());\n",
+          "new": "\t\tRenderingRegistry.registerEntityRenderingHandler(EntitySiegeTunneler.class, renderManager -> new RenderSiegeTunneler(renderManager));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "6558647e636775362e8594dae8897f0f34847fcc01fb4e960d4cf454a1b6ad3c",
+      "after_sha256": "3447d70ea229e57d00ecd1e44104f9112fd68c147801be54a811a7b1d04ecccc",
+      "edits": [
+        {
+          "before_offset": 21277,
+          "after_offset": 21277,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 21671,
+          "after_offset": 21676,
+          "old": "\t\t\tfloat pX = (float) (player.prevPosX + (player.posX - player.prevPosX) * (double)event.partialRenderTick);\n\t\t\tfloat pY = (float) (player.prevPosY + (player.posY - player.prevPosY) * (double)event.partialRenderTick);\n\t\t\tfloat pZ = (float) (player.prevPosZ + (player.posZ - player.prevPosZ) * (double)event.partialRenderTick);\n",
+          "new": "\t\t\tfloat pX = (float) (player.prevPosX + (player.posX - player.prevPosX) * (double)event.getPartialRenderTick());\n\t\t\tfloat pY = (float) (player.prevPosY + (player.posY - player.prevPosY) * (double)event.getPartialRenderTick());\n\t\t\tfloat pZ = (float) (player.prevPosZ + (player.posZ - player.prevPosZ) * (double)event.getPartialRenderTick());\n"
+        },
+        {
+          "before_offset": 22052,
+          "after_offset": 22072,
+          "old": "\t\t\tfloat mX = (float) (me.prevPosX + (me.posX - me.prevPosX) * (double)event.partialRenderTick);\n\t\t\tfloat mY = (float) (me.prevPosY + (me.posY - me.prevPosY) * (double)event.partialRenderTick);\n\t\t\tfloat mZ = (float) (me.prevPosZ + (me.posZ - me.prevPosZ) * (double)event.partialRenderTick);\n",
+          "new": "\t\t\tfloat mX = (float) (me.prevPosX + (me.posX - me.prevPosX) * (double)event.getPartialRenderTick());\n\t\t\tfloat mY = (float) (me.prevPosY + (me.posY - me.prevPosY) * (double)event.getPartialRenderTick());\n\t\t\tfloat mZ = (float) (me.prevPosZ + (me.posZ - me.prevPosZ) * (double)event.getPartialRenderTick());\n"
+        },
+        {
+          "before_offset": 36646,
+          "after_offset": 36681,
+          "old": "\t\tmc.entityRenderer.enableLightmap((double)event.partialTicks);\n",
+          "new": "\t\tmc.entityRenderer.enableLightmap((double)event.getPartialTicks());\n"
+        },
+        {
+          "before_offset": 37285,
+          "after_offset": 37325,
+          "old": "\t\tmc.entityRenderer.disableLightmap((double)event.partialTicks);\n",
+          "new": "\t\tmc.entityRenderer.disableLightmap((double)event.getPartialTicks());\n"
+        },
+        {
+          "before_offset": 57767,
+          "after_offset": 57812,
+          "old": "\t\tif(event.item != null && event.item.getItem() == ModItems.flame_pony) {\n",
+          "new": "\t\tif(event.getItem() != null && event.getItem().getItem() == ModItems.flame_pony) {\n"
+        },
+        {
+          "before_offset": 58368,
+          "after_offset": 58423,
+          "old": "\t\tif(event.item != null && event.item.getItem() == Items.PAPER) {\n",
+          "new": "\t\tif(event.getItem() != null && event.getItem().getItem() == Items.PAPER) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java": {
+      "before_sha256": "51aee53a661aace503ea564e99452009c8861a6b534f7b51bee83890cc516ff7",
+      "after_sha256": "b517a848a5a9b8e91fda36d77a6313794e0be8b7a1cbe3258539ba0727e01795",
+      "edits": [
+        {
+          "before_offset": 470,
+          "after_offset": 470,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 668,
+          "after_offset": 727,
+          "old": "public class RenderBlackHole extends Render {\n",
+          "new": "public class RenderBlackHole extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 1191,
+          "after_offset": 1258,
+          "old": "\tpublic RenderBlackHole() {\n",
+          "new": "\tpublic RenderBlackHole(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderCloudFleija.java": {
+      "before_sha256": "1975eb8a0bccd10fc66f25be89f54b1ff1759084493e79591e5aeae9335661af",
+      "after_sha256": "2ea46b8b6cd23bb1619e8f617a6e432d576be55f48edfc7c76991fa9b56cacdc",
+      "edits": [
+        {
+          "before_offset": 202,
+          "after_offset": 202,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 362,
+          "after_offset": 421,
+          "old": "public class RenderCloudFleija extends Render {\n",
+          "new": "public class RenderCloudFleija extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 681,
+          "after_offset": 748,
+          "old": "    public RenderCloudFleija() {\n",
+          "new": "    public RenderCloudFleija(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderCloudRainbow.java": {
+      "before_sha256": "329e559e3fd2d1c2f589f83cfa022af7029bb656b805e4e11ba4a4ca5a70b645",
+      "after_sha256": "4e115e9b7eafc599b6a41b50674d133134d7fb51038706637b3ede60279eedb0",
+      "edits": [
+        {
+          "before_offset": 209,
+          "after_offset": 209,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 369,
+          "after_offset": 428,
+          "old": "public class RenderCloudRainbow extends Render {\n",
+          "new": "public class RenderCloudRainbow extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 646,
+          "after_offset": 713,
+          "old": "    public RenderCloudRainbow() {\n",
+          "new": "    public RenderCloudRainbow(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderCloudSolinium.java": {
+      "before_sha256": "8aa07da0bfe102bf90ff5664849cde622b69c3f1c443812cd4599fce04eeb3e4",
+      "after_sha256": "3822ed467ef7b1f2b8e00ca20cd2f85a92e2b1991f7034ecfa547513beaaecf7",
+      "edits": [
+        {
+          "before_offset": 204,
+          "after_offset": 204,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 364,
+          "after_offset": 423,
+          "old": "public class RenderCloudSolinium extends Render {\n",
+          "new": "public class RenderCloudSolinium extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 685,
+          "after_offset": 752,
+          "old": "    public RenderCloudSolinium() {\n",
+          "new": "    public RenderCloudSolinium(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderDeathBlast.java": {
+      "before_sha256": "469eae87bde920c5341115d1a78ef3928021ddbf7c4c96ab944bbd7b50b47ec2",
+      "after_sha256": "065d5e4ead75e7a983455a409f60fbeaadcd830975b629ae86ce2c0b045d99d4",
+      "edits": [
+        {
+          "before_offset": 352,
+          "after_offset": 352,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 550,
+          "after_offset": 609,
+          "old": "public class RenderDeathBlast extends Render {\n",
+          "new": "public class RenderDeathBlast extends Render<Entity> {\n\n\tpublic RenderDeathBlast(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderFallout.java": {
+      "before_sha256": "40cf6f583b8df9a58621ac21e83518c59859739805766699c8483b6c18e024fa",
+      "after_sha256": "0bf7a5f20db987385d13fa8a89b6d59649434fe6dba2be87daba8f96ac002ed5",
+      "edits": [
+        {
+          "before_offset": 421,
+          "after_offset": 421,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 629,
+          "after_offset": 688,
+          "old": "public class RenderFallout extends Render {\n",
+          "new": "public class RenderFallout extends Render<Entity> {\n\n\tpublic RenderFallout(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderQuasar.java": {
+      "before_sha256": "8be233cb55a949d9f9bc9d649540da92b368485da0f9de22321cc8d1a4114b90",
+      "after_sha256": "4bc2ce02be9966fcb0112b7cd3b84d71db018834f93a0cc72d6a1bd51a75baff",
+      "edits": [
+        {
+          "before_offset": 198,
+          "after_offset": 198,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 331,
+          "after_offset": 390,
+          "old": "",
+          "new": "\n\tpublic RenderQuasar(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/item/RenderBoatRubber.java": {
+      "before_sha256": "937c694451c2c9bd9d94635a927338f682d6377e5dd9625387ac46f85c65ce70",
+      "after_sha256": "9783010c0382644155680b01d4952b9eff6d738c2986c4fc8304ce506268dfb7",
+      "edits": [
+        {
+          "before_offset": 326,
+          "after_offset": 326,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 499,
+          "after_offset": 558,
+          "old": "public class RenderBoatRubber extends Render {\n",
+          "new": "public class RenderBoatRubber extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 711,
+          "after_offset": 778,
+          "old": "\tpublic RenderBoatRubber() {\n",
+          "new": "\tpublic RenderBoatRubber(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderBalls.java": {
+      "before_sha256": "fd2a00172b761ef72870f7c26054664c2b208d23c2917136c732920ac082315c",
+      "after_sha256": "97d17a462d540d7d967ddac2604dc64a96a1076233d286a09e3e7db14e23b739",
+      "edits": [
+        {
+          "before_offset": 188,
+          "after_offset": 188,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 348,
+          "after_offset": 407,
+          "old": "public class RenderBalls extends Render {\n",
+          "new": "public class RenderBalls extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 391,
+          "after_offset": 458,
+          "old": "\tpublic RenderBalls() {\n",
+          "new": "\tpublic RenderBalls(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderDuck.java": {
+      "before_sha256": "cd53a7f0bd66fd1ac93a1f3200b3595986a51a2b9354577f0fd42240787172b6",
+      "after_sha256": "541f95212fb9ab92173b70fbe9f161737ae8a461ea74a6220ae0cbcc38f25419",
+      "edits": [
+        {
+          "before_offset": 36,
+          "after_offset": 36,
+          "old": "import com.hbm.entity.mob.EntityDuck;\n",
+          "new": ""
+        },
+        {
+          "before_offset": 210,
+          "after_offset": 172,
+          "old": "import net.minecraft.entity.Entity;\n",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\nimport net.minecraft.entity.passive.EntityChicken;\n"
+        },
+        {
+          "before_offset": 454,
+          "after_offset": 490,
+          "old": "\tpublic RenderDuck(ModelBase p_i1252_1_, float p_i1252_2_) {\n\t\tsuper(p_i1252_1_, p_i1252_2_);\n",
+          "new": "\tpublic RenderDuck(RenderManager renderManager, ModelBase model, float shadowSize) {\n\t\tsuper(renderManager);\n\t\tthis.mainModel = model;\n\t\tthis.shadowSize = shadowSize;\n"
+        },
+        {
+          "before_offset": 552,
+          "after_offset": 661,
+          "old": "\tprotected ResourceLocation getEntityTexture(Entity entity) {\n\t\treturn this.getEntityTexture((EntityDuck) entity);\n\t}\n\n\tprotected ResourceLocation getEntityTexture(EntityDuck entity) {\n",
+          "new": "\t@Override\n\tprotected ResourceLocation getEntityTexture(EntityChicken entity) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderHunterChopper.java": {
+      "before_sha256": "f7db1d2f3b7da06ecaf0007d0405a28874501b23057299f505e8dc25406b78d8",
+      "after_sha256": "ab07161d0b73f526cf3f7599d1cdd243131231c32b3d265a78201fe03b723bf9",
+      "edits": [
+        {
+          "before_offset": 246,
+          "after_offset": 246,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 373,
+          "after_offset": 432,
+          "old": "public class RenderHunterChopper extends Render {\n",
+          "new": "public class RenderHunterChopper extends Render<Entity> {\n\n\tpublic RenderHunterChopper(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderQuacc.java": {
+      "before_sha256": "b52129791fddba3975fd4909e93881e77a06f97ea367cc05696488603bb79fb9",
+      "after_sha256": "7354e7d9c424dbb56cdd80e365e5cc911500008a25c53b61fd31cb57734e3a8b",
+      "edits": [
+        {
+          "before_offset": 203,
+          "after_offset": 203,
+          "old": "import net.minecraft.entity.EntityLivingBase;\n",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 679,
+          "after_offset": 692,
+          "old": "\tpublic RenderQuacc(ModelBase model, float f0) {\n\t\tsuper(model, f0);\n",
+          "new": "\tpublic RenderQuacc(RenderManager renderManager, ModelBase model, float shadowSize) {\n\t\tsuper(renderManager);\n\t\tthis.mainModel = model;\n\t\tthis.shadowSize = shadowSize;\n"
+        },
+        {
+          "before_offset": 784,
+          "after_offset": 896,
+          "old": "",
+          "new": "    @Override\n"
+        },
+        {
+          "before_offset": 914,
+          "after_offset": 1040,
+          "old": "    protected void preRenderCallback(EntityLivingBase DUCC, float f0) {\n",
+          "new": "    @Override\n    protected void preRenderCallback(EntityChicken DUCC, float f0) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderQuackos.java": {
+      "before_sha256": "9ac1ae3cba4acefe67ea246ed48cafb696afddffd3c48142d0670b624898ffbc",
+      "after_sha256": "bc246d53b8a91002e95907276fefaf3fc981775a631bb2df0155c41541fd5167",
+      "edits": [
+        {
+          "before_offset": 172,
+          "after_offset": 172,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 435,
+          "after_offset": 494,
+          "old": "\tpublic RenderQuackos(ModelBase p_i1252_1_, float p_i1252_2_) {\n\t\tsuper(p_i1252_1_, p_i1252_2_);\n",
+          "new": "\tpublic RenderQuackos(RenderManager renderManager, ModelBase model, float shadowSize) {\n\t\tsuper(renderManager);\n\t\tthis.mainModel = model;\n\t\tthis.shadowSize = shadowSize;\n"
+        },
+        {
+          "before_offset": 537,
+          "after_offset": 669,
+          "old": "",
+          "new": "    @Override\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderSiegeTunneler.java": {
+      "before_sha256": "fe16ff713b732237e83de11c52250c3d24756e047b8b271032fe49d3fcea4aa7",
+      "after_sha256": "f2e2e20b319883ce646d6971f150895a6d03d225caacff8177cbdf18f1be8e5d",
+      "edits": [
+        {
+          "before_offset": 296,
+          "after_offset": 296,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 415,
+          "after_offset": 474,
+          "old": "public class RenderSiegeTunneler extends Render {\n",
+          "new": "public class RenderSiegeTunneler extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 466,
+          "after_offset": 533,
+          "old": "\tpublic RenderSiegeTunneler() {\n",
+          "new": "\tpublic RenderSiegeTunneler(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderWormBody.java": {
+      "before_sha256": "1897e38802bc24d8772e30a239ff1efeeb5e88b8d55c337af219b4126b09039b",
+      "after_sha256": "d61a9f8bd78bdf3ab635252e2cc941516420521ddeb4c609ebd137857d7db763",
+      "edits": [
+        {
+          "before_offset": 200,
+          "after_offset": 200,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 319,
+          "after_offset": 378,
+          "old": "public class RenderWormBody extends Render {\n",
+          "new": "public class RenderWormBody extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 365,
+          "after_offset": 432,
+          "old": "\tpublic RenderWormBody() {\n",
+          "new": "\tpublic RenderWormBody(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderWormHead.java": {
+      "before_sha256": "d4afdebdc47377a3b2e896bdb79dc463ba82739dfbc07b90d623c667e5d2c0c4",
+      "after_sha256": "e14012eb390954b9548ca08df9b69214f081838d215aed3ef7e13c8cfbb92187",
+      "edits": [
+        {
+          "before_offset": 255,
+          "after_offset": 255,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 420,
+          "after_offset": 479,
+          "old": "public class RenderWormHead extends Render {\n",
+          "new": "public class RenderWormHead extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 466,
+          "after_offset": 533,
+          "old": "\tpublic RenderWormHead() {\n",
+          "new": "\tpublic RenderWormHead(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderBeam5.java": {
+      "before_sha256": "7537ea3e0ee1c8a3465060d1faf2775984c1a374de20e1aae2e1ef261aff8e56",
+      "after_sha256": "fb5248e6c82688173540d85261dea24b653637a009dfd33dc21d071b7fdf1bae",
+      "edits": [
+        {
+          "before_offset": 352,
+          "after_offset": 352,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 433,
+          "after_offset": 492,
+          "old": "public class RenderBeam5 extends Render {\n",
+          "new": "public class RenderBeam5 extends Render<Entity> {\n\n\tpublic RenderBeam5(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderBombletTheta.java": {
+      "before_sha256": "1e6ac790e083a3c94f268826da89de0e0b7faadb9fc1e562bf69521b830d7c74",
+      "after_sha256": "8f4e6f1fa75be6d5a848174efe9386eff6290c3d3f4138d9ed827c5ff9269d11",
+      "edits": [
+        {
+          "before_offset": 210,
+          "after_offset": 210,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 370,
+          "after_offset": 429,
+          "old": "public class RenderBombletTheta extends Render {\n",
+          "new": "public class RenderBombletTheta extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 635,
+          "after_offset": 702,
+          "old": "\tpublic RenderBombletTheta() {\n",
+          "new": "\tpublic RenderBombletTheta(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderChopperMine.java": {
+      "before_sha256": "7df16a4f2aefbaf6da898783353e946ad066b70a46829eff85ac2125995156bb",
+      "after_sha256": "c283cf3a6b570ee0923038542633c0baff3b4259b18de21db8484f1af47a3e79",
+      "edits": [
+        {
+          "before_offset": 204,
+          "after_offset": 204,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 285,
+          "after_offset": 344,
+          "old": "public class RenderChopperMine extends Render {\n",
+          "new": "public class RenderChopperMine extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 360,
+          "after_offset": 427,
+          "old": "\tpublic RenderChopperMine() {\n",
+          "new": "\tpublic RenderChopperMine(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderCoin.java": {
+      "before_sha256": "5d3b2ad22ee2afb5e8f822e4c2d274458d0c3b3877e18754456134a224771883",
+      "after_sha256": "e2d71f82c72a5a33b599d4f576ae7a6904f86b0b689b7f24d64535b750c8f4a1",
+      "edits": [
+        {
+          "before_offset": 207,
+          "after_offset": 207,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 326,
+          "after_offset": 385,
+          "old": "public class RenderCoin extends Render {\n",
+          "new": "public class RenderCoin extends Render<Entity> {\n\n\tpublic RenderCoin(RenderManager renderManager) {\n\t\tsuper(renderManager);\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderFallingNuke.java": {
+      "before_sha256": "9cb6a624d7f387cc2583df9fc4160d48bbdf8e86c3892c7dcc5426130b11cd28",
+      "after_sha256": "1460a3dfb60435c701462437db54759251ad60d4ffca9fb38ac0dd28c265a4e4",
+      "edits": [
+        {
+          "before_offset": 210,
+          "after_offset": 210,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 370,
+          "after_offset": 429,
+          "old": "public class RenderFallingNuke extends Render {\n",
+          "new": "public class RenderFallingNuke extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 607,
+          "after_offset": 674,
+          "old": "\tpublic RenderFallingNuke() {\n",
+          "new": "\tpublic RenderFallingNuke(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderRocket.java": {
+      "before_sha256": "d48f0d9c1ae7841f171387adb998edd30f2605a8a5c285a4d91a164c476ecbd6",
+      "after_sha256": "92215890d15872f20056f0b650e31ef9a1e00238f2d18367c587791574bd2417",
+      "edits": [
+        {
+          "before_offset": 250,
+          "after_offset": 250,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 474,
+          "after_offset": 533,
+          "old": "public class RenderRocket extends Render {\n",
+          "new": "public class RenderRocket extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 550,
+          "after_offset": 617,
+          "old": "\tpublic RenderRocket() {\n",
+          "new": "\tpublic RenderRocket(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderShrapnel.java": {
+      "before_sha256": "b31522fc4881a51281abbb8c0fd812ed7dd13487e2975fd38dcee128ef588697",
+      "after_sha256": "55f25a4b4487d90aa51e1e711dd2f0aa540cb0352009223bd4f826e45daf2cce",
+      "edits": [
+        {
+          "before_offset": 250,
+          "after_offset": 250,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.entity.RenderManager;\n"
+        },
+        {
+          "before_offset": 331,
+          "after_offset": 390,
+          "old": "public class RenderShrapnel extends Render {\n",
+          "new": "public class RenderShrapnel extends Render<Entity> {\n"
+        },
+        {
+          "before_offset": 400,
+          "after_offset": 467,
+          "old": "\tpublic RenderShrapnel() {\n",
+          "new": "\tpublic RenderShrapnel(RenderManager renderManager) {\n\t\tsuper(renderManager);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java": {
+      "before_sha256": "925d7b3924036c6693af3de6361895d240e921e907743c34efd38c4185461a14",
+      "after_sha256": "1d88c7ffc80737faaa0209d5877d10dfb4a2bd0ca76c1417f1556ddae735323f",
+      "edits": [
+        {
+          "before_offset": 7164,
+          "after_offset": 7164,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 7338,
+          "after_offset": 7343,
+          "old": "\t\tfloat interp = event.partialRenderTick;\n",
+          "new": "\t\tfloat interp = event.getPartialRenderTick();\n"
+        },
+        {
+          "before_offset": 8030,
+          "after_offset": 8040,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 8200,
+          "after_offset": 8215,
+          "old": "\t\tfloat interp = event.partialRenderTick;\n",
+          "new": "\t\tfloat interp = event.getPartialRenderTick();\n"
+        },
+        {
+          "before_offset": 8877,
+          "after_offset": 8897,
+          "old": "\t\tRenderPlayer renderer = event.renderer;\n",
+          "new": "\t\tRenderPlayer renderer = event.getRenderer();\n"
+        },
+        {
+          "before_offset": 9044,
+          "after_offset": 9069,
+          "old": "\t\tfloat interp = event.partialRenderTick;\n",
+          "new": "\t\tfloat interp = event.getPartialRenderTick();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityTrappedBrick.java": {
+      "before_sha256": "7d611a7d1446db1efe9762c2d35de7639ea7cd673e90bb21b20b523581b7175b",
+      "after_sha256": "b1a7aabad2e46ddefb8253ca5e6e95fac6f78e4a7487d534833c947427ecc87d",
+      "edits": [
+        {
+          "before_offset": 3436,
+          "after_offset": 3436,
+          "old": "\t\tthis.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.brick_jungle);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY(); int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+      "before_sha256": "55bd1a860ce2aad265e742d6472c155f119608a985ae46ea862e50379f630fe8",
+      "after_sha256": "5111c65f1ef08b0997700d330752afcc16f64c5ea720d353244b08aeaa6b783a",
+      "edits": [
+        {
+          "before_offset": 14798,
+          "after_offset": 14798,
+          "old": "\t\t\tthis.world.setBlock(x, y, z, ModBlocks.barricade);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 16909,
+          "after_offset": 17700,
+          "old": "\t\t\t\t\t\tthis.world.setBlock(x, y, z, ModBlocks.barricade);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": {
+      "before_sha256": "eb229854239c11af9f510e930691243172caabe7cd78438469abb7419ba41577",
+      "after_sha256": "508471179a020a02c2b99b910931eef8971465520e376099c18fca9bba54dd7a",
+      "edits": [
+        {
+          "before_offset": 7804,
+          "after_offset": 7804,
+          "old": "\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, targetX + dir.offsetX, targetY + dir.offsetY, targetZ + dir.offsetZ).getBlock().getDefaultState().getMaterial().isLiquid()) this.world.setBlock(targetX + dir.offsetX, targetY + dir.offsetY, targetZ + dir.offsetZ, ModBlocks.barricade);\n",
+          "new": "\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, targetX + dir.offsetX, targetY + dir.offsetY, targetZ + dir.offsetZ).getBlock().getDefaultState().getMaterial().isLiquid()) { net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = targetX + dir.offsetX; int nativeRegisteredWriteY = targetY + dir.offsetY; int nativeRegisteredWriteZ = targetZ + dir.offsetZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.barricade; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityReactorResearch.java": {
+      "before_sha256": "d3c498fa9578003eec3bafda5867cc211e6be37ca1d3ba863369de19b31d10c1",
+      "after_sha256": "a2b4bf5bf81971bbb07998ef9115da0ef2e979bc7e3cc17f717c24c2bd8dfb22",
+      "edits": [
+        {
+          "before_offset": 12970,
+          "after_offset": 12970,
+          "old": "\t\tthis.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.deco_steel);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY(); int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 13168,
+          "after_offset": 13959,
+          "old": "\t\tthis.world.setBlock(this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), ModBlocks.deco_steel);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY() + 2; int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityOilDrillBase.java": {
+      "before_sha256": "53edae67556ed83920cf3c8296e84cba1f3d8090748e123e8893a72fd9cb1c0c",
+      "after_sha256": "066717a6b81112a66c7f18df9f17d289f484cb9c12680aac635add29a0bc118d",
+      "edits": [
+        {
+          "before_offset": 5881,
+          "after_offset": 5881,
+          "old": "\t\t\tthis.world.setBlock(this.pos.getX(), y, this.pos.getZ(), ModBlocks.oil_pipe);\n",
+          "new": "\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.oil_pipe; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/CompatExternal.java": {
+      "before_sha256": "f80be000f1080141446e828f4525517e90474f4902445e7da0da0ba6a91e13c5",
+      "after_sha256": "a4caa6ddc4120e6d99b17010c03b213d85a2dbf3c1d9c393679e9f40b6388188",
+      "edits": [
+        {
+          "before_offset": 8801,
+          "after_offset": 8801,
+          "old": "\t\t\tif(entity.getCommandSenderName().equals(\"Target Practice\")) return 1;\n",
+          "new": "\t\t\tif(entity.getName().equals(\"Target Practice\")) return 1;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/AncientTomb.java": {
+      "before_sha256": "a10c822c57c4d2ee6492cf8e8db2b4097a40ee298930b65b3177c08aa062b7c6",
+      "after_sha256": "7164789ac04b0b276bb915a18d8df848c21c48ab1ce4b58f1be813e1df22043f",
+      "edits": [
+        {
+          "before_offset": 1107,
+          "after_offset": 1107,
+          "old": "\t\t\t\t\t\tworld.setBlock(x + ix, yOff + iy, z + iz, ModBlocks.reinforced_stone);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + ix; int nativeRegisteredWriteY = yOff + iy; int nativeRegisteredWriteZ = z + iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.reinforced_stone; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 2847,
+          "after_offset": 3638,
+          "old": "\t\t\t\tworld.setBlock(ix, j, iz, ModBlocks.deco_steel, 0, 2);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = j; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/DesertAtom001.java": {
+      "before_sha256": "d38e47c4483230f1f13b66c273fc9d7a30722d0207c00742414348b0e4e44de8",
+      "after_sha256": "5885e1386b190d3b01e08e5ed029e6460930a8654c89a329b90e6e8fa7d96de9",
+      "edits": [
+        {
+          "before_offset": 123308,
+          "after_offset": 123308,
+          "old": "\t\tworld.setBlock(x + 8, y + -3, z + 25, Block4, 2, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + 8; int nativeRegisteredWriteY = y + -3; int nativeRegisteredWriteZ = z + 25; net.minecraft.block.Block nativeRegisteredWriteBlock = Block4; int nativeRegisteredWriteMeta = 2; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin001.java": {
+      "before_sha256": "ccf5c1cd82b3e1b8956a3ec268aecf4b46c6a4ab6b379b2a292092d311e11042",
+      "after_sha256": "aa34ae4d6e20359995837b6622f7de31dd62cf79ee44aef9099c3cb5561f0338",
+      "edits": [
+        {
+          "before_offset": 135592,
+          "after_offset": 135592,
+          "old": "\t\tworld.setBlock(x + 8, y + 3, z + 10, ModBlocks.crashed_balefire, 5, 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + 8; int nativeRegisteredWriteY = y + 3; int nativeRegisteredWriteZ = z + 10; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crashed_balefire; int nativeRegisteredWriteMeta = 5; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": {
+      "before_sha256": "91e2e84182740fd937746548b0dcabcb70376d47723d14cb31f3aa80d5845754",
+      "after_sha256": "cc078528031e7f057f9d7dff09e60408242c26d0f4752c7d09922e069fcd456c",
+      "edits": [
+        {
+          "before_offset": 3608,
+          "after_offset": 3608,
+          "old": "\t\t\t\tworld.setBlock(x, y, z, ModBlocks.stone_biome, type.ordinal(), 2);\n",
+          "new": "\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.stone_biome; int nativeRegisteredWriteMeta = type.ordinal(); int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/Dud.java": {
+      "before_sha256": "bb61cb4bd16916c17cc88e306bb9bfed28248965c557c88e2d4140910e4c1c77",
+      "after_sha256": "dfb5f101030c276613d2a707f3a330cd4c1d7f8693144aa1a318bd48b76f477d",
+      "edits": [
+        {
+          "before_offset": 1628,
+          "after_offset": 1628,
+          "old": "\t\tworld.setBlock(x, y, z, ModBlocks.crashed_balefire, rand.nextInt(EnumDudType.values().length), 3);\n",
+          "new": "\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crashed_balefire; int nativeRegisteredWriteMeta = rand.nextInt(EnumDudType.values().length); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OilSpot.java": {
+      "before_sha256": "cf448a60be951674dfd82be6c96fcfbf0dd76727477736843ab74ea8873d006d",
+      "after_sha256": "dcffe7db0b101e924d94cb1c3f740c13334a5cd42e3057328fd8b210de4733f3",
+      "edits": [
+        {
+          "before_offset": 2121,
+          "after_offset": 2121,
+          "old": "\t\t\t\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FERN.ordinal(), 3);\n",
+          "new": "\t\t\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.FERN.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 2231,
+          "after_offset": 3016,
+          "old": "\t\t\t\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GRASS.ordinal(), 3);\n",
+          "new": "\t\t\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GRASS.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3132,
+          "after_offset": 4702,
+          "old": "\t\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.FLOWER.ordinal(), 3);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.FLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3315,
+          "after_offset": 5670,
+          "old": "\t\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.BIGFLOWER.ordinal(), 3);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.BIGFLOWER.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3458,
+          "after_offset": 6598,
+          "old": "\t\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 3600,
+          "after_offset": 7525,
+          "old": "\t\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.plant_dead, EnumDeadPlantType.GENERIC.ordinal(), 3);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 5754,
+          "after_offset": 10464,
+          "old": "\t\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.plant_dead, meta, 3);\n",
+          "new": "\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = meta; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        },
+        {
+          "before_offset": 5875,
+          "after_offset": 11370,
+          "old": "\t\t\t\t\tworld.setBlock(rX, y, rZ, ModBlocks.rubber_silt);\n",
+          "new": "\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = rX; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = rZ; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_silt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": {
+      "before_sha256": "44991a534332a4471c0c708d4d280dbff2cc0a1e4f3d6de1cf80193f991ef31c",
+      "after_sha256": "435598c34af9436f0a308e140281a169580ec57c02176f3ceafc33d8c8570bc9",
+      "edits": [
+        {
+          "before_offset": 1508,
+          "after_offset": 1508,
+          "old": "\t\t\t\t\t\t\tworld.setBlock(x, y, z, ModBlocks.stone_gneiss, 0, 2);\n",
+          "new": "\t\t\t\t\t\t\t{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.stone_gneiss; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {
+    "src/main/resources/assets/hbm/textures/models/chopperBomb.png": {
+      "before_sha256": "96aa291efb807bb5cc3e89aa3e20449c74705e395632890164e33c32580c4c4e",
+      "after_sha256": null
+    },
+    "src/main/resources/assets/hbm/textures/models/chopperbomb.png": {
+      "before_sha256": null,
+      "after_sha256": "96aa291efb807bb5cc3e89aa3e20449c74705e395632890164e33c32580c4c4e"
+    }
+  }
+}

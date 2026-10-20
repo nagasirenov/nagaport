@@ -51,9 +51,9 @@ public class BlockNetherCoal extends BlockOutgas {
 				if(dir.offsetZ != 0)
 					iz = z + 0.5F + dir.offsetZ * 0.5 + rand.nextDouble() * 0.125 * dir.offsetZ;
 
-				world.spawnParticle("flame", ix, iy, iz, 0.0, 0.0, 0.0);
-				world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.0, 0.0);
-				world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.1, 0.0);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);
 			}
 		}
 	}

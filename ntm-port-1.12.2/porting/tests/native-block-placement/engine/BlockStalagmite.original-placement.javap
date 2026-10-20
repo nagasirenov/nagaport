@@ -1,0 +1,27 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_0
+       1: getstatic     #61                 // Field com/hbm/blocks/ModBlocks.stalagmite:Lnet/minecraft/block/Block;
+       4: if_acmpne     18
+       7: aload_1
+       8: iload_2
+       9: iload_3
+      10: iconst_1
+      11: isub
+      12: iload         4
+      14: invokestatic  #67                 // Method net/minecraft/world/World.func_147466_a:(Lnet/minecraft/world/IBlockAccess;III)Z
+      17: ireturn
+      18: aload_0
+      19: getstatic     #70                 // Field com/hbm/blocks/ModBlocks.stalactite:Lnet/minecraft/block/Block;
+      22: if_acmpne     39
+      25: aload_1
+      26: iload_2
+      27: iload_3
+      28: iconst_1
+      29: iadd
+      30: iload         4
+      32: getstatic     #76                 // Field net/minecraftforge/common/util/ForgeDirection.DOWN:Lnet/minecraftforge/common/util/ForgeDirection;
+      35: invokevirtual #80                 // Method net/minecraft/world/World.isSideSolid:(IIILnet/minecraftforge/common/util/ForgeDirection;)Z
+      38: ireturn
+      39: iconst_1
+      40: ireturn

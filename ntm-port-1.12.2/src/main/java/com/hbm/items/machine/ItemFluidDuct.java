@@ -110,7 +110,7 @@ public class ItemFluidDuct extends Item {
 				++x;
 			}
 
-			if(!com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, x, y, z)) {
+			if(!com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 				return false;
 			}
 		}

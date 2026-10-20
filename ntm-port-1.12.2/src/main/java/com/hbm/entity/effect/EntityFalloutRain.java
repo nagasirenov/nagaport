@@ -160,7 +160,8 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 
 			if(depth >= 3) return;
 
-			Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
+			net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, x, y, z);
+			Block b = nativeCubeState_b.getBlock();
 
 			if(b.getDefaultState().getMaterial() == Material.AIR || b == ModBlocks.fallout) continue;
 
@@ -172,7 +173,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 			Block ab = com.hbm.world.WorldBlockState.read(this.world, x, y + 1, z).getBlock();
 			int meta = this.world.getBlockMetadata(x, y, z);
 
-			if(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.AIR || (ab.isReplaceable(this.world, x, y + 1, z) && !ab.getDefaultState().getMaterial().isLiquid()))) {
+			if(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.AIR || (ab.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)) && !ab.getDefaultState().getMaterial().isLiquid()))) {
 
 				double d = dist / 100;
 
@@ -180,12 +181,12 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 				//double chance = 1-d;
 				if(this.salted)
 				{
-					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(this.world, x, y + 1, z))
+					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))
 						setBlock(x, y + 1, z, ModBlocks.salted_fallout);
 				}
 				else
 				{
-					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(this.world, x, y + 1, z))
+					if(chance >= rand.nextDouble() && ModBlocks.fallout.canPlaceBlockAt(this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))
 						setBlock(x, y + 1, z, ModBlocks.fallout);
 				}
 			}
@@ -224,7 +225,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 				}
 			}
 
-			if(!eval && b.isNormalCube()) {
+			if(!eval && b.isNormalCube(nativeCubeState_b)) {
 				depth++;
 			}
 		}

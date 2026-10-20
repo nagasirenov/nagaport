@@ -1,0 +1,12 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockHazard.java": {
+    "current_sha256": "cfa78cbe78a61fbe039d78e4d41f0758f9df324a12151b2a91e42d932cc429b5",
+    "original_sha256": "c460d2433a2a4472e1fd322fac1dfa1a7d577efd46482e90d261c4b426fb984e",
+    "parent": "Block"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockHotHazard.java": {
+    "current_sha256": "614575aec7878b9cfb9b0fcb8e6a4e48b81470948f7bbd7e330245d4711619c1",
+    "original_sha256": "21bc3847ba844e80a7f5bc2711e51ced74a1be4e120124a62387222c41c15197",
+    "parent": "BlockHazard"
+  }
+}

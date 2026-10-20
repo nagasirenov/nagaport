@@ -1,0 +1,599 @@
+{
+  "base": "df18fc077648dd18e6d0c1055d82c11dc2ebdb78",
+  "files": {
+    "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java": [
+      {
+        "start": 2929,
+        "end": 2992,
+        "line": 85,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 2996,
+        "end": 3059,
+        "line": 86,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3063,
+        "end": 3126,
+        "line": 87,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3130,
+        "end": 3193,
+        "line": 88,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3197,
+        "end": 3273,
+        "line": 89,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y + height - 1, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3277,
+        "end": 3353,
+        "line": 90,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y + height - 1, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3357,
+        "end": 3433,
+        "line": 91,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3437,
+        "end": 3513,
+        "line": 92,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3589,
+        "end": 3660,
+        "line": 97,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + i, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3664,
+        "end": 3735,
+        "line": 98,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + i, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3739,
+        "end": 3810,
+        "line": 99,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + i, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3814,
+        "end": 3885,
+        "line": 100,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + i, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3955,
+        "end": 4022,
+        "line": 104,
+        "block": "brick_red",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + i, z + j, ModBlocks.brick_red, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4027,
+        "end": 4094,
+        "line": 105,
+        "block": "brick_red",
+        "metadata": 5,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + i, z + j, ModBlocks.brick_red, 5, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 5; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4099,
+        "end": 4166,
+        "line": 106,
+        "block": "brick_red",
+        "metadata": 2,
+        "flags": 3,
+        "original": "world.setBlock(x + j, y + i, z + width, ModBlocks.brick_red, 2, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 2; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4171,
+        "end": 4238,
+        "line": 107,
+        "block": "brick_red",
+        "metadata": 3,
+        "flags": 3,
+        "original": "world.setBlock(x + j, y + i, z - width, ModBlocks.brick_red, 3, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4802,
+        "end": 4861,
+        "line": 122,
+        "block": "brick_red",
+        "metadata": 1,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y, z + j, ModBlocks.brick_red, 1, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 1; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4866,
+        "end": 4938,
+        "line": 123,
+        "block": "brick_red",
+        "metadata": 0,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y + height - 1, z + j, ModBlocks.brick_red, 0, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 0; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java": [
+      {
+        "start": 4002,
+        "end": 4065,
+        "line": 109,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4069,
+        "end": 4132,
+        "line": 110,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4136,
+        "end": 4199,
+        "line": 111,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4203,
+        "end": 4266,
+        "line": 112,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4270,
+        "end": 4346,
+        "line": 113,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y + height - 1, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4350,
+        "end": 4426,
+        "line": 114,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y + height - 1, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4430,
+        "end": 4506,
+        "line": 115,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4510,
+        "end": 4586,
+        "line": 116,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + height - 1, z + i, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + i; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4662,
+        "end": 4733,
+        "line": 121,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + i, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4737,
+        "end": 4808,
+        "line": 122,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + i, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4812,
+        "end": 4883,
+        "line": 123,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + i, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4887,
+        "end": 4958,
+        "line": 124,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + i, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 5053,
+        "end": 5120,
+        "line": 128,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + width, y + i, z + j, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 5150,
+        "end": 5217,
+        "line": 129,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x - width, y + i, z + j, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x - width; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 5247,
+        "end": 5314,
+        "line": 130,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + j, y + i, z + width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z + width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 5344,
+        "end": 5411,
+        "line": 131,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + j, y + i, z - width, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + j; int nativeOwnedWriteY = y + i; int nativeOwnedWriteZ = z - width; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 5551,
+        "end": 5610,
+        "line": 138,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y, z + j, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 5615,
+        "end": 5687,
+        "line": 139,
+        "block": "brick_red",
+        "metadata": 6,
+        "flags": 3,
+        "original": "world.setBlock(x + i, y + height - 1, z + j, ModBlocks.brick_red, 6, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + i; int nativeOwnedWriteY = y + height - 1; int nativeOwnedWriteZ = z + j; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.brick_red; int nativeOwnedWriteMeta = 6; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      }
+    ],
+    "src/main/java/com/hbm/world/dungeon/Antenna.java": [
+      {
+        "start": 2232,
+        "end": 2297,
+        "line": 84,
+        "block": "steel_poles",
+        "metadata": 2,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 0, z + 0, ModBlocks.steel_poles, 2, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 0; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 2; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 2462,
+        "end": 2527,
+        "line": 86,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 0, y + 0, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 0; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 2884,
+        "end": 2949,
+        "line": 90,
+        "block": "steel_poles",
+        "metadata": 3,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 0, z + 2, ModBlocks.steel_poles, 3, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 2; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3420,
+        "end": 3485,
+        "line": 95,
+        "block": "steel_poles",
+        "metadata": 2,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 1, z + 0, ModBlocks.steel_poles, 2, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 0; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 2; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 3650,
+        "end": 3715,
+        "line": 97,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 0, y + 1, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 0; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 4072,
+        "end": 4137,
+        "line": 101,
+        "block": "steel_poles",
+        "metadata": 3,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 1, z + 2, ModBlocks.steel_poles, 3, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 2; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 6208,
+        "end": 6273,
+        "line": 116,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 3, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 3; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 7572,
+        "end": 7637,
+        "line": 125,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 4, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 4; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 8936,
+        "end": 9001,
+        "line": 134,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 5, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 5; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 10300,
+        "end": 10365,
+        "line": 143,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 6, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 6; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 11664,
+        "end": 11729,
+        "line": 152,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 7, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 7; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 13028,
+        "end": 13093,
+        "line": 161,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 8, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 8; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 14392,
+        "end": 14457,
+        "line": 170,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 9, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 9; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 15760,
+        "end": 15826,
+        "line": 179,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 10, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 10; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 17133,
+        "end": 17199,
+        "line": 188,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 11, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 11; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 18506,
+        "end": 18572,
+        "line": 197,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 12, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 12; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 21264,
+        "end": 21330,
+        "line": 215,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 14, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 14; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 22637,
+        "end": 22703,
+        "line": 224,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 15, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 15; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 24010,
+        "end": 24076,
+        "line": 233,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 16, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 16; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 28153,
+        "end": 28219,
+        "line": 260,
+        "block": "steel_poles",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 19, z + 1, ModBlocks.steel_poles, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 19; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      },
+      {
+        "start": 29526,
+        "end": 29589,
+        "line": 269,
+        "block": "pole_top",
+        "metadata": 4,
+        "flags": 3,
+        "original": "world.setBlock(x + 1, y + 20, z + 1, ModBlocks.pole_top, 4, 3);",
+        "replacement": "{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 20; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.pole_top; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }"
+      }
+    ]
+  },
+  "owners": [
+    "brick_red",
+    "steel_poles",
+    "pole_top"
+  ],
+  "excluded": [],
+  "owner_before_sha256": "1341d0ad7f47158c0e163ee1438f9316df85d7617a29067306284f77a96f863f",
+  "owner_after_sha256": "6dedacebca5e13241f46f9ef5f3b81341beeb749655636a0fdf3a737e3dcf943",
+  "sha256": {
+    "src/main/java/com/hbm/blocks/generic/BlockKeyhole.java": "aa2759d47c98edc4fdb3ac0c0ff9cefefb62c66ce583f88116a5c329026a9971",
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java": "d67a1cee20881b952fb887c2fb7fd9e4dc44392591b2085bb7f25320fd4a149f",
+    "src/main/java/com/hbm/world/dungeon/Antenna.java": "a4dcd3b096c7ceaf75cd40b8c0351c35bddf4470dcc9c8336bf653ee03afc662"
+  },
+  "dependencies": {
+    "src/main/java/com/hbm/blocks/generic/DecoSteelPoles.java": "b42ad53576d01da80e6928f35dc8b6c84b6107a616476b37caf74e439b59c2a0",
+    "src/main/java/com/hbm/blocks/generic/DecoPoleTop.java": "1c8996569b86637f3aac9f159ad6481817f23aac7e145fd616305b64879c3eb5",
+    "src/main/java/com/hbm/world/WorldBlockState.java": "554240513caba36cf5d1ab87850ba194967ead30fa25472393533dbdfb9dc718"
+  }
+}

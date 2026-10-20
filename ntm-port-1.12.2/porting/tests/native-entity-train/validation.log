@@ -1,0 +1,37 @@
+Recovered evidence generated 2026-10-20 03:45 UTC. Original logs are lost; this is a fresh log.
+Production patch SHA256: 67337912237ebefe7477644873b6300f620c40e1a519a9c51fbb2a864dfd6a2e (matches prior frozen patch).
+
+Fresh source audit:
+PASS: 18 original calls; exact full-file inverse against recovered CP76 tree; six owner keys; five descendants; 16 consumer domains; unchanged formulas/constructors/NBT
+
+Fresh native attempt:
+BLOCKED: native classpath file missing: /tmp/nagaport-ae2-native-classpath.txt; no native validation executed
+
+No recovered-environment native PASS is claimed here.
+
+Fresh verification after the second recovery, 2026-10-20 05:24 UTC:
+Baseline: recovered-cp76-source tree b51f8971c483858304306df2f0cbbafade512a77.
+Production patch SHA256 remains 67337912237ebefe7477644873b6300f620c40e1a519a9c51fbb2a864dfd6a2e.
+
+Command: python3 ntm-port-1.12.2/porting/tests/native-entity-train/audit.py ntm-original-pristine
+PASS: 18 original calls; exact full-file inverse against recovered CP76 tree; six owner keys; five descendants; 16 consumer domains; unchanged formulas/constructors/NBT
+AUDIT_EXIT=0
+
+Command: JAVA_HOME=/workspace/shared/nagaport-toolchain/java8 NAGAPORT_NATIVE_CP_FILE=/tmp/nagaport-ae2-native-classpath.txt python3 ntm-port-1.12.2/porting/tests/native-entity-train/probe.py
+PASS: 196 native train metadata/constructor/packet/NBT assertions (train-first)
+PASS: 196 native train metadata/constructor/packet/NBT assertions (dummies-first)
+PASS: both fresh-JVM load orders; exact constructor/init chain and dummy ticks; full Cargo NBT; bounded ancestors, not full train/game compilation
+NATIVE_PROBE_EXIT=0
+No production or test changes were needed. Real native APIs; explicitly bounded ancestor fixtures, not full hierarchy/game compilation.
+
+Executed inputs SHA256:
+48c37359f62f49309da8a4587e115b31c992f2b6158ce7045c6a07e44f56767d  ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarBase.java
+734c8e7eafcc16e05a078ef1e7ba99adc60d1d3ebcb7fb1b66d6c580be67fef4  ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java
+6aacd0f6e785edd82b89c0fa52da2405dd2272498c5cf9c6acca9574a1e68b34  ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarElectric.java
+e51c7a230d756fea73a7b66a62d34b08b6ab60d2c4fd212c4896998a2599654b  ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarCargo.java
+330b60b9ee5d953fefea4ddf8a644858f48e5ded53a5e3d70f8e44869a1f9409  ntm-port-1.12.2/src/main/java/com/hbm/entity/train/TrainCargoTram.java
+0c6b950dee89d35342042f27aeec6fb086a7344745f771fb0d3a6594b64d5f99  ntm-port-1.12.2/src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java
+196a8de104bafd35c3017cc2cf2fa09e1b72b75e04b9806023df2fef6435bee3  ntm-port-1.12.2/porting/tests/native-entity-train/probe.py
+bd66744a050a7d7183e0773bebc797d91ff0279449ffdb8d7a2d35d4b465d10f  ntm-port-1.12.2/porting/tests/native-entity-train/Probe.java
+7748332a67e65414f6959bcf66b4042234d60a0991bfc04f1932202e8eb06f0d  ntm-port-1.12.2/porting/tests/native-entity-train/audit.py
+fc0f467afcb7b98f4c107a469bd760c624616f45cc5b518704db0dde241e23dc  /tmp/nagaport-ae2-native-classpath.txt

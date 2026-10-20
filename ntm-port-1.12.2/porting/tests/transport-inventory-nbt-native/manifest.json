@@ -1,0 +1,83 @@
+{
+  "base": "0aeda80b859b80afc8af26398366ef05f68478af",
+  "helper_sha256": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+  "callers": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+      "before_sha256": "ce57f631148badc5c80a85803de1afc20110d4217bd70cc90a1161ab87668e1c",
+      "after_sha256": "428ae82d949fa9f204c9495d9880ca39e824da87361e36e10176eb3cc768f65e",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+      "pristine_sha256": "57f1f269d3928b1c36f062246fa12b238a4bbe9e7e97a36bfdc1feb2fdc676ab",
+      "field": "slots",
+      "tag": "Items",
+      "slot_key": "Slot",
+      "reset_array_on_read": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMovingPackage.java",
+      "before_sha256": "b75314c7217f4cbabb7c6ff51b94843c4b4602fe2c4929e62ce02fadd2bf6439",
+      "after_sha256": "7582adac5ff9365473a29569b60489d4c8910b048dfa9325d4990b41539828ad",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/entity/item/EntityMovingPackage.java",
+      "pristine_sha256": "b10aaec52776e974a372653755750469a4a94a3d2479ce34a4c13a1ec08fe0f6",
+      "field": "contents",
+      "tag": "contents",
+      "slot_key": "slot",
+      "reset_array_on_read": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "before_sha256": "10a4bb40c5a66f6b565d20252b07600a33e5d0b43e94c189ecc6988a1b2b06d5",
+      "after_sha256": "ff811eecad72001a12f428896feb770f6b32f5cb8df9c7bb3c7f13bca829dab1",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/entity/item/EntityRequestDrone.java",
+      "pristine_sha256": "3da0a99fa7e8b5c88ad8d83ad94c13b6cdadc6a2a3c9927ab7c393eac1081e0e",
+      "field": "heldItem",
+      "tag": "held",
+      "slot_key": null,
+      "reset_array_on_read": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityParachuteCrate.java",
+      "before_sha256": "8539812a06eb546c62e8b6bb0c0ebec34308ab1337455aa25db9ee9ef5a90630",
+      "after_sha256": "1144ddce691b58765b9747c4c882888e98086a3232f95a4ca417fdc62e6bef39",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/entity/item/EntityParachuteCrate.java",
+      "pristine_sha256": "b90659fdbe2ec435ef00ee15662f803fb53dd2bdb4f19e2ad2b618e9e04e6295",
+      "field": "items",
+      "tag": "items",
+      "slot_key": null,
+      "reset_array_on_read": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntitySoyuz.java",
+      "before_sha256": "1ce2b266762c4d75fdc7dc3f567dff1319e003d244f00516e8d70621edeb2e0e",
+      "after_sha256": "5117e75dd321ad34baef0533f75a7f28e0d59aa407d2c89c0a5ba272ae1cc8e7",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/entity/missile/EntitySoyuz.java",
+      "pristine_sha256": "69d05f50930ce0a5f958e72adfd273e08bfb0cb5f25746646f584630f1307ac6",
+      "field": "payload",
+      "tag": "items",
+      "slot_key": "slot",
+      "reset_array_on_read": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntitySoyuzCapsule.java",
+      "before_sha256": "08ea445295ed997f208149ac3a6e17998eb1f95b138aa3dc1ea5d5578520e185",
+      "after_sha256": "6743759b12c7c96e63bfb715ae4430db436327b2f5bd2c11218c72c1c5563a0a",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/entity/missile/EntitySoyuzCapsule.java",
+      "pristine_sha256": "a94476d6ec68ba28ce8cfee74a2e7bb77c959296a4ccb051dfb0608d3d585b24",
+      "field": "payload",
+      "tag": "items",
+      "slot_key": "slot",
+      "reset_array_on_read": false
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+      "before_sha256": "013dc55d7fff3b4bb1d806167fa62103f7079662077afe8acf6b8ab67fba7c7f",
+      "after_sha256": "37069796eb46261012f85e54e84dbf078c3d4ec3ef3f9e1895ff5555eb99b493",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/entity/missile/EntityBobmazon.java",
+      "pristine_sha256": "1d58d07596d7a5f915db2ce30708324e8b6ec2e98ea586a9650f611120afb288",
+      "field": "payload",
+      "tag": "payload",
+      "slot_key": null,
+      "reset_array_on_read": false
+    }
+  ]
+}

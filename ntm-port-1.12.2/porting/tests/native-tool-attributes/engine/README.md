@@ -1,0 +1,37 @@
+# CP92 actual-engine tool/weapon attribute audit
+
+## Reproduce
+
+From this directory, run `python capture.py` and `python run.py`. Both use only the already cached Java 8, native classpath, official old client, supplied original NTM jar, and Forge 1614 userdev. Compilation and runtime scratch files are temporary. No full mod build, game launch, download, dependency resolution, cache rewrite, or production source edit occurs.
+
+`capture.py` retains exact javap excerpts with original line numbers, Forge patches, and hashes. `run.py` records its exact source/input hashes, compiler warnings, and runtime results. Native tests use the actual cached platform classes and small test descendants; they do not claim to compile the migrated mod. The original payload oracle remaps complete supplied mod classfiles by symbols only into the actual old client. It does not replace method bodies or platform classes. Unsafe skips unrelated constructors, but original class initializers still run.
+
+## Finite migration rule
+
+1. Preserve the distinction between replacement maps and actual inherited maps. ItemSwordAbility, ItemToolAbility, and ItemCrucible originally create fresh maps. Keep that behavior and explicit NTM damage/movement payloads. Do not add a superclass map or an invented attack-speed compensation.
+2. Mirror, RBMK, ToolingWeapon, and GunB92 have a genuine Item-only attribute base, which is empty. ItemToolingWeapon's ancestry is ItemTooling → ItemCraftingDegradation → Item, with no intervening attribute overrides. Keep their real native superclass dispatch and exact custom payloads.
+3. WeaponSpecial alone genuinely inherits ItemSword's map. Preserve the native mainhand-only baseline and native attack-speed modifier, but restore its exact old attack-damage amount as `(double) (4.0F + super.getAttackDamage())`. The native accessor returns raw material attack, not the stored combined modifier. Replace only the native attack-damage UUID; `remove(key, replacement)` is valid because the actual AttributeModifier equality/hash use UUID only. Preserve native attack speed and unrelated modifiers. Do not clear all damage entries, change UUID, add a second damage modifier, or add 1 after rounding.
+4. The legacy engine evaluates item attributes in all five old equipment positions: held item and four armor positions. Preserve explicit NTM custom payloads at those five corresponding native positions, exclude newly introduced OFFHAND. Native inherited Sword/Tool entries remain naturally MAINHAND-only. This is a payload/source distinction, not a claim that ordinary tools normally equip as armor.
+5. Crucible's full stack-sensitive override is an intentional replacement: active for damage < max damage, entirely empty when spent. Calling `super.getAttributeModifiers(slot, stack)` there redispatches to inherited ItemSwordAbility and revives the payload. Ordinary ItemStack metadata and NBT remain untouched; explicit native `AttributeModifiers` NBT still wins and follows its own Slot filter, including deliberate OFFHAND NBT.
+6. ItemToolAbility's old constructor passes base damage 0 to old ItemTool. Native `ItemTool(material, blocks)` delegates to `(0F, 0F, material, blocks)`. Actual native two-arg and four-arg maps match at every slot for every vanilla material. Its explicit replacement override still omits attack-speed entirely: do not introduce even a zero-valued ATTACK_SPEED tuple.
+
+## Exact engine baselines and counterexamples
+
+- Old ItemSword stores `4F + material.attackDamage` as float, then widens to double in the modifier. Native stores `3F + material.attackDamage`. Old has no ATTACK_SPEED attribute; native Sword contributes `(double) -2.4F`, exactly -2.4000000953674316, UUID fa233e1c-4180-4865-b01b-bcce9785aca3, name Weapon modifier, operation 0.
+- Old ItemTool stores baseDamage + material.attackDamage. Native two-arg stores 0F + material.attackDamage and attackSpeed 0F. Both native damage and speed tuples exist in MAINHAND and nowhere else unless the subclass replaces the map.
+- The old field_111210_e and native ATTACK_DAMAGE_MODIFIER are UUID cb3f55d3-645c-4f38-a497-9c13a33db5cf. In the real native HashMultimap, taking an IRON Sword super map and putting an explicit 75-damage modifier with that UUID returns false and retains damage 5. It is not replacement.
+- Real registered explicit values differ dramatically from native inherited damage: schrabidium sword 75 vs native 103; CMB sword 35 vs 58; titanium sword 6.5 vs 5.5; schrabidium pickaxe 20 vs native ItemTool 100; Crucible active 5000 vs native Sword 103. These exact constructor/material constants are captured from the original jar, not merely inferred from current source.
+- WeaponSpecial inherited old/new examples before narrow correction: steel 6/5; shimmer 30/29; bottle opener 4.5/3.5; flipped wrench 16/15. The hammer material source literal 999999996F is already 1.0E9F in original bytecode, and adding 3F or 4F both rounds to 1.0E9F. Adding 1 after widening would incorrectly produce 1000000001. The 16777214F probe gives another rounding-boundary counterexample.
+- An actual AttributeMap starting at native default attack speed 4 stays at 4 for the fresh replacement map, but becomes 1.5999999046325684 for genuine native Sword super. There is no fake compensating attribute in the test or proposed rule.
+
+## Runtime evidence and honest limitations
+
+`runtime-oracle.log` contains 191 actual-engine assertions for old/native baselines, constructors, float arithmetic, UUID equality/removal, unrelated-modifier preservation, mainhand/old-five-slot behavior, real ItemStack dispatch, ordinary metadata/NBT, authoritative explicit NBT, and default-vs-inherited attack speed.
+
+`original-payloads.json` records six maps/seven exact payload tuples from complete original ItemSwordAbility, GunB92, and ItemCrucible classfiles. The sword uses the original mese-gavel field values 250/1.5; Crucible uses its actual 5000/1 fields and durability 3, tested at damage 0, 2, 3, 4. Fields are configured without invoking unrelated mod constructors, and all original attribute method bodies execute. Names, UUIDs, operations, amounts, cardinalities, and active/spent behavior are asserted.
+
+Complete original ItemToolAbility initialization cannot run against the unpatched official old client: its original static initializer asks ReflectionHelper for Forge-added Block.captureDrops(boolean), which that client does not contain. The oracle checks this exact expected NoSuchMethodException; any unrelated failure is fatal. The real Forge patch proving the missing method is captured. Its original constructor and complete attribute method are covered by static bytecode instead, not by a stub.
+
+Mirror/RBMK/ToolingWeapon original stack-hook super calls require Forge's actual Item.getAttributeModifiers(ItemStack), absent from the bare official client. WeaponSpecial's identity branches require unrelated original ModItems initialization. Their exact original hooks are therefore evidenced statically rather than misrepresented as executed. ItemTooling and ItemCraftingDegradation complete declarations prove the direct-Item ancestry. The real old Forge Item/ItemStack bridge patches are captured.
+
+No full original or native mod lifecycle, equipped gameplay, rendering, client startup, network behavior, or previously unrelated compilation failures are claimed resolved by this bounded oracle.

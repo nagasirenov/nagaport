@@ -1,0 +1,11 @@
+{
+  "before": {
+    "exit": 1,
+    "errors": 166
+  },
+  "after": {
+    "exit": 1,
+    "errors": 161
+  },
+  "scope": "Only four complete selected owners; missing/unported NTM dependencies intentionally not synthesized; not a full-mod compile."
+}

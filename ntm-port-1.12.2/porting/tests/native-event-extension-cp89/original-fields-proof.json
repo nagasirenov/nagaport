@@ -1,0 +1,370 @@
+[
+  {
+    "owner": "net.minecraftforge.event.entity.player.PlayerEvent",
+    "field": "entityPlayer",
+    "native_getter": "getEntityPlayer",
+    "native_setter": "-",
+    "original_declaration": "public final EntityPlayer entityPlayer;",
+    "original_bytecode_field": "public final yz entityPlayer;"
+  },
+  {
+    "owner": "net.minecraftforge.event.world.BlockEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.world.BlockEvent.PlaceEvent",
+    "field": "player",
+    "native_getter": "getPlayer",
+    "native_setter": "-",
+    "original_declaration": "public final EntityPlayer player;",
+    "original_bytecode_field": "public final yz player;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent",
+    "field": "rand",
+    "native_getter": "getRand",
+    "native_setter": "-",
+    "original_declaration": "public final Random rand;",
+    "original_bytecode_field": "public final java.util.Random rand;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate",
+    "field": "type",
+    "native_getter": "getType",
+    "native_setter": "-",
+    "original_declaration": "public final EventType type;",
+    "original_bytecode_field": "public final net.minecraftforge.event.terraingen.DecorateBiomeEvent$Decorate$EventType type;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.living.LivingDeathEvent",
+    "field": "source",
+    "native_getter": "getSource",
+    "native_setter": "-",
+    "original_declaration": "public final DamageSource source;",
+    "original_bytecode_field": "public final ro source;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+    "field": "x",
+    "native_getter": "getX",
+    "native_setter": "-",
+    "original_declaration": "public final float x;",
+    "original_bytecode_field": "public final float x;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+    "field": "y",
+    "native_getter": "getY",
+    "native_setter": "-",
+    "original_declaration": "public final float y;",
+    "original_bytecode_field": "public final float y;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.living.LivingSpawnEvent",
+    "field": "z",
+    "native_getter": "getZ",
+    "native_setter": "-",
+    "original_declaration": "public final float z;",
+    "original_bytecode_field": "public final float z;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.living.LivingDropsEvent",
+    "field": "drops",
+    "native_getter": "getDrops",
+    "native_setter": "-",
+    "original_declaration": "public final ArrayList<EntityItem> drops;",
+    "original_bytecode_field": "public final java.util.ArrayList<xk> drops;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+    "field": "rand",
+    "native_getter": "getRand",
+    "native_setter": "-",
+    "original_declaration": "public final Random rand;",
+    "original_bytecode_field": "public final java.util.Random rand;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+    "field": "chunkX",
+    "native_getter": "getChunkX",
+    "native_setter": "-",
+    "original_declaration": "public final int chunkX;",
+    "original_bytecode_field": "public final int chunkX;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent",
+    "field": "chunkZ",
+    "native_getter": "getChunkZ",
+    "native_setter": "-",
+    "original_declaration": "public final int chunkZ;",
+    "original_bytecode_field": "public final int chunkZ;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate",
+    "field": "type",
+    "native_getter": "getType",
+    "native_setter": "-",
+    "original_declaration": "public final EventType type;",
+    "original_bytecode_field": "public final net.minecraftforge.event.terraingen.PopulateChunkEvent$Populate$EventType type;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.BiomeEvent",
+    "field": "biome",
+    "native_getter": "getBiome",
+    "native_setter": "-",
+    "original_declaration": "public final BiomeGenBase biome;",
+    "original_bytecode_field": "public final ahu biome;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+    "field": "target",
+    "native_getter": "getTarget",
+    "native_setter": "-",
+    "original_declaration": "public final MovingObjectPosition target;",
+    "original_bytecode_field": "public final azu target;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+    "field": "current",
+    "native_getter": "getEmptyBucket",
+    "native_setter": "-",
+    "original_declaration": "public final ItemStack current;",
+    "original_bytecode_field": "public final add current;"
+  },
+  {
+    "owner": "net.minecraftforge.event.world.ExplosionEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.world.ExplosionEvent",
+    "field": "explosion",
+    "native_getter": "getExplosion",
+    "native_setter": "-",
+    "original_declaration": "public final Explosion explosion;",
+    "original_bytecode_field": "public final agw explosion;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.item.ItemEvent",
+    "field": "entityItem",
+    "native_getter": "getEntityItem",
+    "native_setter": "-",
+    "original_declaration": "public final EntityItem entityItem;",
+    "original_bytecode_field": "public final xk entityItem;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.EntityJoinWorldEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.UseHoeEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.UseHoeEvent",
+    "field": "current",
+    "native_getter": "getCurrent",
+    "native_setter": "-",
+    "original_declaration": "public final ItemStack current;",
+    "original_bytecode_field": "public final add current;"
+  },
+  {
+    "owner": "net.minecraftforge.event.CommandEvent",
+    "field": "command",
+    "native_getter": "getCommand",
+    "native_setter": "-",
+    "original_declaration": "public final ICommand command;",
+    "original_bytecode_field": "public final aa command;"
+  },
+  {
+    "owner": "net.minecraftforge.event.CommandEvent",
+    "field": "sender",
+    "native_getter": "getSender",
+    "native_setter": "-",
+    "original_declaration": "public final ICommandSender sender;",
+    "original_bytecode_field": "public final ac sender;"
+  },
+  {
+    "owner": "net.minecraftforge.event.ServerChatEvent",
+    "field": "player",
+    "native_getter": "getPlayer",
+    "native_setter": "-",
+    "original_declaration": "public final EntityPlayerMP player;",
+    "original_bytecode_field": "public final mw player;"
+  },
+  {
+    "owner": "net.minecraftforge.event.ServerChatEvent",
+    "field": "message",
+    "native_getter": "getMessage",
+    "native_setter": "-",
+    "original_declaration": "public final String message, username;",
+    "original_bytecode_field": "public final java.lang.String message;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+    "field": "itemStack",
+    "native_getter": "getItemStack",
+    "native_setter": "-",
+    "original_declaration": "public final ItemStack itemStack;",
+    "original_bytecode_field": "public final add itemStack;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.ItemTooltipEvent",
+    "field": "toolTip",
+    "native_getter": "getToolTip",
+    "native_setter": "-",
+    "original_declaration": "public final List<String> toolTip;",
+    "original_bytecode_field": "public final java.util.List<java.lang.String> toolTip;"
+  },
+  {
+    "owner": "net.minecraftforge.event.terraingen.OreGenEvent",
+    "field": "world",
+    "native_getter": "getWorld",
+    "native_setter": "-",
+    "original_declaration": "public final World world;",
+    "original_bytecode_field": "public final ahb world;"
+  },
+  {
+    "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+    "field": "Name",
+    "native_getter": "getName",
+    "native_setter": "-",
+    "original_declaration": "public final String Name;",
+    "original_bytecode_field": "public final java.lang.String Name;"
+  },
+  {
+    "owner": "net.minecraftforge.oredict.OreDictionary.OreRegisterEvent",
+    "field": "Ore",
+    "native_getter": "getOre",
+    "native_setter": "-",
+    "original_declaration": "public final ItemStack Ore;",
+    "original_bytecode_field": "public final add Ore;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.FillBucketEvent",
+    "field": "result",
+    "native_getter": "getFilledBucket",
+    "native_setter": "setFilledBucket",
+    "original_declaration": "public ItemStack result;",
+    "original_bytecode_field": "public add result;"
+  },
+  {
+    "owner": "net.minecraftforge.event.CommandEvent",
+    "field": "parameters",
+    "native_getter": "getParameters",
+    "native_setter": "setParameters",
+    "original_declaration": "public String[] parameters;",
+    "original_bytecode_field": "public java.lang.String[] parameters;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.PlayerFlyableFallEvent",
+    "field": "distance",
+    "native_getter": "getDistance",
+    "native_setter": "setDistance",
+    "original_declaration": "public float distance;",
+    "original_bytecode_field": "public float distance;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.living.LivingFallEvent",
+    "field": "distance",
+    "native_getter": "getDistance",
+    "native_setter": "setDistance",
+    "original_declaration": "public float distance;",
+    "original_bytecode_field": "public float distance;"
+  },
+  {
+    "owner": "net.minecraftforge.event.entity.player.ArrowLooseEvent",
+    "field": "charge",
+    "native_getter": "getCharge",
+    "native_setter": "setCharge",
+    "original_declaration": "public int charge;",
+    "original_bytecode_field": "public int charge;"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.GuiOpenEvent",
+    "field": "gui",
+    "native_getter": "getGui",
+    "native_setter": "setGui",
+    "original_declaration": "public GuiScreen gui;",
+    "original_bytecode_field": "public bdw gui;"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+    "field": "red",
+    "native_getter": "getRed",
+    "native_setter": "setRed",
+    "original_declaration": "public float red;",
+    "original_bytecode_field": "public float red;"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+    "field": "green",
+    "native_getter": "getGreen",
+    "native_setter": "setGreen",
+    "original_declaration": "public float green;",
+    "original_bytecode_field": "public float green;"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogColors",
+    "field": "blue",
+    "native_getter": "getBlue",
+    "native_setter": "setBlue",
+    "original_declaration": "public float blue;",
+    "original_bytecode_field": "public float blue;"
+  },
+  {
+    "owner": "net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity",
+    "field": "density",
+    "native_getter": "getDensity",
+    "native_setter": "setDensity",
+    "original_declaration": "public float density;",
+    "original_bytecode_field": "public float density;"
+  }
+]

@@ -157,9 +157,9 @@ public class ModEventHandlerClient {
 		EntityPlayer player = Minecraft.getMinecraft().player;
 
 		/// NUKE FLASH ///
-		if(event.type == ElementType.CROSSHAIRS && (flashTimestamp + flashDuration - Clock.get_ms()) > 0 && ClientConfig.NUKE_HUD_FLASH.get()) {
-			int width = event.resolution.getScaledWidth();
-			int height = event.resolution.getScaledHeight();
+		if(event.getType() == ElementType.CROSSHAIRS && (flashTimestamp + flashDuration - Clock.get_ms()) > 0 && ClientConfig.NUKE_HUD_FLASH.get()) {
+			int width = event.getResolution().getScaledWidth();
+			int height = event.getResolution().getScaledHeight();
 			Tessellator tess = Tessellator.instance;
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glEnable(GL11.GL_BLEND);
@@ -206,26 +206,26 @@ public class ModEventHandlerClient {
 
 		/// HANDLE GUN OVERLAYS ///
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemHUD) {
-			((IItemHUD)com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).renderHUD(event, event.type, player, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
+			((IItemHUD)com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).renderHUD(event, event.getType(), player, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 		}
 
 		/// HANDLE GEIGER COUNTER HUD ///
-		if(event.type == ElementType.HOTBAR) {
+		if(event.getType() == ElementType.HOTBAR) {
 
-			if(!(ArmorFSB.hasFSBArmor(player) && ((ArmorFSB)player.inventory.armorInventory[2].getItem()).customGeiger)) {
+			if(!(ArmorFSB.hasFSBArmor(player) && ((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).customGeiger)) {
 
 				if(player.inventory.hasItem(ModItems.geiger_counter)) {
 
 					float rads = HbmLivingProps.getRadiation(player);
 
-					RenderScreenOverlay.renderRadCounter(event.resolution, rads, Minecraft.getMinecraft().ingameGUI);
+					RenderScreenOverlay.renderRadCounter(event.getResolution(), rads, Minecraft.getMinecraft().ingameGUI);
 				}
 			}
 		}
 
 
 		/// DODD DIAG HOOK FOR RBMK
-		if(event.type == ElementType.CROSSHAIRS && ClientConfig.DODD_RBMK_DIAGNOSTIC.get()) {
+		if(event.getType() == ElementType.CROSSHAIRS && ClientConfig.DODD_RBMK_DIAGNOSTIC.get()) {
 			Minecraft mc = Minecraft.getMinecraft();
 			World world = mc.world;
 			RayTraceResult mop = mc.objectMouseOver;
@@ -382,11 +382,11 @@ public class ModEventHandlerClient {
 		/// HANDLE SCOPE OVERLAY ///
 		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
-		if(held != null && held.getItem() instanceof ItemGunBaseNT && ItemGunBaseNT.aimingProgress == ItemGunBaseNT.prevAimingProgress && ItemGunBaseNT.aimingProgress == 1F && event.type == ElementType.HOTBAR)  {
+		if(held != null && held.getItem() instanceof ItemGunBaseNT && ItemGunBaseNT.aimingProgress == ItemGunBaseNT.prevAimingProgress && ItemGunBaseNT.aimingProgress == 1F && event.getType() == ElementType.HOTBAR)  {
 			ItemGunBaseNT gun = (ItemGunBaseNT) held.getItem();
 			GunConfig cfg = gun.getConfig(held, 0);
 			if(cfg.getScopeTexture(held) != null) {
-				ScaledResolution resolution = event.resolution;
+				ScaledResolution resolution = event.getResolution();
 				RenderScreenOverlay.renderScope(resolution, cfg.getScopeTexture(held));
 			}
 		}
@@ -398,19 +398,19 @@ public class ModEventHandlerClient {
 
 		/// HANDLE FLASHBANG OVERLAY///
 		if(player.isPotionActive(HbmPotion.flashbang)) {
-			RenderScreenOverlay.renderFlashbangOverlay(event.resolution);
+			RenderScreenOverlay.renderFlashbangOverlay(event.getResolution());
 		}
 		/// HANDLE FSB HUD ///
-		ItemStack helmet = player.inventory.armorInventory[3];
+		ItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);
 
 		if(helmet != null && helmet.getItem() instanceof ArmorFSB) {
 			((ArmorFSB)helmet.getItem()).handleOverlay(event, player);
 		}
-		if(!event.isCanceled() && event.type == ElementType.HOTBAR) {
+		if(!event.isCanceled() && event.getType() == ElementType.HOTBAR) {
 
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
 			if(props.getDashCount() > 0) {
-				RenderScreenOverlay.renderDashBar(event.resolution, Minecraft.getMinecraft().ingameGUI, props);
+				RenderScreenOverlay.renderDashBar(event.getResolution(), Minecraft.getMinecraft().ingameGUI, props);
 
 			}
 		}
@@ -421,11 +421,11 @@ public class ModEventHandlerClient {
 
 		EntityPlayer player = Minecraft.getMinecraft().player;
 
-		if(event.type == ElementType.ARMOR) {
+		if(event.getType() == ElementType.ARMOR) {
 
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
 			if(props.getEffectiveMaxShield() > 0) {
-				RenderScreenOverlay.renderShieldBar(event.resolution, Minecraft.getMinecraft().ingameGUI);
+				RenderScreenOverlay.renderShieldBar(event.getResolution(), Minecraft.getMinecraft().ingameGUI);
 			}
 		}
 	}
@@ -458,20 +458,20 @@ public class ModEventHandlerClient {
 		EntityPlayer player = Minecraft.getMinecraft().player;
 		Tessellator tess = Tessellator.instance;
 
-		if(!event.isCanceled() && event.type == ElementType.HEALTH) {
+		if(!event.isCanceled() && event.getType() == ElementType.HEALTH) {
 			if(player.isPotionActive(HbmPotion.nitan)) {
-				RenderScreenOverlay.renderTaintBar(event.resolution, Minecraft.getMinecraft().ingameGUI);
+				RenderScreenOverlay.renderTaintBar(event.getResolution(), Minecraft.getMinecraft().ingameGUI);
 			}
 		}
 
-		if (!event.isCanceled() && event.type == ElementType.ALL) {
+		if (!event.isCanceled() && event.getType() == ElementType.ALL) {
 			long time = ImpactWorldHandler.getTimeForClient(player.world);
 			if(time > 0) {
-				RenderScreenOverlay.renderCountdown(event.resolution, Minecraft.getMinecraft().ingameGUI, Minecraft.getMinecraft().world);
+				RenderScreenOverlay.renderCountdown(event.getResolution(), Minecraft.getMinecraft().ingameGUI, Minecraft.getMinecraft().world);
 			}
 		}
 
-		if(event.type == ElementType.ARMOR) {
+		if(event.getType() == ElementType.ARMOR) {
 
 			List<List<Tuple.Pair<Float, Integer>>> barsList = new ArrayList<>();
 
@@ -479,7 +479,7 @@ public class ModEventHandlerClient {
 
 				barsList.add(new ArrayList<>());
 
-				ItemStack stack = player.inventory.armorInventory[i];
+				ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);
 
 				if(stack == null)
 					continue;
@@ -503,8 +503,8 @@ public class ModEventHandlerClient {
 				GuiIngameForge.left_height -= 10;
 			}
 
-			int width = event.resolution.getScaledWidth();
-			int height = event.resolution.getScaledHeight();
+			int width = event.getResolution().getScaledWidth();
+			int height = event.getResolution().getScaledHeight();
 			int left = width / 2 - 91;
 
 			for (List<Tuple.Pair<Float, Integer>> bars : barsList) {
@@ -573,8 +573,8 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void preRenderEvent(RenderPlayerEvent.Pre event) {
 
-		RenderPlayer renderer = event.renderer;
-		AbstractClientPlayer player = (AbstractClientPlayer)event.entityPlayer;
+		RenderPlayer renderer = event.getRenderer();
+		AbstractClientPlayer player = (AbstractClientPlayer)event.getEntityPlayer();
 
 		PotionEffect invis = player.getActivePotionEffect(net.minecraft.init.MobEffects.INVISIBILITY);
 
@@ -585,13 +585,13 @@ public class ModEventHandlerClient {
 
 			event.setCanceled(true);
 
-			float pX = (float) (player.prevPosX + (player.posX - player.prevPosX) * (double)event.partialRenderTick);
-			float pY = (float) (player.prevPosY + (player.posY - player.prevPosY) * (double)event.partialRenderTick);
-			float pZ = (float) (player.prevPosZ + (player.posZ - player.prevPosZ) * (double)event.partialRenderTick);
+			float pX = (float) (player.prevPosX + (player.posX - player.prevPosX) * (double)event.getPartialRenderTick());
+			float pY = (float) (player.prevPosY + (player.posY - player.prevPosY) * (double)event.getPartialRenderTick());
+			float pZ = (float) (player.prevPosZ + (player.posZ - player.prevPosZ) * (double)event.getPartialRenderTick());
 			EntityPlayer me = Minecraft.getMinecraft().player;
-			float mX = (float) (me.prevPosX + (me.posX - me.prevPosX) * (double)event.partialRenderTick);
-			float mY = (float) (me.prevPosY + (me.posY - me.prevPosY) * (double)event.partialRenderTick);
-			float mZ = (float) (me.prevPosZ + (me.posZ - me.prevPosZ) * (double)event.partialRenderTick);
+			float mX = (float) (me.prevPosX + (me.posX - me.prevPosX) * (double)event.getPartialRenderTick());
+			float mY = (float) (me.prevPosY + (me.posY - me.prevPosY) * (double)event.getPartialRenderTick());
+			float mZ = (float) (me.prevPosZ + (me.posZ - me.prevPosZ) * (double)event.getPartialRenderTick());
 
 			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/particle/fart.png"));
 			GL11.glPushMatrix();
@@ -629,11 +629,11 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void onRenderArmorEvent(RenderPlayerEvent.SetArmorModel event) {
 
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 
 		for(int i = 0; i < 4; i++) {
 
-			ItemStack armor = player.getCurrentArmor(i);
+			ItemStack armor = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);
 
 			if(armor != null && ArmorModHandler.hasMods(armor)) {
 
@@ -655,7 +655,7 @@ public class ModEventHandlerClient {
 			}
 		}
 
-		if(player.getCurrentArmor(2) == null && !player.isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY)) {
+		if(com.hbm.util.LivingEquipmentRead.getArmorNullable(player, 2) == null && !player.isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY)) {
 			if(player.getUniqueID().toString().equals(ShadyUtil.HbMinecraft) ||		player.getDisplayName().equals("HbMinecraft"))		RenderAccessoryUtility.renderWings(event, 2);
 			if(player.getUniqueID().toString().equals(ShadyUtil.the_NCR) ||			player.getDisplayName().equals("the_NCR"))			RenderAccessoryUtility.renderWings(event, 3);
 			if(player.getUniqueID().toString().equals(ShadyUtil.Barnaby99_x) ||		player.getDisplayName().equals("pheo7"))			RenderAccessoryUtility.renderAxePack(event);
@@ -763,8 +763,8 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void drawTooltip(ItemTooltipEvent event) {
 
-		ItemStack stack = event.itemStack;
-		List<String> list = event.toolTip;
+		ItemStack stack = event.getItemStack();
+		List<String> list = event.getToolTip();
 
 		/// DAMAGE RESISTANCE ///
 		DamageResistanceHandler.addInfo(stack, list);
@@ -818,7 +818,7 @@ public class ModEventHandlerClient {
 		}
 
 		/// HAZARDS ///
-		HazardSystem.addFullTooltip(stack, event.entityPlayer, list);
+		HazardSystem.addFullTooltip(stack, event.getEntityPlayer(), list);
 
 		if(event.showAdvancedItemTooltips && ClientConfig.ITEM_TOOLTIP_SHOW_OREDICT.get()) {
 			List<String> names = ItemStackUtil.getOreDictNames(stack);
@@ -909,7 +909,7 @@ public class ModEventHandlerClient {
 			if(block instanceof net.minecraft.block.BlockOre || block instanceof BlockRedstoneOre) {
 				BlockOre ore = BlockOre.vanillaMap.get(block);
 				if(ore != null) {
-					ore.addInformation(stack, event.entityPlayer, list, event.showAdvancedItemTooltips);
+					ore.addInformation(stack, event.getEntityPlayer(), list, event.showAdvancedItemTooltips);
 				} else if(block == Blocks.COAL_ORE) {
 					// we don't have any celestial coal, special case
 					list.add(TextFormatting.GOLD + "Can be found on:");
@@ -966,7 +966,7 @@ public class ModEventHandlerClient {
 
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)(lX + (cX - lX) * interp) / 1.0F, (float)(lY + (cY - lY) * interp) / 1.0F);
 
-		mc.entityRenderer.enableLightmap((double)event.partialTicks);
+		mc.entityRenderer.enableLightmap((double)event.getPartialTicks());
 
 		mc.getTextureManager().bindTexture(ashes);
 
@@ -983,7 +983,7 @@ public class ModEventHandlerClient {
 			tessellator.draw();
 		}
 
-		mc.entityRenderer.disableLightmap((double)event.partialTicks);
+		mc.entityRenderer.disableLightmap((double)event.getPartialTicks());
 
 		GL11.glDepthMask(true);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
@@ -1043,10 +1043,10 @@ public class ModEventHandlerClient {
 			}
 			
 			CelestialBody body = CelestialBody.getBody(mc.world);
-			CBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().player.worldObj, CBT_Invasion.class);
+			CBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().player.world, CBT_Invasion.class);
 			
 			if(invasion != null) {
-				if (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().player.worldObj, CBT_Invasion.class)) {
+				if (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().player.world, CBT_Invasion.class)) {
 					MainRegistry.proxy.displayTooltip(TextFormatting.GREEN + "Kills Left: " + (invasion.killreq - invasion.kills), 14);
 				}	
 			}
@@ -1119,9 +1119,9 @@ public class ModEventHandlerClient {
 				boolean onlyGuns = true;
 
 				List<ItemStack> stacks = new ArrayList<ItemStack>();
-				for (Object reg : Item.itemRegistry) {
+				for (Object reg : Item.REGISTRY) {
 					Item item = (Item) reg;
-					if(ignoreNonNTM && !Item.itemRegistry.getNameForObject(item).startsWith("hbm:")) continue;
+					if(ignoreNonNTM && !java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null).startsWith("hbm:")) continue;
 					if(ignoredItems.contains(item)) continue;
 					if(onlyGuns && !(item instanceof ItemGunBaseNT)) continue;
 					if(collapsedClasses.contains(item.getClass())) {
@@ -1146,8 +1146,8 @@ public class ModEventHandlerClient {
 			float defaultStepSize = 0.5F;
 			int newStepSize = 0;
 
-			if(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof ArmorFSB) {
-				ArmorFSB plate = (ArmorFSB) player.inventory.armorInventory[2].getItem();
+			if(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem() instanceof ArmorFSB) {
+				ArmorFSB plate = (ArmorFSB) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();
 				if(ArmorFSB.hasFSBArmor(player)) newStepSize = plate.stepSize;
 			}
 
@@ -1359,9 +1359,9 @@ public class ModEventHandlerClient {
 
 		EntityPlayer player = Minecraft.getMinecraft().player;
 
-		double dx = player.prevPosX + (player.posX - player.prevPosX) * event.partialTicks;
-		double dy = player.prevPosY + (player.posY - player.prevPosY) * event.partialTicks;
-		double dz = player.prevPosZ + (player.posZ - player.prevPosZ) * event.partialTicks;
+		double dx = player.prevPosX + (player.posX - player.prevPosX) * event.getPartialTicks();
+		double dy = player.prevPosY + (player.posY - player.prevPosY) * event.getPartialTicks();
+		double dz = player.prevPosZ + (player.posZ - player.prevPosZ) * event.getPartialTicks();
 
 		int dist = 300;
 		int x = 0;
@@ -1434,11 +1434,11 @@ public class ModEventHandlerClient {
 		boolean hudOn = HbmPlayerProps.getData(player).enableHUD;
 
 		if(hudOn) {
-			RenderOverhead.renderMarkers(event.partialTicks);
+			RenderOverhead.renderMarkers(event.getPartialTicks());
 			boolean thermalSights = false;
 
 			if(ArmorFSB.hasFSBArmor(player)) {
-				ItemStack plate = player.inventory.armorInventory[2];
+				ItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 				ArmorFSB chestplate = (ArmorFSB) plate.getItem();
 
 				if(chestplate.thermal) thermalSights = true;
@@ -1449,16 +1449,16 @@ public class ModEventHandlerClient {
 				for(int i = 0; i < gun.getConfigCount(); i++) if(gun.getConfig(com.hbm.util.NativeHeldItem.getMainHandNullable(player), i).hasThermalSights(com.hbm.util.NativeHeldItem.getMainHandNullable(player))) thermalSights = true;
 			}
 
-			if(thermalSights) RenderOverhead.renderThermalSight(event.partialTicks);
+			if(thermalSights) RenderOverhead.renderThermalSight(event.getPartialTicks());
 		}
 
-		RenderOverhead.renderActionPreview(event.partialTicks);
+		RenderOverhead.renderActionPreview(event.getPartialTicks());
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void preRenderEventFirst(RenderLivingEvent.Pre event) {
 
-		if(MainRegistry.proxy.isVanished(event.entity))
+		if(MainRegistry.proxy.isVanished(event.getEntity()))
 			event.setCanceled(true);
 	}
 
@@ -1468,14 +1468,14 @@ public class ModEventHandlerClient {
 		EntityPlayer player = Minecraft.getMinecraft().player;
 
 		if(ArmorFSB.hasFSBArmor(player) && HbmPlayerProps.getData(player).enableHUD) {
-			ItemStack plate = player.inventory.armorInventory[2];
+			ItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 			ArmorFSB chestplate = (ArmorFSB)plate.getItem();
 
 			if(chestplate.vats) {
 
-				int count = (int)Math.min(event.entity.getMaxHealth(), 100);
+				int count = (int)Math.min(event.getEntity().getMaxHealth(), 100);
 
-				int bars = (int)Math.ceil(event.entity.getHealth() * count / event.entity.getMaxHealth());
+				int bars = (int)Math.ceil(event.getEntity().getHealth() * count / event.getEntity().getMaxHealth());
 
 				String bar = TextFormatting.RED + "";
 
@@ -1486,7 +1486,7 @@ public class ModEventHandlerClient {
 
 						bar += "|";
 				}
-				RenderOverhead.renderTag(event.entity, event.x, event.y, event.z, event.renderer, bar, chestplate.thermal);
+				RenderOverhead.renderTag(event.getEntity(), event.getX(), event.getY(), event.getZ(), event.getRenderer(), bar, chestplate.thermal);
 			}
 		}
 	}
@@ -1527,7 +1527,7 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void renderFrame(RenderItemInFrameEvent event) {
 
-		if(event.item != null && event.item.getItem() == ModItems.flame_pony) {
+		if(event.getItem() != null && event.getItem().getItem() == ModItems.flame_pony) {
 			event.setCanceled(true);
 
 			double p = 0.0625D;
@@ -1545,7 +1545,7 @@ public class ModEventHandlerClient {
 			GL11.glEnable(GL11.GL_LIGHTING);
 		}
 
-		if(event.item != null && event.item.getItem() == Items.PAPER) {
+		if(event.getItem() != null && event.getItem().getItem() == Items.PAPER) {
 			event.setCanceled(true);
 
 			double p = 0.0625D;
@@ -1588,8 +1588,8 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void onOpenGUI(GuiOpenEvent event) {
 
-		if(event.gui instanceof GuiMainMenu && ClientConfig.MAIN_MENU_WACKY_SPLASHES.get()) {
-			GuiMainMenu main = (GuiMainMenu) event.gui;
+		if(event.getGui() instanceof GuiMainMenu && ClientConfig.MAIN_MENU_WACKY_SPLASHES.get()) {
+			GuiMainMenu main = (GuiMainMenu) event.getGui();
 			int rand = (int)(Math.random() * 150);
 
 			switch(rand) {

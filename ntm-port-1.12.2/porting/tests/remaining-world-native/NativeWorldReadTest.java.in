@@ -1,0 +1,48 @@
+import java.lang.reflect.*;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.Entity;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.EmptyChunk;
+import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.init.Bootstrap;
+import sun.misc.Unsafe;
+public class NativeWorldReadTest {
+ static Unsafe unsafe;static int checks;static String trace="";
+ static void ok(boolean b,String message){checks++;if(!b)throw new AssertionError(message);}
+ static <T>T alloc(Class<T> c)throws Exception{return (T)unsafe.allocateInstance(c);}
+ interface Eval{Object get();} static void npe(Eval e){try{e.get();throw new AssertionError("expected null failure");}catch(NullPointerException expected){checks++;}}
+ static Chunk receiver(Chunk c){trace+="R";return c;}static int arg(){trace+="A";return 1;}static Object sink(World w,int n){trace+="S";return w;}
+ static World plain(Chunk chunk){return /*CHUNK_EXPRESSION*/;}
+ static class P {S parent;}static class S {R parent;}static class R {Chunk chunk;}
+ static World chain(P p){return /*CHAIN_EXPRESSION*/;}
+ static World client(){return /*CLIENT_EXPRESSION*/;}
+ static class Tile extends TileEntity {
+  World direct(World world){return /*TILE_EXPRESSION*/;}
+  public World getWorld(){throw new AssertionError("a direct field must not call this override");}
+ }
+ static class HiddenTile extends Tile {World world;}
+ static class TileEntityRBMKGauge extends TileEntity {
+  class GaugeUnit {World world; World read(World world){return /*OUTER_EXPRESSION*/;}}
+  public World getWorld(){throw new AssertionError("outer field must not call getter");}
+ }
+ static class Map extends MapGenBase {World read(World world){return /*MAP_EXPRESSION*/;}void bind(World w){this.world=w;}}
+ public static void main(String[] args)throws Exception {
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);Bootstrap.register();
+  World a=alloc(WorldServer.class),b=alloc(WorldServer.class);
+  Field storage=Chunk.class.getDeclaredField("world");ok(storage.getType()==World.class&&Modifier.isPrivate(storage.getModifiers())&&Modifier.isFinal(storage.getModifiers()),"native Chunk private final World storage");storage.setAccessible(true);
+  Chunk ca=new Chunk(a,3,-4),cb=new Chunk(b,3,-4),cn=new Chunk(null,3,-4);EmptyChunk empty=new EmptyChunk(a,7,-8);
+  ok(plain(ca)==a&&plain(cb)==b&&plain(cn)==null,"actual native constructors retain world identity and null");ok(storage.get(ca)==plain(ca)&&storage.get(cb)==plain(cb),"getter reads exact raw native storage");ok(plain(empty)==a,"native EmptyChunk inherits same field getter");
+  npe(()->plain(null));trace="";ok(receiver(ca).getWorld()==a&&trace.equals("R"),"one receiver evaluation");trace="";ok(sink(receiver(ca).getWorld(),arg())==a&&trace.equals("RAS"),"world access before later argument");trace="";npe(()->sink(receiver(null).getWorld(),arg()));ok(trace.equals("R"),"null receiver stops before later argument");
+  P p=new P();p.parent=new S();p.parent.parent=new R();p.parent.parent.chunk=ca;ok(chain(p)==a,"exact production nested receiver identity");p.parent.parent.chunk=cb;ok(chain(p)==b,"rebound pointer read sees second chunk");p.parent.parent.chunk=cn;ok(chain(p)==null,"null world is not normalized");p.parent.parent.chunk=null;npe(()->chain(p));p.parent.parent=null;npe(()->chain(p));p.parent=null;npe(()->chain(p));npe(()->chain(null));
+  Tile tile=new Tile();tile.setWorld(a);ok(tile.direct(b)==a,"local world parameter cannot capture field");tile.setWorld(b);ok(tile.direct(a)==b,"tile native setter rebinding");tile.setWorld(null);ok(tile.direct(a)==null,"tile null storage");HiddenTile hidden=new HiddenTile();hidden.setWorld(a);hidden.world=b;ok(hidden.direct(b)==a,"inherited body retains native field owner despite subclass hidden field");
+  TileEntityRBMKGauge outer=new TileEntityRBMKGauge();outer.setWorld(a);TileEntityRBMKGauge.GaugeUnit inner=outer.new GaugeUnit();inner.world=b;ok(inner.read(b)==a,"qualified outer tile is not inner field or parameter");outer.setWorld(null);ok(inner.read(b)==null,"outer null world identity");
+  Map map=new Map();map.bind(a);ok(map.read(b)==a,"MapGen direct inherited field ignores local parameter");map.bind(null);ok(map.read(b)==null,"MapGen null storage");
+  Minecraft mc=alloc(Minecraft.class);Field instance=Minecraft.class.getDeclaredField("instance");instance.setAccessible(true);Object prior=instance.get(null);instance.set(null,mc);
+  try{EntityPlayerSP first=alloc(EntityPlayerSP.class),second=alloc(EntityPlayerSP.class);first.world=a;second.world=b;mc.player=first;ok(client()==a,"exact production Minecraft player field chain");mc.player=second;ok(client()==b&&first.world==a,"replacement player and old identity retained");second.world=null;ok(client()==null,"player null world read");mc.player=null;npe(()->client());instance.set(null,null);npe(()->client());}finally{instance.set(null,prior);}
+  System.out.println("PASS "+checks+" native actual-world-pointer, constructor, inherited getter, evaluation/null, direct-field, outer-instance, and extracted production-access checks; no radiation runtime or world lifecycle parity claim");
+ }
+}

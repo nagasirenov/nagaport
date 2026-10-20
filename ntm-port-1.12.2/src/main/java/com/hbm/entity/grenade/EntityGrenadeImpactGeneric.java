@@ -3,12 +3,17 @@ package com.hbm.entity.grenade;
 import com.hbm.items.ModItems;
 import com.hbm.items.weapon.ItemGenericGrenade;
 
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGenericGrenade {
+
+	private static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeImpactGeneric.class, DataSerializers.VARINT);
 
 	public EntityGrenadeImpactGeneric(World p_i1773_1_) {
 		super(p_i1773_1_);
@@ -23,19 +28,20 @@ public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGe
 	}
 	
 	public EntityGrenadeImpactGeneric setType(ItemGenericGrenade grenade) {
-		this.dataWatcher.updateObject(12, Item.getIdFromItem(grenade));
+		this.dataManager.set(GRENADE_ID, Item.getIdFromItem(grenade));
 		return this;
 	}
 	
 	@Override
 	public ItemGenericGrenade getGrenade() {
-		ItemGenericGrenade gren = (ItemGenericGrenade) Item.getItemById(this.dataWatcher.getWatchableObjectInt(12));
+		int grenadeId = this.dataManager.get(GRENADE_ID);
+		ItemGenericGrenade gren = grenadeId == 0 ? null : (ItemGenericGrenade) Item.getItemById(grenadeId);
 		return gren != null ? gren : (ItemGenericGrenade) ModItems.grenade_kyiv;
 	}
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(12, 0);
+		this.dataManager.register(GRENADE_ID, 0);
 	}
 
 	@Override
@@ -50,12 +56,12 @@ public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGe
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setInteger("grenade", this.dataWatcher.getWatchableObjectInt(12));
+		nbt.setInteger("grenade", this.dataManager.get(GRENADE_ID));
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.dataWatcher.updateObject(12, nbt.getInteger("grenade"));
+		this.dataManager.set(GRENADE_ID, nbt.getInteger("grenade"));
 	}
 }

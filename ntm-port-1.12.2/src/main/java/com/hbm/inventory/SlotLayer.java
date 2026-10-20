@@ -39,12 +39,12 @@ public class SlotLayer extends Slot {
 
 	private void hide() {
 		isVisible = false;
-		yDisplayPosition = 9999;
+		this.yPos = 9999;
 	}
 
 	private void show() {
 		isVisible = true;
-		yDisplayPosition = originalYPosition;
+		this.yPos = originalYPosition;
 	}
 
 	@Override

@@ -69,11 +69,11 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 
-		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect)source).getEntity() instanceof EntityFBI) {
+		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect)source).getTrueSource() instanceof EntityFBI) {
 			return false;
 		}
 
-		if(this.getEquipmentInSlot(4) != null && this.getEquipmentInSlot(4).getItem() == Item.getItemFromBlock(Blocks.GLASS)) {
+		if(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4) != null && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4).getItem() == Item.getItemFromBlock(Blocks.GLASS)) {
 			if("oxygenSuffocation".equals(source.damageType))
 				return false;
 			if("thermal".equals(source.damageType))
@@ -97,22 +97,22 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		int equip = rand.nextInt(2);
 
 		switch(equip) {
-		case 0: this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_heavy_revolver)); break;
-		case 1: this.setCurrentItemOrArmor(0, new ItemStack(ModItems.gun_spas12)); break;
+		case 0: this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_heavy_revolver)); break;
+		case 1: this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.gun_spas12)); break;
 		}
 
 		if(rand.nextInt(5) == 0) {
-			this.setCurrentItemOrArmor(4, new ItemStack(ModItems.security_helmet));
-			this.setCurrentItemOrArmor(3, new ItemStack(ModItems.security_plate));
-			this.setCurrentItemOrArmor(2, new ItemStack(ModItems.security_legs));
-			this.setCurrentItemOrArmor(1, new ItemStack(ModItems.security_boots));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(ModItems.security_helmet));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(ModItems.security_plate));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(ModItems.security_legs));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.FEET, new ItemStack(ModItems.security_boots));
 		}
 
 		if(!ChunkAtmosphereManager.proxy.canBreathe(this)) {
-			this.setCurrentItemOrArmor(4, new ItemStack(Blocks.GLASS));
-			this.setCurrentItemOrArmor(3, new ItemStack(ModItems.paa_plate));
-			this.setCurrentItemOrArmor(2, new ItemStack(ModItems.paa_legs));
-			this.setCurrentItemOrArmor(1, new ItemStack(ModItems.paa_boots));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(Blocks.GLASS));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(ModItems.paa_plate));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(ModItems.paa_legs));
+			this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.FEET, new ItemStack(ModItems.paa_boots));
 		}
 	}
 
@@ -175,8 +175,8 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 	}
 
 	public boolean isPotionApplicable(PotionEffect potion) {
-		if(this.getEquipmentInSlot(4) == null)
-		   	this.setCurrentItemOrArmor(4, new ItemStack(ModItems.gas_mask_m65));
+		if(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4) == null)
+		   	this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask_m65));
 
 		return false;
 	}
@@ -198,7 +198,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 			if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
 				if(canDestroy.contains(this.world.getBlockState(mop.getBlockPos()).getBlock()))
-					this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+					com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 			}
 		}
 

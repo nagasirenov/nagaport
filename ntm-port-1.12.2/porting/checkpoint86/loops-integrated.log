@@ -1,0 +1,5 @@
+PASS Native player inventory/range source: 47 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 144 rejected mutations. Not runtime/GL proof.
+PASS 8 exact CP85 whole-file inverses; ten attributed normalizers extracted unchanged
+PASS 4534 native inventory foreach boundary checks; actual InventoryPlayer lists, all ten production normalizers, exact noncanonical aliases and no slot mutation. Handler bodies/radiation gameplay are not executed.
+PASS compiled missing-sentinel guard mutant rejected
+PASS two genuine scope positives; shadow, unknown, static misuse, wrong element type and string controls excluded

@@ -1,0 +1,6 @@
+PASS generic-grenades: 10 pristine calls; exact owner/default/serializer; full-source inverse; 2 named classes and 6 consumer files
+PASS 9 genuine legacy Item registry assertions; zero is null, not native ItemAir
+PASS pinned Forge1614 null-default item registry contract; no Forge1.7 loaded-world/runtime claim
+PASS 172 native generic-grenade assertions, impact-first; whole owners, explicit bounded parents, no explosion/flight acceptance
+PASS 172 native generic-grenade assertions, bouncy-first; whole owners, explicit bounded parents, no explosion/flight acceptance
+PASS complete ImpactGeneric/BouncyGeneric + IGenericGrenade compiled unchanged; 11 ancestor slices; explicit NTM item/ancestor fixtures, no flight/payload claim

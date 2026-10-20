@@ -93,7 +93,7 @@ public class MultiblockHandler {
 				for(int c = z - i[5]; c <= z + i[4]; c++) {
 					if(!(a == x && b == y && c == z)) {
 						Block block = com.hbm.world.WorldBlockState.read(world, a, b, c).getBlock();
-						if(block != Blocks.AIR && !block.isReplaceable(world, a, b, c)) {
+						if(block != Blocks.AIR && !block.isReplaceable(world, new net.minecraft.util.math.BlockPos(a, b, c))) {
 							placable = false;
 						}
 					}
@@ -137,7 +137,7 @@ public class MultiblockHandler {
 					if(!(a == x && b == y && c == z)) {
 						if(com.hbm.world.WorldBlockState.read(world, a, b, c).getBlock() instanceof IDummy)
 							if(!world.isRemote) {
-								world.func_147480_a(a, b, c, false);
+								com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, false);
 							}
 					}
 				}

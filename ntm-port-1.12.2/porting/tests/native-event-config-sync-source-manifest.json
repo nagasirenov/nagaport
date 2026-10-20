@@ -1,0 +1,1394 @@
+{
+  "baseline": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "files": {
+    "src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java": {
+      "before_sha256": "8a227986128c75bf5b56337b0090ab8c2bebf89b9ea34dac6fc3d4d3660edf7d",
+      "after_sha256": "67503ffff52647106e73bbcbf67e685c61e8a0e5dae40b54f5eb51f01163e7e3",
+      "edits": [
+        {
+          "before_offset": 4980,
+          "after_offset": 4980,
+          "old": "\t\t\t\t((WorldServer) world).getPlayerManager().markBlockForUpdate(x, y, z);\r\n",
+          "new": "\t\t\t\t((WorldServer) world).getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(x, y, z));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/config/BombConfig.java": {
+      "before_sha256": "89a284c1db3af745d5d09c008dcbfef8eda3ccec2b17a2632f1375a5ebb0bbb3",
+      "after_sha256": "f0ef19c1361712d69d95163f19bc135129f785fe93602933e3724647a03c19c0",
+      "edits": [
+        {
+          "before_offset": 1161,
+          "after_offset": 1161,
+          "old": "\t\tpropGadget.comment = \"Radius of the Gadget\";\n",
+          "new": "\t\tpropGadget.setComment(\"Radius of the Gadget\");\n"
+        },
+        {
+          "before_offset": 1318,
+          "after_offset": 1320,
+          "old": "\t\tpropBoy.comment = \"Radius of Little Boy\";\n",
+          "new": "\t\tpropBoy.setComment(\"Radius of Little Boy\");\n"
+        },
+        {
+          "before_offset": 1466,
+          "after_offset": 1470,
+          "old": "\t\tpropMan.comment = \"Radius of Fat Man\";\n",
+          "new": "\t\tpropMan.setComment(\"Radius of Fat Man\");\n"
+        },
+        {
+          "before_offset": 1613,
+          "after_offset": 1619,
+          "old": "\t\tpropMike.comment = \"Radius of Ivy Mike\";\n",
+          "new": "\t\tpropMike.setComment(\"Radius of Ivy Mike\");\n"
+        },
+        {
+          "before_offset": 1764,
+          "after_offset": 1772,
+          "old": "\t\tpropTsar.comment = \"Radius of the Tsar Bomba\";\n",
+          "new": "\t\tpropTsar.setComment(\"Radius of the Tsar Bomba\");\n"
+        },
+        {
+          "before_offset": 1931,
+          "after_offset": 1941,
+          "old": "\t\tpropPrototype.comment = \"Radius of the Prototype\";\n",
+          "new": "\t\tpropPrototype.setComment(\"Radius of the Prototype\");\n"
+        },
+        {
+          "before_offset": 2105,
+          "after_offset": 2117,
+          "old": "\t\tpropFleija.comment = \"Radius of F.L.E.I.J.A.\";\n",
+          "new": "\t\tpropFleija.setComment(\"Radius of F.L.E.I.J.A.\");\n"
+        },
+        {
+          "before_offset": 2272,
+          "after_offset": 2286,
+          "old": "\t\tpropMissile.comment = \"Radius of the nuclear missile\";\n",
+          "new": "\t\tpropMissile.setComment(\"Radius of the nuclear missile\");\n"
+        },
+        {
+          "before_offset": 2443,
+          "after_offset": 2459,
+          "old": "\t\tpropMirv.comment = \"Radius of a MIRV\";\n",
+          "new": "\t\tpropMirv.setComment(\"Radius of a MIRV\");\n"
+        },
+        {
+          "before_offset": 2595,
+          "after_offset": 2613,
+          "old": "\t\tpropFatman.comment = \"Radius of the Fatman Launcher\";\n",
+          "new": "\t\tpropFatman.setComment(\"Radius of the Fatman Launcher\");\n"
+        },
+        {
+          "before_offset": 2762,
+          "after_offset": 2782,
+          "old": "\t\tpropNuka.comment = \"Radius of the nuka grenade\";\n",
+          "new": "\t\tpropNuka.setComment(\"Radius of the nuka grenade\");\n"
+        },
+        {
+          "before_offset": 2926,
+          "after_offset": 2948,
+          "old": "\t\tpropASchrab.comment = \"Radius of dropped anti schrabidium\";\n",
+          "new": "\t\tpropASchrab.setComment(\"Radius of dropped anti schrabidium\");\n"
+        },
+        {
+          "before_offset": 3110,
+          "after_offset": 3134,
+          "old": "\t\tpropSolinium.comment = \"Radius of the blue rinse\";\n",
+          "new": "\t\tpropSolinium.setComment(\"Radius of the blue rinse\");\n"
+        },
+        {
+          "before_offset": 3275,
+          "after_offset": 3301,
+          "old": "\t\tpropN2.comment = \"Radius of the N2 mine\";\n",
+          "new": "\t\tpropN2.setComment(\"Radius of the N2 mine\");\n"
+        },
+        {
+          "before_offset": 3516,
+          "after_offset": 3544,
+          "old": "\t\tpropLimitExplosionLifespan.comment = \"How long an explosion can be unloaded until it dies in seconds. Based of system time. 0 disables the effect\";\n",
+          "new": "\t\tpropLimitExplosionLifespan.setComment(\"How long an explosion can be unloaded until it dies in seconds. Based of system time. 0 disables the effect\");\n"
+        },
+        {
+          "before_offset": 3831,
+          "after_offset": 3861,
+          "old": "\t\tpropBlastSpeed.comment = \"Base speed of MK3 system (old and schrabidium) detonations (Blocks / tick)\";\n",
+          "new": "\t\tpropBlastSpeed.setComment(\"Base speed of MK3 system (old and schrabidium) detonations (Blocks / tick)\");\n"
+        },
+        {
+          "before_offset": 4083,
+          "after_offset": 4115,
+          "old": "\t\tpropFalloutRange.comment = \"Minimum amount of milliseconds per tick allocated for mk5 chunk processing\";\n",
+          "new": "\t\tpropFalloutRange.setComment(\"Minimum amount of milliseconds per tick allocated for mk5 chunk processing\");\n"
+        },
+        {
+          "before_offset": 4327,
+          "after_offset": 4361,
+          "old": "\t\tfalloutRangeProp.comment = \"Radius of fallout area (base radius * value in percent)\";\n",
+          "new": "\t\tfalloutRangeProp.setComment(\"Radius of fallout area (base radius * value in percent)\");\n"
+        },
+        {
+          "before_offset": 4540,
+          "after_offset": 4576,
+          "old": "\t\tfalloutDelayProp.comment = \"How many ticks to wait for the next fallout chunk computation\";\n",
+          "new": "\t\tfalloutDelayProp.setComment(\"How many ticks to wait for the next fallout chunk computation\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/config/CommonConfig.java": {
+      "before_sha256": "d38694a0e8d739ec43cc1c4a9ee68ef8ad0aa04ad781067fcfdf3496fcd5ad4a",
+      "after_sha256": "b048a67e6cb04415f7cb5a9a95f323e09025efc115353d154b59906ec361e3c5",
+      "edits": [
+        {
+          "before_offset": 2514,
+          "after_offset": 2514,
+          "old": "\t\tprop.comment = comment;\n",
+          "new": "\t\tprop.setComment(comment);\n"
+        },
+        {
+          "before_offset": 2767,
+          "after_offset": 2769,
+          "old": "\t\tprop.comment = comment;\n",
+          "new": "\t\tprop.setComment(comment);\n"
+        },
+        {
+          "before_offset": 2995,
+          "after_offset": 2999,
+          "old": "\t\tprop.comment = comment;\n",
+          "new": "\t\tprop.setComment(comment);\n"
+        },
+        {
+          "before_offset": 3226,
+          "after_offset": 3232,
+          "old": "\t\tprop.comment = comment;\n",
+          "new": "\t\tprop.setComment(comment);\n"
+        },
+        {
+          "before_offset": 3458,
+          "after_offset": 3466,
+          "old": "\t\tprop.comment = comment;\n",
+          "new": "\t\tprop.setComment(comment);\n"
+        },
+        {
+          "before_offset": 3689,
+          "after_offset": 3699,
+          "old": "\t\tprop.comment = comment;\n",
+          "new": "\t\tprop.setComment(comment);\n"
+        },
+        {
+          "before_offset": 3928,
+          "after_offset": 3940,
+          "old": "\t\tprop.comment = comment;\n",
+          "new": "\t\tprop.setComment(comment);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/config/WeaponConfig.java": {
+      "before_sha256": "dbd8ef708bbb8ea5c8f268b7d5384cb5a1c2514aa17329ad47a9608185b777a2",
+      "after_sha256": "f28419a14ef36016028ca4b9e2b7d681e2f89b2c78be678f891c319ef7eed87d",
+      "edits": [
+        {
+          "before_offset": 660,
+          "after_offset": 660,
+          "old": "\t\tpropCiwsHitrate.comment = \"Additional modifier for CIWS accuracy\";\n",
+          "new": "\t\tpropCiwsHitrate.setComment(\"Additional modifier for CIWS accuracy\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "cb3655a96925b139db8931efe99d1d72b73c3fd76ab9188d95c24da0ed8cc8f5",
+      "after_sha256": "6e507703ac5027f22fb6ac57e3ad4404d9b67f229bb5f076f751077f4b5489a8",
+      "edits": [
+        {
+          "before_offset": 9940,
+          "after_offset": 9940,
+          "old": "\t\t\t\t\t\tthis.isCollidedHorizontally = false;\n",
+          "new": "\t\t\t\t\t\tthis.collidedHorizontally = false;\n"
+        },
+        {
+          "before_offset": 10105,
+          "after_offset": 10103,
+          "old": "\t\t\t\t\t\tthis.isCollidedHorizontally = false;\n",
+          "new": "\t\t\t\t\t\tthis.collidedHorizontally = false;\n"
+        },
+        {
+          "before_offset": 10337,
+          "after_offset": 10333,
+          "old": "\t\t\tif(this.isCollidedHorizontally && prevSpeedSq > 0.2D) {\n",
+          "new": "\t\t\tif(this.collidedHorizontally && prevSpeedSq > 0.2D) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityDroneBase.java": {
+      "before_sha256": "ea429f2a6e36d50439000a9300547323d6b869a8a3a34ec4e1f2414f53307de8",
+      "after_sha256": "f8587e077a2f9995a9bbcbcb8701d62d37b95f01ffe011424f43f7f1213f5cc8",
+      "edits": [
+        {
+          "before_offset": 3332,
+          "after_offset": 3332,
+          "old": "\t\t\tif(isCollidedHorizontally){\n",
+          "new": "\t\t\tif(this.collidedHorizontally){\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "44a5c2d1cce0c532c247c2a1e95f96b8019af4716761eb642dee832ba259b1ef",
+      "after_sha256": "4dc824a57b930dd96b27bd67bb49adfcfbf200b2e901bab63319fbb5a53bb0e9",
+      "edits": [
+        {
+          "before_offset": 8443,
+          "after_offset": 8443,
+          "old": "\t\t\tthis.world.theProfiler.startSection(\"portal\");\n",
+          "new": "\t\t\tthis.world.profiler.startSection(\"portal\");\n"
+        },
+        {
+          "before_offset": 9321,
+          "after_offset": 9318,
+          "old": "\t\t\tthis.world.theProfiler.endSection();\n",
+          "new": "\t\t\tthis.world.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "99f9c24408a98cedff808af69786dde93cb049ea7209af00043ec8bd28dbbc9c",
+      "after_sha256": "f2683c4f530d600f2375eff0406809bcbf6e87d664f0eca527965b6ad538a458",
+      "edits": [
+        {
+          "before_offset": 10703,
+          "after_offset": 10703,
+          "old": "            this.world.theProfiler.startSection(\"portal\");\n",
+          "new": "            this.world.profiler.startSection(\"portal\");\n"
+        },
+        {
+          "before_offset": 12107,
+          "after_offset": 12104,
+          "old": "            this.world.theProfiler.endSection();\n",
+          "new": "            this.world.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartTest.java": {
+      "before_sha256": "f8cbaf24dddf7f5105b8390c1548bb3e7dcf3cf9b8e3411a27e1d098ba94bc1e",
+      "after_sha256": "c1f5896daed6dd19d6c4abd8243be174c4cf9eea0eb16bd8bf5928e3ef35cb81",
+      "edits": [
+        {
+          "before_offset": 1533,
+          "after_offset": 1533,
+          "old": "        if (this.isCollidedHorizontally)\n",
+          "new": "        if (this.collidedHorizontally)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityTNTPrimedBase.java": {
+      "before_sha256": "e76538dc63175cb95d3f81494f9bfeb6b61d2c9a8bf474145139f083a4d666d8",
+      "after_sha256": "4efce721c77bf1eb57e965764290e7fe6447782114eb3eadf4ccf5fd5df695b5",
+      "edits": [
+        {
+          "before_offset": 2528,
+          "after_offset": 2528,
+          "old": "\t\tif(this.fuse-- <= 0 || (this.detonateOnCollision && this.isCollided)) {\n",
+          "new": "\t\tif(this.fuse-- <= 0 || (this.detonateOnCollision && this.collided)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "before_sha256": "b93ab61736cd671a43b047b137e84afe06674eb277091c9e30a0979fd964b8ea",
+      "after_sha256": "59e7a538678d7a939a1d77a180a80a609f80bd977b12b2dc8219c212e671f3a0",
+      "edits": [
+        {
+          "before_offset": 28,
+          "after_offset": 28,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 2188,
+          "after_offset": 2353,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 16088,
+          "after_offset": 16770,
+          "old": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\tthis.dataWatcher.addObject(17, 0);\n\t\tthis.dataWatcher.addObject(18, 0);\n\t\tthis.dataWatcher.addObject(19, 0);\n",
+          "new": "\t\tthis.dataManager.register(BEAM, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(WAYPOINT_X, 0);\n\t\tthis.dataManager.register(WAYPOINT_Y, 0);\n\t\tthis.dataManager.register(WAYPOINT_Z, 0);\n"
+        },
+        {
+          "before_offset": 17280,
+          "after_offset": 17984,
+          "old": "\t\tthis.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)));\n",
+          "new": "\t\tthis.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)));\n"
+        },
+        {
+          "before_offset": 17383,
+          "after_offset": 18080,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectByte(16) == 1;\n",
+          "new": "\t\treturn this.dataManager.get(BEAM) == 1;\n"
+        },
+        {
+          "before_offset": 17494,
+          "after_offset": 18174,
+          "old": "\t\tthis.dataWatcher.updateObject(17, x);\n\t\tthis.dataWatcher.updateObject(18, y);\n\t\tthis.dataWatcher.updateObject(19, z);\n",
+          "new": "\t\tthis.dataManager.set(WAYPOINT_X, x);\n\t\tthis.dataManager.set(WAYPOINT_Y, y);\n\t\tthis.dataManager.set(WAYPOINT_Z, z);\n"
+        },
+        {
+          "before_offset": 17639,
+          "after_offset": 18316,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(17);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_X);\n"
+        },
+        {
+          "before_offset": 17717,
+          "after_offset": 18384,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(18);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_Y);\n"
+        },
+        {
+          "before_offset": 17795,
+          "after_offset": 18452,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(19);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_Z);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityHunterChopper.java": {
+      "before_sha256": "f59bf17e1169c51de000d58c78a49cf3f7cc8ee9fc6eff9c13dbe0ed94ff6775",
+      "after_sha256": "9102cc15bb659ce6c21ba6fd662bf82a125e846cee208b78fa1fd90e65652254",
+      "edits": [
+        {
+          "before_offset": 28,
+          "after_offset": 28,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1339,
+          "after_offset": 1504,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Byte> ATTACKING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Float> LEGACY_UNUSED_21 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> LEGACY_UNUSED_22 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Byte> DYING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);\n"
+        },
+        {
+          "before_offset": 1860,
+          "after_offset": 2567,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectByte(16) != 0;\n",
+          "new": "\t\treturn this.dataManager.get(ATTACKING) != 0;\n"
+        },
+        {
+          "before_offset": 3384,
+          "after_offset": 4079,
+          "old": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\tthis.dataWatcher.addObject(21, Float.valueOf(0));\n\t\tthis.dataWatcher.addObject(22, Float.valueOf(0));\n\t\tthis.dataWatcher.addObject(23, Byte.valueOf((byte) 0));\n",
+          "new": "\t\tthis.dataManager.register(ATTACKING, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(LEGACY_UNUSED_21, Float.valueOf(0));\n\t\tthis.dataManager.register(LEGACY_UNUSED_22, Float.valueOf(0));\n\t\tthis.dataManager.register(DYING, Byte.valueOf((byte) 0));\n"
+        },
+        {
+          "before_offset": 9086,
+          "after_offset": 9815,
+          "old": "\t\t\t\tbyte b1 = this.dataWatcher.getWatchableObjectByte(16);\n",
+          "new": "\t\t\t\tbyte b1 = this.dataManager.get(ATTACKING);\n"
+        },
+        {
+          "before_offset": 9221,
+          "after_offset": 9938,
+          "old": "\t\t\t\t\tthis.dataWatcher.updateObject(16, Byte.valueOf(b0));\n",
+          "new": "\t\t\t\t\tthis.dataManager.set(ATTACKING, Byte.valueOf(b0));\n"
+        },
+        {
+          "before_offset": 14961,
+          "after_offset": 15676,
+          "old": "\t\tthis.dataWatcher.updateObject(23, Byte.valueOf((byte) (b ? 1 : 0)));\n",
+          "new": "\t\tthis.dataManager.set(DYING, Byte.valueOf((byte) (b ? 1 : 0)));\n"
+        },
+        {
+          "before_offset": 15067,
+          "after_offset": 15776,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectByte(23) == 1;\n",
+          "new": "\t\treturn this.dataManager.get(DYING) == 1;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "6a5070e4cd36045f2c0f62ccb43d156efa53b6ffe94455e52f54a384bf4587a7",
+      "after_sha256": "76ac0f18aa16160d6c424b1497be6676bc4c7e84badc5dfc6e507cbb5e0566ca",
+      "edits": [
+        {
+          "before_offset": 28,
+          "after_offset": 28,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 1610,
+          "after_offset": 1775,
+          "old": "",
+          "new": "\tprivate static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityUFO.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 10683,
+          "after_offset": 11349,
+          "old": "\t\tthis.dataWatcher.addObject(16, Byte.valueOf((byte) 0));\n\t\tthis.dataWatcher.addObject(17, 0);\n\t\tthis.dataWatcher.addObject(18, 0);\n\t\tthis.dataWatcher.addObject(19, 0);\n",
+          "new": "\t\tthis.dataManager.register(BEAM, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(WAYPOINT_X, 0);\n\t\tthis.dataManager.register(WAYPOINT_Y, 0);\n\t\tthis.dataManager.register(WAYPOINT_Z, 0);\n"
+        },
+        {
+          "before_offset": 11875,
+          "after_offset": 12563,
+          "old": "\t\tthis.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)));\n",
+          "new": "\t\tthis.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)));\n"
+        },
+        {
+          "before_offset": 11978,
+          "after_offset": 12659,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectByte(16) == 1;\n",
+          "new": "\t\treturn this.dataManager.get(BEAM) == 1;\n"
+        },
+        {
+          "before_offset": 12089,
+          "after_offset": 12753,
+          "old": "\t\tthis.dataWatcher.updateObject(17, x);\n\t\tthis.dataWatcher.updateObject(18, y);\n\t\tthis.dataWatcher.updateObject(19, z);\n",
+          "new": "\t\tthis.dataManager.set(WAYPOINT_X, x);\n\t\tthis.dataManager.set(WAYPOINT_Y, y);\n\t\tthis.dataManager.set(WAYPOINT_Z, z);\n"
+        },
+        {
+          "before_offset": 12234,
+          "after_offset": 12895,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(17);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_X);\n"
+        },
+        {
+          "before_offset": 12312,
+          "after_offset": 12963,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(18);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_Y);\n"
+        },
+        {
+          "before_offset": 12390,
+          "after_offset": 13031,
+          "old": "\t\treturn this.dataWatcher.getWatchableObjectInt(19);\n",
+          "new": "\t\treturn this.dataManager.get(WAYPOINT_Z);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "29d92042015eaa705858c5af05ea35bd9c4e6afc2d78ca5bc3df3cf9425f75fb",
+      "after_sha256": "13dfa9c9afe5ed3c91ae750ceed563f32f402c6045dafaf72b7c5c5830077f27",
+      "edits": [
+        {
+          "before_offset": 7707,
+          "after_offset": 7707,
+          "old": "\t\t\tthis.setBesideClimbableBlock(isCollidedHorizontally);\n",
+          "new": "\t\t\tthis.setBesideClimbableBlock(this.collidedHorizontally);\n"
+        },
+        {
+          "before_offset": 8958,
+          "after_offset": 8961,
+          "old": "\t\t\t\t\tthis.world.theProfiler.startSection(\"stroll\");\n",
+          "new": "\t\t\t\t\tthis.world.profiler.startSection(\"stroll\");\n"
+        },
+        {
+          "before_offset": 10153,
+          "after_offset": 10153,
+          "old": "\t\t\t\t\tthis.world.theProfiler.endSection();\n",
+          "new": "\t\t\t\t\tthis.world.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityDebrisBase.java": {
+      "before_sha256": "acc72ea5259c1f8627f4040779af2144a0202760138bffd1dbdfa7050c68c6ad",
+      "after_sha256": "0c37308c5cab21315600de0147fc88dce5b4cb859c3f56072d58c2f7b0528784",
+      "edits": [
+        {
+          "before_offset": 1663,
+          "after_offset": 1663,
+          "old": "\t\tthis.world.theProfiler.startSection(\"move\");\n",
+          "new": "\t\tthis.world.profiler.startSection(\"move\");\n"
+        },
+        {
+          "before_offset": 4888,
+          "after_offset": 4885,
+          "old": "\t\tthis.world.theProfiler.endSection();\n\t\tthis.world.theProfiler.startSection(\"rest\");\n",
+          "new": "\t\tthis.world.profiler.endSection();\n\t\tthis.world.profiler.startSection(\"rest\");\n"
+        },
+        {
+          "before_offset": 5252,
+          "after_offset": 5243,
+          "old": "\t\tthis.isCollidedHorizontally = initMoX != moX || initMoZ != moZ;\n\t\tthis.isCollidedVertically = initMoY != moY;\n",
+          "new": "\t\tthis.collidedHorizontally = initMoX != moX || initMoZ != moZ;\n\t\tthis.collidedVertically = initMoY != moY;\n"
+        },
+        {
+          "before_offset": 5416,
+          "after_offset": 5403,
+          "old": "\t\tthis.isCollided = this.isCollidedHorizontally || this.isCollidedVertically;\n",
+          "new": "\t\tthis.collided = this.collidedHorizontally || this.collidedVertically;\n"
+        },
+        {
+          "before_offset": 6132,
+          "after_offset": 6113,
+          "old": "\t\tthis.world.theProfiler.endSection();\n",
+          "new": "\t\tthis.world.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/BucketHandler.java": {
+      "before_sha256": "b8623f094d2bc5fe0b6d1d3626b89247d60282bc98f43acf9929b5a973e6c505",
+      "after_sha256": "0d02a85dbd15ba0aa76ae25142a16951329dafe2fa2de985e22f0bc63a0c92ae",
+      "edits": [
+        {
+          "before_offset": 708,
+          "after_offset": 708,
+          "old": "\t\tItemStack result = fillCustomBucket(event.world, event.target);\n",
+          "new": "\t\tItemStack result = fillCustomBucket(event.getWorld(), event.getTarget());\n"
+        },
+        {
+          "before_offset": 809,
+          "after_offset": 819,
+          "old": "\t\tevent.result = result;\n",
+          "new": "\t\tevent.setFilledBucket(result);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "0da64845ae99f6e25180ed931c2cfbd3a1365412ea5c7ea7ce615bd2705a4ba3",
+      "after_sha256": "5308d7a6bf28746a5d473aaf2450258fb478fad582729a3aa18c8d044da4561c",
+      "edits": [
+        {
+          "before_offset": 7016,
+          "after_offset": 7016,
+          "old": "\t\t\tif(player.isCollidedHorizontally) player.motionY = 0.2D;\n",
+          "new": "\t\t\tif(player.collidedHorizontally) player.motionY = 0.2D;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/atmosphere/ChunkAtmosphereHandler.java": {
+      "before_sha256": "12684c3abdcbe838c8b81c41723747d89f0850876430279918712b2f18120356",
+      "after_sha256": "82bc7f187b74b6a3298f994611140af990b81ccf2a420ca89d988605664b532b",
+      "edits": [
+        {
+          "before_offset": 11807,
+          "after_offset": 11807,
+          "old": "\t\tif(event.world.isRemote) return;\r\n\t\tonBlockPlaced(event.world, new ThreeInts(event.x, event.y, event.z));\r\n",
+          "new": "\t\tif(event.getWorld().isRemote) return;\r\n\t\tonBlockPlaced(event.getWorld(), new ThreeInts(event.x, event.y, event.z));\r\n"
+        },
+        {
+          "before_offset": 11986,
+          "after_offset": 11996,
+          "old": "\t\tif(event.world.isRemote) return;\r\n\t\tonBlockRemoved(event.world, new ThreeInts(event.x, event.y, event.z));\r\n",
+          "new": "\t\tif(event.getWorld().isRemote) return;\r\n\t\tonBlockRemoved(event.getWorld(), new ThreeInts(event.x, event.y, event.z));\r\n"
+        },
+        {
+          "before_offset": 12573,
+          "after_offset": 12593,
+          "old": "\t\tif(event.world.isRemote) return;\r\n",
+          "new": "\t\tif(event.getWorld().isRemote) return;\r\n"
+        },
+        {
+          "before_offset": 12726,
+          "after_offset": 12751,
+          "old": "\t\t\tif(AtmosphereBlob.isBlockSealed(event.world, block.getX(), block.getY(), block.getZ())) {\n",
+          "new": "\t\t\tif(AtmosphereBlob.isBlockSealed(event.getWorld(), block.getX(), block.getY(), block.getZ())) {\n"
+        },
+        {
+          "before_offset": 13288,
+          "after_offset": 13318,
+          "old": "\t\t\tThreeInts explosion = new ThreeInts(MathHelper.floor_double(event.explosion.explosionX), MathHelper.floor_double(event.explosion.explosionY), MathHelper.floor_double(event.explosion.explosionZ));\r\n\t\t\tList<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.world, explosion, MAX_BLOB_RADIUS + MathHelper.ceiling_float_int(event.explosion.explosionSize));\r\n",
+          "new": "\t\t\tThreeInts explosion = new ThreeInts(MathHelper.floor_double(event.getExplosion().explosionX), MathHelper.floor_double(event.getExplosion().explosionY), MathHelper.floor_double(event.getExplosion().explosionZ));\r\n\t\t\tList<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.getWorld(), explosion, MAX_BLOB_RADIUS + MathHelper.ceiling_float_int(event.getExplosion().explosionSize));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/pollution/PollutionHandler.java": {
+      "before_sha256": "e7244ee5cfa2d0a3f01cd8c7995ad11a373d655f4fe6e71bed80c24f455e42e4",
+      "after_sha256": "e58904f1dd781742530d30cba3f503603b0a0a9f55d51995e0cee5da63b5ecc0",
+      "edits": [
+        {
+          "before_offset": 13845,
+          "after_offset": 13845,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 13959,
+          "after_offset": 13964,
+          "old": "\t\tPollutionData data = getPollutionData(world, (int) Math.floor(event.x), (int) Math.floor(event.y), (int) Math.floor(event.z));\n",
+          "new": "\t\tPollutionData data = getPollutionData(world, (int) Math.floor(event.getX()), (int) Math.floor(event.getY()), (int) Math.floor(event.getZ()));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/OreDictManager.java": {
+      "before_sha256": "b5aa13c59a747268abece53dc979bdce895e70ee26205aa9b18dc8f1da90f740",
+      "after_sha256": "90f8f9bbfdaab37dc62bbe63b59edf6bd8e34f314ea74a25bacbf7547cff725e",
+      "edits": [
+        {
+          "before_offset": 52725,
+          "after_offset": 52725,
+          "old": "\t\tHashSet<String> strings = reRegistration.get(event.Name);\n",
+          "new": "\t\tHashSet<String> strings = reRegistration.get(event.getName());\n"
+        },
+        {
+          "before_offset": 52842,
+          "after_offset": 52847,
+          "old": "\t\t\t\tOreDictionary.registerOre(name, event.Ore);\n\t\t\t\tMainRegistry.logger.info(\"Re-registration for \" + event.Name + \" to \" + name);\n",
+          "new": "\t\t\t\tOreDictionary.registerOre(name, event.getOre());\n\t\t\t\tMainRegistry.logger.info(\"Re-registration for \" + event.getName() + \" to \" + name);\n"
+        },
+        {
+          "before_offset": 53010,
+          "after_offset": 53025,
+          "old": "\t\tif(event.Name.startsWith(\"ingot\") || event.Name.startsWith(\"ore\") || event.Name.startsWith(\"plate\") || event.Name.startsWith(\"block\")) {\n\t\t\tarcSmeltable.add(new ComparableStack(event.Ore));\n",
+          "new": "\t\tif(event.getName().startsWith(\"ingot\") || event.getName().startsWith(\"ore\") || event.getName().startsWith(\"plate\") || event.getName().startsWith(\"block\")) {\n\t\t\tarcSmeltable.add(new ComparableStack(event.getOre()));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModGasmask.java": {
+      "before_sha256": "854b78c15f6e0699cc86072d50775a67c7471b899914ce8f14abb73638f29127",
+      "after_sha256": "372bcef4f11c5a76c4c8781c174d2dc45372f16ba7994358b99572946a7c5293",
+      "edits": [
+        {
+          "before_offset": 2481,
+          "after_offset": 2481,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 3239,
+          "after_offset": 3244,
+          "old": "\t\tmodelM65.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n",
+          "new": "\t\tmodelM65.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java": {
+      "before_sha256": "6120382a61b552607466739bfaebe198cbe2bfba438f712cb35430e722645653",
+      "after_sha256": "2f42ae867cad0209c926c67cceb399643a845783d2f586b5b9a68656b8165105",
+      "edits": [
+        {
+          "before_offset": 3760,
+          "after_offset": 3760,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 4703,
+          "after_offset": 4708,
+          "old": "\t\tmodelbiped.render(event.entityPlayer, swingLeft, swingRight, yawWrapped, yaw, pitch, 0.0625F);\n",
+          "new": "\t\tmodelbiped.render(event.getEntityPlayer(), swingLeft, swingRight, yawWrapped, yaw, pitch, 0.0625F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModTesla.java": {
+      "before_sha256": "12f118443e82189761f75f38a4c45c3fd37b8a55ecfb2324bf986e333de8dd3e",
+      "after_sha256": "46fbfd1ee51c967c397adbcfabeac9f80a64d3e874c176de323c5426bd6f10ee",
+      "edits": [
+        {
+          "before_offset": 2202,
+          "after_offset": 2202,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 2759,
+          "after_offset": 2764,
+          "old": "\t\tmodelTesla.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n",
+          "new": "\t\tmodelTesla.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/JetpackBase.java": {
+      "before_sha256": "b858a00c48613437f8a1cee9a12eb50c71fadf360710e272f1ef5869cc6904ed",
+      "after_sha256": "afe831fffc7258ad405ec96806d5cfc4c45214f630bcb2bd2aae112470325db4",
+      "edits": [
+        {
+          "before_offset": 2079,
+          "after_offset": 2079,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 2712,
+          "after_offset": 2717,
+          "old": "\t\tmodelJetpack.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n",
+          "new": "\t\tmodelJetpack.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemTurretControl.java": {
+      "before_sha256": "b0299288e84322be99e56741ab1b00c54d9c6b2b5cc45488c52f7ff3f8e80bf2",
+      "after_sha256": "dfe1b775fc3d91d1901b303dd8a7ae41febc26abcf7f0149d8ac51f85112bcd3",
+      "edits": [
+        {
+          "before_offset": 5910,
+          "after_offset": 5910,
+          "old": "\t\tj = event.charge;\r\n",
+          "new": "\t\tj = event.getCharge();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "before_sha256": "0008133101ff93e0334fa27712f8b67e6747d799f78f3003129a05b09e1dccc2",
+      "after_sha256": "95024164af92e2a896696d9b919f83589693979193e9f51d276f5e6e9d07241d",
+      "edits": [
+        {
+          "before_offset": 1493,
+          "after_offset": 1493,
+          "old": "\t\t\tj = event.charge;\n",
+          "new": "\t\t\tj = event.getCharge();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "8f01b57095059874ebc6789abaf9a2e294fad8f30ff58223c87b08eab989092b",
+      "after_sha256": "3e46fac7b6a2447d499856e5d25bf8ffa07c9b15948a3a1587ab65eca8f993b5",
+      "edits": [
+        {
+          "before_offset": 15527,
+          "after_offset": 15527,
+          "old": "\t\tif(event.getEntity() instanceof EntityCreeperTainted && event.source == ModDamageSource.boxcar) {\n",
+          "new": "\t\tif(event.getEntity() instanceof EntityCreeperTainted && event.getSource() == ModDamageSource.boxcar) {\n"
+        },
+        {
+          "before_offset": 17091,
+          "after_offset": 17096,
+          "old": "\t\t\tif(event.source==ModDamageSource.eve)\n",
+          "new": "\t\t\tif(event.getSource()==ModDamageSource.eve)\n"
+        },
+        {
+          "before_offset": 17893,
+          "after_offset": 17903,
+          "old": "\t\t\tif(event.source instanceof EntityDamageSource && ((EntityDamageSource)event.source).getTrueSource() instanceof EntityPlayer\n\t\t\t\t\t && !(((EntityDamageSource)event.source).getTrueSource() instanceof FakePlayer)) {\n",
+          "new": "\t\t\tif(event.getSource() instanceof EntityDamageSource && ((EntityDamageSource)event.getSource()).getTrueSource() instanceof EntityPlayer\n\t\t\t\t\t && !(((EntityDamageSource)event.getSource()).getTrueSource() instanceof FakePlayer)) {\n"
+        },
+        {
+          "before_offset": 19602,
+          "after_offset": 19627,
+          "old": "\t\tif(EntityDamageUtil.wasAttackedByV1(event.source)) {\n",
+          "new": "\t\tif(EntityDamageUtil.wasAttackedByV1(event.getSource())) {\n"
+        },
+        {
+          "before_offset": 20209,
+          "after_offset": 20239,
+          "old": "\t\t\tEntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.source).getTrueSource();\n",
+          "new": "\t\t\tEntityPlayer attacker = (EntityPlayer) ((EntityDamageSource)event.getSource()).getTrueSource();\n"
+        },
+        {
+          "before_offset": 21637,
+          "after_offset": 21672,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 21818,
+          "after_offset": 21858,
+          "old": "\t\tfloat soot = PollutionHandler.getPollution(entity.world, MathHelper.floor_double(event.x), MathHelper.floor_double(event.y), MathHelper.floor_double(event.z), PollutionType.SOOT); //uhfgfg\n",
+          "new": "\t\tfloat soot = PollutionHandler.getPollution(entity.world, MathHelper.floor_double(event.getX()), MathHelper.floor_double(event.getY()), MathHelper.floor_double(event.getZ()), PollutionType.SOOT); //uhfgfg\n"
+        },
+        {
+          "before_offset": 24078,
+          "after_offset": 24133,
+          "old": "\t\tif(event.world.isRemote || !(event.getEntity() instanceof EntityLiving)) return;\n",
+          "new": "\t\tif(event.getWorld().isRemote || !(event.getEntity() instanceof EntityLiving)) return;\n"
+        },
+        {
+          "before_offset": 24466,
+          "after_offset": 24526,
+          "old": "\t\tItemStack yeet = event.entityItem.getEntityItem();\n",
+          "new": "\t\tItemStack yeet = event.getEntityItem().getEntityItem();\n"
+        },
+        {
+          "before_offset": 24786,
+          "after_offset": 24851,
+          "old": "\t\t\t\tReflectionHelper.setPrivateValue(Entity.class, event.entityItem, true, \"field_149119_a\", \"field_83001_bt\", \"field_149500_a\", \"invulnerable\");\n",
+          "new": "\t\t\t\tReflectionHelper.setPrivateValue(Entity.class, event.getEntityItem(), true, \"field_149119_a\", \"field_83001_bt\", \"field_149500_a\", \"invulnerable\");\n"
+        },
+        {
+          "before_offset": 24990,
+          "after_offset": 25060,
+          "old": "\t\t\tReflectionHelper.setPrivateValue(Entity.class, event.entityItem, true, \"field_149119_a\", \"field_83001_bt\", \"field_149500_a\", \"invulnerable\");\n",
+          "new": "\t\t\tReflectionHelper.setPrivateValue(Entity.class, event.getEntityItem(), true, \"field_149119_a\", \"field_83001_bt\", \"field_149500_a\", \"invulnerable\");\n"
+        },
+        {
+          "before_offset": 25207,
+          "after_offset": 25282,
+          "old": "\t\tif(event.world.isRemote) return;\n\t\tboolean placeCancelled = ChunkAtmosphereManager.proxy.runEffectsOnBlock(event.world, event.block, event.x, event.y, event.z);\n",
+          "new": "\t\tif(event.getWorld().isRemote) return;\n\t\tboolean placeCancelled = ChunkAtmosphereManager.proxy.runEffectsOnBlock(event.getWorld(), event.block, event.x, event.y, event.z);\n"
+        },
+        {
+          "before_offset": 25441,
+          "after_offset": 25526,
+          "old": "\t\t\tChunkAtmosphereManager.proxy.trackPlant(event.world, event.x, event.y, event.z);\n\t\t}\n\n\t\tif(SpaceConfig.allowNetherPortals && event.world.provider.getDimension() > 1 && event.block instanceof BlockFire) {\n\t\t\tBlocks.PORTAL.func_150000_e(event.world, event.x, event.y, event.z);\n",
+          "new": "\t\t\tChunkAtmosphereManager.proxy.trackPlant(event.getWorld(), event.x, event.y, event.z);\n\t\t}\n\n\t\tif(SpaceConfig.allowNetherPortals && event.getWorld().provider.getDimension() > 1 && event.block instanceof BlockFire) {\n\t\t\tBlocks.PORTAL.func_150000_e(event.getWorld(), event.x, event.y, event.z);\n"
+        },
+        {
+          "before_offset": 25796,
+          "after_offset": 25896,
+          "old": "\t\t\tevent.world.setBlock(event.x, event.y, event.z, ModBlocks.furnace, 0, 2);\n\t\t\tModBlocks.furnace.onBlockPlacedBy(event.world, event.x, event.y, event.z, event.player, event.itemInHand);\n\t\t}\n\n\t\tif(event.y >= event.world.provider.getHorizon()) {\n",
+          "new": "\t\t\tevent.getWorld().setBlock(event.x, event.y, event.z, ModBlocks.furnace, 0, 2);\n\t\t\tModBlocks.furnace.onBlockPlacedBy(event.getWorld(), event.x, event.y, event.z, event.getPlayer(), event.itemInHand);\n\t\t}\n\n\t\tif(event.y >= event.getWorld().provider.getHorizon()) {\n"
+        },
+        {
+          "before_offset": 26083,
+          "after_offset": 26203,
+          "old": "\t\t\t\tCelestialBody body = CelestialBody.getBody(event.world);\n",
+          "new": "\t\t\t\tCelestialBody body = CelestialBody.getBody(event.getWorld());\n"
+        },
+        {
+          "before_offset": 26425,
+          "after_offset": 26550,
+          "old": "\t\tif(event.world.isRemote) return;\n\t\tif(event.target.typeOfHit != RayTraceResult.Type.BLOCK) return;\n\t\tif(!(event.world.provider instanceof WorldProviderCelestial) && !(event.world.provider instanceof WorldProviderOrbit)) return;\n\n\t\tif(event.current != null && event.current.getItem() == Items.WATER_BUCKET) {\n\t\t\tnet.minecraft.util.EnumFacing side = event.target.sideHit;\n\t\t\tCBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(event.world, event.target.getBlockPos().getX() + side.getFrontOffsetX(), event.target.getBlockPos().getY() + side.getFrontOffsetY(), event.target.getBlockPos().getZ() + side.getFrontOffsetZ());\n",
+          "new": "\t\tif(event.getWorld().isRemote) return;\n\t\tif(event.getTarget().typeOfHit != RayTraceResult.Type.BLOCK) return;\n\t\tif(!(event.getWorld().provider instanceof WorldProviderCelestial) && !(event.getWorld().provider instanceof WorldProviderOrbit)) return;\n\n\t\tif(event.getEmptyBucket() != null && event.getEmptyBucket().getItem() == Items.WATER_BUCKET) {\n\t\t\tnet.minecraft.util.EnumFacing side = event.getTarget().sideHit;\n\t\t\tCBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(event.getWorld(), event.getTarget().getBlockPos().getX() + side.getFrontOffsetX(), event.getTarget().getBlockPos().getY() + side.getFrontOffsetY(), event.getTarget().getBlockPos().getZ() + side.getFrontOffsetZ());\n"
+        },
+        {
+          "before_offset": 27307,
+          "after_offset": 27495,
+          "old": "\t\t\t\t\tevent.world.provider.isHellWorld = false;\n",
+          "new": "\t\t\t\t\tevent.getWorld().provider.isHellWorld = false;\n"
+        },
+        {
+          "before_offset": 27599,
+          "after_offset": 27792,
+          "old": "\t\t\t\tfor(EntityItem item : event.drops) {\n",
+          "new": "\t\t\t\tfor(EntityItem item : event.getDrops()) {\n"
+        },
+        {
+          "before_offset": 38065,
+          "after_offset": 38263,
+          "old": "\t\tif(event.world.provider instanceof WorldProviderCelestial && event.world.provider.getDimension() != 0) {\n",
+          "new": "\t\tif(event.getWorld().provider instanceof WorldProviderCelestial && event.getWorld().provider.getDimension() != 0) {\n"
+        },
+        {
+          "before_offset": 41885,
+          "after_offset": 42093,
+          "old": "\t\tEntityPlayer e = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer e = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 42108,
+          "after_offset": 42321,
+          "old": "\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2).getItem()).handleFall(e, event.distance);\n",
+          "new": "\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(e.inventory.armorInventory, 2).getItem()).handleFall(e, event.getDistance());\n"
+        },
+        {
+          "before_offset": 42385,
+          "after_offset": 42603,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 45025,
+          "after_offset": 45248,
+          "old": "\t\t\tevent.distance = 0;\n",
+          "new": "\t\t\tevent.setDistance(0);\n"
+        },
+        {
+          "before_offset": 45078,
+          "after_offset": 45303,
+          "old": "\t\t\tevent.distance *= gravity / AstronomyUtil.STANDARD_GRAVITY;\n",
+          "new": "\t\t\tevent.setDistance((float) (event.getDistance() * (gravity / AstronomyUtil.STANDARD_GRAVITY)));\n"
+        },
+        {
+          "before_offset": 45390,
+          "after_offset": 45650,
+          "old": "\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem()).handleFall((EntityPlayer)e, event.distance);\n",
+          "new": "\t\t\t((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(((EntityPlayer)e).inventory.armorInventory, 2).getItem()).handleFall((EntityPlayer)e, event.getDistance());\n"
+        },
+        {
+          "before_offset": 45625,
+          "after_offset": 45890,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 45921,
+          "after_offset": 46191,
+          "old": "\t\t\tevent.current.damageItem(1, event.entityPlayer);\n",
+          "new": "\t\t\tevent.getCurrent().damageItem(1, event.getEntityPlayer());\n"
+        },
+        {
+          "before_offset": 59035,
+          "after_offset": 59315,
+          "old": "\t\tif(!(event.world.provider instanceof WorldProviderCelestial)) return;\n\n\t\tWorldProviderCelestial celestial = (WorldProviderCelestial) event.world.provider;\n",
+          "new": "\t\tif(!(event.getWorld().provider instanceof WorldProviderCelestial)) return;\n\n\t\tWorldProviderCelestial celestial = (WorldProviderCelestial) event.getWorld().provider;\n"
+        },
+        {
+          "before_offset": 59247,
+          "after_offset": 59537,
+          "old": "\t\tswitch(event.type) {\n",
+          "new": "\t\tswitch(event.getType()) {\n"
+        },
+        {
+          "before_offset": 61270,
+          "after_offset": 61565,
+          "old": "\t\tICommand command = event.command;\n\t\tICommandSender sender = event.sender;\n",
+          "new": "\t\tICommand command = event.getCommand();\n\t\tICommandSender sender = event.getSender();\n"
+        },
+        {
+          "before_offset": 61441,
+          "after_offset": 61746,
+          "old": "\t\t\t\tcommand.processCommand(sender,event.parameters);\n",
+          "new": "\t\t\t\tcommand.processCommand(sender,event.getParameters());\n"
+        },
+        {
+          "before_offset": 65113,
+          "after_offset": 65423,
+          "old": "\t\t\t\tif(event.world.rand.nextInt(2) == 0 && com.hbm.world.WorldBlockState.read(event.world, x, y, z).getBlock() == Blocks.AIR)\n\t\t\t\t\tevent.world.setBlock(x, y, z, ModBlocks.gas_coal);\n\t\t\t}\n\t\t}\n\n\t\tif(event.y > event.world.provider.getHorizon()) {\n",
+          "new": "\t\t\t\tif(event.getWorld().rand.nextInt(2) == 0 && com.hbm.world.WorldBlockState.read(event.getWorld(), x, y, z).getBlock() == Blocks.AIR)\n\t\t\t\t\tevent.getWorld().setBlock(x, y, z, ModBlocks.gas_coal);\n\t\t\t}\n\t\t}\n\n\t\tif(event.y > event.getWorld().provider.getHorizon()) {\n"
+        },
+        {
+          "before_offset": 65532,
+          "after_offset": 65862,
+          "old": "\t\t\t\t\tCelestialBody body = CelestialBody.getBody(event.world);\n",
+          "new": "\t\t\t\t\tCelestialBody body = CelestialBody.getBody(event.getWorld());\n"
+        },
+        {
+          "before_offset": 70131,
+          "after_offset": 70466,
+          "old": "\t\tEntityPlayerMP player = event.player;\n\t\tString message = event.message;\n",
+          "new": "\t\tEntityPlayerMP player = event.getPlayer();\n\t\tString message = event.getMessage();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "14f37dc68b0283a7965fffd1da972699dbbcb4e8741f4231a0c0d101165dc3ab",
+      "after_sha256": "58001c26d396263de3398ba68c9df551f7b10857676986087c6f04568f55c63c",
+      "edits": [
+        {
+          "before_offset": 21438,
+          "after_offset": 21438,
+          "old": "\t\tAbstractClientPlayer player = (AbstractClientPlayer)event.entityPlayer;\n",
+          "new": "\t\tAbstractClientPlayer player = (AbstractClientPlayer)event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 23780,
+          "after_offset": 23785,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 29716,
+          "after_offset": 29726,
+          "old": "\t\tItemStack stack = event.itemStack;\n\t\tList<String> list = event.toolTip;\n",
+          "new": "\t\tItemStack stack = event.getItemStack();\n\t\tList<String> list = event.getToolTip();\n"
+        },
+        {
+          "before_offset": 31531,
+          "after_offset": 31551,
+          "old": "\t\tHazardSystem.addFullTooltip(stack, event.entityPlayer, list);\n",
+          "new": "\t\tHazardSystem.addFullTooltip(stack, event.getEntityPlayer(), list);\n"
+        },
+        {
+          "before_offset": 34804,
+          "after_offset": 34829,
+          "old": "\t\t\t\t\tore.addInformation(stack, event.entityPlayer, list, event.showAdvancedItemTooltips);\n",
+          "new": "\t\t\t\t\tore.addInformation(stack, event.getEntityPlayer(), list, event.showAdvancedItemTooltips);\n"
+        },
+        {
+          "before_offset": 60358,
+          "after_offset": 60388,
+          "old": "\t\tif(event.gui instanceof GuiMainMenu && ClientConfig.MAIN_MENU_WACKY_SPLASHES.get()) {\n\t\t\tGuiMainMenu main = (GuiMainMenu) event.gui;\n",
+          "new": "\t\tif(event.getGui() instanceof GuiMainMenu && ClientConfig.MAIN_MENU_WACKY_SPLASHES.get()) {\n\t\t\tGuiMainMenu main = (GuiMainMenu) event.getGui();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerImpact.java": {
+      "before_sha256": "cd5f632eea4440408fbb12256955c09328e78ad61f1dd68141c6806111f72b19",
+      "after_sha256": "7d5ac62792e87500839f949a085b0a1c490731f16c15617ac0403c1ca457f228",
+      "edits": [
+        {
+          "before_offset": 4243,
+          "after_offset": 4243,
+          "old": "\t\tTomSaveData data = TomSaveData.forWorld(event.world);\n",
+          "new": "\t\tTomSaveData data = TomSaveData.forWorld(event.getWorld());\n"
+        },
+        {
+          "before_offset": 4984,
+          "after_offset": 4989,
+          "old": "\t\tif(event.type == Populate.EventType.ANIMALS) {\n\n\t\t\tTomSaveData data = TomSaveData.forWorld(event.world);\n",
+          "new": "\t\tif(event.getType() == Populate.EventType.ANIMALS) {\n\n\t\t\tTomSaveData data = TomSaveData.forWorld(event.getWorld());\n"
+        },
+        {
+          "before_offset": 5652,
+          "after_offset": 5667,
+          "old": "\t\tif(data == null || event.biome == null) {\n",
+          "new": "\t\tif(data == null || event.getBiome() == null) {\n"
+        },
+        {
+          "before_offset": 6827,
+          "after_offset": 6847,
+          "old": "\t\tif(data != null && event.biome != null) {\n\t\t\tif(event.biome.topBlock != null) {\n\t\t\t\tif(event.biome.topBlock == Blocks.GRASS) {\n",
+          "new": "\t\tif(data != null && event.getBiome() != null) {\n\t\t\tif(event.getBiome().topBlock != null) {\n\t\t\t\tif(event.getBiome().topBlock == Blocks.GRASS) {\n"
+        },
+        {
+          "before_offset": 7015,
+          "after_offset": 7050,
+          "old": "\t\t\t\t\t\tevent.biome.topBlock = ModBlocks.impact_dirt;\n",
+          "new": "\t\t\t\t\t\tevent.getBiome().topBlock = ModBlocks.impact_dirt;\n"
+        },
+        {
+          "before_offset": 7081,
+          "after_offset": 7121,
+          "old": "\t\t\t\t\t\tevent.biome.topBlock = Blocks.GRASS;\n",
+          "new": "\t\t\t\t\t\tevent.getBiome().topBlock = Blocks.GRASS;\n"
+        },
+        {
+          "before_offset": 7239,
+          "after_offset": 7284,
+          "old": "\t\tTomSaveData data = TomSaveData.forWorld(event.world);\n\n\t\tif(data.impact) {\n\t\t\tEventType type = event.type;\n",
+          "new": "\t\tTomSaveData data = TomSaveData.forWorld(event.getWorld());\n\n\t\tif(data.impact) {\n\t\t\tEventType type = event.getType();\n"
+        },
+        {
+          "before_offset": 7389,
+          "after_offset": 7444,
+          "old": "\t\t\t\tif(type == event.type.TREE || type == event.type.BIG_SHROOM || type == event.type.GRASS || type == event.type.REED || type == event.type.FLOWERS || type == event.type.DEAD_BUSH\n\t\t\t\t\t\t|| type == event.type.CACTUS || type == event.type.PUMPKIN || type == event.type.LILYPAD) {\n",
+          "new": "\t\t\t\tif(type == event.getType().TREE || type == event.getType().BIG_SHROOM || type == event.getType().GRASS || type == event.getType().REED || type == event.getType().FLOWERS || type == event.getType().DEAD_BUSH\n\t\t\t\t\t\t|| type == event.getType().CACTUS || type == event.getType().PUMPKIN || type == event.getType().LILYPAD) {\n"
+        },
+        {
+          "before_offset": 7759,
+          "after_offset": 7859,
+          "old": "\t\t\t\tif(type == event.type.TREE || type == event.type.BIG_SHROOM || type == event.type.CACTUS) {\n",
+          "new": "\t\t\t\tif(type == event.getType().TREE || type == event.getType().BIG_SHROOM || type == event.getType().CACTUS) {\n"
+        },
+        {
+          "before_offset": 8023,
+          "after_offset": 8138,
+          "old": "\t\t\t\tif(type == event.type.GRASS || type == event.type.REED) {\n",
+          "new": "\t\t\t\tif(type == event.getType().GRASS || type == event.getType().REED) {\n"
+        },
+        {
+          "before_offset": 8273,
+          "after_offset": 8398,
+          "old": "\t\tTomSaveData data = TomSaveData.forWorld(event.world);\n\n\t\tif(data.impact) {\n\t\t\tChunk chunk = event.world.getChunkFromChunkCoords(event.chunkX, event.chunkZ);\n",
+          "new": "\t\tTomSaveData data = TomSaveData.forWorld(event.getWorld());\n\n\t\tif(data.impact) {\n\t\t\tChunk chunk = event.getWorld().getChunkFromChunkCoords(event.getChunkX(), event.getChunkZ());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerRenderer.java": {
+      "before_sha256": "71dd86c35752ba2f1b060800aa3bc4c6e40d1648ba44927236266cae54f39407",
+      "after_sha256": "f5d6fd15f35f84e405f6d9a83a2205214798ed07d3fd3909d0908423a615acde",
+      "edits": [
+        {
+          "before_offset": 2958,
+          "after_offset": 2958,
+          "old": "\t\twasRiding = event.entityPlayer.getRidingEntity() instanceof EntityRideableRocket;\n",
+          "new": "\t\twasRiding = event.getEntityPlayer().getRidingEntity() instanceof EntityRideableRocket;\n"
+        },
+        {
+          "before_offset": 3092,
+          "after_offset": 3097,
+          "old": "\t\tGL11.glRotated(-event.entityPlayer.getRidingEntity().rotationPitch, 0, 0, 1);\n",
+          "new": "\t\tGL11.glRotated(-event.getEntityPlayer().getRidingEntity().rotationPitch, 0, 0, 1);\n"
+        },
+        {
+          "before_offset": 5490,
+          "after_offset": 5500,
+          "old": "\t\t\t\tevent.density = lastFogDensity;\n",
+          "new": "\t\t\t\tevent.setDensity(lastFogDensity);\n"
+        },
+        {
+          "before_offset": 6441,
+          "after_offset": 6453,
+          "old": "\t\t\tVec3d color = getFogBlendColor(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posZ), event.red, event.green, event.blue, event.getRenderPartialTicks());\n",
+          "new": "\t\t\tVec3d color = getFogBlendColor(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posZ), event.getRed(), event.getGreen(), event.getBlue(), event.getRenderPartialTicks());\n"
+        },
+        {
+          "before_offset": 6642,
+          "after_offset": 6669,
+          "old": "\t\t\t\tevent.red = (float) color.x;\n\t\t\t\tevent.green = (float) color.y;\n\t\t\t\tevent.blue = (float) color.z;\n",
+          "new": "\t\t\t\tevent.setRed((float) color.x);\n\t\t\t\tevent.setGreen((float) color.y);\n\t\t\t\tevent.setBlue((float) color.z);\n"
+        },
+        {
+          "before_offset": 7009,
+          "after_offset": 7042,
+          "old": "\t\t\tevent.red = event.red * (1 - interp) + sootColor * interp;\n\t\t\tevent.green = event.green * (1 - interp) + sootColor * interp;\n\t\t\tevent.blue = event.blue * (1 - interp) + sootColor * interp;\n",
+          "new": "\t\t\tevent.setRed(event.getRed() * (1 - interp) + sootColor * interp);\n\t\t\tevent.setGreen(event.getGreen() * (1 - interp) + sootColor * interp);\n\t\t\tevent.setBlue(event.getBlue() * (1 - interp) + sootColor * interp);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderAccessoryUtility.java": {
+      "before_sha256": "1d88c7ffc80737faaa0209d5877d10dfb4a2bd0ca76c1417f1556ddae735323f",
+      "after_sha256": "9add72c20dd1b9951386d67e4215c0a39202afe5cdf0d394b6da99197c05ce88",
+      "edits": [
+        {
+          "before_offset": 7253,
+          "after_offset": 7253,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 7754,
+          "after_offset": 7759,
+          "old": "\t\twingModels[mode].render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n",
+          "new": "\t\twingModels[mode].render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n"
+        },
+        {
+          "before_offset": 8129,
+          "after_offset": 8139,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 8626,
+          "after_offset": 8641,
+          "old": "\t\taxePackModel.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n",
+          "new": "\t\taxePackModel.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n"
+        },
+        {
+          "before_offset": 8986,
+          "after_offset": 9006,
+          "old": "\t\tEntityPlayer player = event.entityPlayer;\n",
+          "new": "\t\tEntityPlayer player = event.getEntityPlayer();\n"
+        },
+        {
+          "before_offset": 9480,
+          "after_offset": 9505,
+          "old": "\t\ttailModel.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n",
+          "new": "\t\ttailModel.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachineCatalyticCracker.java": {
+      "before_sha256": "c882c5025fff21a011af254252b5d8423b993a5d2e2a1892f12c7aa35a413389",
+      "after_sha256": "4065d34ebb7ceae1d482e0f07d636d3becba26ed39ebc3dc6392dce9658c2425",
+      "edits": [
+        {
+          "before_offset": 1368,
+          "after_offset": 1368,
+          "old": "\t\t\tthis.world.theProfiler.startSection(\"catalyticCracker_setup_tanks\");\n",
+          "new": "\t\t\tthis.world.profiler.startSection(\"catalyticCracker_setup_tanks\");\n"
+        },
+        {
+          "before_offset": 1457,
+          "after_offset": 1454,
+          "old": "\t\t\tthis.world.theProfiler.endStartSection(\"catalyticCracker_update_connections\");\n",
+          "new": "\t\t\tthis.world.profiler.endStartSection(\"catalyticCracker_update_connections\");\n"
+        },
+        {
+          "before_offset": 1564,
+          "after_offset": 1558,
+          "old": "\t\t\tthis.world.theProfiler.endStartSection(\"catalyticCracker_do_recipe\");\n",
+          "new": "\t\t\tthis.world.profiler.endStartSection(\"catalyticCracker_do_recipe\");\n"
+        },
+        {
+          "before_offset": 1698,
+          "after_offset": 1689,
+          "old": "\t\t\tthis.world.theProfiler.endStartSection(\"catalyticCracker_send_fluid\");\n",
+          "new": "\t\t\tthis.world.profiler.endStartSection(\"catalyticCracker_send_fluid\");\n"
+        },
+        {
+          "before_offset": 2034,
+          "after_offset": 2022,
+          "old": "\t\t\tthis.world.theProfiler.endSection();\n",
+          "new": "\t\t\tthis.world.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKBase.java": {
+      "before_sha256": "ab4d6eb96a397ccd57ad347978530ebb7779ef85660f66fbd09fade1fd68a162",
+      "after_sha256": "8abfe5c1148c7b5db53b0e8d5f1f35584b9f335936474c7b5f9a9c197a129a3e",
+      "edits": [
+        {
+          "before_offset": 3440,
+          "after_offset": 3440,
+          "old": "\t\t\tthis.world.theProfiler.startSection(\"rbmkBase_heat_movement\");\n",
+          "new": "\t\t\tthis.world.profiler.startSection(\"rbmkBase_heat_movement\");\n"
+        },
+        {
+          "before_offset": 3569,
+          "after_offset": 3566,
+          "old": "\t\t\t\tthis.world.theProfiler.endStartSection(\"rbmkBase_reasim_boilers\");\n",
+          "new": "\t\t\t\tthis.world.profiler.endStartSection(\"rbmkBase_reasim_boilers\");\n"
+        },
+        {
+          "before_offset": 6491,
+          "after_offset": 6485,
+          "old": "\t\tthis.world.theProfiler.endStartSection(\"rbmkBase_rpassive_cooling\");\n",
+          "new": "\t\tthis.world.profiler.endStartSection(\"rbmkBase_rpassive_cooling\");\n"
+        },
+        {
+          "before_offset": 6592,
+          "after_offset": 6583,
+          "old": "\t\tthis.world.theProfiler.endSection();\n",
+          "new": "\t\tthis.world.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKConsole.java": {
+      "before_sha256": "7f201e86df74eed5e202843838d8cd0a5a1749177c530f9d04185c30a35b9d06",
+      "after_sha256": "fa6a7944b86b91531f180a1245b28faca7ba0de814d1f4723547cb7b093de84d",
+      "edits": [
+        {
+          "before_offset": 2321,
+          "after_offset": 2321,
+          "old": "\t\t\t\tthis.world.theProfiler.startSection(\"rbmkConsole_rescan\");\n",
+          "new": "\t\t\t\tthis.world.profiler.startSection(\"rbmkConsole_rescan\");\n"
+        },
+        {
+          "before_offset": 2398,
+          "after_offset": 2395,
+          "old": "\t\t\t\tthis.world.theProfiler.endSection();\n",
+          "new": "\t\t\t\tthis.world.profiler.endSection();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java": {
+      "before_sha256": "f8f35f4da8e2fea1e0f3cfe533bc54798d07c9936159c0cfa77fd71e94d827fb",
+      "after_sha256": "2d1969e2b6de2755b2b7a5ee2dc86054f308ed5587352491561522edda584ed2",
+      "edits": [
+        {
+          "before_offset": 2259,
+          "after_offset": 2259,
+          "old": "\t\t\tworld.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\r\n",
+          "new": "\t\t\tworld.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java": {
+      "before_sha256": "2254c16ea6ca3efbd4fbec08196feba1d0089f5944eb2916a8434d04183b58aa",
+      "after_sha256": "290bb836889a4b14099c70a9f94d0cae764354d64c927bed8df14ce5e5b94937",
+      "edits": [
+        {
+          "before_offset": 1873,
+          "after_offset": 1873,
+          "old": "\t\t\tworld.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\r\n",
+          "new": "\t\t\tworld.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));\r\n"
+        },
+        {
+          "before_offset": 2810,
+          "after_offset": 2849,
+          "old": "\t\t\t\t\tworld.getPlayerManager().markBlockForUpdate(pipeline.getPos().getX(), pipeline.getPos().getY(), pipeline.getPos().getZ());\r\n",
+          "new": "\t\t\t\t\tworld.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(pipeline.getPos().getX(), pipeline.getPos().getY(), pipeline.getPos().getZ()));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java": {
+      "before_sha256": "7f4f9917cc24dc28300bbd5d2b15c6a7a6fe5a09b04838bc2362ad6888f931e8",
+      "after_sha256": "8bebae2f8de3365ba13397b152496d49aa0787e04580c18b7703ec2973a2ae26",
+      "edits": [
+        {
+          "before_offset": 1883,
+          "after_offset": 1883,
+          "old": "\t\t\tworld.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\r\n",
+          "new": "\t\t\tworld.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));\r\n"
+        },
+        {
+          "before_offset": 2866,
+          "after_offset": 2905,
+          "old": "\t\t\tworld.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());\r\n",
+          "new": "\t\t\tworld.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));\r\n"
+        },
+        {
+          "before_offset": 3753,
+          "after_offset": 3831,
+          "old": "\t\t\t\t\tworld.getPlayerManager().markBlockForUpdate(pylon.getPos().getX(), pylon.getPos().getY(), pylon.getPos().getZ());\r\n",
+          "new": "\t\t\t\t\tworld.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(pylon.getPos().getX(), pylon.getPos().getY(), pylon.getPos().getZ()));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/BiomeCave.java": {
+      "before_sha256": "cc078528031e7f057f9d7dff09e60408242c26d0f4752c7d09922e069fcd456c",
+      "after_sha256": "166675ebc7dcff286c810cd76e56a590258d4ebaefcc59c33e30f39446d0e5c8",
+      "edits": [
+        {
+          "before_offset": 1838,
+          "after_offset": 1838,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 1975,
+          "after_offset": 1980,
+          "old": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() - 1916169 + yLevel), 2);\n",
+          "new": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() - 1916169 + yLevel), 2);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreCave.java": {
+      "before_sha256": "90c450afa813a3232ad7101f463a01b2f296f703cf8e914ebec642685bcf08ee",
+      "after_sha256": "787cefc2e4f32c508934218d5d1e86ab47d188ad21f710c70d27a9edf1263f32",
+      "edits": [
+        {
+          "before_offset": 2791,
+          "after_offset": 2791,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 3305,
+          "after_offset": 3310,
+          "old": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() + (ore.hashCode() * 31) + yLevel), 2);\n",
+          "new": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() + (ore.hashCode() * 31) + yLevel), 2);\n"
+        },
+        {
+          "before_offset": 4144,
+          "after_offset": 4154,
+          "old": "\t\t\t\t\t\t\tboolean canGenFluid = event.rand.nextBoolean();\n",
+          "new": "\t\t\t\t\t\t\tboolean canGenFluid = event.getRand().nextBoolean();\n"
+        },
+        {
+          "before_offset": 5906,
+          "after_offset": 5921,
+          "old": "\t\t\t\t\t\t\tif((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube()) && event.rand.nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {\n",
+          "new": "\t\t\t\t\t\t\tif((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube()) && event.getRand().nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreLayer.java": {
+      "before_sha256": "acc85c624ffc32073b641d780e1767463e54324d6465a45f5840a97c9cc95286",
+      "after_sha256": "d43fc63fd966d8a9d33e3b49573c7df50c9432370ce25780bec5f03d07c54694",
+      "edits": [
+        {
+          "before_offset": 2014,
+          "after_offset": 2014,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        },
+        {
+          "before_offset": 2158,
+          "after_offset": 2163,
+          "old": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() + (ore.getID() * 31) + yLevel), 4);\n",
+          "new": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() + (ore.getID() * 31) + yLevel), 4);\n"
+        },
+        {
+          "before_offset": 2762,
+          "after_offset": 2772,
+          "old": "\t\t\t\t\t\tif(event.rand.nextFloat() < density) {\n",
+          "new": "\t\t\t\t\t\tif(event.getRand().nextFloat() < density) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/OreLayer3D.java": {
+      "before_sha256": "bba249e693ba274f16b65181a181f8967fe04bace6c39dff19c2663442cf47e7",
+      "after_sha256": "32133790ff36fe976639420a2f1537e6efd16a39ce12b9d2757708066602376e",
+      "edits": [
+        {
+          "before_offset": 1788,
+          "after_offset": 1788,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/SchistStratum.java": {
+      "before_sha256": "435598c34af9436f0a308e140281a169580ec57c02176f3ceafc33d8c8570bc9",
+      "after_sha256": "0b3788595add73da2dad84d3a212c445e4dc35a12e977c1ec98243249567421a",
+      "edits": [
+        {
+          "before_offset": 586,
+          "after_offset": 586,
+          "old": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed()), 4);\n",
+          "new": "\t\t\tthis.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed()), 4);\n"
+        },
+        {
+          "before_offset": 671,
+          "after_offset": 676,
+          "old": "\t\tWorld world = event.world;\n",
+          "new": "\t\tWorld world = event.getWorld();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/NTMWorldGenerator.java": {
+      "before_sha256": "dc554aedd01f5b4dbaa81133650164a0469720bf75b5b603929a68ff03c0dd52",
+      "after_sha256": "1fbf441d66c3fb0e04e98eaad6a80a775a789832111c7622a375f1bfbb83d29e",
+      "edits": [
+        {
+          "before_offset": 13075,
+          "after_offset": 13075,
+          "old": "\t\tif(StructureConfig.enableStructures == 2 && !event.world.getWorldInfo().isMapFeaturesEnabled()) return;\n\n\t\tsetRandomSeed(event.world, event.chunkX, event.chunkZ); //Set random for population down the line.\n\n\t\tnbtGen.generateStructures(event.world, rand, event.chunkProvider, event.chunkX, event.chunkZ);\n",
+          "new": "\t\tif(StructureConfig.enableStructures == 2 && !event.getWorld().getWorldInfo().isMapFeaturesEnabled()) return;\n\n\t\tsetRandomSeed(event.getWorld(), event.getChunkX(), event.getChunkZ()); //Set random for population down the line.\n\n\t\tnbtGen.generateStructures(event.getWorld(), rand, event.chunkProvider, event.getChunkX(), event.getChunkZ());\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

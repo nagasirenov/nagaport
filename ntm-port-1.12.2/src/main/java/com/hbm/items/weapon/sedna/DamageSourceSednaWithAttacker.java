@@ -20,8 +20,8 @@ public class DamageSourceSednaWithAttacker extends DamageSourceSednaNoAttacker {
 		this.shooter = shooter;
 	}
 
-	@Override public Entity getSourceOfDamage() { return this.projectile; } //what even uses this, except for the wackass "shot by bullet" death messages?
-	@Override public Entity getEntity() { return this.shooter; }
+	@Override public Entity getImmediateSource() { return this.projectile; } //what even uses this, except for the wackass "shot by bullet" death messages?
+	@Override public Entity getTrueSource() { return this.shooter; }
 
 	@Override
 	public ITextComponent getDeathMessage(EntityLivingBase died) {

@@ -78,8 +78,12 @@ public class Landmine extends BlockContainer implements IBomb {
 		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
 	}
 
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) || BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock());
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
+		net.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
+		if (nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP)) return true;
+		Block nativeFenceBlock = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
+		return nativeFenceBlock == Blocks.OAK_FENCE || nativeFenceBlock == Blocks.NETHER_BRICK_FENCE;
 	}
 
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
@@ -153,7 +157,7 @@ public class Landmine extends BlockContainer implements IBomb {
 		if(!world.isRemote) {
 
 			Landmine.safeMode = true;
-			world.func_147480_a(x, y, z, false);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 			Landmine.safeMode = false;
 
 			if(this == ModBlocks.mine_ap) {

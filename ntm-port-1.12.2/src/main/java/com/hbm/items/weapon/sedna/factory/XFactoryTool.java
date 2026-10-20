@@ -123,13 +123,13 @@ public class XFactoryTool {
 				ix += side.getFrontOffsetX(); iy += side.getFrontOffsetY(); iz += side.getFrontOffsetZ();
 			}
 			Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock();
-			if(b.isReplaceable(bullet.world, ix, iy, iz) && ModBlocks.foam_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {
+			if(b.isReplaceable(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) && ModBlocks.foam_layer.canPlaceBlockAt(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz))) {
 				if(b != ModBlocks.foam_layer) {
 					bullet.world.setBlock(ix, iy, iz, ModBlocks.foam_layer);
 				} else {
 					int meta = bullet.world.getBlockMetadata(ix, iy, iz);
 					if(meta < 6) bullet.world.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
-					else bullet.world.setBlock(ix, iy, iz, ModBlocks.block_foam);
+					else { net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.block_foam; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				}
 			}
 			if(fizz) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);
@@ -162,13 +162,13 @@ public class XFactoryTool {
 				ix += side.getFrontOffsetX(); iy += side.getFrontOffsetY(); iz += side.getFrontOffsetZ();
 			}
 			Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock();
-			if((b.isReplaceable(bullet.world, ix, iy, iz) || b == ModBlocks.sand_boron_layer) && ModBlocks.sand_boron_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {
+			if((b.isReplaceable(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) || b == ModBlocks.sand_boron_layer) && ModBlocks.sand_boron_layer.canPlaceBlockAt(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz))) {
 				if(b != ModBlocks.sand_boron_layer) {
 					bullet.world.setBlock(ix, iy, iz, ModBlocks.sand_boron_layer);
 				} else {
 					int meta = bullet.world.getBlockMetadata(ix, iy, iz);
 					if(meta < 6) bullet.world.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
-					else bullet.world.setBlock(ix, iy, iz, ModBlocks.sand_mix, EnumSandType.BORON.ordinal(), 3);
+					else { net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.sand_mix; int nativeRegisteredWriteMeta = EnumSandType.BORON.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				}
 				if(b.getDefaultState().getMaterial() == Material.FIRE) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);
 			}

@@ -68,7 +68,7 @@ public class MapGenNTMFeatures extends MapGenStructure {
 
 		int i1 = chunkX / this.maxDistanceBetweenScatteredFeatures;
 		int j1 = chunkZ / this.maxDistanceBetweenScatteredFeatures;
-		Random random = this.worldObj.setRandomSeed(i1, j1, 14357617);
+		Random random = this.world.setRandomSeed(i1, j1, 14357617);
 		i1 *= this.maxDistanceBetweenScatteredFeatures;
 		j1 *= this.maxDistanceBetweenScatteredFeatures;
 		i1 += random.nextInt(this.maxDistanceBetweenScatteredFeatures - this.minDistanceBetweenScatteredFeatures);
@@ -102,9 +102,9 @@ public class MapGenNTMFeatures extends MapGenStructure {
 	@Override
 	protected StructureStart getStructureStart(int chunkX, int chunkZ) {
 		if(this.rand.nextInt(15) == 0) { //eh might as well, they'll already be prettty rare anyway
-			return new BunkerStart(this.worldObj, this.rand, chunkX, chunkZ);
+			return new BunkerStart(this.world, this.rand, chunkX, chunkZ);
 		}
-		return new MapGenNTMFeatures.Start(this.worldObj, this.rand, chunkX, chunkZ);
+		return new MapGenNTMFeatures.Start(this.world, this.rand, chunkX, chunkZ);
 	}
 
 	public static class Start extends StructureStart {

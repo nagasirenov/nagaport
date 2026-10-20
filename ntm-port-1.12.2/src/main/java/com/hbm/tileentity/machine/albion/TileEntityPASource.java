@@ -23,6 +23,7 @@ import li.cil.oc.api.network.SimpleComponent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -283,8 +284,8 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 		int y = particleTag.getInteger("y");
 		int z = particleTag.getInteger("z");
 		ForgeDirection dir = EnumUtil.grabEnumSafely(ForgeDirection.class, particleTag.getInteger("dir"));
-		ItemStack input1 = ItemStack.loadItemStackFromNBT(particleTag.getCompoundTag("input1"));
-		ItemStack input2 = ItemStack.loadItemStackFromNBT(particleTag.getCompoundTag("input2"));
+		ItemStack input1 = NullableInventoryStackNbt.read(particleTag.getCompoundTag("input1"));
+		ItemStack input2 = NullableInventoryStackNbt.read(particleTag.getCompoundTag("input2"));
 
 		this.particle = new Particle(this, x, y, z, dir, input1, input2);
 		this.particle.momentum = particleTag.getInteger("momentum");

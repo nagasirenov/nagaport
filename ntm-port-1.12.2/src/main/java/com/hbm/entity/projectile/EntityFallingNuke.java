@@ -7,10 +7,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityFallingNuke extends EntityThrowable {
+	private static final DataParameter<Byte> BLOCK_METADATA = EntityDataManager.createKey(EntityFallingNuke.class, DataSerializers.BYTE);
+
 	
 	float tnt;
 	float nuke;
@@ -43,8 +48,16 @@ public class EntityFallingNuke extends EntityThrowable {
         this.setSize(0.98F, 0.98F);
 	}
 
+	public void setBlockMetadata(byte metadata) {
+		this.dataManager.set(BLOCK_METADATA, metadata);
+	}
+
+	public byte getBlockMetadata() {
+		return this.dataManager.get(BLOCK_METADATA);
+	}
+
     protected void entityInit() {
-    	this.dataWatcher.addObject(20, Byte.valueOf((byte)0));
+    	this.dataManager.register(BLOCK_METADATA, Byte.valueOf((byte)0));
     }
 	
 	@Override

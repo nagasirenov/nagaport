@@ -1,0 +1,4 @@
+PASS CP89/CP90 identical full-file baseline 94d9b4506c58b955e1929a664a720bf46198eb1e61351adf0c6e1d885d7f4e60 src/main/java/com/hbm/blocks/machine/MachinePress.java
+PASS CP89/CP90 identical full-file baseline 372010791c1c50ab243ae22b95bbc1d7eaa83f08b1e20485a318e9fb954df9ef src/main/java/com/hbm/blocks/machine/MachineEPress.java
+PASS CP89/CP90 identical full-file baseline a8123649315e01a2149c3df38ccd3ce393e42c25f7151a0a0a16d0c9babb16cf src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java
+PASS CP89/CP90 identical full-file baseline 6767d807eb966bf02557ed12dd92758d1462984d23a9a2409f52c77f0a143755 src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java

@@ -1,0 +1,85 @@
+PASS Native inventory/sound/sky source: 13 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 39 rejected mutations. Not runtime/GL proof.
+PASS Native normal/world-air source: 49 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 147 rejected mutations. Not runtime/GL proof.
+PASS Native tools/air/hit/format source: 34 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 102 rejected mutations. Not runtime/GL proof.
+PASS Native press/slots/colored source: 66 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 201 rejected mutations. Not runtime/GL proof.
+PASS Native armor/textured source: 52 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 159 rejected mutations. Not runtime/GL proof.
+PASS Native event/config/sync source: 43 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 129 rejected mutations. Not runtime/GL proof.
+PASS Native shoot/sync/machine source: 34 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 105 rejected mutations. Not runtime/GL proof.
+PASS Native equipment/destruction/name source: 78 byte-exact inverses/round trips, 2 new, 0 retired sources, 0 binary paths, 240 rejected mutations. Not runtime/GL proof.
+PASS Native player inventory/range source: 47 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 144 rejected mutations. Not runtime/GL proof.
+PASS Native owned/render/event/name source: 65 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 195 rejected mutations. Not runtime/GL proof.
+PASS Native state/schedule/render/bounds source: 38 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 114 rejected mutations. Not runtime/GL proof.
+PASS Native armor/owned/geometry/data source: 18 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 54 rejected mutations. Not runtime/GL proof.
+PASS Native slot/world/plane/texture source: 56 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 168 rejected mutations. Not runtime/GL proof.
+PASS Native particle/furnace/comparator source: 79 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 237 rejected mutations. Not runtime/GL proof.
+PASS Native depth/attribute/cure/projectile source: 31 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 93 rejected mutations. Not runtime/GL proof.
+PASS Native projectile/storage/world/cube source: 29 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 87 rejected mutations. Not runtime/GL proof.
+PASS Native payload/storage/naming source: 43 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 129 rejected mutations. Not runtime/GL proof.
+PASS Recovered CP77 source: 37 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 111 rejected mutations. Not runtime/GL proof.
+PASS Native layer/spill source: 13 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 39 rejected mutations. Not runtime/GL proof.
+PASS Native common query source: 73 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 219 rejected mutations. Not runtime/GL proof.
+PASS Native tick/removal/name source: 118 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 354 rejected mutations. Not runtime/GL proof.
+PASS Native lifecycle/tooltip source: 206 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 618 rejected mutations. Not runtime/GL proof.
+PASS Native full-cube/power source: 400 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 1203 rejected mutations. Not runtime/GL proof.
+PASS Native provider/neighbor source: 27 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 81 rejected mutations. Not runtime/GL proof.
+PASS Native block-callback source: 183 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 549 rejected mutations. Not runtime/GL proof.
+PASS Native sound/stack source: 117 byte-exact inverses/round trips, 2 new, 0 retired sources, 0 binary paths, 357 rejected mutations. Not runtime/GL proof.
+PASS Native drop/tooltip source: 136 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 408 rejected mutations. Not runtime/GL proof.
+PASS Native world/drone source: 86 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 258 rejected mutations. Not runtime/GL proof.
+PASS Native GUI API source: 108 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 327 rejected mutations. Not runtime/GL proof.
+PASS Native byte/resource source: 15 byte-exact inverses/round trips, 6 new, 0 retired sources, 0 binary paths, 63 rejected mutations. Not runtime/GL proof.
+PASS Native stonebrick/sync source: 11 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 33 rejected mutations. Not runtime/GL proof.
+PASS Native scalar/texture/sound source: 22 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 69 rejected mutations. Not runtime/GL proof.
+PASS Native model/sound/query source: 67 byte-exact inverses/round trips, 5 new, 0 retired sources, 0 binary paths, 216 rejected mutations. Not runtime/GL proof.
+PASS Native ore/sync source: 34 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 102 rejected mutations. Not runtime/GL proof.
+PASS Native palette/spawn source: 32 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 96 rejected mutations. Not runtime/GL proof.
+PASS Native crafting/sound source: 73 byte-exact inverses/round trips, 5 new, 0 retired sources, 0 binary paths, 234 rejected mutations. Not runtime/GL proof.
+PASS Native material/air source: 390 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 1173 rejected mutations. Not runtime/GL proof.
+PASS Native concrete/access source: 287 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 861 rejected mutations. Not runtime/GL proof.
+PASS Native held/tile/box source: 277 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 834 rejected mutations. Not runtime/GL proof.
+PASS Native world/client source: 614 byte-exact inverses/round trips, 1 new, 0 retired sources, 0 binary paths, 1845 rejected mutations. Not runtime/GL proof.
+PASS Native core accessor source: 915 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 2745 rejected mutations. Not runtime/GL proof.
+PASS Native registry/world source: 317 byte-exact inverses/round trips, 2 new, 0 retired sources, 0 binary paths, 957 rejected mutations. Not runtime/GL proof.
+PASS Native scene/multipass source: 20 byte-exact inverses/round trips, 4 new, 0 retired sources, 0 binary paths, 72 rejected mutations. Not runtime/GL proof.
+PASS Native renderer source: 42 byte-exact inverses/round trips, 20 new, 4 retired sources, 0 binary paths, 186 rejected mutations. Not runtime/GL proof.
+PASS Native world source: 28 byte-exact inverses/round trips, 11 new, 0 retired sources, 0 binary paths, 117 rejected mutations. Not runtime/GL proof.
+PASS Native entity source: 19 byte-exact inverses/round trips, 8 new, 0 retired sources, 0 binary paths, 81 rejected mutations. Not runtime/GL proof.
+PASS Native family source: 28 byte-exact inverses/round trips, 17 new, 0 retired sources, 0 binary paths, 135 rejected mutations. Not runtime/GL proof.
+PASS Native consumer source: 11 byte-exact inverses/round trips, 8 new, 0 retired sources, 0 binary paths, 57 rejected mutations. Not runtime/GL proof.
+PASS Native declaration source: 9 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 27 rejected mutations. Not runtime/GL proof.
+PASS Detonator cord source: 5 byte-exact inverses/round trips, 3 new, 0 retired sources, 0 binary paths, 24 rejected mutations. Not runtime/GL proof.
+PASS Dummyable source: 3 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 9 rejected mutations. Not runtime/GL proof.
+PASS Teleporter source: 1 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 3 rejected mutations. Not runtime/GL proof.PASS thermal GUI: three exact count-guarded full-file reversals and drift rejections; original text, coordinates, arithmetic and GL calls; unchanged exact-case texture hashes; single inherited native slot tooltip
+PASS exact RecipesCommon reverse/forward source reconstruction; 6 drift mutations rejected; no Git dependency.
+PASS BufferUtil exact checkpoint18 reverse/forward source reconstruction, six drift rejections, immutable original hash, independent NBT wire fixtures.
+
+PASS Fluid/core source: 10 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 30 rejected mutations. Not runtime/GL proof.
+PASS Diode/network source: 6 byte-exact inverses/round trips, 3 new, 0 retired sources, 0 binary paths, 27 rejected mutations. Not runtime/GL proof.
+PASS Steel/player/tracker source: 9 byte-exact inverses/round trips, 10 new, 0 retired sources, 0 binary paths, 57 rejected mutations. Not runtime/GL proof.
+PASS Audio/item/falling source: 15 byte-exact inverses/round trips, 9 new, 0 retired sources, 450 binary paths, 72 rejected mutations. Not runtime/GL proof.
+PASS Decoration/plant/event source: 20 byte-exact inverses/round trips, 16 new, 0 retired sources, 12 binary paths, 108 rejected mutations. Not runtime/GL proof.
+PASS Loop/item/block source: 44 byte-exact inverses/round trips, 14 new, 1 retired sources, 92 binary paths, 174 rejected mutations. Not runtime/GL proof.
+PASS RTG/items source: 28 byte-exact inverses/round trips, 11 new, 0 retired sources, 16 binary paths, 117 rejected mutations. Not runtime/GL proof.
+PASS Particle/crane/registry source: 40 byte-exact inverses/round trips, 13 new, 0 retired sources, 4 binary paths, 159 rejected mutations. Not runtime/GL proof.
+PASS Foundry/light source: 24 byte-exact inverses/round trips, 23 new, 5 retired sources, 2 binary paths, 141 rejected mutations. Not runtime/GL proof.
+PASS Conveyor source: 25 byte-exact inverses/round trips, 16 retained new sources, 123 rejected mutations. Not runtime/GL proof.
+PASS Sedna source: 59 byte-exact inverses/round trips, 7 retained new sources, 198 rejected mutations. Not runtime/GL proof.
+PASS shared-render source: 43 byte-exact inverses/round trips, 19 retained new sources, 186 rejected mutations. Not runtime/GL proof.
+PASS atlas/particle source: 37 byte-exact inverses/round trips, 49 retained new sources, 258 rejected mutations. Not runtime/GL proof.
+PASS fluid/achievement source: 48 byte-exact inverses/round trips, 81 retained new sources, 387 rejected mutations. Not runtime/GL proof.
+PASS registry/connection source: 31 byte-exact inverses/round trips, 11 retained new sources, 126 rejected mutations. Not runtime/GL proof.
+PASS callback item source: 77 byte-exact inverses/round trips, 2 retained new sources, 237 rejected mutations. Not runtime/GL proof.
+PASS GUI/icon source: 8 byte-exact inverses/round trips, 3 retained new sources, 33 rejected mutations. Not runtime/GL proof.
+PASS owned particle source: 10 byte-exact inverses/round trips, 1 retained new source, 33 rejected mutations. Not runtime/GL proof.
+PASS native core/lifecycle: 20 byte-exact existing-source inverses/round trips; 9 pinned introduced files retained in historical scans; 87 drift mutations rejected; 2 CRLF inputs preserved.
+PASS one explicitly retired legacy renderer; exact original evidence and two native successors pinned.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS native render/compat: 113 byte-exact existing-source inverses/round trips; 13 pinned introduced files retained in historical scans; 378 drift mutations rejected; 0 CRLF inputs preserved.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS native integration roots: 85 byte-exact existing-source inverses/round trips; 13 pinned introduced files retained in historical scans; 294 drift mutations rejected; 2 CRLF inputs preserved.
+SOURCE PARITY ONLY: no Git/pristine checkout, production writes, exclusions or stubs; not compilation/gameplay acceptance.
+PASS: 10,939 exact read-only native field tokens / 384 files; 434 tile owners; 38 nested named-owner files.
+PASS: full selected-file inverse, owner/count/shadow/write/anonymous and excluded receiver guards.
+SOURCE PARITY ONLY: not complete machine compilation, gameplay, saves or network acceptance.
+PASS six exact thermal whole-file forward/reverse reconstructions; 18 drift mutations rejected; original callback counts and unchanged support verified.
+PASS eleven exact thermal-family/recipe-key/codec source reversals before historical layers

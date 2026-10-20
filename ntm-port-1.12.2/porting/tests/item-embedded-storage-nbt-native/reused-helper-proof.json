@@ -1,0 +1,11 @@
+{
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/LegacyInventoryNbtTest.java": "af64794baabaaaf31e9c69a62e07b1875e291c498190d96482ce197808428606",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/NativeInventoryNbtTest.java": "f4a2cbd4096cfed5692d84088961d61acef45ab1cd4e10161da91e04890de5c1",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/README.md": "a084bd33e03953cd1d1d3f856ccff08d870e1f10220a2b7975e30a4172e3d20a",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/loader-bytecode.txt": "383d3dab6cda0deb3f0b7e406b45e9577d419878bfc05510c6ed2504a082fc62",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/manifest.json": "0d5163bb8c2e0d48ee2b6a7ca1388f2ca28b8c5e4abc84370a40ca78d8a85cda",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/run.sh": "66bf9ecadc5cf361d6e6b13331a1af98e60cd65a04c27568a5600496fd5e1191",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/runtime-inputs.json": "81d83dc203b401fe2cf6205969f4f9f107fc6691504c578d29fe549153992901",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/verification.log": "0c6163fe86ab82037bc3702ac55ecc898a23bcd8cf85160669ebf095cbffbc80",
+  "ntm-port-1.12.2/porting/tests/bomb-inventory-nbt-native/verify.py": "dc8a2ad95d9ec8f83af25562a68a24e8cfda6862fa810105ab11e3b30b6e7c5e"
+}

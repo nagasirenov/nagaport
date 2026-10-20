@@ -1,0 +1,24 @@
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraftforge.client.event.RenderLivingEvent;
+/** Complete actual callback; only NTM vanish lookup and cancellability metadata controlled. */
+public class HandlerProof {
+ static int checks;
+ static void ok(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ static class CancellablePre extends RenderLivingEvent.Pre<EntityPig> {
+  CancellablePre(EntityLivingBase e){super(e,null,1,2,3);}
+  public boolean isCancelable(){return true;}
+ }
+ static void reset(boolean value){ExtractedHandler.MainRegistry.proxy.value=value;ExtractedHandler.MainRegistry.proxy.fail=false;ExtractedHandler.MainRegistry.proxy.calls=0;ExtractedHandler.MainRegistry.proxy.seen=null;}
+ static int run() throws Exception {
+  EntityPig pig=(EntityPig)NativeRenderEventTest.unsafe().allocateInstance(EntityPig.class);ExtractedHandler h=new ExtractedHandler();CancellablePre e=new CancellablePre(pig);
+  reset(false);h.preRenderEventFirst(e);ok(!e.isCanceled()&&ExtractedHandler.MainRegistry.proxy.calls==1&&ExtractedHandler.MainRegistry.proxy.seen==pig,"visible identity once, not canceled");
+  reset(true);h.preRenderEventFirst(e);ok(e.isCanceled()&&ExtractedHandler.MainRegistry.proxy.calls==1&&ExtractedHandler.MainRegistry.proxy.seen==pig,"vanished exact identity canceled");
+  reset(false);h.preRenderEventFirst(e);ok(e.isCanceled(),"false result never uncancels an already canceled event");
+  reset(false);h.preRenderEventFirst(new CancellablePre(null));ok(ExtractedHandler.MainRegistry.proxy.calls==1&&ExtractedHandler.MainRegistry.proxy.seen==null,"null payload not normalized");
+  reset(false);try{h.preRenderEventFirst(null);throw new AssertionError();}catch(NullPointerException expected){ok(ExtractedHandler.MainRegistry.proxy.calls==0,"null event fails before proxy");}
+  reset(true);ExtractedHandler.MainRegistry.proxy.fail=true;CancellablePre fail=new CancellablePre(pig);try{h.preRenderEventFirst(fail);throw new AssertionError();}catch(IllegalArgumentException expected){ok(!fail.isCanceled()&&ExtractedHandler.MainRegistry.proxy.calls==1,"proxy exception precedes cancellation");}
+  System.out.println("PASS "+checks+" complete extracted pristine callback checks; controlled NTM vanish lookup and cancellability, not event bus");return checks;
+ }
+}

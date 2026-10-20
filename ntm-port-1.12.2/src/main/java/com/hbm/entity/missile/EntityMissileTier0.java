@@ -62,16 +62,17 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 					for(int iZ = -range; iZ <= range; iZ++) {
 						double dist = Math.sqrt(iX * iX + iY * iY + iZ * iZ);
 						if(dist > range) continue;
-						Block block = com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ).getBlock();
+						net.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ);
+						Block block = nativeCubeState_block.getBlock();
 						int meta = this.world.getBlockMetadata(x + iX, y + iY, z + iZ);
 						int charMeta = (int) MathHelper.clamp(12 - (dist / range) * (dist / range) * 13, (double) (0), (double) (12));
 						
-						if(block.isNormalCube()) {
+						if(block.isNormalCube(nativeCubeState_block)) {
 							if(block != ModBlocks.sellafield_slaked || meta < charMeta) {
 								this.world.setBlock(x + iX, y + iY, z + iZ, ModBlocks.sellafield_slaked, charMeta, 3);
 							}
 						} else {
-							this.world.setBlock(x + iX, y + iY, z + iZ, Blocks.AIR);
+							com.hbm.world.WorldBlockState.write(this.world, x + iX, y + iY, z + iZ, Blocks.AIR.getStateFromMeta(0), 3);
 						}
 					}
 				}
@@ -129,8 +130,9 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 				int a = rand.nextInt(11) + mop.getBlockPos().getX() - 5;
 				int b = rand.nextInt(11) + mop.getBlockPos().getY() - 5;
 				int c = rand.nextInt(11) + mop.getBlockPos().getZ() - 5;
-				Block block = com.hbm.world.WorldBlockState.read(this.world, a, b, c).getBlock();
-				if(block.isNormalCube() && !block.isAir(this.world, a, b, c)) {
+				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);
+				Block block = nativeAirState.getBlock();
+				if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
 					this.world.setBlock(a, b, c, ModBlocks.taint, 0, 2);
 				}
 			}

@@ -12,7 +12,11 @@ import com.hbm.main.MainRegistry;
 import api.hbm.entity.IRadarDetectable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.entity.player.EntityPlayer;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.ChunkPos;
@@ -25,6 +29,8 @@ import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
 public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoader, IRadarDetectable {
+
+	private static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryShell.class, DataSerializers.VARINT);
 
 	private Ticket loaderTicket;
 	
@@ -59,7 +65,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	protected void entityInit() {
 		super.entityInit();
 		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
-		this.dataWatcher.addObject(10, new Integer(0));
+		this.dataManager.register(AMMO_TYPE, new Integer(0));
 	}
 	
 	@Override
@@ -69,13 +75,13 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	}
 	
 	public EntityArtilleryShell setType(int type) {
-		this.dataWatcher.updateObject(10, type);
+		this.dataManager.set(AMMO_TYPE, type);
 		return this;
 	}
 	
 	public ArtilleryShell getType() {
 		try {
-			return ItemAmmoArty.itemTypes[this.dataWatcher.getWatchableObjectInt(10)];
+			return ItemAmmoArty.itemTypes[this.dataManager.get(AMMO_TYPE)];
 		} catch(Exception ex) {
 			return ItemAmmoArty.itemTypes[0];
 		}
@@ -143,7 +149,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 			}
 			
 			if(new Vec3d(this.syncPosX - this.posX, this.syncPosY - this.posY, this.syncPosZ - this.posZ).length() < 0.2) {
-				this.world.spawnParticle("smoke", posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);
 			}
 		}
 	}
@@ -225,7 +231,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		
-		nbt.setInteger("type", this.dataWatcher.getWatchableObjectInt(10));
+		nbt.setInteger("type", this.dataManager.get(AMMO_TYPE));
 		nbt.setBoolean("shouldWhistle", this.shouldWhistle);
 		nbt.setBoolean("didWhistle", this.didWhistle);
 		nbt.setDouble("targetX", this.targetX);
@@ -240,7 +246,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 
-		this.dataWatcher.updateObject(10, nbt.getInteger("type"));
+		this.dataManager.set(AMMO_TYPE, nbt.getInteger("type"));
 		this.shouldWhistle = nbt.getBoolean("shouldWhistle");
 		this.didWhistle = nbt.getBoolean("didWhistle");
 		this.targetX = nbt.getDouble("targetX");
@@ -248,7 +254,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 		this.targetZ = nbt.getDouble("targetZ");
 
 		NBTTagCompound compound = nbt.getCompoundTag("cargo");
-		this.setCargo(ItemStack.loadItemStackFromNBT(compound));
+		this.setCargo(NullableInventoryStackNbt.read(compound));
 	}
 
 	@Override

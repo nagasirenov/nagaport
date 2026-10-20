@@ -1,0 +1,82 @@
+[
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_coal.png",
+    "sha256": "9a2ac26b17606700b98aeeb7eae8fc4ae9f40b162e02b2be5d2c093fe5395a28",
+    "original_sha256": "9a2ac26b17606700b98aeeb7eae8fc4ae9f40b162e02b2be5d2c093fe5395a28"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ore_nether_coal.png.mcmeta",
+    "sha256": "491ea51d46bc1f0c0ff11ed9293461cc67de293c7672abbc45f67563f8fe1f1a",
+    "original_sha256": "491ea51d46bc1f0c0ff11ed9293461cc67de293c7672abbc45f67563f8fe1f1a"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_waste.png",
+    "sha256": "dad8db4e7140b9617c2c84d47faf71b2c1a414ed60f6fb90804344eac46c291a",
+    "original_sha256": "dad8db4e7140b9617c2c84d47faf71b2c1a414ed60f6fb90804344eac46c291a"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_waste_painted.png",
+    "sha256": "6fdce28dc07c9b192882fe440df2b62e567677d4e4769c7e4e617319d284631c",
+    "original_sha256": "6fdce28dc07c9b192882fe440df2b62e567677d4e4769c7e4e617319d284631c"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_waste_vitrified.png",
+    "sha256": "549f9482c3a396ac3f04c272fb2fb38a3697ae879ebae604903ddfe301427b68",
+    "original_sha256": "549f9482c3a396ac3f04c272fb2fb38a3697ae879ebae604903ddfe301427b68"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_yellowcake.png",
+    "sha256": "9158b69bb5c2163eaa95ddf9d1eb3cf0825644c9e167cab69f20374a3e8646dd",
+    "original_sha256": "9158b69bb5c2163eaa95ddf9d1eb3cf0825644c9e167cab69f20374a3e8646dd"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/block_red_phosphorus.png",
+    "sha256": "2b057db61418a087a04917f48d4c217e7b3bcbd181b2bf7bc85bd3a535f5d4bb",
+    "original_sha256": "2b057db61418a087a04917f48d4c217e7b3bcbd181b2bf7bc85bd3a535f5d4bb"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/ash.png",
+    "sha256": "11c1326f524c830985ca65a2087125da4052780f199201bb9b848d6c08f8a445",
+    "original_sha256": "11c1326f524c830985ca65a2087125da4052780f199201bb9b848d6c08f8a445"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/asphalt.png",
+    "sha256": "ee0a00ad684a7225bfa1ae430fd975a7aaf3fdf30eea3dcb7603f1de41afdf7e",
+    "original_sha256": "ee0a00ad684a7225bfa1ae430fd975a7aaf3fdf30eea3dcb7603f1de41afdf7e"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/asphalt_light.png",
+    "sha256": "837841664ff0aebd7eea3e04a58cb1b95562c943a0687521642da1e11df0b74e",
+    "original_sha256": "837841664ff0aebd7eea3e04a58cb1b95562c943a0687521642da1e11df0b74e"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/concrete.png",
+    "sha256": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f",
+    "original_sha256": "3739d04d7ee6c436b173d43c2c0b98911e4cbdafe3b7a8b1b1800e45b591f63f"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/concrete_super_broken.png",
+    "sha256": "6580fe55a3a89c8cc78b438986cf40247f93d9b5e349d444dce033cfd7fcfd5b",
+    "original_sha256": "6580fe55a3a89c8cc78b438986cf40247f93d9b5e349d444dce033cfd7fcfd5b"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/meteor_treasure.png",
+    "sha256": "bb163a07170ef3e25f52cb3115b7cb1cfbfbe8323324997a024ec5f8e6646920",
+    "original_sha256": "bb163a07170ef3e25f52cb3115b7cb1cfbfbe8323324997a024ec5f8e6646920"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/brick_jungle_fragile.png",
+    "sha256": "6757bebf7c69eaabeb5838b2733f566e0757d1a447e6ab57c6643adb59a4e439",
+    "original_sha256": "6757bebf7c69eaabeb5838b2733f566e0757d1a447e6ab57c6643adb59a4e439"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/oil_pipe.png",
+    "sha256": "e4235273877fc6a27f3f8962cc1bdaa49915e67eed080af0b6f1af48dfb5b463",
+    "original_sha256": "e4235273877fc6a27f3f8962cc1bdaa49915e67eed080af0b6f1af48dfb5b463"
+  },
+  {
+    "path": "src/main/resources/assets/hbm/textures/blocks/barricade.png",
+    "sha256": "6d13aec3d199992c11cb765b784041491fad4c11037e59bb244f8a98f27964a5",
+    "original_sha256": "6d13aec3d199992c11cb765b784041491fad4c11037e59bb244f8a98f27964a5"
+  }
+]

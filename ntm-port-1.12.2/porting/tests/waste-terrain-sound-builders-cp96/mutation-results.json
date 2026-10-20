@@ -1,0 +1,65 @@
+[
+  {
+    "owner": "WasteEarth",
+    "mutant": "drop-assignment",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object"
+  },
+  {
+    "owner": "WasteEarth",
+    "mutant": "wrong-argument",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object"
+  },
+  {
+    "owner": "WasteEarth",
+    "mutant": "null-return",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.NullPointerException"
+  },
+  {
+    "owner": "WasteLog",
+    "mutant": "drop-assignment",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object"
+  },
+  {
+    "owner": "WasteLog",
+    "mutant": "wrong-argument",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object"
+  },
+  {
+    "owner": "WasteLog",
+    "mutant": "null-return",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.NullPointerException"
+  },
+  {
+    "owner": "WasteLeaves",
+    "mutant": "drop-assignment",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object"
+  },
+  {
+    "owner": "WasteLeaves",
+    "mutant": "wrong-argument",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.AssertionError: exact original sound object"
+  },
+  {
+    "owner": "WasteLeaves",
+    "mutant": "null-return",
+    "compiled": true,
+    "rejected_at_runtime": true,
+    "reason": "Caused by: java.lang.NullPointerException"
+  }
+]

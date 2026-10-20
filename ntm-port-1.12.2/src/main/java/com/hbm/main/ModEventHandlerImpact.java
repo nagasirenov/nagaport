@@ -120,7 +120,7 @@ public class ModEventHandlerImpact {
 	@SubscribeEvent
 	public void extinction(CheckSpawn event) {
 
-		TomSaveData data = TomSaveData.forWorld(event.world);
+		TomSaveData data = TomSaveData.forWorld(event.getWorld());
 
 		if(data.impact) {
 			if(!(event.getEntityLiving() instanceof EntityPlayer) && event.getEntityLiving() instanceof EntityLivingBase) {
@@ -142,9 +142,9 @@ public class ModEventHandlerImpact {
 	@SubscribeEvent
 	public void onPopulate(Populate event) {
 
-		if(event.type == Populate.EventType.ANIMALS) {
+		if(event.getType() == Populate.EventType.ANIMALS) {
 
-			TomSaveData data = TomSaveData.forWorld(event.world);
+			TomSaveData data = TomSaveData.forWorld(event.getWorld());
 
 			if(data.impact) { // OHHH THIS IS WHAT I WAS FUCKING MISSING. WHY FORGE WHY???? WHY THE FUCK DID YOU ADVERTISE THE CANCELSPAWN EVENTHANDLER WHEN THIS EXISTS???
 				event.setResult(Result.DENY);
@@ -164,7 +164,7 @@ public class ModEventHandlerImpact {
 
 		TomSaveData data = TomSaveData.getLastCachedOrNull();
 
-		if(data == null || event.biome == null) {
+		if(data == null || event.getBiome() == null) {
 			return;
 		}
 
@@ -198,13 +198,13 @@ public class ModEventHandlerImpact {
 		/// because they are retarded and crash with a NullPointerException if
 		/// you try to look for biome-specific blocks.
 		TomSaveData data = TomSaveData.getLastCachedOrNull(); //despite forcing the data, we cannot rule out canceling events or custom firing shenanigans
-		if(data != null && event.biome != null) {
-			if(event.biome.topBlock != null) {
-				if(event.biome.topBlock == Blocks.GRASS) {
+		if(data != null && event.getBiome() != null) {
+			if(event.getBiome().topBlock != null) {
+				if(event.getBiome().topBlock == Blocks.GRASS) {
 					if(data.impact && (data.dust > 0 || data.fire > 0)) {
-						event.biome.topBlock = ModBlocks.impact_dirt;
+						event.getBiome().topBlock = ModBlocks.impact_dirt;
 					} else {
-						event.biome.topBlock = Blocks.GRASS;
+						event.getBiome().topBlock = Blocks.GRASS;
 					}
 				}
 			}
@@ -214,19 +214,19 @@ public class ModEventHandlerImpact {
 	@SubscribeEvent
 	public void postImpactDecoration(DecorateBiomeEvent.Decorate event) {
 
-		TomSaveData data = TomSaveData.forWorld(event.world);
+		TomSaveData data = TomSaveData.forWorld(event.getWorld());
 
 		if(data.impact) {
-			EventType type = event.type;
+			EventType type = event.getType();
 
 			if(data.dust > 0 || data.fire > 0) {
-				if(type == event.type.TREE || type == event.type.BIG_SHROOM || type == event.type.GRASS || type == event.type.REED || type == event.type.FLOWERS || type == event.type.DEAD_BUSH
-						|| type == event.type.CACTUS || type == event.type.PUMPKIN || type == event.type.LILYPAD) {
+				if(type == event.getType().TREE || type == event.getType().BIG_SHROOM || type == event.getType().GRASS || type == event.getType().REED || type == event.getType().FLOWERS || type == event.getType().DEAD_BUSH
+						|| type == event.getType().CACTUS || type == event.getType().PUMPKIN || type == event.getType().LILYPAD) {
 					event.setResult(Result.DENY);
 				}
 
 			} else if(data.dust == 0 && data.fire == 0) {
-				if(type == event.type.TREE || type == event.type.BIG_SHROOM || type == event.type.CACTUS) {
+				if(type == event.getType().TREE || type == event.getType().BIG_SHROOM || type == event.getType().CACTUS) {
 					Random rand = new Random();
 					if(rand.nextInt(4) == 0) {
 						event.setResult(Result.DEFAULT);
@@ -235,7 +235,7 @@ public class ModEventHandlerImpact {
 					}
 				}
 
-				if(type == event.type.GRASS || type == event.type.REED) {
+				if(type == event.getType().GRASS || type == event.getType().REED) {
 					event.setResult(Result.DEFAULT);
 				}
 			}
@@ -249,10 +249,10 @@ public class ModEventHandlerImpact {
 	@SubscribeEvent
 	public void populateChunkPost(PopulateChunkEvent.Post event) {
 
-		TomSaveData data = TomSaveData.forWorld(event.world);
+		TomSaveData data = TomSaveData.forWorld(event.getWorld());
 
 		if(data.impact) {
-			Chunk chunk = event.world.getChunkFromChunkCoords(event.chunkX, event.chunkZ);
+			Chunk chunk = event.getWorld().getChunkFromChunkCoords(event.getChunkX(), event.getChunkZ());
 
 			for(ExtendedBlockStorage storage : chunk.getBlockStorageArray()) {
 

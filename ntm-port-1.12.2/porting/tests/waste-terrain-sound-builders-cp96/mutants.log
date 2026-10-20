@@ -1,0 +1,9 @@
+PASS runtime mutant rejected after successful compilation: WasteEarth drop-assignment Caused by: java.lang.AssertionError: exact original sound object
+PASS runtime mutant rejected after successful compilation: WasteEarth wrong-argument Caused by: java.lang.AssertionError: exact original sound object
+PASS runtime mutant rejected after successful compilation: WasteEarth null-return Caused by: java.lang.NullPointerException
+PASS runtime mutant rejected after successful compilation: WasteLog drop-assignment Caused by: java.lang.AssertionError: exact original sound object
+PASS runtime mutant rejected after successful compilation: WasteLog wrong-argument Caused by: java.lang.AssertionError: exact original sound object
+PASS runtime mutant rejected after successful compilation: WasteLog null-return Caused by: java.lang.NullPointerException
+PASS runtime mutant rejected after successful compilation: WasteLeaves drop-assignment Caused by: java.lang.AssertionError: exact original sound object
+PASS runtime mutant rejected after successful compilation: WasteLeaves wrong-argument Caused by: java.lang.AssertionError: exact original sound object
+PASS runtime mutant rejected after successful compilation: WasteLeaves null-return Caused by: java.lang.NullPointerException

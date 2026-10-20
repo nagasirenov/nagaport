@@ -1,0 +1,11 @@
+PASS exact CP92 whole-file inverse across 3 production files; ten closed fresh-owner casts; exact original sound arguments and full chain order; unchanged constructor, texture and gameplay bodies. Scope: THREE-FILE FAMILY ONLY.
+Note: /workspace/shared/nagaport-log-pillar-sounds-cp94/ntm-port-1.12.2/porting/tests/log-pillar-sound-builders-cp94/LogPillarSoundNativeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+COMPILE_PASS: exact current NTM constructor/field/builder projections; all Minecraft/Forge classes genuine
+[13:57:35] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[13:57:35] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[13:57:35] [main/INFO]: Replaced 1036 ore ingredients
+[13:57:35] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[13:57:35] [main/INFO]: Processing ObjectHolder annotations
+[13:57:35] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 387 finite native assertions: 7 full log construction chains and 3 pillar chains ending before still-unported texture calls; exact objects/receiver/material/properties; native constructor defaults; all three chain shapes and failure order.

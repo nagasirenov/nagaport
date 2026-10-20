@@ -1,0 +1,14 @@
+{
+  "/tmp/nagaport-ae2-native-classpath.txt": "fc0f467afcb7b98f4c107a469bd760c624616f45cc5b518704db0dde241e23dc",
+  "/tmp/nagaport-legacy-client.jar": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "/tmp/nagaport-forge1614-userdev.jar": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+  "/workspace/shared/nagaport/ntm-port-1.12.2/porting/checkpoint81/full-compile.log": "5ec9c7e144ebb41876c66ae1b178d686f3452c5306d8dc37c92074bfcaee08ca",
+  "/tmp/nagaport-slot-attribution-before/classes.tsv": "b61fcb92aab3dea3d27e65938d5dbebf974b18b3e2e67dabb743e60466a43a5b",
+  "/tmp/nagaport-slot-attribution-before/methods.tsv": "42613f43a8684d084c7ed4ea62680b54b1837637be3c2d5887b39e8ffb96a6a5",
+  "/tmp/nagaport-slot-attribution-before/calls.tsv": "3c833e6996d1ef45f860bd2165969e086c520c432162871d9a3bf7be4a5c6db3",
+  "/tmp/nagaport-slot-attribution-before/errors.tsv": "548064580b8101cdf425f96ae568a0ff5f390973e306877adc6eb8d2ad63b42a",
+  "/tmp/nagaport-slot-attribution-after/classes.tsv": "5cf39b48284fe8b20a9a67d782c79a7c122e41d89863c75f4d7ba13cba9629ad",
+  "/tmp/nagaport-slot-attribution-after/methods.tsv": "75a6f95c248d811cbc6cc6bb24c91a5b5b3fca3984f551d300e807b2b67648c2",
+  "/tmp/nagaport-slot-attribution-after/calls.tsv": "aa1baa286debf92e60b07b0913adab20d38fd359231506bf19f0670e2274d0ad",
+  "/tmp/nagaport-slot-attribution-after/errors.tsv": "a2432b40f1fe0a081f9ec387d2d41629a0617a3200ed8319ade455f71dfc84d5"
+}

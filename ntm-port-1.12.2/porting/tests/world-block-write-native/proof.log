@@ -1,0 +1,53 @@
+/workspace/shared/nagaport-worldwrites/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks;
+                      ^
+/workspace/shared/nagaport-worldwrites/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport-worldwrites/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                           ^
+Note: /workspace/shared/nagaport-worldwrites/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS: 22797 original/native World/Chunk state writes, metadata, returns, bounds, dispatch, native flags/debug-world and evaluation assertions
+Read-only reviewed conversion method: net/minecraft/block/Block.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/BlockDirt.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/BlockFire.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/BlockLiquid.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/Block.getDefaultState()Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/BlockDirt$DirtType.byMetadata(I)Lnet/minecraft/block/BlockDirt$DirtType;
+Read-only reviewed conversion method: net/minecraft/block/state/BlockStateContainer$StateImplementation.withProperty(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+PASS: 7 actual conversion methods have no field/array writes, monitors, dynamic invocation or unreviewed calls; actual allowed-state totality/identity tested separately
+net/minecraft/client/multiplayer/WorldClient extends net/minecraft/world/World declares []
+net/minecraft/world/World extends java/lang/Object declares [setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z, setBlockToAir(Lnet/minecraft/util/math/BlockPos;)Z]
+net/minecraft/world/WorldServer extends net/minecraft/world/World declares []
+net/minecraft/world/WorldServerDemo extends net/minecraft/world/WorldServer declares []
+net/minecraft/world/WorldServerMulti extends net/minecraft/world/WorldServer declares []
+Audited 5 World hierarchy classes among 48240 classes
+ahb extends java/lang/Object declares [d(IIILaji;II)Z, f(III)Z, b(IIILaji;)Z]
+bjf extends ahb declares []
+mk extends mt declares []
+mm extends mt declares []
+mt extends ahb declares []
+Audited 5 World hierarchy classes among 1803 classes
+/workspace/shared/nagaport-worldwrites/ntm-port-1.12.2/porting/tests/world-block-write-native/OriginalWriteEvaluation.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                           ^
+/workspace/shared/nagaport-worldwrites/ntm-port-1.12.2/porting/tests/world-block-write-native/OriginalWriteEvaluation.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                     ^
+/workspace/shared/nagaport-worldwrites/ntm-port-1.12.2/porting/tests/world-block-write-native/OriginalWriteEvaluation.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                                        ^
+3 warnings
+PASS: 6 direct original World write null/argument/evaluation assertions
+Attribution diagnostics, NOT whole-source compile success: 11
+Unrelated unfinished-port diagnostics: 12435
+PASS: 36 exact selected call regenerations and inverses across 17 files; helper additions only; 15 metadata gates unchanged
+PASS: only source World subclass is FauxWorld with no mutation override
+PASS: 2 exact native World/vanilla-block positive and 12 lookalike/type/metadata/flag/comment negative attribution controls
+PASS: all 36 exact rewritten positions resolve to native-state boundary overload; no whole-source compilation claim
+PASS: eight boundary/null/coordinates/return/flags/metadata behavioral mutants rejected
+PASS: 36 production-call deletion mutations rejected by exact source guard
+PASS: bounded write suite complete; no full-mod build or gameplay-runtime claim

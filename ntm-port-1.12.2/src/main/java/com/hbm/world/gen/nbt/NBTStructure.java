@@ -644,7 +644,7 @@ public class NBTStructure {
 
 				if(hasBase && !piece.conformToTerrain) {
 					for(int y = oy - 1; y > 0; y--) {
-						if(!com.hbm.world.WorldBlockState.read(world, rx, y, rz).getBlock().isReplaceable(world, rx, y, rz)) break;
+						if(!com.hbm.world.WorldBlockState.read(world, rx, y, rz).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(rx, y, rz))) break;
 						piece.platform.selectBlocks(world.rand, 0, 0, 0, false);
 						world.setBlockState(new net.minecraft.util.math.BlockPos(rx, y, rz), piece.platform.getBlockState(), 2);
 					}

@@ -191,7 +191,7 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 
 			if(this.burnTime > 0 && MainRegistry.proxy.me().getDistance(this.pos.getX(), this.pos.getY(), this.pos.getZ()) < 25) {
 				Random rand = this.world.rand;
-				this.world.spawnParticle("flame", this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);
 			}
 
 			if(isVenting && this.world.getTotalWorldTime() % 2 == 0) {

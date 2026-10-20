@@ -19,6 +19,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -50,7 +51,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 		if(!world.isRemote) {
 			ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 
-			if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isNormalCube())
+			if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).isNormalCube())
 				return; //no obstructions allowed!
 
 			boolean flag = checkRedstone(world, x, y, z);
@@ -329,7 +330,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 			this.lastState = nbt.getBoolean("state");
 			if(nbt.hasKey("stack")) {
 				NBTTagCompound stack = nbt.getCompoundTag("stack");
-				this.slot = ItemStack.loadItemStackFromNBT(stack);
+				this.slot = NullableInventoryStackNbt.read(stack);
 			} else {
 				this.slot = null;
 			}

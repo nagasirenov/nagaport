@@ -1,0 +1,410 @@
+{
+  "purpose": "Original pristine-source inventory, not a full original/native algorithm equivalence claim. Current compiler ownership and original actual-engine field tests provide the separate binding evidence.",
+  "files": {
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java": {
+      "sha256": "976595aca6cd4c866bd32c094a99b35b0ded050aef7a73dd41abff8ff1f88dd6",
+      "declarations": [
+        {
+          "line": 51,
+          "text": "public class SkyProviderCelestial extends IRenderHandler {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 1331,
+          "text": "//double near = distant*(Math.min(40000f, Math.max(0d, y-35000f))/40000f)*Math.min(1d,Minecraft.getMinecraft().thePlayer.worldObj.getStarBrightness(partialTicks)+sf);"
+        },
+        {
+          "line": 1334,
+          "text": "double entry = near*(1d-Minecraft.getMinecraft().thePlayer.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/SkyProviderThatmo.java": {
+      "sha256": "05a0b1eed48f3435ceb6c7f675750272dc6f8ff8a07d88e154f1d531778346a3",
+      "declarations": [
+        {
+          "line": 26,
+          "text": "public class SkyProviderThatmo extends SkyProviderCelestial {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 377,
+          "text": "//double near = distant*(Math.min(40000f, Math.max(0d, y-35000f))/40000f)*Math.min(1d,Minecraft.getMinecraft().thePlayer.worldObj.getStarBrightness(partialTicks)+sf);"
+        },
+        {
+          "line": 380,
+          "text": "double entry = near*(1d-Minecraft.getMinecraft().thePlayer.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerNT.java": {
+      "sha256": "9167db118040f5e37664452360909d2c611b15ac997bce897848df66d28f96d8",
+      "declarations": [
+        {
+          "line": 36,
+          "text": "public class ChunkRadiationHandlerNT extends ChunkRadiationHandler {"
+        },
+        {
+          "line": 475,
+          "text": "public static class RadPocket {"
+        },
+        {
+          "line": 503,
+          "text": "public static class SubChunkRadiationStorage {"
+        },
+        {
+          "line": 587,
+          "text": "public static class ChunkRadiationStorage {"
+        },
+        {
+          "line": 729,
+          "text": "public static class WorldRadiationData {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 300,
+          "text": "if(!p.parent.parent.chunk.worldObj.blockExists(nPos.getX(), nPos.getY(), nPos.getZ()) || nPos.getY() < 0 || nPos.getY() > 255)"
+        },
+        {
+          "line": 304,
+          "text": "rebuildChunkPockets(p.parent.parent.chunk.worldObj.getChunkFromBlockCoords(nPos.getX(), nPos.getZ()), nPos.getY() >> 4);"
+        },
+        {
+          "line": 308,
+          "text": "SubChunkRadiationStorage sc2 = getSubChunkStorage(p.parent.parent.chunk.worldObj, nPos.getX(), nPos.getY(), nPos.getZ());"
+        },
+        {
+          "line": 381,
+          "text": "ChunkRadiationStorage st = getChunkStorage(chunk.worldObj, subChunkPos.getX(), subChunkPos.getY(), subChunkPos.getZ());"
+        },
+        {
+          "line": 392,
+          "text": "pockets.add(buildPocket(subChunk, chunk.worldObj, new BlockPos(x, y, z), subChunkPos, blocks, pocketsByBlock, pockets.size()));"
+        },
+        {
+          "line": 421,
+          "text": "Block block = chunk.worldObj.getBlock(outPos.getX(), outPos.getY(), outPos.getZ());"
+        },
+        {
+          "line": 423,
+          "text": "if(!isSubChunkLoaded(chunk.worldObj, outPos.getX(), outPos.getY(), outPos.getZ())){"
+        },
+        {
+          "line": 429,
+          "text": "RadPocket outPocket = getPocket(chunk.worldObj, outPos.getX(), outPos.getY(), outPos.getZ());"
+        },
+        {
+          "line": 613,
+          "text": "chunks[y >> 4].remove(chunk.worldObj, getWorldPos(y));"
+        },
+        {
+          "line": 618,
+          "text": "sc.add(chunk.worldObj, getWorldPos(y));"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "sha256": "09c8834c1cf1d112af4136c892065f44f6f23ef5adadde645524685b37f3d645",
+      "declarations": [
+        {
+          "line": 143,
+          "text": "public class ModEventHandlerClient {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 464,
+          "text": "long time = ImpactWorldHandler.getTimeForClient(player.worldObj);"
+        },
+        {
+          "line": 1043,
+          "text": "CBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().thePlayer.worldObj, CBT_Invasion.class);"
+        },
+        {
+          "line": 1046,
+          "text": "if (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().thePlayer.worldObj, CBT_Invasion.class)) {"
+        },
+        {
+          "line": 1333,
+          "text": "Block b = player.worldObj.getBlock(x, y, z);"
+        },
+        {
+          "line": 1337,
+          "text": "b.isLadder(player.worldObj, x, y, z, player) &&"
+        },
+        {
+          "line": 1338,
+          "text": "b.getCollisionBoundingBoxFromPool(player.worldObj, x, y, z) == null &&"
+        },
+        {
+          "line": 1370,
+          "text": "if(player.worldObj.provider.dimensionId == 0 && vec.lengthVector() < dist && !HTTPHandler.capsule.isEmpty()) {"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java": {
+      "sha256": "df52b41fa481f0eb57e1ae21ba81a18e0c3f8fa42fa559ce18a73b638a673802",
+      "declarations": [
+        {
+          "line": 31,
+          "text": "public class TileEntityTesla extends TileEntityMachineBase implements IEnergyReceiverMK2 {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 53,
+          "text": "if(!worldObj.isRemote) {"
+        },
+        {
+          "line": 59,
+          "text": "if(worldObj.getBlock(xCoord, yCoord - 1, zCoord) == ModBlocks.meteor_battery)"
+        },
+        {
+          "line": 69,
+          "text": "this.targets = zap(worldObj, dx, dy, dz, range, null);"
+        },
+        {
+          "line": 79,
+          "text": "this.trySubscribe(worldObj, xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir);"
+        },
+        {
+          "line": 82,
+          "text": "public static List<double[]> zap(World worldObj, double x, double y, double z, double radius, Entity source) {"
+        },
+        {
+          "line": 86,
+          "text": "List<EntityLivingBase> targets = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x - radius, y - radius, z - radius, x + radius, y + radius, z + radius));"
+        },
+        {
+          "line": 98,
+          "text": "if(Library.isObstructed(worldObj, x, y, z, e.posX, e.posY + e.height / 2, e.posZ))"
+        },
+        {
+          "line": 126,
+          "text": "worldObj.playSoundAtEntity(e, \"hbm:weapon.tesla\", 1.0F, 1.0F);"
+        },
+        {
+          "line": 130,
+          "text": "if(source != null && e instanceof EntityPlayer && worldObj.isRemote)"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/fusion/TileEntityFusionKlystron.java": {
+      "sha256": "ebdb21aad84030f98d9b37680940c118252901d7203a7a23126ddef3f69bbac2",
+      "declarations": [
+        {
+          "line": 44,
+          "text": "public class TileEntityFusionKlystron extends TileEntityMachineBase implements IEnergyReceiverMK2, IFluidStandardReceiverMK2, IControlReceiver, IGUIProvider, SimpleComponent, CompatHandler.OCComponent {"
+        },
+        {
+          "line": 185,
+          "text": "if(e.getKey() instanceof TileEntityFusionTorus) { // replace this with an interface should we ever get more acceptors"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 77,
+          "text": "if(!worldObj.isRemote) {"
+        },
+        {
+          "line": 84,
+          "text": "this.trySubscribe(worldObj, pos);"
+        },
+        {
+          "line": 85,
+          "text": "this.trySubscribe(compair.getTankType(), worldObj, pos);"
+        },
+        {
+          "line": 153,
+          "text": "World worldObj = that.getWorldObj();"
+        },
+        {
+          "line": 160,
+          "text": "klystronNode = UniNodespace.getNode(worldObj, xCoord + dir.offsetX * 4, yCoord + 2, zCoord + dir.offsetZ * 4, KlystronNetworkProvider.THE_PROVIDER);"
+        },
+        {
+          "line": 167,
+          "text": "UniNodespace.createNode(worldObj, klystronNode);"
+        },
+        {
+          "line": 230,
+          "text": "if(!worldObj.isRemote) {"
+        },
+        {
+          "line": 231,
+          "text": "if(this.klystronNode != null) UniNodespace.destroyNode(worldObj, klystronNode);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKGauge.java": {
+      "sha256": "821441a539fc9d800187261b64783172cbf3cbfc161646d1ebfcaa78fb11b4e2",
+      "declarations": [
+        {
+          "line": 18,
+          "text": "public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIProvider, IControlReceiver {"
+        },
+        {
+          "line": 76,
+          "text": "public class GaugeUnit {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 39,
+          "text": "if(!worldObj.isRemote) {"
+        },
+        {
+          "line": 116,
+          "text": "RTTYChannel chan = RTTYSystem.listen(worldObj, rtty);"
+        },
+        {
+          "line": 119,
+          "text": "if(chan != null && chan.timeStamp < worldObj.getTotalWorldTime() - 1) chan = null;"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKKeyPad.java": {
+      "sha256": "57513ce22fa28bf411f4dcc14244a12b60131b96b9298cfa09792cd5fd2d5feb",
+      "declarations": [
+        {
+          "line": 17,
+          "text": "public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIProvider, IControlReceiver {"
+        },
+        {
+          "line": 72,
+          "text": "public class KeyUnit {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 38,
+          "text": "if(!worldObj.isRemote) {"
+        },
+        {
+          "line": 103,
+          "text": "if(canSend()) RTTYSystem.broadcast(worldObj, rtty, command);"
+        },
+        {
+          "line": 111,
+          "text": "worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, \"random.click\", 1F, this.isPressed ? 1F : 0.75F);"
+        },
+        {
+          "line": 118,
+          "text": "if(canSend()) RTTYSystem.broadcast(worldObj, rtty, command);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/MapGenNTMFeatures.java": {
+      "sha256": "f12899371623105c59c4ff9aaa4ed1cbb28404fc27f5f7ee180dd1ffa4942ab2",
+      "declarations": [
+        {
+          "line": 32,
+          "text": "public class MapGenNTMFeatures extends MapGenStructure {"
+        },
+        {
+          "line": 108,
+          "text": "public static class Start extends StructureStart {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 69,
+          "text": "Random random = this.worldObj.setRandomSeed(i1, j1, 14357617);"
+        },
+        {
+          "line": 76,
+          "text": "BiomeGenBase biomegenbase = this.worldObj.getWorldChunkManager().getBiomeGenAt(k * 16 + 8, l * 16 + 8);"
+        },
+        {
+          "line": 103,
+          "text": "return new BunkerStart(this.worldObj, this.rand, chunkX, chunkZ);"
+        },
+        {
+          "line": 105,
+          "text": "return new MapGenNTMFeatures.Start(this.worldObj, this.rand, chunkX, chunkZ);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/TileEntityMachineBase.java": {
+      "sha256": "39eb347ddfd040eb9f3958968cbc075ee0e687ff30a0b702bb20f482139aa80e",
+      "declarations": [
+        {
+          "line": 23,
+          "text": "public abstract class TileEntityMachineBase extends TileEntityLoadedBase implements ISidedInventory {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 35,
+          "text": "this.worldObj.markTileEntityChunkModified(this.xCoord, this.yCoord, this.zCoord, this);"
+        },
+        {
+          "line": 93,
+          "text": "if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {"
+        },
+        {
+          "line": 206,
+          "text": "Block block1 = worldObj.getBlock(x, y, z);"
+        },
+        {
+          "line": 208,
+          "text": "block1.onNeighborChange(worldObj, x, y, z, xCoord, yCoord, zCoord);"
+        },
+        {
+          "line": 209,
+          "text": "block1.onNeighborBlockChange(worldObj, x, y, z, this.getBlockType());"
+        },
+        {
+          "line": 210,
+          "text": "if(block1.isNormalCube(worldObj, x, y, z)) {"
+        },
+        {
+          "line": 214,
+          "text": "Block block2 = worldObj.getBlock(x, y, z);"
+        },
+        {
+          "line": 216,
+          "text": "if(block2.getWeakChanges(worldObj, x, y, z)) {"
+        },
+        {
+          "line": 217,
+          "text": "block2.onNeighborChange(worldObj, x, y, z, xCoord, yCoord, zCoord);"
+        },
+        {
+          "line": 218,
+          "text": "block2.onNeighborBlockChange(worldObj, x, y, z, this.getBlockType());"
+        },
+        {
+          "line": 225,
+          "text": "return breatheAir(worldObj, xCoord, yCoord, zCoord, amount);"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/TileEntityLoadedBase.java": {
+      "sha256": "6b3a557ff34f931b36e20169bff2463fe4c4c81d1e1d85ee653dddac0ec1cc0b",
+      "declarations": [
+        {
+          "line": 13,
+          "text": "public class TileEntityLoadedBase extends TileEntity implements ILoadedTile, IBufPacketReceiver {"
+        }
+      ],
+      "original_world_accesses": [
+        {
+          "line": 68,
+          "text": "if(worldObj.isRemote) return;"
+        },
+        {
+          "line": 81,
+          "text": "if(preBuf.equals(lastPackedBuf) && this.worldObj.getTotalWorldTime() % 20 != 0) return;"
+        },
+        {
+          "line": 85,
+          "text": "PacketThreading.createAllAroundThreadedPacket(packet, new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, xCoord, yCoord, zCoord, range));"
+        }
+      ]
+    }
+  }
+}

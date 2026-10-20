@@ -1,0 +1,4 @@
+net.minecraftforge.client.event.RenderPlayerEvent	renderer	getRenderer	net.minecraft.client.renderer.entity.RenderPlayer
+net.minecraftforge.client.event.RenderPlayerEvent	partialRenderTick	getPartialRenderTick	float
+net.minecraftforge.client.event.RenderHandEvent	partialTicks	getPartialTicks	float
+net.minecraftforge.client.event.RenderItemInFrameEvent	item	getItem	net.minecraft.item.ItemStack

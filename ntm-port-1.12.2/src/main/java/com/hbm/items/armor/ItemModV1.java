@@ -23,8 +23,8 @@ public class ItemModV1 extends ItemArmorMod implements IArmorModDash {
 	
 	@Override
 	public Multimap getModifiers(ItemStack armor) {
-		Multimap multimap = super.getAttributeModifiers(armor);
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, "V1 SPEED", 0.5, 2));
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "V1 SPEED", 0.5, 2));
 		return multimap;
 	}
 

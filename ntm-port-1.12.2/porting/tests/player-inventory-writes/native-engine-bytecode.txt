@@ -1,0 +1,97 @@
+  public final net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> mainInventory;
+  public final net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> armorInventory;
+  public final net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> offHandInventory;
+
+  public net.minecraft.entity.player.InventoryPlayer(net.minecraft.entity.player.EntityPlayer);
+    Code:
+       0: aload_0
+       1: invokespecial #34                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: bipush        36
+       7: getstatic     #39                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      10: invokestatic  #45                 // Method net/minecraft/util/NonNullList.withSize:(ILjava/lang/Object;)Lnet/minecraft/util/NonNullList;
+      13: putfield      #47                 // Field mainInventory:Lnet/minecraft/util/NonNullList;
+      16: aload_0
+      17: iconst_4
+      18: getstatic     #39                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      21: invokestatic  #45                 // Method net/minecraft/util/NonNullList.withSize:(ILjava/lang/Object;)Lnet/minecraft/util/NonNullList;
+      24: putfield      #49                 // Field armorInventory:Lnet/minecraft/util/NonNullList;
+      27: aload_0
+      28: iconst_1
+      29: getstatic     #39                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      32: invokestatic  #45                 // Method net/minecraft/util/NonNullList.withSize:(ILjava/lang/Object;)Lnet/minecraft/util/NonNullList;
+      35: putfield      #51                 // Field offHandInventory:Lnet/minecraft/util/NonNullList;
+      38: aload_0
+      39: iconst_3
+      40: anewarray     #41                 // class net/minecraft/util/NonNullList
+      43: dup
+      44: iconst_0
+      45: aload_0
+      46: getfield      #47                 // Field mainInventory:Lnet/minecraft/util/NonNullList;
+      49: aastore
+      50: dup
+      51: iconst_1
+      52: aload_0
+      53: getfield      #49                 // Field armorInventory:Lnet/minecraft/util/NonNullList;
+      56: aastore
+      57: dup
+      58: iconst_2
+      59: aload_0
+      60: getfield      #51                 // Field offHandInventory:Lnet/minecraft/util/NonNullList;
+      63: aastore
+      64: invokestatic  #57                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      67: putfield      #59                 // Field allInventories:Ljava/util/List;
+      70: aload_0
+      71: getstatic     #39                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      74: putfield      #61                 // Field itemStack:Lnet/minecraft/item/ItemStack;
+      77: aload_0
+      78: aload_1
+      79: putfield      #63                 // Field player:Lnet/minecraft/entity/player/EntityPlayer;
+      82: return
+
+  public E set(int, E);
+    Code:
+       0: aload_2
+       1: invokestatic  #26                 // Method org/apache/commons/lang3/Validate.notNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       4: pop
+       5: aload_0
+       6: getfield      #61                 // Field delegate:Ljava/util/List;
+       9: iload_1
+      10: aload_2
+      11: invokeinterface #77,  3           // InterfaceMethod java/util/List.set:(ILjava/lang/Object;)Ljava/lang/Object;
+      16: areturn
+
+  public net.minecraft.item.ItemStack copy();
+    Code:
+       0: new           #2                  // class net/minecraft/item/ItemStack
+       3: dup
+       4: aload_0
+       5: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+       8: aload_0
+       9: getfield      #94                 // Field stackSize:I
+      12: aload_0
+      13: getfield      #92                 // Field itemDamage:I
+      16: aload_0
+      17: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      20: ifnull        33
+      23: aload_0
+      24: getfield      #349                // Field capabilities:Lnet/minecraftforge/common/capabilities/CapabilityDispatcher;
+      27: invokevirtual #355                // Method net/minecraftforge/common/capabilities/CapabilityDispatcher.serializeNBT:()Lnet/minecraft/nbt/NBTTagCompound;
+      30: goto          34
+      33: aconst_null
+      34: invokespecial #79                 // Method "<init>":(Lnet/minecraft/item/Item;IILnet/minecraft/nbt/NBTTagCompound;)V
+      37: astore_1
+      38: aload_1
+      39: aload_0
+      40: invokevirtual #521                // Method getAnimationsToGo:()I
+      43: invokevirtual #524                // Method setAnimationsToGo:(I)V
+      46: aload_0
+      47: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      50: ifnull        64
+      53: aload_1
+      54: aload_0
+      55: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      58: invokevirtual #526                // Method net/minecraft/nbt/NBTTagCompound.copy:()Lnet/minecraft/nbt/NBTTagCompound;
+      61: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      64: aload_1
+      65: areturn

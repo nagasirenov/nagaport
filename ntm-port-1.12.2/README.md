@@ -1,3 +1,5 @@
+> Current continuation and build status: [porting/CURRENT.md](porting/CURRENT.md). Historical bootstrap permission notes below must not be interpreted as a current pause.
+
 # NTM: Space for Minecraft 1.7.10
 
 Hi, i am memeing things into existence, dont mind me! im just the bent fork at the end of the table -JamesH_2

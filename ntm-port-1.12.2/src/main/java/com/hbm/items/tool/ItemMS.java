@@ -26,7 +26,7 @@ public class ItemMS extends Item {
     	if(!world.isRemote) {
     		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.ntm_dirt) {
     			
-				world.func_147480_a(x, y, z, false);
+				com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 
     	    	Random rand = new Random();
     	    	List<ItemStack> list = new ArrayList<ItemStack>();

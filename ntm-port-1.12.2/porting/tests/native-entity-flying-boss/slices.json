@@ -1,0 +1,226 @@
+{
+  "EntityUFO.actual-class-declaration": {
+    "source": "public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {",
+    "sha256": "5dcd214c3e7dd4c4cd99f5894c8c0042c91c1214a5e65f1a8ed1f27cea0f0c9e"
+  },
+  "EntityUFO.key-0": {
+    "source": "private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityUFO.class, DataSerializers.BYTE);",
+    "sha256": "19a73518efdcf327dd4987fbaf489b4310bd587e3f8fe7f4caf54375d3bb55ee"
+  },
+  "EntityUFO.key-1": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);",
+    "sha256": "0bffb391db6c58aacb8027f62e9e6dfb9503251bfb1ec84052eca40d1b2d3107"
+  },
+  "EntityUFO.key-2": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);",
+    "sha256": "6b753968baa88ee8e2d66ad18e0a7172cc0928ffb0b6df067b0329ac1817b981"
+  },
+  "EntityUFO.key-3": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);",
+    "sha256": "580701863fa0687f3b7f4bf54e3c7c58346f0c9a85f395b795a4701cbb84ee35"
+  },
+  "EntityUFO.constructor": {
+    "source": "public EntityUFO(World p_i1587_1_) {\n\t\tsuper(p_i1587_1_);\n\t\tthis.setSize(15F, 4F);\n\t\tthis.isImmuneToFire = true;\n\t\tthis.experienceValue = 500;\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.deathTime = -30;\n\t}",
+    "sha256": "6fb6cd3c0d5982503c139b2fde0ac1ef8eb911e2a7fde7c851b2ba1eed78922b"
+  },
+  "EntityUFO.public int scanCooldown;": {
+    "source": "public int scanCooldown;",
+    "sha256": "4e9e37a0024de990808c6db8eeeba16a9fba8e6b1c5c35d82c241bc2ba669dfa"
+  },
+  "EntityUFO.public int beamTimer;": {
+    "source": "public int beamTimer;",
+    "sha256": "b06675dde19887418aeed6038deea92857261455bbba411373e147e2ce85dd4a"
+  },
+  "EntityUFO.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.dataManager.register(BEAM, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(WAYPOINT_X, 0);\n\t\tthis.dataManager.register(WAYPOINT_Y, 0);\n\t\tthis.dataManager.register(WAYPOINT_Z, 0);\n\t}",
+    "sha256": "70a68a96a6dbd861258b187cdf36554697931e6082d064db04d8bc4898873f75"
+  },
+  "EntityUFO.writeEntityToNBT": {
+    "source": "public void writeEntityToNBT(NBTTagCompound p_70014_1_) {\n\t\tsuper.writeEntityToNBT(p_70014_1_);\n\t}",
+    "sha256": "ea559a652b4d1d0aca64c4b69d82c9dacf941266f16227e146feba80ddaed049"
+  },
+  "EntityUFO.readEntityFromNBT": {
+    "source": "public void readEntityFromNBT(NBTTagCompound p_70037_1_) {\n\t\tsuper.readEntityFromNBT(p_70037_1_);\n\t}",
+    "sha256": "331f6d5b06588b6e0e7dd8eb86eb6ba9c164d91e073a95cc5b3367df1b917c60"
+  },
+  "EntityUFO.setBeam": {
+    "source": "public void setBeam(boolean b) {\n\t\tthis.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)));\n\t}",
+    "sha256": "735d9e554764d11ccf86269890eb0c390bee5f9aa54039eaab8f47fbd145a23c"
+  },
+  "EntityUFO.getBeam": {
+    "source": "public boolean getBeam() {\n\t\treturn this.dataManager.get(BEAM) == 1;\n\t}",
+    "sha256": "20af64796664f03ae53aa17a0495aae2c3f0fbc7331d6925cd1f1f20a6a538a3"
+  },
+  "EntityUFO.setWaypoint": {
+    "source": "public void setWaypoint(int x, int y, int z) {\n\t\tthis.dataManager.set(WAYPOINT_X, x);\n\t\tthis.dataManager.set(WAYPOINT_Y, y);\n\t\tthis.dataManager.set(WAYPOINT_Z, z);\n\t}",
+    "sha256": "6bf40aac706d5841eab76a5d4ba149a642693c25756b1aeab12ea0052bff9389"
+  },
+  "EntityUFO.getX": {
+    "source": "public int getX() {\n\t\treturn this.dataManager.get(WAYPOINT_X);\n\t}",
+    "sha256": "bf8028a88559e0750d7b9e35b73be2889a2ac88ec31143495bbdb9edc06d83c7"
+  },
+  "EntityUFO.getY": {
+    "source": "public int getY() {\n\t\treturn this.dataManager.get(WAYPOINT_Y);\n\t}",
+    "sha256": "b2a7da0ed907de5a90d61ca0e7801be2b56406e0363b89a9dc0fa12c2c0ce52f"
+  },
+  "EntityUFO.getZ": {
+    "source": "public int getZ() {\n\t\treturn this.dataManager.get(WAYPOINT_Z);\n\t}",
+    "sha256": "24c5838552541f6d2789b1aae320f55fbea8bd618e32d549f74c199d8133bf37"
+  },
+  "EntityBFAngel.actual-class-declaration": {
+    "source": "public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {",
+    "sha256": "9f5d4bed265f26c517d1e43ec40b61627e59b433e4e91c48f201bbd1731af098"
+  },
+  "EntityBFAngel.key-0": {
+    "source": "private static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.BYTE);",
+    "sha256": "d7223d6d114909fba381ab3c765223579d430068873af6101b4b1662dae93d88"
+  },
+  "EntityBFAngel.key-1": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);",
+    "sha256": "0aaa9c970f7a7349f80d653593cf4f390f47f9b45c1986890bb26afbf1abc194"
+  },
+  "EntityBFAngel.key-2": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);",
+    "sha256": "4ca880e91f1f4feee80b1488f4ed13e527802ccc68bc5cedbc1284e1855bac44"
+  },
+  "EntityBFAngel.key-3": {
+    "source": "private static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);",
+    "sha256": "39d8dc41e4e912f83d907bc6fba2cad38f0f830fd9c5cfe1a493b2c4bcb2230f"
+  },
+  "EntityBFAngel.constructor": {
+    "source": "public EntityBFAngel(World p_i1587_1_) {\n\t\tsuper(p_i1587_1_);\n\t\tthis.setSize(5F, 4F);\n\t\tthis.isImmuneToFire = true;\n\t\tthis.experienceValue = 500;\n\t\tthis.ignoreFrustumCheck = true;\n\t\tthis.deathTime = -30;\n\t}",
+    "sha256": "54ab9f286ac1a8f05ace3dcfb7a952f5313898bea019746a3e19dc2731090183"
+  },
+  "EntityBFAngel.public int scanCooldown;": {
+    "source": "public int scanCooldown;",
+    "sha256": "4e9e37a0024de990808c6db8eeeba16a9fba8e6b1c5c35d82c241bc2ba669dfa"
+  },
+  "EntityBFAngel.public int beamTimer;": {
+    "source": "public int beamTimer;",
+    "sha256": "b06675dde19887418aeed6038deea92857261455bbba411373e147e2ce85dd4a"
+  },
+  "EntityBFAngel.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.dataManager.register(BEAM, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(WAYPOINT_X, 0);\n\t\tthis.dataManager.register(WAYPOINT_Y, 0);\n\t\tthis.dataManager.register(WAYPOINT_Z, 0);\n\t}",
+    "sha256": "70a68a96a6dbd861258b187cdf36554697931e6082d064db04d8bc4898873f75"
+  },
+  "EntityBFAngel.writeEntityToNBT": {
+    "source": "public void writeEntityToNBT(NBTTagCompound p_70014_1_) {\n\t\tsuper.writeEntityToNBT(p_70014_1_);\n\t}",
+    "sha256": "ea559a652b4d1d0aca64c4b69d82c9dacf941266f16227e146feba80ddaed049"
+  },
+  "EntityBFAngel.readEntityFromNBT": {
+    "source": "public void readEntityFromNBT(NBTTagCompound p_70037_1_) {\n\t\tsuper.readEntityFromNBT(p_70037_1_);\n\t}",
+    "sha256": "331f6d5b06588b6e0e7dd8eb86eb6ba9c164d91e073a95cc5b3367df1b917c60"
+  },
+  "EntityBFAngel.setBeam": {
+    "source": "public void setBeam(boolean b) {\n\t\tthis.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)));\n\t}",
+    "sha256": "735d9e554764d11ccf86269890eb0c390bee5f9aa54039eaab8f47fbd145a23c"
+  },
+  "EntityBFAngel.getBeam": {
+    "source": "public boolean getBeam() {\n\t\treturn this.dataManager.get(BEAM) == 1;\n\t}",
+    "sha256": "20af64796664f03ae53aa17a0495aae2c3f0fbc7331d6925cd1f1f20a6a538a3"
+  },
+  "EntityBFAngel.setWaypoint": {
+    "source": "public void setWaypoint(int x, int y, int z) {\n\t\tthis.dataManager.set(WAYPOINT_X, x);\n\t\tthis.dataManager.set(WAYPOINT_Y, y);\n\t\tthis.dataManager.set(WAYPOINT_Z, z);\n\t}",
+    "sha256": "6bf40aac706d5841eab76a5d4ba149a642693c25756b1aeab12ea0052bff9389"
+  },
+  "EntityBFAngel.getX": {
+    "source": "public int getX() {\n\t\treturn this.dataManager.get(WAYPOINT_X);\n\t}",
+    "sha256": "bf8028a88559e0750d7b9e35b73be2889a2ac88ec31143495bbdb9edc06d83c7"
+  },
+  "EntityBFAngel.getY": {
+    "source": "public int getY() {\n\t\treturn this.dataManager.get(WAYPOINT_Y);\n\t}",
+    "sha256": "b2a7da0ed907de5a90d61ca0e7801be2b56406e0363b89a9dc0fa12c2c0ce52f"
+  },
+  "EntityBFAngel.getZ": {
+    "source": "public int getZ() {\n\t\treturn this.dataManager.get(WAYPOINT_Z);\n\t}",
+    "sha256": "24c5838552541f6d2789b1aae320f55fbea8bd618e32d549f74c199d8133bf37"
+  },
+  "EntityHunterChopper.actual-class-declaration": {
+    "source": "public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {",
+    "sha256": "d6597e986ee2511e399a42782f9489751ca5ee8a24c4a7e788caf6b6f76fac6a"
+  },
+  "EntityHunterChopper.key-0": {
+    "source": "private static final DataParameter<Byte> ATTACKING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);",
+    "sha256": "8f2811a9632844ffba10534eb4fa478d81ace8dd1315ba2b4de1a6fea59aed91"
+  },
+  "EntityHunterChopper.key-1": {
+    "source": "private static final DataParameter<Float> LEGACY_UNUSED_21 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);",
+    "sha256": "acd35137d79c7c8382dfa62d1acfcdd14209741ea98d754b9f3e2a0b41f96eec"
+  },
+  "EntityHunterChopper.key-2": {
+    "source": "private static final DataParameter<Float> LEGACY_UNUSED_22 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);",
+    "sha256": "07eff64100cdd78699d7e6b6c5e5f798e9542356bb2f99a0b612d2ae231e17f6"
+  },
+  "EntityHunterChopper.key-3": {
+    "source": "private static final DataParameter<Byte> DYING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);",
+    "sha256": "91d4700efaf6ed3d3f7c9b85cb3255b3a3e4a6fb90da71a96eaced29179e663b"
+  },
+  "EntityHunterChopper.constructor": {
+    "source": "public EntityHunterChopper(World p_i1735_1_) {\n\t\tsuper(p_i1735_1_);\n\t\tthis.setSize(8.25F, 3.0F);\n\t\tthis.isImmuneToFire = true;\n\t\tthis.experienceValue = 500;\n\t\tthis.ignoreFrustumCheck = true;\n\t}",
+    "sha256": "46d88ab73f03bfce1c2f274c9942a1b8489bcd27cae1f114fb07d7bba04c9d26"
+  },
+  "EntityHunterChopper.public int attackCounter;": {
+    "source": "public int attackCounter;",
+    "sha256": "4e3d1ce31ab489d94282e384bcd75f86f73e34e23f5d70ee8be97482e403cfa7"
+  },
+  "EntityHunterChopper.public boolean isDying = false;": {
+    "source": "public boolean isDying = false;",
+    "sha256": "209158835172654417fb0e6f3f2843a0d13aa6268ca21cc3b9aca71e830b9a23"
+  },
+  "EntityHunterChopper.updateEntityActionState-exact-inner-server-metadata-block": {
+    "source": "if(!this.world.isRemote) {\n\t\t\t\tbyte b1 = this.dataManager.get(ATTACKING);\n\t\t\t\tbyte b0 = (byte) (this.attackCounter > 10 ? 1 : 0);\n\n\t\t\t\tif(b1 != b0) {\n\t\t\t\t\tthis.dataManager.set(ATTACKING, Byte.valueOf(b0));\n\t\t\t\t}\n\t\t\t}",
+    "sha256": "5b2f70298e358cca4929bc21ab1291eaaf03ce4227a0039daccf4823aefe12f3"
+  },
+  "EntityHunterChopper.entityInit": {
+    "source": "protected void entityInit() {\n\t\tsuper.entityInit();\n\t\tthis.dataManager.register(ATTACKING, Byte.valueOf((byte) 0));\n\t\tthis.dataManager.register(LEGACY_UNUSED_21, Float.valueOf(0));\n\t\tthis.dataManager.register(LEGACY_UNUSED_22, Float.valueOf(0));\n\t\tthis.dataManager.register(DYING, Byte.valueOf((byte) 0));\n\t}",
+    "sha256": "f203fa7ed5348c5be643da3cdded2a387b569a5d1a40142dc9c320431334481d"
+  },
+  "EntityHunterChopper.writeEntityToNBT": {
+    "source": "public void writeEntityToNBT(NBTTagCompound p_70014_1_) {\n\t\tsuper.writeEntityToNBT(p_70014_1_);\n\t}",
+    "sha256": "ea559a652b4d1d0aca64c4b69d82c9dacf941266f16227e146feba80ddaed049"
+  },
+  "EntityHunterChopper.readEntityFromNBT": {
+    "source": "public void readEntityFromNBT(NBTTagCompound p_70037_1_) {\n\t\tsuper.readEntityFromNBT(p_70037_1_);\n\t}",
+    "sha256": "331f6d5b06588b6e0e7dd8eb86eb6ba9c164d91e073a95cc5b3367df1b917c60"
+  },
+  "EntityHunterChopper.func_110182_bF": {
+    "source": "public boolean func_110182_bF() {\n\t\treturn this.dataManager.get(ATTACKING) != 0;\n\t}",
+    "sha256": "083de91405e95d6761f3e8f5fee5af893c6bac85fd8a1acc4f1b2375a4c35b27"
+  },
+  "EntityHunterChopper.setIsDying": {
+    "source": "public void setIsDying(boolean b) {\n\t\tthis.dataManager.set(DYING, Byte.valueOf((byte) (b ? 1 : 0)));\n\t}",
+    "sha256": "461abb6236d14cbb1df96c18b270366b1e176f61d0ea8ee0209a349afd7e7c74"
+  },
+  "EntityHunterChopper.getIsDying": {
+    "source": "public boolean getIsDying() {\n\t\treturn this.dataManager.get(DYING) == 1;\n\t}",
+    "sha256": "431bdb1041c775bde20c5f0d4631735c57ba6b87c85efbdd665e6a0fa8297b7b"
+  },
+  "com/hbm/entity/boss/INtmBossDisplay.java.whole-interface": {
+    "source": "package com.hbm.entity.boss;\n\nimport net.minecraft.entity.Entity;\nimport net.minecraft.entity.boss.EntityDragon;\nimport net.minecraft.entity.boss.EntityWither;\nimport net.minecraft.util.text.ITextComponent;\n\n/** NTM display classification and immediate display values only.\n * Implementing this does not alter native portal/dimension or combat rules.\n * HUD arbitration/registration is a separate, currently pending port boundary.\n */\npublic interface INtmBossDisplay {\n    float getHealth();\n    float getMaxHealth();\n    ITextComponent getDisplayName();\n\n    /** Original thermal boss classification, including the original vanilla bosses. */\n    static boolean isDisplayBoss(Entity entity) {\n        return entity instanceof INtmBossDisplay || entity instanceof EntityDragon || entity instanceof EntityWither;\n    }\n}\n",
+    "sha256": "35e6400fe9849107a006b74f3f268138bb740327129e635a6e394b4174cdb229"
+  },
+  "api/hbm/entity/IRadiationImmune.java.whole-interface": {
+    "source": "package api.hbm.entity;\n\npublic interface IRadiationImmune { }\n",
+    "sha256": "48a818ff77431902f7e2c1bf04296ea49d37b10d903446d30b952dd105a5da45"
+  },
+  "api/hbm/entity/ISuffocationImmune.java.whole-interface": {
+    "source": "package api.hbm.entity;\n\npublic interface ISuffocationImmune { }\n",
+    "sha256": "5575bc6ddd6d93c9b86cf297edd01bae5b15a718f087c74be4a30c699eef8576"
+  },
+  "RenderUFO.beam-condition-expression": {
+    "source": "ufo.getBeam()",
+    "sha256": "74d4e5639802712d2eabdf4b25852b7a3356eb110a05d5f3697ef54898398bf4"
+  },
+  "RenderBFA.beam-condition-expression": {
+    "source": "ufo.getBeam()",
+    "sha256": "74d4e5639802712d2eabdf4b25852b7a3356eb110a05d5f3697ef54898398bf4"
+  },
+  "MovingSoundChopper.stop-condition-expression": {
+    "source": "player instanceof EntityHunterChopper && ((EntityHunterChopper)player).getIsDying()",
+    "sha256": "d6b1a8757050e9628941521ee3520a726d30c16d5659e9007e6861ff5cea8b67"
+  },
+  "MovingSoundCrashing.stop-condition-expression": {
+    "source": "player instanceof EntityHunterChopper && !((EntityHunterChopper)player).getIsDying()",
+    "sha256": "4b0929cb99ddec168a417e48efeec37e2619336069d805b8417fed1de66174a2"
+  }
+}

@@ -1,0 +1,1 @@
+PASS 57858 assertions, 11520 cases: exact complete weak/strong/capability bodies, native IBlockState/World dispatch, all six facings, metadata0–15, missing/wrong/subclass tiles, values and original exceptions. Owner/tile sinks and legacy-access oracle adapter are bounded fixtures, not gameplay.

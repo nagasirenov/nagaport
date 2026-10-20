@@ -1,0 +1,100 @@
+{
+  "baseline": "f44d3ffc5ad3bfa0afcfd93d035e51bdecde2de4",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "7a34b8436264dfad95f3f7214192b1f9771a4a63bfee6ce99b8e83611bc81143",
+      "after_sha256": "5539a19ac6381ff93a0c0a13fa3415c2f5c3322b972ff1b706d5d0e24e3db353",
+      "edits": [
+        {
+          "before_offset": 61877,
+          "after_offset": 61877,
+          "old": "\t\tgneiss_chiseled = new BlockPillar(Material.ROCK, RefStrings.MODID + \":gneiss_tile\").setTranslationKey(\"gneiss_chiseled\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":gneiss_chiseled\");\r\n",
+          "new": "\t\tgneiss_chiseled = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":gneiss_tile\").setTranslationKey(\"gneiss_chiseled\").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":gneiss_chiseled\");\r\n"
+        },
+        {
+          "before_offset": 66428,
+          "after_offset": 66444,
+          "old": "\t\tbasalt = new BlockPillar(Material.ROCK, RefStrings.MODID + \":basalt_top\").setTranslationKey(\"basalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":basalt\");\r\n",
+          "new": "\t\tbasalt = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":basalt_top\").setTranslationKey(\"basalt\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + \":basalt\");\r\n"
+        },
+        {
+          "before_offset": 96332,
+          "after_offset": 96364,
+          "old": "\t\tblock_smore = new BlockPillar(Material.ROCK, RefStrings.MODID + \":block_smore_top\").setTranslationKey(\"block_smore\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + \":block_smore_side\");\r\n",
+          "new": "\t\tblock_smore = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":block_smore_top\").setTranslationKey(\"block_smore\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F)).setBlockTextureName(RefStrings.MODID + \":block_smore_side\");\r\n"
+        },
+        {
+          "before_offset": 114771,
+          "after_offset": 114819,
+          "old": "\t\tbrick_forgotten = new BlockPillar(Material.ROCK, RefStrings.MODID + \":brick_forgotten_top\").setTranslationKey(\"brick_forgotten\").setBlockUnbreakable().setResistance(666_666F).setBlockTextureName(RefStrings.MODID + \":brick_forgotten\");\r\n",
+          "new": "\t\tbrick_forgotten = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":brick_forgotten_top\").setTranslationKey(\"brick_forgotten\").setBlockUnbreakable().setResistance(666_666F)).setBlockTextureName(RefStrings.MODID + \":brick_forgotten\");\r\n"
+        },
+        {
+          "before_offset": 124545,
+          "after_offset": 124609,
+          "old": "\t\tmeteor_battery = new BlockPillar(Material.ROCK, RefStrings.MODID + \":meteor_power\").setTranslationKey(\"meteor_battery\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor_spawner_side\");\r\n",
+          "new": "\t\tmeteor_battery = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + \":meteor_power\").setTranslationKey(\"meteor_battery\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + \":meteor_spawner_side\");\r\n"
+        },
+        {
+          "before_offset": 207974,
+          "after_offset": 208054,
+          "old": "\t\tpwr_fuel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_fuel_top\").setTranslationKey(\"pwr_fuel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pwr_fuel_side\");\r\n\t\tpwr_control = new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_control_top\").setTranslationKey(\"pwr_control\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pwr_control_side\");\r\n\t\tpwr_channel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_channel_top\").setTranslationKey(\"pwr_channel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":pwr_channel_side\");\r\n",
+          "new": "\t\tpwr_fuel = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_fuel_top\").setTranslationKey(\"pwr_fuel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":pwr_fuel_side\");\r\n\t\tpwr_control = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_control_top\").setTranslationKey(\"pwr_control\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":pwr_control_side\");\r\n\t\tpwr_channel = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + \":pwr_channel_top\").setTranslationKey(\"pwr_channel\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":pwr_channel_side\");\r\n"
+        },
+        {
+          "before_offset": 210513,
+          "after_offset": 210641,
+          "old": "\t\tfusion_heater = new BlockPillar(Material.IRON, RefStrings.MODID + \":fusion_heater_top\").setTranslationKey(\"fusion_heater\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":fusion_heater_side\");\r\n",
+          "new": "\t\tfusion_heater = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + \":fusion_heater_top\").setTranslationKey(\"fusion_heater\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + \":fusion_heater_side\");\r\n"
+        },
+        {
+          "before_offset": 214684,
+          "after_offset": 214828,
+          "old": "\t\twatz_element = new BlockPillar(Material.IRON, RefStrings.MODID + \":watz_element_top\").setTranslationKey(\"watz_element\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":watz_element_side\");\r\n\t\twatz_cooler = new BlockPillar(Material.IRON, RefStrings.MODID + \":watz_cooler_top\").setTranslationKey(\"watz_cooler\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + \":watz_cooler_side\");\r\n",
+          "new": "\t\twatz_element = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + \":watz_element_top\").setTranslationKey(\"watz_element\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":watz_element_side\");\r\n\t\twatz_cooler = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + \":watz_cooler_top\").setTranslationKey(\"watz_cooler\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + \":watz_cooler_side\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockPillar.java": {
+      "before_sha256": "3933fb8080131c0aa7cd4ac9d4137d937651adbe53f46ce56ede7863731d7986",
+      "after_sha256": "797ac2a3fabc667b810b52f9e92481d0c534c83254650ad1d3c2db0283535558",
+      "edits": [
+        {
+          "before_offset": 243,
+          "after_offset": 243,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 361,
+          "after_offset": 516,
+          "old": "",
+          "new": "\n\t// The old world retained all four metadata bits even though these icons ignore them.\n\tpublic static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n\n\t@Override\n\tprotected BlockStateContainer createBlockState() {\n\t\treturn new BlockStateContainer(this, METADATA);\n\t}\n\n\t@Override\n\tpublic IBlockState getStateFromMeta(int meta) {\n\t\treturn getDefaultState().withProperty(METADATA, meta & 15);\n\t}\n\n\t@Override\n\tpublic int getMetaFromState(IBlockState state) {\n\t\treturn state.getValue(METADATA);\n\t}\n\n\t// Owned here rather than on native Block, which no longer has legacy textures.\n\tprotected String textureName;\n\t@SideOnly(Side.CLIENT)\n\tprotected IIcon blockIcon;\n"
+        },
+        {
+          "before_offset": 909,
+          "after_offset": 1751,
+          "old": "\t@Override\n",
+          "new": "\t/** Original side selection, including the deliberately unused alternate icon. */\n\tpublic String getTextureName(int side) {\n\t\treturn side == 0 || side == 1 ? textureTop : textureName;\n\t}\n\n\tpublic String getAlternateTextureName() {\n\t\treturn textureAlt.isEmpty() ? RefStrings.MODID + \":code\" : textureAlt;\n\t}\n\n\t/** 1.7 block-atlas paths are relative to textures/blocks, not textures. */\n\tprivate static String atlasName(String name) {\n\t\tnet.minecraft.util.ResourceLocation texture = new net.minecraft.util.ResourceLocation(name);\n\t\treturn new net.minecraft.util.ResourceLocation(texture.getNamespace(), \"blocks/\" + texture.getPath()).toString();\n\t}\n\n"
+        },
+        {
+          "before_offset": 1009,
+          "after_offset": 2489,
+          "old": "\t\tthis.iconAlt = iconRegister.registerIcon(textureAlt.isEmpty() ? RefStrings.MODID + \":code\" : textureAlt);\n\t\tthis.iconTop = iconRegister.registerIcon(textureTop);\n\t\tthis.blockIcon = iconRegister.registerIcon(this.textureName);\n",
+          "new": "\t\tthis.iconAlt = iconRegister.registerIcon(atlasName(getAlternateTextureName()));\n\t\tthis.iconTop = iconRegister.registerIcon(atlasName(textureTop));\n\t\tthis.blockIcon = iconRegister.registerIcon(atlasName(this.textureName));\n"
+        },
+        {
+          "before_offset": 1241,
+          "after_offset": 2717,
+          "old": "\t@Override\n",
+          "new": ""
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/main/PillarModelHandler.java": "e40a5bfd9357bfa3b05379bda904065ec82b690892d123c643851a88366d7c70"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

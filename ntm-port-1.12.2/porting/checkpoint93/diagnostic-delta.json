@@ -1,0 +1,534 @@
+{
+  "before": 10366,
+  "after": 10164,
+  "new_diagnostics_count": 0,
+  "removed_diagnostics_count": 202,
+  "new": [],
+  "removed": [
+    {
+      "file": "com/hbm/items/tool/ItemToolAbility.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/explosion/ExplosionNT.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/missile/EntityMissileCustom.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/MachineFan.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/PistonInserter.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/missile/EntityMissileTier0.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockTallPlant.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockNTMFlower.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/explosion/ExplosionNukeRayBatched.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/explosion/vanillant/standard/BlockMutatorDebris.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/RedstoneSword.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/tool/ItemModDoor.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/items/tool/ItemBalefireMatch.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/items/weapon/sedna/factory/XFactoryDrill.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/item/EntityMinecartModBase.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/entity/item/EntityMinecartDeobf.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/entity/effect/EntityFalloutRain.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/mob/glyphid/EntityGlyphidDigger.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/mob/glyphid/EntityGlyphidScout.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/mob/EntityCreeperTainted.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/entity/particle/EntityCloudFX.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/particle/EntityPinkCloudFX.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/entity/particle/EntityChlorineFX.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/potion/HbmPotion.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/gas/BlockGasRadonTomb.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/RubberGrass.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/Balefire.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/bomb/BlockVolcano.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/blocks/generic/BlockMush.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/blocks/generic/WasteEarth.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/tekto/TTree.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/dim/SkyProviderCelestial.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/dim/thatmo/SkyProviderThatmo.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/dim/eve/genlayer/WorldGenElectricVolcano.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/dim/eve/genlayer/WorldGenEveSpike.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/world/feature/OilSpot.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/world/feature/BiomeCave.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/world/feature/SchistStratum.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/world/feature/OreCave.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 5
+    },
+    {
+      "file": "com/hbm/world/feature/OreLayer3D.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/tileentity/deco/TileEntityVent.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/tileentity/machine/rbmk/TileEntityCraneConsole.java",
+      "message": "no suitable method found for isAirBlock(int,int,int)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/tileentity/machine/TileEntityMachinePumpBase.java",
+      "message": "no suitable method found for isNormalCube(no arguments)",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,float,double,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/item/weapon/sedna/ItemRenderAberrator.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(float,float,double,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/entity/projectile/RenderChemical.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderRadarScreen.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderRadarScreen.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 3
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderRadarScreen.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderRadarScreen.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 4
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderRadarScreen.java",
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderRadarScreen.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderRadarScreen.java",
+      "message": "cannot find symbol",
+      "symbol": "method setColorOpaque_I(int)",
+      "location": "variable tess of type Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderExcavator.java",
+      "message": "cannot find symbol",
+      "symbol": "variable instance",
+      "location": "class Tessellator",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderExcavator.java",
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()",
+      "location": "variable tess of type Tessellator",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderExcavator.java",
+      "message": "cannot find symbol",
+      "symbol": "method setNormal(float,float,float)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderExcavator.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,int,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 24
+    },
+    {
+      "file": "com/hbm/render/tileentity/RenderExcavator.java",
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,int,double,double,double)",
+      "location": "variable tess of type Tessellator",
+      "count": 8
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+package com.hbm.blocks;
+import net.minecraft.world.World;import net.minecraft.block.Block;
+class ModBlocks {static Block brick_red,steel_poles,pole_top,other;}
+class Controls {
+ static class FakeWorld {void setBlock(int x,int y,int z,Block b,int m,int f){}}
+ void positive(World w,int x){w.setBlock(x,64,0,ModBlocks.brick_red,6,2);w.setBlock(x,64,0,ModBlocks.steel_poles,15,3);}
+ void negative(World w,FakeWorld fake,Block alias,long wide){
+  fake.setBlock(0,64,0,ModBlocks.brick_red,6,2);
+  w.setBlock(0,64,0,alias,6,2);
+  w.setBlock(0,64,0,ModBlocks.brick_red,16,2);
+  w.setBlock(0,64,0,ModBlocks.brick_red,-1,2);
+  w.setBlock(0,64,0,ModBlocks.brick_red,6,8);
+  w.setBlock(wide,64,0,ModBlocks.brick_red,6,2);
+  w.setBlock(unknown,64,0,ModBlocks.brick_red,6,2);
+  w.setBlock(0,64,0,ModBlocks.brick_red,(int)wide,2);
+ }
+ boolean result(World w){return w.setBlock(0,64,0,ModBlocks.brick_red,6,2);}
+ // w.setBlock(0,64,0,ModBlocks.brick_red,6,2);
+}

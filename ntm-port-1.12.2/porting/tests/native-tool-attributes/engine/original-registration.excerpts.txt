@@ -1,0 +1,480 @@
+// SOURCE original MainRegistry
+// javap lines 5919-5931
+       9: ldc_w         #3638               // String SCHRABIDIUM
+      12: iconst_3
+      13: sipush        10000
+      16: ldc_w         #3639               // float 50.0f
+      19: ldc_w         #3640               // float 100.0f
+      22: sipush        200
+      25: invokestatic  #3646               // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+      28: putstatic     #525                // Field tMatSchrab:Lnet/minecraft/item/Item$ToolMaterial;
+      31: ldc_w         #3648               // String SCHRABIDIUMHAMMER
+      34: iconst_3
+      35: iconst_0
+      36: ldc_w         #3639               // float 50.0f
+      39: ldc_w         #3649               // float 1.0E9f
+
+// SOURCE original MainRegistry
+// javap lines 5927-5939
+      31: ldc_w         #3648               // String SCHRABIDIUMHAMMER
+      34: iconst_3
+      35: iconst_0
+      36: ldc_w         #3639               // float 50.0f
+      39: ldc_w         #3649               // float 1.0E9f
+      42: sipush        200
+      45: invokestatic  #3646               // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+      48: putstatic     #536                // Field tMatHammmer:Lnet/minecraft/item/Item$ToolMaterial;
+      51: ldc_w         #3651               // String CHAINSAW
+      54: iconst_3
+      55: sipush        1500
+      58: ldc_w         #3639               // float 50.0f
+      61: ldc_w         #3652               // float 22.0f
+
+// SOURCE original MainRegistry
+// javap lines 5943-5955
+      71: ldc_w         #3654               // String HBM_STEEL
+      74: iconst_2
+      75: sipush        500
+      78: ldc_w         #3655               // float 7.5f
+      81: fconst_2
+      82: bipush        10
+      84: invokestatic  #3646               // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+      87: putstatic     #550                // Field tMatSteel:Lnet/minecraft/item/Item$ToolMaterial;
+      90: ldc_w         #3657               // String HBM_TITANIUM
+      93: iconst_3
+      94: sipush        750
+      97: ldc_w         #3658               // float 9.0f
+     100: ldc_w         #3659               // float 2.5f
+
+// SOURCE original MainRegistry
+// javap lines 5951-5963
+      90: ldc_w         #3657               // String HBM_TITANIUM
+      93: iconst_3
+      94: sipush        750
+      97: ldc_w         #3658               // float 9.0f
+     100: ldc_w         #3659               // float 2.5f
+     103: bipush        15
+     105: invokestatic  #3646               // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+     108: putstatic     #548                // Field tMatTitan:Lnet/minecraft/item/Item$ToolMaterial;
+     111: ldc_w         #3661               // String HBM_ALLOY
+     114: iconst_3
+     115: sipush        2000
+     118: ldc_w         #3662               // float 15.0f
+     121: ldc_w         #3663               // float 5.0f
+
+// SOURCE original MainRegistry
+// javap lines 5967-5979
+     131: ldc_w         #3665               // String HBM_CMB
+     134: iconst_3
+     135: sipush        8500
+     138: ldc_w         #3666               // float 40.0f
+     141: ldc_w         #3667               // float 55.0f
+     144: bipush        100
+     146: invokestatic  #3646               // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+     149: putstatic     #554                // Field tMatCMB:Lnet/minecraft/item/Item$ToolMaterial;
+     152: ldc_w         #3669               // String HBM_ELEC
+     155: iconst_3
+     156: iconst_0
+     157: ldc_w         #3670               // float 30.0f
+     160: ldc_w         #3671               // float 12.0f
+
+// SOURCE original MainRegistry
+// javap lines 6055-6067
+     350: ldc_w         #3713               // String SHIMMERSLEDGE
+     353: iconst_1
+     354: iconst_0
+     355: ldc_w         #3714               // float 25.0f
+     358: ldc_w         #3715               // float 26.0f
+     361: sipush        200
+     364: invokestatic  #3646               // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+     367: putstatic     #3717               // Field enumToolMaterialSledge:Lnet/minecraft/item/Item$ToolMaterial;
+     370: ldc_w         #3719               // String MULTITOOL
+     373: iconst_3
+     374: sipush        5000
+     377: ldc_w         #3714               // float 25.0f
+     380: ldc_w         #3720               // float 5.5f
+
+// SOURCE original MainRegistry
+// javap lines 6047-6059
+     328: ldc_w         #3710               // String OPENER
+     331: iconst_1
+     332: sipush        250
+     335: ldc_w         #3687               // float 1.5f
+     338: ldc_w         #3711               // float 0.5f
+     341: sipush        200
+     344: invokestatic  #3646               // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+     347: putstatic     #556                // Field enumToolMaterialBottleOpener:Lnet/minecraft/item/Item$ToolMaterial;
+     350: ldc_w         #3713               // String SHIMMERSLEDGE
+     353: iconst_1
+     354: iconst_0
+     355: ldc_w         #3714               // float 25.0f
+     358: ldc_w         #3715               // float 26.0f
+
+// SOURCE original ModItems
+// javap lines 19653-19690
+    42930: invokevirtual #5731              // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    42933: getstatic     #10268             // Field com/hbm/main/MainRegistry.weaponTab:Lnet/minecraft/creativetab/CreativeTabs;
+    42936: invokevirtual #2281              // Method net/minecraft/item/Item.func_77637_a:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+    42939: ldc_w         #10306             // String hbm:gun_b92_ammo_alt
+    42942: invokevirtual #2286              // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    42945: putstatic     #10308             // Field gun_b92_ammo:Lnet/minecraft/item/Item;
+    42948: new           #10310             // class com/hbm/items/weapon/GunB92
+    42951: dup
+    42952: invokespecial #10311             // Method com/hbm/items/weapon/GunB92."<init>":()V
+    42955: ldc_w         #10312             // String gun_b92
+    42958: invokevirtual #10313             // Method com/hbm/items/weapon/GunB92.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    42961: getstatic     #10268             // Field com/hbm/main/MainRegistry.weaponTab:Lnet/minecraft/creativetab/CreativeTabs;
+    42964: invokevirtual #2281              // Method net/minecraft/item/Item.func_77637_a:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+    42967: ldc_w         #10315             // String hbm:gun_b92
+    42970: invokevirtual #2286              // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    42973: putstatic     #10317             // Field gun_b92:Lnet/minecraft/item/Item;
+    42976: ldc_w         #10319             // String CRUCIBLE
+    42979: bipush        10
+    42981: iconst_3
+    42982: ldc_w         #9912              // float 50.0f
+    42985: ldc_w         #9956              // float 100.0f
+    42988: iconst_0
+    42989: invokestatic  #10325             // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+    42992: astore        14
+    42994: new           #10327             // class com/hbm/items/weapon/ItemCrucible
+    42997: dup
+    42998: ldc_w         #9537              // float 5000.0f
+    43001: dconst_1
+    43002: aload         14
+    43004: invokespecial #10330             // Method com/hbm/items/weapon/ItemCrucible."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;)V
+    43007: ldc_w         #10331             // String crucible
+    43010: invokevirtual #10332             // Method com/hbm/items/weapon/ItemCrucible.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    43013: getstatic     #10268             // Field com/hbm/main/MainRegistry.weaponTab:Lnet/minecraft/creativetab/CreativeTabs;
+    43016: invokevirtual #2281              // Method net/minecraft/item/Item.func_77637_a:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+    43019: ldc_w         #10334             // String hbm:crucible
+    43022: invokevirtual #2286              // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    43025: putstatic     #10336             // Field crucible:Lnet/minecraft/item/Item;
+    43028: new           #10338             // class com/hbm/items/weapon/ItemGrenade
+
+// SOURCE original ModItems
+// javap lines 23819-23856
+     102: invokevirtual #12647              // Method com/hbm/items/tool/ItemChainsaw.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     105: getstatic     #12653              // Field com/hbm/handler/ability/IToolAreaAbility.RECURSION:Lcom/hbm/handler/ability/IToolAreaAbility;
+     108: iconst_2
+     109: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     112: getstatic     #12660              // Field com/hbm/handler/ability/IWeaponAbility.CHAINSAW:Lcom/hbm/handler/ability/IWeaponAbility;
+     115: iconst_1
+     116: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     119: getstatic     #12663              // Field com/hbm/handler/ability/IWeaponAbility.BEHEADER:Lcom/hbm/handler/ability/IWeaponAbility;
+     122: iconst_0
+     123: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     126: invokevirtual #12667              // Method com/hbm/items/tool/ItemToolAbility.setShears:()Lcom/hbm/items/tool/ItemToolAbility;
+     129: ldc_w         #12668              // String chainsaw
+     132: invokevirtual #12669              // Method com/hbm/items/tool/ItemToolAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     135: ldc_w         #12671              // String hbm:chainsaw
+     138: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     141: putstatic     #12673              // Field chainsaw:Lnet/minecraft/item/Item;
+     144: new           #12675              // class com/hbm/items/tool/ItemSwordAbility
+     147: dup
+     148: ldc_w         #9962               // float 75.0f
+     151: dconst_0
+     152: getstatic     #12678              // Field com/hbm/main/MainRegistry.tMatSchrab:Lnet/minecraft/item/Item$ToolMaterial;
+     155: invokespecial #12679              // Method com/hbm/items/tool/ItemSwordAbility."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;)V
+     158: getstatic     #12682              // Field com/hbm/handler/ability/IWeaponAbility.RADIATION:Lcom/hbm/handler/ability/IWeaponAbility;
+     161: iconst_1
+     162: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+     165: getstatic     #12688              // Field com/hbm/handler/ability/IWeaponAbility.VAMPIRE:Lcom/hbm/handler/ability/IWeaponAbility;
+     168: iconst_0
+     169: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+     172: getstatic     #2771               // Field net/minecraft/item/EnumRarity.rare:Lnet/minecraft/item/EnumRarity;
+     175: invokevirtual #12691              // Method com/hbm/items/tool/ItemSwordAbility.setRarity:(Lnet/minecraft/item/EnumRarity;)Lcom/hbm/items/tool/ItemSwordAbility;
+     178: ldc_w         #12692              // String schrabidium_sword
+     181: invokevirtual #12693              // Method com/hbm/items/tool/ItemSwordAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     184: ldc_w         #12695              // String hbm:schrabidium_sword
+     187: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     190: putstatic     #12697              // Field schrabidium_sword:Lnet/minecraft/item/Item;
+     193: new           #149                // class com/hbm/items/tool/ItemToolAbility
+     196: dup
+     197: ldc_w         #2542               // float 20.0f
+
+// SOURCE original ModItems
+// javap lines 23857-23894
+     200: dconst_0
+     201: getstatic     #12678              // Field com/hbm/main/MainRegistry.tMatSchrab:Lnet/minecraft/item/Item$ToolMaterial;
+     204: getstatic     #12700              // Field com/hbm/items/tool/ItemToolAbility$EnumToolType.PICKAXE:Lcom/hbm/items/tool/ItemToolAbility$EnumToolType;
+     207: invokespecial #12703              // Method com/hbm/items/tool/ItemToolAbility."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;Lcom/hbm/items/tool/ItemToolAbility$EnumToolType;)V
+     210: getstatic     #12682              // Field com/hbm/handler/ability/IWeaponAbility.RADIATION:Lcom/hbm/handler/ability/IWeaponAbility;
+     213: iconst_0
+     214: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     217: getstatic     #12706              // Field com/hbm/handler/ability/IToolAreaAbility.HAMMER:Lcom/hbm/handler/ability/IToolAreaAbility;
+     220: iconst_1
+     221: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     224: getstatic     #12709              // Field com/hbm/handler/ability/IToolAreaAbility.HAMMER_FLAT:Lcom/hbm/handler/ability/IToolAreaAbility;
+     227: iconst_1
+     228: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     231: getstatic     #12653              // Field com/hbm/handler/ability/IToolAreaAbility.RECURSION:Lcom/hbm/handler/ability/IToolAreaAbility;
+     234: bipush        6
+     236: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     239: getstatic     #12643              // Field com/hbm/handler/ability/IToolHarvestAbility.SILK:Lcom/hbm/handler/ability/IToolHarvestAbility;
+     242: iconst_0
+     243: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     246: getstatic     #12712              // Field com/hbm/handler/ability/IToolHarvestAbility.LUCK:Lcom/hbm/handler/ability/IToolHarvestAbility;
+     249: iconst_4
+     250: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     253: getstatic     #12715              // Field com/hbm/handler/ability/IToolHarvestAbility.SMELTER:Lcom/hbm/handler/ability/IToolHarvestAbility;
+     256: iconst_0
+     257: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     260: getstatic     #12718              // Field com/hbm/handler/ability/IToolHarvestAbility.SHREDDER:Lcom/hbm/handler/ability/IToolHarvestAbility;
+     263: iconst_0
+     264: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     267: getstatic     #2771               // Field net/minecraft/item/EnumRarity.rare:Lnet/minecraft/item/EnumRarity;
+     270: invokevirtual #12721              // Method com/hbm/items/tool/ItemToolAbility.setRarity:(Lnet/minecraft/item/EnumRarity;)Lcom/hbm/items/tool/ItemToolAbility;
+     273: ldc_w         #12722              // String schrabidium_pickaxe
+     276: invokevirtual #12669              // Method com/hbm/items/tool/ItemToolAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     279: ldc_w         #12724              // String hbm:schrabidium_pickaxe
+     282: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     285: putstatic     #12726              // Field schrabidium_pickaxe:Lnet/minecraft/item/Item;
+     288: new           #149                // class com/hbm/items/tool/ItemToolAbility
+     291: dup
+     292: ldc_w         #7366               // float 25.0f
+
+// SOURCE original ModItems
+// javap lines 23956-23993
+     446: iconst_4
+     447: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     450: getstatic     #12715              // Field com/hbm/handler/ability/IToolHarvestAbility.SMELTER:Lcom/hbm/handler/ability/IToolHarvestAbility;
+     453: iconst_0
+     454: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     457: getstatic     #12718              // Field com/hbm/handler/ability/IToolHarvestAbility.SHREDDER:Lcom/hbm/handler/ability/IToolHarvestAbility;
+     460: iconst_0
+     461: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     464: getstatic     #2771               // Field net/minecraft/item/EnumRarity.rare:Lnet/minecraft/item/EnumRarity;
+     467: invokevirtual #12721              // Method com/hbm/items/tool/ItemToolAbility.setRarity:(Lnet/minecraft/item/EnumRarity;)Lcom/hbm/items/tool/ItemToolAbility;
+     470: ldc_w         #12735              // String schrabidium_shovel
+     473: invokevirtual #12669              // Method com/hbm/items/tool/ItemToolAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     476: ldc_w         #12737              // String hbm:schrabidium_shovel
+     479: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     482: putstatic     #12739              // Field schrabidium_shovel:Lnet/minecraft/item/Item;
+     485: new           #12741              // class com/hbm/items/tool/HoeSchrabidium
+     488: dup
+     489: getstatic     #12678              // Field com/hbm/main/MainRegistry.tMatSchrab:Lnet/minecraft/item/Item$ToolMaterial;
+     492: invokespecial #12742              // Method com/hbm/items/tool/HoeSchrabidium."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+     495: ldc_w         #12743              // String schrabidium_hoe
+     498: invokevirtual #12744              // Method com/hbm/items/tool/HoeSchrabidium.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     501: ldc_w         #12746              // String hbm:schrabidium_hoe
+     504: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     507: putstatic     #12748              // Field schrabidium_hoe:Lnet/minecraft/item/Item;
+     510: new           #12675              // class com/hbm/items/tool/ItemSwordAbility
+     513: dup
+     514: ldc_w         #12749              // float 6.5f
+     517: dconst_0
+     518: getstatic     #12752              // Field com/hbm/main/MainRegistry.tMatTitan:Lnet/minecraft/item/Item$ToolMaterial;
+     521: invokespecial #12679              // Method com/hbm/items/tool/ItemSwordAbility."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;)V
+     524: ldc_w         #12753              // String titanium_sword
+     527: invokevirtual #12693              // Method com/hbm/items/tool/ItemSwordAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     530: ldc_w         #12755              // String hbm:titanium_sword
+     533: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     536: putstatic     #12757              // Field titanium_sword:Lnet/minecraft/item/Item;
+     539: new           #149                // class com/hbm/items/tool/ItemToolAbility
+     542: dup
+     543: ldc_w         #12758              // float 4.5f
+
+// SOURCE original ModItems
+// javap lines 24151-24188
+     959: invokespecial #12703              // Method com/hbm/items/tool/ItemToolAbility."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;Lcom/hbm/items/tool/ItemToolAbility$EnumToolType;)V
+     962: getstatic     #12653              // Field com/hbm/handler/ability/IToolAreaAbility.RECURSION:Lcom/hbm/handler/ability/IToolAreaAbility;
+     965: iconst_0
+     966: invokevirtual #12654              // Method com/hbm/items/tool/ItemToolAbility.addAbility:(Lcom/hbm/handler/ability/IBaseAbility;I)Lcom/hbm/items/tool/ItemToolAbility;
+     969: ldc_w         #12836              // String alloy_shovel
+     972: invokevirtual #12669              // Method com/hbm/items/tool/ItemToolAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     975: ldc_w         #12838              // String hbm:alloy_shovel
+     978: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+     981: putstatic     #12840              // Field alloy_shovel:Lnet/minecraft/item/Item;
+     984: new           #12777              // class com/hbm/items/tool/ModHoe
+     987: dup
+     988: getstatic     #12816              // Field com/hbm/main/MainRegistry.tMatAlloy:Lnet/minecraft/item/Item$ToolMaterial;
+     991: invokespecial #12778              // Method com/hbm/items/tool/ModHoe."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+     994: ldc_w         #12841              // String alloy_hoe
+     997: invokevirtual #12780              // Method com/hbm/items/tool/ModHoe.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    1000: ldc_w         #12843              // String hbm:alloy_hoe
+    1003: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    1006: putstatic     #12845              // Field alloy_hoe:Lnet/minecraft/item/Item;
+    1009: new           #12675              // class com/hbm/items/tool/ItemSwordAbility
+    1012: dup
+    1013: ldc_w         #9578               // float 35.0f
+    1016: dconst_0
+    1017: getstatic     #12848              // Field com/hbm/main/MainRegistry.tMatCMB:Lnet/minecraft/item/Item$ToolMaterial;
+    1020: invokespecial #12679              // Method com/hbm/items/tool/ItemSwordAbility."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;)V
+    1023: getstatic     #12819              // Field com/hbm/handler/ability/IWeaponAbility.STUN:Lcom/hbm/handler/ability/IWeaponAbility;
+    1026: iconst_0
+    1027: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+    1030: getstatic     #12688              // Field com/hbm/handler/ability/IWeaponAbility.VAMPIRE:Lcom/hbm/handler/ability/IWeaponAbility;
+    1033: iconst_0
+    1034: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+    1037: ldc_w         #12849              // String cmb_sword
+    1040: invokevirtual #12693              // Method com/hbm/items/tool/ItemSwordAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    1043: ldc_w         #12851              // String hbm:cmb_sword
+    1046: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    1049: putstatic     #12853              // Field cmb_sword:Lnet/minecraft/item/Item;
+    1052: new           #149                // class com/hbm/items/tool/ItemToolAbility
+    1055: dup
+    1056: ldc_w         #9501               // float 10.0f
+
+// SOURCE original ModItems
+// javap lines 25972-26009
+    5521: putstatic     #13490              // Field cape_schrabidium:Lnet/minecraft/item/Item;
+    5524: new           #13467              // class com/hbm/items/armor/ArmorModel
+    5527: dup
+    5528: getstatic     #13470              // Field net/minecraft/item/ItemArmor$ArmorMaterial.CHAIN:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+    5531: iconst_1
+    5532: invokespecial #13471              // Method com/hbm/items/armor/ArmorModel."<init>":(Lnet/minecraft/item/ItemArmor$ArmorMaterial;I)V
+    5535: ldc_w         #13491              // String cape_hidden
+    5538: invokevirtual #13473              // Method com/hbm/items/armor/ArmorModel.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5541: getstatic     #3873               // Field com/hbm/main/MainRegistry.consumableTab:Lnet/minecraft/creativetab/CreativeTabs;
+    5544: invokevirtual #2281               // Method net/minecraft/item/Item.func_77637_a:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+    5547: iconst_1
+    5548: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5551: ldc_w         #13493              // String hbm:cape_unknown
+    5554: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5557: putstatic     #13495              // Field cape_hidden:Lnet/minecraft/item/Item;
+    5560: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+    5563: dup
+    5564: getstatic     #13498              // Field com/hbm/main/MainRegistry.tMatHammmer:Lnet/minecraft/item/Item$ToolMaterial;
+    5567: invokespecial #10501              // Method com/hbm/items/tool/WeaponSpecial."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+    5570: ldc_w         #13499              // String schrabidium_hammer
+    5573: invokevirtual #10503              // Method com/hbm/items/tool/WeaponSpecial.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5576: iconst_1
+    5577: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5580: ldc_w         #13501              // String hbm:schrabidium_hammer
+    5583: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5586: putstatic     #13503              // Field schrabidium_hammer:Lnet/minecraft/item/Item;
+    5589: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+    5592: dup
+    5593: getstatic     #13506              // Field com/hbm/main/MainRegistry.enumToolMaterialSledge:Lnet/minecraft/item/Item$ToolMaterial;
+    5596: invokespecial #10501              // Method com/hbm/items/tool/WeaponSpecial."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+    5599: ldc_w         #13507              // String shimmer_sledge
+    5602: invokevirtual #10503              // Method com/hbm/items/tool/WeaponSpecial.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5605: iconst_1
+    5606: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5609: ldc_w         #13509              // String hbm:shimmer_sledge_original
+    5612: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5615: putstatic     #13511              // Field shimmer_sledge:Lnet/minecraft/item/Item;
+    5618: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+
+// SOURCE original ModItems
+// javap lines 25994-26031
+    5577: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5580: ldc_w         #13501              // String hbm:schrabidium_hammer
+    5583: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5586: putstatic     #13503              // Field schrabidium_hammer:Lnet/minecraft/item/Item;
+    5589: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+    5592: dup
+    5593: getstatic     #13506              // Field com/hbm/main/MainRegistry.enumToolMaterialSledge:Lnet/minecraft/item/Item$ToolMaterial;
+    5596: invokespecial #10501              // Method com/hbm/items/tool/WeaponSpecial."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+    5599: ldc_w         #13507              // String shimmer_sledge
+    5602: invokevirtual #10503              // Method com/hbm/items/tool/WeaponSpecial.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5605: iconst_1
+    5606: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5609: ldc_w         #13509              // String hbm:shimmer_sledge_original
+    5612: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5615: putstatic     #13511              // Field shimmer_sledge:Lnet/minecraft/item/Item;
+    5618: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+    5621: dup
+    5622: getstatic     #13506              // Field com/hbm/main/MainRegistry.enumToolMaterialSledge:Lnet/minecraft/item/Item$ToolMaterial;
+    5625: invokespecial #10501              // Method com/hbm/items/tool/WeaponSpecial."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+    5628: ldc_w         #13512              // String shimmer_axe
+    5631: invokevirtual #10503              // Method com/hbm/items/tool/WeaponSpecial.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5634: iconst_1
+    5635: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5638: ldc_w         #13514              // String hbm:shimmer_axe
+    5641: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5644: putstatic     #13516              // Field shimmer_axe:Lnet/minecraft/item/Item;
+    5647: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+    5650: dup
+    5651: getstatic     #13519              // Field com/hbm/main/MainRegistry.enumToolMaterialBottleOpener:Lnet/minecraft/item/Item$ToolMaterial;
+    5654: invokespecial #10501              // Method com/hbm/items/tool/WeaponSpecial."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+    5657: ldc_w         #13520              // String bottle_opener
+    5660: invokevirtual #10503              // Method com/hbm/items/tool/WeaponSpecial.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5663: getstatic     #3873               // Field com/hbm/main/MainRegistry.consumableTab:Lnet/minecraft/creativetab/CreativeTabs;
+    5666: invokevirtual #2281               // Method net/minecraft/item/Item.func_77637_a:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+    5669: iconst_1
+    5670: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5673: ldc_w         #13522              // String hbm:bottle_opener
+    5676: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+
+// SOURCE original ModItems
+// javap lines 26052-26089
+    5731: invokevirtual #2281               // Method net/minecraft/item/Item.func_77637_a:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+    5734: invokevirtual #6709               // Method net/minecraft/item/Item.func_77664_n:()Lnet/minecraft/item/Item;
+    5737: ldc_w         #13537              // String hbm:matchstick
+    5740: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5743: putstatic     #13539              // Field matchstick:Lnet/minecraft/item/Item;
+    5746: new           #13541              // class com/hbm/items/tool/ItemBalefireMatch
+    5749: dup
+    5750: invokespecial #13542              // Method com/hbm/items/tool/ItemBalefireMatch."<init>":()V
+    5753: ldc_w         #13543              // String balefire_and_steel
+    5756: invokevirtual #13544              // Method com/hbm/items/tool/ItemBalefireMatch.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5759: getstatic     #13535              // Field net/minecraft/creativetab/CreativeTabs.field_78040_i:Lnet/minecraft/creativetab/CreativeTabs;
+    5762: invokevirtual #2281               // Method net/minecraft/item/Item.func_77637_a:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+    5765: invokevirtual #6709               // Method net/minecraft/item/Item.func_77664_n:()Lnet/minecraft/item/Item;
+    5768: ldc_w         #13546              // String hbm:balefire_and_steel
+    5771: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5774: putstatic     #13548              // Field balefire_and_steel:Lnet/minecraft/item/Item;
+    5777: new           #13550              // class com/hbm/items/tool/ModSword
+    5780: dup
+    5781: getstatic     #5684               // Field com/hbm/main/MainRegistry.tMatSteel:Lnet/minecraft/item/Item$ToolMaterial;
+    5784: invokespecial #13551              // Method com/hbm/items/tool/ModSword."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+    5787: ldc_w         #13552              // String crowbar
+    5790: invokevirtual #13553              // Method com/hbm/items/tool/ModSword.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5793: invokevirtual #6709               // Method net/minecraft/item/Item.func_77664_n:()Lnet/minecraft/item/Item;
+    5796: ldc_w         #13555              // String hbm:crowbar
+    5799: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5802: putstatic     #13557              // Field crowbar:Lnet/minecraft/item/Item;
+    5805: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+    5808: dup
+    5809: getstatic     #12879              // Field com/hbm/main/MainRegistry.tMatElec:Lnet/minecraft/item/Item$ToolMaterial;
+    5812: invokespecial #10501              // Method com/hbm/items/tool/WeaponSpecial."<init>":(Lnet/minecraft/item/Item$ToolMaterial;)V
+    5815: ldc_w         #13558              // String wrench_flipped
+    5818: invokevirtual #10503              // Method com/hbm/items/tool/WeaponSpecial.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5821: iconst_1
+    5822: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    5825: ldc_w         #13560              // String hbm:wrench_flipped
+    5828: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    5831: putstatic     #13562              // Field wrench_flipped:Lnet/minecraft/item/Item;
+    5834: new           #10500              // class com/hbm/items/tool/WeaponSpecial
+
+// SOURCE original ModItems
+// javap lines 26137-26174
+    5958: fconst_0
+    5959: sipush        200
+    5962: invokestatic  #10325              // Method net/minecraftforge/common/util/EnumHelper.addToolMaterial:(Ljava/lang/String;IIFFI)Lnet/minecraft/item/Item$ToolMaterial;
+    5965: new           #12971              // class net/minecraft/item/ItemStack
+    5968: dup
+    5969: getstatic     #2868               // Field plate_paa:Lnet/minecraft/item/Item;
+    5972: invokespecial #12974              // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;)V
+    5975: invokevirtual #12978              // Method net/minecraft/item/Item$ToolMaterial.setRepairItem:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/Item$ToolMaterial;
+    5978: astore        9
+    5980: new           #12675              // class com/hbm/items/tool/ItemSwordAbility
+    5983: dup
+    5984: ldc_w         #10026              // float 250.0f
+    5987: ldc2_w        #5720               // double 1.5d
+    5990: aload         9
+    5992: invokespecial #12679              // Method com/hbm/items/tool/ItemSwordAbility."<init>":(FDLnet/minecraft/item/Item$ToolMaterial;)V
+    5995: getstatic     #13130              // Field com/hbm/handler/ability/IWeaponAbility.PHOSPHORUS:Lcom/hbm/handler/ability/IWeaponAbility;
+    5998: iconst_0
+    5999: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+    6002: getstatic     #12682              // Field com/hbm/handler/ability/IWeaponAbility.RADIATION:Lcom/hbm/handler/ability/IWeaponAbility;
+    6005: iconst_2
+    6006: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+    6009: getstatic     #12819              // Field com/hbm/handler/ability/IWeaponAbility.STUN:Lcom/hbm/handler/ability/IWeaponAbility;
+    6012: iconst_3
+    6013: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+    6016: getstatic     #12688              // Field com/hbm/handler/ability/IWeaponAbility.VAMPIRE:Lcom/hbm/handler/ability/IWeaponAbility;
+    6019: iconst_4
+    6020: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+    6023: getstatic     #12663              // Field com/hbm/handler/ability/IWeaponAbility.BEHEADER:Lcom/hbm/handler/ability/IWeaponAbility;
+    6026: iconst_0
+    6027: invokevirtual #12685              // Method com/hbm/items/tool/ItemSwordAbility.addAbility:(Lcom/hbm/handler/ability/IWeaponAbility;I)Lcom/hbm/items/tool/ItemSwordAbility;
+    6030: ldc_w         #13585              // String mese_gavel
+    6033: invokevirtual #12693              // Method com/hbm/items/tool/ItemSwordAbility.func_77655_b:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    6036: iconst_1
+    6037: invokevirtual #5731               // Method net/minecraft/item/Item.func_77625_d:(I)Lnet/minecraft/item/Item;
+    6040: ldc_w         #13587              // String hbm:mese_gavel
+    6043: invokevirtual #2286               // Method net/minecraft/item/Item.func_111206_d:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+    6046: putstatic     #13589              // Field mese_gavel:Lnet/minecraft/item/Item;
+    6049: new           #13550              // class com/hbm/items/tool/ModSword

@@ -67,12 +67,12 @@ public class OreLayer {
 	@SubscribeEvent
 	public void onDecorate(DecorateBiomeEvent.Pre event) {
 		
-		World world = event.world;
+		World world = event.getWorld();
 		
 		if(world.provider == null || world.provider.getDimension() != this.dim) return;
 		
 		if(this.noise == null) {
-			this.noise = new NoiseGeneratorPerlin(new Random(event.world.getSeed() + (ore.getID() * 31) + yLevel), 4);
+			this.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() + (ore.getID() * 31) + yLevel), 4);
 		}
 		
 		int cX = event.chunkX;
@@ -96,7 +96,7 @@ public class OreLayer {
 					
 					for(int y = yLevel - range; y <= yLevel + range; y++) {
 						
-						if(event.rand.nextFloat() < density) {
+						if(event.getRand().nextFloat() < density) {
 							Block genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 							
 							if(genTarget.isReplaceableOreGen(world, x, y, z, target) && genTarget.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {

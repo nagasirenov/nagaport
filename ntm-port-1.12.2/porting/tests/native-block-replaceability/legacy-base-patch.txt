@@ -1,0 +1,5 @@
+Forge 10.13.4.1614 userdev, forgepatches.zip/net/minecraft/block/Block.java.patch
++    public boolean isReplaceable(IBlockAccess world, int x, int y, int z)
++    {
++        return field_149764_J.func_76222_j();
++    }

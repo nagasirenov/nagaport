@@ -1,0 +1,27 @@
+PASS 21 exact statement edits, 9 whole-file inverses including original line endings, 27 source drift controls
+/workspace/shared/nagaport-inventory-writes-cp86/ntm-port-1.12.2/porting/tests/player-inventory-writes/NativeWriteTest.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-inventory-writes-cp86/ntm-port-1.12.2/porting/tests/player-inventory-writes/NativeWriteTest.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-inventory-writes-cp86/ntm-port-1.12.2/porting/tests/player-inventory-writes/NativeWriteTest.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-inventory-writes-cp86/ntm-port-1.12.2/porting/tests/player-inventory-writes/NativeWriteTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+        ^
+/workspace/shared/nagaport-inventory-writes-cp86/ntm-port-1.12.2/porting/tests/player-inventory-writes/NativeWriteTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                ^
+/workspace/shared/nagaport-inventory-writes-cp86/ntm-port-1.12.2/porting/tests/player-inventory-writes/NativeWriteTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe()throws Exception{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (Unsafe)f.get(null);}
+                                                                                                                         ^
+Note: /workspace/shared/nagaport-inventory-writes-cp86/ntm-port-1.12.2/porting/tests/player-inventory-writes/NativeWriteTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+PASS 1309 actual native InventoryPlayer write, removal, identity/NBT/count, constructor/copy statement, and evaluation/exception checks
+PASS real native final field declarations and NonNullList null-validation/set ordering
+PASS native javac owner, shadow, unresolved, result-used, arbitrary-nullable-RHS, offhand and discarded-write controls
+PASS exact diagnostic position attribution: 952 → 931 ; exactly21 selected array-required errors removed, all other diagnostic codes/messages/positions preserved after offset inverse
+PASS 21 before/after exact field and set-owner attribution sites; no class generation or whole-build claim

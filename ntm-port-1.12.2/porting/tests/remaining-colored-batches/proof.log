@@ -1,0 +1,4 @@
+PASS 9 exact reversible full files, 11 nonescaping scopes, 12 color-stream sites, 89 vertices, 41 exact setter sites and 54 mutation rejections; unchanged complete loops, comments, GL, materials, RNG and animation.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[13:04:14] [main/INFO]: Setting user: AtlasProbe
+PASS actual original/native singleton colored streams and Mesa uploads: 316 paired streams, 8962 batch comparisons, 45448 vertices, 17924 actual draws. Exact XYZ/UV float words and RGBA bytes, absent normal/lightmap, owner resets, complete loops and RNG call counts and post-draw GL/current-color/current-normal/UV0/UV1/texture/matrix state. Not full renderer linkage or in-game pixels.

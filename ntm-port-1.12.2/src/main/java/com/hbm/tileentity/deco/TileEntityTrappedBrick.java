@@ -81,11 +81,11 @@ public class TileEntityTrappedBrick extends TileEntity implements net.minecraft.
 			EntityZombie zombie = new EntityZombie(this.world);
 			zombie.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5);
 			switch(this.world.rand.nextInt(3)) {
-			case 0: zombie.setCurrentItemOrArmor(0, new ItemStack(ModItems.chernobylsign)); break;
-			case 1: zombie.setCurrentItemOrArmor(0, new ItemStack(ModItems.cobalt_sword)); break;
-			case 2: zombie.setCurrentItemOrArmor(0, new ItemStack(ModItems.cmb_hoe)); break;
+			case 0: zombie.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.chernobylsign)); break;
+			case 1: zombie.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.cobalt_sword)); break;
+			case 2: zombie.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.cmb_hoe)); break;
 			}
-			zombie.setEquipmentDropChance(0, 1.0F);
+			zombie.setDropChance(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, 1.0F);
 			this.world.spawnEntityInWorld(zombie);
 			break;
 		case SPIDERS:
@@ -98,7 +98,7 @@ public class TileEntityTrappedBrick extends TileEntity implements net.minecraft.
 		}
 
 		com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
-		this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.brick_jungle);
+		{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY(); int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 	}
 	
 	@SuppressWarnings("incomplete-switch")

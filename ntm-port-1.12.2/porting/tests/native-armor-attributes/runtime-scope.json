@@ -1,0 +1,31 @@
+{
+  "complete_method_projections": [
+    "ArmorDiesel",
+    "ArmorDesh",
+    "ArmorLiquidator",
+    "ItemModWD40",
+    "ItemModIron",
+    "ItemModServos",
+    "ItemModInsert",
+    "ItemModV1",
+    "ItemModHealth"
+  ],
+  "speed_slices": [
+    "ArmorNCRPA",
+    "ArmorEnvsuit",
+    "ArmorDNT"
+  ],
+  "complete_production_class": [
+    "com.hbm.util.ArmorSlotOrder"
+  ],
+  "test_only_context": [
+    "ModItems identity holder",
+    "ArmorModHandler exact UUID table projection",
+    "SpeedContext supplies sprint/full-set booleans and actual native attribute map"
+  ],
+  "not_claimed": [
+    "full armor constructors/inheritance game boot",
+    "complete speed onArmorTick or potion/flight/water mechanics",
+    "world/entity equipment tick integration"
+  ]
+}

@@ -1,0 +1,725 @@
+// SOURCE /tmp/nagaport-legacy-client.jar :: adb
+// javap lines 3402-3406
+  public com.google.common.collect.Multimap k();
+    Code:
+       0: invokestatic  #792                // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: areturn
+
+
+// SOURCE /tmp/nagaport-legacy-client.jar :: aeh
+// javap lines 7-33
+  public aeh(adc);
+    Code:
+       0: aload_0
+       1: invokespecial #35                 // Method adb."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #24                 // Field b:Ladc;
+       9: aload_0
+      10: iconst_1
+      11: putfield      #26                 // Field h:I
+      14: aload_0
+      15: aload_1
+      16: invokevirtual #38                 // Method adc.a:()I
+      19: invokevirtual #47                 // Method f:(I)Ladb;
+      22: pop
+      23: aload_0
+      24: getstatic     #22                 // Field abt.j:Labt;
+      27: invokevirtual #45                 // Method a:(Labt;)Ladb;
+      30: pop
+      31: aload_0
+      32: ldc           #3                  // float 4.0f
+      34: aload_1
+      35: invokevirtual #39                 // Method adc.c:()F
+      38: fadd
+      39: putfield      #23                 // Field a:F
+      42: return
+
+
+// javap lines 34-40
+  public float i();
+    Code:
+       0: aload_0
+       1: getfield      #24                 // Field b:Ladc;
+       4: invokevirtual #39                 // Method adc.c:()F
+       7: freturn
+
+
+// javap lines 165-186
+  public com.google.common.collect.Multimap k();
+    Code:
+       0: aload_0
+       1: invokespecial #37                 // Method adb.k:()Lcom/google/common/collect/Multimap;
+       4: astore_1
+       5: aload_1
+       6: getstatic     #34                 // Field yj.e:Lth;
+       9: invokeinterface #53,  1           // InterfaceMethod th.a:()Ljava/lang/String;
+      14: new           #19                 // class tj
+      17: dup
+      18: getstatic     #25                 // Field f:Ljava/util/UUID;
+      21: ldc           #5                  // String Weapon modifier
+      23: aload_0
+      24: getfield      #23                 // Field a:F
+      27: f2d
+      28: iconst_0
+      29: invokespecial #50                 // Method tj."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      32: invokeinterface #52,  3           // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      37: pop
+      38: aload_1
+      39: areturn
+}
+
+// SOURCE /tmp/nagaport-legacy-client.jar :: acg
+// javap lines 11-47
+  protected acg(float, adc, java.util.Set);
+    Code:
+       0: aload_0
+       1: invokespecial #26                 // Method adb."<init>":()V
+       4: aload_0
+       5: ldc           #1                  // float 4.0f
+       7: putfield      #17                 // Field a:F
+      10: aload_0
+      11: aload_2
+      12: putfield      #18                 // Field b:Ladc;
+      15: aload_0
+      16: aload_3
+      17: putfield      #19                 // Field c:Ljava/util/Set;
+      20: aload_0
+      21: iconst_1
+      22: putfield      #22                 // Field h:I
+      25: aload_0
+      26: aload_2
+      27: invokevirtual #29                 // Method adc.a:()I
+      30: invokevirtual #25                 // Method f:(I)Ladb;
+      33: pop
+      34: aload_0
+      35: aload_2
+      36: invokevirtual #30                 // Method adc.b:()F
+      39: putfield      #17                 // Field a:F
+      42: aload_0
+      43: fload_1
+      44: aload_2
+      45: invokevirtual #31                 // Method adc.c:()F
+      48: fadd
+      49: putfield      #20                 // Field d:F
+      52: aload_0
+      53: getstatic     #16                 // Field abt.i:Labt;
+      56: invokevirtual #24                 // Method a:(Labt;)Ladb;
+      59: pop
+      60: return
+
+
+// javap lines 130-151
+  public com.google.common.collect.Multimap k();
+    Code:
+       0: aload_0
+       1: invokespecial #28                 // Method adb.k:()Lcom/google/common/collect/Multimap;
+       4: astore_1
+       5: aload_1
+       6: getstatic     #23                 // Field yj.e:Lth;
+       9: invokeinterface #41,  1           // InterfaceMethod th.a:()Ljava/lang/String;
+      14: new           #14                 // class tj
+      17: dup
+      18: getstatic     #21                 // Field f:Ljava/util/UUID;
+      21: ldc           #2                  // String Tool modifier
+      23: aload_0
+      24: getfield      #20                 // Field d:F
+      27: f2d
+      28: iconst_0
+      29: invokespecial #38                 // Method tj."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      32: invokeinterface #39,  3           // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      37: pop
+      38: aload_1
+      39: areturn
+}
+
+// SOURCE /tmp/nagaport-legacy-client.jar :: tj
+// javap lines 98-134
+  public boolean equals(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: if_acmpne     7
+       5: iconst_1
+       6: ireturn
+       7: aload_1
+       8: ifnull        22
+      11: aload_0
+      12: invokevirtual #21                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      15: aload_1
+      16: invokevirtual #21                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      19: if_acmpeq     24
+      22: iconst_0
+      23: ireturn
+      24: aload_1
+      25: checkcast     #13                 // class tj
+      28: astore_2
+      29: aload_0
+      30: getfield      #17                 // Field d:Ljava/util/UUID;
+      33: ifnull        53
+      36: aload_0
+      37: getfield      #17                 // Field d:Ljava/util/UUID;
+      40: aload_2
+      41: getfield      #17                 // Field d:Ljava/util/UUID;
+      44: invokevirtual #30                 // Method java/util/UUID.equals:(Ljava/lang/Object;)Z
+      47: ifne          62
+      50: goto          60
+      53: aload_2
+      54: getfield      #17                 // Field d:Ljava/util/UUID;
+      57: ifnull        62
+      60: iconst_0
+      61: ireturn
+      62: iconst_1
+      63: ireturn
+
+
+// javap lines 135-146
+  public int hashCode();
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field d:Ljava/util/UUID;
+       4: ifnull        17
+       7: aload_0
+       8: getfield      #17                 // Field d:Ljava/util/UUID;
+      11: invokevirtual #31                 // Method java/util/UUID.hashCode:()I
+      14: goto          18
+      17: iconst_0
+      18: ireturn
+
+
+// SOURCE /tmp/nagaport-legacy-client.jar :: add
+// javap lines 1606-1666
+  public com.google.common.collect.Multimap D();
+    Code:
+       0: aload_0
+       1: invokevirtual #154                // Method p:()Z
+       4: ifeq          112
+       7: aload_0
+       8: getfield      #89                 // Field d:Ldh;
+      11: ldc           #10                 // String AttributeModifiers
+      13: bipush        9
+      15: invokevirtual #176                // Method dh.b:(Ljava/lang/String;I)Z
+      18: ifeq          112
+      21: invokestatic  #165                // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+      24: astore_1
+      25: aload_0
+      26: getfield      #89                 // Field d:Ldh;
+      29: ldc           #10                 // String AttributeModifiers
+      31: bipush        10
+      33: invokevirtual #177                // Method dh.c:(Ljava/lang/String;I)Ldq;
+      36: astore_2
+      37: iconst_0
+      38: istore_3
+      39: iload_3
+      40: aload_2
+      41: invokevirtual #191                // Method dq.c:()I
+      44: if_icmpge     109
+      47: aload_2
+      48: iload_3
+      49: invokevirtual #190                // Method dq.b:(I)Ldh;
+      52: astore        4
+      54: aload         4
+      56: invokestatic  #219                // Method yj.a:(Ldh;)Ltj;
+      59: astore        5
+      61: aload         5
+      63: invokevirtual #216                // Method tj.a:()Ljava/util/UUID;
+      66: invokevirtual #212                // Method java/util/UUID.getLeastSignificantBits:()J
+      69: lconst_0
+      70: lcmp
+      71: ifeq          103
+      74: aload         5
+      76: invokevirtual #216                // Method tj.a:()Ljava/util/UUID;
+      79: invokevirtual #213                // Method java/util/UUID.getMostSignificantBits:()J
+      82: lconst_0
+      83: lcmp
+      84: ifeq          103
+      87: aload_1
+      88: aload         4
+      90: ldc           #11                 // String AttributeName
+      92: invokevirtual #183                // Method dh.j:(Ljava/lang/String;)Ljava/lang/String;
+      95: aload         5
+      97: invokeinterface #224,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+     102: pop
+     103: iinc          3, 1
+     106: goto          39
+     109: goto          120
+     112: aload_0
+     113: invokevirtual #142                // Method b:()Ladb;
+     116: invokevirtual #129                // Method adb.k:()Lcom/google/common/collect/Multimap;
+     119: astore_1
+     120: aload_1
+     121: areturn
+
+
+// SOURCE /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar :: net.minecraft.item.Item
+// javap lines 646-650
+  public com.google.common.collect.Multimap<java.lang.String, net.minecraft.entity.ai.attributes.AttributeModifier> getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: invokestatic  #595                // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+       3: areturn
+
+
+// javap lines 651-657
+  public com.google.common.collect.Multimap<java.lang.String, net.minecraft.entity.ai.attributes.AttributeModifier> getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #601                // Method getItemAttributeModifiers:(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lcom/google/common/collect/Multimap;
+       5: areturn
+
+
+// SOURCE /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar :: net.minecraft.item.ItemSword
+// javap lines 7-33
+  public net.minecraft.item.ItemSword(net.minecraft.item.Item$ToolMaterial);
+    Code:
+       0: aload_0
+       1: invokespecial #17                 // Method net/minecraft/item/Item."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #19                 // Field material:Lnet/minecraft/item/Item$ToolMaterial;
+       9: aload_0
+      10: iconst_1
+      11: putfield      #23                 // Field maxStackSize:I
+      14: aload_0
+      15: aload_1
+      16: invokevirtual #27                 // Method net/minecraft/item/Item$ToolMaterial.getMaxUses:()I
+      19: invokevirtual #31                 // Method setMaxDamage:(I)Lnet/minecraft/item/Item;
+      22: pop
+      23: aload_0
+      24: getstatic     #37                 // Field net/minecraft/creativetab/CreativeTabs.COMBAT:Lnet/minecraft/creativetab/CreativeTabs;
+      27: invokevirtual #41                 // Method setCreativeTab:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+      30: pop
+      31: aload_0
+      32: ldc           #42                 // float 3.0f
+      34: aload_1
+      35: invokevirtual #46                 // Method net/minecraft/item/Item$ToolMaterial.getAttackDamage:()F
+      38: fadd
+      39: putfield      #48                 // Field attackDamage:F
+      42: return
+
+
+// javap lines 34-40
+  public float getAttackDamage();
+    Code:
+       0: aload_0
+       1: getfield      #19                 // Field material:Lnet/minecraft/item/Item$ToolMaterial;
+       4: invokevirtual #46                 // Method net/minecraft/item/Item$ToolMaterial.getAttackDamage:()F
+       7: freturn
+
+
+// javap lines 152-189
+  public com.google.common.collect.Multimap<java.lang.String, net.minecraft.entity.ai.attributes.AttributeModifier> getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #163                // Method net/minecraft/item/Item.getItemAttributeModifiers:(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lcom/google/common/collect/Multimap;
+       5: astore_2
+       6: aload_1
+       7: getstatic     #169                // Field net/minecraft/inventory/EntityEquipmentSlot.MAINHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+      10: if_acmpne     77
+      13: aload_2
+      14: getstatic     #175                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_DAMAGE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      17: invokeinterface #180,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.getName:()Ljava/lang/String;
+      22: new           #182                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      25: dup
+      26: getstatic     #186                // Field ATTACK_DAMAGE_MODIFIER:Ljava/util/UUID;
+      29: ldc           #188                // String Weapon modifier
+      31: aload_0
+      32: getfield      #48                 // Field attackDamage:F
+      35: f2d
+      36: iconst_0
+      37: invokespecial #191                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      40: invokeinterface #197,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      45: pop
+      46: aload_2
+      47: getstatic     #200                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      50: invokeinterface #180,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.getName:()Ljava/lang/String;
+      55: new           #182                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      58: dup
+      59: getstatic     #203                // Field ATTACK_SPEED_MODIFIER:Ljava/util/UUID;
+      62: ldc           #188                // String Weapon modifier
+      64: ldc2_w        #204                // double -2.4000000953674316d
+      67: iconst_0
+      68: invokespecial #191                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      71: invokeinterface #197,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      76: pop
+      77: aload_2
+      78: areturn
+}
+
+// SOURCE /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar :: net.minecraft.item.ItemTool
+// javap lines 15-74
+  protected net.minecraft.item.ItemTool(float, float, net.minecraft.item.Item$ToolMaterial, java.util.Set<net.minecraft.block.Block>);
+    Code:
+       0: aload_0
+       1: invokespecial #25                 // Method net/minecraft/item/Item."<init>":()V
+       4: aload_0
+       5: ldc           #26                 // float 4.0f
+       7: putfield      #28                 // Field efficiency:F
+      10: aload_0
+      11: aload_3
+      12: putfield      #30                 // Field toolMaterial:Lnet/minecraft/item/Item$ToolMaterial;
+      15: aload_0
+      16: aload         4
+      18: putfield      #32                 // Field effectiveBlocks:Ljava/util/Set;
+      21: aload_0
+      22: iconst_1
+      23: putfield      #36                 // Field maxStackSize:I
+      26: aload_0
+      27: aload_3
+      28: invokevirtual #40                 // Method net/minecraft/item/Item$ToolMaterial.getMaxUses:()I
+      31: invokevirtual #44                 // Method setMaxDamage:(I)Lnet/minecraft/item/Item;
+      34: pop
+      35: aload_0
+      36: aload_3
+      37: invokevirtual #48                 // Method net/minecraft/item/Item$ToolMaterial.getEfficiency:()F
+      40: putfield      #28                 // Field efficiency:F
+      43: aload_0
+      44: fload_1
+      45: aload_3
+      46: invokevirtual #51                 // Method net/minecraft/item/Item$ToolMaterial.getAttackDamage:()F
+      49: fadd
+      50: putfield      #53                 // Field attackDamage:F
+      53: aload_0
+      54: fload_2
+      55: putfield      #55                 // Field attackSpeed:F
+      58: aload_0
+      59: getstatic     #61                 // Field net/minecraft/creativetab/CreativeTabs.TOOLS:Lnet/minecraft/creativetab/CreativeTabs;
+      62: invokevirtual #65                 // Method setCreativeTab:(Lnet/minecraft/creativetab/CreativeTabs;)Lnet/minecraft/item/Item;
+      65: pop
+      66: aload_0
+      67: instanceof    #67                 // class net/minecraft/item/ItemPickaxe
+      70: ifeq          82
+      73: aload_0
+      74: ldc           #69                 // String pickaxe
+      76: putfield      #71                 // Field toolClass:Ljava/lang/String;
+      79: goto          111
+      82: aload_0
+      83: instanceof    #75                 // class net/minecraft/item/ItemAxe
+      86: ifeq          98
+      89: aload_0
+      90: ldc           #77                 // String axe
+      92: putfield      #71                 // Field toolClass:Ljava/lang/String;
+      95: goto          111
+      98: aload_0
+      99: instanceof    #79                 // class net/minecraft/item/ItemSpade
+     102: ifeq          111
+     105: aload_0
+     106: ldc           #81                 // String shovel
+     108: putfield      #71                 // Field toolClass:Ljava/lang/String;
+     111: return
+
+
+// javap lines 75-84
+  protected net.minecraft.item.ItemTool(net.minecraft.item.Item$ToolMaterial, java.util.Set<net.minecraft.block.Block>);
+    Code:
+       0: aload_0
+       1: fconst_0
+       2: fconst_0
+       3: aload_1
+       4: aload_2
+       5: invokespecial #90                 // Method "<init>":(FFLnet/minecraft/item/Item$ToolMaterial;Ljava/util/Set;)V
+       8: return
+
+
+// javap lines 191-230
+  public com.google.common.collect.Multimap<java.lang.String, net.minecraft.entity.ai.attributes.AttributeModifier> getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #204                // Method net/minecraft/item/Item.getItemAttributeModifiers:(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lcom/google/common/collect/Multimap;
+       5: astore_2
+       6: aload_1
+       7: getstatic     #210                // Field net/minecraft/inventory/EntityEquipmentSlot.MAINHAND:Lnet/minecraft/inventory/EntityEquipmentSlot;
+      10: if_acmpne     79
+      13: aload_2
+      14: getstatic     #216                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_DAMAGE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      17: invokeinterface #221,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.getName:()Ljava/lang/String;
+      22: new           #223                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      25: dup
+      26: getstatic     #227                // Field ATTACK_DAMAGE_MODIFIER:Ljava/util/UUID;
+      29: ldc           #229                // String Tool modifier
+      31: aload_0
+      32: getfield      #53                 // Field attackDamage:F
+      35: f2d
+      36: iconst_0
+      37: invokespecial #232                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      40: invokeinterface #238,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      45: pop
+      46: aload_2
+      47: getstatic     #241                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      50: invokeinterface #221,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttribute.getName:()Ljava/lang/String;
+      55: new           #223                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      58: dup
+      59: getstatic     #244                // Field ATTACK_SPEED_MODIFIER:Ljava/util/UUID;
+      62: ldc           #229                // String Tool modifier
+      64: aload_0
+      65: getfield      #55                 // Field attackSpeed:F
+      68: f2d
+      69: iconst_0
+      70: invokespecial #232                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      73: invokeinterface #238,  3          // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      78: pop
+      79: aload_2
+      80: areturn
+
+
+// SOURCE /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar :: net.minecraft.entity.ai.attributes.AttributeModifier
+// javap lines 95-131
+  public boolean equals(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: if_acmpne     7
+       5: iconst_1
+       6: ireturn
+       7: aload_1
+       8: ifnull        22
+      11: aload_0
+      12: invokevirtual #88                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      15: aload_1
+      16: invokevirtual #88                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      19: if_acmpeq     24
+      22: iconst_0
+      23: ireturn
+      24: aload_1
+      25: checkcast     #2                  // class net/minecraft/entity/ai/attributes/AttributeModifier
+      28: astore_2
+      29: aload_0
+      30: getfield      #44                 // Field id:Ljava/util/UUID;
+      33: ifnull        53
+      36: aload_0
+      37: getfield      #44                 // Field id:Ljava/util/UUID;
+      40: aload_2
+      41: getfield      #44                 // Field id:Ljava/util/UUID;
+      44: invokevirtual #92                 // Method java/util/UUID.equals:(Ljava/lang/Object;)Z
+      47: ifne          62
+      50: goto          60
+      53: aload_2
+      54: getfield      #44                 // Field id:Ljava/util/UUID;
+      57: ifnull        62
+      60: iconst_0
+      61: ireturn
+      62: iconst_1
+      63: ireturn
+
+
+// javap lines 132-143
+  public int hashCode();
+    Code:
+       0: aload_0
+       1: getfield      #44                 // Field id:Ljava/util/UUID;
+       4: ifnull        17
+       7: aload_0
+       8: getfield      #44                 // Field id:Ljava/util/UUID;
+      11: invokevirtual #98                 // Method java/util/UUID.hashCode:()I
+      14: goto          18
+      17: iconst_0
+      18: ireturn
+
+
+// SOURCE /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar :: net.minecraft.item.ItemStack
+// javap lines 2242-2318
+  public com.google.common.collect.Multimap<java.lang.String, net.minecraft.entity.ai.attributes.AttributeModifier> getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: aload_0
+       1: invokevirtual #381                // Method hasTagCompound:()Z
+       4: ifeq          154
+       7: aload_0
+       8: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      11: ldc_w         #1064               // String AttributeModifiers
+      14: bipush        9
+      16: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      19: ifeq          154
+      22: invokestatic  #1070               // Method com/google/common/collect/HashMultimap.create:()Lcom/google/common/collect/HashMultimap;
+      25: astore_2
+      26: aload_0
+      27: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+      30: ldc_w         #1064               // String AttributeModifiers
+      33: bipush        10
+      35: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+      38: astore_3
+      39: iconst_0
+      40: istore        4
+      42: iload         4
+      44: aload_3
+      45: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+      48: if_icmpge     151
+      51: aload_3
+      52: iload         4
+      54: invokevirtual #772                // Method net/minecraft/nbt/NBTTagList.getCompoundTagAt:(I)Lnet/minecraft/nbt/NBTTagCompound;
+      57: astore        5
+      59: aload         5
+      61: invokestatic  #1074               // Method net/minecraft/entity/SharedMonsterAttributes.readAttributeModifierFromNBT:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/entity/ai/attributes/AttributeModifier;
+      64: astore        6
+      66: aload         6
+      68: ifnull        145
+      71: aload         5
+      73: ldc_w         #1076               // String Slot
+      76: bipush        8
+      78: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      81: ifeq          102
+      84: aload         5
+      86: ldc_w         #1076               // String Slot
+      89: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+      92: aload_1
+      93: invokevirtual #827                // Method net/minecraft/inventory/EntityEquipmentSlot.getName:()Ljava/lang/String;
+      96: invokevirtual #1077               // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      99: ifeq          145
+     102: aload         6
+     104: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     107: invokevirtual #1083               // Method java/util/UUID.getLeastSignificantBits:()J
+     110: lconst_0
+     111: lcmp
+     112: ifeq          145
+     115: aload         6
+     117: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     120: invokevirtual #1086               // Method java/util/UUID.getMostSignificantBits:()J
+     123: lconst_0
+     124: lcmp
+     125: ifeq          145
+     128: aload_2
+     129: aload         5
+     131: ldc_w         #1088               // String AttributeName
+     134: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+     137: aload         6
+     139: invokeinterface #1092,  3         // InterfaceMethod com/google/common/collect/Multimap.put:(Ljava/lang/Object;Ljava/lang/Object;)Z
+     144: pop
+     145: iinc          4, 1
+     148: goto          42
+     151: goto          164
+     154: aload_0
+     155: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+     158: aload_1
+     159: aload_0
+     160: invokevirtual #1095               // Method net/minecraft/item/Item.getAttributeModifiers:(Lnet/minecraft/inventory/EntityEquipmentSlot;Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+     163: astore_2
+     164: aload_2
+     165: areturn
+
+
+// SOURCE /tmp/nagaport-legacy-client.jar :: EntityLivingBase.onUpdate equipment range 0 <= i < 5
+// javap lines 3717-4051
+  public void h();
+    Code:
+       0: aload_0
+       1: invokespecial #444                // Method sa.h:()V
+       4: aload_0
+       5: getfield      #296                // Field o:Lahb;
+       8: getfield      #182                // Field ahb.E:Z
+      11: ifne          198
+      14: aload_0
+      15: invokevirtual #484                // Method aZ:()I
+      18: istore_1
+      19: iload_1
+      20: ifle          65
+      23: aload_0
+      24: getfield      #263                // Field av:I
+      27: ifgt          41
+      30: aload_0
+      31: bipush        20
+      33: bipush        30
+      35: iload_1
+      36: isub
+      37: imul
+      38: putfield      #263                // Field av:I
+      41: aload_0
+      42: dup
+      43: getfield      #263                // Field av:I
+      46: iconst_1
+      47: isub
+      48: putfield      #263                // Field av:I
+      51: aload_0
+      52: getfield      #263                // Field av:I
+      55: ifgt          65
+      58: aload_0
+      59: iload_1
+      60: iconst_1
+      61: isub
+      62: invokevirtual #542                // Method p:(I)V
+      65: iconst_0
+      66: istore_2
+      67: iload_2
+      68: iconst_5
+      69: if_icmpge     181
+      72: aload_0
+      73: getfield      #291                // Field g:[Ladd;
+      76: iload_2
+      77: aaload
+      78: astore_3
+      79: aload_0
+      80: iload_2
+      81: invokevirtual #543                // Method q:(I)Ladd;
+      84: astore        4
+      86: aload         4
+      88: aload_3
+      89: invokestatic  #322                // Method add.b:(Ladd;Ladd;)Z
+      92: ifne          175
+      95: aload_0
+      96: getfield      #296                // Field o:Lahb;
+      99: checkcast     #102                // class mt
+     102: invokevirtual #405                // Method mt.r:()Lmn;
+     105: aload_0
+     106: new           #86                 // class hz
+     109: dup
+     110: aload_0
+     111: invokevirtual #544                // Method y:()I
+     114: iload_2
+     115: aload         4
+     117: invokespecial #375                // Method hz."<init>":(IILadd;)V
+     120: invokevirtual #404                // Method mn.a:(Lsa;Lft;)V
+     123: aload_3
+     124: ifnull        138
+     127: aload_0
+     128: getfield      #288                // Field d:Ltl;
+     131: aload_3
+     132: invokevirtual #319                // Method add.D:()Lcom/google/common/collect/Multimap;
+     135: invokevirtual #552                // Method tl.a:(Lcom/google/common/collect/Multimap;)V
+     138: aload         4
+     140: ifnull        155
+     143: aload_0
+     144: getfield      #288                // Field d:Ltl;
+     147: aload         4
+     149: invokevirtual #319                // Method add.D:()Lcom/google/common/collect/Multimap;
+     152: invokevirtual #554                // Method tl.b:(Lcom/google/common/collect/Multimap;)V
+     155: aload_0
+     156: getfield      #291                // Field g:[Ladd;
+     159: iload_2
+     160: aload         4
+     162: ifnonnull     169
+     165: aconst_null
+     166: goto          174
+     169: aload         4
+     171: invokevirtual #325                // Method add.m:()Ladd;
+     174: aastore
+     175: iinc          2, 1
+     178: goto          67
+     181: aload_0
+     182: getfield      #257                // Field aa:I
+     185: bipush        20
+     187: irem
+     188: ifne          198
+     191: aload_0
+     192: invokevirtual #481                // Method aW:()Lrn;
+     195: invokevirtual #419                // Method rn.g:()V
+
+
+// SOURCE /tmp/nagaport-legacy-client.jar :: EntityPlayer.getEquipmentInSlot maps 0 to held and 1..4 to armor
+// javap lines 4356-4372
+  public add q(int);
+    Code:
+       0: iload_1
+       1: ifne          12
+       4: aload_0
+       5: getfield      #278                // Field bm:Lyx;
+       8: invokevirtual #493                // Method yx.h:()Ladd;
+      11: areturn
+      12: aload_0
+      13: getfield      #278                // Field bm:Lyx;
+      16: getfield      #246                // Field yx.b:[Ladd;
+      19: iload_1
+      20: iconst_1
+      21: isub
+      22: aaload
+      23: areturn
+

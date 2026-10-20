@@ -38,8 +38,8 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 	}
 
 	public EntityRADBeast makeLeader() {
-		this.setEquipmentDropChance(0, 1F);
-		this.setCurrentItemOrArmor(0, new ItemStack(ModItems.coin_radiation));
+		this.setDropChance(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, 1F);
+		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.coin_radiation));
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(360.0D);
 		this.heal(this.getMaxHealth());
 		return this;
@@ -114,16 +114,16 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 		if(this.getMaxHealth() <= 150) {
 
 			for(int i = 0; i < 6; i++) {
-				this.world.spawnParticle("townaura", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);
 			}
 
 			if(this.rand.nextInt(6) == 0) {
 
-				this.world.spawnParticle("flame", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
 			}
 
 		} else {
-			this.world.spawnParticle("lava", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
 		}
 
 		super.onLivingUpdate();

@@ -1,0 +1,260 @@
+{
+  "hooks": {
+    "ArmorAJR": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorAJRO": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorAsbestos": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "ArmorAshGlasses": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorBJ": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorBJJetpack": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorBismuth": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorDNT": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorDesh": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorDiesel": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorDigamma": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorEnvsuit": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorEuphemium": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "ArmorFSB": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "ArmorGasMask": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)",
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "ArmorHEV": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorHazmatMask": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorLiquidator": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorModel": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)",
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "ArmorNCRPA": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorNo9": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorRPA": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorT51": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorTaurun": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ArmorTrenchmaster": [
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "ItemModHeavyBoots": [
+      "isValidArmor(net.minecraft.item.ItemStack,int,net.minecraft.entity.Entity)",
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "JetpackBase": [
+      "isValidArmor(net.minecraft.item.ItemStack,int,net.minecraft.entity.Entity)",
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ],
+    "JetpackBooster": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "JetpackBreak": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "JetpackRegular": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "JetpackVectorized": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "MaskOfInfamy": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "ModArmor": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)"
+    ],
+    "WingsMurk": [
+      "getArmorTexture(net.minecraft.item.ItemStack,net.minecraft.entity.Entity,int,java.lang.String)",
+      "getArmorModel(net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int)"
+    ]
+  },
+  "item_fields": [
+    "alloy_boots",
+    "alloy_helmet",
+    "alloy_legs",
+    "alloy_plate",
+    "asbestos_boots",
+    "asbestos_helmet",
+    "asbestos_legs",
+    "asbestos_plate",
+    "cape_gasmask",
+    "cape_hidden",
+    "cape_radiation",
+    "cape_schrabidium",
+    "cmb_boots",
+    "cmb_helmet",
+    "cmb_legs",
+    "cmb_plate",
+    "euphemium_boots",
+    "euphemium_helmet",
+    "euphemium_legs",
+    "euphemium_plate",
+    "gas_mask",
+    "gas_mask_m65",
+    "gas_mask_mono",
+    "gas_mask_olde",
+    "goggles",
+    "hat",
+    "hazmat_helmet_grey",
+    "hazmat_helmet_red",
+    "jackt",
+    "jackt2",
+    "liquidator_helmet",
+    "mask_piss",
+    "mask_rag",
+    "paa_boots",
+    "paa_legs",
+    "paa_plate",
+    "security_boots",
+    "security_helmet",
+    "security_legs",
+    "security_plate",
+    "steel_boots",
+    "steel_helmet",
+    "steel_legs",
+    "steel_plate",
+    "titanium_boots",
+    "titanium_helmet",
+    "titanium_legs",
+    "titanium_plate",
+    "wings_murk"
+  ],
+  "model_dependencies": [
+    "ModelArmorAJR",
+    "ModelArmorAJRO",
+    "ModelArmorBJ",
+    "ModelArmorBismuth",
+    "ModelArmorDNT",
+    "ModelArmorDesh",
+    "ModelArmorDiesel",
+    "ModelArmorDigamma",
+    "ModelArmorEnvsuit",
+    "ModelArmorHEV",
+    "ModelArmorNCRPA",
+    "ModelArmorRPA",
+    "ModelArmorT51",
+    "ModelArmorTaurun",
+    "ModelArmorTrenchmaster",
+    "ModelArmorWings",
+    "ModelCloak",
+    "ModelGasMask",
+    "ModelGlasses",
+    "ModelGoggles",
+    "ModelHat",
+    "ModelJetPack",
+    "ModelM65",
+    "ModelNo9"
+  ],
+  "constructor_projections": [
+    "CtorArmorAsbestos",
+    "CtorArmorAshGlasses",
+    "CtorArmorEuphemium",
+    "CtorArmorFSB",
+    "CtorArmorGasMask",
+    "CtorArmorModel",
+    "CtorMaskOfInfamy",
+    "CtorModArmor"
+  ],
+  "attribute_expressions": [
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+      "expression": "new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", -0.025D, 1)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "expression": "new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", 0.25D, 1)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "expression": "new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", 100D, 0)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "expression": "new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], \"Armor modifier\", -0.1D, 1)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModHealth.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Health\", health, 0)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Speed\", -1F + speed, 2)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModIron.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Knockback\", 0.5, 0)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 0.5, 2)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 1.5, 2)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 0.25, 2)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Servos\", 0.5, 2)"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/armor/ItemModWD40.java",
+      "expression": "new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], \"NTM Armor Mod Health\", 4, 0)"
+    }
+  ],
+  "complete_production_owners": [
+    "ArmorAshGlasses",
+    "MaskOfInfamy",
+    "ModArmor",
+    "ArmorModHandler"
+  ],
+  "complete_representative_models": [
+    "ModelGlasses",
+    "ModelArmorHEV",
+    "ModelArmorBase",
+    "ModelRendererObj"
+  ]
+}

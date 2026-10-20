@@ -1,0 +1,2 @@
+MD: ahb/a (IIIZ)Z net/minecraft/world/World/func_147480_a (IIIZ)Z
+MD: net/minecraft/world/World/func_175655_b (Lnet/minecraft/util/math/BlockPos;Z)Z net/minecraft/world/World/destroyBlock (Lnet/minecraft/util/math/BlockPos;Z)Z

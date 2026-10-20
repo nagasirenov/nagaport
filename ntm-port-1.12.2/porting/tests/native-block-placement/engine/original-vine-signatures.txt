@@ -1,0 +1,20 @@
+Compiled from "SourceFile"
+public class aoh extends aji {
+  public aoh();
+  public void g();
+  public int b();
+  public boolean c();
+  public boolean d();
+  public void a(ahl, int, int, int);
+  public azt a(ahb, int, int, int);
+  public boolean d(ahb, int, int, int, int);
+  public int D();
+  public int i(int);
+  public int d(ahl, int, int, int);
+  public void a(ahb, int, int, int, aji);
+  public void a(ahb, int, int, int, java.util.Random);
+  public int a(ahb, int, int, int, int, float, float, float, int);
+  public adb a(int, java.util.Random, int);
+  public int a(java.util.Random);
+  public void a(ahb, yz, int, int, int, int);
+}

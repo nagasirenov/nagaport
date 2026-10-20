@@ -1,0 +1,7 @@
+{
+  "path": "src/main/java/com/hbm/items/block/ItemBlockBase.java",
+  "sha256": "c3e74659bd54c6a26135ef8360c7d182fda039fa471187492aae14817c662b4a",
+  "icon_delegate": "getIconFromDamage(meta) -> field_150939_a.getIcon(1, meta)",
+  "color_delegate": "getColorFromItemStack(stack, pass) -> field_150939_a.getRenderColor(stack.getItemDamage())",
+  "selected_owner_result": "One inherited Block icon for all sides and raw damage values; inherited white render color."
+}

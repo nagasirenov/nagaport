@@ -141,8 +141,8 @@ public class MachineSatDock extends BlockContainer implements IMultiblock {
 		for(int k = -1; k <= 1; k++)
 			for(int l = -1; l <= 1; l++)
 				if(l != 0 || k != 0)
-					if(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, xCoord + k, yCoord, zCoord + l)) {
-						worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
+					if(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, new net.minecraft.util.math.BlockPos(xCoord + k, yCoord, zCoord + l))) {
+						com.hbm.world.WorldBlockDestruction.destroy(worldObj, xCoord, yCoord, zCoord, true);
 						return;
 					}
 		

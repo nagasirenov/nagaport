@@ -1,0 +1,143 @@
+{
+  "base": "d5ef20a8f1cb65fbd06faa86a4901870c8bab3f2",
+  "binary_inputs": [
+    {
+      "path": "/tmp/nagaport-legacy-client.jar",
+      "sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce"
+    },
+    {
+      "path": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "69e6736b75384d9218846614fd47fd61c66c0f7e8899341ef98d1886b835d775"
+    }
+  ],
+  "production_files": [
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemBlowtorch.java",
+      "before_sha256": "f470f9da2a45fc02c899c31e655e97bae06565c36cb0e8616ad62237f2cdce5b",
+      "after_sha256": "a101e5db17b3f6e0f298961a244616e646a6585a553658c23f971dea1c9f7848"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemBoltgun.java",
+      "before_sha256": "8e03ae655633d820177ff1b948d64a5e6c9dc5f2bc34f9f78fdb6120e52f2762",
+      "after_sha256": "2c0c2a3f3e9a2c0522e9c831ed825a23d8ef3c1e2f8deec6864535f4c97605b9"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemModMinecart.java",
+      "before_sha256": "896a50b99fc41d7c59bf22f9d5c8f4a7001f6ac44b61123de405ca6bce601273",
+      "after_sha256": "c1b61746269125ad353475d6039f4260639e5d9419d210479efbcd6a6fc353cd"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemCraftingDegradation.java",
+      "before_sha256": "168ba83b59caf21edee639957a89acdb2c61817b886d740eed12cb45d02ed22e",
+      "after_sha256": "e56b3ebfad755660babfcc825f6784ceb59edd0910162bb574c14beb409d3e4d"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ModItems.java",
+      "before_sha256": "f6afc87bee360e613b2718a86e4a59d3636ae87090a464c3ea0bab461be3be72",
+      "after_sha256": "6321ccf6e1698a1a4b8b57724bdb47fde0ffc41a757a6846ee03879e48be810c"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemTooling.java",
+      "unchanged_sha256": "95b13cb5c0a37573128818177efd165c61096ec8cf5e2ccb440c4741ec6bee4e"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+      "unchanged_sha256": "b65f6bebc33477c34a1cba2bbc81ecd8a0636c9a52be703cb4f09b59b9a5c18a"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemDefuser.java",
+      "unchanged_sha256": "8d8c5b264d95f2abfd07ffdf92f197c955254c91b5858efb65c380c519935b25"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/item/NativeItemTextureRegistry.java",
+      "unchanged_sha256": "c53e61acd0088b7671cdfd949bfe5623a5ea1cfbbde9f3ae06583d054dbe9412"
+    },
+    {
+      "path": "src/main/java/com/hbm/render/item/NativeItemTextureModelHandler.java",
+      "unchanged_sha256": "eda9237a3df2c6d55d7758c852e007b3534db8aa77f3cb9c2e83b15c85344ac7"
+    }
+  ],
+  "original_resources": [
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/defuser.png",
+      "sha256": "3440387be2c6a18d0001c2d1508bf3f6da32a892b315145fe202e62e53b0f6eb"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/screwdriver.png",
+      "sha256": "254a22af536fddc1327464e4fac7a17ed8e4c5e082cf51818dc69e8823e44bfc"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/screwdriver_desh.png",
+      "sha256": "d6469f4e9488e46387bf98bd648ac9ae14715a9c0ed01d366d093256b66db653"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/hand_drill.png",
+      "sha256": "6f76a0443d78a7b168943481708622f75b531bdfa5533c1bbaa5e0aab28a3479"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/hand_drill_desh.png",
+      "sha256": "0e407cb2445c4a06ccfde079734418db465f5cd68f127e73d3acdc1676cbbe84"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/wrench_archineer_hd.png",
+      "sha256": "b39e223fbb094ed49f90c636b517f84e8741561aa873d46fb85ef2d3f40d5e77"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/chemistry_set.png",
+      "sha256": "a4b5eb8b2cde12d91ecca689bb079458a3a874453c3de902a6e1ee7218eff4fe"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/chemistry_set_boron.png",
+      "sha256": "a3582084eaac809bd0c7bbb9ed50833910c3d78884676ea3c8f93b6de17c17cb"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/blowtorch.png",
+      "sha256": "899d3e4bc52b0e684d59d268007585590e4b1d2607655a7a37c21d81da812712"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/acetylene_torch.png",
+      "sha256": "7b91b4383a59c8e5295861ee3323cafe6ca8a0d77fd63ee381c2070f08c695ec"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/boltgun.png",
+      "sha256": "e5169fcf86d29f8fb4153df4150782c32f64c3291c7fb3ae132a193911eb46f8"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart.vanilla.png",
+      "sha256": "316bc7ab104e3808774c04950078676a11a38dff6c0a04336ddbf8891900d4ce"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart.wood.png",
+      "sha256": "2f02f09f339746d3cd77a335207f2f60278d92b641621e65620a298bbdae3427"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart.steel.png",
+      "sha256": "259f957862847a89c13fb59ad128f4b747c64686c26208edcac6325826ef4268"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart.painted.png",
+      "sha256": "d201e1f35d32ce547e3f048ac21e1c3373b864e7f830874521eb189689f0ca57"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart_overlay.empty.png",
+      "sha256": "8ff30cd9dc11cc06a7377bb427946861d492966ac3d4e4f663dd2ad9d1ad6941"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart_overlay.crate.png",
+      "sha256": "4f8ccef02dd7983d7820e5f3d1fa0b9783db63c6bfc762e49612a485c0e41169"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart_overlay.destroyer.png",
+      "sha256": "2d2afdb0914dbcb9830b9cbd49a43f4cb268898b7db30c95c12a36309bc472d4"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart_overlay.powder.png",
+      "sha256": "6aa7fa28712df7e95180420c0714a6d60d0b1351b38570f94d471f42409708e7"
+    },
+    {
+      "path": "src/main/resources/assets/hbm/textures/items/cart_overlay.semtex.png",
+      "sha256": "cb3c3aa50116898ac72e8be671050788f3399263c6e51f9cd16ecf152dfad876"
+    }
+  ],
+  "scope": "4 setter owners, 3 inherited descendants, 12 callers, 2 layered-cart texture readers; method slices only"
+}

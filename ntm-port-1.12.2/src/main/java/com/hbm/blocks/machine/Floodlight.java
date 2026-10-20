@@ -195,7 +195,7 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 					if(tile instanceof TileEntityFloodlightBeam) {
 						TileEntityFloodlightBeam beam = (TileEntityFloodlightBeam) tile;
 						if(beam.cache == this) {
-							this.world.setBlock(oldPos.getX(), oldPos.getY(), oldPos.getZ(), Blocks.AIR, 0, 2);
+							com.hbm.world.WorldBlockState.write(this.world, oldPos.getX(), oldPos.getY(), oldPos.getZ(), Blocks.AIR.getStateFromMeta(0), 2);
 						}
 					}
 				}
@@ -264,7 +264,7 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 			BlockPos pos = lightPos[index];
 			if(pos != null) {
 				if(pos != null && com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()).getBlock() == ModBlocks.floodlight_beam) {
-					this.world.setBlock(pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR, 0, 2);
+					com.hbm.world.WorldBlockState.write(this.world, pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR.getStateFromMeta(0), 2);
 				}
 			}
 		}

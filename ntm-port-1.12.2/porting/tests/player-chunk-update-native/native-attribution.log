@@ -1,0 +1,8 @@
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/PneumoTubePaintableBlock.java	4984	5091	net.minecraft.world.WorldServer	resolved native getter/map/int constructor
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipeBaseNT.java	2262	2395	net.minecraft.world.WorldServer	resolved native getter/map/int constructor
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java	1876	2009	net.minecraft.world.WorldServer	resolved native getter/map/int constructor
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPipelineBase.java	2854	3014	net.minecraft.world.WorldServer	resolved native getter/map/int constructor
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java	1886	2019	net.minecraft.world.WorldServer	resolved native getter/map/int constructor
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java	2908	3041	net.minecraft.world.WorldServer	resolved native getter/map/int constructor
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityPylonBase.java	3836	3987	net.minecraft.world.WorldServer	resolved native getter/map/int constructor
+Attribution errors in unfinished source, not a successful full compilation: 11423

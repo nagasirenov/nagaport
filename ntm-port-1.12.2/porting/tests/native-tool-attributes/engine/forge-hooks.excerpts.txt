@@ -1,0 +1,60 @@
+// SOURCE /tmp/nagaport-forge1614-userdev.jar!/forgepatches.zip!/net/minecraft/item/Item.java.patch lines 116-131
+@@ -728,6 +746,591 @@
+         return this.field_111218_cA == null ? "MISSING_ICON_ITEM_" + field_150901_e.func_148757_b(this) + "_" + this.field_77774_bZ : this.field_111218_cA;
+     }
+ 
++    /* ======================================== FORGE START =====================================*/
++    /**
++     * ItemStack sensitive version of getItemAttributeModifiers
++     */
++    public Multimap getAttributeModifiers(ItemStack stack)
++    {
++        return this.func_111205_h();
++    }
++
++    /**
++     * Called when a player drops the item into the world,
++     * returning false from this will prevent the item from
+
+// SOURCE /tmp/nagaport-forge1614-userdev.jar!/forgepatches.zip!/net/minecraft/item/ItemStack.java.patch lines 118-129
+     public EnumRarity func_77953_t()
+     {
+         return this.func_77973_b().func_77613_e(this);
+@@ -737,7 +742,7 @@
+         }
+         else
+         {
+-            object = this.func_77973_b().func_111205_h();
++            object = this.func_77973_b().getAttributeModifiers(this);
+         }
+ 
+         return (Multimap)object;
+
+// SOURCE /tmp/nagaport-forge1614-userdev.jar!/forgepatches.zip!/net/minecraft/block/Block.java.patch lines 1286-1312
++    protected ThreadLocal<Boolean> captureDrops = new ThreadLocal<Boolean>()
++    {
++        @Override protected Boolean initialValue() { return false; }
++    };
++    protected ThreadLocal<List<ItemStack>> capturedDrops = new ThreadLocal<List<ItemStack>>()
++    {
++        @Override protected List<ItemStack> initialValue() { return new ArrayList<ItemStack>(); }
++    };
++    protected List<ItemStack> captureDrops(boolean start)
++    {
++        if (start)
++        {
++            captureDrops.set(true);
++            capturedDrops.get().clear();
++            return null;
++        }
++        else
++        {
++            captureDrops.set(false);
++            return capturedDrops.get();
++        }
++    }
++    /* ========================================= FORGE END ======================================*/
++
+     public static class SoundType
+         {
+             public final String field_150501_a;

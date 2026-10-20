@@ -18,11 +18,11 @@ public class GunB92Cell extends Item {
 		if(entity instanceof EntityPlayer && getPower(stack) < 25) {
 			EntityPlayer player = (EntityPlayer) entity;
 			
-			for(int j = 0; j < player.inventory.mainInventory.length; j++) {
-				if(player.inventory.mainInventory[j] != null && player.inventory.mainInventory[j].getItem() == ModItems.gun_b92) {
-					int p = getPower(player.inventory.mainInventory[j]);
+			for(int j = 0; j < player.inventory.mainInventory.size(); j++) {
+				if(com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j) != null && com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j).getItem() == ModItems.gun_b92) {
+					int p = getPower(com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j));
 					if(p > 1) {
-						setPower(player.inventory.mainInventory[j], p - 1);
+						setPower(com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, j), p - 1);
 						setPower(stack, getPower(stack) + 1);
 						if(getPower(stack) == 25)
 							stack.setItemDamage(1);

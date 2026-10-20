@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
@@ -15,11 +16,12 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.model.ModelBullet;
 
 @SideOnly(Side.CLIENT)
-public class RenderRocket extends Render {
+public class RenderRocket extends Render<Entity> {
 
 	private ModelBullet miniNuke;
 
-	public RenderRocket() {
+	public RenderRocket(RenderManager renderManager) {
+		super(renderManager);
 		miniNuke = new ModelBullet();
 	}
 

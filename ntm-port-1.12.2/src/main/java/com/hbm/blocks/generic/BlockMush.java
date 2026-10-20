@@ -21,10 +21,12 @@ import net.minecraftforge.common.IPlantable;
 
 public class BlockMush extends Block implements IGrowable, IPlantable {
 
+	private final net.minecraft.util.math.AxisAlignedBB shape;
+
 	public BlockMush(Material p_i45394_1_) {
 		super(p_i45394_1_);
 		float f = 0.2F;
-		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+		this.shape = new net.minecraft.util.math.AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 		this.setTickRandomly(true);
 	}
 
@@ -33,8 +35,9 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
+		return super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);
 	}
 
 	@Override
@@ -98,7 +101,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, IBlockAccess world, BlockPos pos) {
 		return null;
 	}
 
@@ -181,7 +184,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 			iz = y + rand.nextInt(5) - 2;
 
 			for(int l1 = 0; l1 < 4; ++l1) {
-				if(world.isAirBlock(ix, iy, iz) && this.canMushGrowHere(world, ix, iy, iz)) {
+				if(world.isAirBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz)) && this.canMushGrowHere(world, ix, iy, iz)) {
 					x = ix;
 					z = iy;
 					y = iz;
@@ -192,7 +195,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 				iz = y + rand.nextInt(5) - 2;
 			}
 
-			if(world.isAirBlock(ix, iy, iz) && this.canMushGrowHere(world, ix, iy, iz)) {
+			if(world.isAirBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz)) && this.canMushGrowHere(world, ix, iy, iz)) {
 				world.setBlock(ix, iy, iz, this, 0, 2);
 			}
 		}
@@ -213,4 +216,10 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 		return world.getBlockMetadata(x, y, z);
 	}
 
+
+
+	@Override
+	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		return shape;
+	}
 }

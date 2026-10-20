@@ -102,7 +102,7 @@ public class EntityBoatRubber extends Entity {
 			this.setTimeSinceHit(10);
 			this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
 			this.setBeenAttacked();
-			boolean hitByCreative = source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode;
+			boolean hitByCreative = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;
 
 			if(hitByCreative || this.getDamageTaken() > 40.0F) {
 				if(this.isBeingRidden()) {
@@ -302,10 +302,10 @@ public class EntityBoatRubber extends Entity {
 
 					if(block == Blocks.SNOW_LAYER) {
 						com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
-						this.isCollidedHorizontally = false;
+						this.collidedHorizontally = false;
 					} else if(block == Blocks.WATERLILY) {
-						this.world.func_147480_a(x, y, z, true);
-						this.isCollidedHorizontally = false;
+						com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, true);
+						this.collidedHorizontally = false;
 					}
 				}
 			}
@@ -318,7 +318,7 @@ public class EntityBoatRubber extends Entity {
 
 			this.moveEntity(this.motionX, this.motionY, this.motionZ);
 
-			if(this.isCollidedHorizontally && prevSpeedSq > 0.2D) {
+			if(this.collidedHorizontally && prevSpeedSq > 0.2D) {
 				this.motionX *= 0.25D;
 				this.motionY *= 0.25D;
 				this.motionZ *= 0.25D;
@@ -389,11 +389,11 @@ public class EntityBoatRubber extends Entity {
 				if(this.rand.nextBoolean()) {
 					magX = this.posX - cosYaw * offset * 0.8D + sinYaw * side;
 					magZ = this.posZ - sinYaw * offset * 0.8D - cosYaw * side;
-					this.world.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
 				} else {
 					magX = this.posX + cosYaw + sinYaw * offset * 0.7D;
 					magZ = this.posZ + sinYaw - cosYaw * offset * 0.7D;
-					this.world.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
 				}
 			}
 		}

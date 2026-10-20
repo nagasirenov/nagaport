@@ -1,0 +1,30 @@
+{
+  "complete_method_projections": [
+    "ItemMirrorTool",
+    "ItemRBMKTool",
+    "ItemToolingWeapon",
+    "ItemSwordAbility",
+    "ItemToolAbility",
+    "GunB92",
+    "ItemCrucible",
+    "WeaponSpecial"
+  ],
+  "complete_constructor_projections": [
+    "ItemSwordAbility",
+    "ItemToolAbility",
+    "WeaponSpecial"
+  ],
+  "expression_projection": "ModEventHandler ballistic-gauntlet held-stack query, nullable held input substituted for existing NativeHeldItem call",
+  "test_only_dependencies": [
+    "ModItems item identity holder",
+    "ItemToolAbility local EnumToolType blocks/type scaffold",
+    "ItemToolingWeapon no-attribute ancestor collapsed to real Item",
+    "Crucible test constructor, unrelated charge/renderer setup excluded"
+  ],
+  "no_claim": [
+    "complete owners",
+    "world/player combat cooldown gameplay",
+    "renderers or block interaction",
+    "full mod build"
+  ]
+}

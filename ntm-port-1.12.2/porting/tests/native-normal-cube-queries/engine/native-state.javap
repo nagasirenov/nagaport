@@ -1,0 +1,677 @@
+Compiled from "BlockStateContainer.java"
+public class net.minecraft.block.state.BlockStateContainer$StateImplementation extends net.minecraft.block.state.BlockStateBase {
+  private final net.minecraft.block.Block block;
+
+  private final com.google.common.collect.ImmutableMap<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>> properties;
+
+  protected com.google.common.collect.ImmutableTable<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>, net.minecraft.block.state.IBlockState> propertyValueTable;
+
+  protected net.minecraft.block.state.BlockStateContainer$StateImplementation(net.minecraft.block.Block, com.google.common.collect.ImmutableMap<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>>);
+    Code:
+       0: aload_0
+       1: invokespecial #26                 // Method net/minecraft/block/state/BlockStateBase."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       9: aload_0
+      10: aload_2
+      11: putfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+      14: return
+
+  protected net.minecraft.block.state.BlockStateContainer$StateImplementation(net.minecraft.block.Block, com.google.common.collect.ImmutableMap<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>>, com.google.common.collect.ImmutableTable<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>, net.minecraft.block.state.IBlockState>);
+    Code:
+       0: aload_0
+       1: invokespecial #26                 // Method net/minecraft/block/state/BlockStateBase."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       9: aload_0
+      10: aload_2
+      11: putfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+      14: aload_0
+      15: aload_3
+      16: putfield      #37                 // Field propertyValueTable:Lcom/google/common/collect/ImmutableTable;
+      19: return
+
+  public java.util.Collection<net.minecraft.block.properties.IProperty<?>> getPropertyKeys();
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+       4: invokevirtual #48                 // Method com/google/common/collect/ImmutableMap.keySet:()Lcom/google/common/collect/ImmutableSet;
+       7: invokestatic  #54                 // Method java/util/Collections.unmodifiableCollection:(Ljava/util/Collection;)Ljava/util/Collection;
+      10: areturn
+
+  public <T extends java.lang.Comparable<T>> T getValue(net.minecraft.block.properties.IProperty<T>);
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+       4: aload_1
+       5: invokevirtual #60                 // Method com/google/common/collect/ImmutableMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       8: checkcast     #62                 // class java/lang/Comparable
+      11: astore_2
+      12: aload_2
+      13: ifnonnull     58
+      16: new           #64                 // class java/lang/IllegalArgumentException
+      19: dup
+      20: new           #66                 // class java/lang/StringBuilder
+      23: dup
+      24: invokespecial #67                 // Method java/lang/StringBuilder."<init>":()V
+      27: ldc           #69                 // String Cannot get property
+      29: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      32: aload_1
+      33: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      36: ldc           #78                 // String  as it does not exist in
+      38: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      41: aload_0
+      42: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+      45: invokevirtual #84                 // Method net/minecraft/block/Block.getBlockState:()Lnet/minecraft/block/state/BlockStateContainer;
+      48: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      51: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      54: invokespecial #91                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      57: athrow
+      58: aload_1
+      59: invokeinterface #97,  1           // InterfaceMethod net/minecraft/block/properties/IProperty.getValueClass:()Ljava/lang/Class;
+      64: aload_2
+      65: invokevirtual #102                // Method java/lang/Class.cast:(Ljava/lang/Object;)Ljava/lang/Object;
+      68: checkcast     #62                 // class java/lang/Comparable
+      71: areturn
+
+  public <T extends java.lang.Comparable<T>, V extends T> net.minecraft.block.state.IBlockState withProperty(net.minecraft.block.properties.IProperty<T>, V);
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+       4: aload_1
+       5: invokevirtual #60                 // Method com/google/common/collect/ImmutableMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       8: checkcast     #62                 // class java/lang/Comparable
+      11: astore_3
+      12: aload_3
+      13: ifnonnull     58
+      16: new           #64                 // class java/lang/IllegalArgumentException
+      19: dup
+      20: new           #66                 // class java/lang/StringBuilder
+      23: dup
+      24: invokespecial #67                 // Method java/lang/StringBuilder."<init>":()V
+      27: ldc           #112                // String Cannot set property
+      29: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      32: aload_1
+      33: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      36: ldc           #78                 // String  as it does not exist in
+      38: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      41: aload_0
+      42: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+      45: invokevirtual #84                 // Method net/minecraft/block/Block.getBlockState:()Lnet/minecraft/block/state/BlockStateContainer;
+      48: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      51: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      54: invokespecial #91                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      57: athrow
+      58: aload_3
+      59: aload_2
+      60: if_acmpne     65
+      63: aload_0
+      64: areturn
+      65: aload_0
+      66: getfield      #37                 // Field propertyValueTable:Lcom/google/common/collect/ImmutableTable;
+      69: aload_1
+      70: aload_2
+      71: invokevirtual #117                // Method com/google/common/collect/ImmutableTable.get:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      74: checkcast     #119                // class net/minecraft/block/state/IBlockState
+      77: astore        4
+      79: aload         4
+      81: ifnonnull     143
+      84: new           #64                 // class java/lang/IllegalArgumentException
+      87: dup
+      88: new           #66                 // class java/lang/StringBuilder
+      91: dup
+      92: invokespecial #67                 // Method java/lang/StringBuilder."<init>":()V
+      95: ldc           #112                // String Cannot set property
+      97: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     100: aload_1
+     101: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     104: ldc           #121                // String  to
+     106: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     109: aload_2
+     110: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     113: ldc           #123                // String  on block
+     115: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     118: getstatic     #127                // Field net/minecraft/block/Block.REGISTRY:Lnet/minecraft/util/registry/RegistryNamespacedDefaultedByKey;
+     121: aload_0
+     122: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+     125: invokevirtual #132                // Method net/minecraft/util/registry/RegistryNamespacedDefaultedByKey.getNameForObject:(Ljava/lang/Object;)Ljava/lang/Object;
+     128: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     131: ldc           #134                // String , it is not an allowed value
+     133: invokevirtual #73                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     136: invokevirtual #88                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     139: invokespecial #91                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+     142: athrow
+     143: aload         4
+     145: areturn
+
+  public com.google.common.collect.ImmutableMap<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>> getProperties();
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+       4: areturn
+
+  public net.minecraft.block.Block getBlock();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: areturn
+
+  public boolean equals(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: if_acmpne     9
+       5: iconst_1
+       6: goto          10
+       9: iconst_0
+      10: ireturn
+
+  public int hashCode();
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+       4: invokevirtual #151                // Method com/google/common/collect/ImmutableMap.hashCode:()I
+       7: ireturn
+
+  public void buildPropertyValueTable(java.util.Map<java.util.Map<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>>, net.minecraft.block.state.BlockStateContainer$StateImplementation>);
+    Code:
+       0: aload_0
+       1: getfield      #37                 // Field propertyValueTable:Lcom/google/common/collect/ImmutableTable;
+       4: ifnull        15
+       7: new           #155                // class java/lang/IllegalStateException
+      10: dup
+      11: invokespecial #156                // Method java/lang/IllegalStateException."<init>":()V
+      14: athrow
+      15: invokestatic  #162                // Method com/google/common/collect/HashBasedTable.create:()Lcom/google/common/collect/HashBasedTable;
+      18: astore_2
+      19: aload_0
+      20: getfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+      23: invokevirtual #165                // Method com/google/common/collect/ImmutableMap.entrySet:()Lcom/google/common/collect/ImmutableSet;
+      26: invokevirtual #171                // Method com/google/common/collect/ImmutableSet.iterator:()Lcom/google/common/collect/UnmodifiableIterator;
+      29: astore_3
+      30: aload_3
+      31: invokevirtual #179                // Method com/google/common/collect/UnmodifiableIterator.hasNext:()Z
+      34: ifeq          137
+      37: aload_3
+      38: invokevirtual #183                // Method com/google/common/collect/UnmodifiableIterator.next:()Ljava/lang/Object;
+      41: checkcast     #10                 // class java/util/Map$Entry
+      44: astore        4
+      46: aload         4
+      48: invokeinterface #186,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      53: checkcast     #93                 // class net/minecraft/block/properties/IProperty
+      56: astore        5
+      58: aload         5
+      60: invokeinterface #189,  1          // InterfaceMethod net/minecraft/block/properties/IProperty.getAllowedValues:()Ljava/util/Collection;
+      65: invokeinterface #194,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      70: astore        6
+      72: aload         6
+      74: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      79: ifeq          134
+      82: aload         6
+      84: invokeinterface #198,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      89: checkcast     #62                 // class java/lang/Comparable
+      92: astore        7
+      94: aload         7
+      96: aload         4
+      98: invokeinterface #200,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     103: if_acmpeq     131
+     106: aload_2
+     107: aload         5
+     109: aload         7
+     111: aload_1
+     112: aload_0
+     113: aload         5
+     115: aload         7
+     117: invokespecial #204                // Method getPropertiesWithValue:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Ljava/util/Map;
+     120: invokeinterface #205,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     125: invokeinterface #209,  4          // InterfaceMethod com/google/common/collect/Table.put:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     130: pop
+     131: goto          72
+     134: goto          30
+     137: aload_0
+     138: aload_2
+     139: invokestatic  #213                // Method com/google/common/collect/ImmutableTable.copyOf:(Lcom/google/common/collect/Table;)Lcom/google/common/collect/ImmutableTable;
+     142: putfield      #37                 // Field propertyValueTable:Lcom/google/common/collect/ImmutableTable;
+     145: return
+
+  private java.util.Map<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>> getPropertiesWithValue(net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>);
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field properties:Lcom/google/common/collect/ImmutableMap;
+       4: invokestatic  #232                // Method com/google/common/collect/Maps.newHashMap:(Ljava/util/Map;)Ljava/util/HashMap;
+       7: astore_3
+       8: aload_3
+       9: aload_1
+      10: aload_2
+      11: invokeinterface #234,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      16: pop
+      17: aload_3
+      18: areturn
+
+  public net.minecraft.block.material.Material getMaterial();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #243                // Method net/minecraft/block/Block.getMaterial:(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/block/material/Material;
+       8: areturn
+
+  public boolean isFullBlock();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #247                // Method net/minecraft/block/Block.isFullBlock:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public boolean canEntitySpawn(net.minecraft.entity.Entity);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #252                // Method net/minecraft/block/Block.canEntitySpawn:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/entity/Entity;)Z
+       9: ireturn
+
+  public int getLightOpacity();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #258                // Method net/minecraft/block/Block.getLightOpacity:(Lnet/minecraft/block/state/IBlockState;)I
+       8: ireturn
+
+  public int getLightValue();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #261                // Method net/minecraft/block/Block.getLightValue:(Lnet/minecraft/block/state/IBlockState;)I
+       8: ireturn
+
+  public boolean isTranslucent();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #268                // Method net/minecraft/block/Block.isTranslucent:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public boolean useNeighborBrightness();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #272                // Method net/minecraft/block/Block.getUseNeighborBrightness:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public net.minecraft.block.material.MapColor getMapColor(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #277                // Method net/minecraft/block/Block.getMapColor:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/material/MapColor;
+      10: areturn
+
+  public net.minecraft.block.state.IBlockState withRotation(net.minecraft.util.Rotation);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #286                // Method net/minecraft/block/Block.withRotation:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/util/Rotation;)Lnet/minecraft/block/state/IBlockState;
+       9: areturn
+
+  public net.minecraft.block.state.IBlockState withMirror(net.minecraft.util.Mirror);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #293                // Method net/minecraft/block/Block.withMirror:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/util/Mirror;)Lnet/minecraft/block/state/IBlockState;
+       9: areturn
+
+  public boolean isFullCube();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #298                // Method net/minecraft/block/Block.isFullCube:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public boolean hasCustomBreakingProgress();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #301                // Method net/minecraft/block/Block.hasCustomBreakingProgress:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public net.minecraft.util.EnumBlockRenderType getRenderType();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #306                // Method net/minecraft/block/Block.getRenderType:(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/util/EnumBlockRenderType;
+       8: areturn
+
+  public int getPackedLightmapCoords(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #311                // Method net/minecraft/block/Block.getPackedLightmapCoords:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+      10: ireturn
+
+  public float getAmbientOcclusionLightValue();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #318                // Method net/minecraft/block/Block.getAmbientOcclusionLightValue:(Lnet/minecraft/block/state/IBlockState;)F
+       8: freturn
+
+  public boolean isBlockNormalCube();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #321                // Method net/minecraft/block/Block.isBlockNormalCube:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public boolean isNormalCube();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #324                // Method net/minecraft/block/Block.isNormalCube:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public boolean canProvidePower();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #327                // Method net/minecraft/block/Block.canProvidePower:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public int getWeakPower(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #332                // Method net/minecraft/block/Block.getWeakPower:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)I
+      11: ireturn
+
+  public boolean hasComparatorInputOverride();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #339                // Method net/minecraft/block/Block.hasComparatorInputOverride:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public int getComparatorInputOverride(net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #344                // Method net/minecraft/block/Block.getComparatorInputOverride:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)I
+      10: ireturn
+
+  public float getBlockHardness(net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #352                // Method net/minecraft/block/Block.getBlockHardness:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F
+      10: freturn
+
+  public float getPlayerRelativeBlockHardness(net.minecraft.entity.player.EntityPlayer, net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #359                // Method net/minecraft/block/Block.getPlayerRelativeBlockHardness:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F
+      11: freturn
+
+  public int getStrongPower(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #366                // Method net/minecraft/block/Block.getStrongPower:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)I
+      11: ireturn
+
+  public net.minecraft.block.material.EnumPushReaction getPushReaction();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #374                // Method net/minecraft/block/Block.getPushReaction:(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/block/material/EnumPushReaction;
+       8: areturn
+
+  public net.minecraft.block.state.IBlockState getActualState(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #379                // Method net/minecraft/block/Block.getActualState:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      10: areturn
+
+  public net.minecraft.util.math.AxisAlignedBB getSelectedBoundingBox(net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #386                // Method net/minecraft/block/Block.getSelectedBoundingBox:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+      10: areturn
+
+  public boolean shouldSideBeRendered(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #393                // Method net/minecraft/block/Block.shouldSideBeRendered:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      11: ireturn
+
+  public boolean isOpaqueCube();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #399                // Method net/minecraft/block/Block.isOpaqueCube:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public net.minecraft.util.math.AxisAlignedBB getCollisionBoundingBox(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #405                // Method net/minecraft/block/Block.getCollisionBoundingBox:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+      10: areturn
+
+  public void addCollisionBoxToList(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.math.AxisAlignedBB, java.util.List<net.minecraft.util.math.AxisAlignedBB>, net.minecraft.entity.Entity, boolean);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: aload         4
+      10: aload         5
+      12: iload         6
+      14: invokevirtual #412                // Method net/minecraft/block/Block.addCollisionBoxToList:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V
+      17: return
+
+  public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #425                // Method net/minecraft/block/Block.getBoundingBox:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+      10: areturn
+
+  public net.minecraft.util.math.RayTraceResult collisionRayTrace(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.math.Vec3d, net.minecraft.util.math.Vec3d);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: aload         4
+      10: invokevirtual #432                // Method net/minecraft/block/Block.collisionRayTrace:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;
+      13: areturn
+
+  public boolean isTopSolid();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #440                // Method net/minecraft/block/Block.isTopSolid:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public net.minecraft.util.math.Vec3d getOffset(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #445                // Method net/minecraft/block/Block.getOffset:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/Vec3d;
+      10: areturn
+
+  public boolean onBlockEventReceived(net.minecraft.world.World, net.minecraft.util.math.BlockPos, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: iload_3
+       8: iload         4
+      10: invokevirtual #453                // Method net/minecraft/block/Block.eventReceived:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;II)Z
+      13: ireturn
+
+  public void neighborChanged(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: aload         4
+      10: invokevirtual #463                // Method net/minecraft/block/Block.neighborChanged:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;Lnet/minecraft/util/math/BlockPos;)V
+      13: return
+
+  public boolean causesSuffocation();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: invokevirtual #470                // Method net/minecraft/block/Block.causesSuffocation:(Lnet/minecraft/block/state/IBlockState;)Z
+       8: ireturn
+
+  public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_1
+       5: aload_0
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #475                // Method net/minecraft/block/Block.getBlockFaceShape:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/block/state/BlockFaceShape;
+      11: areturn
+
+  public com.google.common.collect.ImmutableTable<net.minecraft.block.properties.IProperty<?>, java.lang.Comparable<?>, net.minecraft.block.state.IBlockState> getPropertyValueTable();
+    Code:
+       0: aload_0
+       1: getfield      #37                 // Field propertyValueTable:Lcom/google/common/collect/ImmutableTable;
+       4: areturn
+
+  public int getLightOpacity(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #482                // Method net/minecraft/block/Block.getLightOpacity:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+      10: ireturn
+
+  public int getLightValue(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: invokevirtual #486                // Method net/minecraft/block/Block.getLightValue:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I
+      10: ireturn
+
+  public boolean isSideSolid(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #491                // Method net/minecraft/block/Block.isSideSolid:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      11: ireturn
+
+  public boolean doesSideBlockChestOpening(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #497                // Method net/minecraft/block/Block.doesSideBlockChestOpening:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      11: ireturn
+
+  public boolean doesSideBlockRendering(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field block:Lnet/minecraft/block/Block;
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokevirtual #503                // Method net/minecraft/block/Block.doesSideBlockRendering:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      11: ireturn
+}

@@ -27,7 +27,7 @@ public class ArmorTaurun extends ArmorFSB implements IItemRendererProvider {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 
 		if(models == null) {
 			models = new ModelArmorTaurun[4];
@@ -36,7 +36,7 @@ public class ArmorTaurun extends ArmorFSB implements IItemRendererProvider {
 				models[i] = new ModelArmorTaurun(i);
 		}
 
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@Override public Item getItemForRenderer() { return this; }
@@ -46,13 +46,13 @@ public class ArmorTaurun extends ArmorFSB implements IItemRendererProvider {
 	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() { 
-				if(armorType == 0) GL11.glTranslated(0, 1, 0);
-				if(armorType == 1) GL11.glTranslated(0, 1.5, 0);
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) GL11.glTranslated(0, 1, 0);
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) GL11.glTranslated(0, 1.5, 0);
 				setupRenderInv();
 			}
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_taurun, armorType,
+				renderStandard(ResourceManager.armor_taurun, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.taurun_helmet, ResourceManager.taurun_chest, ResourceManager.taurun_arm, ResourceManager.taurun_leg,
 						"Helmet", "Chest", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

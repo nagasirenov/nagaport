@@ -1,0 +1,286 @@
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java
+index 60644915..b265b215 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java
+@@ -1501,7 +1501,7 @@ public class ModBlocks {
+ 
+ 		gneiss_brick = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("gneiss_brick").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":gneiss_brick");
+ 		gneiss_tile = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("gneiss_tile").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":gneiss_tile");
+-		gneiss_chiseled = new BlockPillar(Material.ROCK, RefStrings.MODID + ":gneiss_tile").setTranslationKey("gneiss_chiseled").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":gneiss_chiseled");
++		gneiss_chiseled = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":gneiss_tile").setTranslationKey("gneiss_chiseled").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":gneiss_chiseled");
+ 
+ 		stone_depth = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey("stone_depth").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":stone_depth");
+ 		ore_depth_cinnebar = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey("ore_depth_cinnebar").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ore_depth_cinnebar");
+@@ -1533,7 +1533,7 @@ public class ModBlocks {
+ 		stalactite = new BlockStalagmite().setBlockName("stalactite").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.0F);
+ 		stone_biome = new BlockBiomeStone().setBlockName("stone_biome").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
+ 
+-		basalt = new BlockPillar(Material.ROCK, RefStrings.MODID + ":basalt_top").setTranslationKey("basalt").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":basalt");
++		basalt = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":basalt_top").setTranslationKey("basalt").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":basalt");
+ 		ore_basalt = ((BlockBase) new BlockOreBasalt().setBlockName("ore_basalt").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":ore_basalt");
+ 		basalt_smooth = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("basalt_smooth").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":basalt_smooth");
+ 		basalt_brick = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("basalt_brick").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":basalt_brick");
+@@ -1654,7 +1654,7 @@ public class ModBlocks {
+ 		block_tritium = ((BlockRotatablePillar) new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + ":block_tritium_top").setTranslationKey("block_tritium").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F).setBlockTextureName(RefStrings.MODID + ":block_tritium_side");
+ 		block_semtex = ((BlockBase) ((BlockBase) new BlockPlasticExplosive(Material.TNT).setBlockName("block_semtex").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(2.0F).setResistance(2.0F)).setBlockTextureName(RefStrings.MODID + ":block_semtex");
+ 		block_c4 = ((BlockBase) ((BlockBase) new BlockPlasticExplosive(Material.TNT).setBlockName("block_c4").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(2.0F).setResistance(2.0F)).setBlockTextureName(RefStrings.MODID + ":block_c4");
+-		block_smore = new BlockPillar(Material.ROCK, RefStrings.MODID + ":block_smore_top").setTranslationKey("block_smore").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F).setBlockTextureName(RefStrings.MODID + ":block_smore_side");
++		block_smore = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":block_smore_top").setTranslationKey("block_smore").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F)).setBlockTextureName(RefStrings.MODID + ":block_smore_side");
+ 		block_slag = ((BlockBase) ((BlockBase) new BlockSlag(Material.ROCK).setBlockName("block_slag").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.STONE).setHardness(2.0F)).setBlockTextureName(RefStrings.MODID + ":block_slag");
+ 
+ 		block_australium = ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_australium").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":block_australium");
+@@ -1752,7 +1752,7 @@ public class ModBlocks {
+ 		reinforced_ducrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("reinforced_ducrete").setCreativeTab(MainRegistry.blockTab).setHardness(20.0F).setResistance(1000.0F)).setBlockTextureName(RefStrings.MODID + ":reinforced_ducrete");
+ 
+ 		lightstone = ((BlockBase) new BlockLightstone(Material.ROCK, LightstoneType.class, true, true).setBlockName("lightstone").setCreativeTab(MainRegistry.blockTab).setHardness(2F).setResistance(15.0F)).setBlockTextureName(RefStrings.MODID + ":lightstone");
+-		brick_forgotten = new BlockPillar(Material.ROCK, RefStrings.MODID + ":brick_forgotten_top").setTranslationKey("brick_forgotten").setBlockUnbreakable().setResistance(666_666F).setBlockTextureName(RefStrings.MODID + ":brick_forgotten");
++		brick_forgotten = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":brick_forgotten_top").setTranslationKey("brick_forgotten").setBlockUnbreakable().setResistance(666_666F)).setBlockTextureName(RefStrings.MODID + ":brick_forgotten");
+ 		brick_forgotten_lock = new BlockForgottenLock(Material.ROCK, RefStrings.MODID + ":brick_forgotten_top").setTranslationKey("brick_forgotten_lock").setBlockUnbreakable().setResistance(666_666F).setBlockTextureName(RefStrings.MODID + ":brick_forgotten_lock");
+ 
+ 		concrete_slab = new BlockMultiSlab(null, Material.ROCK, concrete_smooth, concrete, concrete_asbestos, ducrete_smooth, ducrete, asphalt).setTranslationKey("concrete_slab").setCreativeTab(MainRegistry.blockTab);
+@@ -1803,7 +1803,7 @@ public class ModBlocks {
+ 		meteor_brick_chiseled = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("meteor_brick_chiseled").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + ":meteor_brick_chiseled");
+ 		meteor_pillar = new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":meteor_pillar_top").setTranslationKey("meteor_pillar").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + ":meteor_pillar");
+ 		meteor_spawner = new BlockCybercrab(Material.ROCK).setTranslationKey("meteor_spawner").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F);
+-		meteor_battery = new BlockPillar(Material.ROCK, RefStrings.MODID + ":meteor_power").setTranslationKey("meteor_battery").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + ":meteor_spawner_side");
++		meteor_battery = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":meteor_power").setTranslationKey("meteor_battery").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + ":meteor_spawner_side");
+ 
+ 		moon_turf = new BlockFalling(Material.SAND).setTranslationKey("moon_turf").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":moon_turf");
+ 		moon_rock = ((BlockBase) ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("moon_rock")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":moon_rock");
+@@ -2272,9 +2272,9 @@ public class ModBlocks {
+ 		custom_machine = new BlockCustomMachine().setTranslationKey("custom_machine").setCreativeTab(MainRegistry.machineTab).setLightLevel(1F).setHardness(5.0F).setResistance(10.0F);
+ 		cm_anchor = new BlockCMAnchor().setTranslationKey("custom_machine_anchor").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F);
+ 
+-		pwr_fuel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + ":pwr_fuel_top").setTranslationKey("pwr_fuel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":pwr_fuel_side");
+-		pwr_control = new BlockPillarPWR(Material.IRON, RefStrings.MODID + ":pwr_control_top").setTranslationKey("pwr_control").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":pwr_control_side");
+-		pwr_channel = new BlockPillarPWR(Material.IRON, RefStrings.MODID + ":pwr_channel_top").setTranslationKey("pwr_channel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":pwr_channel_side");
++		pwr_fuel = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + ":pwr_fuel_top").setTranslationKey("pwr_fuel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_fuel_side");
++		pwr_control = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + ":pwr_control_top").setTranslationKey("pwr_control").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_control_side");
++		pwr_channel = ((BlockPillar) new BlockPillarPWR(Material.IRON, RefStrings.MODID + ":pwr_channel_top").setTranslationKey("pwr_channel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_channel_side");
+ 		pwr_heatex = ((BlockBase) new BlockGenericPWR(Material.IRON).setBlockName("pwr_heatex").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_heatex");
+ 		pwr_heatsink = ((BlockBase) new BlockGenericPWR(Material.IRON).setBlockName("pwr_heatsink").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_heatsink");
+ 		pwr_neutron_source = ((BlockBase) new BlockGenericPWR(Material.IRON).setBlockName("pwr_neutron_source").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_neutron_source");
+@@ -2284,7 +2284,7 @@ public class ModBlocks {
+ 		pwr_controller = new MachinePWRController(Material.IRON).setTranslationKey("pwr_controller").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":pwr_casing_blank");
+ 		pwr_block = new BlockPWR(Material.IRON).setTranslationKey("pwr_block").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
+ 
+-		fusion_heater = new BlockPillar(Material.IRON, RefStrings.MODID + ":fusion_heater_top").setTranslationKey("fusion_heater").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":fusion_heater_side");
++		fusion_heater = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + ":fusion_heater_top").setTranslationKey("fusion_heater").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + ":fusion_heater_side");
+ 		fusion_hatch = new FusionHatch(Material.IRON).setTranslationKey("fusion_hatch").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":fusion_hatch");
+ 		plasma = new BlockPlasma(Material.IRON).setTranslationKey("plasma").setHardness(5.0F).setResistance(6000.0F).setLightLevel(1.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":plasma");
+ 		iter = new MachineITER().setTranslationKey("iter").setHardness(5.0F).setResistance(60.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":iter");
+@@ -2307,8 +2307,8 @@ public class ModBlocks {
+ 		icf_laser_component = new BlockICFLaserComponent().setBlockName("icf_laser_component").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab);
+ 		icf_block = new BlockICF(Material.IRON).setTranslationKey("icf_block").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
+ 
+-		watz_element = new BlockPillar(Material.IRON, RefStrings.MODID + ":watz_element_top").setTranslationKey("watz_element").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":watz_element_side");
+-		watz_cooler = new BlockPillar(Material.IRON, RefStrings.MODID + ":watz_cooler_top").setTranslationKey("watz_cooler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":watz_cooler_side");
++		watz_element = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + ":watz_element_top").setTranslationKey("watz_element").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":watz_element_side");
++		watz_cooler = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + ":watz_cooler_top").setTranslationKey("watz_cooler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":watz_cooler_side");
+ 		watz_end = ((BlockBase) new BlockToolConversion(Material.IRON).addVariant("_bolted").setBlockName("watz_end").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":watz_casing");
+ 		watz = new Watz().setTranslationKey("watz").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+ 		watz_pump = new WatzPump().setTranslationKey("watz_pump").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockPillar.java b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockPillar.java
+index 776a9870..a0c636db 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockPillar.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockPillar.java
+@@ -6,11 +6,37 @@ import net.minecraftforge.fml.relauncher.Side;
+ import net.minecraftforge.fml.relauncher.SideOnly;
+ import net.minecraft.block.Block;
+ import net.minecraft.block.material.Material;
++import net.minecraft.block.properties.PropertyInteger;
++import net.minecraft.block.state.BlockStateContainer;
++import net.minecraft.block.state.IBlockState;
+ import com.hbm.render.icon.IIconRegister;
+ import com.hbm.render.icon.IIcon;
+ 
+ public class BlockPillar extends Block {
+ 
++	// The old world retained all four metadata bits even though these icons ignore them.
++	public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
++
++	@Override
++	protected BlockStateContainer createBlockState() {
++		return new BlockStateContainer(this, METADATA);
++	}
++
++	@Override
++	public IBlockState getStateFromMeta(int meta) {
++		return getDefaultState().withProperty(METADATA, meta & 15);
++	}
++
++	@Override
++	public int getMetaFromState(IBlockState state) {
++		return state.getValue(METADATA);
++	}
++
++	// Owned here rather than on native Block, which no longer has legacy textures.
++	protected String textureName;
++	@SideOnly(Side.CLIENT)
++	protected IIcon blockIcon;
++
+ 	@SideOnly(Side.CLIENT)
+ 	private IIcon iconTop;
+ 	@SideOnly(Side.CLIENT)
+@@ -37,16 +63,29 @@ public class BlockPillar extends Block {
+ 		return this;
+ 	}
+ 	
+-	@Override
++	/** Original side selection, including the deliberately unused alternate icon. */
++	public String getTextureName(int side) {
++		return side == 0 || side == 1 ? textureTop : textureName;
++	}
++
++	public String getAlternateTextureName() {
++		return textureAlt.isEmpty() ? RefStrings.MODID + ":code" : textureAlt;
++	}
++
++	/** 1.7 block-atlas paths are relative to textures/blocks, not textures. */
++	private static String atlasName(String name) {
++		net.minecraft.util.ResourceLocation texture = new net.minecraft.util.ResourceLocation(name);
++		return new net.minecraft.util.ResourceLocation(texture.getNamespace(), "blocks/" + texture.getPath()).toString();
++	}
++
+ 	@SideOnly(Side.CLIENT)
+ 	public void registerBlockIcons(IIconRegister iconRegister) {
+ 		
+-		this.iconAlt = iconRegister.registerIcon(textureAlt.isEmpty() ? RefStrings.MODID + ":code" : textureAlt);
+-		this.iconTop = iconRegister.registerIcon(textureTop);
+-		this.blockIcon = iconRegister.registerIcon(this.textureName);
++		this.iconAlt = iconRegister.registerIcon(atlasName(getAlternateTextureName()));
++		this.iconTop = iconRegister.registerIcon(atlasName(textureTop));
++		this.blockIcon = iconRegister.registerIcon(atlasName(this.textureName));
+ 	}
+ 
+-	@Override
+ 	@SideOnly(Side.CLIENT)
+ 	public IIcon getIcon(int side, int metadata) {
+ 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/main/PillarModelHandler.java b/ntm-port-1.12.2/src/main/java/com/hbm/main/PillarModelHandler.java
+new file mode 100644
+index 00000000..3b6c9bf4
+--- /dev/null
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/main/PillarModelHandler.java
+@@ -0,0 +1,121 @@
++package com.hbm.main;
++
++import java.util.Collection;
++import java.util.HashMap;
++import java.util.HashSet;
++import java.util.Map;
++import java.util.Set;
++import java.util.function.Function;
++
++import com.google.common.collect.ImmutableMap;
++import com.hbm.blocks.machine.BlockPillar;
++import com.hbm.blocks.machine.BlockPillarPWR;
++import com.hbm.lib.RefStrings;
++import com.hbm.render.model.PlainCubeModel;
++
++import net.minecraft.block.Block;
++import net.minecraft.block.state.IBlockState;
++import net.minecraft.client.renderer.block.model.IBakedModel;
++import net.minecraft.client.renderer.block.model.ModelResourceLocation;
++import net.minecraft.client.renderer.block.statemap.StateMapperBase;
++import net.minecraft.client.renderer.texture.TextureAtlasSprite;
++import net.minecraft.client.renderer.vertex.VertexFormat;
++import net.minecraft.client.resources.IResourceManager;
++import net.minecraft.item.Item;
++import net.minecraft.item.ItemBlock;
++import net.minecraft.util.ResourceLocation;
++import net.minecraftforge.client.event.ModelRegistryEvent;
++import net.minecraftforge.client.model.ICustomModelLoader;
++import net.minecraftforge.client.model.IModel;
++import net.minecraftforge.client.model.ModelLoader;
++import net.minecraftforge.client.model.ModelLoaderRegistry;
++import net.minecraftforge.common.model.IModelState;
++import net.minecraftforge.fml.common.Mod;
++import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
++import net.minecraftforge.fml.common.registry.ForgeRegistries;
++import net.minecraftforge.fml.relauncher.Side;
++
++/** Native model/atlas lifecycle for the two audited pillar owners only.
++ * Inheritance, state, registration, item classes and tooltip behavior are untouched.
++ * ModelLoaderRegistry owns reload caching; this handler retains no baked sprites.
++ */
++@Mod.EventBusSubscriber(modid = RefStrings.MODID, value = Side.CLIENT)
++public final class PillarModelHandler {
++    private static final String PREFIX = "native_pillar/";
++    private static final Map<String, BlockPillar> BLOCKS = new HashMap<>();
++    private static final Loader LOADER = new Loader();
++    private static boolean registered;
++    private PillarModelHandler() { }
++
++    @SubscribeEvent public static void register(ModelRegistryEvent event) {
++        if(!registered) { ModelLoaderRegistry.registerLoader(LOADER); registered = true; }
++        BLOCKS.clear();
++        for(Block block : ForgeRegistries.BLOCKS.getValuesCollection()) {
++            if(block.getClass() != BlockPillar.class && block.getClass() != BlockPillarPWR.class) continue;
++            ResourceLocation name = block.getRegistryName();
++            if(name == null || !RefStrings.MODID.equals(name.getNamespace())) continue;
++            final String route = PREFIX + name.getPath();
++            BLOCKS.put(route, (BlockPillar) block);
++            ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
++                @Override protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
++                    return new ModelResourceLocation(RefStrings.MODID + ":" + route, "normal");
++                }
++            });
++            Item item = Item.getItemFromBlock(block);
++            if(!(item instanceof ItemBlock) || ((ItemBlock) item).getBlock() != block)
++                throw new IllegalStateException("Missing pillar ItemBlock " + name);
++            final ModelResourceLocation inventory = new ModelResourceLocation(
++                    RefStrings.MODID + ":" + route, "inventory");
++            ModelLoader.setCustomModelResourceLocation(item, 0, inventory);
++            // Original getIcon ignores all raw item metadata, not merely 0..15.
++            ModelLoader.setCustomMeshDefinition(item, stack -> inventory);
++        }
++    }
++
++    private static ResourceLocation texture(String name) {
++        ResourceLocation texture = new ResourceLocation(name);
++        return new ResourceLocation(texture.getNamespace(), "blocks/" + texture.getPath());
++    }
++
++    private static final class Loader implements ICustomModelLoader {
++        @Override public void onResourceManagerReload(IResourceManager resources) { }
++        private String path(ResourceLocation location) {
++            String path = location.getPath();
++            if(path.startsWith("models/")) path = path.substring(7);
++            if(path.startsWith("block/")) path = path.substring(6);
++            return path;
++        }
++        @Override public boolean accepts(ResourceLocation location) {
++            return RefStrings.MODID.equals(location.getNamespace()) && path(location).startsWith(PREFIX);
++        }
++        @Override public IModel loadModel(ResourceLocation location) throws Exception {
++            BlockPillar block = BLOCKS.get(path(location));
++            if(block == null) throw new IllegalArgumentException("Unknown pillar route " + location);
++            String top = texture(block.getTextureName(0)).toString();
++            String side = texture(block.getTextureName(2)).toString();
++            IModel cube = ModelLoaderRegistry.getModel(new ResourceLocation("minecraft:block/cube"))
++                    .retexture(ImmutableMap.<String, String>builder()
++                            .put("down", top).put("up", top).put("particle", top)
++                            .put("north", side).put("south", side).put("west", side).put("east", side).build());
++            return new PillarModel(new PlainCubeModel(cube), texture(block.getAlternateTextureName()));
++        }
++    }
++
++    /** The alternate icon was registered in 1.7 even though no face selected it. */
++    private static final class PillarModel implements IModel {
++        private final IModel cube;
++        private final ResourceLocation alternate;
++        PillarModel(IModel cube, ResourceLocation alternate) { this.cube = cube; this.alternate = alternate; }
++        @Override public Collection<ResourceLocation> getDependencies() { return cube.getDependencies(); }
++        @Override public Collection<ResourceLocation> getTextures() {
++            Set<ResourceLocation> textures = new HashSet<>(cube.getTextures());
++            textures.add(alternate);
++            return textures;
++        }
++        @Override public IModelState getDefaultState() { return cube.getDefaultState(); }
++        @Override public IBakedModel bake(IModelState state, VertexFormat format,
++                Function<ResourceLocation, TextureAtlasSprite> textures) {
++            return cube.bake(state, format, textures);
++        }
++    }
++}

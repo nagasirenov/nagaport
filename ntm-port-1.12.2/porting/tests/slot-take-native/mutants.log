@@ -1,0 +1,5 @@
+PASS rejected runtime mutant: missing-native-dirty
+PASS rejected runtime mutant: lost-anvil-return-identity
+PASS rejected runtime mutant: lost-weapon-index-reset
+PASS rejected runtime mutant: crafting-after-dirty
+PASS original root signature rejected by genuine native Slot: missing callback plus invalid @Override

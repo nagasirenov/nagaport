@@ -351,7 +351,7 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 
 			for(int i = 0; i < 9; i++) {
 				if(slots[i] != null && slots[i].getItem() == Item.getItemFromBlock(ModBlocks.bobblehead)&& slots[i].getItemDamage() == BobbleType.GWEN.ordinal()) {
-					this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+					com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 					this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5, true, true);
 					break;
 				} else if(slots[i] != null && slots[i].stackSize > 0 && hasSpace(slots[i])) {

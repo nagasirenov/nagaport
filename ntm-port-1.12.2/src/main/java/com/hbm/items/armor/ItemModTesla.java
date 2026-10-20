@@ -61,21 +61,21 @@ public class ItemModTesla extends ItemArmorMod {
 			this.modelTesla = new ModelBackTesla();
 		}
 		
-		RenderPlayer renderer = event.renderer;
+		RenderPlayer renderer = event.getRenderer();
 		ModelBiped model = renderer.modelArmor;
-		EntityPlayer player = event.entityPlayer;
+		EntityPlayer player = event.getEntityPlayer();
 		//EntityPlayer me = Minecraft.getMinecraft().thePlayer;
 
 		modelTesla.isSneak = model.isSneak;
 		
-		float interp = event.partialRenderTick;
+		float interp = event.getPartialRenderTick();
 		float yawHead = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * interp;
 		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interp;
 		float yaw = yawHead - yawOffset;
 		float yawWrapped = MathHelper.wrapDegrees(yawHead - yawOffset);
 		float pitch = player.rotationPitch;
 		
-		modelTesla.render(event.entityPlayer, 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
+		modelTesla.render(event.getEntityPlayer(), 0.0F, 0.0F, yawWrapped, yaw, pitch, 0.0625F);
 		
 		/*GL11.glPushMatrix();
 		

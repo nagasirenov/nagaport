@@ -126,7 +126,7 @@ public final class NativeItemFoundationTest {
    new ModelLoader(resources,atlas,new BlockModelShapes(new ModelManager(atlas)));
    MinecraftForge.EVENT_BUS.post(new ModelRegistryEvent());
    Map<?,?> routes=(Map<?,?>)get(null,ModelLoader.class,"customModels");Map<?,?> meshes=(Map<?,?>)get(null,ModelLoader.class,"customMeshDefinitions");
-   check(routes.containsKey(Pair.of(plain.delegate,0)),"actual native plain route registered");
+   check(meshes.containsKey(plain.delegate)&&!routes.containsKey(Pair.of(plain.delegate,0)),"actual native metadata-insensitive plain mesh registered");
    check(!routes.containsKey(Pair.of(custom.delegate,0))&&meshes.containsKey(custom.delegate),"specialized custom mesh owner preserved");
    check(!routes.containsKey(Pair.of(orphan.delegate,0))&&orphan.getRegistryName()==null,"unregistered overwritten construction identity safely skipped");
    check(routes.get(Pair.of(unknown.delegate,7))==UNKNOWN&&!routes.containsKey(Pair.of(unknown.delegate,0)),"unknown metadata route preserved without default override");
@@ -167,6 +167,7 @@ public final class NativeItemFoundationTest {
    ModelManager manager=(ModelManager)unsafe.allocateInstance(ModelManager.class);set(manager,ModelManager.class,"modelRegistry",registry);set(manager,ModelManager.class,"defaultModel",missing);
    ItemModelMesher mesher=new ItemModelMesher(manager);ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();
    for(int meta:new int[]{0,1,5,99,32767})check(mesher.getItemModel(new ItemStack(plainSubtype,1,meta))==registry.getObject(location(plainSubtype)),"plain original metadata-insensitive icon route "+meta);
+   for(int meta:new int[]{0,1,5,99,32767,65535})check(mesher.getItemModel(new ItemStack(plain,1,meta))==result,"non-subtyped original metadata-insensitive icon route "+meta);
    check(mesher.getItemModel(new ItemStack(plain))==result,"actual native ItemModelMesher plain lookup");check(mesher.getItemModel(new ItemStack(custom))==wrapped,"actual custom mesh lookup survives foundation");
    check(mesher.getItemModel(new ItemStack(unknown,1,7))==owned,"unknown metadata route remains native mesher owner");
    if(previous!=null){check(result!=previous&&result.getParticleTexture()!=previous.getParticleTexture(),"reload renews model and sprite identity");check(previous.getQuads(null,null,0).size()>2,"previous immutable model remains intact");}

@@ -81,7 +81,7 @@ public class EntityCreeperNuclear extends EntityCreeper {
 			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.bossCreeper);
 		}
 
-		if(p_70645_1_.getEntity() instanceof EntitySkeleton || (p_70645_1_.isProjectile() && p_70645_1_.getEntity() instanceof EntityArrow && ((EntityArrow) (p_70645_1_.getEntity())).shootingEntity == null)) {
+		if(p_70645_1_.getTrueSource() instanceof EntitySkeleton || (p_70645_1_.isProjectile() && p_70645_1_.getTrueSource() instanceof EntityArrow && ((EntityArrow) (p_70645_1_.getTrueSource())).shootingEntity == null)) {
 			this.entityDropItem(DictFrame.fromOne(ModItems.ammo_standard, EnumAmmo.NUKE_STANDARD), 1);
 		}
 	}

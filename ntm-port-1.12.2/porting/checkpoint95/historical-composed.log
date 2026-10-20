@@ -1,0 +1,14 @@
+PASS Native block-placement source: 29 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 87 rejected mutations. Not runtime/GL proof.
+PASS 29 byte-exact inverses and round trips; 31 placement calls and 15 native owner signatures with bounded body hooks; 87 rejected mutations
+PASS Native inventory/sound/sky source: 13 byte-exact inverses/round trips, 0 new, 0 retired sources, 0 binary paths, 39 rejected mutations. Not runtime/GL proof.
+PASS 6 exact reversible full CP92 files; 10 nonescaping scopes, 10 acquisitions, 13 batch sites, 88 vertex expressions, 13 color setters, 17 normal setters; 145 source mutations rejected by BOTH hash and independent audit, 12 manifest-hash mutations rejected; exact arguments, same-line radar setters, per-batch attributes, normal byte inputs, import-only changes, and all surrounding source preserved.
+PASS 14 byte-exact inverses and round trips; 17 native state captures and air calls; 42 rejected mutations
+PASS exact six-file CP93 inverse composition over unchanged CP92 air manifest/checker; 18 rejected CP93 mutations plus 42 historical controls
+PASS pinned remaining-colored full-file inverse for exactly src/main/java/com/hbm/render/tileentity/RenderPumpjack.java
+PASS pinned replaceability full-file inverse for exactly src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java, src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java, src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java
+PASS pinned CP93 full-file inverse for exactly six audit inputs; 18 rejected mutations
+PASS pinned CP92 full-file inverses for exactly four audited files; 12 rejected mutations
+PASS 518 active getter occurrences and pinned receiver/side/packet audit inputs; diagnostic boundary remains explicit
+PASS CP94 finite thirteen-file exact historical view; unchanged CP93 normal, air and press-cache guards/pins; 4072 production Java files unchanged. Not runtime/GL/build proof.
+PASS 30 byte-exact inverses and round trips; 47 normal-cube calls, 20 state captures, one power-owner signature; 90 rejected mutations
+PASS CP95 finite 29-file placement inverse before unchanged CP94/CP93/CP92 historical guards; air 1, press-cache 2 and normal-cube 4 exact intersections; 4072 source Java files unchanged. Not runtime/GL/build proof.

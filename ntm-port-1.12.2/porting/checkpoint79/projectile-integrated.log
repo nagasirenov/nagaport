@@ -1,0 +1,5 @@
+Note: /tmp/native-projectile-config-3jdp2i0q/BulletConfig.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS: 658 native projectile-config assertions, artillery-first; ticket, gameplay, full constructors/NBT excluded as documented
+PASS: 658 native projectile-config assertions, sedna-first; ticket, gameplay, full constructors/NBT excluded as documented
+PASS: 54 exact source slices; genuine native EntityDataManager/packet/NBT only, synthetic owner constructors and assumed ticket returns explicitly excluded

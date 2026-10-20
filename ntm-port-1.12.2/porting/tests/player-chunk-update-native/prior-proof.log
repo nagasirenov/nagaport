@@ -1,0 +1,34 @@
+PASS: five complete-file exact inverses and one helper hash; typed-tool closure files, exact owner construction counts, no owner subclasses or collision overrides
+PASS: original client, Forge1614 and actual native dependency SHA-256 pins
+PASS: actual original mapping plus complete Forge1614/FML World/renderer/player-map patch bytes verified
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/porting/tests/world-update-notification-native/NotificationTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks; static StringBuilder trace=new StringBuilder();
+                      ^
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/porting/tests/world-update-notification-native/NotificationTest.java:28: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/porting/tests/world-update-notification-native/NotificationTest.java:28: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); f.setAccessible(true); U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                             ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/porting/tests/world-update-notification-native/NotificationTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS: 8078 native state/listener/render/real packet queue/evaluation assertions
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/porting/tests/world-update-notification-native/OriginalNotificationTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U;static int checks;static StringBuilder trace=new StringBuilder();static ahb selected;
+                      ^
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/porting/tests/world-update-notification-native/OriginalNotificationTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static{try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                            ^
+/workspace/shared/nagaport-player-updates-cp89/ntm-port-1.12.2/porting/tests/world-update-notification-native/OriginalNotificationTest.java:5: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static{try{Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                         ^
+3 warnings
+PASS: 907 authentic original dispatch/render/server-queue/evaluation assertions; Forge patches audited separately
+PASS: two native World/int positives and eight foreign/subtype/boxing/arity/unresolved/effectful-receiver controls
+PASS: five exact old typed World/int positions among 43 match CP87 diagnostics and five native helper targets
+PASS: eight coordinate/state/flag/write/noop/duplicate/read-count behavior mutants rejected
+PASS: all five individual call deletion mutations rejected; source restored
+PASS: bounded proof complete; no whole-mod compile, game session, network transport or save-load acceptance claimed

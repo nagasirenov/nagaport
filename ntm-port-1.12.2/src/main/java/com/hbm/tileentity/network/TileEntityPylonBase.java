@@ -58,7 +58,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 		this.markDirty();
 		if(this.world instanceof WorldServer) {
 			WorldServer world = (WorldServer) this.world;
-			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			world.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 		}
 
 		return true;
@@ -84,7 +84,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 
 		if(this.world instanceof WorldServer) {
 			WorldServer world = (WorldServer) this.world;
-			world.getPlayerManager().markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			world.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 		}
 	}
 
@@ -114,7 +114,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 
 				if(this.world instanceof WorldServer) {
 					WorldServer world = (WorldServer) this.world;
-					world.getPlayerManager().markBlockForUpdate(pylon.getPos().getX(), pylon.getPos().getY(), pylon.getPos().getZ());
+					world.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(pylon.getPos().getX(), pylon.getPos().getY(), pylon.getPos().getZ()));
 				}
 			}
 		}

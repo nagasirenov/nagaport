@@ -1,0 +1,12 @@
+/workspace/shared/nagaport-item-hooks-cp87/ntm-port-1.12.2/porting/tests/native-item-stack-key-hooks/HookOracle.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static int checks; static Field nativeDamage,oldDamage; static sun.misc.Unsafe unsafe;
+                                                                        ^
+/workspace/shared/nagaport-item-hooks-cp87/ntm-port-1.12.2/porting/tests/native-item-stack-key-hooks/HookOracle.java:38: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/workspace/shared/nagaport-item-hooks-cp87/ntm-port-1.12.2/porting/tests/native-item-stack-key-hooks/HookOracle.java:38: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                                      ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings

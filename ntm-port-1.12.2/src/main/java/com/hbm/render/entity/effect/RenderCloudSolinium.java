@@ -6,12 +6,13 @@ import com.hbm.entity.effect.EntityCloudSolinium;
 import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import com.hbm.render.mesh.ObjMeshModel;
 import com.hbm.render.mesh.MeshModel;
 
-public class RenderCloudSolinium extends Render {
+public class RenderCloudSolinium extends Render<Entity> {
 
 	private static final ResourceLocation objTesterModelRL = new ResourceLocation(/*"/assets/" + */RefStrings.MODID, "models/Sphere.obj");
 	private MeshModel blastModel;
@@ -19,7 +20,8 @@ public class RenderCloudSolinium extends Render {
     public float scale = 0;
     public float ring = 0;
     
-    public RenderCloudSolinium() {
+    public RenderCloudSolinium(RenderManager renderManager) {
+		super(renderManager);
 		blastModel = new ObjMeshModel(objTesterModelRL);
     	blastTexture = new ResourceLocation(RefStrings.MODID, "textures/models/BlastSolinium.png");
     	scale = 0;

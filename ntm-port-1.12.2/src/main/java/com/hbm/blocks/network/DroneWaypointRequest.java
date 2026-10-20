@@ -81,9 +81,10 @@ public class DroneWaypointRequest extends BlockContainer {
 
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		ForgeDirection dir = ForgeDirection.getOrientation(meta);
-		Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();
+		net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);
+		Block b = nativeAirState.getBlock();
 
-		if(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {
+		if(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)))) {
 			this.dropBlockAsItem(world, x, y, z, meta, 0);
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
@@ -94,8 +95,9 @@ public class DroneWaypointRequest extends BlockContainer {
 		if(!super.canPlaceBlockOnSide(world, x, y, z, side)) return false;
 
 		ForgeDirection dir = ForgeDirection.getOrientation(side);
-		Block b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();
+		net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ);
+		Block b = nativeAirState.getBlock();
 
-		return com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(world, x, y, z));
+		return com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) || (b.renderAsNormalBlock() && !b.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x, y, z)));
 	}
 }

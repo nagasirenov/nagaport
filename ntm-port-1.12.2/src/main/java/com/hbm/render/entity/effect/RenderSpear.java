@@ -10,6 +10,8 @@ import com.hbm.main.ResourceManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -70,7 +72,8 @@ public class RenderSpear extends Render {
 
 		GL11.glScalef(0.2F, 0.2F, 0.2F);
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 		RenderHelper.disableStandardItemLighting();
 
 		Random random = new Random(432L);
@@ -97,15 +100,21 @@ public class RenderSpear extends Render {
 			float vert1 = (random.nextFloat() * 20.0F + 5.0F + 1 * 10.0F) * (float) (intensity * intensity * scale);
 			float vert2 = (random.nextFloat() * 2.0F + 1.0F + 1 * 2.0F) * (float) (intensity * intensity * scale);
 
-			tessellator.startDrawing(6);
+			tessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);
 
-			tessellator.setColorRGBA_F(1.0F, 0.6F, 0.6F, (float) (intensity * intensity) * 2F);
-			tessellator.addVertex(0.0D, 0.0D, 0.0D);
-			tessellator.setColorRGBA_F(1.0F, 0.6F, 0.6F, 0.0F);
-			tessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);
-			tessellator.addVertex(0.866D * vert2, vert1, -0.5F * vert2);
-			tessellator.addVertex(0.0D, vert1, 1.0F * vert2);
-			tessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);
+			int tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));
+			int tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));
+			int tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) (((float) (intensity * intensity) * 2F) * 255.0F)));
+			tessellatorBuffer.pos(0.0D, 0.0D, 0.0D).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();
+			int tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));
+			int tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));
+			int tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));
+			tessellatorBuffer.pos(-0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();
+			tessellatorBuffer.pos(0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();
+			tessellatorBuffer.pos(0.0D, vert1, 1.0F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();
+			tessellatorBuffer.pos(-0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();
 			tessellator.draw();
 		}
 

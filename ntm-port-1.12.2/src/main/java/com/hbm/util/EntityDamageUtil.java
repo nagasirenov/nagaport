@@ -31,11 +31,11 @@ public class EntityDamageUtil {
 	public static boolean wasAttackedByV1(DamageSource source) {
 
 		if(source instanceof EntityDamageSource) {
-			Entity attacker = ((EntityDamageSource) source).getEntity();
+			Entity attacker = ((EntityDamageSource) source).getTrueSource();
 
 			if(attacker instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) attacker;
-				ItemStack chestplate = player.inventory.armorInventory[2];
+				ItemStack chestplate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 
 				if(chestplate != null && ArmorModHandler.hasMods(chestplate)) {
 					ItemStack[] mods = ArmorModHandler.pryMods(chestplate);
@@ -70,9 +70,9 @@ public class EntityDamageUtil {
 
 	/** New and improved entity damage calc - only use this one */
 	public static boolean attackEntityFromNT(EntityLivingBase living, DamageSource source, float amount, boolean ignoreIFrame, boolean allowSpecialCancel, double knockbackMultiplier, float pierceDT, float pierce) {
-		if(living instanceof EntityPlayerMP && source.getEntity() instanceof EntityPlayer) {
+		if(living instanceof EntityPlayerMP && source.getTrueSource() instanceof EntityPlayer) {
 			EntityPlayerMP playerMP = (EntityPlayerMP) living;
-			EntityPlayer attacker = (EntityPlayer) source.getEntity();
+			EntityPlayer attacker = (EntityPlayer) source.getTrueSource();
 			if(!playerMP.canAttackPlayer(attacker)) return false; //handles wack-ass no PVP rule as well as scoreboard friendly fire
 		}
 		DamageResistanceHandler.setup(pierceDT, pierce);
@@ -106,7 +106,7 @@ public class EntityDamageUtil {
 		living.motionY = motionY;
 		living.motionZ = motionZ;
 		//apply own knockback
-		Entity entity = source.getEntity();
+		Entity entity = source.getTrueSource();
 		if(entity != null) {
 			double deltaX = entity.posX - living.posX;
 			double deltaZ;
@@ -151,7 +151,7 @@ public class EntityDamageUtil {
 		}
 
 		living.attackedAtYaw = 0.0F;
-		Entity entity = source.getEntity();
+		Entity entity = source.getTrueSource();
 
 		if(entity != null) {
 			if(entity instanceof EntityLivingBase) {
@@ -274,8 +274,8 @@ public class EntityDamageUtil {
 			} else if(source.isFireDamage() && living.isPotionActive(net.minecraft.init.MobEffects.FIRE_RESISTANCE)) {
 				return false;
 			} else {
-				if((source == DamageSource.anvil || source == DamageSource.fallingBlock) && living.getEquipmentInSlot(4) != null) {
-					living.getEquipmentInSlot(4).damageItem((int) (amount * 4.0F + living.getRNG().nextFloat() * amount * 2.0F), living);
+				if((source == DamageSource.anvil || source == DamageSource.fallingBlock) && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4) != null) {
+					com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4).damageItem((int) (amount * 4.0F + living.getRNG().nextFloat() * amount * 2.0F), living);
 					amount *= 0.75F;
 				}
 
@@ -299,7 +299,7 @@ public class EntityDamageUtil {
 				}
 
 				living.attackedAtYaw = 0.0F;
-				Entity entity = source.getEntity();
+				Entity entity = source.getTrueSource();
 
 				if(entity != null) {
 					if(entity instanceof EntityLivingBase) {

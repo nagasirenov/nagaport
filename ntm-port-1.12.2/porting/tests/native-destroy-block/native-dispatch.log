@@ -1,0 +1,6 @@
+net/minecraft/client/multiplayer/WorldClient extends net/minecraft/world/World declares []
+net/minecraft/world/World extends java/lang/Object declares [setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z, setBlockToAir(Lnet/minecraft/util/math/BlockPos;)Z, destroyBlock(Lnet/minecraft/util/math/BlockPos;Z)Z]
+net/minecraft/world/WorldServer extends net/minecraft/world/World declares []
+net/minecraft/world/WorldServerDemo extends net/minecraft/world/WorldServer declares []
+net/minecraft/world/WorldServerMulti extends net/minecraft/world/WorldServer declares []
+Audited 5 World hierarchy classes among 48240 classes

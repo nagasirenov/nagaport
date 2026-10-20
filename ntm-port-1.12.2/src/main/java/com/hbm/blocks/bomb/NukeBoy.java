@@ -139,7 +139,7 @@ public class NukeBoy extends BlockContainer implements IBomb {
 			
 			EntityNukeTorex torex = new EntityNukeTorex(world);
 			torex.setPositionAndRotation(x + 0.5, y + 1, z + 0.5, 0, 0);
-			torex.getDataWatcher().updateObject(10, 1.5F);
+			torex.setSynchronizedScale(1.5F);
 			world.spawnEntityInWorld(torex);
 			TrackerUtil.setTrackingRange(world, torex, 1000);
 		}

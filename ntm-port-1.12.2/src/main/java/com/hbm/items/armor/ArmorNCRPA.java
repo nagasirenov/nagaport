@@ -37,14 +37,14 @@ public class ArmorNCRPA extends ArmorFSBPowered implements IItemRendererProvider
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(models == null) {
 			models = new ModelArmorNCRPA[4];
 			for(int i = 0; i < 4; i++) models[i] = new ModelArmorNCRPA(i);
 		}
 		
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	private static final UUID speed = UUID.fromString("6ab858ba-d712-485c-bae9-e5e765fc555a");
@@ -56,8 +56,8 @@ public class ArmorNCRPA extends ArmorFSBPowered implements IItemRendererProvider
 		if(this != ModItems.ncrpa_plate) return;
 
 		/// SPEED ///
-		Multimap multimap = super.getAttributeModifiers(stack);
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, "NCRPA SPEED", 0.1, 0));
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "NCRPA SPEED", 0.1, 0));
 		player.getAttributeMap().removeAttributeModifiers(multimap);
 
 		if(player.isSprinting()) {
@@ -79,8 +79,8 @@ public class ArmorNCRPA extends ArmorFSBPowered implements IItemRendererProvider
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				if(armorType == 0) GL11.glTranslated(0, 0.5, 0);
-				renderStandard(ResourceManager.armor_ncr, armorType,
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) GL11.glTranslated(0, 0.5, 0);
+				renderStandard(ResourceManager.armor_ncr, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.ncrpa_helmet, ResourceManager.ncrpa_chest, ResourceManager.ncrpa_arm, ResourceManager.ncrpa_leg,
 						"Helmet,Eyes", "Chest", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

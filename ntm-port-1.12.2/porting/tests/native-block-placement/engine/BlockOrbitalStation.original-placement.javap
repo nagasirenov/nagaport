@@ -1,0 +1,14 @@
+  public boolean func_149742_c(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_0
+       1: getstatic     #345                // Field com/hbm/blocks/ModBlocks.orbital_station:Lnet/minecraft/block/Block;
+       4: if_acmpne     9
+       7: iconst_0
+       8: ireturn
+       9: aload_0
+      10: aload_1
+      11: iload_2
+      12: iload_3
+      13: iload         4
+      15: invokespecial #347                // Method com/hbm/blocks/BlockDummyable.func_149742_c:(Lnet/minecraft/world/World;III)Z
+      18: ireturn

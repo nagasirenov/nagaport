@@ -1,0 +1,296 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/trait/CBT_Invasion.java",
+    "sha256": "da0a0c58442a015ab611fad036b16332e3795f23763e2fb871a45f7c702d3b3e",
+    "references": [
+      {
+        "line": 16,
+        "source": "import com.hbm.entity.mob.EntityUFO;"
+      },
+      {
+        "line": 301,
+        "source": "EntityUFO entity = new EntityUFO(world);"
+      },
+      {
+        "line": 302,
+        "source": "((EntityUFO) entity).scanCooldown = 100;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "sha256": "a9ffc8b3769b11f10244f8f609b869aeee081cf95aa8c6a86b65f3d5e5455ed6",
+    "references": [
+      {
+        "line": 178,
+        "source": "addEntity(EntityUFO.class, \"entity_ntm_ufo\", 1000);"
+      },
+      {
+        "line": 227,
+        "source": "addMob(EntityBFAngel.class, \"entity_ntm_bfa\", 0x204131, 0x75CE00);"
+      },
+      {
+        "line": 235,
+        "source": "addMob(EntityHunterChopper.class, \"entity_mob_hunter_chopper\", 0x000020, 0x2D2D72);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+    "sha256": "b93ab61736cd671a43b047b137e84afe06674eb277091c9e30a0979fd964b8ea",
+    "references": [
+      {
+        "line": 52,
+        "source": "public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {"
+      },
+      {
+        "line": 80,
+        "source": "public EntityBFAngel(World p_i1587_1_) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+    "sha256": "f59bf17e1169c51de000d58c78a49cf3f7cc8ee9fc6eff9c13dbe0ed94ff6775",
+    "references": [
+      {
+        "line": 32,
+        "source": "public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {"
+      },
+      {
+        "line": 44,
+        "source": "public EntityHunterChopper(World p_i1735_1_) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+    "sha256": "6a5070e4cd36045f2c0f62ccb43d156efa53b6ffe94455e52f54a384bf4587a7",
+    "references": [
+      {
+        "line": 40,
+        "source": "public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IRadiationImmune, ISuffocationImmune {"
+      },
+      {
+        "line": 52,
+        "source": "public EntityUFO(World p_i1587_1_) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+    "sha256": "16cd23dab71affc0720c6b0b55d2cd7e9132c698ee8365cc64c7fdf782f13fa7",
+    "references": [
+      {
+        "line": 598,
+        "source": "if (movingobjectposition.entityHit instanceof EntityLivingBase && !(movingobjectposition.entityHit instanceof EntityHunterChopper)) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemChopper.java",
+    "sha256": "f8dfc4cf5d7c48d5a7f47f0a85608b75ce22464523069041d5e69132ca44c3c4",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.mob.EntityBFAngel;"
+      },
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.mob.EntityHunterChopper;"
+      },
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.mob.EntityUFO;"
+      },
+      {
+        "line": 122,
+        "source": "entity = new EntityHunterChopper(world);"
+      },
+      {
+        "line": 128,
+        "source": "entity = new EntityUFO(world);"
+      },
+      {
+        "line": 129,
+        "source": "((EntityUFO)entity).scanCooldown = 100;"
+      },
+      {
+        "line": 133,
+        "source": "entity = new EntityBFAngel(world);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/ConfettiUtil.java",
+    "sha256": "3db1ec305a1b1b4bfc74fa735578edcf238342e3f41e3f1ac9ba27f25a67e40b",
+    "references": [
+      {
+        "line": 66,
+        "source": "if(entity instanceof EntityUFO) type = 2;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/lib/Library.java",
+    "sha256": "7a7ca5297534f7ddd346b75c77498f5e2969dd4152a6b9067d91e7256494da98",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.mob.EntityHunterChopper;"
+      },
+      {
+        "line": 111,
+        "source": "if (world.loadedEntityList.get(i) instanceof EntityLivingBase && !(world.loadedEntityList.get(i) instanceof EntityHunterChopper)) {"
+      },
+      {
+        "line": 154,
+        "source": "public static EntityHunterChopper getClosestChopperForSound(World world, double x, double y, double z, double radius) {"
+      },
+      {
+        "line": 156,
+        "source": "EntityHunterChopper entity = null;"
+      },
+      {
+        "line": 161,
+        "source": "if (entityplayer1.isEntityAlive() && entityplayer1 instanceof EntityHunterChopper) {"
+      },
+      {
+        "line": 167,
+        "source": "entity = (EntityHunterChopper)entityplayer1;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "sha256": "c4d91846df1aadac34fb08bcc8e2eda1a549d5443719a8205c388995e81b638c",
+    "references": [
+      {
+        "line": 886,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityHunterChopper.class, renderManager -> new RenderHunterChopper(renderManager));"
+      },
+      {
+        "line": 898,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityUFO.class, renderManager -> new RenderUFO(renderManager));"
+      },
+      {
+        "line": 899,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityBFAngel.class, renderManager -> new RenderBFA(renderManager));"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+    "sha256": "8f01b57095059874ebc6789abaf9a2e294fad8f30ff58223c87b08eab989092b",
+    "references": [
+      {
+        "line": 48,
+        "source": "import com.hbm.entity.mob.EntityUFO;"
+      },
+      {
+        "line": 397,
+        "source": "if(alien.wave >= 4 && event.getEntity() instanceof EntityUFO) {"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java",
+    "sha256": "14f37dc68b0283a7965fffd1da972699dbbcb4e8741f4231a0c0d101165dc3ab",
+    "references": [
+      {
+        "line": 20,
+        "source": "import com.hbm.entity.mob.EntityHunterChopper;"
+      },
+      {
+        "line": 725,
+        "source": "EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);"
+      },
+      {
+        "line": 735,
+        "source": "EntityHunterChopper ent = Library.getClosestChopperForSound(wc, e.getSound().getXPosF(), e.getSound().getYPosF(), e.getSound().getZPosF(), 2);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderBFA.java",
+    "sha256": "8236c790fbfd0a635dde15d1ced0f8463a51d3c40eb0f97cce4f3bf1b1990845",
+    "references": [
+      {
+        "line": 7,
+        "source": "import com.hbm.entity.mob.EntityBFAngel;"
+      },
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.mob.EntityUFO;"
+      },
+      {
+        "line": 37,
+        "source": "EntityBFAngel ufo = (EntityBFAngel)entity;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderHunterChopper.java",
+    "sha256": "ab07161d0b73f526cf3f7599d1cdd243131231c32b3d265a78201fe03b723bf9",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.mob.EntityHunterChopper;"
+      },
+      {
+        "line": 28,
+        "source": "ClientBossDisplay.capture((EntityHunterChopper) entity, true);"
+      },
+      {
+        "line": 41,
+        "source": "//if(rocket instanceof EntityHunterChopper)"
+      },
+      {
+        "line": 42,
+        "source": "//    mine2.setGunRotations((EntityHunterChopper)rocket, yaw, pitch);"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/mob/RenderUFO.java",
+    "sha256": "7209d91c945ef3055ee20adad66aa02e79361db491c916aa3d28da1a900c3e4b",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.mob.EntityUFO;"
+      },
+      {
+        "line": 34,
+        "source": "EntityUFO ufo = (EntityUFO)entity;"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/sound/MovingSoundChopper.java",
+    "sha256": "a448a0ae7bb26bc4d3af84a03135d12fab2398d6a4b7c654b05f9843d510bfbc",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.mob.EntityHunterChopper;"
+      },
+      {
+        "line": 17,
+        "source": "if(player instanceof EntityHunterChopper && ((EntityHunterChopper)player).getIsDying())"
+      }
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/sound/MovingSoundCrashing.java",
+    "sha256": "d3ed605b3b423c30b6db029dd90cb9affa285178e60f0cc9b01c37c92414dfdf",
+    "references": [
+      {
+        "line": 3,
+        "source": "import com.hbm.entity.mob.EntityHunterChopper;"
+      },
+      {
+        "line": 17,
+        "source": "if(player instanceof EntityHunterChopper && !((EntityHunterChopper)player).getIsDying())"
+      }
+    ]
+  }
+]

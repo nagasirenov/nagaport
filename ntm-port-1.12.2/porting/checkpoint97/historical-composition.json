@@ -1,0 +1,36 @@
+{
+  "baseline": "f44d3ffc5ad3bfa0afcfd93d035e51bdecde2de4",
+  "files": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/blocks/machine/BlockPillar.java"
+  ],
+  "new_files": [
+    "src/main/java/com/hbm/main/PillarModelHandler.java"
+  ],
+  "pins": {
+    "porting/checkpoint96/check-historical-composition.py": "b5e02fc34c0229774b60f02005ee42e9b51f8a719ab8ce8e1cd582df29006bd5",
+    "porting/checkpoint96/historical-composition.json": "250af703789b65c3fedc001d6a5397733d818343cea2ba7768a1e73457249f2a",
+    "porting/checkpoint96/cp95-source-boundary.py": "f23172ecd12800f4f1590a2ff7461e4ed2bdb2100409d9ece789a4da3705753d",
+    "porting/tests/waste-terrain-sound-builders-cp96/check-source.py": "84b6369220d45f841ce785c960dbefc182dc0576cd4eb030e7a8f1cb75c38a34",
+    "porting/tests/waste-terrain-sound-builders-cp96/sites.json": "a49b3f3ad2af161f31b6e2d89528bb30f0c2cf9a1b54f46a5efce9f13f492224",
+    "porting/tests/waste-terrain-sound-builders-cp96/additions.json": "021684b9af8255a612c4df4776384d6d33e7456dbf3dd236034a495683ff9fb9",
+    "porting/tests/waste-terrain-sound-builders-cp96/source-hashes.json": "d02dcfc9a0d6b7f0f9499fed0e8b6ccf5f654a83eb1cef92f56ff2da673cc336",
+    "porting/tests/waste-terrain-sound-builders-cp96/prerequisite-hashes.json": "18fce74e57c08042b9be4305b3cb40a526f7e81f14ba3936034cb637279d530d",
+    "porting/tests/check-native-pillar-model-source.py": "1e451bbe9cfb128b3d3a8e92bdd26b01f2427c0ccca891d82f8589e88202d32c",
+    "porting/tests/native-pillar-model-source-manifest.json": "e235e37c50b448d116bd86b5809b001dd5e2cf50ece8ab4477c3deebf299fafd",
+    "porting/checkpoint97/cp96-source-boundary.py": "a5787a452c4fdab48e1ad4d589d009a31c0330cd563ac7b146df43a9134b6696"
+  },
+  "intersections": {
+    "inventory": [],
+    "normal_cube": [],
+    "air": [],
+    "press": [],
+    "placement": [],
+    "sound_cp94": [
+      "src/main/java/com/hbm/blocks/ModBlocks.java"
+    ],
+    "sound_cp96": [
+      "src/main/java/com/hbm/blocks/ModBlocks.java"
+    ]
+  }
+}

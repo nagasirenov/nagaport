@@ -57,7 +57,7 @@ public class ContainerMassStorage extends ContainerBase {
 				slot.onSlotChanged();
 			}
 
-			slot.onPickupFromSlot(player, initial);
+			slot.onTake(player, initial);
 		}
 
 		return result;

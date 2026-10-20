@@ -1,0 +1,161 @@
+Compiled from "SourceFile"
+public class aay {
+  private final int a;
+
+  public final rb f;
+
+  public int g;
+
+  public int h;
+
+  public int i;
+
+  public aay(rb, int, int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #6                  // Field f:Lrb;
+       9: aload_0
+      10: iload_2
+      11: putfield      #5                  // Field a:I
+      14: aload_0
+      15: iload_3
+      16: putfield      #7                  // Field h:I
+      19: aload_0
+      20: iload         4
+      22: putfield      #8                  // Field i:I
+      25: return
+
+  public void a(add, add);
+    Code:
+       0: aload_1
+       1: ifnull        8
+       4: aload_2
+       5: ifnonnull     9
+       8: return
+       9: aload_1
+      10: invokevirtual #13                 // Method add.b:()Ladb;
+      13: aload_2
+      14: invokevirtual #13                 // Method add.b:()Ladb;
+      17: if_acmpeq     21
+      20: return
+      21: aload_2
+      22: getfield      #9                  // Field add.b:I
+      25: aload_1
+      26: getfield      #9                  // Field add.b:I
+      29: isub
+      30: istore_3
+      31: iload_3
+      32: ifle          41
+      35: aload_0
+      36: aload_1
+      37: iload_3
+      38: invokevirtual #10                 // Method a:(Ladd;I)V
+      41: return
+
+  protected void a(add, int);
+    Code:
+       0: return
+
+  protected void b(add);
+    Code:
+       0: return
+
+  public void a(yz, add);
+    Code:
+       0: aload_0
+       1: invokevirtual #12                 // Method f:()V
+       4: return
+
+  public boolean a(add);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public add d();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field f:Lrb;
+       4: aload_0
+       5: getfield      #5                  // Field a:I
+       8: invokeinterface #15,  2           // InterfaceMethod rb.a:(I)Ladd;
+      13: areturn
+
+  public boolean e();
+    Code:
+       0: aload_0
+       1: invokevirtual #11                 // Method d:()Ladd;
+       4: ifnull        11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public void c(add);
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field f:Lrb;
+       4: aload_0
+       5: getfield      #5                  // Field a:I
+       8: aload_1
+       9: invokeinterface #17,  3           // InterfaceMethod rb.a:(ILadd;)V
+      14: aload_0
+      15: invokevirtual #12                 // Method f:()V
+      18: return
+
+  public void f();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field f:Lrb;
+       4: invokeinterface #19,  1           // InterfaceMethod rb.e:()V
+       9: return
+
+  public int a();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field f:Lrb;
+       4: invokeinterface #18,  1           // InterfaceMethod rb.d:()I
+       9: ireturn
+
+  public rf c();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public add a(int);
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field f:Lrb;
+       4: aload_0
+       5: getfield      #5                  // Field a:I
+       8: iload_1
+       9: invokeinterface #16,  3           // InterfaceMethod rb.a:(II)Ladd;
+      14: areturn
+
+  public boolean a(rb, int);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #6                  // Field f:Lrb;
+       5: if_acmpne     20
+       8: iload_2
+       9: aload_0
+      10: getfield      #5                  // Field a:I
+      13: if_icmpne     20
+      16: iconst_1
+      17: goto          21
+      20: iconst_0
+      21: ireturn
+
+  public boolean a(yz);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean b();
+    Code:
+       0: iconst_1
+       1: ireturn
+}

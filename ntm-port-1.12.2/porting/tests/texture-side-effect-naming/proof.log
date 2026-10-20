@@ -1,0 +1,17 @@
+PASS exact five-file source inverse; four setters byte-identical to pristine before substitution; three unchanged descendants; 20 byte-identical pristine PNGs; unchanged native texture/model helpers
+PASS full-source attribution: exact seven-class family, 12 same custom/inherited native setter destinations, 4 actual native Item super calls; all nonselected declarations stay outside scope
+/workspace/shared/nagaport-texture-naming-d5ef20a8/ntm-port-1.12.2/porting/tests/texture-side-effect-naming/FamilyOracle.java:48: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field field = sun.misc.Unsafe.class.getDeclaredField("theUnsafe"); field.setAccessible(true);
+                        ^
+/workspace/shared/nagaport-texture-naming-d5ef20a8/ntm-port-1.12.2/porting/tests/texture-side-effect-naming/FamilyOracle.java:49: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe = (sun.misc.Unsafe)field.get(null);
+          ^
+/workspace/shared/nagaport-texture-naming-d5ef20a8/ntm-port-1.12.2/porting/tests/texture-side-effect-naming/FamilyOracle.java:49: warning: Unsafe is internal proprietary API and may be removed in a future release
+  sun.misc.Unsafe unsafe = (sun.misc.Unsafe)field.get(null);
+                                    ^
+Note: /workspace/shared/nagaport-texture-naming-d5ef20a8/ntm-port-1.12.2/porting/tests/texture-side-effect-naming/FamilyOracle.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+[08:35:28] [main/INFO]: Processing ObjectHolder annotations
+[08:35:28] [main/INFO]: Found 1167 ObjectHolder annotations
+PASS 491 actual native method-slice assertions: all 7 family classes, 12 raw keys, old platform parity, virtual dispatch, last-write and fluent order, native model eligibility, 20 original PNGs; not whole owners or client launch

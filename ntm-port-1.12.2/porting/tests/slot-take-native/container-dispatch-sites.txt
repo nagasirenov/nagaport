@@ -1,0 +1,146 @@
+native-container.javap
+
+     934: getstatic     #87                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+     937: invokevirtual #281                // Method net/minecraft/inventory/Slot.putStack:(Lnet/minecraft/item/ItemStack;)V
+     940: aload         7
+     942: aload         4
+     944: aload         6
+     946: invokevirtual #210                // Method net/minecraft/entity/player/InventoryPlayer.getItemStack:()Lnet/minecraft/item/ItemStack;
+     949: invokevirtual #314                // Method net/minecraft/inventory/Slot.onTake:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+     952: pop
+     953: goto          1257
+     956: aload         7
+
+    1238: getstatic     #87                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+    1241: invokevirtual #281                // Method net/minecraft/inventory/Slot.putStack:(Lnet/minecraft/item/ItemStack;)V
+    1244: aload         7
+    1246: aload         4
+    1248: aload         6
+    1250: invokevirtual #210                // Method net/minecraft/entity/player/InventoryPlayer.getItemStack:()Lnet/minecraft/item/ItemStack;
+    1253: invokevirtual #314                // Method net/minecraft/inventory/Slot.onTake:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+    1256: pop
+    1257: aload         7
+    1259: invokevirtual #336                // Method net/minecraft/inventory/Slot.onSlotChanged:()V
+
+    1364: aload         7
+    1366: getstatic     #87                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+    1369: invokevirtual #281                // Method net/minecraft/inventory/Slot.putStack:(Lnet/minecraft/item/ItemStack;)V
+    1372: aload         7
+    1374: aload         4
+    1376: aload         9
+    1378: invokevirtual #314                // Method net/minecraft/inventory/Slot.onTake:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+    1381: pop
+    1382: goto          1564
+    1385: aload         9
+
+    1499: iload         10
+    1501: invokevirtual #298                // Method net/minecraft/item/ItemStack.splitStack:(I)Lnet/minecraft/item/ItemStack;
+    1504: invokevirtual #281                // Method net/minecraft/inventory/Slot.putStack:(Lnet/minecraft/item/ItemStack;)V
+    1507: aload         7
+    1509: aload         4
+    1511: aload         9
+    1513: invokevirtual #314                // Method net/minecraft/inventory/Slot.onTake:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+    1516: pop
+    1517: aload         6
+    1519: aload         9
+
+    1548: iload_2
+    1549: aload         9
+    1551: invokevirtual #346                // Method net/minecraft/entity/player/InventoryPlayer.setInventorySlotContents:(ILnet/minecraft/item/ItemStack;)V
+    1554: aload         7
+    1556: aload         4
+    1558: aload         9
+    1560: invokevirtual #314                // Method net/minecraft/inventory/Slot.onTake:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+    1563: pop
+    1564: goto          2068
+    1567: aload_3
+
+    1733: invokevirtual #233                // Method net/minecraft/item/ItemStack.getCount:()I
+    1736: invokevirtual #310                // Method net/minecraft/inventory/Slot.decrStackSize:(I)Lnet/minecraft/item/ItemStack;
+    1739: astore        8
+    1741: aload         7
+    1743: aload         4
+    1745: aload         8
+    1747: invokevirtual #314                // Method net/minecraft/inventory/Slot.onTake:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+    1750: pop
+    1751: aload         4
+    1753: aload         8
+
+    2030: aload         13
+    2032: getstatic     #87                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+    2035: invokevirtual #281                // Method net/minecraft/inventory/Slot.putStack:(Lnet/minecraft/item/ItemStack;)V
+    2038: aload         13
+    2040: aload         4
+    2042: aload         16
+    2044: invokevirtual #314                // Method net/minecraft/inventory/Slot.onTake:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+    2047: pop
+    2048: iload         12
+    2050: iload         10
+
+original-container.javap
+
+     934: aconst_null
+     935: invokevirtual #41                 // Method aay.c:(Ladd;)V
+     938: aload         7
+     940: aload         4
+     942: aload         6
+     944: invokevirtual #66                 // Method yx.o:()Ladd;
+     947: invokevirtual #40                 // Method aay.a:(Lyz;Ladd;)V
+     950: goto          1267
+     953: aload         7
+     955: aload         9
+
+    1251: aconst_null
+    1252: invokevirtual #41                 // Method aay.c:(Ladd;)V
+    1255: aload         7
+    1257: aload         4
+    1259: aload         6
+    1261: invokevirtual #66                 // Method yx.o:()Ladd;
+    1264: invokevirtual #40                 // Method aay.a:(Lyz;Ladd;)V
+    1267: aload         7
+    1269: invokevirtual #44                 // Method aay.f:()V
+    1272: goto          2048
+
+    1453: aload         7
+    1455: aload         8
+    1457: invokevirtual #41                 // Method aay.c:(Ladd;)V
+    1460: aload         7
+    1462: aload         4
+    1464: aload         11
+    1466: invokevirtual #40                 // Method aay.a:(Lyz;Ladd;)V
+    1469: goto          1512
+    1472: iload         10
+    1474: iconst_m1
+
+    1497: aload         7
+    1499: aconst_null
+    1500: invokevirtual #41                 // Method aay.c:(Ladd;)V
+    1503: aload         7
+    1505: aload         4
+    1507: aload         11
+    1509: invokevirtual #40                 // Method aay.a:(Lyz;Ladd;)V
+    1512: goto          1552
+    1515: aload         7
+    1517: invokevirtual #43                 // Method aay.e:()Z
+
+    1711: getfield      #23                 // Field add.b:I
+    1714: invokevirtual #36                 // Method aay.a:(I)Ladd;
+    1717: astore        8
+    1719: aload         7
+    1721: aload         4
+    1723: aload         8
+    1725: invokevirtual #40                 // Method aay.a:(Lyz;Ladd;)V
+    1728: aload         4
+    1730: aload         8
+    1732: iconst_1
+
+    2013: aload         13
+    2015: aconst_null
+    2016: invokevirtual #41                 // Method aay.c:(Ladd;)V
+    2019: aload         13
+    2021: aload         4
+    2023: aload         15
+    2025: invokevirtual #40                 // Method aay.a:(Lyz;Ladd;)V
+    2028: iload         12
+    2030: iload         10
+    2032: iadd

@@ -131,8 +131,9 @@ public class HbmPotion extends Potion {
 				int y = (int) Math.floor(entity.posY);
 				int z = (int) Math.floor(entity.posZ);
 
-				Block b = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z).getBlock();
-				if(y > 1 && b.isNormalCube() && !b.isAir(entity.world, x, y - 1, z)) {
+				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z);
+				Block b = nativeAirState.getBlock();
+				if(y > 1 && b.isNormalCube(nativeAirState) && !b.isAir(nativeAirState, entity.world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) {
 					entity.world.setBlock(x, y - 1, z, ModBlocks.taint, 14, 2);
 				}
 			}

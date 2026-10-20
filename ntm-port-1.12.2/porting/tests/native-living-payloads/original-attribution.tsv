@@ -1,0 +1,72 @@
+src/main/java/com/hbm/items/armor/ArmorDNT.java	5110	5116	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingAttackEvent	event	handleAttack	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorDNT.java	5167	5173	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingAttackEvent	event	handleAttack	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorDNT.java	5589	5595	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorDNT.java	5618	5635	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpICogKA==	MULTIPLY	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt	ZXZlbnQuYW1tb3VudCAqPSA=	5618
+src/main/java/com/hbm/items/armor/ArmorDNT.java	5641	5641	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt		5618
+src/main/java/com/hbm/items/armor/ArmorDNT.java	5667	5683	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt	ZXZlbnQuYW1tb3VudCA9IA==	5667
+src/main/java/com/hbm/items/armor/ArmorDNT.java	5684	5684	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt		5667
+src/main/java/com/hbm/items/armor/ArmorHat.java	911	917	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorHat.java	951	968	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpIC0gKA==	SUBTRACT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	ZXZlbnQuYW1tb3VudCAtPSA=	951
+src/main/java/com/hbm/items/armor/ArmorHat.java	970	970	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage		951
+src/main/java/com/hbm/items/armor/ArmorHat.java	986	993	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	YW1tb3VudA==	-1
+src/main/java/com/hbm/items/armor/ArmorHat.java	1002	1018	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	ZXZlbnQuYW1tb3VudCA9IA==	1002
+src/main/java/com/hbm/items/armor/ArmorHat.java	1019	1019	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage		1002
+src/main/java/com/hbm/items/armor/ArmorHat.java	1120	1126	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingAttackEvent	event	handleAttack	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorHat.java	1169	1176	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingAttackEvent	event	handleAttack	YW1tb3VudA==	-1
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1618	1624	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1658	1675	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpIC0gKA==	SUBTRACT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	ZXZlbnQuYW1tb3VudCAtPSA=	1658
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1679	1679	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage		1658
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1695	1702	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	YW1tb3VudA==	-1
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1711	1727	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage	ZXZlbnQuYW1tb3VudCA9IA==	1711
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1728	1728	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleDamage		1711
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1829	1835	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingAttackEvent	event	handleAttack	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorNo9.java	1878	1885	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingAttackEvent	event	handleAttack	YW1tb3VudA==	-1
+src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java	2116	2122	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java	2146	2152	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java	2191	2207	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt	ZXZlbnQuYW1tb3VudCA9IA==	2191
+src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java	2208	2208	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	handleHurt		2191
+src/main/java/com/hbm/items/armor/ItemModBandaid.java	1005	1021	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCA9IA==	1005
+src/main/java/com/hbm/items/armor/ItemModBandaid.java	1022	1022	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		1005
+src/main/java/com/hbm/items/armor/ItemModBathwater.java	1750	1756	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ItemModBathwater.java	1844	1850	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ItemModCard.java	1562	1578	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCA9IA==	1562
+src/main/java/com/hbm/items/armor/ItemModCard.java	1579	1579	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		1562
+src/main/java/com/hbm/items/armor/ItemModCharm.java	1393	1399	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ItemModCharm.java	1481	1498	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpICogKA==	MULTIPLY	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCAqPSA=	1481
+src/main/java/com/hbm/items/armor/ItemModCharm.java	1502	1502	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		1481
+src/main/java/com/hbm/items/armor/ItemModCharm.java	1545	1561	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCA9IA==	1545
+src/main/java/com/hbm/items/armor/ItemModCharm.java	1563	1563	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		1545
+src/main/java/com/hbm/items/armor/ItemModInk.java	1099	1115	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCA9IA==	1099
+src/main/java/com/hbm/items/armor/ItemModInk.java	1116	1116	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		1099
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3092	3109	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpICogKA==	MULTIPLY	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCAqPSA=	3092
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3118	3118	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		3092
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3134	3140	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3160	3177	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpICogKA==	MULTIPLY	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCAqPSA=	3160
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3190	3190	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		3160
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3206	3212	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3231	3248	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpICogKA==	MULTIPLY	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCAqPSA=	3231
+src/main/java/com/hbm/items/armor/ItemModInsert.java	3260	3260	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		3231
+src/main/java/com/hbm/items/armor/ItemModPads.java	1552	1558	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	c291cmNl	-1
+src/main/java/com/hbm/items/armor/ItemModPads.java	1584	1601	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpICogKA==	MULTIPLY	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCAqPSA=	1584
+src/main/java/com/hbm/items/armor/ItemModPads.java	1610	1610	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		1584
+src/main/java/com/hbm/items/armor/ItemModPolish.java	997	1013	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage	ZXZlbnQuYW1tb3VudCA9IA==	997
+src/main/java/com/hbm/items/armor/ItemModPolish.java	1014	1014	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	modDamage		997
+src/main/java/com/hbm/main/ModEventHandler.java	39408	39415	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	YW1tb3VudA==	-1
+src/main/java/com/hbm/main/ModEventHandler.java	39483	39500	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpIC0gKA==	SUBTRACT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	ZXZlbnQuYW1tb3VudCAtPSA=	39483
+src/main/java/com/hbm/main/ModEventHandler.java	39506	39506	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged		39483
+src/main/java/com/hbm/main/ModEventHandler.java	39610	39617	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	YW1tb3VudA==	-1
+src/main/java/com/hbm/main/ModEventHandler.java	39628	39645	ZXZlbnQuc2V0QW1vdW50KChmbG9hdCkgKGV2ZW50LmdldEFtb3VudCgpICogKA==	MULTIPLY	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	ZXZlbnQuYW1tb3VudCAqPSA=	39628
+src/main/java/com/hbm/main/ModEventHandler.java	39647	39647	KSkp	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged		39628
+src/main/java/com/hbm/main/ModEventHandler.java	39707	39713	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	c291cmNl	-1
+src/main/java/com/hbm/main/ModEventHandler.java	39787	39793	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	c291cmNl	-1
+src/main/java/com/hbm/main/ModEventHandler.java	40368	40375	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	YW1tb3VudA==	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	19601	19607	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingAttackEvent	event	onEntityAttacked	c291cmNl	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	19708	19715	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingAttackEvent	event	onEntityAttacked	YW1tb3VudA==	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	19754	19760	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingAttackEvent	event	onEntityAttacked	c291cmNl	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	19896	19903	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingAttackEvent	event	onEntityAttacked	YW1tb3VudA==	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	20079	20095	ZXZlbnQuc2V0QW1vdW50KA==	SET	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	ZXZlbnQuYW1tb3VudCA9IA==	20079
+src/main/java/com/hbm/util/DamageResistanceHandler.java	20188	20188	KQ==	CLOSE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged		20079
+src/main/java/com/hbm/util/DamageResistanceHandler.java	20142	20148	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	c291cmNl	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	20156	20163	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	YW1tb3VudA==	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	20356	20362	Z2V0U291cmNlKCk=	READ_SOURCE	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	c291cmNl	-1
+src/main/java/com/hbm/util/DamageResistanceHandler.java	20370	20377	Z2V0QW1vdW50KCk=	READ_AMOUNT	net.minecraftforge.event.entity.living.LivingHurtEvent	event	onEntityDamaged	YW1tb3VudA==	-1

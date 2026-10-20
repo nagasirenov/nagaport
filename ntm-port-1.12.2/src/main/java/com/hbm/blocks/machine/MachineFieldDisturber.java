@@ -21,7 +21,7 @@ public class MachineFieldDisturber extends Block {
 
 	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
-		if(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		if(!world.isRemote) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class MachineFieldDisturber extends Block {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 
 		if(!world.isRemote) {
-			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 			EntityNukeExplosionMK3.at.put(new ATEntry(world.provider.getDimension(), x, y, z),  world.getTotalWorldTime() + 100);
 		}
 	}

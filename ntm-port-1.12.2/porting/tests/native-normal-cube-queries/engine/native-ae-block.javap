@@ -1,0 +1,924 @@
+Compiled from "AEBaseBlock.java"
+public abstract class appeng.block.AEBaseBlock extends net.minecraft.block.Block {
+  private boolean isOpaque;
+
+  private boolean isFullSize;
+
+  private boolean hasSubtypes;
+
+  private boolean isInventory;
+
+  protected net.minecraft.util.math.AxisAlignedBB boundingBox;
+
+  protected appeng.block.AEBaseBlock(net.minecraft.block.material.Material);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #16                 // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       5: aload_0
+       6: iconst_1
+       7: putfield      #18                 // Field isOpaque:Z
+      10: aload_0
+      11: iconst_1
+      12: putfield      #20                 // Field isFullSize:Z
+      15: aload_0
+      16: iconst_0
+      17: putfield      #22                 // Field hasSubtypes:Z
+      20: aload_0
+      21: iconst_0
+      22: putfield      #24                 // Field isInventory:Z
+      25: aload_0
+      26: getstatic     #27                 // Field FULL_BLOCK_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+      29: putfield      #29                 // Field boundingBox:Lnet/minecraft/util/math/AxisAlignedBB;
+      32: aload_1
+      33: getstatic     #35                 // Field appeng/helpers/AEGlassMaterial.INSTANCE:Lappeng/helpers/AEGlassMaterial;
+      36: if_acmpeq     46
+      39: aload_1
+      40: getstatic     #41                 // Field net/minecraft/block/material/Material.GLASS:Lnet/minecraft/block/material/Material;
+      43: if_acmpne     57
+      46: aload_0
+      47: getstatic     #46                 // Field net/minecraft/block/SoundType.GLASS:Lnet/minecraft/block/SoundType;
+      50: invokevirtual #50                 // Method setSoundType:(Lnet/minecraft/block/SoundType;)Lnet/minecraft/block/Block;
+      53: pop
+      54: goto          101
+      57: aload_1
+      58: getstatic     #53                 // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+      61: if_acmpne     75
+      64: aload_0
+      65: getstatic     #56                 // Field net/minecraft/block/SoundType.STONE:Lnet/minecraft/block/SoundType;
+      68: invokevirtual #50                 // Method setSoundType:(Lnet/minecraft/block/SoundType;)Lnet/minecraft/block/Block;
+      71: pop
+      72: goto          101
+      75: aload_1
+      76: getstatic     #59                 // Field net/minecraft/block/material/Material.WOOD:Lnet/minecraft/block/material/Material;
+      79: if_acmpne     93
+      82: aload_0
+      83: getstatic     #61                 // Field net/minecraft/block/SoundType.WOOD:Lnet/minecraft/block/SoundType;
+      86: invokevirtual #50                 // Method setSoundType:(Lnet/minecraft/block/SoundType;)Lnet/minecraft/block/Block;
+      89: pop
+      90: goto          101
+      93: aload_0
+      94: getstatic     #64                 // Field net/minecraft/block/SoundType.METAL:Lnet/minecraft/block/SoundType;
+      97: invokevirtual #50                 // Method setSoundType:(Lnet/minecraft/block/SoundType;)Lnet/minecraft/block/Block;
+     100: pop
+     101: aload_0
+     102: sipush        255
+     105: invokevirtual #68                 // Method setLightOpacity:(I)Lnet/minecraft/block/Block;
+     108: pop
+     109: aload_0
+     110: fconst_0
+     111: invokevirtual #72                 // Method setLightLevel:(F)Lnet/minecraft/block/Block;
+     114: pop
+     115: aload_0
+     116: ldc           #73                 // float 2.2f
+     118: invokevirtual #76                 // Method setHardness:(F)Lnet/minecraft/block/Block;
+     121: pop
+     122: aload_0
+     123: ldc           #78                 // String pickaxe
+     125: iconst_0
+     126: invokevirtual #82                 // Method setHarvestLevel:(Ljava/lang/String;I)V
+     129: aload_0
+     130: aload_0
+     131: invokevirtual #85                 // Method isFullSize:()Z
+     134: putfield      #88                 // Field fullBlock:Z
+     137: return
+
+  protected net.minecraft.block.state.BlockStateContainer createBlockState();
+    Code:
+       0: new           #95                 // class net/minecraft/block/state/BlockStateContainer
+       3: dup
+       4: aload_0
+       5: aload_0
+       6: invokevirtual #99                 // Method getAEStates:()[Lnet/minecraft/block/properties/IProperty;
+       9: invokespecial #102                // Method net/minecraft/block/state/BlockStateContainer."<init>":(Lnet/minecraft/block/Block;[Lnet/minecraft/block/properties/IProperty;)V
+      12: areturn
+
+  public final boolean isNormalCube(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: invokevirtual #85                 // Method isFullSize:()Z
+       4: ifeq          18
+       7: aload_0
+       8: invokevirtual #106                // Method isOpaque:()Z
+      11: ifeq          18
+      14: iconst_1
+      15: goto          19
+      18: iconst_0
+      19: ireturn
+
+  public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field boundingBox:Lnet/minecraft/util/math/AxisAlignedBB;
+       4: areturn
+
+  public void addCollisionBoxToList(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.math.AxisAlignedBB, java.util.List<net.minecraft.util.math.AxisAlignedBB>, net.minecraft.entity.Entity, boolean);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #121                // Method getCustomCollision:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lappeng/helpers/ICustomCollision;
+       6: astore        8
+       8: aload         8
+      10: ifnull        121
+      13: aload         4
+      15: ifnull        121
+      18: new           #123                // class java/util/ArrayList
+      21: dup
+      22: invokespecial #126                // Method java/util/ArrayList."<init>":()V
+      25: astore        9
+      27: aload         8
+      29: aload_2
+      30: aload_3
+      31: aload         4
+      33: aload         9
+      35: aload         6
+      37: invokeinterface #132,  6          // InterfaceMethod appeng/helpers/ICustomCollision.addCollidingBlockToList:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;)V
+      42: aload         9
+      44: invokeinterface #138,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      49: astore        10
+      51: aload         10
+      53: invokeinterface #143,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      58: ifeq          118
+      61: aload         10
+      63: invokeinterface #147,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      68: checkcast     #149                // class net/minecraft/util/math/AxisAlignedBB
+      71: astore        11
+      73: aload         11
+      75: aload_3
+      76: invokevirtual #155                // Method net/minecraft/util/math/BlockPos.getX:()I
+      79: i2d
+      80: aload_3
+      81: invokevirtual #158                // Method net/minecraft/util/math/BlockPos.getY:()I
+      84: i2d
+      85: aload_3
+      86: invokevirtual #161                // Method net/minecraft/util/math/BlockPos.getZ:()I
+      89: i2d
+      90: invokevirtual #165                // Method net/minecraft/util/math/AxisAlignedBB.offset:(DDD)Lnet/minecraft/util/math/AxisAlignedBB;
+      93: astore        12
+      95: aload         4
+      97: aload         12
+      99: invokevirtual #169                // Method net/minecraft/util/math/AxisAlignedBB.intersects:(Lnet/minecraft/util/math/AxisAlignedBB;)Z
+     102: ifeq          115
+     105: aload         5
+     107: aload         12
+     109: invokeinterface #173,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     114: pop
+     115: goto          51
+     118: goto          136
+     121: aload_0
+     122: aload_1
+     123: aload_2
+     124: aload_3
+     125: aload         4
+     127: aload         5
+     129: aload         6
+     131: iload         7
+     133: invokespecial #175                // Method net/minecraft/block/Block.addCollisionBoxToList:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V
+     136: return
+
+  public net.minecraft.util.math.AxisAlignedBB getSelectedBoundingBox(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #121                // Method getCustomCollision:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lappeng/helpers/ICustomCollision;
+       6: astore        4
+       8: aload         4
+      10: ifnull        590
+      13: invokestatic  #199                // Method appeng/util/Platform.isClient:()Z
+      16: ifeq          314
+      19: invokestatic  #205                // Method net/minecraft/client/Minecraft.getMinecraft:()Lnet/minecraft/client/Minecraft;
+      22: getfield      #209                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/entity/EntityPlayerSP;
+      25: astore        5
+      27: aload         5
+      29: aload         5
+      31: invokestatic  #213                // Method appeng/util/Platform.getEyeOffset:(Lnet/minecraft/entity/player/EntityPlayer;)F
+      34: invokestatic  #217                // Method appeng/util/Platform.getPlayerRay:(Lnet/minecraft/entity/player/EntityPlayer;F)Lappeng/util/LookDirection;
+      37: astore        6
+      39: aload         4
+      41: aload_2
+      42: aload_3
+      43: invokestatic  #205                // Method net/minecraft/client/Minecraft.getMinecraft:()Lnet/minecraft/client/Minecraft;
+      46: getfield      #209                // Field net/minecraft/client/Minecraft.player:Lnet/minecraft/client/entity/EntityPlayerSP;
+      49: iconst_1
+      50: invokeinterface #221,  5          // InterfaceMethod appeng/helpers/ICustomCollision.getSelectedBoundingBoxesFromPool:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;Z)Ljava/lang/Iterable;
+      55: astore        7
+      57: aconst_null
+      58: astore        8
+      60: dconst_0
+      61: dstore        9
+      63: aload         7
+      65: invokeinterface #224,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      70: astore        11
+      72: aload         11
+      74: invokeinterface #143,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      79: ifeq          231
+      82: aload         11
+      84: invokeinterface #147,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      89: checkcast     #149                // class net/minecraft/util/math/AxisAlignedBB
+      92: astore        12
+      94: aload_0
+      95: aload         12
+      97: putfield      #29                 // Field boundingBox:Lnet/minecraft/util/math/AxisAlignedBB;
+     100: aload_0
+     101: aload_1
+     102: aload_2
+     103: aload_3
+     104: aload         6
+     106: invokevirtual #236                // Method appeng/util/LookDirection.getA:()Lnet/minecraft/util/math/Vec3d;
+     109: aload         6
+     111: invokevirtual #239                // Method appeng/util/LookDirection.getB:()Lnet/minecraft/util/math/Vec3d;
+     114: invokespecial #243                // Method net/minecraft/block/Block.collisionRayTrace:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;
+     117: astore        13
+     119: aload_0
+     120: getstatic     #27                 // Field FULL_BLOCK_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     123: putfield      #29                 // Field boundingBox:Lnet/minecraft/util/math/AxisAlignedBB;
+     126: aload         13
+     128: ifnull        228
+     131: aload         6
+     133: invokevirtual #236                // Method appeng/util/LookDirection.getA:()Lnet/minecraft/util/math/Vec3d;
+     136: getfield      #249                // Field net/minecraft/util/math/Vec3d.x:D
+     139: aload         13
+     141: getfield      #255                // Field net/minecraft/util/math/RayTraceResult.hitVec:Lnet/minecraft/util/math/Vec3d;
+     144: getfield      #249                // Field net/minecraft/util/math/Vec3d.x:D
+     147: dsub
+     148: dstore        14
+     150: aload         6
+     152: invokevirtual #236                // Method appeng/util/LookDirection.getA:()Lnet/minecraft/util/math/Vec3d;
+     155: getfield      #258                // Field net/minecraft/util/math/Vec3d.y:D
+     158: aload         13
+     160: getfield      #255                // Field net/minecraft/util/math/RayTraceResult.hitVec:Lnet/minecraft/util/math/Vec3d;
+     163: getfield      #258                // Field net/minecraft/util/math/Vec3d.y:D
+     166: dsub
+     167: dstore        16
+     169: aload         6
+     171: invokevirtual #236                // Method appeng/util/LookDirection.getA:()Lnet/minecraft/util/math/Vec3d;
+     174: getfield      #261                // Field net/minecraft/util/math/Vec3d.z:D
+     177: aload         13
+     179: getfield      #255                // Field net/minecraft/util/math/RayTraceResult.hitVec:Lnet/minecraft/util/math/Vec3d;
+     182: getfield      #261                // Field net/minecraft/util/math/Vec3d.z:D
+     185: dsub
+     186: dstore        18
+     188: dload         14
+     190: dload         14
+     192: dmul
+     193: dload         16
+     195: dload         16
+     197: dmul
+     198: dadd
+     199: dload         18
+     201: dload         18
+     203: dmul
+     204: dadd
+     205: dstore        20
+     207: aload         8
+     209: ifnull        220
+     212: dload         9
+     214: dload         20
+     216: dcmpl
+     217: ifle          228
+     220: dload         20
+     222: dstore        9
+     224: aload         12
+     226: astore        8
+     228: goto          72
+     231: aload         8
+     233: ifnull        314
+     236: new           #149                // class net/minecraft/util/math/AxisAlignedBB
+     239: dup
+     240: aload         8
+     242: getfield      #264                // Field net/minecraft/util/math/AxisAlignedBB.minX:D
+     245: aload_3
+     246: invokevirtual #155                // Method net/minecraft/util/math/BlockPos.getX:()I
+     249: i2d
+     250: dadd
+     251: aload         8
+     253: getfield      #267                // Field net/minecraft/util/math/AxisAlignedBB.minY:D
+     256: aload_3
+     257: invokevirtual #158                // Method net/minecraft/util/math/BlockPos.getY:()I
+     260: i2d
+     261: dadd
+     262: aload         8
+     264: getfield      #270                // Field net/minecraft/util/math/AxisAlignedBB.minZ:D
+     267: aload_3
+     268: invokevirtual #161                // Method net/minecraft/util/math/BlockPos.getZ:()I
+     271: i2d
+     272: dadd
+     273: aload         8
+     275: getfield      #273                // Field net/minecraft/util/math/AxisAlignedBB.maxX:D
+     278: aload_3
+     279: invokevirtual #155                // Method net/minecraft/util/math/BlockPos.getX:()I
+     282: i2d
+     283: dadd
+     284: aload         8
+     286: getfield      #276                // Field net/minecraft/util/math/AxisAlignedBB.maxY:D
+     289: aload_3
+     290: invokevirtual #158                // Method net/minecraft/util/math/BlockPos.getY:()I
+     293: i2d
+     294: dadd
+     295: aload         8
+     297: getfield      #279                // Field net/minecraft/util/math/AxisAlignedBB.maxZ:D
+     300: aload_3
+     301: invokevirtual #161                // Method net/minecraft/util/math/BlockPos.getZ:()I
+     304: i2d
+     305: dadd
+     306: invokespecial #282                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     309: astore        8
+     311: aload         8
+     313: areturn
+     314: aconst_null
+     315: astore        5
+     317: aload         4
+     319: aload_2
+     320: aload_3
+     321: aconst_null
+     322: iconst_0
+     323: invokeinterface #221,  5          // InterfaceMethod appeng/helpers/ICustomCollision.getSelectedBoundingBoxesFromPool:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;Z)Ljava/lang/Iterable;
+     328: invokeinterface #224,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+     333: astore        6
+     335: aload         6
+     337: invokeinterface #143,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     342: ifeq          483
+     345: aload         6
+     347: invokeinterface #147,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     352: checkcast     #149                // class net/minecraft/util/math/AxisAlignedBB
+     355: astore        7
+     357: aload         5
+     359: ifnonnull     369
+     362: aload         7
+     364: astore        5
+     366: goto          335
+     369: aload         5
+     371: getfield      #264                // Field net/minecraft/util/math/AxisAlignedBB.minX:D
+     374: aload         7
+     376: getfield      #264                // Field net/minecraft/util/math/AxisAlignedBB.minX:D
+     379: invokestatic  #288                // Method java/lang/Math.min:(DD)D
+     382: dstore        8
+     384: aload         5
+     386: getfield      #267                // Field net/minecraft/util/math/AxisAlignedBB.minY:D
+     389: aload         7
+     391: getfield      #267                // Field net/minecraft/util/math/AxisAlignedBB.minY:D
+     394: invokestatic  #288                // Method java/lang/Math.min:(DD)D
+     397: dstore        10
+     399: aload         5
+     401: getfield      #270                // Field net/minecraft/util/math/AxisAlignedBB.minZ:D
+     404: aload         7
+     406: getfield      #270                // Field net/minecraft/util/math/AxisAlignedBB.minZ:D
+     409: invokestatic  #288                // Method java/lang/Math.min:(DD)D
+     412: dstore        12
+     414: aload         5
+     416: getfield      #273                // Field net/minecraft/util/math/AxisAlignedBB.maxX:D
+     419: aload         7
+     421: getfield      #273                // Field net/minecraft/util/math/AxisAlignedBB.maxX:D
+     424: invokestatic  #291                // Method java/lang/Math.max:(DD)D
+     427: dstore        14
+     429: aload         5
+     431: getfield      #276                // Field net/minecraft/util/math/AxisAlignedBB.maxY:D
+     434: aload         7
+     436: getfield      #276                // Field net/minecraft/util/math/AxisAlignedBB.maxY:D
+     439: invokestatic  #291                // Method java/lang/Math.max:(DD)D
+     442: dstore        16
+     444: aload         5
+     446: getfield      #279                // Field net/minecraft/util/math/AxisAlignedBB.maxZ:D
+     449: aload         7
+     451: getfield      #279                // Field net/minecraft/util/math/AxisAlignedBB.maxZ:D
+     454: invokestatic  #291                // Method java/lang/Math.max:(DD)D
+     457: dstore        18
+     459: new           #149                // class net/minecraft/util/math/AxisAlignedBB
+     462: dup
+     463: dload         8
+     465: dload         10
+     467: dload         12
+     469: dload         14
+     471: dload         16
+     473: dload         18
+     475: invokespecial #282                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     478: astore        5
+     480: goto          335
+     483: aload         5
+     485: ifnonnull     512
+     488: new           #149                // class net/minecraft/util/math/AxisAlignedBB
+     491: dup
+     492: ldc2_w        #292                // double 16.0d
+     495: ldc2_w        #292                // double 16.0d
+     498: ldc2_w        #292                // double 16.0d
+     501: dconst_0
+     502: dconst_0
+     503: dconst_0
+     504: invokespecial #282                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     507: astore        5
+     509: goto          587
+     512: new           #149                // class net/minecraft/util/math/AxisAlignedBB
+     515: dup
+     516: aload         5
+     518: getfield      #264                // Field net/minecraft/util/math/AxisAlignedBB.minX:D
+     521: aload_3
+     522: invokevirtual #155                // Method net/minecraft/util/math/BlockPos.getX:()I
+     525: i2d
+     526: dadd
+     527: aload         5
+     529: getfield      #267                // Field net/minecraft/util/math/AxisAlignedBB.minY:D
+     532: aload_3
+     533: invokevirtual #158                // Method net/minecraft/util/math/BlockPos.getY:()I
+     536: i2d
+     537: dadd
+     538: aload         5
+     540: getfield      #270                // Field net/minecraft/util/math/AxisAlignedBB.minZ:D
+     543: aload_3
+     544: invokevirtual #161                // Method net/minecraft/util/math/BlockPos.getZ:()I
+     547: i2d
+     548: dadd
+     549: aload         5
+     551: getfield      #273                // Field net/minecraft/util/math/AxisAlignedBB.maxX:D
+     554: aload_3
+     555: invokevirtual #155                // Method net/minecraft/util/math/BlockPos.getX:()I
+     558: i2d
+     559: dadd
+     560: aload         5
+     562: getfield      #276                // Field net/minecraft/util/math/AxisAlignedBB.maxY:D
+     565: aload_3
+     566: invokevirtual #158                // Method net/minecraft/util/math/BlockPos.getY:()I
+     569: i2d
+     570: dadd
+     571: aload         5
+     573: getfield      #279                // Field net/minecraft/util/math/AxisAlignedBB.maxZ:D
+     576: aload_3
+     577: invokevirtual #161                // Method net/minecraft/util/math/BlockPos.getZ:()I
+     580: i2d
+     581: dadd
+     582: invokespecial #282                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+     585: astore        5
+     587: aload         5
+     589: areturn
+     590: aload_0
+     591: aload_1
+     592: aload_2
+     593: aload_3
+     594: invokespecial #295                // Method net/minecraft/block/Block.getSelectedBoundingBox:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+     597: areturn
+
+  public final boolean isOpaqueCube(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: invokevirtual #106                // Method isOpaque:()Z
+       4: ireturn
+
+  public net.minecraft.util.math.RayTraceResult collisionRayTrace(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.math.Vec3d, net.minecraft.util.math.Vec3d);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #121                // Method getCustomCollision:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lappeng/helpers/ICustomCollision;
+       6: astore        6
+       8: aload         6
+      10: ifnull        195
+      13: aload         6
+      15: aload_2
+      16: aload_3
+      17: aconst_null
+      18: iconst_1
+      19: invokeinterface #221,  5          // InterfaceMethod appeng/helpers/ICustomCollision.getSelectedBoundingBoxesFromPool:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;Z)Ljava/lang/Iterable;
+      24: astore        7
+      26: aconst_null
+      27: astore        8
+      29: dconst_0
+      30: dstore        9
+      32: aload         7
+      34: invokeinterface #224,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      39: astore        11
+      41: aload         11
+      43: invokeinterface #143,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      48: ifeq          185
+      51: aload         11
+      53: invokeinterface #147,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      58: checkcast     #149                // class net/minecraft/util/math/AxisAlignedBB
+      61: astore        12
+      63: aload_0
+      64: aload         12
+      66: putfield      #29                 // Field boundingBox:Lnet/minecraft/util/math/AxisAlignedBB;
+      69: aload_0
+      70: aload_1
+      71: aload_2
+      72: aload_3
+      73: aload         4
+      75: aload         5
+      77: invokespecial #243                // Method net/minecraft/block/Block.collisionRayTrace:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;
+      80: astore        13
+      82: aload_0
+      83: getstatic     #27                 // Field FULL_BLOCK_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+      86: putfield      #29                 // Field boundingBox:Lnet/minecraft/util/math/AxisAlignedBB;
+      89: aload         13
+      91: ifnull        182
+      94: aload         4
+      96: getfield      #249                // Field net/minecraft/util/math/Vec3d.x:D
+      99: aload         13
+     101: getfield      #255                // Field net/minecraft/util/math/RayTraceResult.hitVec:Lnet/minecraft/util/math/Vec3d;
+     104: getfield      #249                // Field net/minecraft/util/math/Vec3d.x:D
+     107: dsub
+     108: dstore        14
+     110: aload         4
+     112: getfield      #258                // Field net/minecraft/util/math/Vec3d.y:D
+     115: aload         13
+     117: getfield      #255                // Field net/minecraft/util/math/RayTraceResult.hitVec:Lnet/minecraft/util/math/Vec3d;
+     120: getfield      #258                // Field net/minecraft/util/math/Vec3d.y:D
+     123: dsub
+     124: dstore        16
+     126: aload         4
+     128: getfield      #261                // Field net/minecraft/util/math/Vec3d.z:D
+     131: aload         13
+     133: getfield      #255                // Field net/minecraft/util/math/RayTraceResult.hitVec:Lnet/minecraft/util/math/Vec3d;
+     136: getfield      #261                // Field net/minecraft/util/math/Vec3d.z:D
+     139: dsub
+     140: dstore        18
+     142: dload         14
+     144: dload         14
+     146: dmul
+     147: dload         16
+     149: dload         16
+     151: dmul
+     152: dadd
+     153: dload         18
+     155: dload         18
+     157: dmul
+     158: dadd
+     159: dstore        20
+     161: aload         8
+     163: ifnull        174
+     166: dload         9
+     168: dload         20
+     170: dcmpl
+     171: ifle          182
+     174: dload         20
+     176: dstore        9
+     178: aload         13
+     180: astore        8
+     182: goto          41
+     185: aload         8
+     187: ifnull        193
+     190: aload         8
+     192: areturn
+     193: aconst_null
+     194: areturn
+     195: aload_0
+     196: getstatic     #27                 // Field FULL_BLOCK_AABB:Lnet/minecraft/util/math/AxisAlignedBB;
+     199: putfield      #29                 // Field boundingBox:Lnet/minecraft/util/math/AxisAlignedBB;
+     202: aload_0
+     203: aload_1
+     204: aload_2
+     205: aload_3
+     206: aload         4
+     208: aload         5
+     210: invokespecial #243                // Method net/minecraft/block/Block.collisionRayTrace:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;
+     213: areturn
+
+  public boolean hasComparatorInputOverride(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: invokevirtual #315                // Method isInventory:()Z
+       4: ireturn
+
+  public int getComparatorInputOverride(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public final boolean isNormalCube(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: invokevirtual #85                 // Method isFullSize:()Z
+       4: ireturn
+
+  public boolean rotateBlock(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokevirtual #326                // Method getOrientable:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lappeng/api/util/IOrientable;
+       6: astore        4
+       8: aload         4
+      10: ifnull        114
+      13: aload         4
+      15: invokeinterface #331,  1          // InterfaceMethod appeng/api/util/IOrientable.canBeRotated:()Z
+      20: ifeq          114
+      23: aload_0
+      24: invokevirtual #334                // Method hasCustomRotation:()Z
+      27: ifeq          39
+      30: aload_0
+      31: aload         4
+      33: aload_3
+      34: invokevirtual #338                // Method customRotateBlock:(Lappeng/api/util/IOrientable;Lnet/minecraft/util/EnumFacing;)V
+      37: iconst_1
+      38: ireturn
+      39: aload         4
+      41: invokeinterface #342,  1          // InterfaceMethod appeng/api/util/IOrientable.getForward:()Lnet/minecraft/util/EnumFacing;
+      46: astore        5
+      48: aload         4
+      50: invokeinterface #345,  1          // InterfaceMethod appeng/api/util/IOrientable.getUp:()Lnet/minecraft/util/EnumFacing;
+      55: astore        6
+      57: iconst_0
+      58: istore        7
+      60: iload         7
+      62: iconst_4
+      63: if_icmpge     114
+      66: aload         5
+      68: aload_3
+      69: invokestatic  #351                // Method appeng/util/Platform.rotateAround:(Lnet/minecraft/util/EnumFacing;Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/EnumFacing;
+      72: astore        5
+      74: aload         6
+      76: aload_3
+      77: invokestatic  #351                // Method appeng/util/Platform.rotateAround:(Lnet/minecraft/util/EnumFacing;Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/EnumFacing;
+      80: astore        6
+      82: aload_0
+      83: aload_1
+      84: aload_2
+      85: aload         5
+      87: aload         6
+      89: invokevirtual #355                // Method isValidOrientation:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;Lnet/minecraft/util/EnumFacing;)Z
+      92: ifeq          108
+      95: aload         4
+      97: aload         5
+      99: aload         6
+     101: invokeinterface #359,  3          // InterfaceMethod appeng/api/util/IOrientable.setOrientation:(Lnet/minecraft/util/EnumFacing;Lnet/minecraft/util/EnumFacing;)V
+     106: iconst_1
+     107: ireturn
+     108: iinc          7, 1
+     111: goto          60
+     114: aload_0
+     115: aload_1
+     116: aload_2
+     117: aload_3
+     118: invokespecial #361                // Method net/minecraft/block/Block.rotateBlock:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+     121: ireturn
+
+  public net.minecraft.util.EnumFacing[] getValidRotations(net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: iconst_0
+       1: anewarray     #347                // class net/minecraft/util/EnumFacing
+       4: areturn
+
+  public void addInformation(net.minecraft.item.ItemStack, net.minecraft.world.World, java.util.List<java.lang.String>, net.minecraft.client.util.ITooltipFlag);
+    Code:
+       0: return
+
+  public boolean onActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.item.ItemStack, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public final net.minecraft.util.EnumFacing mapRotation(appeng.api.util.IOrientable, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_1
+       1: invokeinterface #342,  1          // InterfaceMethod appeng/api/util/IOrientable.getForward:()Lnet/minecraft/util/EnumFacing;
+       6: astore_3
+       7: aload_1
+       8: invokeinterface #345,  1          // InterfaceMethod appeng/api/util/IOrientable.getUp:()Lnet/minecraft/util/EnumFacing;
+      13: astore        4
+      15: aload_3
+      16: ifnull        24
+      19: aload         4
+      21: ifnonnull     26
+      24: aload_2
+      25: areturn
+      26: aload_3
+      27: invokevirtual #394                // Method net/minecraft/util/EnumFacing.getYOffset:()I
+      30: aload         4
+      32: invokevirtual #397                // Method net/minecraft/util/EnumFacing.getZOffset:()I
+      35: imul
+      36: aload_3
+      37: invokevirtual #397                // Method net/minecraft/util/EnumFacing.getZOffset:()I
+      40: aload         4
+      42: invokevirtual #394                // Method net/minecraft/util/EnumFacing.getYOffset:()I
+      45: imul
+      46: isub
+      47: istore        5
+      49: aload_3
+      50: invokevirtual #397                // Method net/minecraft/util/EnumFacing.getZOffset:()I
+      53: aload         4
+      55: invokevirtual #400                // Method net/minecraft/util/EnumFacing.getXOffset:()I
+      58: imul
+      59: aload_3
+      60: invokevirtual #400                // Method net/minecraft/util/EnumFacing.getXOffset:()I
+      63: aload         4
+      65: invokevirtual #397                // Method net/minecraft/util/EnumFacing.getZOffset:()I
+      68: imul
+      69: isub
+      70: istore        6
+      72: aload_3
+      73: invokevirtual #400                // Method net/minecraft/util/EnumFacing.getXOffset:()I
+      76: aload         4
+      78: invokevirtual #394                // Method net/minecraft/util/EnumFacing.getYOffset:()I
+      81: imul
+      82: aload_3
+      83: invokevirtual #394                // Method net/minecraft/util/EnumFacing.getYOffset:()I
+      86: aload         4
+      88: invokevirtual #400                // Method net/minecraft/util/EnumFacing.getXOffset:()I
+      91: imul
+      92: isub
+      93: istore        7
+      95: aconst_null
+      96: astore        8
+      98: getstatic     #404                // Field net/minecraft/util/EnumFacing.VALUES:[Lnet/minecraft/util/EnumFacing;
+     101: astore        9
+     103: aload         9
+     105: arraylength
+     106: istore        10
+     108: iconst_0
+     109: istore        11
+     111: iload         11
+     113: iload         10
+     115: if_icmpge     165
+     118: aload         9
+     120: iload         11
+     122: aaload
+     123: astore        12
+     125: aload         12
+     127: invokevirtual #400                // Method net/minecraft/util/EnumFacing.getXOffset:()I
+     130: iload         5
+     132: if_icmpne     159
+     135: aload         12
+     137: invokevirtual #394                // Method net/minecraft/util/EnumFacing.getYOffset:()I
+     140: iload         6
+     142: if_icmpne     159
+     145: aload         12
+     147: invokevirtual #397                // Method net/minecraft/util/EnumFacing.getZOffset:()I
+     150: iload         7
+     152: if_icmpne     159
+     155: aload         12
+     157: astore        8
+     159: iinc          11, 1
+     162: goto          111
+     165: aload         8
+     167: ifnonnull     172
+     170: aload_2
+     171: areturn
+     172: aload_2
+     173: aload_3
+     174: if_acmpne     181
+     177: getstatic     #408                // Field net/minecraft/util/EnumFacing.SOUTH:Lnet/minecraft/util/EnumFacing;
+     180: areturn
+     181: aload_2
+     182: aload_3
+     183: invokevirtual #411                // Method net/minecraft/util/EnumFacing.getOpposite:()Lnet/minecraft/util/EnumFacing;
+     186: if_acmpne     193
+     189: getstatic     #414                // Field net/minecraft/util/EnumFacing.NORTH:Lnet/minecraft/util/EnumFacing;
+     192: areturn
+     193: aload_2
+     194: aload         4
+     196: if_acmpne     203
+     199: getstatic     #417                // Field net/minecraft/util/EnumFacing.UP:Lnet/minecraft/util/EnumFacing;
+     202: areturn
+     203: aload_2
+     204: aload         4
+     206: invokevirtual #411                // Method net/minecraft/util/EnumFacing.getOpposite:()Lnet/minecraft/util/EnumFacing;
+     209: if_acmpne     216
+     212: getstatic     #420                // Field net/minecraft/util/EnumFacing.DOWN:Lnet/minecraft/util/EnumFacing;
+     215: areturn
+     216: aload_2
+     217: aload         8
+     219: if_acmpne     226
+     222: getstatic     #423                // Field net/minecraft/util/EnumFacing.WEST:Lnet/minecraft/util/EnumFacing;
+     225: areturn
+     226: aload_2
+     227: aload         8
+     229: invokevirtual #411                // Method net/minecraft/util/EnumFacing.getOpposite:()Lnet/minecraft/util/EnumFacing;
+     232: if_acmpne     239
+     235: getstatic     #426                // Field net/minecraft/util/EnumFacing.EAST:Lnet/minecraft/util/EnumFacing;
+     238: areturn
+     239: aconst_null
+     240: areturn
+
+  public java.lang.String toString();
+    Code:
+       0: aload_0
+       1: invokevirtual #439                // Method getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+       4: ifnull        17
+       7: aload_0
+       8: invokevirtual #439                // Method getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+      11: invokevirtual #444                // Method net/minecraft/util/ResourceLocation.getPath:()Ljava/lang/String;
+      14: goto          20
+      17: ldc_w         #446                // String unregistered
+      20: astore_1
+      21: new           #450                // class java/lang/StringBuilder
+      24: dup
+      25: invokespecial #451                // Method java/lang/StringBuilder."<init>":()V
+      28: aload_0
+      29: invokevirtual #457                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      32: invokevirtual #462                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+      35: invokevirtual #466                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      38: ldc_w         #468                // String [
+      41: invokevirtual #466                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      44: aload_1
+      45: invokevirtual #466                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      48: ldc_w         #470                // String ]
+      51: invokevirtual #466                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      54: invokevirtual #472                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      57: areturn
+
+  protected java.lang.String getUnlocalizedName(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #479                // Method getTranslationKey:()Ljava/lang/String;
+       4: areturn
+
+  protected boolean hasCustomRotation();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  protected void customRotateBlock(appeng.api.util.IOrientable, net.minecraft.util.EnumFacing);
+    Code:
+       0: return
+
+  protected appeng.api.util.IOrientable getOrientable(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: instanceof    #481                // class appeng/api/util/IOrientableBlock
+       4: ifeq          21
+       7: aload_0
+       8: checkcast     #481                // class appeng/api/util/IOrientableBlock
+      11: astore_3
+      12: aload_3
+      13: aload_1
+      14: aload_2
+      15: invokeinterface #482,  3          // InterfaceMethod appeng/api/util/IOrientableBlock.getOrientable:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lappeng/api/util/IOrientable;
+      20: areturn
+      21: aconst_null
+      22: areturn
+
+  protected boolean isValidOrientation(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing, net.minecraft.util.EnumFacing);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  protected appeng.helpers.ICustomCollision getCustomCollision(net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: instanceof    #128                // class appeng/helpers/ICustomCollision
+       4: ifeq          12
+       7: aload_0
+       8: checkcast     #128                // class appeng/helpers/ICustomCollision
+      11: areturn
+      12: aconst_null
+      13: areturn
+
+  protected net.minecraft.block.properties.IProperty[] getAEStates();
+    Code:
+       0: iconst_0
+       1: anewarray     #486                // class net/minecraft/block/properties/IProperty
+       4: areturn
+
+  protected boolean isOpaque();
+    Code:
+       0: aload_0
+       1: getfield      #18                 // Field isOpaque:Z
+       4: ireturn
+
+  protected boolean setOpaque(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #18                 // Field isOpaque:Z
+       5: iload_1
+       6: ireturn
+
+  protected boolean hasSubtypes();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field hasSubtypes:Z
+       4: ireturn
+
+  protected void setHasSubtypes(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #22                 // Field hasSubtypes:Z
+       5: return
+
+  protected boolean isFullSize();
+    Code:
+       0: aload_0
+       1: getfield      #20                 // Field isFullSize:Z
+       4: ireturn
+
+  protected boolean setFullSize(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #20                 // Field isFullSize:Z
+       5: iload_1
+       6: ireturn
+
+  protected boolean isInventory();
+    Code:
+       0: aload_0
+       1: getfield      #24                 // Field isInventory:Z
+       4: ireturn
+
+  protected void setInventory(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #24                 // Field isInventory:Z
+       5: return
+}

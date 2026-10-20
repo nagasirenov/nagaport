@@ -1,0 +1,27 @@
+CL: abh net/minecraft/item/ItemBlock
+CL: acj net/minecraft/item/ItemDye
+CL: acx net/minecraft/item/ItemFood
+CL: adb net/minecraft/item/Item
+CL: add net/minecraft/item/ItemStack
+CL: aji net/minecraft/block/Block
+CL: dh net/minecraft/nbt/NBTTagCompound
+FD: acj/a net/minecraft/item/ItemDye/field_150923_a
+FD: add/d net/minecraft/item/ItemStack/field_77990_d
+FD: add/f net/minecraft/item/ItemStack/field_77991_e
+MD: abh/a ()Ljava/lang/String; net/minecraft/item/ItemBlock/func_77658_a ()Ljava/lang/String;
+MD: abh/a (Ladd;)Ljava/lang/String; net/minecraft/item/ItemBlock/func_77667_c (Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
+MD: abh/b (Ljava/lang/String;)Labh; net/minecraft/item/ItemBlock/func_77655_b (Ljava/lang/String;)Lnet/minecraft/item/ItemBlock;
+MD: abh/c (Ljava/lang/String;)Ladb; net/minecraft/item/ItemBlock/func_77655_b (Ljava/lang/String;)Lnet/minecraft/item/Item;
+MD: acj/a (Ladd;)Ljava/lang/String; net/minecraft/item/ItemDye/func_77667_c (Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
+MD: adb/a ()Ljava/lang/String; net/minecraft/item/Item/func_77658_a ()Ljava/lang/String;
+MD: adb/a (Ladd;)Ljava/lang/String; net/minecraft/item/Item/func_77667_c (Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
+MD: adb/c (Ljava/lang/String;)Ladb; net/minecraft/item/Item/func_77655_b (Ljava/lang/String;)Lnet/minecraft/item/Item;
+MD: add/a ()Ljava/lang/String; net/minecraft/item/ItemStack/func_77977_a ()Ljava/lang/String;
+MD: add/b ()Ladb; net/minecraft/item/ItemStack/func_77973_b ()Lnet/minecraft/item/Item;
+MD: add/k ()I net/minecraft/item/ItemStack/func_77960_j ()I
+MD: add/p ()Z net/minecraft/item/ItemStack/func_77942_o ()Z
+MD: add/q ()Ldh; net/minecraft/item/ItemStack/func_77978_p ()Lnet/minecraft/nbt/NBTTagCompound;
+MD: aji/a ()Ljava/lang/String; net/minecraft/block/Block/func_149739_a ()Ljava/lang/String;
+MD: aji/c (Ljava/lang/String;)Laji; net/minecraft/block/Block/func_149663_c (Ljava/lang/String;)Lnet/minecraft/block/Block;
+MD: dh/a (Ljava/lang/String;Ljava/lang/String;)V net/minecraft/nbt/NBTTagCompound/func_74778_a (Ljava/lang/String;Ljava/lang/String;)V
+MD: dh/j (Ljava/lang/String;)Ljava/lang/String; net/minecraft/nbt/NBTTagCompound/func_74779_i (Ljava/lang/String;)Ljava/lang/String;

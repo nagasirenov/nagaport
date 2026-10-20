@@ -1,0 +1,52 @@
+{
+  "before": 10014,
+  "after": 10006,
+  "new_diagnostics_count": 4,
+  "removed_diagnostics_count": 12,
+  "new": [
+    {
+      "file": "com/hbm/blocks/ModBlocks.java",
+      "message": "cannot find symbol",
+      "symbol": "method setBlockTextureName(String)",
+      "location": "class Block",
+      "count": 4
+    }
+  ],
+  "removed": [
+    {
+      "file": "com/hbm/blocks/ModBlocks.java",
+      "message": "cannot find symbol",
+      "symbol": "method setStepSound(SoundType)",
+      "location": "class Block",
+      "count": 7
+    },
+    {
+      "file": "com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+      "message": "cannot find symbol",
+      "symbol": "method getBoundingBox(double,double,double,double,double,double)",
+      "location": "class AxisAlignedBB",
+      "count": 2
+    },
+    {
+      "file": "com/hbm/inventory/SlotNonRetarded.java",
+      "message": "stackSize has private access in ItemStack",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/container/ContainerLeadBox.java",
+      "message": "stackSize has private access in ItemStack",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    },
+    {
+      "file": "com/hbm/inventory/container/ContainerToolBox.java",
+      "message": "stackSize has private access in ItemStack",
+      "symbol": "",
+      "location": "",
+      "count": 1
+    }
+  ]
+}

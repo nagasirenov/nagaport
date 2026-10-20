@@ -185,7 +185,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 				this.setRollingAmplitude(10);
 				this.setBeenAttacked();
 				this.setDamage(this.getDamage() + amount * 10.0F);
-				boolean flag = source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode;
+				boolean flag = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;
 
 				if(flag || this.getDamage() > 40.0F) {
 					if(this.isBeingRidden()) {
@@ -260,7 +260,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 		}
 
 		if(!this.world.isRemote && this.world instanceof WorldServer) {
-			this.world.theProfiler.startSection("portal");
+			this.world.profiler.startSection("portal");
 			MinecraftServer minecraftserver = ((WorldServer) this.world).func_73046_m();
 			int portalTime = this.getMaxInPortalTime();
 
@@ -296,7 +296,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 				--this.timeUntilPortal;
 			}
 
-			this.world.theProfiler.endSection();
+			this.world.profiler.endSection();
 		}
 
 		/*
@@ -605,15 +605,15 @@ public abstract class EntityMinecartDeobf extends Entity {
 				this.motionX += this.motionX / d15 * d16;
 				this.motionZ += this.motionZ / d15 * d16;
 			} else if(meta == 1) {
-				if(com.hbm.world.WorldBlockState.read(this.world, railX - 1, railY, railZ).getBlock().isNormalCube()) {
+				if(com.hbm.world.WorldBlockState.read(this.world, railX - 1, railY, railZ).isNormalCube()) {
 					this.motionX = 0.02D;
-				} else if(com.hbm.world.WorldBlockState.read(this.world, railX + 1, railY, railZ).getBlock().isNormalCube()) {
+				} else if(com.hbm.world.WorldBlockState.read(this.world, railX + 1, railY, railZ).isNormalCube()) {
 					this.motionX = -0.02D;
 				}
 			} else if(meta == 0) {
-				if(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ - 1).getBlock().isNormalCube()) {
+				if(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ - 1).isNormalCube()) {
 					this.motionZ = 0.02D;
-				} else if(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ + 1).getBlock().isNormalCube()) {
+				} else if(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ + 1).isNormalCube()) {
 					this.motionZ = -0.02D;
 				}
 			}

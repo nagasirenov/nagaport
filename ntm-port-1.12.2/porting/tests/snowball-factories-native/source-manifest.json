@@ -1,0 +1,684 @@
+{
+  "base_checkpoint": "bdb4c897",
+  "production_source": "src/main/java/com/hbm/main/ClientProxy.java",
+  "production_sha256": "21016a7aefb86b6ad1812096aee965dc07002f4f9d4bc69371ab6fdfe1381d1c",
+  "original_source_sha256": "493673afb0ca5ed090478ea8622b4683104618e5c1d4d1b361c12305fa2387c7",
+  "registrations": [
+    {
+      "entity": "EntityRocket",
+      "original_item": "ModItems.man_core",
+      "native_item": "ModItems.man_core",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/man_core",
+      "item_class": "ItemCustomLore",
+      "asset": "src/main/resources/assets/hbm/textures/items/man_core.png",
+      "sha256": "fdfffb9d20166ab7e84fe9b7de779334d93c69b2344a313cb372d65d8ed175e6"
+    },
+    {
+      "entity": "EntityAcidBomb",
+      "original_item": "Items.slime_ball",
+      "native_item": "Items.SLIME_BALL",
+      "metadata": 0,
+      "count": 1,
+      "texture": "minecraft:items/slimeball",
+      "item_class": "Item"
+    },
+    {
+      "entity": "EntityGrenadeGeneric",
+      "original_item": "ModItems.grenade_generic",
+      "native_item": "ModItems.grenade_generic",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_generic",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_generic.png",
+      "sha256": "a5946f794f977474d93f0e6343d605b30d38cc0deb69a8f28fee8e211f5e4f8c"
+    },
+    {
+      "entity": "EntityGrenadeStrong",
+      "original_item": "ModItems.grenade_strong",
+      "native_item": "ModItems.grenade_strong",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_strong",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_strong.png",
+      "sha256": "ca1e7e0e17137fa090e621acc53caf4ff73713d5e87b8bd5a3b70fa1d5be1c5a"
+    },
+    {
+      "entity": "EntityGrenadeFrag",
+      "original_item": "ModItems.grenade_frag",
+      "native_item": "ModItems.grenade_frag",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_frag_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_frag_alt.png",
+      "sha256": "02d6da8a4e0f005007d7fdc228cf4f70b777a9c530408283383cf7711ad0ea8a"
+    },
+    {
+      "entity": "EntityGrenadeFire",
+      "original_item": "ModItems.grenade_fire",
+      "native_item": "ModItems.grenade_fire",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_fire_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_fire_alt.png",
+      "sha256": "ab86b8ac1427a60ac426eaf40d2289d4e960d7f866ba964318172c1468894ac7"
+    },
+    {
+      "entity": "EntityGrenadeCluster",
+      "original_item": "ModItems.grenade_cluster",
+      "native_item": "ModItems.grenade_cluster",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_cluster_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_cluster_alt.png",
+      "sha256": "cba0a0ee0316f3f98022bbab3d2db128da24f5430cdaa4881b908e64fde0a75d"
+    },
+    {
+      "entity": "EntityGrenadeElectric",
+      "original_item": "ModItems.grenade_electric",
+      "native_item": "ModItems.grenade_electric",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_electric_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_electric_alt.png",
+      "sha256": "3580dd07fd1ab897853147ff89a605b13c4a9b40d76696a137303441b2919ca8"
+    },
+    {
+      "entity": "EntityGrenadePoison",
+      "original_item": "ModItems.grenade_poison",
+      "native_item": "ModItems.grenade_poison",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_poison_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_poison_alt.png",
+      "sha256": "10a67fce75962df662202cdc00c61f52bf86233a4b31d60a8295b0aa9c39ebbf"
+    },
+    {
+      "entity": "EntityGrenadeGas",
+      "original_item": "ModItems.grenade_gas",
+      "native_item": "ModItems.grenade_gas",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_gas_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_gas_alt.png",
+      "sha256": "9fc43e6af1aa8f102141656ff35a1ea6d545e3f5a7da8e0ae4552586ca94ff81"
+    },
+    {
+      "entity": "EntityGrenadeSchrabidium",
+      "original_item": "ModItems.grenade_schrabidium",
+      "native_item": "ModItems.grenade_schrabidium",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_schrabidium_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_schrabidium_alt.png",
+      "sha256": "426aaf2aad32abf86bf314562313af3160ad4389140c50fdd73eea274f7272e5"
+    },
+    {
+      "entity": "EntityGrenadeNuke",
+      "original_item": "ModItems.grenade_nuke",
+      "native_item": "ModItems.grenade_nuke",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_nuke_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_nuke_alt.png",
+      "sha256": "ebab6ae644e9a6dbba4c1a7e6edfaaff4bd2e219ea2926727a71966138375771"
+    },
+    {
+      "entity": "EntityGrenadeNuclear",
+      "original_item": "ModItems.grenade_nuclear",
+      "native_item": "ModItems.grenade_nuclear",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_nuclear",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_nuclear.png",
+      "sha256": "04f6b4de219c7e5cec7f466907243b2968fcd5790e390d760ac69d38b5b68daa"
+    },
+    {
+      "entity": "EntityGrenadePlasma",
+      "original_item": "ModItems.grenade_plasma",
+      "native_item": "ModItems.grenade_plasma",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_plasma_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_plasma_alt.png",
+      "sha256": "1958c01c7f5b75b36032520f67af03f863e3f813ba897e4f3d1dbd2e4010f256"
+    },
+    {
+      "entity": "EntityGrenadeTau",
+      "original_item": "ModItems.grenade_tau",
+      "native_item": "ModItems.grenade_tau",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_tau_alt",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_tau_alt.png",
+      "sha256": "1c4c63096f8616f04de962bc502d749dff7d7a2877508f4885d8af02c7fa6109"
+    },
+    {
+      "entity": "EntityGrenadeLemon",
+      "original_item": "ModItems.grenade_lemon",
+      "native_item": "ModItems.grenade_lemon",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_lemon",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_lemon.png",
+      "sha256": "cb941fe4edb9b972d4934de4c183b1f9c41e70fef263f94b1110f58ea185ba4a"
+    },
+    {
+      "entity": "EntityGrenadeZOMG",
+      "original_item": "ModItems.grenade_zomg",
+      "native_item": "ModItems.grenade_zomg",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_zomg",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_zomg.png",
+      "sha256": "ace7d443dd88ae1186f9ab0eccc3a3a6598694696c2b871efdaada3e8c34778e"
+    },
+    {
+      "entity": "EntityGrenadePulse",
+      "original_item": "ModItems.grenade_pulse",
+      "native_item": "ModItems.grenade_pulse",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_pulse",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_pulse.png",
+      "sha256": "d8f6a2b5625328956bbf856547c295c5a26da7417c89bdb8853abef11e1616a9"
+    },
+    {
+      "entity": "EntityGrenadeShrapnel",
+      "original_item": "ModItems.grenade_shrapnel",
+      "native_item": "ModItems.grenade_shrapnel",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_shrapnel",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_shrapnel.png",
+      "sha256": "412c542052747d3d2cfd22212b6e2d9125a778cff2083eb6ad5c74c625c2274b"
+    },
+    {
+      "entity": "EntityGrenadeBlackHole",
+      "original_item": "ModItems.grenade_black_hole",
+      "native_item": "ModItems.grenade_black_hole",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_black_hole",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_black_hole.png",
+      "sha256": "b51fb5ce4177a0b5da9c20249a5c424fe426703955d7ae3abdbe4b8f25771a83"
+    },
+    {
+      "entity": "EntityGrenadeGascan",
+      "original_item": "ModItems.grenade_gascan",
+      "native_item": "ModItems.grenade_gascan",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_gascan",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_gascan.png",
+      "sha256": "ecb0788d5ba57dda64b55a2414090b619b42cbed8dcbc2ed5eb2332fbd42367d"
+    },
+    {
+      "entity": "EntityGrenadeCloud",
+      "original_item": "ModItems.grenade_cloud",
+      "native_item": "ModItems.grenade_cloud",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_cloud",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_cloud.png",
+      "sha256": "9a48059e8bea9d75bb1ca490f8088396c6296040b659cda5caad0372b4cdedd9"
+    },
+    {
+      "entity": "EntityGrenadePC",
+      "original_item": "ModItems.grenade_pink_cloud",
+      "native_item": "ModItems.grenade_pink_cloud",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_pink_cloud",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_pink_cloud.png",
+      "sha256": "09fb7ef355e76407396fb1fa5d84036c9b0442949acca2f908768a1de5190452"
+    },
+    {
+      "entity": "EntityGrenadeSmart",
+      "original_item": "ModItems.grenade_smart",
+      "native_item": "ModItems.grenade_smart",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_smart",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_smart.png",
+      "sha256": "68b90c0a0b1a302e35671fc86fcb60143ea764124a5468df44e49807748a56ff"
+    },
+    {
+      "entity": "EntityGrenadeMIRV",
+      "original_item": "ModItems.grenade_mirv",
+      "native_item": "ModItems.grenade_mirv",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_mirv",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_mirv.png",
+      "sha256": "427bd2d0271f7ff837fba23aba75acbc83a3371a7e2af919108859d7d6e5b4c8"
+    },
+    {
+      "entity": "EntityGrenadeBreach",
+      "original_item": "ModItems.grenade_breach",
+      "native_item": "ModItems.grenade_breach",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_breach",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_breach.png",
+      "sha256": "00f51733bb3b9ba43642d0afc933a32300c56e5999866c99a0d9ea8e3b1f286b"
+    },
+    {
+      "entity": "EntityGrenadeBurst",
+      "original_item": "ModItems.grenade_burst",
+      "native_item": "ModItems.grenade_burst",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_burst",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_burst.png",
+      "sha256": "4e746e70c664c11497de6e2569dc476dff5d286f6d24a96b36747f062541c6e1"
+    },
+    {
+      "entity": "EntityGrenadeIFGeneric",
+      "original_item": "ModItems.grenade_if_generic",
+      "native_item": "ModItems.grenade_if_generic",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_generic",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_generic.png",
+      "sha256": "b5aa16bbb7b954815807cde7a959619989454b019b49c25eee7ee5b743f1c262"
+    },
+    {
+      "entity": "EntityGrenadeIFHE",
+      "original_item": "ModItems.grenade_if_he",
+      "native_item": "ModItems.grenade_if_he",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_he",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_he.png",
+      "sha256": "804f2a787cb3a721f7a7c2ef65e90c21476b213c826e1c27a7a8af5960085a9d"
+    },
+    {
+      "entity": "EntityGrenadeIFBouncy",
+      "original_item": "ModItems.grenade_if_bouncy",
+      "native_item": "ModItems.grenade_if_bouncy",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_bouncy",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_bouncy.png",
+      "sha256": "1c9ba9df89b08a2fabf3204dee080fe3eae2ea918cdcc8b5b1c54cedfe0898b9"
+    },
+    {
+      "entity": "EntityGrenadeIFSticky",
+      "original_item": "ModItems.grenade_if_sticky",
+      "native_item": "ModItems.grenade_if_sticky",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_sticky",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_sticky.png",
+      "sha256": "da24c0abafa19fa88d790b01d7356848cebeb1c30e69263056af25a7d8b5740d"
+    },
+    {
+      "entity": "EntityGrenadeIFImpact",
+      "original_item": "ModItems.grenade_if_impact",
+      "native_item": "ModItems.grenade_if_impact",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_impact",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_impact.png",
+      "sha256": "8d46d4ea4e4a617ace54ab9418a929ae5198bd6510e814c5ebd7e1763ad6cca6"
+    },
+    {
+      "entity": "EntityGrenadeIFIncendiary",
+      "original_item": "ModItems.grenade_if_incendiary",
+      "native_item": "ModItems.grenade_if_incendiary",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_incendiary",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_incendiary.png",
+      "sha256": "7c3d9690182f74edbb9602261c15d49bf1584dc098101f7a6f44fad4416bc534"
+    },
+    {
+      "entity": "EntityGrenadeIFToxic",
+      "original_item": "ModItems.grenade_if_toxic",
+      "native_item": "ModItems.grenade_if_toxic",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_toxic",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_toxic.png",
+      "sha256": "a0bf8e526c458ce39c2090d57301e05f006d0979b4fb591586fada439252e383"
+    },
+    {
+      "entity": "EntityGrenadeIFConcussion",
+      "original_item": "ModItems.grenade_if_concussion",
+      "native_item": "ModItems.grenade_if_concussion",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_concussion",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_concussion.png",
+      "sha256": "f961b3f9ebe35ef0dece3133f9be3f915ba74261a49014ef15fa57e1b76ab9f9"
+    },
+    {
+      "entity": "EntityGrenadeIFBrimstone",
+      "original_item": "ModItems.grenade_if_brimstone",
+      "native_item": "ModItems.grenade_if_brimstone",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_brimstone",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_brimstone.png",
+      "sha256": "1faf68963b2eb151ff28140c907822e02cbe2124d2903d97ef8c9162aacc254a"
+    },
+    {
+      "entity": "EntityGrenadeIFMystery",
+      "original_item": "ModItems.grenade_if_mystery",
+      "native_item": "ModItems.grenade_if_mystery",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_mystery",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_mystery.png",
+      "sha256": "9594837b237d94e98143019f06730df49a5527d976a549d134b4ee37f023028d"
+    },
+    {
+      "entity": "EntityGrenadeIFSpark",
+      "original_item": "ModItems.grenade_if_spark",
+      "native_item": "ModItems.grenade_if_spark",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_spark",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_spark.png",
+      "sha256": "e8e7a69e627871f8b86edb0d8a93840a0f21078e7dd8fbe612aabf844663f4b2"
+    },
+    {
+      "entity": "EntityGrenadeIFHopwire",
+      "original_item": "ModItems.grenade_if_hopwire",
+      "native_item": "ModItems.grenade_if_hopwire",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_hopwire",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_hopwire.png",
+      "sha256": "ff1770050727671766b4cb07036e032de67e2bdbc6bb194e1f6367e62aae91d2"
+    },
+    {
+      "entity": "EntityGrenadeIFNull",
+      "original_item": "ModItems.grenade_if_null",
+      "native_item": "ModItems.grenade_if_null",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/grenade_if_null",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/grenade_if_null.png",
+      "sha256": "f77b30ecbf2cd12dc319d0dfbd344bac26a875dc79f2b768cd656eefd4de1e6d"
+    },
+    {
+      "entity": "EntityWastePearl",
+      "original_item": "ModItems.nuclear_waste_pearl",
+      "native_item": "ModItems.nuclear_waste_pearl",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/nuclear_waste_pearl",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/nuclear_waste_pearl.png",
+      "sha256": "5299177ecac4395759917abee572524a7877c8a6d17e3c0fb60919f62fa4fee0"
+    },
+    {
+      "entity": "EntityGrenadeDynamite",
+      "original_item": "ModItems.stick_dynamite",
+      "native_item": "ModItems.stick_dynamite",
+      "metadata": 0,
+      "count": 1,
+      "texture": "hbm:items/stick_dynamite",
+      "item_class": "ItemGrenade",
+      "asset": "src/main/resources/assets/hbm/textures/items/stick_dynamite.png",
+      "sha256": "fcacc0dc1766d9340d5fd215e17201db768503be0b11fb833d3a6151035d4268"
+    }
+  ],
+  "cp83_diagnostics": [
+    {
+      "entity": "EntityRocket",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:719: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityAcidBomb",
+      "kind": "vanilla-item-symbol",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:759: error: cannot find symbol"
+    },
+    {
+      "entity": "EntityGrenadeGeneric",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:761: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeStrong",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:762: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeFrag",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:763: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeFire",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:764: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeCluster",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:765: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeElectric",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:767: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadePoison",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:768: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeGas",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:769: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeSchrabidium",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:770: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeNuke",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:771: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeNuclear",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:772: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadePlasma",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:773: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeTau",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:774: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeLemon",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:775: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeZOMG",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:777: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadePulse",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:779: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeShrapnel",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:780: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeBlackHole",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:781: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeGascan",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:782: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeCloud",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:783: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadePC",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:784: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeSmart",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:785: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeMIRV",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:786: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeBreach",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:787: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeBurst",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:788: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFGeneric",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:789: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFHE",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:790: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFBouncy",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:791: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFSticky",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:792: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFImpact",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:793: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFIncendiary",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:794: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFToxic",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:795: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFConcussion",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:796: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFBrimstone",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:797: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFMystery",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:798: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFSpark",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:799: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFHopwire",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:800: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeIFNull",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:801: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityWastePearl",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:802: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    },
+    {
+      "entity": "EntityGrenadeDynamite",
+      "kind": "constructor-arity",
+      "header": "/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ClientProxy.java:803: error: constructor RenderSnowball in class RenderSnowball<T> cannot be applied to given types;"
+    }
+  ],
+  "legacy_class": "bod",
+  "legacy_jar_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "native_jar_sha256": "8ada07da5ee77dad3527bd7278fbd05ee1fc8a597813b216a871a2d7d64cc64f",
+  "limits": "Application tokens and item slots are controlled fixture inputs. Actual Forge/Minecraft classes, production registration statements, texture/model provider and GPU draw path are used. Not a full ClientProxy compile, full mod initialization or in-game acceptance."
+}

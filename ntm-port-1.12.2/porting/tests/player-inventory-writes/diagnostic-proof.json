@@ -1,0 +1,134 @@
+{
+  "before_errors": 952,
+  "after_errors": 931,
+  "removed": [
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      2612,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      2908,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      3107,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      2744,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/hazard/HazardSystem.java",
+      6276,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/armor/ArmorBJ.java",
+      1782,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/machine/ItemFluidSiphon.java",
+      2560,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1395,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1469,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1542,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1614,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1707,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1785,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1862,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      1938,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      2035,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      2114,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      2192,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/items/special/ItemStarterKit.java",
+      2269,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/packet/toserver/ItemFolderPacket.java",
+      4560,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ],
+    [
+      "src/main/java/com/hbm/util/ArmorUtil.java",
+      13365,
+      "compiler.err.array.req.but.found",
+      "array required, but net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> found"
+    ]
+  ],
+  "unchanged_after_position_inverse": 931,
+  "claim": "bounded nine-owner attribution only, not successful whole classes/build"
+}

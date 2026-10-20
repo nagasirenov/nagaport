@@ -698,7 +698,7 @@ public class Meteorite {
 		Block target = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(safeMode) {
-			if(!target.isReplaceable(world, x, y, z) && !replacables.contains(target)) return;
+			if(!target.isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z)) && !replacables.contains(target)) return;
 		}
 
 		float hardness = target.getBlockHardness(world, x, y, z);

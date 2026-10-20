@@ -106,11 +106,11 @@ public class MachineITER extends BlockDummyable {
 		if(!checkRequirement(world, x, y, z, dir, o)) {
 			
 			if(!pl.capabilities.isCreativeMode) {
-				ItemStack stack = pl.inventory.mainInventory[pl.inventory.currentItem];
+				ItemStack stack = com.hbm.util.PlayerInventoryRead.get(pl.inventory.mainInventory, pl.inventory.currentItem);
 				Item item = Item.getItemFromBlock(this);
 				
 				if(stack == null) {
-					pl.inventory.mainInventory[pl.inventory.currentItem] = new ItemStack(this);
+					pl.inventory.mainInventory.set(pl.inventory.currentItem, new ItemStack(this));
 				} else {
 					if(stack.getItem() != item || stack.stackSize == stack.getMaxStackSize()) {
 						pl.inventory.addItemStackToInventory(new ItemStack(this));
@@ -129,8 +129,8 @@ public class MachineITER extends BlockDummyable {
 		this.safeRem = true;
 		fillSpace(world, x, y, z, dir, o);
 		this.safeRem = false;
-		world.scheduleBlockUpdate(x, y, z, this, 1);
-		world.scheduleBlockUpdate(x, y, z, this, 2);
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2);
 
 		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
 	}
@@ -158,7 +158,7 @@ public class MachineITER extends BlockDummyable {
 					if(ex == 0 && y == 2 && ez == 0)
 						continue;
 					
-					if(!com.hbm.world.WorldBlockState.read(world, x + ex, y + iy, z + ez).getBlock().canPlaceBlockAt(world, x + ex, y + iy, z + ez)) {
+					if(!com.hbm.world.WorldBlockState.read(world, x + ex, y + iy, z + ez).getBlock().canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x + ex, y + iy, z + ez))) {
 						return false;
 					}
 				}

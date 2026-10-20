@@ -56,7 +56,7 @@ public class BrokenItem extends Item {
 	public static ItemStack make(Item item, int stacksize, int meta) {
 		ItemStack stack = new ItemStack(ModItems.broken_item, stacksize);
 		NBTTagCompound nbt = new NBTTagCompound();
-		nbt.setString("itemID", Item.itemRegistry.getNameForObject(item));
+		nbt.setString("itemID", java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null));
 		nbt.setInteger("itemMeta", meta);
 		stack.setTagCompound(nbt);
 		return stack;

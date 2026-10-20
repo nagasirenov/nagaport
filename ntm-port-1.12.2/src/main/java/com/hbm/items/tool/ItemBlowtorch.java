@@ -36,9 +36,9 @@ public class ItemBlowtorch extends Item implements IFillableItem {
 	}
 
 	@Override
-	public Item setUnlocalizedName(String unlocalizedName) {
-		super.setUnlocalizedName(unlocalizedName);
-		this.setTextureName(RefStrings.MODID + ":"+ unlocalizedName);
+	public Item setTranslationKey(String unlocalizedName) {
+		super.setTranslationKey(unlocalizedName);
+		com.hbm.render.item.NativeItemTextureRegistry.texture(this, RefStrings.MODID + ":"+ unlocalizedName);
 		return this;
 	}
 

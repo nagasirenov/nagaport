@@ -59,7 +59,7 @@ public class BlockOreOutgas extends BlockOre {
 				world.setBlock(x, y + 1, z, ModBlocks.gas_asbestos);
 				
 				for(int i = 0; i < 5; i++)
-					world.spawnParticle("townaura", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+					world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}

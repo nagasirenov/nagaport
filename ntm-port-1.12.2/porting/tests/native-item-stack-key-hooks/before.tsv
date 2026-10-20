@@ -1,0 +1,50 @@
+DECL	false	com.hbm.blocks.BlockEnumMulti#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/blocks/BlockEnumMulti.java
+DECL	false	com.hbm.blocks.BlockNTSapling#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/blocks/BlockNTSapling.java
+DECL	false	com.hbm.blocks.IBlockMulti#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/blocks/IBlockMulti.java
+DECL	false	com.hbm.blocks.generic.BlockAbsorber#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/blocks/generic/BlockAbsorber.java
+DECL	false	com.hbm.blocks.generic.BlockMetalFence#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/blocks/generic/BlockMetalFence.java
+DECL	false	com.hbm.blocks.generic.BlockToolConversion#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/blocks/generic/BlockToolConversion.java
+DECL	false	com.hbm.blocks.generic.BlockWandStructure#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/blocks/generic/BlockWandStructure.java
+DECL	false	com.hbm.items.ItemEnumMulti#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/ItemEnumMulti.java
+DECL	false	com.hbm.items.block.ItemBlockBase#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/block/ItemBlockBase.java
+CLASS	com.hbm.items.block.ItemBlockColoredConcrete	com.hbm.items.block.ItemBlockBlastInfo > com.hbm.items.block.ItemBlockBase > net.minecraft.item.ItemBlock > net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/block/ItemBlockColoredConcrete.java
+DECL	true	com.hbm.items.block.ItemBlockColoredConcrete#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/block/ItemBlockColoredConcrete.java
+CALL	src/main/java/com/hbm/items/block/ItemBlockColoredConcrete.java	22	net.minecraft.item.ItemBlock#getTranslationKey():java.lang.String	super.getTranslationKey()
+CLASS	com.hbm.items.block.ItemBlockNamedMeta	com.hbm.items.block.ItemBlockMeta > net.minecraft.item.ItemBlock > net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/block/ItemBlockNamedMeta.java
+DECL	true	com.hbm.items.block.ItemBlockNamedMeta#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/block/ItemBlockNamedMeta.java
+CALL	src/main/java/com/hbm/items/block/ItemBlockNamedMeta.java	15	net.minecraft.item.ItemBlock#getTranslationKey():java.lang.String	super.getTranslationKey()
+DECL	false	com.hbm.items.food.ItemConserve#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/food/ItemConserve.java
+CLASS	com.hbm.items.food.ItemCrayon	net.minecraft.item.ItemFood > net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/food/ItemCrayon.java
+DECL	true	com.hbm.items.food.ItemCrayon#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/food/ItemCrayon.java
+CALL	src/main/java/com/hbm/items/food/ItemCrayon.java	48	net.minecraft.item.Item#getTranslationKey():java.lang.String	super.getTranslationKey()
+DECL	false	com.hbm.items.machine.ItemDrillbit#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/machine/ItemDrillbit.java
+CLASS	com.hbm.items.machine.ItemGear	net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/machine/ItemGear.java
+DECL	true	com.hbm.items.machine.ItemGear#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/machine/ItemGear.java
+CALL	src/main/java/com/hbm/items/machine/ItemGear.java	28	net.minecraft.item.Item#getTranslationKey():java.lang.String	this.getTranslationKey()
+CLASS	com.hbm.items.machine.ItemMetaUpgrade	com.hbm.items.machine.ItemMachineUpgrade > net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/machine/ItemMetaUpgrade.java
+DECL	true	com.hbm.items.machine.ItemMetaUpgrade#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/machine/ItemMetaUpgrade.java
+CALL	src/main/java/com/hbm/items/machine/ItemMetaUpgrade.java	65	net.minecraft.item.Item#getTranslationKey():java.lang.String	super.getTranslationKey()
+DECL	false	com.hbm.items.machine.ItemPistons#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/machine/ItemPistons.java
+CLASS	com.hbm.items.machine.ItemScraps	com.hbm.items.special.ItemAutogen > net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/machine/ItemScraps.java
+CALL	src/main/java/com/hbm/items/machine/ItemScraps.java	92	com.hbm.inventory.material.NTMMaterial#getUnlocalizedName():java.lang.String	contents.material.getUnlocalizedName()
+CALL	src/main/java/com/hbm/items/machine/ItemScraps.java	109	com.hbm.inventory.material.NTMMaterial#getUnlocalizedName():java.lang.String	contents.material.getUnlocalizedName()
+CLASS	com.hbm.items.machine.ItemStampBook	com.hbm.items.machine.ItemStamp > net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/machine/ItemStampBook.java
+DECL	true	com.hbm.items.machine.ItemStampBook#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/machine/ItemStampBook.java
+CALL	src/main/java/com/hbm/items/machine/ItemStampBook.java	40	net.minecraft.item.Item#getTranslationKey():java.lang.String	super.getTranslationKey()
+DECL	false	com.hbm.items.machine.ItemZirnoxRod#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/machine/ItemZirnoxRod.java
+CLASS	com.hbm.items.special.ItemAutogen	net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/special/ItemAutogen.java
+CALL	src/main/java/com/hbm/items/special/ItemAutogen.java	127	com.hbm.inventory.material.NTMMaterial#getUnlocalizedName():java.lang.String	mat.getUnlocalizedName()
+DECL	true	com.hbm.items.special.ItemAutogen#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/special/ItemAutogen.java
+CALL	src/main/java/com/hbm/items/special/ItemAutogen.java	133	UNRESOLVED	super.getUnlocalizedName(stack)
+DECL	false	com.hbm.items.special.ItemBookLore#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/special/ItemBookLore.java
+CLASS	com.hbm.items.special.ItemMineralOre	net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/special/ItemMineralOre.java
+DECL	true	com.hbm.items.special.ItemMineralOre#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/special/ItemMineralOre.java
+DECL	false	com.hbm.items.tool.ItemConveyorWand#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/tool/ItemConveyorWand.java
+CLASS	com.hbm.items.tool.ItemModMinecart	net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/tool/ItemModMinecart.java
+DECL	true	com.hbm.items.tool.ItemModMinecart#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/tool/ItemModMinecart.java
+CALL	src/main/java/com/hbm/items/tool/ItemModMinecart.java	107	net.minecraft.item.Item#getTranslationKey():java.lang.String	super.getTranslationKey()
+DECL	false	com.hbm.items.weapon.ItemAmmo#getTranslationKey(net.minecraft.item.ItemStack):java.lang.String	true	src/main/java/com/hbm/items/weapon/ItemAmmo.java
+CLASS	com.hbm.items.weapon.ItemAmmoArty	net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/weapon/ItemAmmoArty.java
+DECL	true	com.hbm.items.weapon.ItemAmmoArty#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/weapon/ItemAmmoArty.java
+CLASS	com.hbm.items.weapon.ItemAmmoHIMARS	net.minecraft.item.Item > net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.Item> > java.lang.Object	src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java
+DECL	true	com.hbm.items.weapon.ItemAmmoHIMARS#getUnlocalizedName(net.minecraft.item.ItemStack):java.lang.String	false	src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java

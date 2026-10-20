@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 public class MaskOfInfamy extends ItemArmor {
 
 	public MaskOfInfamy(ArmorMaterial mat, int slot) {
-		super(mat, 0, slot);
+		super(mat, 0, com.hbm.util.ArmorSlotOrder.fromIndex(slot));
 	}
 	
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String layer) {
 		
 		return (RefStrings.MODID + ":textures/armor/MaskOfInfamy.png");
 	}

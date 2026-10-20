@@ -69,7 +69,7 @@ public class GunNPCFactory {
 				EntityBulletBaseNT bolt = new EntityBulletBaseNT(bulletnt.world, BulletConfigSyncingUtil.MASKMAN_BOLT);
 				bolt.setThrower(bulletnt.getThrower());
 				bolt.setPosition(bulletnt.posX, bulletnt.posY, bulletnt.posZ);
-				bolt.setThrowableHeading(motion.x, motion.y, motion.z, 0.5F, 0.05F);
+				bolt.shoot(motion.x, motion.y, motion.z, 0.5F, 0.05F);
 				bulletnt.world.spawnEntityInWorld(bolt);
 			}
 		};

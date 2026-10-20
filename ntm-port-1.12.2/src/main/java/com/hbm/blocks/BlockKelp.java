@@ -59,7 +59,8 @@ public class BlockKelp extends Block {
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		Block below = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return below == this || below == ModBlocks.laythe_silt;
 	}

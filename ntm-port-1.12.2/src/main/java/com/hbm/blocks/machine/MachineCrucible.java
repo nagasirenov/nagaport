@@ -141,8 +141,8 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 		y = crucible.getPos().getY();
 		z = crucible.getPos().getZ();
 		
-		EntityPlayer player = event.player;
-		float interp = event.partialTicks;
+		EntityPlayer player = event.getPlayer();
+		float interp = event.getPartialTicks();
 		double dX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double) interp;
 		double dY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double) interp;
 		double dZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)interp;
@@ -152,7 +152,7 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 		/*event.context.drawOutlinedBoundingBox(AxisAlignedBB.getBoundingBox(x - 1, y, z - 1, x + 2, y + 0.5, z + 2).expand(exp, exp, exp).getOffsetBoundingBox(-dX, -dY, -dZ), -1);
 		event.context.drawOutlinedBoundingBox(AxisAlignedBB.getBoundingBox(x - 0.75, y + 0.5, z - 0.75, x + 1.75, y + 1.5, z + 1.75).expand(exp, exp, exp).getOffsetBoundingBox(-dX, -dY, -dZ), -1);
 		event.context.drawOutlinedBoundingBox(AxisAlignedBB.getBoundingBox(x - 0.5, y + 0.75, z - 0.5, x + 1.5, y + 1.5, z + 1.5).expand(exp, exp, exp).getOffsetBoundingBox(-dX, -dY, -dZ), -1);*/
-		for(AxisAlignedBB aabb : this.bounding) event.context.drawOutlinedBoundingBox(aabb.expand(exp, exp, exp).getOffsetBoundingBox(x - dX + 0.5, y - dY, z - dZ + 0.5), -1);
+		for(AxisAlignedBB aabb : this.bounding) event.getContext().drawOutlinedBoundingBox(aabb.expand(exp, exp, exp).getOffsetBoundingBox(x - dX + 0.5, y - dY, z - dZ + 0.5), -1);
 		ICustomBlockHighlight.cleanup();
 	}
 

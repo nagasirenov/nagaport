@@ -1,0 +1,57 @@
+PASS 48243 native dependency class files; sole Chunk descendant EmptyChunk has no world getter override
+PASS 9 exact byte inverses and 40 whole-file/token drift negatives; no historical baseline hashes refreshed
+/tmp/remaining-world-native-mz0frptk/NativeWorldReadTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/remaining-world-native-mz0frptk/NativeWorldReadTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/remaining-world-native-mz0frptk/NativeWorldReadTest.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/tmp/remaining-world-native-mz0frptk/NativeWorldReadTest.java:14: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe;static int checks;static String trace="";
+        ^
+/tmp/remaining-world-native-mz0frptk/NativeWorldReadTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);Bootstrap.register();
+           ^
+/tmp/remaining-world-native-mz0frptk/NativeWorldReadTest.java:34: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);Bootstrap.register();
+                                                                                     ^
+Note: /tmp/remaining-world-native-mz0frptk/NativeWorldReadTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+
+PASS 29 native actual-world-pointer, constructor, inherited getter, evaluation/null, direct-field, outer-instance, and extracted production-access checks; no radiation runtime or world lifecycle parity claim
+
+/workspace/shared/nagaport-world-remain/ntm-port-1.12.2/porting/tests/remaining-world-native/LegacyWorldReadTest.java:2: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-world-remain/ntm-port-1.12.2/porting/tests/remaining-world-native/LegacyWorldReadTest.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe;static int checks;static String trace="";
+        ^
+/workspace/shared/nagaport-world-remain/ntm-port-1.12.2/porting/tests/remaining-world-native/LegacyWorldReadTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);ahb a=(ahb)unsafe.allocateInstance(mt.class),b=(ahb)unsafe.allocateInstance(mt.class);
+           ^
+/workspace/shared/nagaport-world-remain/ntm-port-1.12.2/porting/tests/remaining-world-native/LegacyWorldReadTest.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);unsafe=(Unsafe)uf.get(null);ahb a=(ahb)unsafe.allocateInstance(mt.class),b=(ahb)unsafe.allocateInstance(mt.class);
+                                                                                     ^
+4 warnings
+
+PASS 21 actual original field and receiver-evaluation controls; original Chunk allocation bypasses constructor, no chunk lifecycle claim
+
+PASS actual native getter bytecode exactly aload_0/getfield/areturn, native invocation and original raw-field instructions
+
+DEFERRED	src/main/java/com/hbm/dim/CelestialBodyWorldSavedData.java:21	provider.worldObj	com.hbm.dim.WorldProviderCelestial
+DEFERRED	src/main/java/com/hbm/dim/CelestialBodyWorldSavedData.java:24	provider.worldObj	com.hbm.dim.WorldProviderCelestial
+DEFERRED	src/main/java/com/hbm/dim/CelestialBodyWorldSavedData.java:25	provider.worldObj	com.hbm.dim.WorldProviderCelestial
+Source Chunk descendants: []
+Attribution diagnostics (unfinished source, NOT compilation success): 12775
+Source Chunk descendants: []
+Attribution diagnostics (unfinished source, NOT compilation success): 12748
+Compiler diagnostic delta: removed 31 added 4
+EXPOSED 1 src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerNT.java:300 cannot find symbol |   symbol:   method blockExists(int,int,int) |   location: class net.minecraft.world.World
+EXPOSED 1 src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerNT.java:304 cannot find symbol |   symbol:   method getChunkFromBlockCoords(int,int) |   location: class net.minecraft.world.World
+EXPOSED 1 src/main/java/com/hbm/handler/radiation/ChunkRadiationHandlerNT.java:421 cannot find symbol |   symbol:   method getBlock(int,int,int) |   location: class net.minecraft.world.World
+EXPOSED 1 src/main/java/com/hbm/tileentity/machine/TileEntityTesla.java:59 cannot find symbol |   symbol:   method getBlock(int,int,int) |   location: variable world of type net.minecraft.world.World
+PASS all 31 frozen before-selection rows and all 31 exact native destination bindings re-attributed with genuine dependencies

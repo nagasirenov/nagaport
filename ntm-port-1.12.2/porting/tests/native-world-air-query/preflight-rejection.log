@@ -1,0 +1,1 @@
+PASS repeated apply on current migrated source refuses before any source/evidence writes; all4,073 source and protected evidence hashes unchanged.

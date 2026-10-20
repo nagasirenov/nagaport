@@ -1,0 +1,12 @@
+{
+  "native_jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+  "native_jar_sha256": "69e6736b75384d9218846614fd47fd61c66c0f7e8899341ef98d1886b835d775",
+  "native_block_class_sha256": "ea913e592dd98ad91b61e779e4ee07889ded2585a5fdea7eb72a1d81bf2d451d",
+  "native_visibility": "protected",
+  "original_forge_jar_sha256": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+  "original_access_resource": "src/main/resources/forge_at.cfg",
+  "original_access_resource_sha256": "e8fc2438f3aa69391155604deab27d1702fa76fba6f3dbe16079e2ec46b3c164",
+  "original_access_line": 35,
+  "original_access_entry": "public net.minecraft.block.Block func_149672_a(Lnet.minecraft.block.Block$SoundType;)Lnet.minecraft.block.Block; #setStepSound",
+  "changes": "No dependency, cache, access transformer, native visibility or runtime access alteration."
+}

@@ -163,7 +163,7 @@ public class XFactory12ga {
 
 			Block b = bullet.world.getBlockState(mop.getBlockPos()).getBlock();
 			if(b.getDefaultState().getMaterial() == Material.GLASS) {
-				bullet.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
+				com.hbm.world.WorldBlockDestruction.destroy(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 				bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 				return;
 			}

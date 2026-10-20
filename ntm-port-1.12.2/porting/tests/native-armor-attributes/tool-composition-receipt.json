@@ -1,0 +1,52 @@
+{
+  "checks": 45,
+  "files": [
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemMirrorTool.java",
+      "original_sha256": "042f1871ac458eddb5d2f6e8e2908d338866a512e9529967bf288b16c2f9b32c",
+      "approved_composed_sha256": "245c808ca5e745603a6bce2ceae4f885545d133df0d3ff1b184644116ae93a78"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemRBMKTool.java",
+      "original_sha256": "a6c3425bd95ffcf20ffe57a638fff16d414868c0b48733741ef80b2206522b71",
+      "approved_composed_sha256": "3a0e143d920b38c886e1b1fc89813483bdee2dc329e80cb8422374786a77c657"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java",
+      "original_sha256": "f73049f048ae9a9e822a749a8934ac005ac639ed2afda6282c1e3dfbf356413d",
+      "approved_composed_sha256": "ca100d069fe6410f4594a5df44baeefeb72388b70fd9c9c4bc6f6a9c28f28edd"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemSwordAbility.java",
+      "original_sha256": "9a37d87a100cafba1ead52e6f46091ba53fb3acbb733a86427cad0043355333a",
+      "approved_composed_sha256": "ee7f7555554becd1dc3e88ee96af2aa0bae2b5332ebb644579bea2233df9aff3"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/ItemToolAbility.java",
+      "original_sha256": "685d730b2d86d9a72685f04ca2b6ca5220f88d25448224d1b7056267cc382198",
+      "approved_composed_sha256": "d1976684752da85f836ead6742a1b30f3266ce7a91f8a39a8c7d9ade92eea9ec"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/GunB92.java",
+      "original_sha256": "95024164af92e2a896696d9b919f83589693979193e9f51d276f5e6e9d07241d",
+      "approved_composed_sha256": "bc47859d7796a5f5d91ec33571193811f29e479f95ad978e3db29ef17f94ef71"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/weapon/ItemCrucible.java",
+      "original_sha256": "7297ec30153a744646fd1ef5883fbe010394ab0af6a25c6b3525613b2399f331",
+      "approved_composed_sha256": "7abd989c7ecb84d5d10d8fae338bf4f216b38bc843d677974dbb73faa2a72f31"
+    },
+    {
+      "file": "src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "original_sha256": "a35490a1a04c4fbf7f63ee0c40f4de65fc980ad34f0a154bb3e95ec8270b3592",
+      "approved_composed_sha256": "ff263d68ec5bbb02eb2e64dddbc11fa0a0558dcf7272b8fee09675a045151ac5"
+    },
+    {
+      "file": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "original_sha256": "3e46fac7b6a2447d499856e5d25bf8ffa07c9b15948a3a1587ab65eca8f993b5",
+      "approved_composed_sha256": "6335f19cf5014007b44872aafc5e1b1246a007183c80a0b248810740e5623050"
+    }
+  ],
+  "census_replaced": false,
+  "protected_pins_replaced": false
+}

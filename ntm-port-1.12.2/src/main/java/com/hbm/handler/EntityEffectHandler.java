@@ -90,7 +90,7 @@ public class EntityEffectHandler {
 				Biome biome = player.world.getBiome(new BlockPos((int) Math.floor(player.posX), 0, (int) Math.floor(player.posZ)));
 				if(biome == BiomeGenCraterBase.craterBiome || biome == BiomeGenCraterBase.craterInnerBiome) {
 					Random rand = player.getRNG();
-					for(int i = 0; i < 3; i++) player.world.spawnParticle("townaura", player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);
+					for(int i = 0; i < 3; i++) player.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);
 				}
 			}
 		}
@@ -173,7 +173,7 @@ public class EntityEffectHandler {
 
 			if(player.motionY < -climbSpeed) player.motionY = -climbSpeed;
 			if(player.isSneaking() && player.motionY < 0.0D) player.motionY = 0.0D;
-			if(player.isCollidedHorizontally) player.motionY = 0.2D;
+			if(player.collidedHorizontally) player.motionY = 0.2D;
 
 			props.isOnLadder = false;
 
@@ -466,7 +466,7 @@ public class EntityEffectHandler {
 			if(entity instanceof EntityPlayer) {
 
 				EntityPlayer player = (EntityPlayer) entity;
-				int randSlot = rand.nextInt(player.inventory.mainInventory.length);
+				int randSlot = rand.nextInt(player.inventory.mainInventory.size());
 				ItemStack stack = player.inventory.getStackInSlot(randSlot);
 
 				if(rand.nextInt(100) == 0) {
@@ -776,7 +776,7 @@ public class EntityEffectHandler {
 			int armorModDashCount = 0;
 
 			if(ArmorFSB.hasFSBArmor(player)) {
-				ItemStack plate = player.inventory.armorInventory[2];
+				ItemStack plate = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2);
 
 				chestplate = (ArmorFSB)plate.getItem();
 			}
@@ -785,7 +785,7 @@ public class EntityEffectHandler {
 				armorDashCount = chestplate.dashCount;
 
 			for(int armorSlot = 0; armorSlot < 4; armorSlot++) {
-				ItemStack armorStack = player.inventory.armorInventory[armorSlot];
+				ItemStack armorStack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, armorSlot);
 
 				if(armorStack != null && armorStack.getItem() instanceof ItemArmor) {
 

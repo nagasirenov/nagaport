@@ -1,0 +1,112 @@
+[
+  {
+    "name": "crate",
+    "line": 2453,
+    "owner": "BlockCrate",
+    "receiver": "new BlockCrate(Material.WOOD).setTranslationKey(\"crate\")",
+    "material": "WOOD",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tcrate = new BlockCrate(Material.WOOD).setTranslationKey(\"crate\").setStepSound(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate\");",
+    "after": "\t\tcrate = ((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey(\"crate\")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate\");"
+  },
+  {
+    "name": "crate_weapon",
+    "line": 2454,
+    "owner": "BlockCrate",
+    "receiver": "new BlockCrate(Material.WOOD).setTranslationKey(\"crate_weapon\")",
+    "material": "WOOD",
+    "sound": "SoundType.WOOD",
+    "before": "\t\tcrate_weapon = new BlockCrate(Material.WOOD).setTranslationKey(\"crate_weapon\").setStepSound(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_weapon\");",
+    "after": "\t\tcrate_weapon = ((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey(\"crate_weapon\")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_weapon\");"
+  },
+  {
+    "name": "crate_lead",
+    "line": 2455,
+    "owner": "BlockCrate",
+    "receiver": "new BlockCrate(Material.IRON).setTranslationKey(\"crate_lead\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_lead = new BlockCrate(Material.IRON).setTranslationKey(\"crate_lead\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_lead\");",
+    "after": "\t\tcrate_lead = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey(\"crate_lead\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_lead\");"
+  },
+  {
+    "name": "crate_metal",
+    "line": 2456,
+    "owner": "BlockCrate",
+    "receiver": "new BlockCrate(Material.IRON).setTranslationKey(\"crate_metal\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_metal = new BlockCrate(Material.IRON).setTranslationKey(\"crate_metal\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_metal\");",
+    "after": "\t\tcrate_metal = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey(\"crate_metal\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + \":crate_metal\");"
+  },
+  {
+    "name": "crate_red",
+    "line": 2457,
+    "owner": "BlockCrate",
+    "receiver": "new BlockCrate(Material.IRON).setTranslationKey(\"crate_red\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_red = new BlockCrate(Material.IRON).setTranslationKey(\"crate_red\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":crate_red\");",
+    "after": "\t\tcrate_red = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey(\"crate_red\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":crate_red\");"
+  },
+  {
+    "name": "crate_iron",
+    "line": 2461,
+    "owner": "BlockStorageCrate",
+    "receiver": "new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_iron\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_iron = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_iron\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+    "after": "\t\tcrate_iron = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_iron\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "name": "crate_steel",
+    "line": 2462,
+    "owner": "BlockStorageCrate",
+    "receiver": "new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_steel\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_steel = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_steel\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+    "after": "\t\tcrate_steel = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_steel\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "name": "crate_desh",
+    "line": 2463,
+    "owner": "BlockStorageCrate",
+    "receiver": "new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_desh\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_desh = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_desh\").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);",
+    "after": "\t\tcrate_desh = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_desh\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "name": "crate_tungsten",
+    "line": 2464,
+    "owner": "BlockStorageCrate",
+    "receiver": "new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_tungsten\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_tungsten = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_tungsten\").setStepSound(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);",
+    "after": "\t\tcrate_tungsten = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_tungsten\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "name": "crate_template",
+    "line": 2465,
+    "owner": "BlockStorageCrate",
+    "receiver": "new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_template\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tcrate_template = new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_template\").setStepSound(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);",
+    "after": "\t\tcrate_template = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"crate_template\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);"
+  },
+  {
+    "name": "safe",
+    "line": 2466,
+    "owner": "BlockStorageCrate",
+    "receiver": "new BlockStorageCrate(Material.IRON).setTranslationKey(\"safe\")",
+    "material": "IRON",
+    "sound": "ModSoundTypes.legacyMetal",
+    "before": "\t\tsafe = new BlockStorageCrate(Material.IRON).setTranslationKey(\"safe\").setStepSound(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(10000.0F).setCreativeTab(MainRegistry.machineTab);",
+    "after": "\t\tsafe = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey(\"safe\")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(10000.0F).setCreativeTab(MainRegistry.machineTab);"
+  }
+]

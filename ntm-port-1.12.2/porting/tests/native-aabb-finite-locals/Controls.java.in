@@ -1,0 +1,28 @@
+import net.minecraft.util.math.AxisAlignedBB;
+class Controls {
+ static double field;
+ static double unknown(){return 1;}
+ // Two positive same-finite-local cases, including mixed scoped writes.
+ void positive(int coord, int off, boolean flag) {
+  double reach=1D;if(flag)reach=0.33D;
+  double x=coord+off*reach;
+  AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);
+ }
+ void positiveScoped(boolean flag) {
+  if(flag){double x=0.5D;net.minecraft.util.math.AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+  else {double x=Double.NaN;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ }
+ void assignedNaN(boolean flag){double x=0D;if(flag)x=Double.NaN;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void compound(){double x=0D;x+=0.5D;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void increment(){double x=0D;x++;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void dependencyNaN(boolean flag){double r=1D;if(flag)r=Double.NaN;double x=1+r;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void call(){double x=unknown();AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void field(){double x=field;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void enormous(){double x=1e300;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void reversed(){double x=0D;AxisAlignedBB.getBoundingBox(x+0.8125D,x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D);}
+ void parameter(double x){AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ void overflow(int x){AxisAlignedBB.getBoundingBox(x,0,0,x+1,1,1);}
+ void instance(AxisAlignedBB AxisAlignedBB){double x=0D;AxisAlignedBB.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+ static class Foreign { static Object getBoundingBox(double a,double b,double c,double d,double e,double f){return null;} }
+ void foreign(){double x=0D;Foreign.getBoundingBox(x+0.1875D,x+0.1875D,x+0.1875D,x+0.8125D,x+0.8125D,x+0.8125D);}
+}

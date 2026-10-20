@@ -129,7 +129,7 @@ public class ItemAutogen extends Item {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return overrideUnlocalizedName != null ? "item." + overrideUnlocalizedName : super.getUnlocalizedName(stack);
+	public String getTranslationKey(ItemStack stack) {
+		return overrideUnlocalizedName != null ? "item." + overrideUnlocalizedName : super.getTranslationKey(stack);
 	}
 }

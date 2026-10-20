@@ -111,10 +111,10 @@ public class SchrabidicBlock extends BlockFluidClassic {
 		}
 		else if(b == Blocks.PLANKS && rand.nextInt(4) == 0) {
 		    world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
-		    world.setBlock(x, y, z, ModBlocks.waste_planks);
+		    { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		}
 		else if((b == Blocks.LEAVES || b == Blocks.LEAVES2 || b.getDefaultState().getMaterial() == Material.IRON || (b.getDefaultState().getMaterial() == Material.GLASS && b != ModBlocks.reinforced_glass)) && rand.nextInt(4) == 0) {
-			world.spawnParticle("cloud", dx, dy, dz, 0.0, 0.0, 0.0);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, dx, dy, dz, 0.0, 0.0, 0.0);
 		    world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
 		    { net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
@@ -144,7 +144,7 @@ public class SchrabidicBlock extends BlockFluidClassic {
 		} 
 		else if (b.getExplosionResistance(null) < 1.2F && b != ModBlocks.block_polymer && b != ModBlocks.gravel_obsidian && b != Blocks.SAND && b != Blocks.CLAY) {
 			world.playSound((double)x,(double)y,(double)z,"random.fizz", 0.2F, 1F,false);
-			world.spawnParticle("cloud", dx, dy, dz, 0.0, 0.0, 0.0);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, dx, dy, dz, 0.0, 0.0, 0.0);
 			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}

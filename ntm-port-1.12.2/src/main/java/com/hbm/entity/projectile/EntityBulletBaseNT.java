@@ -88,7 +88,6 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 
 	public EntityBulletBaseNT(World world) {
 		super(world);
-		this.renderDistanceWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 	}
 
@@ -98,7 +97,6 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 		this.dataManager.set(BULLET_CONFIG, config);
 		this.dataManager.set(RENDER_STYLE, (byte)this.config.style);
 		this.dataManager.set(RENDER_TRAIL, (byte)this.config.trail);
-		this.renderDistanceWeight = 10.0D;
 
 		if(this.config == null) {
 			this.setDead();
@@ -136,10 +134,9 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI));
 
-		this.renderDistanceWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 
-		this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread * (accuracyBoost ? 0.25F : 1F));
+		this.shoot(this.motionX, this.motionY, this.motionZ, 1.0F, this.config.spread * (accuracyBoost ? 0.25F : 1F));
 	}
 
 	public EntityBulletBaseNT(World world, int config, EntityLivingBase entity, EntityLivingBase target, float motion, float deviation) {
@@ -151,7 +148,6 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 		this.dataManager.set(RENDER_TRAIL, (byte)this.config.trail);
 		this.thrower = entity;
 
-		this.renderDistanceWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 
 		this.posY = entity.posY + entity.getEyeHeight() - 0.10000000149011612D;
@@ -167,7 +163,7 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 			double d5 = d2 / d3;
 			this.setLocationAndAngles(entity.posX + d4, this.posY, entity.posZ + d5, f2, f3);
 			this.yOffset = 0.0F;
-			this.setThrowableHeading(d0, d1, d2, motion, deviation);
+			this.shoot(d0, d1, d2, motion, deviation);
 		}
 	}
 
@@ -205,14 +201,14 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 
 			for(int i = 0; i < 15; i++) {
 				double mod = rand.nextDouble();
-				this.world.spawnParticle("smoke", this.posX, this.posY, this.posZ,
+				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ,
 						(this.motionX + rand.nextGaussian() * 0.05) * mod,
 						(this.motionY + rand.nextGaussian() * 0.05) * mod,
 						(this.motionZ + rand.nextGaussian() * 0.05) * mod);
 			}
 
 			double mod = 0.5;
-			this.world.spawnParticle("flame", this.posX + this.motionX * mod, this.posY + this.motionY * mod, this.posZ + this.motionZ * mod, 0, 0, 0);
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.posX + this.motionX * mod, this.posY + this.motionY * mod, this.posZ + this.motionZ * mod, 0, 0, 0);
 		}
 
 		if(!this.world.isRemote) {
@@ -398,13 +394,13 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 		}
 
 		if(config.incendiary > 0 && !this.world.isRemote) {
-			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY, (int)posZ, Blocks.FIRE);
-			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX + 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX + 1, (int)posY, (int)posZ, Blocks.FIRE);
-			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX - 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX - 1, (int)posY, (int)posZ, Blocks.FIRE);
-			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY + 1, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY + 1, (int)posZ, Blocks.FIRE);
-			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY - 1, (int)posZ).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY - 1, (int)posZ, Blocks.FIRE);
-			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ + 1).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY, (int)posZ + 1, Blocks.FIRE);
-			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ - 1).getBlock() == Blocks.AIR) this.world.setBlock((int)posX, (int)posY, (int)posZ - 1, Blocks.FIRE);
+			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);
+			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX + 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX + 1, (int)posY, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);
+			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX - 1, (int)posY, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX - 1, (int)posY, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);
+			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY + 1, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY + 1, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);
+			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY - 1, (int)posZ).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY - 1, (int)posZ, Blocks.FIRE.getStateFromMeta(0), 3);
+			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ + 1).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY, (int)posZ + 1, Blocks.FIRE.getStateFromMeta(0), 3);
+			if(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)posX, (int)posY, (int)posZ - 1).getBlock() == Blocks.AIR) com.hbm.world.WorldBlockState.write(this.world, (int)posX, (int)posY, (int)posZ - 1, Blocks.FIRE.getStateFromMeta(0), 3);
 		}
 
 		if(config.emp > 0)
@@ -465,10 +461,10 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 
 		if(config.destroysBlocks && !this.world.isRemote) {
 			if(block.getBlockHardness(this.world, bX, bY, bZ) <= 120)
-				this.world.func_147480_a(bX, bY, bZ, false);
+				com.hbm.world.WorldBlockDestruction.destroy(this.world, bX, bY, bZ, false);
 		} else if(config.doesBreakGlass && !this.world.isRemote) {
 			if(block == Blocks.GLASS || block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS || block == Blocks.STAINED_GLASS_PANE)
-				this.world.func_147480_a(bX, bY, bZ, false);
+				com.hbm.world.WorldBlockDestruction.destroy(this.world, bX, bY, bZ, false);
 
 			if(block instanceof BlockDetonatable) {
 				((BlockDetonatable) block).onShot(this.world, bX, bY, bZ);

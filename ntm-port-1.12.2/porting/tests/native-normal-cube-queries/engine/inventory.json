@@ -1,0 +1,2946 @@
+{
+  "counts_including_duplicate_classes": {
+    "legacy_ntm": 5255,
+    "legacy_engine": 1803,
+    "native": 48248,
+    "legacy_forge": 838
+  },
+  "unique_counts": {
+    "legacy_ntm": 5255,
+    "legacy_engine": 1803,
+    "native": 48243,
+    "legacy_forge": 838
+  },
+  "duplicate_classes": [
+    [
+      "native:io/netty/bootstrap/Bootstrap$3",
+      "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-all/4.1.9.Final/97860965d6a0a6b98e7f569f3f966727b8db75/netty-all-4.1.9.Final.jar!io/netty/bootstrap/Bootstrap$3.class"
+    ],
+    [
+      "native:io/netty/bootstrap/Bootstrap$1",
+      "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-all/4.1.9.Final/97860965d6a0a6b98e7f569f3f966727b8db75/netty-all-4.1.9.Final.jar!io/netty/bootstrap/Bootstrap$1.class"
+    ],
+    [
+      "native:io/netty/bootstrap/Bootstrap$2",
+      "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-all/4.1.9.Final/97860965d6a0a6b98e7f569f3f966727b8db75/netty-all-4.1.9.Final.jar!io/netty/bootstrap/Bootstrap$2.class"
+    ],
+    [
+      "native:io/netty/bootstrap/Bootstrap",
+      "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-all/4.1.9.Final/97860965d6a0a6b98e7f569f3f966727b8db75/netty-all-4.1.9.Final.jar!io/netty/bootstrap/Bootstrap.class"
+    ],
+    [
+      "native:org/apache/logging/log4j/core/lookup/JndiLookup",
+      "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.8.1/4ac28ff2f1ddf05dae3043a190451e8c46b73c31/log4j-core-2.8.1.jar!org/apache/logging/log4j/core/lookup/JndiLookup.class"
+    ]
+  ],
+  "original_normal_cube_owners": [],
+  "original_forge_normal_cube_owners": [],
+  "original_engine_normal_cube_owners": [
+    {
+      "class": "aji",
+      "super": "java/lang/Object",
+      "name": "r",
+      "descriptor": "()Z",
+      "access": 1
+    }
+  ],
+  "original_ntm_material_opacity_overrides": [],
+  "original_ntm_material_descendants": [
+    "com/hbm/blocks/MaterialGas",
+    "net/minecraft/block/material/Material"
+  ],
+  "original_ntm_power_owners": [
+    {
+      "class": "com/hbm/blocks/machine/MachineRadar",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149744_f",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineRadarLarge",
+      "super": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149744_f",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/PowerDetector",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149744_f",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/RadioTorchLogic",
+      "super": "com/hbm/blocks/network/RadioTorchRWBase",
+      "name": "func_149744_f",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/RadioTorchReceiver",
+      "super": "com/hbm/blocks/network/RadioTorchRWBase",
+      "name": "func_149744_f",
+      "descriptor": "()Z",
+      "access": 1
+    }
+  ],
+  "original_powerdetector_closure": [
+    "com/hbm/blocks/machine/PowerDetector"
+  ],
+  "native_block_normal_cube_owners": [
+    {
+      "class": "net/minecraft/block/Block",
+      "super": "net/minecraftforge/registries/IForgeRegistryEntry$Impl",
+      "name": "isNormalCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/Block",
+      "super": "net/minecraftforge/registries/IForgeRegistryEntry$Impl",
+      "name": "isNormalCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/AEBaseBlock",
+      "super": "net/minecraft/block/Block",
+      "name": "isNormalCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 17
+    },
+    {
+      "class": "appeng/block/AEBaseBlock",
+      "super": "net/minecraft/block/Block",
+      "name": "isNormalCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z",
+      "access": 17
+    }
+  ],
+  "native_states": [
+    "net/minecraft/block/state/BlockStateBase",
+    "net/minecraft/block/state/BlockStateContainer$StateImplementation",
+    "net/minecraft/block/state/IBlockProperties",
+    "net/minecraft/block/state/IBlockState",
+    "net/minecraftforge/common/property/ExtendedBlockState$ExtendedStateImplementation",
+    "net/minecraftforge/common/property/IExtendedBlockState"
+  ],
+  "native_state_dispatch_owners": [
+    {
+      "class": "net/minecraft/block/state/IBlockProperties",
+      "super": "java/lang/Object",
+      "name": "getMaterial",
+      "descriptor": "()Lnet/minecraft/block/material/Material;",
+      "access": 1025
+    },
+    {
+      "class": "net/minecraft/block/state/IBlockProperties",
+      "super": "java/lang/Object",
+      "name": "isFullCube",
+      "descriptor": "()Z",
+      "access": 1025
+    },
+    {
+      "class": "net/minecraft/block/state/IBlockProperties",
+      "super": "java/lang/Object",
+      "name": "isNormalCube",
+      "descriptor": "()Z",
+      "access": 1025
+    },
+    {
+      "class": "net/minecraft/block/state/IBlockProperties",
+      "super": "java/lang/Object",
+      "name": "canProvidePower",
+      "descriptor": "()Z",
+      "access": 1025
+    },
+    {
+      "class": "net/minecraft/block/state/IBlockState",
+      "super": "java/lang/Object",
+      "name": "getBlock",
+      "descriptor": "()Lnet/minecraft/block/Block;",
+      "access": 1025
+    },
+    {
+      "class": "net/minecraft/block/state/BlockStateContainer$StateImplementation",
+      "super": "net/minecraft/block/state/BlockStateBase",
+      "name": "getBlock",
+      "descriptor": "()Lnet/minecraft/block/Block;",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/state/BlockStateContainer$StateImplementation",
+      "super": "net/minecraft/block/state/BlockStateBase",
+      "name": "getMaterial",
+      "descriptor": "()Lnet/minecraft/block/material/Material;",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/state/BlockStateContainer$StateImplementation",
+      "super": "net/minecraft/block/state/BlockStateBase",
+      "name": "isFullCube",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/state/BlockStateContainer$StateImplementation",
+      "super": "net/minecraft/block/state/BlockStateBase",
+      "name": "isNormalCube",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/state/BlockStateContainer$StateImplementation",
+      "super": "net/minecraft/block/state/BlockStateBase",
+      "name": "canProvidePower",
+      "descriptor": "()Z",
+      "access": 1
+    }
+  ],
+  "native_block_secondary_owners": [
+    {
+      "class": "net/minecraft/block/BlockAir",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockBanner",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockAnvil",
+      "super": "net/minecraft/block/BlockFalling",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockRailBase",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockBasePressurePlate",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockBasePressurePlate",
+      "super": "net/minecraft/block/Block",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockBed",
+      "super": "net/minecraft/block/BlockHorizontal",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockBeacon",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/Block",
+      "super": "net/minecraftforge/registries/IForgeRegistryEntry$Impl",
+      "name": "getMaterial",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/block/material/Material;",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/Block",
+      "super": "net/minecraftforge/registries/IForgeRegistryEntry$Impl",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/Block",
+      "super": "net/minecraftforge/registries/IForgeRegistryEntry$Impl",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockBrewingStand",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockButton",
+      "super": "net/minecraft/block/BlockDirectional",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockButton",
+      "super": "net/minecraft/block/BlockDirectional",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockBush",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockCake",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockCactus",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockCauldron",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockChorusFlower",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockChest",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockChest",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockChorusPlant",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockCocoa",
+      "super": "net/minecraft/block/BlockHorizontal",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockDaylightDetector",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockDaylightDetector",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockRailDetector",
+      "super": "net/minecraft/block/BlockRailBase",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockRedstoneDiode",
+      "super": "net/minecraft/block/BlockHorizontal",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockRedstoneDiode",
+      "super": "net/minecraft/block/BlockHorizontal",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockDoor",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockDragonEgg",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockEndGateway",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockEnchantmentTable",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockEndPortalFrame",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockEndPortal",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockEnderChest",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockEndRod",
+      "super": "net/minecraft/block/BlockDirectional",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockFence",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockFarmland",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockFire",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockFenceGate",
+      "super": "net/minecraft/block/BlockHorizontal",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockFlowerPot",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockGlass",
+      "super": "net/minecraft/block/BlockBreakable",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockGrassPath",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockSlab",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockHopper",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockLadder",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockLever",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockLever",
+      "super": "net/minecraft/block/Block",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockLiquid",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockObserver",
+      "super": "net/minecraft/block/BlockDirectional",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockPortal",
+      "super": "net/minecraft/block/BlockBreakable",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockCompressedPowered",
+      "super": "net/minecraft/block/Block",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockRedstoneWire",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockRedstoneWire",
+      "super": "net/minecraft/block/Block",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockRedstoneTorch",
+      "super": "net/minecraft/block/BlockTorch",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockReed",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockShulkerBox",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockSkull",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockSign",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockSnow",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockStainedGlass",
+      "super": "net/minecraft/block/BlockBreakable",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockStairs",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockStructureVoid",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockPane",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockTorch",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockTripWire",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockTrapDoor",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockVine",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockTripWireHook",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockTripWireHook",
+      "super": "net/minecraft/block/Block",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockWall",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockWeb",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockCarpet",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockPistonExtension",
+      "super": "net/minecraft/block/BlockDirectional",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockPistonBase",
+      "super": "net/minecraft/block/BlockDirectional",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraft/block/BlockPistonMoving",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "net/minecraftforge/fluids/BlockFluidBase",
+      "super": "net/minecraft/block/Block",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/crafting/BlockMolecularAssembler",
+      "super": "appeng/block/AEBaseTileBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/grindstone/BlockCrank",
+      "super": "appeng/block/AEBaseTileBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/misc/BlockLightDetector",
+      "super": "appeng/block/AEBaseTileBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/misc/BlockQuartzFixture",
+      "super": "appeng/block/AEBaseBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/misc/BlockTinyTNT",
+      "super": "appeng/block/AEBaseBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/networking/BlockCableBus",
+      "super": "appeng/block/AEBaseTileBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/networking/BlockCableBus",
+      "super": "appeng/block/AEBaseTileBlock",
+      "name": "canProvidePower",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/networking/BlockWireless",
+      "super": "appeng/block/AEBaseTileBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/block/qnb/BlockQuantumBase",
+      "super": "appeng/block/AEBaseTileBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    },
+    {
+      "class": "appeng/decorative/solid/BlockQuartzGlass",
+      "super": "appeng/block/AEBaseBlock",
+      "name": "isFullCube",
+      "descriptor": "(Lnet/minecraft/block/state/IBlockState;)Z",
+      "access": 1
+    }
+  ],
+  "original_render_normal_owners": [
+    {
+      "class": "com/hbm/blocks/BlockCoral",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/BlockDummyable",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/BlockKelp",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/BlockWaterPlant",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/BlockChargeBase",
+      "super": "com/hbm/blocks/BlockContainerBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/BlockCrashedBomb",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/BombMulti",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/CompactLauncher",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/DetCord",
+      "super": "com/hbm/blocks/bomb/BlockDetonatable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/DigammaFlame",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/DigammaMatter",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/Landmine",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/LaunchTable",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeAntimatter",
+      "super": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeBalefire",
+      "super": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeBoy",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeCustom",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeFleija",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeGadget",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeMan",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeMike",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeN2",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukePrototype",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeSolinium",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeTsar",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/fluid/MeltedFlesh",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/gas/BlockGasBase",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/gas/BlockVacuum",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BarbedWire",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockAlgaeFilm",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockBarrier",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockBobble",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockCanCrate",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockChain",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDeadPlant",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDecoCRT",
+      "super": "com/hbm/blocks/BlockMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDecoModel",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDecoToaster",
+      "super": "com/hbm/blocks/BlockMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockFallout",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockGrate",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockHangingVine",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockLayering",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockLoot",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockMetalFence",
+      "super": "net/minecraft/block/BlockFence",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockModDoor",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockMush",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockNTMFlower",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockNTMGlass",
+      "super": "net/minecraft/block/BlockBreakable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockOrrery",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPedestal",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPipe",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPlasma",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPlushie",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockRebar",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockReeds",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockRubberCacti",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockRubberPlant",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSandbags",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockScaffold",
+      "super": "com/hbm/blocks/BlockMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSkeletonHolder",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSnowglobe",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockStalagmite",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSupplyCrate",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockTallPlant",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockTallPlantWater",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockWand",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockWoodStructure",
+      "super": "com/hbm/blocks/BlockEnumMulti",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/BrownBarrel",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoBlock",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoBlockAlt",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoPoleSatelliteReceiver",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoPoleTop",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoSteelPoles",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoTapeRecorder",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/HEVBattery",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/RedBarrel",
+      "super": "com/hbm/blocks/bomb/BlockDetonatable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/Spikes",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/WasteLeaves",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/generic/YellowBarrel",
+      "super": "com/hbm/blocks/bomb/BlockDetonatable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlastDoor",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockBeamBase",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockCMGlass",
+      "super": "com/hbm/blocks/machine/BlockCM",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockFF",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockFluidBarrel",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockRefueler",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/Charger",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/CombatDropPod",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/CoreComponent",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/CoreCore",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/DemonLamp",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/DummyBlockBlast",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/DummyOldBase",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/Floodlight",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryCastingBase",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryChannel",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryOutlet",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryTank",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/GeigerCounter",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineAutosaw",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineCapacitor",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineCyclotron",
+      "super": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineDiesel",
+      "super": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineDiFurnaceExtension",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineFan",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineForceField",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineFunnel",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineGasDock",
+      "super": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineIGenerator",
+      "super": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineMicrowave",
+      "super": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineMiniRTG",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineMissileAssembly",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachinePuF6Tank",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineRadar",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineRocketAssembly",
+      "super": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineRTG",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineSatDock",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineTesla",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineUF6Tank",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/NTMAnvil",
+      "super": "com/hbm/blocks/BlockFallingNT",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/PinkCloudBroadcaster",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/PistonInserter",
+      "super": "com/hbm/blocks/BlockContainerBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/Radiobox",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/RadioRec",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKBase",
+      "super": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKConsole",
+      "super": "com/hbm/blocks/BlockDummyable",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKDebris",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKRod",
+      "super": "com/hbm/blocks/machine/rbmk/RBMKBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/SolarMirror",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/SoyuzCapsule",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/Spotlight",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/machine/StorageDrum",
+      "super": "com/hbm/blocks/machine/BlockMachineBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/BlockCable",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/BlockConveyorBase",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/BlockConveyorClassic",
+      "super": "net/minecraft/block/Block",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/CableDiode",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/CranePartitioner",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/DroneWaypoint",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/DroneWaypointRequest",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidDuctBox",
+      "super": "com/hbm/blocks/network/FluidDuctBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidDuctStandard",
+      "super": "com/hbm/blocks/network/FluidDuctBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidPipeAnchor",
+      "super": "com/hbm/blocks/network/FluidDuctBase",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidPump",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/PneumoTube",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/PowerCableBox",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/PylonBase",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/network/RadioTorchBase",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/test/TestObjTester",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/turret/TurretBase",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/turret/TurretSentry",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    },
+    {
+      "class": "com/hbm/blocks/turret/TurretSentryDamaged",
+      "super": "net/minecraft/block/BlockContainer",
+      "name": "func_149686_d",
+      "descriptor": "()Z",
+      "access": 1
+    }
+  ],
+  "pinned_source_state_type_declarations": [],
+  "pinned_source_normal_cube_methods": [],
+  "pinned_source_power_methods": [
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/MachineRadarLarge.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/machine/PowerDetector.java",
+      "boolean canProvidePower()"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/RadioTorchLogic.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ],
+    [
+      "src/main/java/com/hbm/blocks/network/RadioTorchReceiver.java",
+      "boolean canProvidePower(net.minecraft.block.state.IBlockState state)"
+    ]
+  ],
+  "pinned_original_render_override_source_coverage": [
+    {
+      "class": "com/hbm/blocks/BlockCoral",
+      "path": "src/main/java/com/hbm/blocks/BlockCoral.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/BlockDummyable",
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)",
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/BlockKelp",
+      "path": "src/main/java/com/hbm/blocks/BlockKelp.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/BlockWaterPlant",
+      "path": "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/BlockChargeBase",
+      "path": "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/BlockCrashedBomb",
+      "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/BombMulti",
+      "path": "src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/CompactLauncher",
+      "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/DetCord",
+      "path": "src/main/java/com/hbm/blocks/bomb/DetCord.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/DigammaFlame",
+      "path": "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/DigammaMatter",
+      "path": "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/Landmine",
+      "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/LaunchTable",
+      "path": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeAntimatter",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeBalefire",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeBoy",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeCustom",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeFleija",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeGadget",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeMan",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeMike",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeN2",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukePrototype",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeSolinium",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/bomb/NukeTsar",
+      "path": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/fluid/MeltedFlesh",
+      "path": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/gas/BlockGasBase",
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/gas/BlockVacuum",
+      "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BarbedWire",
+      "path": "src/main/java/com/hbm/blocks/generic/BarbedWire.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockAlgaeFilm",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockAlgaeFilm.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockBarrier",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockBarrier.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockBobble",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockCanCrate",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockCanCrate.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockChain",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockChain.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDeadPlant",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDecoCRT",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDecoCRT.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDecoModel",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDecoModel.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockDecoToaster",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockDecoToaster.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockFallout",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockGrate",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockGrate.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockHangingVine",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHangingVine.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockLayering",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockLayering.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockLoot",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockMetalFence",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockMetalFence.java",
+      "methods": []
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockModDoor",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockMush",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockNTMFlower",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockNTMGlass",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockNTMGlass.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockOrrery",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockOrrery.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPedestal",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockPedestal.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPipe",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockPipe.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPlasma",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockPlasma.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockPlushie",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockRebar",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockRebar.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockReeds",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockReeds.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockRubberCacti",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockRubberCacti.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockRubberPlant",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSandbags",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockSandbags.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockScaffold",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockScaffold.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSkeletonHolder",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSnowglobe",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockStalagmite",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockSupplyCrate",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockTallPlant",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockTallPlantWater",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockWand",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWand.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BlockWoodStructure",
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWoodStructure.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/BrownBarrel",
+      "path": "src/main/java/com/hbm/blocks/generic/BrownBarrel.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoBlock",
+      "path": "src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoBlockAlt",
+      "path": "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoPoleSatelliteReceiver",
+      "path": "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoPoleTop",
+      "path": "src/main/java/com/hbm/blocks/generic/DecoPoleTop.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoSteelPoles",
+      "path": "src/main/java/com/hbm/blocks/generic/DecoSteelPoles.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/DecoTapeRecorder",
+      "path": "src/main/java/com/hbm/blocks/generic/DecoTapeRecorder.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/HEVBattery",
+      "path": "src/main/java/com/hbm/blocks/generic/HEVBattery.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/RedBarrel",
+      "path": "src/main/java/com/hbm/blocks/generic/RedBarrel.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/Spikes",
+      "path": "src/main/java/com/hbm/blocks/generic/Spikes.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/WasteLeaves",
+      "path": "src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/generic/YellowBarrel",
+      "path": "src/main/java/com/hbm/blocks/generic/YellowBarrel.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlastDoor",
+      "path": "src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockBeamBase",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockBeamBase.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockCMGlass",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockCMGlass.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockFF",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockFF.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockFluidBarrel",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockFluidBarrel.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/BlockRefueler",
+      "path": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/Charger",
+      "path": "src/main/java/com/hbm/blocks/machine/Charger.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/CombatDropPod",
+      "path": "src/main/java/com/hbm/blocks/machine/CombatDropPod.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/CoreComponent",
+      "path": "src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/CoreCore",
+      "path": "src/main/java/com/hbm/blocks/machine/CoreCore.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/DemonLamp",
+      "path": "src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/DummyBlockBlast",
+      "path": "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/DummyOldBase",
+      "path": "src/main/java/com/hbm/blocks/machine/DummyOldBase.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/Floodlight",
+      "path": "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryCastingBase",
+      "path": "src/main/java/com/hbm/blocks/machine/FoundryCastingBase.java",
+      "methods": []
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryChannel",
+      "path": "src/main/java/com/hbm/blocks/machine/FoundryChannel.java",
+      "methods": []
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryOutlet",
+      "path": "src/main/java/com/hbm/blocks/machine/FoundryOutlet.java",
+      "methods": []
+    },
+    {
+      "class": "com/hbm/blocks/machine/FoundryTank",
+      "path": "src/main/java/com/hbm/blocks/machine/FoundryTank.java",
+      "methods": []
+    },
+    {
+      "class": "com/hbm/blocks/machine/GeigerCounter",
+      "path": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineAutosaw",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineCapacitor",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCapacitor.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineCyclotron",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+      "methods": [
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineDiesel",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineDiFurnaceExtension",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineDiFurnaceExtension.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineFan",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineForceField",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineFunnel",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineFunnel.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineGasDock",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineGasDock.java",
+      "methods": [
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineIGenerator",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineIGenerator.java",
+      "methods": [
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineMicrowave",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineMiniRTG",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMiniRTG.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineMissileAssembly",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachinePuF6Tank",
+      "path": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineRadar",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineRocketAssembly",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java",
+      "methods": [
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineRTG",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineRTG.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineSatDock",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineTesla",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineTesla.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/MachineUF6Tank",
+      "path": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/NTMAnvil",
+      "path": "src/main/java/com/hbm/blocks/machine/NTMAnvil.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/PinkCloudBroadcaster",
+      "path": "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/PistonInserter",
+      "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/Radiobox",
+      "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/RadioRec",
+      "path": "src/main/java/com/hbm/blocks/machine/RadioRec.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+      "methods": [
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKConsole",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+      "methods": [
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKDebris",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKDebris.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKMiniPanelBase.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/rbmk/RBMKRod",
+      "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+      "methods": [
+        "boolean renderAsNormalBlock()"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/SolarMirror",
+      "path": "src/main/java/com/hbm/blocks/machine/SolarMirror.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/SoyuzCapsule",
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/Spotlight",
+      "path": "src/main/java/com/hbm/blocks/machine/Spotlight.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/machine/StorageDrum",
+      "path": "src/main/java/com/hbm/blocks/machine/StorageDrum.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/BlockCable",
+      "path": "src/main/java/com/hbm/blocks/network/BlockCable.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/BlockConveyorBase",
+      "path": "src/main/java/com/hbm/blocks/network/BlockConveyorBase.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/BlockConveyorClassic",
+      "path": "src/main/java/com/hbm/blocks/network/BlockConveyorClassic.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/CableDiode",
+      "path": "src/main/java/com/hbm/blocks/network/CableDiode.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/CranePartitioner",
+      "path": "src/main/java/com/hbm/blocks/network/CranePartitioner.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/DroneWaypoint",
+      "path": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/DroneWaypointRequest",
+      "path": "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidDuctBox",
+      "path": "src/main/java/com/hbm/blocks/network/FluidDuctBox.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidDuctStandard",
+      "path": "src/main/java/com/hbm/blocks/network/FluidDuctStandard.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidPipeAnchor",
+      "path": "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/FluidPump",
+      "path": "src/main/java/com/hbm/blocks/network/FluidPump.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/PneumoTube",
+      "path": "src/main/java/com/hbm/blocks/network/PneumoTube.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/PowerCableBox",
+      "path": "src/main/java/com/hbm/blocks/network/PowerCableBox.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/PylonBase",
+      "path": "src/main/java/com/hbm/blocks/network/PylonBase.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/network/RadioTorchBase",
+      "path": "src/main/java/com/hbm/blocks/network/RadioTorchBase.java",
+      "methods": [
+        "boolean isFullCube(IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/test/TestObjTester",
+      "path": "src/main/java/com/hbm/blocks/test/TestObjTester.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/turret/TurretBase",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretBase.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/turret/TurretSentry",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    },
+    {
+      "class": "com/hbm/blocks/turret/TurretSentryDamaged",
+      "path": "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+      "methods": [
+        "boolean isFullCube(net.minecraft.block.state.IBlockState state)"
+      ]
+    }
+  ]
+}

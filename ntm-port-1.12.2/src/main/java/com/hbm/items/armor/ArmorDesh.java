@@ -26,10 +26,11 @@ public class ArmorDesh extends ArmorFSBFueled implements IItemRendererProvider {
 	}
 	
 	@Override
-	public Multimap getItemAttributeModifiers() {
+	public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
 
-		Multimap multimap = HashMultimap.create();
-		multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], "Armor modifier", -0.025D, 1));
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", -0.025D, 1));
 		return multimap;
 	}
 
@@ -38,7 +39,7 @@ public class ArmorDesh extends ArmorFSBFueled implements IItemRendererProvider {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(models == null) {
 			models = new ModelArmorDesh[4];
@@ -47,7 +48,7 @@ public class ArmorDesh extends ArmorFSBFueled implements IItemRendererProvider {
 				models[i] = new ModelArmorDesh(i);
 		}
 		
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@Override public Item getItemForRenderer() { return this; }
@@ -59,7 +60,7 @@ public class ArmorDesh extends ArmorFSBFueled implements IItemRendererProvider {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_steamsuit, armorType,
+				renderStandard(ResourceManager.armor_steamsuit, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.steamsuit_helmet, ResourceManager.steamsuit_chest, ResourceManager.steamsuit_arm, ResourceManager.steamsuit_leg,
 						"Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

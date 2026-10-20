@@ -1,0 +1,5 @@
+Recipe meta65536: raw=1, empty=true, CP80 vacant-output accepts=true, migrated accepts=false
+NBT Damage short65536 loads damage=0, empty=false
+Public in-place setItemDamage65536: raw=1, empty=true, cached getItem retainsCoal=true
+Public repaired output: old accepts=false, native accepts=true, grown raw=67
+PASS bounded native scope counterexample; no reflective writes, no production modifications

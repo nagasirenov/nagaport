@@ -20,14 +20,14 @@ public class EntityDummy extends EntityLiving implements IAnimals, ISuffocationI
 
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemArmor) {
 			ItemArmor armor = (ItemArmor) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem();
-			this.setCurrentItemOrArmor(4 - armor.armorType, com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy());
+			this.setItemStackToSlot(armor.armorType, com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy());
 		}
 
 		return super.interact(player);
 	}
 
 	@Override @SideOnly(Side.CLIENT) public boolean getAlwaysRenderNameTagForRender() { return true; }
-	@Override public String getCommandSenderName() {
+	@Override public String getName() {
 		return (int) (this.getHealth() * 10) / 10F + " / " + (int) (this.getMaxHealth() * 10) / 10F; }
 		//return (int) this.rotationYaw + " " + (int) this.renderYawOffset + " " + (int) this.rotationYawHead + " " + (int) this.newRotationYaw; }
 

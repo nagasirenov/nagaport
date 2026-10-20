@@ -6,10 +6,16 @@ import com.hbm.lib.RefStrings;
 import com.hbm.entity.effect.EntityBlackHole;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderQuasar extends RenderBlackHole {
+
+	public RenderQuasar(RenderManager renderManager) {
+		super(renderManager);
+	}
+
 	
 	protected ResourceLocation quasar = new ResourceLocation(RefStrings.MODID, "textures/entity/bholeD.png");
 

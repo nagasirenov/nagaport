@@ -1,0 +1,55 @@
+{
+  "baseline": "58f7f0c93cb4f5814d552e003ec9c7e2179a115f",
+  "files": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java",
+    "src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+    "src/main/java/com/hbm/blocks/generic/WasteLog.java",
+    "src/main/java/com/hbm/inventory/SlotNonRetarded.java",
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+    "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java"
+  ],
+  "new_files": [
+    "src/main/java/com/hbm/items/ItemInventoryTransfer.java"
+  ],
+  "pins": {
+    "porting/checkpoint95/check-historical-composition.py": "a55abfff8722e3ba7d6db12a95417fff2f2b39d699211cd52849e6515b8acd81",
+    "porting/checkpoint95/historical-composition.json": "c1f7592d3953d30d509a004373bd7969dfcfb39f1567390e1cc3e99bc382158e",
+    "porting/checkpoint95/cp94-source-boundary.py": "4daa4fceee66e7fa3c1bc42f84b5db9013c94ccf2d7a19cbe8e7eb2e45bc3aa3",
+    "porting/tests/native-item-inventory/check_source.py": "19484ef42c53f42a755adefff9da3d60d8a579c487887376058a2459804b2f85",
+    "porting/tests/native-item-inventory/manifest.json": "32bc87dae5e966305d4bd468c2417ad92020a9b6c7ed16e27e6d42edf7dcf7fd",
+    "porting/tests/native-item-inventory/baseline-lineage.json": "0984810e0b09d417c6c70d387e762742c34f0891c32f8003b871644543b8a4e0",
+    "porting/tests/native-item-inventory/after.tsv": "13e453900e5d284a8b27bddcc8adec13eef6998023d4e736625c37efa993005e",
+    "porting/tests/native-item-inventory/owned-call-closure.json": "a0eaa8066a8828d36b2038e1b62da33f2610918b1b4d5f2d9de63983a4e89698",
+    "porting/tests/native-item-inventory/attribution-delta.json": "8bd30478783bc3bcb2486f44828e549818b2a0fd79b9255184650d4af8eebde3",
+    "porting/tests/log-pillar-sound-builders-cp94/check-source.py": "0005343fc0cf4993895eead73a5b3a440f2924995a7596b506f942b1753a3b78",
+    "porting/tests/log-pillar-sound-builders-cp94/sites.json": "37b73991300d5a30daa490d751e208159b0f4b46612c643f75c82ff35b5bd69e",
+    "porting/tests/log-pillar-sound-builders-cp94/additions.json": "e95387ecad3fab04c13f53952ffc8d2e495367756bc80e85ba35442a25549dab",
+    "porting/tests/log-pillar-sound-builders-cp94/source-hashes.json": "e45a4b915cdceb3680aa4c5b399058ccb195ec00f8a90cdc035f17ccfcd34f87",
+    "porting/tests/log-pillar-sound-builders-cp94/prerequisite-hashes.json": "74f67ef02162d28dedf52c1b4a0b4b0efb8b81eead8046f140316c11a55d4b4b",
+    "porting/tests/check-native-box-waste-crane-source.py": "a5787a452c4fdab48e1ad4d589d009a31c0330cd563ac7b146df43a9134b6696",
+    "porting/tests/native-box-waste-crane-source-manifest.json": "39db10c2faa6bbfe2633f47d266d97b83c43a32386372932fc11960c129e239b",
+    "porting/checkpoint96/cp95-source-boundary.py": "f23172ecd12800f4f1590a2ff7461e4ed2bdb2100409d9ece789a4da3705753d",
+    "porting/tests/native-box-containers/check_source.py": "e886c6cedd20aba962f9c7e653e1fa7ff5aab20985f242b30fb96ce8ae85cb71",
+    "porting/tests/native-box-containers/manifest.json": "293e0baa51d1d2ac930b35f39af3f9eefeb514f80f7fce9796b145097f0a497e"
+  },
+  "intersections": {
+    "inventory": [
+      "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+      "src/main/java/com/hbm/inventory/container/ContainerToolBox.java"
+    ],
+    "inventory_protected": [],
+    "normal_cube": [
+      "src/main/java/com/hbm/blocks/generic/WasteEarth.java"
+    ],
+    "air": [],
+    "press": [
+      "src/main/java/com/hbm/tileentity/network/TileEntityCraneGrabber.java"
+    ],
+    "placement": [],
+    "sound": [
+      "src/main/java/com/hbm/blocks/ModBlocks.java"
+    ]
+  }
+}

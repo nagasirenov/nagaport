@@ -1,0 +1,44 @@
+{
+  "base": "CP79 plus frozen 29-expression native-attribute-keys layer",
+  "files": {
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": {
+      "before_sha256": "5bb2f911c259efb8a43caa2b919739e153ef451636a26d49e30ee060c93817f5",
+      "after_sha256": "9925bad3b3343838df45cdb00e06819aa3e36fccbef6da152b4906433d72d44f",
+      "edits": [
+        {
+          "start": 1889,
+          "end": 1916,
+          "after_start": 1889,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": {
+      "before_sha256": "46766c99f5a3a7e8e1b55508a95597abf31a88951257a1e106f543041bfc6712",
+      "after_sha256": "e410d142125dcbd60ce743d800c58a5d5e4ac16ba6f50c833a20fddaeda1b2aa",
+      "edits": [
+        {
+          "start": 1643,
+          "end": 1670,
+          "after_start": 1643,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModIron.java": {
+      "before_sha256": "25b2637eebabea45a08a6c32914ad2ad4615ad4c194424cc55769a521b844815",
+      "after_sha256": "dc9677191963635946c673cca632ac5ba42f4b578e5b5440f2b88e5e182374b0",
+      "edits": [
+        {
+          "start": 1171,
+          "end": 1198,
+          "after_start": 1171,
+          "old": "getAttributeUnlocalizedName",
+          "new": "getName"
+        }
+      ]
+    }
+  }
+}

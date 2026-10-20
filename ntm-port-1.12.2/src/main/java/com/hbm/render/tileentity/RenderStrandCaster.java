@@ -9,6 +9,8 @@ import com.hbm.tileentity.machine.TileEntityMachineStrandCaster;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -77,15 +79,18 @@ public class RenderStrandCaster extends TileEntitySpecialRenderer implements IIt
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_CULL_FACE);
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240F, 240F);
-			Tessellator tess = Tessellator.instance;
-			tess.setNormal(0F, 1F, 0F);
-			tess.setColorOpaque_F(r / 255F, g / 255F, b / 255F);
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder tessBuffer = tess.getBuffer();
+			// Legacy begin resets this attribute; retain its argument evaluation.
+			float tessResetNormalX = 0F, tessResetNormalY = 1F, tessResetNormalZ = 0F;
+			// Legacy begin resets this attribute; retain its argument evaluation.
+			float tessResetRed = r / 255F, tessResetGreen = g / 255F, tessResetBlue = b / 255F;
 			bindTexture(lava);
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(-0.9, 2.3 + level, -0.999, 0, 0);
-			tess.addVertexWithUV(-0.9, 2.3 + level, 0.999, 0, 1);
-			tess.addVertexWithUV(0.9, 2.3 + level, 0.999, 1, 1);
-			tess.addVertexWithUV(0.9, 2.3 + level, -0.999, 1, 0);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessBuffer.pos(-0.9, 2.3 + level, -0.999).tex(0, 0).endVertex();
+			tessBuffer.pos(-0.9, 2.3 + level, 0.999).tex(0, 1).endVertex();
+			tessBuffer.pos(0.9, 2.3 + level, 0.999).tex(1, 1).endVertex();
+			tessBuffer.pos(0.9, 2.3 + level, -0.999).tex(1, 0).endVertex();
 			tess.draw();
 
 			GL11.glPopMatrix();

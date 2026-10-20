@@ -1,0 +1,383 @@
+{
+  "base": "d2f171750be2f0d156a019f25fa781db39db308a",
+  "compiler_log_sha256": "7208eb560a2276223ac38ac9dff3b112f8ba0a68d29dc4bc556281ad5eb6b853",
+  "file": "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+  "targeted_diagnostics": 75,
+  "diagnostics": [
+    {
+      "line": 182,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "line": 417,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 418,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_I(int,int)"
+    },
+    {
+      "line": 419,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 420,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 421,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 422,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 423,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 424,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 425,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 426,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 427,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 428,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 429,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 430,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 431,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 432,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 433,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 434,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 435,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 436,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 437,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 438,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(float,float,float)"
+    },
+    {
+      "line": 475,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 476,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 477,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 478,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 479,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 498,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "line": 516,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)"
+    },
+    {
+      "line": 517,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "line": 518,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "line": 519,
+      "message": "cannot find symbol",
+      "symbol": "method setColorRGBA_F(float,float,float,float)"
+    },
+    {
+      "line": 526,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "line": 554,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)"
+    },
+    {
+      "line": 556,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "line": 584,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "line": 635,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "line": 662,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 663,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 664,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 665,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 666,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 679,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 680,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "line": 681,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "line": 682,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "line": 683,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,double,double)"
+    },
+    {
+      "line": 690,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 691,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 692,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 693,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 694,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 709,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 710,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 711,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 712,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 713,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 720,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 721,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 722,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 723,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 724,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 739,
+      "message": "cannot find symbol",
+      "symbol": "variable instance"
+    },
+    {
+      "line": 772,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)"
+    },
+    {
+      "line": 780,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "line": 793,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)"
+    },
+    {
+      "line": 801,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "line": 814,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawing(int)"
+    },
+    {
+      "line": 822,
+      "message": "cannot find symbol",
+      "symbol": "method addVertex(double,int,double)"
+    },
+    {
+      "line": 1252,
+      "message": "cannot find symbol",
+      "symbol": "method startDrawingQuads()"
+    },
+    {
+      "line": 1253,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 1254,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 1255,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    },
+    {
+      "line": 1256,
+      "message": "cannot find symbol",
+      "symbol": "method addVertexWithUV(double,double,double,double,double)"
+    }
+  ]
+}

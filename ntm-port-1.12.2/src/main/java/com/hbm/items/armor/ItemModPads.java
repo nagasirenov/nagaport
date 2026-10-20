@@ -46,8 +46,8 @@ public class ItemModPads extends ItemArmorMod {
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
-		if(event.source == DamageSource.fall)
-			event.ammount *= damageMod;
+		if(event.getSource() == DamageSource.fall)
+			event.setAmount((float) (event.getAmount() * (damageMod)));
 	}
 	
 	@Override
@@ -63,7 +63,7 @@ public class ItemModPads extends ItemArmorMod {
 					
 					for(int i = 0; i < 4; i++) {
 						
-						ItemStack stack = player.inventory.armorInventory[i];
+						ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i);
 						
 						if(stack != null && stack.getItem() instanceof ArmorFSBPowered) {
 							

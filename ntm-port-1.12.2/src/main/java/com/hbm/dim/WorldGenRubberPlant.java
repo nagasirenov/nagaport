@@ -42,7 +42,7 @@ public class WorldGenRubberPlant extends WorldGenerator {
 						break;
 				}
 
-				world.setBlock(px, py, pz, ModBlocks.rubber_plant, plantType, 2);
+				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = plantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				flag = true;
 
 			} else if ((!world.provider.hasNoSky || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.vinyl_sand) {
@@ -82,7 +82,7 @@ public class WorldGenRubberPlant extends WorldGenerator {
 					if(rand.nextInt(4) == 0) {
 						world.setBlock(px, py, pz, ModBlocks.spike_cacti, plantType, 2);
 					} else {
-						world.setBlock(px, py, pz, ModBlocks.rubber_plant, OtherplantType, 2);
+						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = OtherplantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 
 					}
 					if(rand.nextInt(10) == 0) {

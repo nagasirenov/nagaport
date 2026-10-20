@@ -10,8 +10,14 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 
 public class EntityMagnusCartus extends EntityMinecart {
+	private static final DataParameter<Integer> BOGIE_ID = EntityDataManager.createKey(EntityMagnusCartus.class, DataSerializers.VARINT);
+
 
 	public EntityMinecartBogie bogie;
 
@@ -31,16 +37,16 @@ public class EntityMagnusCartus extends EntityMinecart {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(25, new Integer(0));
+		this.dataManager.register(BOGIE_ID, new Integer(0));
 	}
 
 	public void setBogie(EntityMinecartBogie bogie) {
 		this.bogie = bogie;
-		this.dataWatcher.updateObject(25, bogie.getEntityId());
+		this.dataManager.set(BOGIE_ID, bogie.getEntityId());
 	}
 
 	public int getBogieID() {
-		return this.dataWatcher.getWatchableObjectInt(25);
+		return this.dataManager.get(BOGIE_ID);
 	}
 
 	@Override

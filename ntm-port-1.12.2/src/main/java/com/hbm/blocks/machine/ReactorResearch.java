@@ -74,7 +74,7 @@ public class ReactorResearch extends BlockDummyable {
 				if(dir.offsetZ != 0)
 					iz = z + 0.5F + dir.offsetZ * 0.5 + rand.nextDouble() * 0.125 * dir.offsetZ;
 
-				world.spawnParticle("bubble", ix, iy, iz, 0.0, 0.2, 0.0);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, ix, iy, iz, 0.0, 0.2, 0.0);
 			}
 		}
 	}

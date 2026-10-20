@@ -1,0 +1,64 @@
+SOURCE / ORIGINAL / INVERSE / ATTRIBUTION
+/workspace/shared/nagaport-plane-data-cp81/ntm-port-1.12.2/porting/tests/native-entity-plane/source-inverse.patch:98: space before tab in indent.
+    	bomber.getDataWatcher().updateObject(16, (byte)9);
+/workspace/shared/nagaport-plane-data-cp81/ntm-port-1.12.2/porting/tests/native-entity-plane/source-inverse.patch:107: space before tab in indent.
+    	bomber.getDataWatcher().updateObject(16, (byte)10);
+warning: 2 lines add whitespace errors.
+/workspace/shared/nagaport-plane-data-cp81/ntm-port-1.12.2/porting/tests/native-entity-plane/production.patch:98: space before tab in indent.
+    	bomber.dataManager.set(BOMBER_STYLE, (byte)9);
+/workspace/shared/nagaport-plane-data-cp81/ntm-port-1.12.2/porting/tests/native-entity-plane/production.patch:107: space before tab in indent.
+    	bomber.dataManager.set(BOMBER_STYLE, (byte)10);
+warning: 2 lines add whitespace errors.
+PASS plane-metadata: 19 pristine calls/CP81 diagnostics; exact owner/default/serializer/full-source inverse; 3 classes and 11 consumer files; 6 unrelated same-file diagnostics retained
+GENUINE NATIVE JAVA8 SOURCE-SLICE PROBE
+/workspace/shared/nagaport-plane-data-cp81/ntm-port-1.12.2/porting/tests/native-entity-plane/Probe.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                   ^
+/workspace/shared/nagaport-plane-data-cp81/ntm-port-1.12.2/porting/tests/native-entity-plane/Probe.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                              ^
+/workspace/shared/nagaport-plane-data-cp81/ntm-port-1.12.2/porting/tests/native-entity-plane/Probe.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field uf=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);sun.misc.Unsafe unsafe=(sun.misc.Unsafe)uf.get(null);
+                                                                                                                      ^
+Note: /tmp/native-plane-data-rgw7u39_/com/hbm/util/EnumUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+[09:49:33] [main/INFO]: The mod native_plane_probe has attempted to allocate a chunkloading ticket beyond it's currently allocated maximum: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PASS 2382 native plane metadata assertions (bomber-first); native Forge quota-zero path, no loaded chunks, flight, payload, audio engine or GL
+[09:49:36] [main/INFO]: The mod native_plane_probe has attempted to allocate a chunkloading ticket beyond it's currently allocated maximum: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PASS 2382 native plane metadata assertions (c130-first); native Forge quota-zero path, no loaded chunks, flight, payload, audio engine or GL
+PASS 51 exact source slices; no flight/damage/payload/GL or whole-owner/game proof
+BASELINE DIFF WHITESPACE CHECK: recognizes preserved CRLF and existing space-before-tab
+PASS whitespace check

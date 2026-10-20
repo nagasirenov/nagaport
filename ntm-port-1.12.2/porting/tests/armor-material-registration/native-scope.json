@@ -1,0 +1,897 @@
+{
+  "boundary": "Exact production material/repair statement slices, not full registration owners. Repair fields are distinct genuine native Item fixtures. Original material and ItemArmor constructors and RenderBiped fallback execute unmodified original-client bytecode. No NTM armor gameplay or Forge1614 repair-field bytecode is simulated.",
+  "creations": [
+    {
+      "variable": "aMatSchrab",
+      "name": "HBM_SCHRABIDIUM",
+      "durability": 100,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 50,
+      "offset": 6868,
+      "line": 138,
+      "before": "ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial(\"HBM_SCHRABIDIUM\", 100, new int[] { 3, 8, 6, 3 }, 50);",
+      "after": "ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial(\"HBM_SCHRABIDIUM\", \"leather\", 100, new int[] { 3, 6, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatEuph",
+      "name": "HBM_EUPHEMIUM",
+      "durability": 15000000,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 100,
+      "offset": 6994,
+      "line": 139,
+      "before": "ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial(\"HBM_EUPHEMIUM\", 15000000, new int[] { 3, 8, 6, 3 }, 100);",
+      "after": "ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial(\"HBM_EUPHEMIUM\", \"leather\", 15000000, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatHaz",
+      "name": "HBM_HAZMAT",
+      "durability": 60,
+      "damage": [
+        2,
+        5,
+        4,
+        1
+      ],
+      "enchantability": 5,
+      "offset": 7122,
+      "line": 140,
+      "before": "ArmorMaterial aMatHaz = EnumHelper.addArmorMaterial(\"HBM_HAZMAT\", 60, new int[] { 2, 5, 4, 1 }, 5);",
+      "after": "ArmorMaterial aMatHaz = EnumHelper.addArmorMaterial(\"HBM_HAZMAT\", \"leather\", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatHaz2",
+      "name": "HBM_HAZMAT2",
+      "durability": 60,
+      "damage": [
+        2,
+        5,
+        4,
+        1
+      ],
+      "enchantability": 5,
+      "offset": 7238,
+      "line": 141,
+      "before": "ArmorMaterial aMatHaz2 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT2\", 60, new int[] { 2, 5, 4, 1 }, 5);",
+      "after": "ArmorMaterial aMatHaz2 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT2\", \"leather\", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatHaz3",
+      "name": "HBM_HAZMAT3",
+      "durability": 60,
+      "damage": [
+        2,
+        5,
+        4,
+        1
+      ],
+      "enchantability": 5,
+      "offset": 7356,
+      "line": 142,
+      "before": "ArmorMaterial aMatHaz3 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT3\", 60, new int[] { 2, 5, 4, 1 }, 5);",
+      "after": "ArmorMaterial aMatHaz3 = EnumHelper.addArmorMaterial(\"HBM_HAZMAT3\", \"leather\", 60, new int[] { 1, 4, 5, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatSteel",
+      "name": "HBM_STEEL",
+      "durability": 20,
+      "damage": [
+        2,
+        6,
+        5,
+        2
+      ],
+      "enchantability": 5,
+      "offset": 7474,
+      "line": 143,
+      "before": "ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial(\"HBM_STEEL\", 20, new int[] { 2, 6, 5, 2 }, 5);",
+      "after": "ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial(\"HBM_STEEL\", \"leather\", 20, new int[] { 2, 5, 6, 2 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatAsbestos",
+      "name": "HBM_ASBESTOS",
+      "durability": 20,
+      "damage": [
+        1,
+        4,
+        3,
+        1
+      ],
+      "enchantability": 5,
+      "offset": 7591,
+      "line": 144,
+      "before": "ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial(\"HBM_ASBESTOS\", 20, new int[] { 1, 4, 3, 1 }, 5);",
+      "after": "ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial(\"HBM_ASBESTOS\", \"leather\", 20, new int[] { 1, 3, 4, 1 }, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatTitan",
+      "name": "HBM_TITANIUM",
+      "durability": 25,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 9,
+      "offset": 7714,
+      "line": 145,
+      "before": "ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial(\"HBM_TITANIUM\", 25, new int[] { 3, 8, 6, 3 }, 9);",
+      "after": "ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial(\"HBM_TITANIUM\", \"leather\", 25, new int[] { 3, 6, 8, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatAlloy",
+      "name": "HBM_ALLOY",
+      "durability": 40,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 12,
+      "offset": 7834,
+      "line": 146,
+      "before": "ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial(\"HBM_ALLOY\", 40, new int[] { 3, 8, 6, 3 }, 12);",
+      "after": "ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial(\"HBM_ALLOY\", \"leather\", 40, new int[] { 3, 6, 8, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatPaa",
+      "name": "HBM_PAA",
+      "durability": 75,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 25,
+      "offset": 7952,
+      "line": 147,
+      "before": "ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial(\"HBM_PAA\", 75, new int[] { 3, 8, 6, 3 }, 25);",
+      "after": "ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial(\"HBM_PAA\", \"leather\", 75, new int[] { 3, 6, 8, 3 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatCMB",
+      "name": "HBM_CMB",
+      "durability": 60,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 50,
+      "offset": 8066,
+      "line": 148,
+      "before": "ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial(\"HBM_CMB\", 60, new int[] { 3, 8, 6, 3 }, 50);",
+      "after": "ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial(\"HBM_CMB\", \"leather\", 60, new int[] { 3, 6, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatAus3",
+      "name": "HBM_AUSIII",
+      "durability": 375,
+      "damage": [
+        2,
+        6,
+        5,
+        2
+      ],
+      "enchantability": 0,
+      "offset": 8180,
+      "line": 149,
+      "before": "ArmorMaterial aMatAus3 = EnumHelper.addArmorMaterial(\"HBM_AUSIII\", 375, new int[] { 2, 6, 5, 2 }, 0);",
+      "after": "ArmorMaterial aMatAus3 = EnumHelper.addArmorMaterial(\"HBM_AUSIII\", \"leather\", 375, new int[] { 2, 5, 6, 2 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatSecurity",
+      "name": "HBM_SECURITY",
+      "durability": 100,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 15,
+      "offset": 8298,
+      "line": 150,
+      "before": "ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial(\"HBM_SECURITY\", 100, new int[] { 3, 8, 6, 3 }, 15);",
+      "after": "ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial(\"HBM_SECURITY\", \"leather\", 100, new int[] { 3, 6, 8, 3 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatCobalt",
+      "name": "HBM_COBALT",
+      "durability": 70,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 60,
+      "offset": 8423,
+      "line": 151,
+      "before": "ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial(\"HBM_COBALT\", 70, new int[] { 3, 8, 6, 3 }, 60);",
+      "after": "ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial(\"HBM_COBALT\", \"leather\", 70, new int[] { 3, 6, 8, 3 }, 60, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatStarmetal",
+      "name": "HBM_STARMETAL",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 100,
+      "offset": 8543,
+      "line": 152,
+      "before": "ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial(\"HBM_STARMETAL\", 150, new int[] { 3, 8, 6, 3 }, 100);",
+      "after": "ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial(\"HBM_STARMETAL\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatBismuth",
+      "name": "HBM_BISMUTH",
+      "durability": 100,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 100,
+      "offset": 8671,
+      "line": 153,
+      "before": "ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial(\"HBM_BISMUTH\", 100, new int[] { 3, 8, 6, 3 }, 100);",
+      "after": "ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial(\"HBM_BISMUTH\", \"leather\", 100, new int[] { 3, 6, 8, 3 }, 100, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatRags",
+      "name": "HBM_RAGS",
+      "durability": 150,
+      "damage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "enchantability": 0,
+      "offset": 661,
+      "line": 24,
+      "before": "ArmorMaterial aMatRags = EnumHelper.addArmorMaterial(\"HBM_RAGS\", 150, new int[] { 1, 1, 1, 1 }, 0);",
+      "after": "ArmorMaterial aMatRags = EnumHelper.addArmorMaterial(\"HBM_RAGS\", \"leather\", 150, new int[] { 1, 1, 1, 1 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatZirconium",
+      "name": "HBM_ZIRCONIUM",
+      "durability": 1000,
+      "damage": [
+        2,
+        5,
+        3,
+        1
+      ],
+      "enchantability": 1000,
+      "offset": 15638,
+      "line": 112,
+      "before": "ArmorMaterial aMatZirconium = EnumHelper.addArmorMaterial(\"HBM_ZIRCONIUM\", 1000, new int[] { 2, 5, 3, 1 }, 1000);",
+      "after": "ArmorMaterial aMatZirconium = EnumHelper.addArmorMaterial(\"HBM_ZIRCONIUM\", \"leather\", 1000, new int[] { 1, 3, 5, 2 }, 1000, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDNT",
+      "name": "HBM_DNT_LOLOLOL",
+      "durability": 3,
+      "damage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "enchantability": 0,
+      "offset": 16036,
+      "line": 116,
+      "before": "ArmorMaterial aMatDNT = EnumHelper.addArmorMaterial(\"HBM_DNT_LOLOLOL\", 3, new int[] { 1, 1, 1, 1 }, 0);",
+      "after": "ArmorMaterial aMatDNT = EnumHelper.addArmorMaterial(\"HBM_DNT_LOLOLOL\", \"leather\", 3, new int[] { 1, 1, 1, 1 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatT51",
+      "name": "HBM_T51",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 17062,
+      "line": 124,
+      "before": "ArmorMaterial aMatT51 = EnumHelper.addArmorMaterial(\"HBM_T51\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatT51 = EnumHelper.addArmorMaterial(\"HBM_T51\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDesh",
+      "name": "HBM_DESH",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 18605,
+      "line": 140,
+      "before": "ArmorMaterial aMatDesh = EnumHelper.addArmorMaterial(\"HBM_DESH\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatDesh = EnumHelper.addArmorMaterial(\"HBM_DESH\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDiesel",
+      "name": "HBM_BNUUY",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 20147,
+      "line": 153,
+      "before": "ArmorMaterial aMatDiesel = EnumHelper.addArmorMaterial(\"HBM_BNUUY\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatDiesel = EnumHelper.addArmorMaterial(\"HBM_BNUUY\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatAJR",
+      "name": "HBM_T45AJR",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 21704,
+      "line": 165,
+      "before": "ArmorMaterial aMatAJR = EnumHelper.addArmorMaterial(\"HBM_T45AJR\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatAJR = EnumHelper.addArmorMaterial(\"HBM_T45AJR\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatBJ",
+      "name": "HBM_BLACKJACK",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 27331,
+      "line": 229,
+      "before": "ArmorMaterial aMatBJ = EnumHelper.addArmorMaterial(\"HBM_BLACKJACK\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatBJ = EnumHelper.addArmorMaterial(\"HBM_BLACKJACK\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatEnv",
+      "name": "HBM_ENV",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 10,
+      "offset": 29243,
+      "line": 250,
+      "before": "ArmorMaterial aMatEnv = EnumHelper.addArmorMaterial(\"HBM_ENV\", 150, new int[] { 3, 8, 6, 3 }, 10);",
+      "after": "ArmorMaterial aMatEnv = EnumHelper.addArmorMaterial(\"HBM_ENV\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatHEV",
+      "name": "HBM_HEV",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 30694,
+      "line": 263,
+      "before": "ArmorMaterial aMatHEV = EnumHelper.addArmorMaterial(\"HBM_HEV\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatHEV = EnumHelper.addArmorMaterial(\"HBM_HEV\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatFau",
+      "name": "HBM_DIGAMMA",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 32421,
+      "line": 281,
+      "before": "ArmorMaterial aMatFau = EnumHelper.addArmorMaterial(\"HBM_DIGAMMA\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatFau = EnumHelper.addArmorMaterial(\"HBM_DIGAMMA\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDNS",
+      "name": "HBM_DNT_NANO",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 33995,
+      "line": 299,
+      "before": "ArmorMaterial aMatDNS = EnumHelper.addArmorMaterial(\"HBM_DNT_NANO\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatDNS = EnumHelper.addArmorMaterial(\"HBM_DNT_NANO\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatTaurun",
+      "name": "HBM_TRENCH",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 10,
+      "offset": 35673,
+      "line": 320,
+      "before": "ArmorMaterial aMatTaurun = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", 150, new int[] { 3, 8, 6, 3 }, 10);",
+      "after": "ArmorMaterial aMatTaurun = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatTrench",
+      "name": "HBM_TRENCH",
+      "durability": 150,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 0,
+      "offset": 36976,
+      "line": 332,
+      "before": "ArmorMaterial aMatTrench = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", 150, new int[] { 3, 8, 6, 3 }, 0);",
+      "after": "ArmorMaterial aMatTrench = EnumHelper.addArmorMaterial(\"HBM_TRENCH\", \"leather\", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatLiquidator",
+      "name": "HBM_LIQUIDATOR",
+      "durability": 750,
+      "damage": [
+        3,
+        8,
+        6,
+        3
+      ],
+      "enchantability": 10,
+      "offset": 453424,
+      "line": 4901,
+      "before": "ArmorMaterial aMatLiquidator = EnumHelper.addArmorMaterial(\"HBM_LIQUIDATOR\", 750, new int[] { 3, 8, 6, 3 }, 10);",
+      "after": "ArmorMaterial aMatLiquidator = EnumHelper.addArmorMaterial(\"HBM_LIQUIDATOR\", \"leather\", 750, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);",
+      "owner": "src/main/java/com/hbm/items/ModItems.java"
+    }
+  ],
+  "repairs": [
+    {
+      "variable": "aMatSchrab",
+      "item": "ingot_schrabidium",
+      "offset": 15333,
+      "line": 305,
+      "before": "aMatSchrab.customCraftingMaterial = ModItems.ingot_schrabidium;",
+      "after": "aMatSchrab.repairMaterial = new ItemStack(ModItems.ingot_schrabidium, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatHaz",
+      "item": "hazmat_cloth",
+      "offset": 15400,
+      "line": 306,
+      "before": "aMatHaz.customCraftingMaterial = ModItems.hazmat_cloth;",
+      "after": "aMatHaz.repairMaterial = new ItemStack(ModItems.hazmat_cloth, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatHaz2",
+      "item": "hazmat_cloth_red",
+      "offset": 15459,
+      "line": 307,
+      "before": "aMatHaz2.customCraftingMaterial = ModItems.hazmat_cloth_red;",
+      "after": "aMatHaz2.repairMaterial = new ItemStack(ModItems.hazmat_cloth_red, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatHaz3",
+      "item": "hazmat_cloth_grey",
+      "offset": 15523,
+      "line": 308,
+      "before": "aMatHaz3.customCraftingMaterial = ModItems.hazmat_cloth_grey;",
+      "after": "aMatHaz3.repairMaterial = new ItemStack(ModItems.hazmat_cloth_grey, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatTitan",
+      "item": "ingot_titanium",
+      "offset": 15588,
+      "line": 309,
+      "before": "aMatTitan.customCraftingMaterial = ModItems.ingot_titanium;",
+      "after": "aMatTitan.repairMaterial = new ItemStack(ModItems.ingot_titanium, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatSteel",
+      "item": "ingot_steel",
+      "offset": 15651,
+      "line": 310,
+      "before": "aMatSteel.customCraftingMaterial = ModItems.ingot_steel;",
+      "after": "aMatSteel.repairMaterial = new ItemStack(ModItems.ingot_steel, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatAsbestos",
+      "item": "asbestos_cloth",
+      "offset": 15711,
+      "line": 311,
+      "before": "aMatAsbestos.customCraftingMaterial = ModItems.asbestos_cloth;",
+      "after": "aMatAsbestos.repairMaterial = new ItemStack(ModItems.asbestos_cloth, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatAlloy",
+      "item": "ingot_advanced_alloy",
+      "offset": 15777,
+      "line": 312,
+      "before": "aMatAlloy.customCraftingMaterial = ModItems.ingot_advanced_alloy;",
+      "after": "aMatAlloy.repairMaterial = new ItemStack(ModItems.ingot_advanced_alloy, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatPaa",
+      "item": "plate_paa",
+      "offset": 15846,
+      "line": 313,
+      "before": "aMatPaa.customCraftingMaterial = ModItems.plate_paa;",
+      "after": "aMatPaa.repairMaterial = new ItemStack(ModItems.plate_paa, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatCMB",
+      "item": "ingot_combine_steel",
+      "offset": 15902,
+      "line": 314,
+      "before": "aMatCMB.customCraftingMaterial = ModItems.ingot_combine_steel;",
+      "after": "aMatCMB.repairMaterial = new ItemStack(ModItems.ingot_combine_steel, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatAus3",
+      "item": "ingot_australium",
+      "offset": 15968,
+      "line": 315,
+      "before": "aMatAus3.customCraftingMaterial = ModItems.ingot_australium;",
+      "after": "aMatAus3.repairMaterial = new ItemStack(ModItems.ingot_australium, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatSecurity",
+      "item": "plate_kevlar",
+      "offset": 16032,
+      "line": 316,
+      "before": "aMatSecurity.customCraftingMaterial = ModItems.plate_kevlar;",
+      "after": "aMatSecurity.repairMaterial = new ItemStack(ModItems.plate_kevlar, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatCobalt",
+      "item": "ingot_cobalt",
+      "offset": 16096,
+      "line": 317,
+      "before": "aMatCobalt.customCraftingMaterial = ModItems.ingot_cobalt;",
+      "after": "aMatCobalt.repairMaterial = new ItemStack(ModItems.ingot_cobalt, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatStarmetal",
+      "item": "ingot_starmetal",
+      "offset": 16158,
+      "line": 318,
+      "before": "aMatStarmetal.customCraftingMaterial = ModItems.ingot_starmetal;",
+      "after": "aMatStarmetal.repairMaterial = new ItemStack(ModItems.ingot_starmetal, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatBismuth",
+      "item": "plate_bismuth",
+      "offset": 16226,
+      "line": 319,
+      "before": "aMatBismuth.customCraftingMaterial = ModItems.plate_bismuth;",
+      "after": "aMatBismuth.repairMaterial = new ItemStack(ModItems.plate_bismuth, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/main/MainRegistry.java"
+    },
+    {
+      "variable": "aMatRags",
+      "item": "rag",
+      "offset": 763,
+      "line": 25,
+      "before": "aMatRags.customCraftingMaterial = ModItems.rag;",
+      "after": "aMatRags.repairMaterial = new ItemStack(ModItems.rag, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatZirconium",
+      "item": "ingot_zirconium",
+      "offset": 15754,
+      "line": 113,
+      "before": "aMatZirconium.customCraftingMaterial = ModItems.ingot_zirconium;",
+      "after": "aMatZirconium.repairMaterial = new ItemStack(ModItems.ingot_zirconium, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDNT",
+      "item": "ingot_dineutronium",
+      "offset": 16142,
+      "line": 117,
+      "before": "aMatDNT.customCraftingMaterial = ModItems.ingot_dineutronium;",
+      "after": "aMatDNT.repairMaterial = new ItemStack(ModItems.ingot_dineutronium, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatT51",
+      "item": "plate_armor_titanium",
+      "offset": 17162,
+      "line": 125,
+      "before": "aMatT51.customCraftingMaterial = ModItems.plate_armor_titanium;",
+      "after": "aMatT51.repairMaterial = new ItemStack(ModItems.plate_armor_titanium, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDesh",
+      "item": "ingot_desh",
+      "offset": 18707,
+      "line": 141,
+      "before": "aMatDesh.customCraftingMaterial = ModItems.ingot_desh;",
+      "after": "aMatDesh.repairMaterial = new ItemStack(ModItems.ingot_desh, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDiesel",
+      "item": "plate_copper",
+      "offset": 20252,
+      "line": 154,
+      "before": "aMatDiesel.customCraftingMaterial = ModItems.plate_copper;",
+      "after": "aMatDiesel.repairMaterial = new ItemStack(ModItems.plate_copper, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatAJR",
+      "item": "plate_armor_ajr",
+      "offset": 21807,
+      "line": 166,
+      "before": "aMatAJR.customCraftingMaterial = ModItems.plate_armor_ajr;",
+      "after": "aMatAJR.repairMaterial = new ItemStack(ModItems.plate_armor_ajr, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatBJ",
+      "item": "plate_armor_lunar",
+      "offset": 27436,
+      "line": 230,
+      "before": "aMatBJ.customCraftingMaterial = ModItems.plate_armor_lunar;",
+      "after": "aMatBJ.repairMaterial = new ItemStack(ModItems.plate_armor_lunar, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatEnv",
+      "item": "plate_armor_hev",
+      "offset": 29344,
+      "line": 251,
+      "before": "aMatEnv.customCraftingMaterial = ModItems.plate_armor_hev;",
+      "after": "aMatEnv.repairMaterial = new ItemStack(ModItems.plate_armor_hev, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatHEV",
+      "item": "plate_armor_hev",
+      "offset": 30794,
+      "line": 264,
+      "before": "aMatHEV.customCraftingMaterial = ModItems.plate_armor_hev;",
+      "after": "aMatHEV.repairMaterial = new ItemStack(ModItems.plate_armor_hev, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatFau",
+      "item": "plate_armor_fau",
+      "offset": 32525,
+      "line": 282,
+      "before": "aMatFau.customCraftingMaterial = ModItems.plate_armor_fau;",
+      "after": "aMatFau.repairMaterial = new ItemStack(ModItems.plate_armor_fau, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatDNS",
+      "item": "plate_armor_dnt",
+      "offset": 34100,
+      "line": 300,
+      "before": "aMatDNS.customCraftingMaterial = ModItems.plate_armor_dnt;",
+      "after": "aMatDNS.repairMaterial = new ItemStack(ModItems.plate_armor_dnt, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatTaurun",
+      "item": "plate_iron",
+      "offset": 35780,
+      "line": 321,
+      "before": "aMatTaurun.customCraftingMaterial = ModItems.plate_iron;",
+      "after": "aMatTaurun.repairMaterial = new ItemStack(ModItems.plate_iron, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatTrench",
+      "item": "plate_iron",
+      "offset": 37082,
+      "line": 333,
+      "before": "aMatTrench.customCraftingMaterial = ModItems.plate_iron;",
+      "after": "aMatTrench.repairMaterial = new ItemStack(ModItems.plate_iron, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItemsArmor.java"
+    },
+    {
+      "variable": "aMatLiquidator",
+      "item": "plate_lead",
+      "offset": 453540,
+      "line": 4902,
+      "before": "aMatLiquidator.customCraftingMaterial = ModItems.plate_lead;",
+      "after": "aMatLiquidator.repairMaterial = new ItemStack(ModItems.plate_lead, 1, OreDictionary.WILDCARD_VALUE);",
+      "owner": "src/main/java/com/hbm/items/ModItems.java"
+    }
+  ],
+  "events": [
+    "create:aMatSchrab",
+    "create:aMatEuph",
+    "create:aMatHaz",
+    "create:aMatHaz2",
+    "create:aMatHaz3",
+    "create:aMatSteel",
+    "create:aMatAsbestos",
+    "create:aMatTitan",
+    "create:aMatAlloy",
+    "create:aMatPaa",
+    "create:aMatCMB",
+    "create:aMatAus3",
+    "create:aMatSecurity",
+    "create:aMatCobalt",
+    "create:aMatStarmetal",
+    "create:aMatBismuth",
+    "create:aMatRags",
+    "repair:aMatRags",
+    "create:aMatZirconium",
+    "repair:aMatZirconium",
+    "create:aMatDNT",
+    "repair:aMatDNT",
+    "create:aMatT51",
+    "repair:aMatT51",
+    "create:aMatDesh",
+    "repair:aMatDesh",
+    "create:aMatDiesel",
+    "repair:aMatDiesel",
+    "create:aMatAJR",
+    "repair:aMatAJR",
+    "create:aMatBJ",
+    "repair:aMatBJ",
+    "create:aMatEnv",
+    "repair:aMatEnv",
+    "create:aMatHEV",
+    "repair:aMatHEV",
+    "create:aMatFau",
+    "repair:aMatFau",
+    "create:aMatDNS",
+    "repair:aMatDNS",
+    "create:aMatTaurun",
+    "repair:aMatTaurun",
+    "create:aMatTrench",
+    "repair:aMatTrench",
+    "create:aMatLiquidator",
+    "repair:aMatLiquidator",
+    "repair:aMatSchrab",
+    "repair:aMatHaz",
+    "repair:aMatHaz2",
+    "repair:aMatHaz3",
+    "repair:aMatTitan",
+    "repair:aMatSteel",
+    "repair:aMatAsbestos",
+    "repair:aMatAlloy",
+    "repair:aMatPaa",
+    "repair:aMatCMB",
+    "repair:aMatAus3",
+    "repair:aMatSecurity",
+    "repair:aMatCobalt",
+    "repair:aMatStarmetal",
+    "repair:aMatBismuth"
+  ],
+  "fixture_items": [
+    "asbestos_cloth",
+    "hazmat_cloth",
+    "hazmat_cloth_grey",
+    "hazmat_cloth_red",
+    "ingot_advanced_alloy",
+    "ingot_australium",
+    "ingot_cobalt",
+    "ingot_combine_steel",
+    "ingot_desh",
+    "ingot_dineutronium",
+    "ingot_schrabidium",
+    "ingot_starmetal",
+    "ingot_steel",
+    "ingot_titanium",
+    "ingot_zirconium",
+    "plate_armor_ajr",
+    "plate_armor_dnt",
+    "plate_armor_fau",
+    "plate_armor_hev",
+    "plate_armor_lunar",
+    "plate_armor_titanium",
+    "plate_bismuth",
+    "plate_copper",
+    "plate_iron",
+    "plate_kevlar",
+    "plate_lead",
+    "plate_paa",
+    "rag"
+  ]
+}

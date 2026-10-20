@@ -1,0 +1,1 @@
+PASS actual original raw factory vs native normalizing constructor; native TileEntity.setPos calls toImmutable; native Vec3i getters read final int fields; mutable BlockPos snapshots verified. No binaries copied to evidence.

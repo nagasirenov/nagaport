@@ -1,0 +1,90 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockCrop.java",
+    "before_sha256": "f0d22b8765e7baf5b48ceff74494976d0d022b85dc43a01d0787a17e3dde0abc",
+    "after_sha256": "0b0282c42ebe1cff51a1cf1dae05c0512fb3121a688a69620e3ef013852fb002",
+    "changes": [
+      {
+        "before": "",
+        "after": "\n\n\tprivate final net.minecraft.util.math.AxisAlignedBB shape;",
+        "anchor": "public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathing {"
+      },
+      {
+        "before": "setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);",
+        "after": "this.shape = new net.minecraft.util.math.AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);"
+      },
+      {
+        "before": "",
+        "after": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n",
+        "at_end": true
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+    "before_sha256": "18ac6110dfc119ac53f83c3c00608950bf7245b76830e2b48285b3abe285bbc1",
+    "after_sha256": "57e00f828a5a2f14ef08547756a18d3d8cce80740965d2009d47dea1853c2989",
+    "changes": [
+      {
+        "before": "",
+        "after": "\n\n\tprivate final net.minecraft.util.math.AxisAlignedBB shape;",
+        "anchor": "public class BlockMush extends Block implements IGrowable, IPlantable {"
+      },
+      {
+        "before": "this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);",
+        "after": "this.shape = new net.minecraft.util.math.AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);"
+      },
+      {
+        "before": "",
+        "after": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n",
+        "at_end": true
+      },
+      {
+        "before": "public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)",
+        "after": "public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, IBlockAccess world, BlockPos pos)"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+    "before_sha256": "f45a8c9b86975844b2ccacddb7230196c8d409e61321d75154e95bb56dc28afa",
+    "after_sha256": "4c9af08985f6c2910fca8ba996b36798dbea58c5fb6086eee03a349edf5b4bc7",
+    "changes": [
+      {
+        "before": "",
+        "after": "\n\n\tprivate final net.minecraft.util.math.AxisAlignedBB shape;",
+        "anchor": "public class BlockFallout extends Block {"
+      },
+      {
+        "before": "this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);",
+        "after": "this.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);"
+      },
+      {
+        "before": "",
+        "after": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n",
+        "at_end": true
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+    "before_sha256": "a6e5e95193b42e839d185742919b28da2028796c1e00f8db9de8246170f6c204",
+    "after_sha256": "596e1ebf5300ccb76f9e1960de37789f5e5a6272190d730769383dee2aa9ee53",
+    "changes": [
+      {
+        "before": "",
+        "after": "\n\n\tprivate final net.minecraft.util.math.AxisAlignedBB shape;",
+        "anchor": "public class MeltedFlesh extends Block {"
+      },
+      {
+        "before": "this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);",
+        "after": "this.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);"
+      },
+      {
+        "before": "",
+        "after": "\n\n\t@Override\n\tpublic net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n\t\treturn shape;\n\t}\n",
+        "at_end": true
+      }
+    ]
+  }
+]

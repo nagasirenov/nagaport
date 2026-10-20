@@ -30,7 +30,7 @@ public class BlockLithium extends BlockBeaconable {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 
 		if (touchesWater(world, x, y, z)) {
-			world.func_147480_a(x, y, z, false);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 			world.newExplosion(null, x + 0.5, y + 0.5, z + 0.5, 15, false, true);
 		}
 	}
@@ -38,7 +38,7 @@ public class BlockLithium extends BlockBeaconable {
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float fx, float fy, float fz, int meta) {
 
 		if (touchesWater(world, x, y, z)) {
-			world.func_147480_a(x, y, z, false);
+			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 			world.newExplosion(null, x + 0.5, y + 0.5, z + 0.5, 15, false, true);
 		}
 
@@ -53,7 +53,7 @@ public class BlockLithium extends BlockBeaconable {
 			float ox = rand.nextFloat();
 			float oz = rand.nextFloat();
 
-			world.spawnParticle("largesmoke", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);
 		}
 	}
 }

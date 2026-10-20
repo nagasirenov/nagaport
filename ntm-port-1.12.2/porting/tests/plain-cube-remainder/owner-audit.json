@@ -1,0 +1,52 @@
+{
+  "src/main/java/com/hbm/blocks/generic/BlockNuclearWaste.java": {
+    "parent": "BlockHazard",
+    "current_sha256": "5bb663840ca413d8578bdd63d02867df5c55de4cf910621239e229303f728f85",
+    "original_sha256": "57912e5d32d45771e8fa1381d9c24c8b312fd66c4ed0384494e32b87ce337bc6"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockHazard.java": {
+    "parent": "Block",
+    "current_sha256": "d7770ccc05c006d4f851bdfc683b2b72fa9d31556b6e4df1cdee3eaa75306515",
+    "original_sha256": "c460d2433a2a4472e1fd322fac1dfa1a7d577efd46482e90d261c4b426fb984e"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java": {
+    "parent": "BlockFalling",
+    "current_sha256": "b065c12215db546dd38fa1dd5bf9baf6ddd7ab87f7e76dc593fd3075f4b0b438",
+    "original_sha256": "3f39c68bcbb7f6aa1b917f209c5ea5602fd737081f8c6507189f59db635d7743"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockNetherCoal.java": {
+    "parent": "BlockOutgas",
+    "current_sha256": "1b2f223cd975d19249201a437a0e5eebfda70e1058e820ea2b05ee18871e1947",
+    "original_sha256": "661ee684bbdf544e477a94997282ad0095db85482b4c2eae69e7a87f55085cff"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockOutgas.java": {
+    "parent": "Block",
+    "current_sha256": "4316bab31ef645eb3b23e85574eb1467cc7e04d1f19b5b2e70b6ab92b2519f9d",
+    "original_sha256": "21053e7b5a50ec00d9b877612f1b32a3999b11338fb7847bcc549daabf5c0073"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockSpeedy.java": {
+    "parent": "Block",
+    "current_sha256": "aa47369ee170b52477911e904c20d3a51d5c5c1be7857d7438aa4c3035f69f72",
+    "original_sha256": "b64cc517c4dafab5f284ade81308d925fe40e9fbb7d4ae13ab623bb9c81a86b9"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockNoDrop.java": {
+    "parent": "Block",
+    "current_sha256": "c1ebea91a7fff9f2d3347f02b40f27050d55895ad49d7a7cc8916a13e908996c",
+    "original_sha256": "a9ed1e12c63488abb98fe33bbd2877d2a7d83115ecf3d3b5d5311769fb96aa08"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockRadResistant.java": {
+    "parent": "Block",
+    "current_sha256": "f17def6d9e420f586049b3d7442ce560f15c7b2d3bfd1b94d1a4089ec9cb26cf",
+    "original_sha256": "f17def6d9e420f586049b3d7442ce560f15c7b2d3bfd1b94d1a4089ec9cb26cf"
+  },
+  "src/main/java/com/hbm/blocks/generic/FragileBrick.java": {
+    "parent": "Block",
+    "current_sha256": "34f1bba654fa855fd99b2c9206364a2668b02c445f9b48bd58e24ce863003146",
+    "original_sha256": "89a47d3d8fe47e50648bc8cd5fea2bf00f962d1cc753bba4b43c7c5867c45fee"
+  },
+  "src/main/java/com/hbm/blocks/generic/BlockMeteoriteTreasure.java": {
+    "parent": "Block",
+    "current_sha256": "c62a37204d1922f155c75b547d3cdcfde24d395f69287f7e8ff24f4953a58101",
+    "original_sha256": "59020af293e6b527ed2a5676e0beb7d69037feefe7e2a0d82fb472975cbff489"
+  }
+}

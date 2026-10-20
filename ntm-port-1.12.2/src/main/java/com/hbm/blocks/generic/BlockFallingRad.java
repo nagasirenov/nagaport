@@ -21,7 +21,7 @@ public class BlockFallingRad extends BlockFalling {
 		super.updateTick(world, x, y, z, rand);
 		ChunkRadiationManager.proxy.incrementRad(world, x, y, z, radIn);
 
-		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class BlockFallingRad extends BlockFalling {
 
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
-		world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
+		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
 }

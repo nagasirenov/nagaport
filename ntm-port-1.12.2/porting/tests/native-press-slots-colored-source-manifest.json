@@ -1,0 +1,1222 @@
+{
+  "baseline": "0be133c9fb9f07053e26f081371487e641c95214",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": {
+      "before_sha256": "1d68d9348e95d1b50b09388c7a30a5f94252ec61a47ed41a5bb37d150d601845",
+      "after_sha256": "5d4c49e0ac430795c6b96c347c79e2eea4688261f799d5cef9bab2825be4f895",
+      "edits": [
+        {
+          "before_offset": 3061,
+          "after_offset": 3061,
+          "old": "\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, xCoord + k, yCoord, zCoord + l)) {\n",
+          "new": "\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, new net.minecraft.util.math.BlockPos(xCoord + k, yCoord, zCoord + l))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/CoriumBlock.java": {
+      "before_sha256": "19c63ef4d6ff11964d03554dbb21628da61eb6ab2daf3885ade6d2be3b994e69",
+      "after_sha256": "66e615f640108a3216910d525dc7b8e8d301f4ac562ef914eaf9bc23f16132d1",
+      "edits": [
+        {
+          "before_offset": 3057,
+          "after_offset": 3057,
+          "old": "\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n",
+          "new": "\tpublic boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java": {
+      "before_sha256": "120c35b63f97f77acd28c6cc4e9af425af79381ff9e131a3c6befc1d33313fc4",
+      "after_sha256": "9397cc0c0ace0c96cab7b03ebc3e6c4d815b12216a64b118a9d169573ad6da26",
+      "edits": [
+        {
+          "before_offset": 2725,
+          "after_offset": 2725,
+          "old": "\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n",
+          "new": "\tpublic boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "596e1ebf5300ccb76f9e1960de37789f5e5a6272190d730769383dee2aa9ee53",
+      "after_sha256": "956237fcef324a518333207f79a3adcfe81d0e7d650130b455512b0a50dca633",
+      "edits": [
+        {
+          "before_offset": 2136,
+          "after_offset": 2136,
+          "old": "\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n",
+          "new": "\tpublic boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java": {
+      "before_sha256": "42bc8286fac188648676c3ff6877dd4ade82ed19eeff84da33dfc116bca462a8",
+      "after_sha256": "301175a859ebac5de914c3df9bd6e917dcaa1449faf8a5e4fd0e657a198ab4f9",
+      "edits": [
+        {
+          "before_offset": 7961,
+          "after_offset": 7961,
+          "old": "\t\tif(b.isReplaceable(world, x, y, z))\n",
+          "new": "\t\tif(b.isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z)))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasBase.java": {
+      "before_sha256": "f859a3c0243bf499c9ad18891575b424ff3eda3065cdc8ff05e5eb6816bbcb1a",
+      "after_sha256": "994844037703819ca3af3589da68e2031b8a8e3e53f4b866fb127cc7107020d2",
+      "edits": [
+        {
+          "before_offset": 1773,
+          "after_offset": 1773,
+          "old": "\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n",
+          "new": "\tpublic boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": {
+      "before_sha256": "998af3b903b3631fac795cea0859a490369056e2c976c3690087da6b409d9790",
+      "after_sha256": "135207f6016effe2a61a241b0c789f6f880eea8a6b6985970c0b02793d4bde2e",
+      "edits": [
+        {
+          "before_offset": 1679,
+          "after_offset": 1679,
+          "old": "\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n",
+          "new": "\tpublic boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n"
+        },
+        {
+          "before_offset": 2649,
+          "after_offset": 2666,
+          "old": "\t\t\t\tif(b.isReplaceable(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {\n",
+          "new": "\t\t\t\tif(b.isReplaceable(world, new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": {
+      "before_sha256": "2680debe75122918629e61a3eca74f1a5cdcecb8e4bf9ca37e4bb0898d790aef",
+      "after_sha256": "cec8aac51df5e8a4bf48a38a010f95d9ef30152e1ede017fcaa245f8c8c8700b",
+      "edits": [
+        {
+          "before_offset": 5000,
+          "after_offset": 5000,
+          "old": "\t\tif(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().isReplaceable(world, x, y - 1, z) && y > 0) {\r\n",
+          "new": "\t\tif(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) && y > 0) {\r\n"
+        },
+        {
+          "before_offset": 6366,
+          "after_offset": 6404,
+          "old": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, iX, y, iZ)) {\r\n",
+          "new": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(iX, y, iZ))) {\r\n"
+        },
+        {
+          "before_offset": 6727,
+          "after_offset": 6803,
+          "old": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, iX, y, iZ)) {\r\n",
+          "new": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(iX, y, iZ))) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "4c9af08985f6c2910fca8ba996b36798dbea58c5fb6086eee03a349edf5b4bc7",
+      "after_sha256": "8e399f4852529e07924d623893b5127cdf4514f8c424e0e820b3c6974b6bac1c",
+      "edits": [
+        {
+          "before_offset": 3049,
+          "after_offset": 3049,
+          "old": "\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n",
+          "new": "\tpublic boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/TrappedBrick.java": {
+      "before_sha256": "072f8a8bff2f2d02b6f24aca100ecb14a042f719ba0da32e95c8f4d1ce34ca0f",
+      "after_sha256": "f20831e0e4e25523af5caa6a0cb55def0a1a9b33dc349207905946c7d434b81e",
+      "edits": [
+        {
+          "before_offset": 1848,
+          "after_offset": 1848,
+          "old": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))\n",
+          "new": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))\n"
+        },
+        {
+          "before_offset": 2706,
+          "after_offset": 2744,
+          "old": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))\n",
+          "new": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))\n"
+        },
+        {
+          "before_offset": 3277,
+          "after_offset": 3353,
+          "old": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, x, y + 1, z))\n",
+          "new": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineEPress.java": {
+      "before_sha256": "372010791c1c50ab243ae22b95bbc1d7eaa83f08b1e20485a318e9fb954df9ef",
+      "after_sha256": "fa76116c59bed70cad6e6b4123cd389fb785b4af914d3895760df3b766e282fb",
+      "edits": [
+        {
+          "before_offset": 951,
+          "after_offset": 951,
+          "old": "",
+          "new": "\t}\n\n\t@Override\n\tprotected void fixLegacyMonoblock(World world, int x, int y, int z) {\n\t\tnet.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(x, y, z);\n\t\tTileEntity tile = world.getTileEntity(pos);\n\t\tif (tile instanceof TileEntityMachineEPress) {\n\t\t\t((TileEntityMachineEPress) tile).withLegacyPromotion(this, world, pos,\n\t\t\t\t\t() -> super.fixLegacyMonoblock(world, x, y, z));\n\t\t} else {\n\t\t\tsuper.fixLegacyMonoblock(world, x, y, z);\n\t\t}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePress.java": {
+      "before_sha256": "94d9b4506c58b955e1929a664a720bf46198eb1e61351adf0c6e1d885d7f4e60",
+      "after_sha256": "7d21ed61223f8d70cad598d0818f0e971ef439e8d7b6c01d6fe9a23bed36723b",
+      "edits": [
+        {
+          "before_offset": 879,
+          "after_offset": 879,
+          "old": "",
+          "new": "\tprotected void fixLegacyMonoblock(World world, int x, int y, int z) {\n\t\tnet.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(x, y, z);\n\t\tTileEntity tile = world.getTileEntity(pos);\n\t\tif (tile instanceof TileEntityMachinePress) {\n\t\t\t((TileEntityMachinePress) tile).withLegacyPromotion(this, world, pos,\n\t\t\t\t\t() -> super.fixLegacyMonoblock(world, x, y, z));\n\t\t} else {\n\t\t\tsuper.fixLegacyMonoblock(world, x, y, z);\n\t\t}\n\t}\n\n\t@Override\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSatDock.java": {
+      "before_sha256": "a5094ce2b5e71dd9f783eb5caa6dfd18baab485c0ee734e37dbf3e6113143d60",
+      "after_sha256": "d2b97d0e32f4409281b37db5472aa57435a281e49023a6600b74766fa56f7b25",
+      "edits": [
+        {
+          "before_offset": 5366,
+          "after_offset": 5366,
+          "old": "\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, xCoord + k, yCoord, zCoord + l)) {\n",
+          "new": "\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, new net.minecraft.util.math.BlockPos(xCoord + k, yCoord, zCoord + l))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/WorldGeneratorDuna.java": {
+      "before_sha256": "1a732a24100736c6cbb1a0b94aed1e9b69baec312659160ff5319c4a5bf49bf0",
+      "after_sha256": "d29a50054a173ddc8816c7af2a5438530304bba61ab26da5b002fc695807505d",
+      "edits": [
+        {
+          "before_offset": 3228,
+          "after_offset": 3228,
+          "old": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().canPlaceTorchOnTop(world, x, y - 1, z) && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, x, y, z)) {\n",
+          "new": "\t\t\tif(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().canPlaceTorchOnTop(world, x, y - 1, z) && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityFalloutRain.java": {
+      "before_sha256": "43bb4021a36fb51e8293f6cd8de710dc20e989f9a965528baf45303238587128",
+      "after_sha256": "6c87675237622220c2980331c110233c1a615c32ab77035ba0d0cef933fa2888",
+      "edits": [
+        {
+          "before_offset": 7047,
+          "after_offset": 7047,
+          "old": "\t\t\tif(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.AIR || (ab.isReplaceable(this.world, x, y + 1, z) && !ab.getDefaultState().getMaterial().isLiquid()))) {\r\n",
+          "new": "\t\t\tif(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.AIR || (ab.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)) && !ab.getDefaultState().getMaterial().isLiquid()))) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityWastePearl.java": {
+      "before_sha256": "ef4e9f44f6234be70e012ef4c1fc6211e681fdab34a6eeb2af46b349a5fcda06",
+      "after_sha256": "edf7d56a2ef0c16ec6a5be4e678bd21427a76e6a3c811364b8e2ccd31379302a",
+      "edits": [
+        {
+          "before_offset": 919,
+          "after_offset": 919,
+          "old": "\t\t\t\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().isReplaceable(this.world, ix, iy, iz) && ModBlocks.fallout.canPlaceBlockAt(this.world, ix, iy, iz)) {\n",
+          "new": "\t\t\t\t\t\tif(this.world.rand.nextInt(3) == 0 && com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) && ModBlocks.fallout.canPlaceBlockAt(this.world, ix, iy, iz)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityShrapnel.java": {
+      "before_sha256": "6dea03d7e43c7669998083d747e1ceb4b7f44402cf0c54a5570c944e59e8bf42",
+      "after_sha256": "a64d2a49677d771278b2b05fd06d94f335820cfedbdfa2edd1c599e5c514a13e",
+      "edits": [
+        {
+          "before_offset": 2044,
+          "after_offset": 2044,
+          "old": "\t\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, blockX, blockY + 1, blockZ))\n",
+          "new": "\t\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ)))\n"
+        },
+        {
+          "before_offset": 3171,
+          "after_offset": 3209,
+          "old": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, blockX, blockY + 1, blockZ)) {\n",
+          "new": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": {
+      "before_sha256": "f3160ac7d823285e3a969341ceaa848ea7008ecaa07e594454c9e347cf898909",
+      "after_sha256": "e1c7f3e6e7bcf91e561153f4cd1e5562c821bd1225e0b7b3f834167f4562d716",
+      "edits": [
+        {
+          "before_offset": 3023,
+          "after_offset": 3023,
+          "old": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, x, y, z)) {\n",
+          "new": "\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/MultiblockHandler.java": {
+      "before_sha256": "00c9ed6bb7e35c5d0ccf131f9e1a04f72a2a90e66b28d64b135448c70f9963dd",
+      "after_sha256": "c32f10a1b57726dae75730bfff676eb51c870048ed4714701631bd1e0f16f46b",
+      "edits": [
+        {
+          "before_offset": 5067,
+          "after_offset": 5067,
+          "old": "\t\t\t\t\t\tif(block != Blocks.AIR && !block.isReplaceable(world, a, b, c)) {\n",
+          "new": "\t\t\t\t\t\tif(block != Blocks.AIR && !block.isReplaceable(world, new net.minecraft.util.math.BlockPos(a, b, c))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/SlotLayer.java": {
+      "before_sha256": "32b17ad13b7bf5a9f6563246a6f60c4df8457e289ba7a8df1bc87fe5e8b53e94",
+      "after_sha256": "8819926966ed2aafa19163a98bf83d5d1f33bbff28b066ad79b8a632976a45ad",
+      "edits": [
+        {
+          "before_offset": 784,
+          "after_offset": 784,
+          "old": "\t\tyDisplayPosition = 9999;\n",
+          "new": "\t\tthis.yPos = 9999;\n"
+        },
+        {
+          "before_offset": 858,
+          "after_offset": 851,
+          "old": "\t\tyDisplayPosition = originalYPosition;\n",
+          "new": "\t\tthis.yPos = originalYPosition;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAnvil.java": {
+      "before_sha256": "aaaa2591b48b2ea6eade1cbb8ed2f1d0c2452a7d6d49ef3096cb01eb731c797d",
+      "after_sha256": "ed38915c4524f93949c1b5eb80abaad3c8e0163ad51480bb5e5c3eb11e5c50ea",
+      "edits": [
+        {
+          "before_offset": 4117,
+          "after_offset": 4117,
+          "old": "\t\t\tif(this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y) && slot.getHasStack()) {\n",
+          "new": "\t\t\tif(this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {\n"
+        },
+        {
+          "before_offset": 4937,
+          "after_offset": 4913,
+          "old": "\t\treturn this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y);\n",
+          "new": "\t\treturn this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIArmorTable.java": {
+      "before_sha256": "3de7b371d378e68dd737b405f92371a5baa08368cb7ea764a996bab379819505",
+      "after_sha256": "ec89ef21c61dfc574bde0650b68b1bf63129cfcadea2ce67d482a2a9222aedd8",
+      "edits": [
+        {
+          "before_offset": 3114,
+          "after_offset": 3114,
+          "old": "\t\t\tdrawIndicator(i, slot.xDisplayPosition - 1, slot.yDisplayPosition - 1);\n",
+          "new": "\t\t\tdrawIndicator(i, slot.xPos - 1, slot.yPos - 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIAutocrafter.java": {
+      "before_sha256": "b03f8f7a49b3c1681b6eb706b74e49ad862df1b7d205c7b4a69b89df154e0f51",
+      "after_sha256": "44f35fd8ea1255c934daedebbd13e0799c0da3b6fd0c51d0b7fd734ae7619f82",
+      "edits": [
+        {
+          "before_offset": 3177,
+          "after_offset": 3177,
+          "old": "\t\treturn this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y);\n",
+          "new": "\t\treturn this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUICraneRouter.java": {
+      "before_sha256": "9f1d73234282e41b5d9b41fad9a00c92e4c15042bf9b7e111a889174c3fb7f26",
+      "after_sha256": "f6e47503ae7f07fb1a24db02c04338dedf3630755ba55120ba44a72b47f2a7e3",
+      "edits": [
+        {
+          "before_offset": 4347,
+          "after_offset": 4347,
+          "old": "\t\t\tthis.fontRenderer.drawStringWithShadow(i + \"\", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition, 0xffffff);\n\t\t\tthis.fontRenderer.drawStringWithShadow(s.getSlotIndex() + \"\", guiLeft + s.xDisplayPosition + 2, guiTop + s.yDisplayPosition + 8, 0xff8080);\n",
+          "new": "\t\t\tthis.fontRenderer.drawStringWithShadow(i + \"\", guiLeft + s.xPos + 2, guiTop + s.yPos, 0xffffff);\n\t\t\tthis.fontRenderer.drawStringWithShadow(s.getSlotIndex() + \"\", guiLeft + s.xPos + 2, guiTop + s.yPos + 8, 0xff8080);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIDiFurnace.java": {
+      "before_sha256": "f6b233bee2ae579ab7905aa3e6098f5e416ff26d24c00e8c029c46da7c67b1e1",
+      "after_sha256": "a6723749e5db25ea3899adc36195e93754a1025a29799df859531cb2e653300f",
+      "edits": [
+        {
+          "before_offset": 1722,
+          "after_offset": 1722,
+          "old": "\t\treturn this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y);\n",
+          "new": "\t\treturn this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAmmoPress.java": {
+      "before_sha256": "1173d1c04fbe0f6c349de1f2039ae8a3dbfd10cce09070f07c5c4258b31d9dce",
+      "after_sha256": "c8679582a46340d560f13a4ada8b4325ce760967b162407634ea92ff7e561b68",
+      "edits": [
+        {
+          "before_offset": 3080,
+          "after_offset": 3080,
+          "old": "\t\t\tif(this.func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, x, y) && slot.getHasStack()) {\n",
+          "new": "\t\t\tif(this.func_146978_c(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyFactory.java": {
+      "before_sha256": "5caf74ec7a169f8213ccb2f8f763f7dc96221f66e1c92552a81609f6ec1e38a8",
+      "after_sha256": "a6fadd900d76411f12783e377d72fda324e98691f627f1a30e622d1aa936c852",
+      "edits": [
+        {
+          "before_offset": 5482,
+          "after_offset": 5482,
+          "old": "\t\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xDisplayPosition, slot.yDisplayPosition, 10F);\n",
+          "new": "\t\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xPos, slot.yPos, 10F);\n"
+        },
+        {
+          "before_offset": 6013,
+          "after_offset": 5989,
+          "old": "\t\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, slot.xDisplayPosition, slot.yDisplayPosition, 16, 16);\n",
+          "new": "\t\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xPos, guiTop + slot.yPos, slot.xPos, slot.yPos, 16, 16);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineAssemblyMachine.java": {
+      "before_sha256": "b25f4cf3fc98372f4fcb139bc7307bea7dcf39bb7dbfeb945b832a05e0ab5328",
+      "after_sha256": "70f36b3394ef92ac923a93aff1293de261681af6dce0af572b43f2261047a845",
+      "edits": [
+        {
+          "before_offset": 4473,
+          "after_offset": 4473,
+          "old": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xDisplayPosition, slot.yDisplayPosition, 10F);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xPos, slot.yPos, 10F);\n"
+        },
+        {
+          "before_offset": 4991,
+          "after_offset": 4967,
+          "old": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, slot.xDisplayPosition, slot.yDisplayPosition, 16, 16);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xPos, guiTop + slot.yPos, slot.xPos, slot.yPos, 16, 16);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalFactory.java": {
+      "before_sha256": "239c20d4264c3ddfd70c0956507d04b55e3fb32ef38ebdde7a6d9410c83c33a3",
+      "after_sha256": "6a4f8a07d95e7f7d2a921a6e852e9827370792c2d1b9c26e7543074ef5d3e703",
+      "edits": [
+        {
+          "before_offset": 5370,
+          "after_offset": 5370,
+          "old": "\t\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xDisplayPosition, slot.yDisplayPosition, 10F);\n",
+          "new": "\t\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xPos, slot.yPos, 10F);\n"
+        },
+        {
+          "before_offset": 5901,
+          "after_offset": 5877,
+          "old": "\t\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, slot.xDisplayPosition, slot.yDisplayPosition, 16, 16);\n",
+          "new": "\t\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xPos, guiTop + slot.yPos, slot.xPos, slot.yPos, 16, 16);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineChemicalPlant.java": {
+      "before_sha256": "12d410e32396c5c278847d12b34d055d04e3eda0467d807efdbce6ce78648e34",
+      "after_sha256": "646c0ac87ba2a579593e16647bfbe70e5e18aa3d370df9f87a4d6259136ba82a",
+      "edits": [
+        {
+          "before_offset": 4484,
+          "after_offset": 4484,
+          "old": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xDisplayPosition, slot.yDisplayPosition, 10F);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xPos, slot.yPos, 10F);\n"
+        },
+        {
+          "before_offset": 5002,
+          "after_offset": 4978,
+          "old": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, slot.xDisplayPosition, slot.yDisplayPosition, 16, 16);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xPos, guiTop + slot.yPos, slot.xPos, slot.yPos, 16, 16);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePUREX.java": {
+      "before_sha256": "cf384bc601f271f81a0366a20c249a48ea6cb59fb556a101aad3a23b9c461ecc",
+      "after_sha256": "d984b613ba92955328a67be94e89ec62f9f87fd3c4c3a8e8b1059fce4450d7b3",
+      "edits": [
+        {
+          "before_offset": 4275,
+          "after_offset": 4275,
+          "old": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xDisplayPosition, slot.yDisplayPosition, 10F);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xPos, slot.yPos, 10F);\n"
+        },
+        {
+          "before_offset": 4785,
+          "after_offset": 4761,
+          "old": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, slot.xDisplayPosition, slot.yDisplayPosition, 16, 16);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xPos, guiTop + slot.yPos, slot.xPos, slot.yPos, 16, 16);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachinePrecAss.java": {
+      "before_sha256": "44eeb33ca1e36398e83d24e8618b3876e7c4aac75082af539c0ee47cbbfcdbc5",
+      "after_sha256": "7c5546fab31bfe81d6be8ca94c3beac71828ff7f04572bfbf3f2b80aabc6c58b",
+      "edits": [
+        {
+          "before_offset": 4375,
+          "after_offset": 4375,
+          "old": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xDisplayPosition, slot.yDisplayPosition, 10F);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xPos, slot.yPos, 10F);\n"
+        },
+        {
+          "before_offset": 4893,
+          "after_offset": 4869,
+          "old": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, slot.xDisplayPosition, slot.yDisplayPosition, 16, 16);\n",
+          "new": "\t\t\t\tif(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xPos, guiTop + slot.yPos, slot.xPos, slot.yPos, 16, 16);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "before_sha256": "e2093a57eb1c9c893c3af3ea332a0c06923a9f5639199581e3c3600d1c5f9c2c",
+      "after_sha256": "25709b450819617e7530c800faceac2b77ba7c40ebe866e6cf48b7d2f61c383e",
+      "edits": [
+        {
+          "before_offset": 2640,
+          "after_offset": 2640,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(stack);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java": {
+      "before_sha256": "e1c4d3e48a710232f50810650d072f0d1a8930c931d5cdb3c90ab08adc75ca94",
+      "after_sha256": "c813a00526dc05254b1aa80ddb401fa9a9ca07893fb91b71c014c72151716fab",
+      "edits": [
+        {
+          "before_offset": 1084,
+          "after_offset": 1084,
+          "old": "\tpublic Multimap getItemAttributeModifiers() {\n",
+          "new": "\tpublic Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {\n"
+        },
+        {
+          "before_offset": 1132,
+          "after_offset": 1180,
+          "old": "\t\tMultimap multimap = HashMultimap.create();\n",
+          "new": "\t\tMultimap multimap = super.getItemAttributeModifiers(slot);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": {
+      "before_sha256": "eedf28a7869ed4fe5c1dbd233083a013093db247dc9c6cb66170aafef4ba4161",
+      "after_sha256": "27588d07744135db03f113dbca46d1ce44570e1cafddce0d3ab3be7e596ea9e3",
+      "edits": [
+        {
+          "before_offset": 1490,
+          "after_offset": 1490,
+          "old": "\tpublic Multimap getItemAttributeModifiers() {\n",
+          "new": "\tpublic Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {\n"
+        },
+        {
+          "before_offset": 1538,
+          "after_offset": 1586,
+          "old": "\t\tMultimap multimap = HashMultimap.create();\n",
+          "new": "\t\tMultimap multimap = super.getItemAttributeModifiers(slot);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "d9fafa802cea1b9cf8a72ed094c6d1f28c7c93aa29dae27afd471d572faf20ba",
+      "after_sha256": "15731ac646fefe6b643f671f7d06d1a969055777c9be3220e2293703872dde1a",
+      "edits": [
+        {
+          "before_offset": 2052,
+          "after_offset": 2052,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(stack);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": {
+      "before_sha256": "ecdde5c268282140bbdd88dc7ff20decc8cd28d556cddf98e9f3fc775c6d36a1",
+      "after_sha256": "d2f9291b6bcd6b5041c86bdb4336039cb05c9c2d22f5b99e9eb1ba9688a67505",
+      "edits": [
+        {
+          "before_offset": 1862,
+          "after_offset": 1862,
+          "old": "\tpublic Multimap getItemAttributeModifiers() {\n",
+          "new": "\tpublic Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {\n"
+        },
+        {
+          "before_offset": 1910,
+          "after_offset": 1958,
+          "old": "\t\tMultimap multimap = HashMultimap.create();\n",
+          "new": "\t\tMultimap multimap = super.getItemAttributeModifiers(slot);\n\t\tif(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": {
+      "before_sha256": "fc7250997edae379bcc64053f8b3794d0ca07861e22f1c203bb5ad9834e270aa",
+      "after_sha256": "b193b68cb66a311655ae194980c5602bc0a313341d5380a6c8436cd9248992e7",
+      "edits": [
+        {
+          "before_offset": 1975,
+          "after_offset": 1975,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(stack);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHealth.java": {
+      "before_sha256": "a6319e48dd0f0de6d8c9dedccbd76fd023cd160e27cb67bf25bff9081ebf7c4d",
+      "after_sha256": "08928f655ec2a76bd9990d18b47ce5f009ce5cb7552e3159253f2b66e5f91de1",
+      "edits": [
+        {
+          "before_offset": 1513,
+          "after_offset": 1513,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(armor);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModInsert.java": {
+      "before_sha256": "f9822af9385c1dfeb4a0102ee84378f2eecb7d057ddd98ebfd4aac97c3c14dc3",
+      "after_sha256": "f03d4490e6b942db7e17d6346932752084386377a7904c44075e46b702f5618d",
+      "edits": [
+        {
+          "before_offset": 4322,
+          "after_offset": 4322,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(armor);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModIron.java": {
+      "before_sha256": "5022a5fbf317f3b40eddf168cab47d9cd98932c8ade4482a622f114718bdb19a",
+      "after_sha256": "d1885b95318d3e8ea153e580e7e9c87d16886ef9867006858cfc6c6607828386",
+      "edits": [
+        {
+          "before_offset": 1050,
+          "after_offset": 1050,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(armor);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModServos.java": {
+      "before_sha256": "4cdd0ac9580a9805bfb69508da521a1e876e1b6b007f705381d5dc01b216d6f0",
+      "after_sha256": "be5f2cfdfe9b7761f8acc1dd37d97ae390973755016b394cf81d27e85227967a",
+      "edits": [
+        {
+          "before_offset": 2954,
+          "after_offset": 2954,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(armor);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModV1.java": {
+      "before_sha256": "d196710fb428c1573360026241c1ff33b3b980c84004dc924631c6d2fbeebe14",
+      "after_sha256": "77acba5b34c5e74a8eb4ad06fae0354d29078b6e44e0b60c3fd65d2a054cd437",
+      "edits": [
+        {
+          "before_offset": 767,
+          "after_offset": 767,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(armor);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModWD40.java": {
+      "before_sha256": "dcc620586a217cdc808eb3da450eae31b70fad9cdd855bb171df374fff8ac333",
+      "after_sha256": "9fe44848204963b30398af0446e5304a8c5713729db7834efae317d360845ca8",
+      "edits": [
+        {
+          "before_offset": 1717,
+          "after_offset": 1717,
+          "old": "\t\tMultimap multimap = super.getAttributeModifiers(armor);\n",
+          "new": "\t\tMultimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidDuct.java": {
+      "before_sha256": "e6dbb8d6d7b6c64105cddc40e394d4d8be2210cb5e39220f0b0b223e3aaa358d",
+      "after_sha256": "d9469a460b575b89ad8e961bc16f19754ffd9a9c7475d30a04d826fd9e62f339",
+      "edits": [
+        {
+          "before_offset": 2636,
+          "after_offset": 2636,
+          "old": "\t\t\tif(!com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, x, y, z)) {\n",
+          "new": "\t\t\tif(!com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "before_sha256": "707b2334498a17e702925e5e4c75bb81ec9b4d7fde6a45551ee58c6f8de1441c",
+      "after_sha256": "d17cdda4cda17e35046e615f72e4572cc555c7dea864984a9d0c533fd069755e",
+      "edits": [
+        {
+          "before_offset": 5564,
+          "after_offset": 5564,
+          "old": "\t\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock().isReplaceable(world, i, k, j) && player.canPlayerEdit(i, k, j, side, stack)) {\n",
+          "new": "\t\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(i, k, j)) && player.canPlayerEdit(i, k, j, side, stack)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryTool.java": {
+      "before_sha256": "10a6209395c369ac983f3fdcdeadf80395decebc6b0ee8cc2df9a49be85be811",
+      "after_sha256": "ab663416bde3308fd7d661d677f1ccc59a7b8edd25994fb88b0f75a9340f77f1",
+      "edits": [
+        {
+          "before_offset": 5925,
+          "after_offset": 5925,
+          "old": "\t\t\tif(b.isReplaceable(bullet.world, ix, iy, iz) && ModBlocks.foam_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {\n",
+          "new": "\t\t\tif(b.isReplaceable(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) && ModBlocks.foam_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {\n"
+        },
+        {
+          "before_offset": 8798,
+          "after_offset": 8836,
+          "old": "\t\t\tif((b.isReplaceable(bullet.world, ix, iy, iz) || b == ModBlocks.sand_boron_layer) && ModBlocks.sand_boron_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {\n",
+          "new": "\t\t\tif((b.isReplaceable(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) || b == ModBlocks.sand_boron_layer) && ModBlocks.sand_boron_layer.canPlaceBlockAt(bullet.world, ix, iy, iz)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderBlackHole.java": {
+      "before_sha256": "b517a848a5a9b8e91fda36d77a6313794e0be8b7a1cbe3258539ba0727e01795",
+      "after_sha256": "c7247a04b8f2a78acae7bc832200d2e3beced4e88cecfb064058a68bc18967c9",
+      "edits": [
+        {
+          "before_offset": 418,
+          "after_offset": 418,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 7928,
+          "after_offset": 8046,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 8417,
+          "after_offset": 8587,
+          "old": "\t\t\ttess.startDrawing(GL11.GL_TRIANGLE_FAN);\n\n\t\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.35F);\n\t\t\ttess.addVertex(0, 0, 0);\n\t\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.0F);\n",
+          "new": "\t\t\ttessBuffer.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);\n\n\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.35F) * 255.0F)));\n\t\t\ttessBuffer.pos(0, 0, 0).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 8667,
+          "after_offset": 9478,
+          "old": "\t\t\t\ttess.addVertex(jet.x, 10 * j, jet.z);\n",
+          "new": "\t\t\t\ttessBuffer.pos(jet.x, 10 * j, jet.z).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderCloudTom.java": {
+      "before_sha256": "882fafe7e581022a02cbd19803bab9ed2ee3fa1d40344466003d3ceb88377211",
+      "after_sha256": "f4328403d88ec9665a8af906067c7ff04c6f64ce1427efd3fe09e7d6e941f1da",
+      "edits": [
+        {
+          "before_offset": 293,
+          "after_offset": 293,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1307,
+          "after_offset": 1425,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawingQuads();\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);\n"
+        },
+        {
+          "before_offset": 2001,
+          "after_offset": 2207,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.0F);\n\t\t\t\ttess.addVertexWithUV(x0, h, z0, 0, 1 + off);\n\t\t\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F);\n\t\t\t\ttess.addVertexWithUV(x0, -depth, z0, 0, 0 + off);\n",
+          "new": "\t\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(x0, h, z0).tex(0, 1 + off).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(x0, -depth, z0).tex(0, 0 + off).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2284,
+          "after_offset": 3180,
+          "old": "\t\t\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F);\n\t\t\t\ttess.addVertexWithUV(x0, -depth, z0, 1, 0 + off);\n\t\t\t\ttess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.0F);\n\t\t\t\ttess.addVertexWithUV(x0, h, z0, 1, 1 + off);\n",
+          "new": "\t\t\t\tint tessColor2Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor2Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor2Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor2Alpha = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(x0, -depth, z0).tex(1, 0 + off).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();\n\t\t\t\tint tessColor3Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor3Green = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor3Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\t\tint tessColor3Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\t\t\ttessBuffer.pos(x0, h, z0).tex(1, 1 + off).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderFlare.java": {
+      "before_sha256": "91bf6d1ce778f3925f6392b1c9d1a323f83895a066fab14d862e03a60129b1ce",
+      "after_sha256": "a4d4ed74728584546acd34316cebcd1001cd4ac81cca68c2f9f14d9813580b7a",
+      "edits": [
+        {
+          "before_offset": 197,
+          "after_offset": 197,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 661,
+          "after_offset": 779,
+          "old": "        Tessellator tessellator = Tessellator.instance;\n",
+          "new": "        Tessellator tessellator = Tessellator.getInstance();\n        BufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 2175,
+          "after_offset": 2365,
+          "old": "            tessellator.startDrawing(6);\n",
+          "new": "            tessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 2437,
+          "after_offset": 2663,
+          "old": "            tessellator.setColorRGBA_I(59345715, (int)(255.0F * (1.0F - f2)));\n            tessellator.addVertex(0.0D, 0.0D, 0.0D);\n",
+          "new": "            int tessellatorColor0Packed = 59345715;\n            int tessellatorColor0Alpha = Math.max(0, Math.min(255, (int)(255.0F * (1.0F - f2))));\n            tessellatorBuffer.pos(0.0D, 0.0D, 0.0D).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2624,
+          "after_offset": 3071,
+          "old": "            tessellator.setColorRGBA_I(59345735, 0);\n            tessellator.addVertex(-0.866D * f4, f3, -0.5F * f4);\n            tessellator.addVertex(0.866D * f4, f3, -0.5F * f4);\n            tessellator.addVertex(0.0D, f3, 1.0F * f4);\n            tessellator.addVertex(-0.866D * f4, f3, -0.5F * f4);\n",
+          "new": "            int tessellatorColor1Packed = 59345735;\n            int tessellatorColor1Alpha = Math.max(0, Math.min(255, 0));\n            tessellatorBuffer.pos(-0.866D * f4, f3, -0.5F * f4).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, tessellatorColor1Alpha).endVertex();\n            tessellatorBuffer.pos(0.866D * f4, f3, -0.5F * f4).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, tessellatorColor1Alpha).endVertex();\n            tessellatorBuffer.pos(0.0D, f3, 1.0F * f4).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, tessellatorColor1Alpha).endVertex();\n            tessellatorBuffer.pos(-0.866D * f4, f3, -0.5F * f4).color((tessellatorColor1Packed >> 16) & 255, (tessellatorColor1Packed >> 8) & 255, tessellatorColor1Packed & 255, tessellatorColor1Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/RenderSpear.java": {
+      "before_sha256": "d05c7fd340ef164fd01b377a36e39af0e4d5e95ef83b037c4400ca2b645469ea",
+      "after_sha256": "e18a0229acbd6b67823b63e509928c5a05276231b915b104e883adf7e2c2ed6b",
+      "edits": [
+        {
+          "before_offset": 328,
+          "after_offset": 328,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1948,
+          "after_offset": 2066,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 2966,
+          "after_offset": 3150,
+          "old": "\t\t\ttessellator.startDrawing(6);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 2999,
+          "after_offset": 3219,
+          "old": "\t\t\ttessellator.setColorRGBA_F(1.0F, 0.6F, 0.6F, (float) (intensity * intensity) * 2F);\n\t\t\ttessellator.addVertex(0.0D, 0.0D, 0.0D);\n\t\t\ttessellator.setColorRGBA_F(1.0F, 0.6F, 0.6F, 0.0F);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.0D, vert1, 1.0F * vert2);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n",
+          "new": "\t\t\tint tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));\n\t\t\tint tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));\n\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) (((float) (intensity * intensity) * 2F) * 255.0F)));\n\t\t\ttessellatorBuffer.pos(0.0D, 0.0D, 0.0D).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n\t\t\tint tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));\n\t\t\tint tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));\n\t\t\tint tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\t\ttessellatorBuffer.pos(-0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(0.0D, vert1, 1.0F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/mob/RenderBFA.java": {
+      "before_sha256": "8236c790fbfd0a635dde15d1ced0f8463a51d3c40eb0f97cce4f3bf1b1990845",
+      "after_sha256": "df0e525b61569b25752f0517df9786b12aaa49e1c4d9f7a12da504412ce78465",
+      "edits": [
+        {
+          "before_offset": 456,
+          "after_offset": 456,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 4310,
+          "after_offset": 4428,
+          "old": "\t\tTessellator tessellator = Tessellator.instance;\n",
+          "new": "\t\tTessellator tessellator = Tessellator.getInstance();\n\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 5393,
+          "after_offset": 5577,
+          "old": "\t\t\ttessellator.startDrawing(6);\n\n\t\t\ttessellator.setColorRGBA_F(1.0F, 0.6F, 0.6F, (float) (intensity * intensity) * 2F);\n\t\t\ttessellator.addVertex(0.0D, 0.0D, 0.0D);\n\t\t\ttessellator.setColorRGBA_F(0.1F, 0.6F, 0.1F, 0.0F);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.866D * vert2, vert1, -0.5F * vert2);\n\t\t\ttessellator.addVertex(0.0D, vert1, 1.0F * vert2);\n\t\t\ttessellator.addVertex(-0.866D * vert2, vert1, -0.5F * vert2);\n",
+          "new": "\t\t\ttessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);\n\n\t\t\tint tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n\t\t\tint tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));\n\t\t\tint tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));\n\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) (((float) (intensity * intensity) * 2F) * 255.0F)));\n\t\t\ttessellatorBuffer.pos(0.0D, 0.0D, 0.0D).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n\t\t\tint tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((0.1F) * 255.0F)));\n\t\t\tint tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((0.6F) * 255.0F)));\n\t\t\tint tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((0.1F) * 255.0F)));\n\t\t\tint tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));\n\t\t\ttessellatorBuffer.pos(-0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(0.0D, vert1, 1.0F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n\t\t\ttessellatorBuffer.pos(-0.866D * vert2, vert1, -0.5F * vert2).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderSiegeLaser.java": {
+      "before_sha256": "63d1e02234b8d40ae337be5c9f470298401207fd08f9f87f883c84af5709147f",
+      "after_sha256": "37e4853a920af97e7a7a6d1d3b57f31b620dc4dcd4f69937b025dd99e6065374",
+      "edits": [
+        {
+          "before_offset": 213,
+          "after_offset": 213,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1616,
+          "after_offset": 1734,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+        },
+        {
+          "before_offset": 1671,
+          "after_offset": 1841,
+          "old": "\t\ttess.startDrawing(4);\n\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(3, -1, -1);\n\t\ttess.addVertex(3, 1, -1);\n",
+          "new": "\t\ttessBuffer.begin(4, DefaultVertexFormats.POSITION_COLOR);\n\t\tint tessColor0Packed = color;\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, 255).endVertex();\n\t\tint tessColor1Packed = color;\n\t\tint tessColor1Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(3, -1, -1).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(3, 1, -1).color((tessColor1Packed >> 16) & 255, (tessColor1Packed >> 8) & 255, tessColor1Packed & 255, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 1845,
+          "after_offset": 2459,
+          "old": "\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(3, -1, 1);\n\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(3, 1, 1);\n",
+          "new": "\t\tint tessColor2Packed = color;\n\t\tint tessColor2Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(3, -1, 1).color((tessColor2Packed >> 16) & 255, (tessColor2Packed >> 8) & 255, tessColor2Packed & 255, tessColor2Alpha).endVertex();\n\t\tint tessColor3Packed = color;\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor3Packed >> 16) & 255, (tessColor3Packed >> 8) & 255, tessColor3Packed & 255, 255).endVertex();\n\t\tint tessColor4Packed = color;\n\t\tint tessColor4Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(3, 1, 1).color((tessColor4Packed >> 16) & 255, (tessColor4Packed >> 8) & 255, tessColor4Packed & 255, tessColor4Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2026,
+          "after_offset": 3102,
+          "old": "\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(3, -1, -1);\n\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(3, -1, 1);\n",
+          "new": "\t\tint tessColor5Packed = color;\n\t\tint tessColor5Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(3, -1, -1).color((tessColor5Packed >> 16) & 255, (tessColor5Packed >> 8) & 255, tessColor5Packed & 255, tessColor5Alpha).endVertex();\n\t\tint tessColor6Packed = color;\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor6Packed >> 16) & 255, (tessColor6Packed >> 8) & 255, tessColor6Packed & 255, 255).endVertex();\n\t\tint tessColor7Packed = color;\n\t\tint tessColor7Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(3, -1, 1).color((tessColor7Packed >> 16) & 255, (tessColor7Packed >> 8) & 255, tessColor7Packed & 255, tessColor7Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2209,
+          "after_offset": 3747,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(3, 1, -1);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(3, 1, 1);\n",
+          "new": "\t\tint tessColor8Packed = color;\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor8Packed >> 16) & 255, (tessColor8Packed >> 8) & 255, tessColor8Packed & 255, 255).endVertex();\n\t\tint tessColor9Packed = color;\n\t\tint tessColor9Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(3, 1, -1).color((tessColor9Packed >> 16) & 255, (tessColor9Packed >> 8) & 255, tessColor9Packed & 255, tessColor9Alpha).endVertex();\n\t\tint tessColor10Packed = color;\n\t\tint tessColor10Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(3, 1, 1).color((tessColor10Packed >> 16) & 255, (tessColor10Packed >> 8) & 255, tessColor10Packed & 255, tessColor10Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2399,
+          "after_offset": 4405,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, -0.5);\n",
+          "new": "\t\tint tessColor11Packed = color;\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor11Packed >> 16) & 255, (tessColor11Packed >> 8) & 255, tessColor11Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, -0.5, -0.5).color((tessColor11Packed >> 16) & 255, (tessColor11Packed >> 8) & 255, tessColor11Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, 0.5, -0.5).color((tessColor11Packed >> 16) & 255, (tessColor11Packed >> 8) & 255, tessColor11Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 2524,
+          "after_offset": 4870,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(4, -0.5, 0.5);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, 0.5, 0.5);\n",
+          "new": "\t\tint tessColor12Packed = color;\n\t\ttessBuffer.pos(4, -0.5, 0.5).color((tessColor12Packed >> 16) & 255, (tessColor12Packed >> 8) & 255, tessColor12Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor12Packed >> 16) & 255, (tessColor12Packed >> 8) & 255, tessColor12Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, 0.5, 0.5).color((tessColor12Packed >> 16) & 255, (tessColor12Packed >> 8) & 255, tessColor12Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 2647,
+          "after_offset": 5333,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, -0.5, 0.5);\n",
+          "new": "\t\tint tessColor13Packed = color;\n\t\ttessBuffer.pos(4, -0.5, -0.5).color((tessColor13Packed >> 16) & 255, (tessColor13Packed >> 8) & 255, tessColor13Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor13Packed >> 16) & 255, (tessColor13Packed >> 8) & 255, tessColor13Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, -0.5, 0.5).color((tessColor13Packed >> 16) & 255, (tessColor13Packed >> 8) & 255, tessColor13Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 2772,
+          "after_offset": 5798,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(6, 0, 0);\n\t\ttess.addVertex(4, 0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, 0.5);\n",
+          "new": "\t\tint tessColor14Packed = color;\n\t\ttessBuffer.pos(6, 0, 0).color((tessColor14Packed >> 16) & 255, (tessColor14Packed >> 8) & 255, tessColor14Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, 0.5, -0.5).color((tessColor14Packed >> 16) & 255, (tessColor14Packed >> 8) & 255, tessColor14Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, 0.5, 0.5).color((tessColor14Packed >> 16) & 255, (tessColor14Packed >> 8) & 255, tessColor14Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 2920,
+          "after_offset": 6286,
+          "old": "\t\ttess.startDrawingQuads();\n\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(4, 0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, 0.5);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(0, 0.5, 0.5);\n\t\ttess.addVertex(0, 0.5, -0.5);\n",
+          "new": "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\tint tessColor15Packed = color;\n\t\ttessBuffer.pos(4, 0.5, -0.5).color((tessColor15Packed >> 16) & 255, (tessColor15Packed >> 8) & 255, tessColor15Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, 0.5, 0.5).color((tessColor15Packed >> 16) & 255, (tessColor15Packed >> 8) & 255, tessColor15Packed & 255, 255).endVertex();\n\t\tint tessColor16Packed = color;\n\t\tint tessColor16Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(0, 0.5, 0.5).color((tessColor16Packed >> 16) & 255, (tessColor16Packed >> 8) & 255, tessColor16Packed & 255, tessColor16Alpha).endVertex();\n\t\ttessBuffer.pos(0, 0.5, -0.5).color((tessColor16Packed >> 16) & 255, (tessColor16Packed >> 8) & 255, tessColor16Packed & 255, tessColor16Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3140,
+          "after_offset": 7073,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(4, -0.5, 0.5);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(0, -0.5, 0.5);\n\t\ttess.addVertex(0, -0.5, -0.5);\n",
+          "new": "\t\tint tessColor17Packed = color;\n\t\ttessBuffer.pos(4, -0.5, -0.5).color((tessColor17Packed >> 16) & 255, (tessColor17Packed >> 8) & 255, tessColor17Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, -0.5, 0.5).color((tessColor17Packed >> 16) & 255, (tessColor17Packed >> 8) & 255, tessColor17Packed & 255, 255).endVertex();\n\t\tint tessColor18Packed = color;\n\t\tint tessColor18Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(0, -0.5, 0.5).color((tessColor18Packed >> 16) & 255, (tessColor18Packed >> 8) & 255, tessColor18Packed & 255, tessColor18Alpha).endVertex();\n\t\ttessBuffer.pos(0, -0.5, -0.5).color((tessColor18Packed >> 16) & 255, (tessColor18Packed >> 8) & 255, tessColor18Packed & 255, tessColor18Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3336,
+          "after_offset": 7804,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(4, -0.5, 0.5);\n\t\ttess.addVertex(4, 0.5, 0.5);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(0, 0.5, 0.5);\n\t\ttess.addVertex(0, -0.5, 0.5);\n",
+          "new": "\t\tint tessColor19Packed = color;\n\t\ttessBuffer.pos(4, -0.5, 0.5).color((tessColor19Packed >> 16) & 255, (tessColor19Packed >> 8) & 255, tessColor19Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, 0.5, 0.5).color((tessColor19Packed >> 16) & 255, (tessColor19Packed >> 8) & 255, tessColor19Packed & 255, 255).endVertex();\n\t\tint tessColor20Packed = color;\n\t\tint tessColor20Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(0, 0.5, 0.5).color((tessColor20Packed >> 16) & 255, (tessColor20Packed >> 8) & 255, tessColor20Packed & 255, tessColor20Alpha).endVertex();\n\t\ttessBuffer.pos(0, -0.5, 0.5).color((tessColor20Packed >> 16) & 255, (tessColor20Packed >> 8) & 255, tessColor20Packed & 255, tessColor20Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3528,
+          "after_offset": 8531,
+          "old": "\t\ttess.setColorOpaque_I(color);\n\t\ttess.addVertex(4, -0.5, -0.5);\n\t\ttess.addVertex(4, 0.5, -0.5);\n\t\ttess.setColorRGBA_I(color, 0);\n\t\ttess.addVertex(0, 0.5, -0.5);\n\t\ttess.addVertex(0, -0.5, -0.5);\n",
+          "new": "\t\tint tessColor21Packed = color;\n\t\ttessBuffer.pos(4, -0.5, -0.5).color((tessColor21Packed >> 16) & 255, (tessColor21Packed >> 8) & 255, tessColor21Packed & 255, 255).endVertex();\n\t\ttessBuffer.pos(4, 0.5, -0.5).color((tessColor21Packed >> 16) & 255, (tessColor21Packed >> 8) & 255, tessColor21Packed & 255, 255).endVertex();\n\t\tint tessColor22Packed = color;\n\t\tint tessColor22Alpha = Math.max(0, Math.min(255, 0));\n\t\ttessBuffer.pos(0, 0.5, -0.5).color((tessColor22Packed >> 16) & 255, (tessColor22Packed >> 8) & 255, tessColor22Packed & 255, tessColor22Alpha).endVertex();\n\t\ttessBuffer.pos(0, -0.5, -0.5).color((tessColor22Packed >> 16) & 255, (tessColor22Packed >> 8) & 255, tessColor22Packed & 255, tessColor22Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderForceField.java": {
+      "before_sha256": "d89a69499e79d90b6531d4c0bbb2daf916cd155aeb5888faae04b1ff712381a6",
+      "after_sha256": "19b202d793117a92616501891046e08f826403720b9240aa14e9d55c4892ffd6",
+      "edits": [
+        {
+          "before_offset": 155,
+          "after_offset": 155,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 1472,
+          "after_offset": 1590,
+          "old": "\t            Tessellator tessellator = Tessellator.instance;\n",
+          "new": "\t            Tessellator tessellator = Tessellator.getInstance();\n\t            BufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 1876,
+          "after_offset": 2071,
+          "old": "\t            tessellator.startDrawing(3);\n",
+          "new": "\t            tessellatorBuffer.begin(3, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 1979,
+          "after_offset": 2210,
+          "old": "\t            tessellator.setColorOpaque_I(hex);\n\t            tessellator.addVertex(vec.x, vec.y, vec.z);\n",
+          "new": "\t            int tessellatorColor0Packed = hex;\n\t            tessellatorBuffer.pos(vec.x, vec.y, vec.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 2125,
+          "after_offset": 2487,
+          "old": "\t            tessellator.addVertex(vec.x, vec.y, vec.z);\n",
+          "new": "\t            tessellatorBuffer.pos(vec.x, vec.y, vec.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 2912,
+          "after_offset": 3405,
+          "old": "\t            Tessellator tessellator = Tessellator.instance;\n\t            tessellator.startDrawing(3);\n",
+          "new": "\t            Tessellator tessellator = Tessellator.getInstance();\n\t            BufferBuilder tessellatorBuffer = tessellator.getBuffer();\n\t            tessellatorBuffer.begin(3, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 3076,
+          "after_offset": 3682,
+          "old": "\t            tessellator.setColorOpaque_I(hex);\n\t            tessellator.addVertex(vec2.x, vec2.y, vec2.z);\n",
+          "new": "\t            int tessellatorColor0Packed = hex;\n\t            tessellatorBuffer.pos(vec2.x, vec2.y, vec2.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 3226,
+          "after_offset": 3963,
+          "old": "\t            tessellator.addVertex(vec2.x, vec2.y, vec2.z);\n",
+          "new": "\t            tessellatorBuffer.pos(vec2.x, vec2.y, vec2.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderMachineForceField.java": {
+      "before_sha256": "25683501a70e79c8b0989254499f4140bbd982ecc05ec6657e191119b491117c",
+      "after_sha256": "156f5ad3fe818027ca9cb8502a37bd62e25ca6c08dcbf4f10f8dab1e4211f42d",
+      "edits": [
+        {
+          "before_offset": 211,
+          "after_offset": 211,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 2123,
+          "after_offset": 2241,
+          "old": "\t            Tessellator tessellator = Tessellator.instance;\n",
+          "new": "\t            Tessellator tessellator = Tessellator.getInstance();\n\t            BufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+        },
+        {
+          "before_offset": 2527,
+          "after_offset": 2722,
+          "old": "\t            tessellator.startDrawing(3);\n",
+          "new": "\t            tessellatorBuffer.begin(3, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 2630,
+          "after_offset": 2861,
+          "old": "\t            tessellator.setColorOpaque_I(hex);\n\t            tessellator.addVertex(vec.x, vec.y, vec.z);\n",
+          "new": "\t            int tessellatorColor0Packed = hex;\n\t            tessellatorBuffer.pos(vec.x, vec.y, vec.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 2776,
+          "after_offset": 3138,
+          "old": "\t            tessellator.addVertex(vec.x, vec.y, vec.z);\n",
+          "new": "\t            tessellatorBuffer.pos(vec.x, vec.y, vec.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 3563,
+          "after_offset": 4056,
+          "old": "\t            Tessellator tessellator = Tessellator.instance;\n\t            tessellator.startDrawing(3);\n",
+          "new": "\t            Tessellator tessellator = Tessellator.getInstance();\n\t            BufferBuilder tessellatorBuffer = tessellator.getBuffer();\n\t            tessellatorBuffer.begin(3, DefaultVertexFormats.POSITION_COLOR);\n"
+        },
+        {
+          "before_offset": 3727,
+          "after_offset": 4333,
+          "old": "\t            tessellator.setColorOpaque_I(hex);\n\t            tessellator.addVertex(vec2.x, vec2.y, vec2.z);\n",
+          "new": "\t            int tessellatorColor0Packed = hex;\n\t            tessellatorBuffer.pos(vec2.x, vec2.y, vec2.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        },
+        {
+          "before_offset": 3877,
+          "after_offset": 4614,
+          "old": "\t            tessellator.addVertex(vec2.x, vec2.y, vec2.z);\n",
+          "new": "\t            tessellatorBuffer.pos(vec2.x, vec2.y, vec2.z).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, 255).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderPumpjack.java": {
+      "before_sha256": "3b2b19966c1730639c38c1648ff9a1833b6024ae127d693e5b9e84d92b0116a6",
+      "after_sha256": "56024660790cacdea419508377a271420cc7c0ae45a380990b1a7d0ea6f3944a",
+      "edits": [
+        {
+          "before_offset": 258,
+          "after_offset": 258,
+          "old": "",
+          "new": "import net.minecraft.client.renderer.BufferBuilder;\nimport net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+        },
+        {
+          "before_offset": 2274,
+          "after_offset": 2392,
+          "old": "\t\tTessellator tess = Tessellator.instance;\n\t\ttess.startDrawingQuads();\n\t\ttess.setColorRGBA_F(0.5F, 0.5F, 0.5F, 1F);\n",
+          "new": "\t\tTessellator tess = Tessellator.getInstance();\n\t\tBufferBuilder tessBuffer = tess.getBuffer();\n\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 2430,
+          "after_offset": 2890,
+          "old": "\t\t\ttess.addVertex(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z - 0.0625D);\n\t\t\ttess.addVertex(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z + 0.0625D);\n",
+          "new": "\t\t\ttessBuffer.pos(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z - 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\ttessBuffer.pos(0.53125 * i, 1.5 + rot.y, -5.5 + rot.z + 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2569,
+          "after_offset": 3195,
+          "old": "\t\t\ttess.addVertex(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z + 0.0625D);\n\t\t\ttess.addVertex(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z - 0.0625D);\n",
+          "new": "\t\t\ttessBuffer.pos(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z + 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n\t\t\ttessBuffer.pos(0.53125 * i, 3.5 + backPos.y, -3.5 + backPos.z - 0.0625D).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 2730,
+          "after_offset": 3522,
+          "old": "\t\ttess.setColorRGBA_F(0.2F, 0.2F, 0.2F, 1F);\n",
+          "new": "\t\tint tessColor1Red = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));\n\t\tint tessColor1Green = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));\n\t\tint tessColor1Blue = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));\n\t\tint tessColor1Alpha = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));\n"
+        },
+        {
+          "before_offset": 3511,
+          "after_offset": 4561,
+          "old": "\t\t\t\ttess.addVertex((width - pd) * i, 3.5 + sumY, -3.5 + sumZ);\n\t\t\t\ttess.addVertex((width + pd) * i, 3.5 + sumY, -3.5 + sumZ);\n",
+          "new": "\t\t\t\ttessBuffer.pos((width - pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\t\t\ttessBuffer.pos((width + pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 3824,
+          "after_offset": 5040,
+          "old": "\t\t\t\ttess.addVertex((width + pd) * i, 3.5 + sumY, -3.5 + sumZ);\n\t\t\t\ttess.addVertex((width - pd) * i, 3.5 + sumY, -3.5 + sumZ);\n",
+          "new": "\t\t\t\ttessBuffer.pos((width + pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\t\t\ttessBuffer.pos((width - pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 4091,
+          "after_offset": 5473,
+          "old": "\t\t\ttess.addVertex((width + pd) * i, 3.5 + sumY, -3.5 + sumZ);\n\t\t\ttess.addVertex((width - pd) * i, 3.5 + sumY, -3.5 + sumZ);\n",
+          "new": "\t\t\ttessBuffer.pos((width + pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\t\ttessBuffer.pos((width - pd) * i, 3.5 + sumY, -3.5 + sumZ).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 4219,
+          "after_offset": 5767,
+          "old": "\t\t\ttess.addVertex((width - pd) * i, 2 + height, 0);\n\t\t\ttess.addVertex((width + pd) * i, 2 + height, 0);\n",
+          "new": "\t\t\ttessBuffer.pos((width - pd) * i, 2 + height, 0).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\t\ttessBuffer.pos((width + pd) * i, 2 + height, 0).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        },
+        {
+          "before_offset": 4353,
+          "after_offset": 6067,
+          "old": "\t\ttess.addVertex(p, height + 1.5, p);\n\t\ttess.addVertex(-p, height + 1.5, -p);\n\t\ttess.addVertex(-p, 0.75, -p);\n\t\ttess.addVertex(p, 0.75,  p);\n\t\ttess.addVertex(-p, height + 1.5, p);\n\t\ttess.addVertex(p, height + 1.5, -p);\n\t\ttess.addVertex(p, 0.75, -p);\n\t\ttess.addVertex(-p, 0.75, p);\n",
+          "new": "\t\ttessBuffer.pos(p, height + 1.5, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(-p, height + 1.5, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(-p, 0.75, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(p, 0.75, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(-p, height + 1.5, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(p, height + 1.5, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(p, 0.75, -p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n\t\ttessBuffer.pos(-p, 0.75, p).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": {
+      "before_sha256": "ede006745222f7cc66a70e20e1efd33294899f556e34af450d4d1605c2a7ed8f",
+      "after_sha256": "a990fb41256ba54642578b1afe02e5e5d8a9dd7b980563ae9e68bf01b829a785",
+      "edits": [
+        {
+          "before_offset": 9839,
+          "after_offset": 9839,
+          "old": "\t\tif(!present.isReplaceable(this.world, x, y, z) && present != ModBlocks.dummy_block_blast) com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);\n",
+          "new": "\t\tif(!present.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && present != ModBlocks.dummy_block_blast) com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityChlorineSeal.java": {
+      "before_sha256": "85aef62e97007e1dbff06b19ae37282e986b14d1b8bfee838207e02a7c5a7867",
+      "after_sha256": "ebd2e9b2105ade82822bf4a23096bf660678449ff19c716dd7c76306b12d4096",
+      "edits": [
+        {
+          "before_offset": 557,
+          "after_offset": 557,
+          "old": "\t\tif(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, x, y, z))\n",
+          "new": "\t\tif(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineDrain.java": {
+      "before_sha256": "5fccb4d792e0da2b9bad5ebd59d1d5b46437cd4f0625695d45ae5d7a0d065877",
+      "after_sha256": "777bdbbece805e845cd37d696759122c0394926dafd89e1ce8a9c5f448a87030",
+      "edits": [
+        {
+          "before_offset": 3342,
+          "after_offset": 3342,
+          "old": "\t\t\t\t\t\tif(!block.getDefaultState().getMaterial().isLiquid() && block.isReplaceable(this.world, x, y, z) && ModBlocks.oil_spill.canPlaceBlockAt(this.world, x, y, z)) {\n",
+          "new": "\t\t\t\t\t\tif(!block.getDefaultState().getMaterial().isLiquid() && block.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && ModBlocks.oil_spill.canPlaceBlockAt(this.world, x, y, z)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": {
+      "before_sha256": "6767d807eb966bf02557ed12dd92758d1462984d23a9a2409f52c77f0a143755",
+      "after_sha256": "82dc2c4bc9fc0fd764a93f58ede06244fa6238e2ff7d62be54f568c9e4d51527",
+      "edits": [
+        {
+          "before_offset": 1850,
+          "after_offset": 1850,
+          "old": "",
+          "new": "\tprivate final com.hbm.tileentity.LegacyPressMetadataUpgrade legacyMetadataUpgrade =\n\t\t\tnew com.hbm.tileentity.LegacyPressMetadataUpgrade();\n\n\tpublic void withLegacyPromotion(net.minecraft.block.Block owner, World world,\n\t\t\tnet.minecraft.util.math.BlockPos pos, Runnable promotion) {\n\t\tlegacyMetadataUpgrade.run(this, owner, world, pos, promotion);\n\t}\n\n\t@Override\n\tpublic boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos,\n\t\t\tnet.minecraft.block.state.IBlockState before, net.minecraft.block.state.IBlockState after) {\n\t\tif (legacyMetadataUpgrade.consume(this, world, pos, before, after)) return false;\n\t\treturn super.shouldRefresh(world, pos, before, after);\n\t}\n\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": {
+      "before_sha256": "505b0cb97d3c09b3e7214dd940af367a3597326e61aa09538ae2fece43bc6fb9",
+      "after_sha256": "7ad91986ed423f3540516cd52519924e3272cfa3ea921bc99a0b0a6371a69855",
+      "edits": [
+        {
+          "before_offset": 17615,
+          "after_offset": 17615,
+          "old": "\t\t\t\t\tif(b.isReplaceable(this.world, x, y, z) && (wallEverything || b.getDefaultState().getMaterial().isLiquid())) {\n",
+          "new": "\t\t\t\t\tif(b.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && (wallEverything || b.getDefaultState().getMaterial().isLiquid())) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": {
+      "before_sha256": "a8123649315e01a2149c3df38ccd3ce393e42c25f7151a0a0a16d0c9babb16cf",
+      "after_sha256": "abbb6e6d355c292938d82e28bd252d1ab073e9940db75b32c6aebd8a17daa8a6",
+      "edits": [
+        {
+          "before_offset": 1403,
+          "after_offset": 1403,
+          "old": "",
+          "new": "\n\tprivate final com.hbm.tileentity.LegacyPressMetadataUpgrade legacyMetadataUpgrade =\n\t\t\tnew com.hbm.tileentity.LegacyPressMetadataUpgrade();\n\n\tpublic void withLegacyPromotion(net.minecraft.block.Block owner, World world,\n\t\t\tnet.minecraft.util.math.BlockPos pos, Runnable promotion) {\n\t\tlegacyMetadataUpgrade.run(this, owner, world, pos, promotion);\n\t}\n\n\t@Override\n\tpublic boolean shouldRefresh(World world, net.minecraft.util.math.BlockPos pos,\n\t\t\tnet.minecraft.block.state.IBlockState before, net.minecraft.block.state.IBlockState after) {\n\t\tif (legacyMetadataUpgrade.consume(this, world, pos, before, after)) return false;\n\t\treturn super.shouldRefresh(world, pos, before, after);\n\t}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineRocketAssembly.java": {
+      "before_sha256": "4f30aa699d6ebf211737c608e919ec1a02c646a71f2655503797dab4aa3d4dac",
+      "after_sha256": "31898424da4e23a2c487bee7b39a98f7f98090982ffd66ff731ed26f5ccc7229",
+      "edits": [
+        {
+          "before_offset": 3524,
+          "after_offset": 3524,
+          "old": "\t\t\t\t\tif(!block.isReplaceable(this.world, this.pos.getX(), this.pos.getY() + h, this.pos.getZ()) && block != ModBlocks.machine_rocket_assembly) {\n",
+          "new": "\t\t\t\t\tif(!block.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + h, this.pos.getZ())) && block != ModBlocks.machine_rocket_assembly) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePumpjack.java": {
+      "before_sha256": "9d198a1ce9594ef32c597999628f71df92384112594dc20020722fee46281005",
+      "after_sha256": "5952a9b702679ec5fc52c6361818f90a1283f00f5d56a028960bdb78d91bd97a",
+      "edits": [
+        {
+          "before_offset": 2279,
+          "after_offset": 2279,
+          "old": "\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)) {\n",
+          "new": "\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ))) {\n"
+        },
+        {
+          "before_offset": 2813,
+          "after_offset": 2851,
+          "old": "\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ)) {\n",
+          "new": "\t\t\t\t\tif(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/feature/Meteorite.java": {
+      "before_sha256": "21ef92ed4b6190ce76be98e16e4d99de6ca0c62749576b206df52e6e05a39761",
+      "after_sha256": "1a565508d24fff70db941933e79ed1aa9d2973b1379c8dd6e87bf9e8c109070c",
+      "edits": [
+        {
+          "before_offset": 25285,
+          "after_offset": 25285,
+          "old": "\t\t\tif(!target.isReplaceable(world, x, y, z) && !replacables.contains(target)) return;\n",
+          "new": "\t\t\tif(!target.isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z)) && !replacables.contains(target)) return;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/gen/nbt/NBTStructure.java": {
+      "before_sha256": "f7d0a071567f5d6f4cb46b2fb2f72f8bc391d1e3b92a8923cbee5648e15244ca",
+      "after_sha256": "ac692ad7e340eea34bfb9e9b125ebfadf012232169b6a3a6ce7c601a9ecfb3a2",
+      "edits": [
+        {
+          "before_offset": 23300,
+          "after_offset": 23300,
+          "old": "\t\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(world, rx, y, rz).getBlock().isReplaceable(world, rx, y, rz)) break;\r\n",
+          "new": "\t\t\t\t\t\tif(!com.hbm.world.WorldBlockState.read(world, rx, y, rz).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(rx, y, rz))) break;\r\n"
+        }
+      ]
+    }
+  },
+  "new_files": {
+    "src/main/java/com/hbm/tileentity/LegacyPressMetadataUpgrade.java": "ed5d26945fbea09076e988bcda1abfb4fcc6fafb06e13201dddab476ad26d2a4"
+  },
+  "deleted_files": {},
+  "binary_files": {}
+}

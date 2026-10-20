@@ -65,7 +65,7 @@ public class ContainerMachinePrecAss extends ContainerBase {
 				slot.onSlotChanged();
 			}
 
-			slot.onPickupFromSlot(player, slotStack);
+			slot.onTake(player, slotStack);
 		}
 
 		return slotOriginal;

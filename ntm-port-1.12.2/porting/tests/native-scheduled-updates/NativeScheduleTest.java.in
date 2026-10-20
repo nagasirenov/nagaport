@@ -1,0 +1,124 @@
+import java.util.*;
+import java.nio.file.*;
+import java.lang.reflect.*;
+import sun.misc.Unsafe;
+import com.google.common.collect.ImmutableSetMultimap;
+import net.minecraftforge.common.ForgeChunkManager;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.world.*;
+import net.minecraft.world.storage.*;
+import net.minecraft.world.gen.ChunkProviderServer;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.util.math.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+/** Real native queues and provider checks; explicit bounded world/domain collaborators. */
+public class NativeScheduleTest {
+ static int checks;
+ static final List<String> trace=new ArrayList<>();
+ static void check(boolean condition,String reason){checks++;if(!condition)throw new AssertionError(reason);}
+ static final class Dir {final int offsetX=1,offsetY=-1,offsetZ=0;}
+ static final class ModBlocks {static Block slag;}
+ static class ProbeBlock extends Block {
+  int calls;boolean required;World seen;BlockPos seenPos;IBlockState seenState;Random seenRandom;
+  ProbeBlock(){super(Material.ROCK);}
+  @Override public boolean requiresUpdates(){return required;}
+  @Override public void updateTick(World w,BlockPos p,IBlockState state,Random random){calls++;seen=w;seenPos=p;seenState=state;seenRandom=random;trace.add("tick:"+p.getX());}
+ }
+ static class Projection extends ProbeBlock {
+  World world;BlockPos pos;int rates,delays;
+  @Override public int tickRate(World w){rates++;trace.add("rate");return 7;}
+  public int getDelay(World w){delays++;trace.add("delay");return 13;}
+  @CALLS@
+  void invoke(int n,World world,int x,int y,int z,int iX,int iZ,Dir dir,Random rand){switch(n){@CASES@ default:throw new AssertionError(n);}}
+ }
+ static class Fixture extends WorldServer {
+  Map<BlockPos,IBlockState> live;WorldInfo info;String tag;int reads;
+  ImmutableSetMultimap<ChunkPos,ForgeChunkManager.Ticket> forced=ImmutableSetMultimap.of();
+  Fixture(){super(null,null,null,0,null);throw new AssertionError("not constructed");}
+  @Override public IBlockState getBlockState(BlockPos p){reads++;trace.add("read:"+tag);IBlockState s=live.get(p);return s==null?Blocks.AIR.getDefaultState():s;}
+  @Override public ImmutableSetMultimap<ChunkPos,ForgeChunkManager.Ticket> getPersistentChunks(){return forced;}
+  void immediate(boolean b){scheduledUpdatesAreImmediate=b;}
+ }
+ static final Unsafe U;
+ static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+ static void set(Object o,Class<?>c,String name,Object value)throws Exception {Field f=c.getDeclaredField(name);f.setAccessible(true);f.set(o,value);}
+ static Object get(Object o,Class<?>c,String name)throws Exception {Field f=c.getDeclaredField(name);f.setAccessible(true);return f.get(o);}
+ static Fixture world(long seed)throws Exception {
+  Fixture w=(Fixture)U.allocateInstance(Fixture.class);w.live=new HashMap<>();w.info=new WorldInfo(new NBTTagCompound());w.info.setWorldTotalTime(100);w.tag="A";w.forced=ImmutableSetMultimap.of();
+  set(w,World.class,"worldInfo",w.info);set(w,World.class,"profiler",new Profiler());set(w,World.class,"rand",new Random(seed));
+  set(w,World.class,"chunkProvider",new ChunkProviderServer(w,null,null));
+  set(w,WorldServer.class,"pendingTickListEntriesHashSet",new HashSet<NextTickListEntry>());
+  set(w,WorldServer.class,"pendingTickListEntriesTreeSet",new TreeSet<NextTickListEntry>());
+  set(w,WorldServer.class,"pendingTickListEntriesThisTick",new ArrayList<NextTickListEntry>());
+  return w;
+ }
+ static Chunk load(Fixture w,BlockPos p)throws Exception {
+  Chunk c=(Chunk)U.allocateInstance(Chunk.class);set(c,Chunk.class,"x",p.getX()>>4);set(c,Chunk.class,"z",p.getZ()>>4);c.unloadQueued=true;
+  w.getChunkProvider().loadedChunks.put(ChunkPos.asLong(c.x,c.z),c);return c;
+ }
+ @SuppressWarnings("unchecked") static List<NextTickListEntry> entries(Fixture w)throws Exception {
+  Set<NextTickListEntry> h=(Set<NextTickListEntry>)get(w,WorldServer.class,"pendingTickListEntriesHashSet");
+  TreeSet<NextTickListEntry> t=(TreeSet<NextTickListEntry>)get(w,WorldServer.class,"pendingTickListEntriesTreeSet");
+  check(h.size()==t.size()&&h.containsAll(t),"native queue collections agree");return new ArrayList<>(t);
+ }
+ static NextTickListEntry only(Fixture w)throws Exception {List<NextTickListEntry> q=entries(w);check(q.size()==1,"one native entry");return q.get(0);}
+ static void entry(Fixture w,BlockPos p,Block block,int delay,int priority)throws Exception {NextTickListEntry e=only(w);check(e.position.equals(p)&&e.getBlock()==block&&e.scheduledTime==100L+delay&&e.priority==priority,"position/block identity/delay/priority");}
+ static int expectedDelay(String kind,Random r){switch(kind){case "rate":return 7;case "delay":return 13;case "digamma":return 10+r.nextInt(40);case "balefire":return 7+r.nextInt(10);case "fragile":return r.nextInt(4)+8;default:return Integer.parseInt(kind);}}
+ static class TrackingPos extends BlockPos {
+  final Projection owner;final World switchTo;boolean first=true;
+  TrackingPos(Projection owner,World switchTo){super(-17,63,32);this.owner=owner;this.switchTo=switchTo;}
+  @Override public int getX(){trace.add("x");if(first){first=false;owner.world=switchTo;}return super.getX();}
+  @Override public int getY(){trace.add("y");return super.getY();}
+  @Override public int getZ(){trace.add("z");return super.getZ();}
+ }
+ public static void main(String[]args)throws Exception {
+  Bootstrap.register();check(net.minecraft.client.multiplayer.WorldClient.class.getMethod("scheduleUpdate",BlockPos.class,Block.class,int.class).getDeclaringClass()==World.class,"native client inherits no-op ordinary scheduler");List<String> expectations=Files.readAllLines(Paths.get(args[0]));check(expectations.size()==37,"all 37 call projections");
+  int tile=-1,digamma=-1,rate=-1,firstOne=-1,nextTwo=-1;
+  for(int n=0;n<expectations.size();n++) {
+   String[] fields=expectations.get(n).split("\t");String coords=fields[0],owner=fields[1],delayKind=fields[2];
+   if(owner.equals("live"))tile=n;if(delayKind.equals("digamma"))digamma=n;if(delayKind.equals("rate"))rate=n;
+   if(fields[3].equals("SoyuzLauncher.java")&&delayKind.equals("1"))firstOne=n;if(fields[3].equals("SoyuzLauncher.java")&&delayKind.equals("2"))nextTwo=n;
+   for(boolean loaded:new boolean[]{true,false})for(long seed:new long[]{0,777}) {
+    Projection block=new Projection();ProbeBlock live=new ProbeBlock(),slag=new ProbeBlock();ModBlocks.slag=slag;Fixture w=world(seed);block.world=w;block.pos=new BlockPos(-17,63,32);w.live.put(block.pos,live.getDefaultState());
+    int x=-17,y=63,z=32,iX=48,iZ=-33;BlockPos p=coords.equals("dir")?new BlockPos(x+1,y-1,z):coords.equals("below")?new BlockPos(x,y-1,z):coords.equals("other")?new BlockPos(iX,y,iZ):new BlockPos(x,y,z);
+    Chunk chunk=loaded?load(w,p):null;Random expected=new Random(seed);int delay=expectedDelay(delayKind,expected);Block scheduled=owner.equals("this")?block:owner.equals("slag")?slag:live;trace.clear();
+    block.invoke(n,w,x,y,z,iX,iZ,new Dir(),w.rand);
+    check(w.rand.nextLong()==expected.nextLong(),"exact RNG stream for call "+n);check(block.rates==(delayKind.equals("rate")||delayKind.equals("balefire")?1:0)&&block.delays==(delayKind.equals("delay")?1:0),"delay evaluation count "+n);
+    check(w.reads==(owner.equals("live")?1:0),"only original live block lookup "+n);
+    if(loaded){entry(w,p,scheduled,delay,0);check(chunk.unloadQueued,"scheduling does not clear provider unloadQueued");check(w.getChunkProvider().getLoadedChunkCount()==1,"no additional provider loads");}
+    else check(entries(w).isEmpty()&&w.getChunkProvider().getLoadedChunkCount()==0,"unloaded ordinary calls discarded without chunk load");
+   }
+  }
+  check(tile>=0&&digamma>=0&&rate>=0&&firstOne>=0&&nextTwo>=0,"special expression indices found");
+  // Original repeated this.world / this.pos reads and receiver capture are not collapsed.
+  Projection p=new Projection();Fixture a=world(1),b=world(2);b.tag="B";ProbeBlock foreign=new ProbeBlock();BlockPos pos=new BlockPos(-17,63,32);load(a,pos);load(b,pos);b.live.put(pos,foreign.getDefaultState());p.world=a;p.pos=new TrackingPos(p,b);trace.clear();p.invoke(tile,a,0,0,0,0,0,new Dir(),a.rand);
+  check(trace.equals(Arrays.asList("x","y","z","x","y","z","read:B")),"tile getter evaluation XYZXYZ and later block-world read");entry(a,pos,foreign,1,0);check(entries(b).isEmpty(),"outer world receiver captured before getters change field");
+  p=new Projection();Random random=new Random(77),expected=new Random(77);expected.nextInt(40);try{p.invoke(digamma,null,1,2,3,0,0,new Dir(),random);throw new AssertionError("null receiver succeeded");}catch(NullPointerException ok){}check(random.nextLong()==expected.nextLong(),"RNG delay still evaluated before null receiver throws");
+  try{p.invoke(rate,null,1,2,3,0,0,new Dir(),random);throw new AssertionError("null receiver succeeded");}catch(NullPointerException ok){}check(p.rates==1,"tickRate evaluated once before null receiver throws");
+  // The existing 1-then-2 duplicate scheduling remains first-entry-wins, not two callbacks.
+  p=new Projection();a=world(1);load(a,pos);p.invoke(firstOne,a,pos.getX(),pos.getY(),pos.getZ(),0,0,new Dir(),a.rand);p.invoke(nextTwo,a,pos.getX(),pos.getY(),pos.getZ(),0,0,new Dir(),a.rand);entry(a,pos,p,1,0);
+  // Actual native scheduling and queue consumption, not manually inserted NextTickListEntry objects.
+  ProbeBlock block=new ProbeBlock();a=world(1);Chunk chunk=load(a,pos);a.live.put(pos,block.getDefaultState());a.scheduleUpdate(pos,block,5);check(a.tickUpdates(false)&&block.calls==0,"future due time held");a.info.setWorldTotalTime(105);check(!a.tickUpdates(false)&&block.calls==1&&block.seen==a&&block.seenPos.equals(pos)&&block.seenRandom==a.rand,"actual native due callback identity");
+  a=world(1);load(a,pos);a.live.put(pos,block.getDefaultState());a.scheduleUpdate(pos,block,0);a.getChunkProvider().loadedChunks.clear();int count=block.calls;check(!a.tickUpdates(false)&&block.calls==count&&entries(a).isEmpty(),"unloaded due tick rescheduling rejected by actual ordinary loader check");
+  for(IBlockState replacement:new IBlockState[]{Blocks.DIRT.getDefaultState(),Blocks.AIR.getDefaultState()}){a=world(1);load(a,pos);a.scheduleUpdate(pos,block,0);a.live.put(pos,replacement);count=block.calls;check(!a.tickUpdates(false)&&block.calls==count,"replacement/air skips scheduled owner");}
+  a=world(1);load(a,pos);a.updateBlockTick(pos,block,9,-3);entry(a,pos,block,9,-3);a.scheduleUpdate(pos,block,1);entry(a,pos,block,9,-3);
+  a=world(1);for(int x=0;x<3;x++){BlockPos at=new BlockPos(x,64,0);load(a,at);a.live.put(at,block.getDefaultState());}a.updateBlockTick(new BlockPos(0,64,0),block,0,2);a.scheduleUpdate(new BlockPos(1,64,0),block,0);a.updateBlockTick(new BlockPos(2,64,0),block,0,-2);trace.clear();a.tickUpdates(false);List<String>ticks=new ArrayList<>();for(String s:trace)if(s.startsWith("tick:"))ticks.add(s);check(ticks.equals(Arrays.asList("tick:2","tick:1","tick:0")),"actual priority ordering including ordinary priority0");
+  // Immediate mode: non-requiring owners use delay1; requiring owners run only if area + live owner match.
+  a=world(1);load(a,pos);a.immediate(true);block.required=false;a.scheduleUpdate(pos,block,55);entry(a,pos,block,1,0);
+  for(boolean neighbors:new boolean[]{false,true}){a=world(1);load(a,pos);if(neighbors)for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++)load(a,pos.add(dx*16,0,dz*16));a.live.put(pos,block.getDefaultState());a.immediate(true);block.required=true;count=block.calls;a.scheduleUpdate(pos,block,55);check(entries(a).isEmpty()&&block.calls==count+(neighbors?1:0),"actual immediate 8-radius loaded gate");}
+  a=world(1);load(a,pos);a.forced=ImmutableSetMultimap.of(new ChunkPos(pos),(ForgeChunkManager.Ticket)U.allocateInstance(ForgeChunkManager.Ticket.class));a.live.put(pos,block.getDefaultState());a.immediate(true);count=block.calls;a.scheduleUpdate(pos,block,55);check(block.calls==count+1&&entries(a).isEmpty(),"native forced chunk immediate radius0");
+  a=world(1);load(a,pos);a.forced=ImmutableSetMultimap.of(new ChunkPos(pos),(ForgeChunkManager.Ticket)U.allocateInstance(ForgeChunkManager.Ticket.class));a.live.put(pos,Blocks.DIRT.getDefaultState());a.immediate(true);count=block.calls;a.scheduleUpdate(pos,block,55);check(block.calls==count&&entries(a).isEmpty(),"immediate owner identity required");
+  // Distinguish the misleading native same-name restoration API: it queues unloaded work.
+  a=world(1);a.scheduleUpdate(pos,block,4);check(entries(a).isEmpty(),"ordinary API respects unloaded chunk");a.scheduleBlockUpdate(pos,block,4,0);entry(a,pos,block,4,0);
+  for(int delay:new int[]{0,-7,Integer.MAX_VALUE,Integer.MIN_VALUE}){a=world(1);load(a,pos);a.scheduleUpdate(pos,block,delay);entry(a,pos,block,delay,0);}
+  a=world(1);load(a,pos);a.scheduleUpdate(pos,Blocks.AIR,9);NextTickListEntry air=only(a);check(air.getBlock()==Blocks.AIR&&air.scheduledTime==0&&air.priority==0,"air keeps native zero time/default priority");
+  // Native isBlockLoaded checks X/Z only; native scheduling accepts Y outside [0,256).
+  for(int y:new int[]{-1,256}){a=world(1);BlockPos edge=new BlockPos(-17,y,32);chunk=load(a,edge);a.scheduleUpdate(edge,block,4);entry(a,edge,block,4,0);check(chunk.unloadQueued,"out-of-height native scheduling remains nonloading");}
+  System.out.println("PASS "+checks+" assertions: 37 exact production call projections, unchanged RNG/delays/receiver evaluation, actual native queue dedup/priority/immediate/loaded-provider behavior. No full block owner, world startup or gameplay timing claim.");
+ }
+}

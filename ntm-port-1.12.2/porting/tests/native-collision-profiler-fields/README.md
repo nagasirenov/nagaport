@@ -1,0 +1,17 @@
+# Native collision flags and profiler fields (CP89 candidate)
+
+Base CP88 a65d3acbf05634c3cedbce5eff43ad0bd15cefdb. Exactly 34 javac-attributed field token changes in 12 production files: 13 Entity collision-flag accesses and 21 World profiler accesses. Existing state assignments, branch conditions, profiler section names/order, machinery formulas and every unrelated byte remain unchanged. Unqualified collision reads become explicit `this.collidedHorizontally`, avoiding local-name capture. No helper, reflection or engine emulation is added to production.
+
+NativeFieldScanner attributes all 4,069 current source inputs against genuine native dependencies. Only exact Entity/World ancestry and public native owner/type are accepted; legacy/destination fields in source ancestors/interfaces, local shadows, static or unresolved/generic receivers and implicit outer-class access are excluded. Its full candidate output reproduces the manifest exactly. Sixteen typed positive/negative controls exercise these constraints. The 11,430 attribution errors are retained unfinished-port diagnostics, not a successful full compile.
+
+Original SRG identity pins Entity fields 70123_F / 70124_G / 70132_H (obfuscated sa.E/F/G) and World field72984_F (ahb.C). Genuine original and native engine fields retain public mutable boolean / public final Profiler storage. Original and native profiling classes execute nested start, end/start and end operations and observe the same section paths through the actual stored field. This does not claim identical timing statistics or entire engine profiling implementation.
+
+117,673 runtime assertions include actual original/native field identity and values; native single receiver/RHS evaluation, null and failure timing; and all 117,649 tuples of seven finite/zero/infinite/NaN inputs through the four exact collision assignments extracted from EntityDebrisBase. The original projection comes from the pinned original-name CP88 body and maps only authentic engine field symbols. Integration additionally confirmed those four lines byte-match ntm-original-pristine. It is **four assignments**, not full EntityDebrisBase, its collision solver, movement lifecycle, physics, or gameplay acceptance. Real original/native EntityItem subclasses are allocated without lifecycle initialization using test-only Unsafe. No Minecraft/Forge production class is replaced.
+
+Three executable assignment-formula mutants fail the production comparison. Thirty-four individually omitted source changes fail exact whole-file reconstruction. The temporary original test container removes signature metadata solely to permit default-package projected classes; all original class bytes are unchanged. No proprietary binary is included here. Ordinary 1.12 movement/profiler behavior remains native; no promise of complete cross-version movement parity is made.
+
+Run from the module, using the restored local toolchain and original inputs:
+
+    python3 porting/tests/native-collision-profiler-fields/run.py --attribute --mutants
+
+The recorded proof and mutation runs are separate economical runs; full-source attribution was performed once. The script makes no network requests. Main integration and full common compilation belong to the checkpoint coordinator. Original/client SHA and SRG field entries are checked before execution. These isolated whole-file guards must be composed through a separately pinned checkpoint boundary if unrelated later edits overlap; never skip the guard or overwrite sibling edits.

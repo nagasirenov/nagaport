@@ -1,0 +1,28 @@
+// SOURCE: /tmp/nagaport-forge1614-userdev.jar!/src/main/java/net/minecraftforge/client/ForgeHooksClient.java
+// EXCERPT containing public static ModelBiped getArmorModel; source lines 311-322
+    public static ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int slotID, ModelBiped _default)
+    {
+        ModelBiped modelbiped = itemStack.func_77973_b().getArmorModel(entityLiving, itemStack, slotID);
+        return modelbiped == null ? _default : modelbiped;
+    }
+
+    static int stencilBits = 0;
+    public static void createDisplay() throws LWJGLException
+    {
+        ImageIO.setUseCache(false); //Disable on-disc stream cache should speed up texture pack reloading.
+        PixelFormat format = new PixelFormat().withDepthBits(24);
+        if (!Boolean.parseBoolean(System.getProperty("forge.forceDisplayStencil", "false")))
+
+// EXCERPT containing public static String getArmorTexture; source lines 78-89
+    public static String getArmorTexture(Entity entity, ItemStack armor, String _default, int slot, String type)
+    {
+        String result = armor.func_77973_b().getArmorTexture(armor, entity, slot, type);
+        return result != null ? result : _default;
+    }
+
+    public static boolean renderEntityItem(EntityItem entity, ItemStack item, float bobing, float rotation, Random random, TextureManager engine, RenderBlocks renderBlocks, int count)
+    {
+        IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(item, ENTITY);
+        if (customRenderer == null)
+        {
+            return false;

@@ -1,0 +1,45 @@
+import java.util.*;import java.lang.reflect.*;
+import net.minecraft.block.*;import net.minecraft.block.material.Material;import net.minecraft.block.state.*;import net.minecraft.block.properties.*;import net.minecraft.util.*;import net.minecraft.util.math.*;import net.minecraft.world.*;import net.minecraft.world.storage.*;import net.minecraft.world.chunk.IChunkProvider;import net.minecraft.init.*;import net.minecraft.profiler.Profiler;import net.minecraft.nbt.*;import net.minecraft.tileentity.*;import net.minecraft.inventory.*;import net.minecraft.item.*;
+public class Test {
+ static int checks,cases;static void check(boolean ok,String msg){checks++;if(!ok)throw new AssertionError(msg);}
+ static class Owner extends Block {
+  static final PropertyInteger META=PropertyInteger.create("meta",0,15);int[] core;List<String> calls=new ArrayList<>();
+  Owner(){super(Material.ROCK);}protected BlockStateContainer createBlockState(){return new BlockStateContainer(this,META);}
+  public int getMetaFromState(IBlockState s){return s.getValue(META);}public IBlockState getStateFromMeta(int n){return getDefaultState().withProperty(META,n);}
+  int[] findCore(World w,int x,int y,int z){calls.add("core:"+x+","+y+","+z);return core;}
+ }
+ static class TileEntityBatterySocket extends TileEntity {int power;int getComparatorPower(){return power;}}
+ static class TileEntityMachineBAT9000 extends TileEntity {int power;int getComparatorPower(){return power;}}
+ static class TileEntityMachineFluidTank extends TileEntity {int power;int getComparatorPower(){return power;}}
+ static class TileEntityMachineBattery extends TileEntity {int power;int getComparatorPower(){return power;}}
+ static class TileEntityGeiger extends TileEntity {float rad;float check(){return rad;}}
+ static class TileEntityReactorControl extends TileEntity {int heat;}
+ static class TileEntityMassStorage extends TileEntity {int redstone;}
+ static class TileEntityPileFuel extends TileEntity {int progress,maxProgress;}
+ OWNERS
+ static class NativeWorld extends World {
+  IBlockState source=Blocks.AIR.getDefaultState();TileEntity tile;List<String> trace=new ArrayList<>();BlockPos target=new BlockPos(-7,73,11);
+  NativeWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);provider.setWorld(this);}
+  protected IChunkProvider createChunkProvider(){return null;}protected boolean isChunkLoaded(int x,int z,boolean empty){return true;}
+  public IBlockState getBlockState(BlockPos p){trace.add("state:"+p);return p.equals(target)?source:Blocks.AIR.getDefaultState();}
+  public TileEntity getTileEntity(BlockPos p){trace.add("tile:"+p);return tile;}
+  public int getRedstonePower(BlockPos p,EnumFacing f){return 0;}
+ }
+ static class Comparator extends BlockRedstoneComparator {Comparator(){super(false);}int input(World w,BlockPos p,IBlockState s){return calculateInputStrength(w,p,s);}}
+ static Object result(Owner o,NativeWorld w,boolean nativeCall)throws Exception {try {return nativeCall?o.getDefaultState().getComparatorInputOverride(w,w.target):o.getClass().getMethod("getComparatorInputOverride",World.class,int.class,int.class,int.class,int.class).invoke(o,w,w.target.getX(),w.target.getY(),w.target.getZ(),5);}catch(InvocationTargetException e){return e.getCause().getClass();}catch(RuntimeException e){return e.getClass();}}
+ static void test(Owner n,Owner l,String name)throws Exception {
+  NativeWorld w=new NativeWorld();check(n.getDefaultState().hasComparatorInputOverride(),name+" native presence");
+  List<TileEntity> tiles=new ArrayList<>();tiles.add(null);tiles.add(new TileEntity(){});
+  for(int v:new int[]{-1,0,1,7,15,16,75,50000}){
+   TileEntityBatterySocket a=new TileEntityBatterySocket();a.power=v;tiles.add(a);TileEntityMachineBAT9000 b=new TileEntityMachineBAT9000();b.power=v;tiles.add(b);TileEntityMachineFluidTank c=new TileEntityMachineFluidTank();c.power=v;tiles.add(c);TileEntityMachineBattery d=new TileEntityMachineBattery();d.power=v;tiles.add(d);TileEntityGeiger e=new TileEntityGeiger();e.rad=v+0.01f;tiles.add(e);TileEntityReactorControl f=new TileEntityReactorControl();f.heat=v;tiles.add(f);TileEntityMassStorage g=new TileEntityMassStorage();g.redstone=v;tiles.add(g);TileEntityPileFuel h=new TileEntityPileFuel();h.progress=v;h.maxProgress=1100;tiles.add(h);
+  }
+  TileEntityPileFuel singular=new TileEntityPileFuel();singular.maxProgress=1000;tiles.add(singular);
+  for(int fill:new int[]{0,1,27}){TileEntityChest chest=new TileEntityChest();for(int i=0;i<fill;i++)chest.setInventorySlotContents(i,new ItemStack(Items.APPLE,64));tiles.add(chest);}
+  Comparator comparator=new Comparator();
+  for(int meta=0;meta<16;meta++)for(int[] core:new int[][]{null,new int[]{-3,81,9}})for(TileEntity tile:tiles){
+   w.source=n.getStateFromMeta(meta);w.tile=tile;n.core=l.core=core;w.trace.clear();n.calls.clear();Object actual=result(n,w,true);List<String> trace=new ArrayList<>(w.trace);w.trace.clear();l.calls.clear();Object expected=result(l,w,false);check(actual.equals(expected),name+" value/exception "+meta+" "+actual+" vs "+expected);check(trace.equals(w.trace)&&n.calls.equals(l.calls),name+" exact coordinate/tile/core order");cases++;
+   if(actual instanceof Integer)for(EnumFacing face:EnumFacing.HORIZONTALS){w.trace.clear();IBlockState cs=comparator.getDefaultState().withProperty(BlockHorizontal.FACING,face);int output=comparator.input(w,w.target.offset(face.getOpposite()),cs);check(output==((Integer)actual).intValue(),name+" native comparator engine "+face);}
+  }
+ }
+ public static void main(String[] args)throws Exception {Bootstrap.register();RUN_CASES System.out.println("PASS "+checks+" assertions, "+cases+" owner/meta/core/tile cases; complete exact production callback bodies; real native IBlockState and comparator engine dispatch; bounded owner/core/domain tile fixtures, not full gameplay.");}
+}

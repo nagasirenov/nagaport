@@ -11,6 +11,8 @@ import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -62,16 +64,18 @@ public class RenderChemical extends Render {
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
 		GL11.glDepthMask(false);
 		
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
-		tess.startDrawingQuads();
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.setColorRGBA_I(color.getRGB(), (int) Math.max(255 * (1 - exp), 0));
-		tess.addVertexWithUV(-size, -size, 0.0D, 1, 1);
-		tess.addVertexWithUV(size, -size, 0.0D, 0, 1);
-		tess.addVertexWithUV(size, size, 0.0D, 0, 0);
-		tess.addVertexWithUV(-size, size, 0.0D, 1, 0);
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);
+		float tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;
+		int tessColor0Packed = color.getRGB();
+		int tessColor0Alpha = Math.max(0, Math.min(255, (int) Math.max(255 * (1 - exp), 0)));
+		tessBuffer.pos(-size, -size, 0.0D).tex(1, 1).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(size, -size, 0.0D).tex(0, 1).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(size, size, 0.0D).tex(0, 0).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(-size, size, 0.0D).tex(1, 0).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
 		tess.draw();
 
 		GL11.glDepthMask(true);
@@ -92,7 +96,8 @@ public class RenderChemical extends Render {
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
 		GL11.glDepthMask(false);
 		
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 		
@@ -100,13 +105,14 @@ public class RenderChemical extends Render {
 		int i = rand.nextInt(2);
 		int j = rand.nextInt(2);
 		
-		tess.startDrawingQuads();
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.setColorRGBA_I(color, (int) Math.max(127 * (1 - exp), 0));
-		tess.addVertexWithUV(-size, -size, 0.0D, 1 - i, 1 - j);
-		tess.addVertexWithUV(size, -size, 0.0D, i, 1 - j);
-		tess.addVertexWithUV(size, size, 0.0D, i, j);
-		tess.addVertexWithUV(-size, size, 0.0D, 1 - i, j);
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);
+		float tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;
+		int tessColor0Packed = color;
+		int tessColor0Alpha = Math.max(0, Math.min(255, (int) Math.max(127 * (1 - exp), 0)));
+		tessBuffer.pos(-size, -size, 0.0D).tex(1 - i, 1 - j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(size, -size, 0.0D).tex(i, 1 - j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(size, size, 0.0D).tex(i, j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(-size, size, 0.0D).tex(1 - i, j).color((tessColor0Packed >> 16) & 255, (tessColor0Packed >> 8) & 255, tessColor0Packed & 255, tessColor0Alpha).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
 		tess.draw();
 
 		GL11.glDepthMask(true);
@@ -138,36 +144,61 @@ public class RenderChemical extends Render {
 		double size = 0.0625;
 		float o = 0.2F;
 		
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawingQuads();
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
 		
-		tess.setColorRGBA_F(1F, 1F, 1F, o);
-		tess.addVertex(-size, 0, -size);
-		tess.addVertex(size, 0, -size);
-		tess.setColorRGBA_F(1F, 1F, 1F, 0.0F);
-		tess.addVertex(size, length, -size);
-		tess.addVertex(-size, length, -size);
+		int tessColor0Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor0Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor0Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));
+		tessBuffer.pos(-size, 0, -size).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		tessBuffer.pos(size, 0, -size).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		int tessColor1Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor1Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor1Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));
+		tessBuffer.pos(size, length, -size).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
+		tessBuffer.pos(-size, length, -size).color(tessColor1Red, tessColor1Green, tessColor1Blue, tessColor1Alpha).endVertex();
 
-		tess.setColorRGBA_F(1F, 1F, 1F, o);
-		tess.addVertex(-size, 0, size);
-		tess.addVertex(size, 0, size);
-		tess.setColorRGBA_F(1F, 1F, 1F, 0.0F);
-		tess.addVertex(size, length, size);
-		tess.addVertex(-size, length, size);
+		int tessColor2Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor2Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor2Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor2Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));
+		tessBuffer.pos(-size, 0, size).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();
+		tessBuffer.pos(size, 0, size).color(tessColor2Red, tessColor2Green, tessColor2Blue, tessColor2Alpha).endVertex();
+		int tessColor3Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor3Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor3Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor3Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));
+		tessBuffer.pos(size, length, size).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();
+		tessBuffer.pos(-size, length, size).color(tessColor3Red, tessColor3Green, tessColor3Blue, tessColor3Alpha).endVertex();
 
-		tess.setColorRGBA_F(1F, 1F, 1F, o);
-		tess.addVertex(-size, 0, -size);
-		tess.addVertex(-size, 0, size);
-		tess.setColorRGBA_F(1F, 1F, 1F, 0.0F);
-		tess.addVertex(-size, length, size);
-		tess.addVertex(-size, length, -size);
+		int tessColor4Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor4Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor4Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor4Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));
+		tessBuffer.pos(-size, 0, -size).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();
+		tessBuffer.pos(-size, 0, size).color(tessColor4Red, tessColor4Green, tessColor4Blue, tessColor4Alpha).endVertex();
+		int tessColor5Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor5Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor5Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor5Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));
+		tessBuffer.pos(-size, length, size).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();
+		tessBuffer.pos(-size, length, -size).color(tessColor5Red, tessColor5Green, tessColor5Blue, tessColor5Alpha).endVertex();
 
-		tess.setColorRGBA_F(1F, 1F, 1F, o);
-		tess.addVertex(size, 0, -size);
-		tess.addVertex(size, 0, size);
-		tess.setColorRGBA_F(1F, 1F, 1F, 0.0F);
-		tess.addVertex(size, length, size);
-		tess.addVertex(size, length, -size);
+		int tessColor6Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor6Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor6Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor6Alpha = Math.max(0, Math.min(255, (int) ((o) * 255.0F)));
+		tessBuffer.pos(size, 0, -size).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();
+		tessBuffer.pos(size, 0, size).color(tessColor6Red, tessColor6Green, tessColor6Blue, tessColor6Alpha).endVertex();
+		int tessColor7Red = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor7Green = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor7Blue = Math.max(0, Math.min(255, (int) ((1F) * 255.0F)));
+		int tessColor7Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));
+		tessBuffer.pos(size, length, size).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();
+		tessBuffer.pos(size, length, -size).color(tessColor7Red, tessColor7Green, tessColor7Blue, tessColor7Alpha).endVertex();
 		
 		tess.draw();
 

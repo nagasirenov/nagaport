@@ -28,6 +28,8 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.math.MathHelper;
@@ -177,7 +179,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 		Vec3d planetTint = new Vec3d(planetR, planetG, planetB);
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		GL11.glDepthMask(false);
 		GL11.glEnable(GL11.GL_FOG);
@@ -412,28 +415,29 @@ public class SkyProviderCelestial extends IRenderHandler {
 			float f9 = -((float) (heightAboveHorizon + 65.0D));
 			float opposite = -f8;
 
-			tessellator.startDrawingQuads();
-			tessellator.setColorRGBA_I(0, 255);
-			tessellator.addVertex(-f8, f9, f8);
-			tessellator.addVertex(f8, f9, f8);
-			tessellator.addVertex(f8, opposite, f8);
-			tessellator.addVertex(-f8, opposite, f8);
-			tessellator.addVertex(-f8, opposite, -f8);
-			tessellator.addVertex(f8, opposite, -f8);
-			tessellator.addVertex(f8, f9, -f8);
-			tessellator.addVertex(-f8, f9, -f8);
-			tessellator.addVertex(f8, opposite, -f8);
-			tessellator.addVertex(f8, opposite, f8);
-			tessellator.addVertex(f8, f9, f8);
-			tessellator.addVertex(f8, f9, -f8);
-			tessellator.addVertex(-f8, f9, -f8);
-			tessellator.addVertex(-f8, f9, f8);
-			tessellator.addVertex(-f8, opposite, f8);
-			tessellator.addVertex(-f8, opposite, -f8);
-			tessellator.addVertex(-f8, opposite, -f8);
-			tessellator.addVertex(-f8, opposite, f8);
-			tessellator.addVertex(f8, opposite, f8);
-			tessellator.addVertex(f8, opposite, -f8);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+			int tessellatorColor0Packed = 0;
+			int tessellatorColor0Alpha = Math.max(0, Math.min(255, 255));
+			tessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f9, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, f9, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(-f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, opposite, f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
+			tessellatorBuffer.pos(f8, opposite, -f8).color((tessellatorColor0Packed >> 16) & 255, (tessellatorColor0Packed >> 8) & 255, tessellatorColor0Packed & 255, tessellatorColor0Alpha).endVertex();
 			tessellator.draw();
 		}
 
@@ -470,11 +474,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 			mc.renderEngine.bindTexture(body.texture);
 			GL11.glRotated(180, 1, 0, 0);
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-115 * sc, 100.0D, -115 * sc, 0.0D + uvOffset, 0.0D);
-			tessellator.addVertexWithUV(115 * sc, 100.0D, -115 * sc, 1.0D + uvOffset, 0.0D);
-			tessellator.addVertexWithUV(115 * sc, 100.0D, 115 * sc, 1.0D + uvOffset, 1.0D);
-			tessellator.addVertexWithUV(-115 * sc, 100.0D, 115 * sc, 0.0D + uvOffset, 1.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-115 * sc, 100.0D, -115 * sc).tex(0.0D + uvOffset, 0.0D).endVertex();
+			tessellatorBuffer.pos(115 * sc, 100.0D, -115 * sc).tex(1.0D + uvOffset, 0.0D).endVertex();
+			tessellatorBuffer.pos(115 * sc, 100.0D, 115 * sc).tex(1.0D + uvOffset, 1.0D).endVertex();
+			tessellatorBuffer.pos(-115 * sc, 100.0D, 115 * sc).tex(0.0D + uvOffset, 1.0D).endVertex();
 			tessellator.draw();
 
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
@@ -493,7 +497,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 	}
 
 	protected void renderSunset(float partialTicks, WorldClient world, Minecraft mc, float solarAngle, float pressure, ResourceLocation surfaceTexture) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		float[] sunsetColor = calcSunriseSunsetColors(partialTicks, world, mc, solarAngle, pressure);
 
@@ -511,17 +516,23 @@ public class SkyProviderCelestial extends IRenderHandler {
 				GL11.glRotatef(sunsetDirection, 0.0F, 0.0F, 1.0F);
 				GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
 
-				tessellator.startDrawing(6);
-				tessellator.setColorRGBA_F(anaglyphColor[0], anaglyphColor[1], anaglyphColor[2], sunsetColor[3]);
-				tessellator.addVertex(0.0, 100.0, 0.0);
-				tessellator.setColorRGBA_F(sunsetColor[0], sunsetColor[1], sunsetColor[2], 0.0F);
+				tessellatorBuffer.begin(6, DefaultVertexFormats.POSITION_COLOR);
+				int tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((anaglyphColor[0]) * 255.0F)));
+				int tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((anaglyphColor[1]) * 255.0F)));
+				int tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((anaglyphColor[2]) * 255.0F)));
+				int tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) ((sunsetColor[3]) * 255.0F)));
+				tessellatorBuffer.pos(0.0, 100.0, 0.0).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();
+				int tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((sunsetColor[0]) * 255.0F)));
+				int tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((sunsetColor[1]) * 255.0F)));
+				int tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((sunsetColor[2]) * 255.0F)));
+				int tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((0.0F) * 255.0F)));
 				byte segments = 16;
 
 				for(int j = 0; j <= segments; ++j) {
 					float angle = (float)j * 3.1415927F * 2.0F / (float)segments;
 					float sinAngle = MathHelper.sin(angle);
 					float cosAngle = MathHelper.cos(angle);
-					tessellator.addVertex((double)(sinAngle * 120.0F), (double)(cosAngle * 120.0F), (double)(-cosAngle * 40.0F * sunsetColor[3]));
+					tessellatorBuffer.pos((double)(sinAngle * 120.0F), (double)(cosAngle * 120.0F), (double)(-cosAngle * 40.0F * sunsetColor[3])).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();
 				}
 
 				tessellator.draw();
@@ -549,9 +560,9 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 					OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_CONSTANT_ALPHA, GL11.GL_ONE, GL11.GL_ZERO);
 
-					tessellator.startDrawing(GL11.GL_POINTS);
+					tessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);
 					for(int i = 0; i < 1024; i++) {
-						tessellator.addVertex(rand.nextGaussian() * 50, 100, -((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20));
+						tessellatorBuffer.pos(rand.nextGaussian() * 50, 100, -((Math.abs(rand.nextGaussian() * 20) + time) % Math.abs(rand.nextGaussian()) * 20)).endVertex();
 					}
 					tessellator.draw();
 
@@ -579,7 +590,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 	}
 
 	protected void renderStars(float partialTicks, WorldClient world, Minecraft mc, float starBrightness, float siderealAngle, float axialTilt) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
 
 		if(starBrightness > 0.0F) {
 			GL11.glPushMatrix();
@@ -630,7 +641,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 	}
 
 	protected void renderSun(float partialTicks, WorldClient world, Minecraft mc, CelestialBody sun, double sunSize, double coronaSize, float visibility, float pressure) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		CBT_Dyson dyson = sun.getTrait(CBT_Dyson.class);
 		int swarmCount = dyson != null ? dyson.size() : 0;
@@ -657,11 +669,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 			shader.setUniform1f("iTime", time);
 			shader.setUniform1i("iChannel1", 0);
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-shaderSize, 100.0D, -shaderSize, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(shaderSize, 100.0D, -shaderSize, 1.0D, 0.0D);
-			tessellator.addVertexWithUV(shaderSize, 100.0D, shaderSize, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-shaderSize, 100.0D, shaderSize, 0.0D, 1.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-shaderSize, 100.0D, -shaderSize).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(shaderSize, 100.0D, -shaderSize).tex(1.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(shaderSize, 100.0D, shaderSize).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-shaderSize, 100.0D, shaderSize).tex(0.0D, 1.0D).endVertex();
 			tessellator.draw();
 
 			shader.stop();
@@ -674,22 +686,22 @@ public class SkyProviderCelestial extends IRenderHandler {
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertex(-sunSize, 99.9D, -sunSize);
-			tessellator.addVertex(sunSize, 99.9D, -sunSize);
-			tessellator.addVertex(sunSize, 99.9D, sunSize);
-			tessellator.addVertex(-sunSize, 99.9D, sunSize);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION);
+			tessellatorBuffer.pos(-sunSize, 99.9D, -sunSize).endVertex();
+			tessellatorBuffer.pos(sunSize, 99.9D, -sunSize).endVertex();
+			tessellatorBuffer.pos(sunSize, 99.9D, sunSize).endVertex();
+			tessellatorBuffer.pos(-sunSize, 99.9D, sunSize).endVertex();
 			tessellator.draw();
 
 			// Draw the sun to the depth buffer to block swarm members that are behind
 			GL11.glDepthMask(true);
 			GL11.glColor4f(0.0F, 0.0F, 0.0F, 0.0F);
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-sunSize * 0.25D, 100.1D, -sunSize * 0.25D, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(sunSize * 0.25D, 100.1D, -sunSize * 0.25D, 1.0D, 0.0D);
-			tessellator.addVertexWithUV(sunSize * 0.25D, 100.1D, sunSize * 0.25D, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-sunSize * 0.25D, 100.1D, sunSize * 0.25D, 0.0D, 1.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-sunSize * 0.25D, 100.1D, -sunSize * 0.25D).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(sunSize * 0.25D, 100.1D, -sunSize * 0.25D).tex(1.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(sunSize * 0.25D, 100.1D, sunSize * 0.25D).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-sunSize * 0.25D, 100.1D, sunSize * 0.25D).tex(0.0D, 1.0D).endVertex();
 			tessellator.draw();
 
 			GL11.glDepthMask(false);
@@ -704,22 +716,22 @@ public class SkyProviderCelestial extends IRenderHandler {
 				: new float[] { 1.0F, 1.0F, 1.0F };
 
 			GL11.glColor4f(sunColor[0], sunColor[1], sunColor[2], visibility);
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-sunSize, 100.0D, -sunSize, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(sunSize, 100.0D, -sunSize, 1.0D, 0.0D);
-			tessellator.addVertexWithUV(sunSize, 100.0D, sunSize, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-sunSize, 100.0D, sunSize, 0.0D, 1.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-sunSize, 100.0D, -sunSize).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(sunSize, 100.0D, -sunSize).tex(1.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(sunSize, 100.0D, sunSize).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-sunSize, 100.0D, sunSize).tex(0.0D, 1.0D).endVertex();
 			tessellator.draw();
 
 			// Draw a big ol' spiky flare! Less so when there is an atmosphere
 			GL11.glColor4f(sunColor[0], sunColor[1], sunColor[2], 1 - MathHelper.clamp(pressure, 0.0F, 1.0F) * 0.75F);
 			mc.renderEngine.bindTexture(flareTexture);
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-coronaSize, 99.9D, -coronaSize, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(coronaSize, 99.9D, -coronaSize, 1.0D, 0.0D);
-			tessellator.addVertexWithUV(coronaSize, 99.9D, coronaSize, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-coronaSize, 99.9D, coronaSize, 0.0D, 1.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-coronaSize, 99.9D, -coronaSize).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(coronaSize, 99.9D, -coronaSize).tex(1.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(coronaSize, 99.9D, coronaSize).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-coronaSize, 99.9D, coronaSize).tex(0.0D, 1.0D).endVertex();
 			tessellator.draw();
 
 			// Draw the swarm members with depth occlusion
@@ -734,7 +746,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 	}
 
 	private void renderSwarm(float partialTicks, WorldClient world, Minecraft mc, double swarmRadius, int swarmCount) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		// bloodseeking, parasitic, ecstatically tracing decay
 		// thriving in the glow that death emits, the warm perfume it radiates
@@ -767,7 +780,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 				GL11.glRotatef(80.0F, 1, 0, 0);
 
-				tessellator.startDrawing(GL11.GL_POINTS);
+				tessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);
 				for(int i = 0; i < swarmCount; i += 3) {
 					swarmShader.setUniform1f(offsetLocation, i);
 
@@ -775,7 +788,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 					double x = Math.cos(t);
 					double z = Math.sin(t);
 
-					tessellator.addVertex(x, 0, z);
+					tessellatorBuffer.pos(x, 0, z).endVertex();
 				}
 				tessellator.draw();
 
@@ -788,7 +801,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 				GL11.glRotatef(60.0F, 0, 1, 0);
 				GL11.glRotatef(80.0F, 1, 0, 0);
 
-				tessellator.startDrawing(GL11.GL_POINTS);
+				tessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);
 				for(int i = 1; i < swarmCount; i += 3) {
 					swarmShader.setUniform1f(offsetLocation, i);
 
@@ -796,7 +809,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 					double x = Math.cos(t);
 					double z = Math.sin(t);
 
-					tessellator.addVertex(x, 0, z);
+					tessellatorBuffer.pos(x, 0, z).endVertex();
 				}
 				tessellator.draw();
 
@@ -809,7 +822,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 				GL11.glRotatef(-60.0F, 0, 1, 0);
 				GL11.glRotatef(80.0F, 1, 0, 0);
 
-				tessellator.startDrawing(GL11.GL_POINTS);
+				tessellatorBuffer.begin(GL11.GL_POINTS, DefaultVertexFormats.POSITION);
 				for(int i = 2; i < swarmCount; i += 3) {
 					swarmShader.setUniform1f(offsetLocation, i);
 
@@ -817,7 +830,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 					double x = Math.cos(t);
 					double z = Math.sin(t);
 
-					tessellator.addVertex(x, 0, z);
+					tessellatorBuffer.pos(x, 0, z).endVertex();
 				}
 				tessellator.draw();
 
@@ -833,7 +846,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 	}
 
 	protected void renderCelestials(float partialTicks, WorldClient world, Minecraft mc, List<AstroMetric> metrics, float solarAngle, CelestialBody tidalLockedBody, Vec3d planetTint, float visibility, float blendAmount, CelestialBody orbiting, float maxSize) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 		float blendDarken = 0.1F;
 
 		double transitionMinSize = 0.1D;
@@ -879,11 +893,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 							GL11.glRotatef(90.0F - metric.body.ringTilt, 1, 0, 0);
 							GL11.glRotated(metric.angle, 0, 1, 0);
 
-							tessellator.startDrawingQuads();
-							tessellator.addVertexWithUV(-ringSize, 0, -ringSize, 0.0D, 0.0D);
-							tessellator.addVertexWithUV(ringSize, 0, -ringSize, 1.0D, 0.0D);
-							tessellator.addVertexWithUV(ringSize, 0, 0, 1.0D, 0.5D);
-							tessellator.addVertexWithUV(-ringSize, 0, 0, 0.0D, 0.5D);
+							tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+							tessellatorBuffer.pos(-ringSize, 0, -ringSize).tex(0.0D, 0.0D).endVertex();
+							tessellatorBuffer.pos(ringSize, 0, -ringSize).tex(1.0D, 0.0D).endVertex();
+							tessellatorBuffer.pos(ringSize, 0, 0).tex(1.0D, 0.5D).endVertex();
+							tessellatorBuffer.pos(-ringSize, 0, 0).tex(0.0D, 0.5D).endVertex();
 							tessellator.draw();
 
 							GL11.glEnable(GL11.GL_CULL_FACE);
@@ -931,12 +945,12 @@ public class SkyProviderCelestial extends IRenderHandler {
 								mc.renderEngine.bindTexture(metric.body.texture);
 								GL11.glColor4d(1, 1, 1, 1);
 
-								tessellator.startDrawingQuads();
+								tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
 								double qsize = size * random.nextDouble() * 0.1;
-								tessellator.addVertexWithUV(-qsize, 100.0D, -qsize, uMin, vMin);
-								tessellator.addVertexWithUV(qsize, 100.0D, -qsize, uMax, vMin);
-								tessellator.addVertexWithUV(qsize, 100.0D, qsize, uMax, vMax);
-								tessellator.addVertexWithUV(-qsize, 100.0D, qsize, uMin, vMax);
+								tessellatorBuffer.pos(-qsize, 100.0D, -qsize).tex(uMin, vMin).endVertex();
+								tessellatorBuffer.pos(qsize, 100.0D, -qsize).tex(uMax, vMin).endVertex();
+								tessellatorBuffer.pos(qsize, 100.0D, qsize).tex(uMax, vMax).endVertex();
+								tessellatorBuffer.pos(-qsize, 100.0D, qsize).tex(uMin, vMax).endVertex();
 
 								tessellator.draw();
 							}
@@ -950,12 +964,12 @@ public class SkyProviderCelestial extends IRenderHandler {
 								GL11.glRotatef(randomRotation * d.destProgress * 0.05F, 0.0F, 1.0F, 0.0F);
 								mc.renderEngine.bindTexture(destroyedBody);
 								GL11.glColor4d(1, 1, 1, 1);
-								tessellator.startDrawingQuads();
+								tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
 								double qsize = size * random.nextDouble() * 0.07;
-								tessellator.addVertexWithUV(-qsize, 100.0D, -qsize, uMin, vMin);
-								tessellator.addVertexWithUV(qsize, 100.0D, -qsize, uMax, vMin);
-								tessellator.addVertexWithUV(qsize, 100.0D, qsize, uMax, vMax);
-								tessellator.addVertexWithUV(-qsize, 100.0D, qsize, uMin, vMax);
+								tessellatorBuffer.pos(-qsize, 100.0D, -qsize).tex(uMin, vMin).endVertex();
+								tessellatorBuffer.pos(qsize, 100.0D, -qsize).tex(uMax, vMin).endVertex();
+								tessellatorBuffer.pos(qsize, 100.0D, qsize).tex(uMax, vMax).endVertex();
+								tessellatorBuffer.pos(-qsize, 100.0D, qsize).tex(uMin, vMax).endVertex();
 
 								tessellator.draw();
 
@@ -968,11 +982,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
 						mc.renderEngine.bindTexture(shockwaveTexture);
 						double interpe = (d.destProgress * 0.5) * size * 0.1;
-						tessellator.startDrawingQuads();
-						tessellator.addVertexWithUV(-interpe, 100.0D, -interpe, 0.0D + uvOffset, 0.0D);
-						tessellator.addVertexWithUV(interpe, 100.0D, -interpe, 1.0D + uvOffset, 0.0D);
-						tessellator.addVertexWithUV(interpe, 100.0D, interpe, 1.0D + uvOffset, 1.0D);
-						tessellator.addVertexWithUV(-interpe, 100.0D, interpe, 0.0D + uvOffset, 1.0D);
+						tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+						tessellatorBuffer.pos(-interpe, 100.0D, -interpe).tex(0.0D + uvOffset, 0.0D).endVertex();
+						tessellatorBuffer.pos(interpe, 100.0D, -interpe).tex(1.0D + uvOffset, 0.0D).endVertex();
+						tessellatorBuffer.pos(interpe, 100.0D, interpe).tex(1.0D + uvOffset, 1.0D).endVertex();
+						tessellatorBuffer.pos(-interpe, 100.0D, interpe).tex(0.0D + uvOffset, 1.0D).endVertex();
 						tessellator.draw();
 
 
@@ -980,11 +994,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 						mc.renderEngine.bindTexture(shockFlareTexture);
 
 						destroyedProgressClientInterpolation = size * 3;
-						tessellator.startDrawingQuads();
-						tessellator.addVertexWithUV(-destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation, 0.0D + uvOffset, 0.0D);
-						tessellator.addVertexWithUV(destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation, 1.0D + uvOffset, 0.0D);
-						tessellator.addVertexWithUV(destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation, 1.0D + uvOffset, 1.0D);
-						tessellator.addVertexWithUV(-destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation, 0.0D + uvOffset, 1.0D);
+						tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+						tessellatorBuffer.pos(-destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation).tex(0.0D + uvOffset, 0.0D).endVertex();
+						tessellatorBuffer.pos(destroyedProgressClientInterpolation, 100.0D, -destroyedProgressClientInterpolation).tex(1.0D + uvOffset, 0.0D).endVertex();
+						tessellatorBuffer.pos(destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation).tex(1.0D + uvOffset, 1.0D).endVertex();
+						tessellatorBuffer.pos(-destroyedProgressClientInterpolation, 100.0D, destroyedProgressClientInterpolation).tex(0.0D + uvOffset, 1.0D).endVertex();
 						tessellator.draw();
 
 					} else {
@@ -993,11 +1007,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, visibility);
 						mc.renderEngine.bindTexture(metric.body.texture);
 
-						tessellator.startDrawingQuads();
-						tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D + uvOffset, 0.0D);
-						tessellator.addVertexWithUV(size, 100.0D, -size, 1.0D + uvOffset, 0.0D);
-						tessellator.addVertexWithUV(size, 100.0D, size, 1.0D + uvOffset, 1.0D);
-						tessellator.addVertexWithUV(-size, 100.0D, size, 0.0D + uvOffset, 1.0D);
+						tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+						tessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D + uvOffset, 0.0D).endVertex();
+						tessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D + uvOffset, 0.0D).endVertex();
+						tessellatorBuffer.pos(size, 100.0D, size).tex(1.0D + uvOffset, 1.0D).endVertex();
+						tessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D + uvOffset, 1.0D).endVertex();
 						tessellator.draw();
 
 
@@ -1032,11 +1046,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 							GL13.glActiveTexture(GL13.GL_TEXTURE0);
 						}
 
-						tessellator.startDrawingQuads();
-						tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);
-						tessellator.addVertexWithUV(size, 100.0D, -size, 1.0D, 0.0D);
-						tessellator.addVertexWithUV(size, 100.0D, size, 1.0D, 1.0D);
-						tessellator.addVertexWithUV(-size, 100.0D, size, 0.0D, 1.0D);
+						tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+						tessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D, 0.0D).endVertex();
+						tessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D, 0.0D).endVertex();
+						tessellatorBuffer.pos(size, 100.0D, size).tex(1.0D, 1.0D).endVertex();
+						tessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D, 1.0D).endVertex();
 						tessellator.draw();
 
 						GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -1057,11 +1071,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 								GL11.glColor4d(1.0, 1.0, 1.0, lavaAlpha);
 								mc.renderEngine.bindTexture(impactTexture);
 
-								tessellator.startDrawingQuads();
-								tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D + uvOffset, 0.0D);
-								tessellator.addVertexWithUV(size, 100.0D, -size, 1.0D + uvOffset, 0.0D);
-								tessellator.addVertexWithUV(size, 100.0D, size, 1.0D + uvOffset, 1.0D);
-								tessellator.addVertexWithUV(-size, 100.0D, size, 0.0D + uvOffset, 1.0D);
+								tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+								tessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D + uvOffset, 0.0D).endVertex();
+								tessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D + uvOffset, 0.0D).endVertex();
+								tessellatorBuffer.pos(size, 100.0D, size).tex(1.0D + uvOffset, 1.0D).endVertex();
+								tessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D + uvOffset, 1.0D).endVertex();
 								tessellator.draw();
 							}
 
@@ -1075,11 +1089,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 									GL11.glColor4d(1.0, 1.0, 1.0F, impactAlpha);
 									mc.renderEngine.bindTexture(shockwaveTexture);
 
-									tessellator.startDrawingQuads();
-									tessellator.addVertexWithUV(-impactSize, 100.0D, -impactSize, 0.0D, 0.0D);
-									tessellator.addVertexWithUV(impactSize, 100.0D, -impactSize, 1.0D, 0.0D);
-									tessellator.addVertexWithUV(impactSize, 100.0D, impactSize, 1.0D, 1.0D);
-									tessellator.addVertexWithUV(-impactSize, 100.0D, impactSize, 0.0D, 1.0D);
+									tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+									tessellatorBuffer.pos(-impactSize, 100.0D, -impactSize).tex(0.0D, 0.0D).endVertex();
+									tessellatorBuffer.pos(impactSize, 100.0D, -impactSize).tex(1.0D, 0.0D).endVertex();
+									tessellatorBuffer.pos(impactSize, 100.0D, impactSize).tex(1.0D, 1.0D).endVertex();
+									tessellatorBuffer.pos(-impactSize, 100.0D, impactSize).tex(0.0D, 1.0D).endVertex();
 									tessellator.draw();
 								}
 
@@ -1088,11 +1102,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 									GL11.glColor4d(1.0F, 1.0F, 1.0F, flareAlpha);
 									mc.renderEngine.bindTexture(shockFlareTexture);
 
-									tessellator.startDrawingQuads();
-									tessellator.addVertexWithUV(-flareSize, 100.0D, -flareSize, 0.0D, 0.0D);
-									tessellator.addVertexWithUV(flareSize, 100.0D, -flareSize, 1.0D, 0.0D);
-									tessellator.addVertexWithUV(flareSize, 100.0D, flareSize, 1.0D, 1.0D);
-									tessellator.addVertexWithUV(-flareSize, 100.0D, flareSize, 0.0D, 1.0D);
+									tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+									tessellatorBuffer.pos(-flareSize, 100.0D, -flareSize).tex(0.0D, 0.0D).endVertex();
+									tessellatorBuffer.pos(flareSize, 100.0D, -flareSize).tex(1.0D, 0.0D).endVertex();
+									tessellatorBuffer.pos(flareSize, 100.0D, flareSize).tex(1.0D, 1.0D).endVertex();
+									tessellatorBuffer.pos(-flareSize, 100.0D, flareSize).tex(0.0D, 1.0D).endVertex();
 									tessellator.draw();
 								}
 
@@ -1106,11 +1120,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 						// Draw another layer on top to blend with the atmosphere
 						GL11.glColor4d(planetTint.x - blendDarken, planetTint.y - blendDarken, planetTint.z - blendDarken, (1 - blendAmount * visibility));
 
-						tessellator.startDrawingQuads();
-						tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);
-						tessellator.addVertexWithUV(size, 100.0D, -size, 1.0D, 0.0D);
-						tessellator.addVertexWithUV(size, 100.0D, size, 1.0D, 1.0D);
-						tessellator.addVertexWithUV(-size, 100.0D, size, 0.0D, 1.0D);
+						tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+						tessellatorBuffer.pos(-size, 100.0D, -size).tex(0.0D, 0.0D).endVertex();
+						tessellatorBuffer.pos(size, 100.0D, -size).tex(1.0D, 0.0D).endVertex();
+						tessellatorBuffer.pos(size, 100.0D, size).tex(1.0D, 1.0D).endVertex();
+						tessellatorBuffer.pos(-size, 100.0D, size).tex(0.0D, 1.0D).endVertex();
 						tessellator.draw();
 
 						GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -1133,11 +1147,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 						GL11.glRotatef(90.0F - metric.body.ringTilt, 1, 0, 0);
 						GL11.glRotated(metric.angle, 0, 1, 0);
 
-						tessellator.startDrawingQuads();
-						tessellator.addVertexWithUV(-ringSize, 0, 0, 0.0D, 0.5D);
-						tessellator.addVertexWithUV(ringSize, 0, 0, 1.0D, 0.5D);
-						tessellator.addVertexWithUV(ringSize, 0, ringSize, 1.0D, 1.0D);
-						tessellator.addVertexWithUV(-ringSize, 0, ringSize, 0.0D, 1.0D);
+						tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+						tessellatorBuffer.pos(-ringSize, 0, 0).tex(0.0D, 0.5D).endVertex();
+						tessellatorBuffer.pos(ringSize, 0, 0).tex(1.0D, 0.5D).endVertex();
+						tessellatorBuffer.pos(ringSize, 0, ringSize).tex(1.0D, 1.0D).endVertex();
+						tessellatorBuffer.pos(-ringSize, 0, ringSize).tex(0.0D, 1.0D).endVertex();
 						tessellator.draw();
 
 						GL11.glEnable(GL11.GL_CULL_FACE);
@@ -1150,11 +1164,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 					GL11.glColor4f(metric.body.color[0], metric.body.color[1], metric.body.color[2], alpha * visibility);
 					mc.renderEngine.bindTexture(planetTexture);
 
-					tessellator.startDrawingQuads();
-					tessellator.addVertexWithUV(-1.0D, 100.0D, -1.0D, 0.0D, 0.0D);
-					tessellator.addVertexWithUV(1.0D, 100.0D, -1.0D, 1.0D, 0.0D);
-					tessellator.addVertexWithUV(1.0D, 100.0D, 1.0D, 1.0D, 1.0D);
-					tessellator.addVertexWithUV(-1.0D, 100.0D, 1.0D, 0.0D, 1.0D);
+					tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+					tessellatorBuffer.pos(-1.0D, 100.0D, -1.0D).tex(0.0D, 0.0D).endVertex();
+					tessellatorBuffer.pos(1.0D, 100.0D, -1.0D).tex(1.0D, 0.0D).endVertex();
+					tessellatorBuffer.pos(1.0D, 100.0D, 1.0D).tex(1.0D, 1.0D).endVertex();
+					tessellatorBuffer.pos(-1.0D, 100.0D, 1.0D).tex(0.0D, 1.0D).endVertex();
 					tessellator.draw();
 				}
 
@@ -1164,23 +1178,25 @@ public class SkyProviderCelestial extends IRenderHandler {
 	}
 
 	protected void renderRings(float partialTicks, WorldClient world, Minecraft mc, float ringTilt, float[] ringColor, float ringSize, float visibility) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		GL11.glColor4f(ringColor[0], ringColor[1], ringColor[2], visibility);
 		mc.renderEngine.bindTexture(ringTexture);
 
 		double offset = -20.0D;
 
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(offset, -ringSize, -ringSize, 0.0D, 0.0D);
-		tessellator.addVertexWithUV(offset, ringSize, -ringSize, 1.0D, 0.0D);
-		tessellator.addVertexWithUV(offset, ringSize, ringSize, 1.0D, 1.0D);
-		tessellator.addVertexWithUV(offset, -ringSize, ringSize, 0.0D, 1.0D);
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(offset, -ringSize, -ringSize).tex(0.0D, 0.0D).endVertex();
+		tessellatorBuffer.pos(offset, ringSize, -ringSize).tex(1.0D, 0.0D).endVertex();
+		tessellatorBuffer.pos(offset, ringSize, ringSize).tex(1.0D, 1.0D).endVertex();
+		tessellatorBuffer.pos(offset, -ringSize, ringSize).tex(0.0D, 1.0D).endVertex();
 		tessellator.draw();
 	}
 
 	protected void renderDigamma(float partialTicks, WorldClient world, Minecraft mc, float solarAngle) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		GL11.glPushMatrix();
 		{
@@ -1194,11 +1210,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 				GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
 				FMLClientHandler.instance().getClient().renderEngine.bindTexture(lodeStar); // genu-ine bona-fide ass whooping
 
-				tessellator.startDrawingQuads();
-				tessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);
-				tessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);
-				tessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);
-				tessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);
+				tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+				tessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();
+				tessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();
+				tessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();
+				tessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();
 				tessellator.draw();
 
 				GL11.glPopMatrix();
@@ -1220,11 +1236,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 			var12 = 1F * (1 + digamma * 0.25F);
 			dist = 100D - digamma * 2.5;
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);
-			tessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();
 			tessellator.draw();
 
 		}
@@ -1242,13 +1258,14 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 	// is just drawing a big cube with UVs prepared to draw a gradient
 	private void renderSkyboxSide(Tessellator tessellator, int side) {
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 		double u = side % 3 / 3.0D;
 		double v = side / 3 / 2.0D;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(-100.0D, -100.0D, -100.0D, u, v);
-		tessellator.addVertexWithUV(-100.0D, -100.0D, 100.0D, u, v + 0.5D);
-		tessellator.addVertexWithUV(100.0D, -100.0D, 100.0D, u + 0.3333333333333333D, v + 0.5D);
-		tessellator.addVertexWithUV(100.0D, -100.0D, -100.0D, u + 0.3333333333333333D, v);
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(-100.0D, -100.0D, -100.0D).tex(u, v).endVertex();
+		tessellatorBuffer.pos(-100.0D, -100.0D, 100.0D).tex(u, v + 0.5D).endVertex();
+		tessellatorBuffer.pos(100.0D, -100.0D, 100.0D).tex(u + 0.3333333333333333D, v + 0.5D).endVertex();
+		tessellatorBuffer.pos(100.0D, -100.0D, -100.0D).tex(u + 0.3333333333333333D, v).endVertex();
 		tessellator.draw();
 	}
 
@@ -1261,7 +1278,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 	}
 
 	protected void renderStation(float partialTicks, WorldClient world, Minecraft mc, OrbitalStation station, float solarAngle) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		long seed = station.dX * 1024 + station.dZ;
 
@@ -1282,11 +1300,11 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 			float size = 0.8F;
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-size, 100.0, -size, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(size, 100.0, -size, 0.0D, 1.0D);
-			tessellator.addVertexWithUV(size, 100.0, size, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-size, 100.0, size, 1.0D, 0.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-size, 100.0, -size).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(size, 100.0, -size).tex(0.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(size, 100.0, size).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-size, 100.0, size).tex(1.0D, 0.0D).endVertex();
 			tessellator.draw();
 
 		}
@@ -1303,14 +1321,15 @@ public class SkyProviderCelestial extends IRenderHandler {
 		GL11.glRotatef(180.0F - RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);
 		GL11.glColor4d(0.6*dark+0.0, 0.6*dark+0.0, 1*dark+0.0, 1);
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		TextureManager tex = Minecraft.getMinecraft().getTextureManager();
-		tess.startDrawingQuads();
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);
-		tess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);
-		tess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);
-		tess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
+		float tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;
+		tessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
 		tex.bindTexture(loc1);
 		tess.draw();
 		GL11.glDisable(GL11.GL_BLEND);
@@ -1331,16 +1350,17 @@ public class SkyProviderCelestial extends IRenderHandler {
 		//double near = distant*(Math.min(40000f, Math.max(0d, y-35000f))/40000f)*Math.min(1d,Minecraft.getMinecraft().thePlayer.worldObj.getStarBrightness(partialTicks)+sf);
 		double near = 0.51d*(Math.min(40000f, Math.max(0d, y-35000d))/40000d);
 		//  System.out.println((1d-(Math.min(200d, Math.max(0d, y-2017d))/200f)));
-		double entry = near*(1d-Minecraft.getMinecraft().player.worldObj.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));
+		double entry = near*(1d-Minecraft.getMinecraft().player.world.getRainStrength(partialTicks))+(1d-(Math.min(200d, Math.max(0d, x-2017d))/200f));
 		GL11.glColor4d(entry, entry, entry, entry);
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		TextureManager tex = Minecraft.getMinecraft().getTextureManager();
-		tess.startDrawingQuads();
-		tess.setNormal(0.0F, 1.0F, 0.0F);
-		tess.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, 1, 0);
-		tess.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, 0, 0);
-		tess.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, 0, 1);
-		tess.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, 1, 1);
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
+		float tessNormal0X = 0.0F, tessNormal0Y = 1.0F, tessNormal0Z = 0.0F;
+		tessBuffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(1, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(0, 0).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(f4 - f5, f4 - f6, 0.0D).tex(0, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
+		tessBuffer.pos(0.0F - f5, f4 - f6, 0.0D).tex(1, 1).normal(tessNormal0X, tessNormal0Y, tessNormal0Z).endVertex();
 		tex.bindTexture(loc1);
 		tess.draw();
 		GL11.glDisable(GL11.GL_BLEND);

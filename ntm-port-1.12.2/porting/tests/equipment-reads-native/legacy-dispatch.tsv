@@ -1,0 +1,6 @@
+CLASSES	1803
+DECLARE	sv	sa	q(I)Ladd;
+DECLARE	sw	sv	q(I)Ladd;
+DECLARE	yx	java/lang/Object	d(I)Ladd;
+DECLARE	yz	sv	r(I)Ladd;
+DECLARE	yz	sv	q(I)Ladd;

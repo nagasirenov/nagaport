@@ -1,0 +1,17 @@
+# Native render-event immutable accessor extension
+
+Baseline CP84 502f0b9d. Exactly 27 compiler-selected read tokens in six files: RenderPlayerEvent renderer (8), partialRenderTick (13), RenderHandEvent partialTicks (2), RenderItemInFrameEvent item (4). Every enclosing byte, receiver expression/evaluation, cast, formula, cancellation action, slot/stack behavior and GL call is unchanged. No reflection or event wrapper in production. No global ItemStack empty normalization.
+
+This extends, rather than repeats, the earlier five-owner render-event migration. The historical recovery README under render-event-accessors-native describes its recovery moment; current earlier validation is in porting/recovery-validation-2026-10-20/README.md (the CP77 recovery rerun). Its scanner is reused here with four distinct native rules, not its historical proof counts.
+
+The full 4,065-source compiler attribution selects exactly 27 reads, then resolves those exact spans to genuine native getters. Parse/analyze diagnostics are 12,066 before and 12,039 after, not a whole Gradle build. Existing 22 matching getter invocations are excluded. Private-final field ownership, public zero-argument return type, source receiver ancestry, field shadows, writes and reachable source getter overrides are checked. Ten adversarial fixtures cover these rules. Unknown external getter overrides are not certified: the native test deliberately demonstrates that virtual getter dispatch can differ from a direct field read. No private-access workaround or foreign-class mutation is introduced.
+
+916 assertions execute genuine native event constructors and all 27 selected expressions: null/reference identity, signed zero, finite/infinite/NaN float bits, single receiver evaluation, null/exception timing and event-frame snapshot behavior. An EntityItemFrame subclass supplies explicit payloads through its real virtual getter; it is not full item-frame gameplay. SetArmorModel and Pre are actual native event instances. No claim that deprecated SetArmorModel is posted by current native armor rendering, nor that the complete still-unported handlers compile/run. The change only preserves their payload reads. Test-only Unsafe allocates genuine renderer identities; actual Mesa EGL permits class initialization, but no rendered scene/game is certified.
+
+All 27 original private-field expressions fail native compilation as expected. A compiled wrong-value getter mutant is rejected. Six whole-file reversals match actual baseline Git bytes, and 27 distinct token-position regressions are rejected. Four original Forge1614 public-final fields/constructor assignments and native direct-field getter bytecode are verified and retained. Native ItemStack.EMPTY and null identities are not interchanged; captured frame item reference remains unchanged after its frame getter changes.
+
+Reproduce from module root (already available Java8/native dependencies; no downloads):
+
+    python3 porting/tests/native-render-event-extension/run.py
+
+For attribution compile RenderEventScanner.java with the Java8 tools.jar, write all source paths to a list, then run it with arguments source-list, /tmp/nagaport-ae2-native-classpath.txt, rules.tsv. A fourth argument selects native getter mode. Before attribution requires the exact six-file source inverse against CP84; run verify_attribution.py with the before/after TSV paths. Saved TSVs use module-relative paths; fresh absolute paths must match the current module root. Full compilation belongs to the integrated checkpoint.

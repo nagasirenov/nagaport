@@ -1,0 +1,101 @@
+// old-Item.java.patch.txt, source output lines 109-130
+@@ -711,6 +728,7 @@
+         this.field_77791_bV = p_94581_1_.func_94245_a(this.func_111208_A());
+     }
+ 
++    @Deprecated
+     public Multimap func_111205_h()
+     {
+         return HashMultimap.create();
+@@ -728,6 +746,591 @@
+         return this.field_111218_cA == null ? "MISSING_ICON_ITEM_" + field_150901_e.func_148757_b(this) + "_" + this.field_77774_bZ : this.field_111218_cA;
+     }
+ 
++    /* ======================================== FORGE START =====================================*/
++    /**
++     * ItemStack sensitive version of getItemAttributeModifiers
++     */
++    public Multimap getAttributeModifiers(ItemStack stack)
++    {
++        return this.func_111205_h();
++    }
++
++    /**
+
+// old-ItemStack.java.patch.txt, source output lines 121-130
+         return this.func_77973_b().func_77613_e(this);
+@@ -737,7 +742,7 @@
+         }
+         else
+         {
+-            object = this.func_77973_b().func_111205_h();
++            object = this.func_77973_b().getAttributeModifiers(this);
+         }
+ 
+         return (Multimap)object;
+
+// old-EntityLivingBase.java.patch.txt, source output lines 181-190
+@@ -1521,6 +1557,7 @@
+ 
+     public void func_70071_h_()
+     {
++        if (ForgeHooks.onLivingUpdate(this)) return;
+         super.func_70071_h_();
+ 
+         if (!this.field_70170_p.field_72995_K)
+@@ -2007,6 +2044,44 @@
+         return this.func_96124_cp() != null ? this.func_96124_cp().func_142054_a(p_142012_1_) : false;
+
+// native-Item.java.patch.txt, source output lines 75-90
+ 
++    @Deprecated // Use ItemStack sensitive version below.
+     public Multimap<String, AttributeModifier> func_111205_h(EntityEquipmentSlot p_111205_1_)
+     {
+         return HashMultimap.<String, AttributeModifier>create();
+     }
+ 
++    /* ======================================== FORGE START =====================================*/
++    /**
++     * ItemStack sensitive version of getItemAttributeModifiers
++     */
++    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack)
++    {
++        return this.func_111205_h(slot);
++    }
++
+
+// native-ItemStack.java.patch.txt, source output lines 226-235
+ 
+@@ -987,7 +1012,7 @@
+         }
+         else
+         {
+-            multimap = this.func_77973_b().func_111205_h(p_111283_1_);
++            multimap = this.func_77973_b().getAttributeModifiers(p_111283_1_, this);
+         }
+ 
+         return multimap;
+
+// native-EntityLivingBase.java.patch.txt, source output lines 307-328
+@@ -2054,6 +2085,7 @@
+ 
+     public void func_70071_h_()
+     {
++        if (net.minecraftforge.common.ForgeHooks.onLivingUpdate(this)) return;
+         super.func_70071_h_();
+         this.func_184608_ct();
+ 
+@@ -2096,7 +2128,9 @@
+ 
+                 if (!ItemStack.func_77989_b(itemstack1, itemstack))
+                 {
++                    if (!ItemStack.areItemStacksEqualUsingNBTShareTag(itemstack1, itemstack))
+                     ((WorldServer)this.field_70170_p).func_73039_n().func_151247_a(this, new SPacketEntityEquipment(this.func_145782_y(), entityequipmentslot, itemstack1));
++                    net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent(this, entityequipmentslot, itemstack, itemstack1));
+ 
+                     if (!itemstack.func_190926_b())
+                     {
+@@ -2575,6 +2609,40 @@
+         this.field_70752_e = true;
+     }
+ 

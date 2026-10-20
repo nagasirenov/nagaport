@@ -34,7 +34,7 @@ public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyRe
 		if(!this.world.isRemote) {
 			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir);
 
-			players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));
+			players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));
 
 			charge = 0;
 
@@ -42,7 +42,7 @@ public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyRe
 
 				for(int i = 0; i < 5; i++) {
 
-					ItemStack stack = player.getEquipmentInSlot(i);
+					ItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i);
 
 					if(stack != null && stack.getItem() instanceof IBatteryItem) {
 						IBatteryItem battery = (IBatteryItem) stack.getItem();
@@ -79,7 +79,7 @@ public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyRe
 
 		if(particles) {
 			Random rand = this.world.rand;
-			this.world.spawnParticle("magicCrit",
+			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CRIT_MAGIC,
 					this.pos.getX() + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetX * 0.75,
 					this.pos.getY() + 0.1,
 					this.pos.getZ() + 0.5 + rand.nextDouble() * 0.0625 + dir.offsetZ * 0.75,
@@ -124,7 +124,7 @@ public class TileEntityCharger extends TileEntityLoadedBase implements IEnergyRe
 
 			for(int i = 0; i < 5; i++) {
 
-				ItemStack stack = player.getEquipmentInSlot(i);
+				ItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i);
 
 				if(stack != null && stack.getItem() instanceof IBatteryItem) {
 					IBatteryItem battery = (IBatteryItem) stack.getItem();

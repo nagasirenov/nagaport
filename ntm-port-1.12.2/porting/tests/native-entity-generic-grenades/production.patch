@@ -1,0 +1,125 @@
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java
+index df2a1f7f..4debee61 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java
+@@ -3,6 +3,9 @@ package com.hbm.entity.grenade;
+ import com.hbm.items.ModItems;
+ import com.hbm.items.weapon.ItemGenericGrenade;
+ 
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.entity.EntityLivingBase;
+ import net.minecraft.item.Item;
+ import net.minecraft.nbt.NBTTagCompound;
+@@ -10,6 +13,8 @@ import net.minecraft.world.World;
+ 
+ public class EntityGrenadeBouncyGeneric extends EntityGrenadeBouncyBase implements IGenericGrenade {
+ 
++	private static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeBouncyGeneric.class, DataSerializers.VARINT);
++
+ 	public EntityGrenadeBouncyGeneric(World world) {
+ 		super(world);
+ 	}
+@@ -23,19 +28,20 @@ public class EntityGrenadeBouncyGeneric extends EntityGrenadeBouncyBase implemen
+ 	}
+ 	
+ 	public EntityGrenadeBouncyGeneric setType(ItemGenericGrenade grenade) {
+-		this.dataWatcher.updateObject(12, Item.getIdFromItem(grenade));
++		this.dataManager.set(GRENADE_ID, Item.getIdFromItem(grenade));
+ 		return this;
+ 	}
+ 
+ 	@Override
+ 	public ItemGenericGrenade getGrenade() {
+-		ItemGenericGrenade gren = (ItemGenericGrenade) Item.getItemById(this.dataWatcher.getWatchableObjectInt(12));
++		int grenadeId = this.dataManager.get(GRENADE_ID);
++		ItemGenericGrenade gren = grenadeId == 0 ? null : (ItemGenericGrenade) Item.getItemById(grenadeId);
+ 		return gren != null ? gren : (ItemGenericGrenade) ModItems.grenade_kyiv;
+ 	}
+ 
+ 	@Override
+ 	protected void entityInit() {
+-		this.dataWatcher.addObject(12, 0);
++		this.dataManager.register(GRENADE_ID, 0);
+ 	}
+ 
+ 	@Override
+@@ -47,13 +53,13 @@ public class EntityGrenadeBouncyGeneric extends EntityGrenadeBouncyBase implemen
+ 	@Override
+ 	protected void writeEntityToNBT(NBTTagCompound nbt) {
+ 		super.writeEntityToNBT(nbt);
+-		nbt.setInteger("grenade", this.dataWatcher.getWatchableObjectInt(12));
++		nbt.setInteger("grenade", this.dataManager.get(GRENADE_ID));
+ 	}
+ 
+ 	@Override
+ 	protected void readEntityFromNBT(NBTTagCompound nbt) {
+ 		super.readEntityFromNBT(nbt);
+-		this.dataWatcher.updateObject(12, nbt.getInteger("grenade"));
++		this.dataManager.set(GRENADE_ID, nbt.getInteger("grenade"));
+ 	}
+ 
+ 	@Override
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeImpactGeneric.java b/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeImpactGeneric.java
+index e4350bd0..e0e2f22c 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeImpactGeneric.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/entity/grenade/EntityGrenadeImpactGeneric.java
+@@ -3,6 +3,9 @@ package com.hbm.entity.grenade;
+ import com.hbm.items.ModItems;
+ import com.hbm.items.weapon.ItemGenericGrenade;
+ 
++import net.minecraft.network.datasync.DataParameter;
++import net.minecraft.network.datasync.DataSerializers;
++import net.minecraft.network.datasync.EntityDataManager;
+ import net.minecraft.entity.EntityLivingBase;
+ import net.minecraft.item.Item;
+ import net.minecraft.nbt.NBTTagCompound;
+@@ -10,6 +13,8 @@ import net.minecraft.world.World;
+ 
+ public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGenericGrenade {
+ 
++	private static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeImpactGeneric.class, DataSerializers.VARINT);
++
+ 	public EntityGrenadeImpactGeneric(World p_i1773_1_) {
+ 		super(p_i1773_1_);
+ 	}
+@@ -23,19 +28,20 @@ public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGe
+ 	}
+ 	
+ 	public EntityGrenadeImpactGeneric setType(ItemGenericGrenade grenade) {
+-		this.dataWatcher.updateObject(12, Item.getIdFromItem(grenade));
++		this.dataManager.set(GRENADE_ID, Item.getIdFromItem(grenade));
+ 		return this;
+ 	}
+ 	
+ 	@Override
+ 	public ItemGenericGrenade getGrenade() {
+-		ItemGenericGrenade gren = (ItemGenericGrenade) Item.getItemById(this.dataWatcher.getWatchableObjectInt(12));
++		int grenadeId = this.dataManager.get(GRENADE_ID);
++		ItemGenericGrenade gren = grenadeId == 0 ? null : (ItemGenericGrenade) Item.getItemById(grenadeId);
+ 		return gren != null ? gren : (ItemGenericGrenade) ModItems.grenade_kyiv;
+ 	}
+ 
+ 	@Override
+ 	protected void entityInit() {
+-		this.dataWatcher.addObject(12, 0);
++		this.dataManager.register(GRENADE_ID, 0);
+ 	}
+ 
+ 	@Override
+@@ -50,12 +56,12 @@ public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGe
+ 	@Override
+ 	public void writeEntityToNBT(NBTTagCompound nbt) {
+ 		super.writeEntityToNBT(nbt);
+-		nbt.setInteger("grenade", this.dataWatcher.getWatchableObjectInt(12));
++		nbt.setInteger("grenade", this.dataManager.get(GRENADE_ID));
+ 	}
+ 
+ 	@Override
+ 	public void readEntityFromNBT(NBTTagCompound nbt) {
+ 		super.readEntityFromNBT(nbt);
+-		this.dataWatcher.updateObject(12, nbt.getInteger("grenade"));
++		this.dataManager.set(GRENADE_ID, nbt.getInteger("grenade"));
+ 	}
+ }

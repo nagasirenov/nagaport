@@ -99,11 +99,11 @@ public class VolcanicBlock extends BlockFluidClassic {
 		Block above = com.hbm.world.WorldBlockState.read(world, x, y + 10, z).getBlock();
 		boolean canMakeGem = lavaCount + basaltCount == 6 && lavaCount < 3 && (above == ModBlocks.basalt || above == ModBlocks.volcanic_lava_block);
 		
-		if(r < 2) world.setBlock(x, y, z, ModBlocks.ore_basalt, 0, 3);
-		else if(r == 2) world.setBlock(x, y, z, ModBlocks.ore_basalt, 1, 3);
-		else if(r == 3) world.setBlock(x, y, z, ModBlocks.ore_basalt, 2, 3);
-		else if(r == 4) world.setBlock(x, y, z, ModBlocks.ore_basalt, 4, 3);
-		else if(r < 15 && canMakeGem) world.setBlock(x, y, z, ModBlocks.ore_basalt, 3, 3);
+		if(r < 2) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
+		else if(r == 2) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 1; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
+		else if(r == 3) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 2; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
+		else if(r == 4) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 4; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
+		else if(r < 15 && canMakeGem) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 3; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		else world.setBlock(x, y, z, ModBlocks.basalt);
 	}
 
@@ -114,7 +114,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 		if(Blocks.FIRE.getFlammability(b) > 0)
 			return true;
 		
-		if(b.isReplaceable(world, x, y, z))
+		if(b.isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z)))
 			return true;
 		
 		return super.canDisplace(world, x, y, z);
@@ -143,7 +143,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 				dx = (double) ((float) x + rand.nextFloat());
 				dy = (double) y + this.maxY;
 				dz = (double) ((float) z + rand.nextFloat());
-				world.spawnParticle("lava", dx, dy, dz, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, dx, dy, dz, 0.0D, 0.0D, 0.0D);
 				world.playSound(dx, dy, dz, "liquid.lavapop", 0.2F + rand.nextFloat() * 0.2F, 0.9F + rand.nextFloat() * 0.15F, false);
 			}
 
@@ -156,7 +156,7 @@ public class VolcanicBlock extends BlockFluidClassic {
 			dx = (double) ((float) x + rand.nextFloat());
 			dy = (double) y - 1.05D;
 			dz = (double) ((float) z + rand.nextFloat());
-			world.spawnParticle("dripLava", dx, dy, dz, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(net.minecraft.util.EnumParticleTypes.DRIP_LAVA, dx, dy, dz, 0.0D, 0.0D, 0.0D);
 		}
 	}
 }

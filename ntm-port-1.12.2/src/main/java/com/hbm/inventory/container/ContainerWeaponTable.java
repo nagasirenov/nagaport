@@ -47,8 +47,8 @@ public class ContainerWeaponTable extends Container {
 			}
 
 			@Override
-			public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
-				super.onPickupFromSlot(player, stack);
+			public ItemStack onTake(EntityPlayer player, ItemStack stack) {
+				super.onTake(player, stack);
 
 				XWeaponModManager.install(
 						stack, index,
@@ -66,6 +66,7 @@ public class ContainerWeaponTable extends Container {
 				}
 				
 				ContainerWeaponTable.this.index = 0;
+				return stack;
 			}
 		});
 		
@@ -163,7 +164,7 @@ public class ContainerWeaponTable extends Container {
 			
 			if(index < 8) {
 				if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 8, this.inventorySlots.size(), true)) return null;
-				slot.onPickupFromSlot(player, stack);
+				slot.onTake(player, stack);
 			} else {
 				if(stack.getItem() instanceof ItemGunBaseNT) {
 					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 7, 8, false)) return null;
@@ -200,9 +201,10 @@ public class ContainerWeaponTable extends Container {
 		}
 
 		@Override
-		public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
-			super.onPickupFromSlot(player, stack);
+		public ItemStack onTake(EntityPlayer player, ItemStack stack) {
+			super.onTake(player, stack);
 			refreshInstalledMods();
+			return stack;
 		}
 		
 		public void refreshInstalledMods() {

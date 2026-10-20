@@ -1,0 +1,9 @@
+PASS 8 loader edits across 6 owners and one NBT emptiness rename reverse exactly to sealed d5ef20a8
+PASS 22 pristine storage slices/constants after explicit inherited tag-access/text-name mappings; nullable owners/consumers verified
+PASS exact source fragments generated; explicit test-only wrappers, no native API stubs
+PASS actual mapped ItemStack bytecode matches sealed native helper runtime
+      81: invokevirtual #19                 // Method net/minecraft/nbt/NBTTagCompound.isEmpty:()Z
+PASS cleanup call attributed to genuine native NBTTagCompound.isEmpty, not ItemStack emptiness
+PASS actual item-embedded storage reader/writer/cleanup slices with genuine native NBT and ItemStack: 224 checks
+[08:36:38] [main/WARN]: Potentially Dangerous alternative prefix `nbtprobe` for name `hook`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native production nullable-inventory loader: 191 checks

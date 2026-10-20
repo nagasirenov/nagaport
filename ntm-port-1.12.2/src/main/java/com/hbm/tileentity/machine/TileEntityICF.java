@@ -241,7 +241,7 @@ public class TileEntityICF extends TileEntityMachineBase implements IGUIProvider
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() + 0.5 - 8,
 					this.pos.getY(),
 					this.pos.getZ() + 0.5 - 8,

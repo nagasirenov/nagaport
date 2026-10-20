@@ -121,10 +121,10 @@ public class TileEntityRBMKGauge extends TileEntityLoadedBase implements IGUIPro
 			if(!active) return;
 			if(rtty == null || rtty.isEmpty()) return;
 			
-			RTTYChannel chan = RTTYSystem.listen(worldObj, rtty);
+			RTTYChannel chan = RTTYSystem.listen(TileEntityRBMKGauge.this.world, rtty);
 			int sigVal = 0;
 			
-			if(chan != null && chan.timeStamp < worldObj.getTotalWorldTime() - 1) chan = null;
+			if(chan != null && chan.timeStamp < TileEntityRBMKGauge.this.world.getTotalWorldTime() - 1) chan = null;
 			
 			// always accept new signals
 			if(chan != null && chan.signal != null) {

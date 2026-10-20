@@ -334,7 +334,7 @@ public class DamageResistanceHandler {
 		writer.name("itemStats").beginArray();
 		for(Entry<Item, ResistanceStats> entry : itemStats.entrySet()) {
 			writer.beginArray().setIndent("");
-			writer.value(Item.itemRegistry.getNameForObject(entry.getKey())).setIndent("  ");
+			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null)).setIndent("  ");
 			writer.beginObject();
 			entry.getValue().serialize(writer);
 			writer.setIndent("");
@@ -346,10 +346,10 @@ public class DamageResistanceHandler {
 		writer.name("setStats").beginArray();
 		for(Entry<Quartet<Item, Item, Item, Item>, ResistanceStats> entry : setStats.entrySet()) {
 			writer.beginArray().setIndent("");
-			writer.value(Item.itemRegistry.getNameForObject(entry.getKey().getW()))
-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getX()))
-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getY()))
-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getZ())).setIndent("  ");
+			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getW()), null))
+			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getX()), null))
+			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getY()), null))
+			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getZ()), null)).setIndent("  ");
 			writer.beginObject();
 			entry.getValue().serialize(writer);
 			writer.setIndent("");
@@ -427,16 +427,16 @@ public class DamageResistanceHandler {
 	
 	@SubscribeEvent
 	public void onEntityAttacked(LivingAttackEvent event) {
-		if(event.source.isDamageAbsolute()) return;
+		if(event.getSource().isDamageAbsolute()) return;
 
 		EntityLivingBase e = event.getEntityLiving();
-		float amount = event.ammount;
+		float amount = event.getAmount();
 		
-		float[] vals = getDTDR(e, event.source, amount, currentPDT, currentPDR);
+		float[] vals = getDTDR(e, event.getSource(), amount, currentPDT, currentPDR);
 		float dt = vals[0] - currentPDT;
 		float dr = vals[1] - currentPDR;
 		
-		if((dt > 0 && dt >= event.ammount) || dr >= 1F) {
+		if((dt > 0 && dt >= event.getAmount()) || dr >= 1F) {
 			event.setCanceled(true);
 			EntityDamageUtil.damageArmorNT(e, amount);
 		}
@@ -445,10 +445,10 @@ public class DamageResistanceHandler {
 	@SubscribeEvent
 	public void onEntityDamaged(LivingHurtEvent event) {
 		
-		event.ammount = calculateDamage(event.getEntityLiving(), event.source, event.ammount, currentPDT, currentPDR);
+		event.setAmount(calculateDamage(event.getEntityLiving(), event.getSource(), event.getAmount(), currentPDT, currentPDR));
 		if(event.getEntityLiving() instanceof IResistanceProvider) {
 			IResistanceProvider irp = (IResistanceProvider) event.getEntityLiving();
-			irp.onDamageDealt(event.source, event.ammount);
+			irp.onDamageDealt(event.getSource(), event.getAmount());
 		}
 	}
 	
@@ -494,10 +494,10 @@ public class DamageResistanceHandler {
 		
 		/// SET HANDLING ///
 		Quartet wornSet = new Quartet(
-				entity.getEquipmentInSlot(4) != null ? entity.getEquipmentInSlot(4).getItem() : null,
-				entity.getEquipmentInSlot(3) != null ? entity.getEquipmentInSlot(3).getItem() : null,
-				entity.getEquipmentInSlot(2) != null ? entity.getEquipmentInSlot(2).getItem() : null,
-				entity.getEquipmentInSlot(1) != null ? entity.getEquipmentInSlot(1).getItem() : null
+				com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 4).getItem() : null,
+				com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 3).getItem() : null,
+				com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 2).getItem() : null,
+				com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1) != null ? com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, 1).getItem() : null
 				);
 		
 		ResistanceStats setResistance = setStats.get(wornSet);
@@ -511,7 +511,7 @@ public class DamageResistanceHandler {
 
 		/// ARMOR ///
 		for(int i = 1; i <= 4; i++) {
-			ItemStack armor = entity.getEquipmentInSlot(i);
+			ItemStack armor = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, i);
 			if(armor == null) continue;
 			ResistanceStats stats = itemStats.get(armor.getItem());
 			if(stats == null) continue;

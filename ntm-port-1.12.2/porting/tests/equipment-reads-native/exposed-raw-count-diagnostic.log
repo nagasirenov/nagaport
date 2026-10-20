@@ -1,0 +1,11 @@
+before: <probe>/Exposed.java:1: error: cannot find symbol
+import net.minecraft.entity.EntityLivingBase; class Exposed { boolean f(EntityLivingBase entity,int slot){return entity.getEquipmentInSlot(slot + 1).stackSize == 0;} }
+                                                                                                                       ^
+  symbol:   method getEquipmentInSlot(int)
+  location: variable entity of type EntityLivingBase
+1 error
+
+after: <probe>/Exposed.java:1: error: stackSize has private access in ItemStack
+import net.minecraft.entity.EntityLivingBase; class Exposed { boolean f(EntityLivingBase entity,int slot){return com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).stackSize == 0;} }
+                                                                                                                                                                                        ^
+1 error

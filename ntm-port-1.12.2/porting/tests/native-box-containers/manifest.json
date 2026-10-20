@@ -1,0 +1,59 @@
+{
+  "baseline": "d7544326",
+  "files": {
+    "src/main/java/com/hbm/inventory/SlotNonRetarded.java": {
+      "before_sha256": "81c229c6b9cbd8dd38c31810369627a9b3c515fb0efc2a71e7ddf70e7a8dd5d3",
+      "after_sha256": "a4dc41813dc9aa0692a01ce64d8874ef399d680f1f07b211929584fd615f4022",
+      "rules": [
+        [
+          "this.getStack().stackSize",
+          "this.getStack().getCount()"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java": {
+      "before_sha256": "05825f5d620c43e160eb00e56abc969af93bb114131d3450fd59ad95ecf7c586",
+      "after_sha256": "63c7d9328152b4ad84a3ceaadecdb771496d86b68c79daeed93d90e94e2fc18c",
+      "rules": [
+        [
+          "import com.hbm.util.InventoryUtil;",
+          "import com.hbm.items.ItemInventoryTransfer;"
+        ],
+        [
+          "public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {\n\t\tItemStack var3 = null;\n\t\tSlot var4 = (Slot) this.inventorySlots.get(par2);\n\n\t\tif(var4 != null && var4.getHasStack()) {\n\t\t\tItemStack var5 = var4.getStack();\n\t\t\tvar3 = var5.copy();\n\n\t\t\tif(par2 <= box.getSizeInventory() - 1) {\n\t\t\t\tif(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn null;\n\t\t\t\t}\n\t\t\t} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn null;\n\t\t\t}\n\n\t\t\tif(var5.stackSize == 0) {\n\t\t\t\tvar4.putStack((ItemStack) null);\n\t\t\t} else {\n\t\t\t\tvar4.onSlotChanged();\n\t\t\t}\n\n\t\t\tvar4.onTake(p_82846_1_, var5);\n\t\t}\n\n\t\treturn var3;\n\t}",
+          "public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {\n\t\tItemStack var3 = ItemStack.EMPTY;\n\t\tSlot var4 = (Slot) this.inventorySlots.get(par2);\n\n\t\tif(var4 != null && var4.getHasStack()) {\n\t\t\tItemStack var5 = var4.getStack();\n\t\t\tvar3 = var5.copy();\n\n\t\t\tif(par2 <= box.getSizeInventory() - 1) {\n\t\t\t\tif(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn ItemStack.EMPTY;\n\t\t\t\t}\n\t\t\t} else if(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn ItemStack.EMPTY;\n\t\t\t}\n\n\t\t\tif(ItemInventoryTransfer.quantity(var5) == 0) {\n\t\t\t\tvar4.putStack(ItemStack.EMPTY);\n\t\t\t} else {\n\t\t\t\tvar4.onSlotChanged();\n\t\t\t}\n\n\t\t\tvar4.onTake(p_82846_1_, var5);\n\t\t}\n\n\t\treturn var3;\n\t}"
+        ]
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java": {
+      "before_sha256": "c71d446900239629f1b4eeed35517917b73726991d4e18959911f5335dab764f",
+      "after_sha256": "b112d299a4c8a52245a806f1442e368eb1fb54a6bf0e9927c6a9f0ff214dc8be",
+      "rules": [
+        [
+          "import com.hbm.util.InventoryUtil;",
+          "import com.hbm.items.ItemInventoryTransfer;"
+        ],
+        [
+          "public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {\n\t\tItemStack var3 = null;\n\t\tSlot var4 = (Slot) this.inventorySlots.get(par2);\n\n\t\tif(var4 != null && var4.getHasStack()) {\n\t\t\tItemStack var5 = var4.getStack();\n\t\t\tvar3 = var5.copy();\n\n\t\t\tif(par2 <= box.getSizeInventory() - 1) {\n\t\t\t\tif(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn null;\n\t\t\t\t}\n\t\t\t} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn null;\n\t\t\t}\n\n\t\t\tif(var5.stackSize == 0) {\n\t\t\t\tvar4.putStack(ItemStack.EMPTY);\n\t\t\t} else {\n\t\t\t\tvar4.onSlotChanged();\n\t\t\t}\n\n\t\t\tvar4.onTake(p_82846_1_, var5);\n\t\t}\n\n\t\treturn var3;\n\t}",
+          "public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {\n\t\tItemStack var3 = ItemStack.EMPTY;\n\t\tSlot var4 = (Slot) this.inventorySlots.get(par2);\n\n\t\tif(var4 != null && var4.getHasStack()) {\n\t\t\tItemStack var5 = var4.getStack();\n\t\t\tvar3 = var5.copy();\n\n\t\t\tif(par2 <= box.getSizeInventory() - 1) {\n\t\t\t\tif(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, box.getSizeInventory(), this.inventorySlots.size(), true)) {\n\t\t\t\t\treturn ItemStack.EMPTY;\n\t\t\t\t}\n\t\t\t} else if(!ItemInventoryTransfer.mergeItemStack(this.inventorySlots, var5, 0, box.getSizeInventory(), false)) {\n\t\t\t\treturn ItemStack.EMPTY;\n\t\t\t}\n\n\t\t\tif(ItemInventoryTransfer.quantity(var5) == 0) {\n\t\t\t\tvar4.putStack(ItemStack.EMPTY);\n\t\t\t} else {\n\t\t\t\tvar4.onSlotChanged();\n\t\t\t}\n\n\t\t\tvar4.onTake(p_82846_1_, var5);\n\t\t}\n\n\t\treturn var3;\n\t}"
+        ]
+      ]
+    }
+  },
+  "new": {
+    "src/main/java/com/hbm/items/ItemInventoryTransfer.java": "bdb786bf5c346ef229261d204284137656154e80f3c13a7b8ab00180bad8a20d"
+  },
+  "protected": {
+    "src/main/java/com/hbm/items/ItemInventory.java": "5843ef1ba3614b4076daa2531f2788c88806b3a310ed86e6ee318bdd3e10b270",
+    "src/main/java/com/hbm/items/tool/ItemLeadBox.java": "6c46417c97a1472a9c0656e2ed4c2728f313fafb83d73698c07bab6da3d047ae",
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java": "c1f21456f82c753e5d9f88bf00c80b69ff77676fb2fd45e7c5cf47f94fa9370a",
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": "7a5342e8c1dd1b148dab579163b87eaf9fecce3f5dd78afebd5107627f66fe5d",
+    "src/main/java/com/hbm/util/InventoryUtil.java": "f1c92e67e6d2983be710388f7d8a3d86639f28a067470247e6900d2c09682939",
+    "src/main/java/com/hbm/util/ItemStackUtil.java": "91d4772513c195e82949f693b14bbde7103002c1bf929a8f33023a04d947fa04",
+    "src/main/java/com/hbm/util/NullableInventoryStackNbt.java": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+    "src/main/java/com/hbm/util/NativeHeldItem.java": "c9cc68d6853ca7f9d080914452b5d7592a90a4cfb4ce86f447099113089b2692",
+    "src/main/java/com/hbm/inventory/SlotPattern.java": "fa609729a077bf5f7a415d58afb7ce8d691a56cdd51465859bdb3f9b4884710d",
+    "src/main/java/com/hbm/inventory/container/ContainerNT.java": "0d8174c617033d89ffc5dc69181aa219c10794e569ccbfbe65c92a38a6e49005",
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": "c636aa3a84777d6cc135804975cf88944c9e88359c0958653d9b24628c00a50d"
+  }
+}

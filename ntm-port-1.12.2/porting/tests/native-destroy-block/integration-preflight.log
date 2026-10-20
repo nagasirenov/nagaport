@@ -1,0 +1,2 @@
+PASS: 60 exact selected edits, original-byte reversal and target regeneration in 50 files
+PASS: preflight 60 invocation-only edits across 50 files plus one domain helper; inverse preserves unrelated source bytes

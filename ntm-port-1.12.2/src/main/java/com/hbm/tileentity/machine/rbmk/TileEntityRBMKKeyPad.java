@@ -108,7 +108,7 @@ public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIPr
 			if(!active) return;
 			
 			if(!polling) {
-				if(canSend()) RTTYSystem.broadcast(worldObj, rtty, command);
+				if(canSend()) RTTYSystem.broadcast(TileEntityRBMKKeyPad.this.world, rtty, command);
 				this.isPressed = true;
 				this.clickTimer = 7;
 			} else {
@@ -116,14 +116,14 @@ public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIPr
 				TileEntityRBMKKeyPad.this.markDirty();
 			}
 			
-			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.click", 1F, this.isPressed ? 1F : 0.75F);
+			TileEntityRBMKKeyPad.this.world.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.click", 1F, this.isPressed ? 1F : 0.75F);
 		}
 		
 		public void update() {
 			if(!active) return;
 			
 			if(polling && isPressed) {
-				if(canSend()) RTTYSystem.broadcast(worldObj, rtty, command);
+				if(canSend()) RTTYSystem.broadcast(TileEntityRBMKKeyPad.this.world, rtty, command);
 			}
 			
 			if(!polling && isPressed) {

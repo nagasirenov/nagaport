@@ -1,0 +1,69 @@
+PASS: 57 exact source regenerations/inverses across three whole callers; complete RedBrick delta and unchanged native owner/helper dependency hashes; no source owner subclasses
+/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks;
+                      ^
+/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS: three actual supplied original owner classfiles symbol-remapped; no method instructions removed or replaced
+PASS: original mod/classfile, vanilla client, Forge1614 and SRG SHA-256 provenance matches retained evidence
+PASS: 36416 actual original/native owned state/storage/bounds/returns/aliases/icons/placement/subclass assertions
+Read-only reviewed conversion method: com/hbm/blocks/generic/BlockRedBrick.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: com/hbm/blocks/generic/DecoSteelPoles.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: com/hbm/blocks/generic/DecoPoleTop.getStateFromMeta(I)Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/Block.getDefaultState()Lnet/minecraft/block/state/IBlockState;
+Read-only reviewed conversion method: net/minecraft/block/state/BlockStateContainer$StateImplementation.withProperty(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+PASS: 5 owned state conversion methods have no field/array writes, monitors, dynamic invocation or unreviewed calls; all sixteen states tested separately
+PASS: 10 generated production-template order/bounds/null/conversion/subclass-dispatch assertions
+/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/porting/tests/world-owned-write-native/OriginalOwnedEvaluation.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                           ^
+/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/porting/tests/world-owned-write-native/OriginalOwnedEvaluation.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                     ^
+/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/porting/tests/world-owned-write-native/OriginalOwnedEvaluation.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+  kl.b();java.lang.reflect.Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);sun.misc.Unsafe u=(sun.misc.Unsafe)f.get(null);selected=(ahb)u.allocateInstance(bjf.class);
+                                                                                                                                        ^
+3 warnings
+PASS: 6 original owned-write null-field/null-world/argument-failure/evaluation cases
+PASS: two owned positives and ten receiver/alias/range/type/result/comment negative attribution controls
+PASS: field-initializer and aliased-field-reassignment closure mutations rejected
+FIELD	brick_red	com.hbm.blocks.generic.BlockRedBrick	/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	131838	131935
+FIELD	steel_poles	com.hbm.blocks.generic.DecoSteelPoles	/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	132957	133114
+FIELD	pole_top	com.hbm.blocks.generic.DecoPoleTop	/workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/src/main/java/com/hbm/blocks/ModBlocks.java	133119	133267
+Attribution diagnostics, NOT whole-source compile success: 12296
+PASS: exactly three attributed field assignments, each a reviewed native identity-returning builder chain from its exact concrete constructor; no initializers
+Unrelated unfinished-port diagnostics: 12296
+PASS: all 57 exact new call positions resolve to the existing IBlockState boundary; NOT full compilation
+Note: /tmp/world-owned-write-0b3c1d1i/BlockRedBrick.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/BlockRedBrick.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/BlockRedBrick.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/BlockRedBrick.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/BlockRedBrick.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-owned-writes/ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockRedBrick.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS: five state/icon/strict-height/corner/actual-owner behavior mutants rejected
+Note: /tmp/world-owned-write-0b3c1d1i/CapturedOwnedWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/CapturedOwnedWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/CapturedOwnedWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/CapturedOwnedWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/world-owned-write-0b3c1d1i/CapturedOwnedWrite.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS: five capture bounds/null/metadata/flags/eager-conversion behavior mutants rejected
+PASS: all 57 individual production-call deletion mutations rejected by exact-source comparison
+PASS: bounded owned-write proof complete; no full-mod/client/server/persistence certification

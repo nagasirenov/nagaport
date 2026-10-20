@@ -1,0 +1,162 @@
+[
+  {
+    "index": 0,
+    "expression": "event.setAmount((float) (event.getAmount() * (0.001F)));",
+    "original_operator_oracle": "expected *= 0.001F;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+    "method": "handleHurt"
+  },
+  {
+    "index": 1,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+    "method": "handleHurt"
+  },
+  {
+    "index": 2,
+    "expression": "event.setAmount((float) (event.getAmount() - (2F)));",
+    "original_operator_oracle": "expected -= 2F;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ArmorHat.java",
+    "method": "handleDamage"
+  },
+  {
+    "index": 3,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ArmorHat.java",
+    "method": "handleDamage"
+  },
+  {
+    "index": 4,
+    "expression": "event.setAmount((float) (event.getAmount() - (0.5F)));",
+    "original_operator_oracle": "expected -= 0.5F;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ArmorNo9.java",
+    "method": "handleDamage"
+  },
+  {
+    "index": 5,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ArmorNo9.java",
+    "method": "handleDamage"
+  },
+  {
+    "index": 6,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+    "method": "handleHurt"
+  },
+  {
+    "index": 7,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModBandaid.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 8,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModCard.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 9,
+    "expression": "event.setAmount((float) (event.getAmount() * (0.5F)));",
+    "original_operator_oracle": "expected *= 0.5F;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModCharm.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 10,
+    "expression": "event.setAmount(0F);",
+    "original_operator_oracle": "expected = 0F;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModCharm.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 11,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModInk.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 12,
+    "expression": "event.setAmount((float) (event.getAmount() * (damageMod)));",
+    "original_operator_oracle": "expected *= damageMod;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 13,
+    "expression": "event.setAmount((float) (event.getAmount() * (projectileMod)));",
+    "original_operator_oracle": "expected *= projectileMod;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 14,
+    "expression": "event.setAmount((float) (event.getAmount() * (explosionMod)));",
+    "original_operator_oracle": "expected *= explosionMod;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 15,
+    "expression": "event.setAmount((float) (event.getAmount() * (damageMod)));",
+    "original_operator_oracle": "expected *= damageMod;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModPads.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 16,
+    "expression": "event.setAmount(0);",
+    "original_operator_oracle": "expected = 0;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/items/armor/ItemModPolish.java",
+    "method": "modDamage"
+  },
+  {
+    "index": 17,
+    "expression": "event.setAmount((float) (event.getAmount() - (reduce)));",
+    "original_operator_oracle": "expected -= reduce;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+    "method": "onEntityDamaged"
+  },
+  {
+    "index": 18,
+    "expression": "event.setAmount((float) (event.getAmount() * (2F)));",
+    "original_operator_oracle": "expected *= 2F;",
+    "callback_boundary": false,
+    "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+    "method": "onEntityDamaged"
+  },
+  {
+    "index": 19,
+    "expression": "event.setAmount(calculateDamage(event.getEntityLiving(), event.getSource(), event.getAmount(), currentPDT, currentPDR));",
+    "original_operator_oracle": "expected = callbackResult;",
+    "callback_boundary": true,
+    "path": "src/main/java/com/hbm/util/DamageResistanceHandler.java",
+    "method": "onEntityDamaged"
+  }
+]

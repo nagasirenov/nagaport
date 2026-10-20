@@ -1,0 +1,11 @@
+{
+  "reconstruction_date_utc": "2026-10-20",
+  "source_recovery_commit": "d25dcb9f0908d76b1e9eca96b75e58f6397de355",
+  "original_cp76_commit": "0aeda80b859b80afc8af26398366ef05f68478af",
+  "production_patch_sha256": "f46e60c965d65ec63c3f702680c7493bdc87d01fe3a81d6f02a702faeb1ea2fa",
+  "production_status": "Recovered byte-for-byte; seven historical before/after hashes and helper hash verified in this workspace.",
+  "evidence_status": "Reconstructed from retained conversation and recovered pristine/CP76 source; not an assertion of byte-identical recovery of the prior evidence patch.",
+  "historical_runtime_report": "Before workspace loss, the parent received a report of 222 new transport checks and 191 rerun helper checks passing. That transport verification log is lost and is not recreated here.",
+  "current_runtime_status": "Not run in the replacement workspace. Requires genuine mapped Forge 1.12.2 classpath and Java 8. No replacement native APIs or fabricated log.",
+  "reused_logs": "Existing bomb/machine verification logs are recovered historical artifacts, not current runs."
+}

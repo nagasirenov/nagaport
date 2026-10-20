@@ -18,9 +18,11 @@ import net.minecraft.world.World;
 
 public class MeltedFlesh extends Block {
 
+	private final net.minecraft.util.math.AxisAlignedBB shape;
+
 	public MeltedFlesh(Material mat) {
 		super(mat);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
+		this.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 		this.setTickRandomly(true);
 	}
 
@@ -42,9 +44,11 @@ public class MeltedFlesh extends Block {
 		return ModItems.powder_coal_tiny;
 	}
 
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
-		return block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(world, x, y - 1, z) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement())) : false;
+	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
+		net.minecraft.block.state.IBlockState nativeSupportState = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
+		Block block = nativeSupportState.getBlock();
+		return block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube(nativeSupportState) && block.getDefaultState().getMaterial().blocksMovement())) : false;
 	}
 
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {
@@ -52,7 +56,7 @@ public class MeltedFlesh extends Block {
 	}
 
 	private boolean func_150155_m(World world, int x, int y, int z) {
-		if(!this.canPlaceBlockAt(world, x, y, z)) {
+		if(!this.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return false;
 		} else {
@@ -60,7 +64,7 @@ public class MeltedFlesh extends Block {
 		}
 	}
 
-	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {
+	public boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return true;
 	}
 	
@@ -78,10 +82,10 @@ public class MeltedFlesh extends Block {
 			f2 = (float)z + rand.nextFloat();
 
 			if(this == ModBlocks.flesh_block) {
-				world.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle("cloud", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
 			} else if(this == ModBlocks.charred_flesh_block) {
-				world.spawnParticle("largesmoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);	        	
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);	        	
 			}
 		}		
 	}
@@ -98,4 +102,10 @@ public class MeltedFlesh extends Block {
 		}
 	}
 
+
+
+	@Override
+	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		return shape;
+	}
 }

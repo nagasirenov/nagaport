@@ -209,7 +209,8 @@ public class ExplosionNT extends Explosion {
 				i = chunkposition.getX();
 				j = chunkposition.getY();
 				k = chunkposition.getZ();
-				block = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k).getBlock();
+				net.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k);
+				block = nativeCubeState_block.getBlock();
 
 				if(!has(ExAttrib.NOPARTICLE)) {
 					double d0 = (double) ((float) i + this.worldObj.rand.nextFloat());
@@ -228,7 +229,7 @@ public class ExplosionNT extends Explosion {
 					d4 *= d7;
 					d5 *= d7;
 					this.worldObj.spawnParticle("explode", (d0 + this.explosionX * 1.0D) / 2.0D, (d1 + this.explosionY * 1.0D) / 2.0D, (d2 + this.explosionZ * 1.0D) / 2.0D, d3, d4, d5);
-					this.worldObj.spawnParticle("smoke", d0, d1, d2, d3, d4, d5);
+					this.worldObj.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, d3, d4, d5);
 				}
 
 				if(block.getDefaultState().getMaterial() != Material.AIR) {
@@ -255,7 +256,7 @@ public class ExplosionNT extends Explosion {
 
 					block.onBlockExploded(this.worldObj, i, j, k, this);
 					
-					if(block.isNormalCube()) {
+					if(block.isNormalCube(nativeCubeState_block)) {
 						
 						if(doesErrode) {
 							this.worldObj.setBlock(i, j, k, errodesInto);

@@ -25,14 +25,14 @@ public class WingsMurk extends JetpackBase {
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
 		return ResourceManager.wings_murk.toString();
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
-		if (armorSlot == 1) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+		if (armorSlot == net.minecraft.inventory.EntityEquipmentSlot.CHEST) {
 			if(cachedModel == null) {
 				cachedModel = new ModelArmorWings(this == ModItems.wings_murk ? 0 : 1);
 			}

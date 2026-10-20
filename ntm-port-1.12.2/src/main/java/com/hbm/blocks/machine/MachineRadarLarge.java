@@ -73,16 +73,20 @@ public class MachineRadarLarge extends BlockDummyable {
 	}
 	
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int m) {
-		int meta = world.getBlockMetadata(x, y, z);
+	public int getWeakPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {
+		int x = blockPos.getX();
+		int y = blockPos.getY();
+		int z = blockPos.getZ();
+		int m = side.getIndex();
+		int meta = com.hbm.world.WorldBlockState.metadata(world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)));
 		if(meta >= 6) {
 			ForgeDirection dir = ForgeDirection.getOrientation(m);
-			TileEntity tile = world.getTileEntity(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
+			TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ));
 			if(tile instanceof TileEntityMachineRadarNT) {
 				TileEntityMachineRadarNT entity = (TileEntityMachineRadarNT) tile;
 				return entity.getRedPower();
@@ -92,7 +96,7 @@ public class MachineRadarLarge extends BlockDummyable {
 	}
 
 	@Override
-	public int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int m) {
-		return isProvidingWeakPower(world, x, y, z, m);
+	public int getStrongPower(net.minecraft.block.state.IBlockState state, IBlockAccess world, net.minecraft.util.math.BlockPos blockPos, net.minecraft.util.EnumFacing side) {
+		return getWeakPower(state, world, blockPos, side);
 	}
 }

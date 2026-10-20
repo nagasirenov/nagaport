@@ -1,0 +1,1557 @@
+{
+  "parsed_units": 4065,
+  "parse_errors": 0,
+  "before_errors": 12471,
+  "after_errors": 12429,
+  "removed_errors": 42,
+  "added_errors": 0,
+  "native_overrides": 7,
+  "ordinary_calls": 32,
+  "super_calls": 7,
+  "slot_subtree_classes": 22,
+  "removed_diagnostics": [
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotCraftingOutput.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotCraftingOutput.java",
+      "code": "compiler.err.cant.resolve.args",
+      "message": "cannot find symbol\\n  symbol: method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "code": "compiler.err.cant.resolve.args",
+      "message": "cannot find symbol\\n  symbol: method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "code": "compiler.err.cant.resolve.args",
+      "message": "cannot find symbol\\n  symbol: method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBook.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCasingBag.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneExtractor.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneGrabber.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDroneRequester.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLemegeton.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAnnihilator.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyFactory.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyMachine.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalFactory.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalPlant.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePUREX.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePrecAss.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMassStorage.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSILEX.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerTransporterRocket.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerTurretBase.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWasteDrum.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWatz.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable var4 of type net.minecraft.inventory.Slot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "code": "compiler.err.cant.resolve.args",
+      "message": "cannot find symbol\\n  symbol: method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "code": "compiler.err.cant.resolve.location.args",
+      "message": "cannot find symbol\\n  symbol:   method onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)\\n  location: variable slot of type net.minecraft.inventory.Slot",
+      "count": 1
+    }
+  ],
+  "selected_callbacks": [
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotCraftingOutput.java",
+      "line": "38",
+      "owner": "com.hbm.inventory.SlotCraftingOutput",
+      "signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "native_override": "false",
+      "parameters": "net.minecraft.entity.player.EntityPlayer || net.minecraft.item.ItemStack",
+      "parameter_kinds": "DECLARED || DECLARED",
+      "body": "{\\n\\t\\tthis.onCrafting(stack);\\n\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t}",
+      "source": "@Override\\n\\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\\n\\t\\tthis.onCrafting(stack);\\n\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t}"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "30",
+      "owner": "",
+      "signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "native_override": "false",
+      "parameters": "net.minecraft.entity.player.EntityPlayer || net.minecraft.item.ItemStack",
+      "parameter_kinds": "DECLARED || DECLARED",
+      "body": "{\\n\\t\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tItemStack left = ContainerAnvil.this.input.getStackInSlot(0);\\n\\t\\t\\t\\tItemStack right = ContainerAnvil.this.input.getStackInSlot(1);\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tif(left == null || right == null) {\\n\\t\\t\\t\\t\\treturn;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tfor(com.hbm.inventory.recipes.anvil.AnvilSmithingRecipe rec : AnvilRecipes.getSmithing()) {\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tint i = rec.matchesInt(left, right);\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tif(i != -1) {\\n\\t\\t\\t\\t\\t\\tContainerAnvil.this.input.decrStackSize(0, rec.amountConsumed(0, i == 1));\\n\\t\\t\\t\\t\\t\\tContainerAnvil.this.input.decrStackSize(1, rec.amountConsumed(1, i == 1));\\n\\t\\t\\t\\t\\t\\tContainerAnvil.this.updateSmithing();\\n\\t\\t\\t\\t\\t\\treturn;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}",
+      "source": "@Override\\n\\t\\t\\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\\n\\t\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tItemStack left = ContainerAnvil.this.input.getStackInSlot(0);\\n\\t\\t\\t\\tItemStack right = ContainerAnvil.this.input.getStackInSlot(1);\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tif(left == null || right == null) {\\n\\t\\t\\t\\t\\treturn;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tfor(com.hbm.inventory.recipes.anvil.AnvilSmithingRecipe rec : AnvilRecipes.getSmithing()) {\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tint i = rec.matchesInt(left, right);\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tif(i != -1) {\\n\\t\\t\\t\\t\\t\\tContainerAnvil.this.input.decrStackSize(0, rec.amountConsumed(0, i == 1));\\n\\t\\t\\t\\t\\t\\tContainerAnvil.this.input.decrStackSize(1, rec.amountConsumed(1, i == 1));\\n\\t\\t\\t\\t\\t\\tContainerAnvil.this.updateSmithing();\\n\\t\\t\\t\\t\\t\\treturn;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "145",
+      "owner": "com.hbm.inventory.container.ContainerAnvil.SmithingSlot",
+      "signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "native_override": "false",
+      "parameters": "net.minecraft.entity.player.EntityPlayer || net.minecraft.item.ItemStack",
+      "parameter_kinds": "DECLARED || DECLARED",
+      "body": "{\\n\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\tContainerAnvil.this.updateSmithing();\\n\\t\\t}",
+      "source": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\\n\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\tContainerAnvil.this.updateSmithing();\\n\\t\\t}"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "63",
+      "owner": "",
+      "signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "native_override": "false",
+      "parameters": "net.minecraft.entity.player.EntityPlayer || net.minecraft.item.ItemStack",
+      "parameter_kinds": "DECLARED || DECLARED",
+      "body": "{\\n\\t\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\t\\t\\n\\t\\t\\t\\t//if the armor piece is taken, absorb all armor pieces\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tfor(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tItemStack mod = upgrades.getStackInSlot(i);\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t//ideally, this should always return true so long as the mod slot is not null due to the insert restriction\\n\\t\\t\\t\\t\\tif(ArmorModHandler.isApplicable(stack, mod)) {\\n\\t\\t\\t\\t\\t\\tupgrades.setInventorySlotContents(i, ItemStack.EMPTY);\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}",
+      "source": "@Override\\n\\t\\t\\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\\n\\t\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\t\\t\\n\\t\\t\\t\\t//if the armor piece is taken, absorb all armor pieces\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tfor(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tItemStack mod = upgrades.getStackInSlot(i);\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t//ideally, this should always return true so long as the mod slot is not null due to the insert restriction\\n\\t\\t\\t\\t\\tif(ArmorModHandler.isApplicable(stack, mod)) {\\n\\t\\t\\t\\t\\t\\tupgrades.setInventorySlotContents(i, ItemStack.EMPTY);\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "211",
+      "owner": "com.hbm.inventory.container.ContainerArmorTable.UpgradeSlot",
+      "signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "native_override": "false",
+      "parameters": "net.minecraft.entity.player.EntityPlayer || net.minecraft.item.ItemStack",
+      "parameter_kinds": "DECLARED || DECLARED",
+      "body": "{\\n\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\t\\n\\t\\t\\tArmorModHandler.removeMod(armor.getStackInSlot(0), this.slotNumber);\\n\\t\\t}",
+      "source": "public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\\n\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\t\\n\\t\\t\\tArmorModHandler.removeMod(armor.getStackInSlot(0), this.slotNumber);\\n\\t\\t}"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "49",
+      "owner": "",
+      "signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "native_override": "false",
+      "parameters": "net.minecraft.entity.player.EntityPlayer || net.minecraft.item.ItemStack",
+      "parameter_kinds": "DECLARED || DECLARED",
+      "body": "{\\n\\t\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\n\\t\\t\\t\\tXWeaponModManager.install(\\n\\t\\t\\t\\t\\t\\tstack, index,\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(0),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(1),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(2),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(3),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(4),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(5),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(6));\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tfor(int i = 0; i < 7; i++) {\\n\\t\\t\\t\\t\\tItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);\\n\\t\\t\\t\\t\\tif(XWeaponModManager.isApplicable(stack, mod, index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tContainerWeaponTable.this.index = 0;\\n\\t\\t\\t}",
+      "source": "@Override\\n\\t\\t\\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\\n\\t\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\n\\t\\t\\t\\tXWeaponModManager.install(\\n\\t\\t\\t\\t\\t\\tstack, index,\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(0),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(1),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(2),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(3),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(4),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(5),\\n\\t\\t\\t\\t\\t\\tmods.getStackInSlot(6));\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tfor(int i = 0; i < 7; i++) {\\n\\t\\t\\t\\t\\tItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);\\n\\t\\t\\t\\t\\tif(XWeaponModManager.isApplicable(stack, mod, index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tContainerWeaponTable.this.index = 0;\\n\\t\\t\\t}"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "202",
+      "owner": "com.hbm.inventory.container.ContainerWeaponTable.ModSlot",
+      "signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "native_override": "false",
+      "parameters": "net.minecraft.entity.player.EntityPlayer || net.minecraft.item.ItemStack",
+      "parameter_kinds": "DECLARED || DECLARED",
+      "body": "{\\n\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\trefreshInstalledMods();\\n\\t\\t}",
+      "source": "@Override\\n\\t\\tpublic void onPickupFromSlot(EntityPlayer player, ItemStack stack) {\\n\\t\\t\\tsuper.onPickupFromSlot(player, stack);\\n\\t\\t\\trefreshInstalledMods();\\n\\t\\t}"
+    }
+  ],
+  "selected_before_calls": [
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotCraftingOutput.java",
+      "line": "41",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || stack",
+      "source": "super.onPickupFromSlot(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "32",
+      "receiver": "super",
+      "receiver_type": "com.hbm.inventory.SlotCraftingOutput",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.inventory.SlotCraftingOutput",
+      "method_signature": "onPickupFromSlot(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onPickupFromSlot(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "94",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "108",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "146",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || stack",
+      "source": "super.onPickupFromSlot(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "65",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || stack",
+      "source": "super.onPickupFromSlot(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "135",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "212",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || stack",
+      "source": "super.onPickupFromSlot(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBook.java",
+      "line": "99",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || itemstack1",
+      "source": "slot.onPickupFromSlot(p_82846_1_, itemstack1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCasingBag.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java",
+      "line": "62",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || var5",
+      "source": "var4.onPickupFromSlot(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneExtractor.java",
+      "line": "77",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || var5",
+      "source": "var4.onPickupFromSlot(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneGrabber.java",
+      "line": "72",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || var5",
+      "source": "var4.onPickupFromSlot(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java",
+      "line": "58",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java",
+      "line": "63",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java",
+      "line": "69",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || var5",
+      "source": "var4.onPickupFromSlot(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDroneRequester.java",
+      "line": "56",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLemegeton.java",
+      "line": "81",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || itemstack1",
+      "source": "slot.onPickupFromSlot(p_82846_1_, itemstack1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAnnihilator.java",
+      "line": "64",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || slotStack",
+      "source": "slot.onPickupFromSlot(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyFactory.java",
+      "line": "81",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || slotStack",
+      "source": "slot.onPickupFromSlot(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyMachine.java",
+      "line": "68",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || slotStack",
+      "source": "slot.onPickupFromSlot(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalFactory.java",
+      "line": "81",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || slotStack",
+      "source": "slot.onPickupFromSlot(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalPlant.java",
+      "line": "75",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || slotStack",
+      "source": "slot.onPickupFromSlot(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePUREX.java",
+      "line": "69",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || slotStack",
+      "source": "slot.onPickupFromSlot(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePrecAss.java",
+      "line": "68",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || slotStack",
+      "source": "slot.onPickupFromSlot(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMassStorage.java",
+      "line": "60",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || initial",
+      "source": "slot.onPickupFromSlot(player, initial)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java",
+      "line": "56",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSILEX.java",
+      "line": "89",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java",
+      "line": "64",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerTransporterRocket.java",
+      "line": "60",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerTurretBase.java",
+      "line": "72",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWasteDrum.java",
+      "line": "69",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWatz.java",
+      "line": "65",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onPickupFromSlot(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "51",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || stack",
+      "source": "super.onPickupFromSlot(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "166",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || stack",
+      "source": "slot.onPickupFromSlot(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "204",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "net.minecraft.inventory.Slot.onPickupFromSlot",
+      "method_kind": "CLASS",
+      "arguments": "player || stack",
+      "source": "super.onPickupFromSlot(player, stack)"
+    }
+  ],
+  "after_calls": [
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotCraftingOutput.java",
+      "line": "41",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotSmelting.java",
+      "line": "37",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "32",
+      "receiver": "super",
+      "receiver_type": "com.hbm.inventory.SlotCraftingOutput",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.inventory.SlotCraftingOutput",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "95",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "109",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "147",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "65",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "136",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "213",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBase.java",
+      "line": "58",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerBook.java",
+      "line": "99",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || itemstack1",
+      "source": "slot.onTake(p_82846_1_, itemstack1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCasingBag.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneBoxer.java",
+      "line": "62",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || var5",
+      "source": "var4.onTake(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneExtractor.java",
+      "line": "77",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || var5",
+      "source": "var4.onTake(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneGrabber.java",
+      "line": "72",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || var5",
+      "source": "var4.onTake(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneInserter.java",
+      "line": "58",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCraneUnboxer.java",
+      "line": "63",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDroneCrate.java",
+      "line": "69",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || var5",
+      "source": "var4.onTake(player, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerDroneRequester.java",
+      "line": "56",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerLemegeton.java",
+      "line": "81",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || itemstack1",
+      "source": "slot.onTake(p_82846_1_, itemstack1)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAnnihilator.java",
+      "line": "64",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyFactory.java",
+      "line": "81",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineAssemblyMachine.java",
+      "line": "68",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalFactory.java",
+      "line": "81",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineChemicalPlant.java",
+      "line": "75",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePUREX.java",
+      "line": "69",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachinePrecAss.java",
+      "line": "68",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || slotStack",
+      "source": "slot.onTake(player, slotStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMassStorage.java",
+      "line": "60",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || initial",
+      "source": "slot.onTake(player, initial)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNT.java",
+      "line": "223",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || nativeStack(invPlayer.getItemStack())",
+      "source": "slot.onTake(player, nativeStack(invPlayer.getItemStack()))"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNT.java",
+      "line": "260",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || nativeStack(invPlayer.getItemStack())",
+      "source": "slot.onTake(player, nativeStack(invPlayer.getItemStack()))"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNT.java",
+      "line": "290",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || itemstack5",
+      "source": "slot.onTake(player, itemstack5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNT.java",
+      "line": "295",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || itemstack5",
+      "source": "slot.onTake(player, itemstack5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNT.java",
+      "line": "315",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || itemstack3",
+      "source": "slot.onTake(player, itemstack3)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerNT.java",
+      "line": "340",
+      "receiver": "slot3",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || itemstack2",
+      "source": "slot3.onTake(player, itemstack2)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java",
+      "line": "56",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSILEX.java",
+      "line": "89",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerStorageDrum.java",
+      "line": "64",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+      "line": "61",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerTransporterRocket.java",
+      "line": "60",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerTurretBase.java",
+      "line": "72",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWasteDrum.java",
+      "line": "69",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWatz.java",
+      "line": "65",
+      "receiver": "var4",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "p_82846_1_ || var5",
+      "source": "var4.onTake(p_82846_1_, var5)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "51",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "167",
+      "receiver": "slot",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "slot.onTake(player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "205",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.inventory.Slot",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.inventory.Slot",
+      "method_signature": "onTake(net.minecraft.entity.player.EntityPlayer,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "player || stack",
+      "source": "super.onTake(player, stack)"
+    }
+  ],
+  "slot_classes": [
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotCraftingOutput.java",
+      "line": "10",
+      "owner": "com.hbm.inventory.SlotCraftingOutput",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotDeprecated.java",
+      "line": "12",
+      "owner": "com.hbm.inventory.SlotDeprecated",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotLayer.java",
+      "line": "7",
+      "owner": "com.hbm.inventory.SlotLayer",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotNonRetarded.java",
+      "line": "13",
+      "owner": "com.hbm.inventory.SlotNonRetarded",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotPattern.java",
+      "line": "10",
+      "owner": "com.hbm.inventory.SlotPattern",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotRocket.java",
+      "line": "14",
+      "owner": "com.hbm.inventory.SlotRocket",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotRocket.java",
+      "line": "26",
+      "owner": "com.hbm.inventory.SlotRocket.SlotRocketPart",
+      "superclass": "com.hbm.inventory.SlotLayer",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotRocket.java",
+      "line": "48",
+      "owner": "com.hbm.inventory.SlotRocket.SlotCapsule",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotRocket.java",
+      "line": "69",
+      "owner": "com.hbm.inventory.SlotRocket.SlotDrive",
+      "superclass": "com.hbm.inventory.SlotLayer",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotSmelting.java",
+      "line": "12",
+      "owner": "com.hbm.inventory.SlotSmelting",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotTakeOnly.java",
+      "line": "7",
+      "owner": "com.hbm.inventory.SlotTakeOnly",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/SlotUpgrade.java",
+      "line": "9",
+      "owner": "com.hbm.inventory.SlotUpgrade",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "28",
+      "owner": "",
+      "superclass": "com.hbm.inventory.SlotCraftingOutput",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerAnvil.java",
+      "line": "130",
+      "owner": "com.hbm.inventory.container.ContainerAnvil.SmithingSlot",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "38",
+      "owner": "",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "85",
+      "owner": "",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "line": "191",
+      "owner": "com.hbm.inventory.container.ContainerArmorTable.UpgradeSlot",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerCrateBase.java",
+      "line": "59",
+      "owner": "com.hbm.inventory.container.ContainerCrateBase.SlotPlayerCrateLocked",
+      "superclass": "com.hbm.inventory.SlotNonRetarded",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerMachineArcFurnaceLarge.java",
+      "line": "89",
+      "owner": "com.hbm.inventory.container.ContainerMachineArcFurnaceLarge.SlotArcFurnace",
+      "superclass": "com.hbm.inventory.SlotNonRetarded",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerSatDock.java",
+      "line": "37",
+      "owner": "",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "26",
+      "owner": "",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerWeaponTable.java",
+      "line": "186",
+      "owner": "com.hbm.inventory.container.ContainerWeaponTable.ModSlot",
+      "superclass": "net.minecraft.inventory.Slot",
+      "superkind": "DECLARED",
+      "slot_subtype": "true",
+      "interfaces": ""
+    }
+  ]
+}

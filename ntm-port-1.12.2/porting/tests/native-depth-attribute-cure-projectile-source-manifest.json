@@ -1,0 +1,548 @@
+{
+  "baseline": "77b595c32b46e2f9309bcf9924d654ddc29a3c95",
+  "files": {
+    "src/main/java/com/hbm/blocks/ModBlocks.java": {
+      "before_sha256": "8aed7d00d78a39ebb99ba95351e5795411a07e9471f26be4e3a470d8db89d256",
+      "after_sha256": "64014238c21ddfb1410290d043a71c838dbf6eaa1364227b11b93244351ca9ba",
+      "edits": [
+        {
+          "before_offset": 62121,
+          "after_offset": 62121,
+          "old": "\t\tstone_depth = new BlockDepth().setTranslationKey(\"stone_depth\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":stone_depth\");\r\n\t\tore_depth_cinnebar = new BlockDepthOre().setTranslationKey(\"ore_depth_cinnebar\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_cinnebar\");\r\n\t\tore_depth_zirconium = new BlockDepthOre().setTranslationKey(\"ore_depth_zirconium\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_zirconium\");\r\n\t\tore_depth_borax = new BlockDepthOre().setTranslationKey(\"ore_depth_borax\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_borax\");\r\n\t\tcluster_depth_iron = new BlockDepthOre().setTranslationKey(\"cluster_depth_iron\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":cluster_depth_iron\");\r\n\t\tcluster_depth_titanium = new BlockDepthOre().setTranslationKey(\"cluster_depth_titanium\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":cluster_depth_titanium\");\r\n\t\tcluster_depth_tungsten = new BlockDepthOre().setTranslationKey(\"cluster_depth_tungsten\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":cluster_depth_tungsten\");\r\n\t\tore_alexandrite = new BlockDepthOre().setTranslationKey(\"ore_alexandrite\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_alexandrite\");\r\n",
+          "new": "\t\tstone_depth = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"stone_depth\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":stone_depth\");\r\n\t\tore_depth_cinnebar = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_cinnebar\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_cinnebar\");\r\n\t\tore_depth_zirconium = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_zirconium\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_zirconium\");\r\n\t\tore_depth_borax = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_borax\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_borax\");\r\n\t\tcluster_depth_iron = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"cluster_depth_iron\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":cluster_depth_iron\");\r\n\t\tcluster_depth_titanium = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"cluster_depth_titanium\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":cluster_depth_titanium\");\r\n\t\tcluster_depth_tungsten = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"cluster_depth_tungsten\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":cluster_depth_tungsten\");\r\n\t\tore_alexandrite = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_alexandrite\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_alexandrite\");\r\n"
+        },
+        {
+          "before_offset": 64114,
+          "after_offset": 64266,
+          "old": "\t\tdepth_brick = new BlockDepth().setTranslationKey(\"depth_brick\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_brick\");\r\n\t\tdepth_tiles = new BlockDepth().setTranslationKey(\"depth_tiles\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_tiles\");\r\n\t\tdepth_nether_brick = new BlockDepth().setTranslationKey(\"depth_nether_brick\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_nether_brick\");\r\n\t\tdepth_nether_tiles = new BlockDepth().setTranslationKey(\"depth_nether_tiles\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":depth_nether_tiles\");\r\n\t\tdepth_dnt = new BlockDepth().setTranslationKey(\"depth_dnt\").setCreativeTab(MainRegistry.blockTab).setResistance(60000.0F).setBlockTextureName(RefStrings.MODID + \":depth_dnt\");\r\n\r\n\t\tstone_depth_nether = new BlockDepth().setTranslationKey(\"stone_depth_nether\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":stone_depth_nether\");\r\n\t\tore_depth_nether_neodymium = new BlockDepthOre().setTranslationKey(\"ore_depth_nether_neodymium\").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + \":ore_depth_nether_neodymium\");\r\n",
+          "new": "\t\tdepth_brick = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_brick\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_brick\");\r\n\t\tdepth_tiles = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_tiles\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_tiles\");\r\n\t\tdepth_nether_brick = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_nether_brick\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_nether_brick\");\r\n\t\tdepth_nether_tiles = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_nether_tiles\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":depth_nether_tiles\");\r\n\t\tdepth_dnt = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"depth_dnt\").setCreativeTab(MainRegistry.blockTab).setResistance(60000.0F), RefStrings.MODID + \":depth_dnt\");\r\n\r\n\t\tstone_depth_nether = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey(\"stone_depth_nether\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":stone_depth_nether\");\r\n\t\tore_depth_nether_neodymium = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey(\"ore_depth_nether_neodymium\").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + \":ore_depth_nether_neodymium\");\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/PlainCubeTextures.java": {
+      "before_sha256": "c8de408be634142dca07d62dbf75d2559bc1eba41a8f58098cec4feb1f360b6a",
+      "after_sha256": "14a20a8b6b87ceeb50ed1674f81c931084acdab20710518830f61626080b1080",
+      "edits": [
+        {
+          "before_offset": 146,
+          "after_offset": 146,
+          "old": "/** Texture bindings for the audited plain Outgas/Smolder/StepEffect and Hazard/HotHazard cubes only.\n",
+          "new": "/** Texture bindings for the audited plain Outgas/Smolder/StepEffect, Hazard/HotHazard and Depth/DepthOre cubes only.\n"
+        },
+        {
+          "before_offset": 1028,
+          "after_offset": 1044,
+          "old": "                !owner.equals(\"com.hbm.blocks.generic.BlockHotHazard\"))\n",
+          "new": "                !owner.equals(\"com.hbm.blocks.generic.BlockHotHazard\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockDepth\") &&\n                !owner.equals(\"com.hbm.blocks.generic.BlockDepthOre\"))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyGeneric.java": {
+      "before_sha256": "8d44ff26eea9d047276da1e92d509bbda23e5a2eedf8c378ac822c3d65327da8",
+      "after_sha256": "1de562b0daa6b8950d29e0170ee63597c2517220bc05f9ba72c3a01265309113",
+      "edits": [
+        {
+          "before_offset": 113,
+          "after_offset": 113,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 368,
+          "after_offset": 533,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeBouncyGeneric.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 725,
+          "after_offset": 1036,
+          "old": "\t\tthis.dataWatcher.updateObject(12, Item.getIdFromItem(grenade));\n",
+          "new": "\t\tthis.dataManager.set(GRENADE_ID, Item.getIdFromItem(grenade));\n"
+        },
+        {
+          "before_offset": 863,
+          "after_offset": 1173,
+          "old": "\t\tItemGenericGrenade gren = (ItemGenericGrenade) Item.getItemById(this.dataWatcher.getWatchableObjectInt(12));\n",
+          "new": "\t\tint grenadeId = this.dataManager.get(GRENADE_ID);\n\t\tItemGenericGrenade gren = grenadeId == 0 ? null : (ItemGenericGrenade) Item.getItemById(grenadeId);\n"
+        },
+        {
+          "before_offset": 1095,
+          "after_offset": 1448,
+          "old": "\t\tthis.dataWatcher.addObject(12, 0);\n",
+          "new": "\t\tthis.dataManager.register(GRENADE_ID, 0);\n"
+        },
+        {
+          "before_offset": 1370,
+          "after_offset": 1730,
+          "old": "\t\tnbt.setInteger(\"grenade\", this.dataWatcher.getWatchableObjectInt(12));\n",
+          "new": "\t\tnbt.setInteger(\"grenade\", this.dataManager.get(GRENADE_ID));\n"
+        },
+        {
+          "before_offset": 1546,
+          "after_offset": 1896,
+          "old": "\t\tthis.dataWatcher.updateObject(12, nbt.getInteger(\"grenade\"));\n",
+          "new": "\t\tthis.dataManager.set(GRENADE_ID, nbt.getInteger(\"grenade\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/grenade/EntityGrenadeImpactGeneric.java": {
+      "before_sha256": "d8148332b7f7b44359359a89eedcfa775973240493eed86027a906626a41d62c",
+      "after_sha256": "b50e437a32a60497f1650479dd553d25160828245830b06cc9d8c6141ae25dd4",
+      "edits": [
+        {
+          "before_offset": 113,
+          "after_offset": 113,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 362,
+          "after_offset": 527,
+          "old": "",
+          "new": "\n\tprivate static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeImpactGeneric.class, DataSerializers.VARINT);\n"
+        },
+        {
+          "before_offset": 811,
+          "after_offset": 1122,
+          "old": "\t\tthis.dataWatcher.updateObject(12, Item.getIdFromItem(grenade));\n",
+          "new": "\t\tthis.dataManager.set(GRENADE_ID, Item.getIdFromItem(grenade));\n"
+        },
+        {
+          "before_offset": 950,
+          "after_offset": 1260,
+          "old": "\t\tItemGenericGrenade gren = (ItemGenericGrenade) Item.getItemById(this.dataWatcher.getWatchableObjectInt(12));\n",
+          "new": "\t\tint grenadeId = this.dataManager.get(GRENADE_ID);\n\t\tItemGenericGrenade gren = grenadeId == 0 ? null : (ItemGenericGrenade) Item.getItemById(grenadeId);\n"
+        },
+        {
+          "before_offset": 1182,
+          "after_offset": 1535,
+          "old": "\t\tthis.dataWatcher.addObject(12, 0);\n",
+          "new": "\t\tthis.dataManager.register(GRENADE_ID, 0);\n"
+        },
+        {
+          "before_offset": 1514,
+          "after_offset": 1874,
+          "old": "\t\tnbt.setInteger(\"grenade\", this.dataWatcher.getWatchableObjectInt(12));\n",
+          "new": "\t\tnbt.setInteger(\"grenade\", this.dataManager.get(GRENADE_ID));\n"
+        },
+        {
+          "before_offset": 1687,
+          "after_offset": 2037,
+          "old": "\t\tthis.dataWatcher.updateObject(12, nbt.getInteger(\"grenade\"));\n",
+          "new": "\t\tthis.dataManager.set(GRENADE_ID, nbt.getInteger(\"grenade\"));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBeamBase.java": {
+      "before_sha256": "ea2fbc0750ee1c756b91ec362deab9c9dbba665889b5b3a7a8ba6736db5dbefd",
+      "after_sha256": "23f817c6e23cfcfb17b3b6ee5fd0b3cd9652c5bcc6b1ce6e779af248c19aa201",
+      "edits": [
+        {
+          "before_offset": 134,
+          "after_offset": 134,
+          "old": "",
+          "new": "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n"
+        },
+        {
+          "before_offset": 387,
+          "after_offset": 552,
+          "old": "",
+          "new": "\n\tprotected static final DataParameter<String> PLAYER_NAME = EntityDataManager.createKey(EntityBeamBase.class, DataSerializers.STRING);\n"
+        },
+        {
+          "before_offset": 592,
+          "after_offset": 893,
+          "old": "\t\tthis.dataWatcher.updateObject(20, player.getDisplayName());\n",
+          "new": "\t\tthis.dataManager.set(PLAYER_NAME, player.getDisplayNameString());\n"
+        },
+        {
+          "before_offset": 977,
+          "after_offset": 1284,
+          "old": "",
+          "new": "\tpublic String getOwnerDisplayName() {\n\t\treturn this.dataManager.get(PLAYER_NAME);\n\t}\n\n"
+        },
+        {
+          "before_offset": 1019,
+          "after_offset": 1413,
+          "old": "        this.dataWatcher.addObject(20, \"\");\n",
+          "new": "        this.dataManager.register(PLAYER_NAME, \"\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java": {
+      "before_sha256": "8a23f8b253f4dda66bc7a4b05c833f11630ce4284b586821a04d3aabf48d5a03",
+      "after_sha256": "0075f98ba3700c4ba263c10386c58eb21077b50f8eca3bee9f761a4cfe9bc2e9",
+      "edits": [
+        {
+          "before_offset": 699,
+          "after_offset": 699,
+          "old": "\t\tEntityPlayer player = this.world.getPlayerEntityByName(this.dataWatcher.getWatchableObjectString(20));\n",
+          "new": "\t\tEntityPlayer player = this.world.getPlayerEntityByName(this.dataManager.get(PLAYER_NAME));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDNT.java": {
+      "before_sha256": "b2201e223bdde0832448e8f510c922067ac94e4e5a331e48c07104d21de0ef0f",
+      "after_sha256": "c9605f37954ac866485f046c3b96dacdf5ceb48a67107d33ad6ad6629014dd25",
+      "edits": [
+        {
+          "before_offset": 2598,
+          "after_offset": 2598,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"DNT SPEED\", 0.25, 0));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, \"DNT SPEED\", 0.25, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDesh.java": {
+      "before_sha256": "647674da47c975c51bfc8f023c9b72961d4178490fdff3f764cf9942220ecac3",
+      "after_sha256": "ee6530b6fd50b915726dd0a918607f3e7ed29e26522ebe3482ebd5dd8e7bfe4f",
+      "edits": [
+        {
+          "before_offset": 1177,
+          "after_offset": 1177,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.025D, 1));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.025D, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorDiesel.java": {
+      "before_sha256": "46766c99f5a3a7e8e1b55508a95597abf31a88951257a1e106f543041bfc6712",
+      "after_sha256": "e410d142125dcbd60ce743d800c58a5d5e4ac16ba6f50c833a20fddaeda1b2aa",
+      "edits": [
+        {
+          "before_offset": 1583,
+          "after_offset": 1583,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", 0.25D, 1));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", 0.25D, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "83943b9deb13d5b635827e71700b7d8a7938bdf8e5b6cfcf245dbaac663fc3c9",
+      "after_sha256": "e2200820edf7ca3b6e802652aae6beba3fb1c9d3ccd8520f425b077ac5912539",
+      "edits": [
+        {
+          "before_offset": 2010,
+          "after_offset": 2010,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"SQUIRREL SPEED\", 0.1, 0));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, \"SQUIRREL SPEED\", 0.1, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": {
+      "before_sha256": "9346f879e9867ba4600bac47f6d0071a1c91c083a762b368f32c2bd87517997c",
+      "after_sha256": "9925bad3b3343838df45cdb00e06819aa3e36fccbef6da152b4906433d72d44f",
+      "edits": [
+        {
+          "before_offset": 1829,
+          "after_offset": 1829,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", 100D, 0));\n\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.1D, 1));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", 100D, 0));\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[this.armorType], \"Armor modifier\", -0.1D, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorNCRPA.java": {
+      "before_sha256": "f5db8c0eab86e3b548b3ca6912be513b8e2cc2fbd965e2b3a1d7fe16e8c24982",
+      "after_sha256": "190856cc8de59114dff20edf2a0dd5fbc4a2598b320359d052c7711d243548f2",
+      "edits": [
+        {
+          "before_offset": 1933,
+          "after_offset": 1933,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"NCRPA SPEED\", 0.1, 0));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, \"NCRPA SPEED\", 0.1, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModHealth.java": {
+      "before_sha256": "c5dfb10b97ccba665363014fc71dc8dd11c61c0ac74db45e3eda4a7ae9162def",
+      "after_sha256": "e47f80904afeeb4607f1cf449512b66aff3ffb5d67d956b2a75d93e4e350e5be",
+      "edits": [
+        {
+          "before_offset": 1574,
+          "after_offset": 1574,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.maxHealth.getAttributeUnlocalizedName(),\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModInsert.java": {
+      "before_sha256": "11d64d31324edafa5faae47b33405ce134928b2fcb8ba111932897483b662eec",
+      "after_sha256": "2c3bf291a4fca377cb51f9bb2f7fa97a7638dcba2a42abcfb7a9610d5aaeb60d",
+      "edits": [
+        {
+          "before_offset": 4383,
+          "after_offset": 4383,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModIron.java": {
+      "before_sha256": "25b2637eebabea45a08a6c32914ad2ad4615ad4c194424cc55769a521b844815",
+      "after_sha256": "dc9677191963635946c673cca632ac5ba42f4b578e5b5440f2b88e5e182374b0",
+      "edits": [
+        {
+          "before_offset": 1111,
+          "after_offset": 1111,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getAttributeUnlocalizedName(),\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModServos.java": {
+      "before_sha256": "0b57c177201fb4784ae8074b01842f909f5495a4b7e1a82863b81834ca5549d5",
+      "after_sha256": "35c748f8b3fea7331c0f0a77fc47febb95dd4474d09a2eeac77b486daa5295b4",
+      "edits": [
+        {
+          "before_offset": 2987,
+          "after_offset": 2987,
+          "old": "\t\t\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),\n",
+          "new": "\t\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),\n"
+        },
+        {
+          "before_offset": 3240,
+          "after_offset": 3221,
+          "old": "\t\t\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),\n",
+          "new": "\t\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),\n"
+        },
+        {
+          "before_offset": 3519,
+          "after_offset": 3481,
+          "old": "\t\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),\n",
+          "new": "\t\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),\n"
+        },
+        {
+          "before_offset": 3774,
+          "after_offset": 3717,
+          "old": "\t\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(),\n",
+          "new": "\t\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModV1.java": {
+      "before_sha256": "4faf3ed35065b82fd2e37bdd552e71423ffacdaebf13914ccf0fc3d5d28e7103",
+      "after_sha256": "d196710fb428c1573360026241c1ff33b3b980c84004dc924631c6d2fbeebe14",
+      "edits": [
+        {
+          "before_offset": 825,
+          "after_offset": 825,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(speed, \"V1 SPEED\", 0.5, 2));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, \"V1 SPEED\", 0.5, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModWD40.java": {
+      "before_sha256": "6d1af85abc9c5652ac9decd57e2d39e2fec1d367a72011a75a09f79e61ee6b13",
+      "after_sha256": "898f5d0ad0d29b18fdd27c802de5857f505d7b0290b8d3af4b8e95e1ef61a8be",
+      "edits": [
+        {
+          "before_offset": 1778,
+          "after_offset": 1778,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.maxHealth.getAttributeUnlocalizedName(),\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPill.java": {
+      "before_sha256": "bbae33f00337e2ca1131a8d0d4a65df9fd2708c23f8e18f340cbecbb36cb1c2e",
+      "after_sha256": "b249704a4b6987fedc8f837836832bc255297fc0b8bb64c37dbc1b2e703b4b62",
+      "edits": [
+        {
+          "before_offset": 1551,
+          "after_offset": 1551,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.digSlowdown.id);\n\t\t\t\tplayer.removePotionEffect(Potion.hunger.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.MINING_FATIGUE);\n\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.HUNGER);\n"
+        },
+        {
+          "before_offset": 1794,
+          "after_offset": 1837,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.weakness.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.WEAKNESS);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSyringe.java": {
+      "before_sha256": "f40bd2e8b2e2f7213a80dcb9095b10a9d78289daf60a542f30b05a024a3fd0b5",
+      "after_sha256": "efdeca8e5f11419e3ed9135fedeef663e53823b46521134931f0600c4269f2c5",
+      "edits": [
+        {
+          "before_offset": 4059,
+          "after_offset": 4059,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.digSlowdown.id);\n\t\t\t\tplayer.removePotionEffect(Potion.hunger.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.MINING_FATIGUE);\n\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.HUNGER);\n"
+        },
+        {
+          "before_offset": 4302,
+          "after_offset": 4345,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.weakness.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.WEAKNESS);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java": {
+      "before_sha256": "7615e3113f46c71b3799258a3ff13e933c0a9f1c12c35dfdc058f60964462290",
+      "after_sha256": "042f1871ac458eddb5d2f6e8e2908d338866a512e9529967bf288b16c2f9b32c",
+      "edits": [
+        {
+          "before_offset": 3128,
+          "after_offset": 3128,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java": {
+      "before_sha256": "fecdba2c1e2332d86ca99eec87d965b99273a6d76884c3e25c77a536a149c2f8",
+      "after_sha256": "a6c3425bd95ffcf20ffe57a638fff16d414868c0b48733741ef80b2206522b71",
+      "edits": [
+        {
+          "before_offset": 4354,
+          "after_offset": 4354,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", 2, 0));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemSwordAbility.java": {
+      "before_sha256": "a832d8da52789828b2aa707658c8e02667cc3070f85c8c611835ef9bcbd472d2",
+      "after_sha256": "9a37d87a100cafba1ead52e6f46091ba53fb3acbb733a86427cad0043355333a",
+      "edits": [
+        {
+          "before_offset": 2179,
+          "after_offset": 2179,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolAbility.java": {
+      "before_sha256": "c484d8c70f4d7bd850f02169c75c9361fe6eaa61e3cf682fc8b83fee5c411a5d",
+      "after_sha256": "685d730b2d86d9a72685f04ca2b6ca5220f88d25448224d1b7056267cc382198",
+      "edits": [
+        {
+          "before_offset": 10436,
+          "after_offset": 10436,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\r\n\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\r\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\r\n\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolingWeapon.java": {
+      "before_sha256": "b65f6bebc33477c34a1cba2bbc81ecd8a0636c9a52be703cb4f09b59b9a5c18a",
+      "after_sha256": "f73049f048ae9a9e822a749a8934ac005ac639ed2afda6282c1e3dfbf356413d",
+      "edits": [
+        {
+          "before_offset": 1225,
+          "after_offset": 1225,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", damage, 0));\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", damage, 0));\n"
+        },
+        {
+          "before_offset": 1413,
+          "after_offset": 1394,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Wrench modifier\", -0.1, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Wrench modifier\", -0.1, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "37e7920278dba3336572c77dcae00f306b332d97bdf473ab56594b8041b72a07",
+      "after_sha256": "233f39529ea2932af27076aa6ca91963761cf2bb03e2e57d5c436a1da0c9cf35",
+      "edits": [
+        {
+          "before_offset": 7282,
+          "after_offset": 7282,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.5, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.5, 1));\n"
+        },
+        {
+          "before_offset": 7511,
+          "after_offset": 7492,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.2, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.2, 1));\n"
+        },
+        {
+          "before_offset": 7708,
+          "after_offset": 7670,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.1, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Weapon modifier\", -0.1, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "before_sha256": "73fde70705188c9ad2849f4ba363563ecf08af11383d8f77033542c2882230c2",
+      "after_sha256": "0008133101ff93e0334fa27712f8b67e6747d799f78f3003129a05b09e1dccc2",
+      "edits": [
+        {
+          "before_offset": 5888,
+          "after_offset": 5888,
+          "old": "\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),\n",
+          "new": "\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCrucible.java": {
+      "before_sha256": "d1289ab203c26e55630b2df91105009b60a9d8db21252c1b9a8307754a152246",
+      "after_sha256": "7297ec30153a744646fd1ef5883fbe010394ab0af6a25c6b3525613b2399f331",
+      "edits": [
+        {
+          "before_offset": 4420,
+          "after_offset": 4420,
+          "old": "\t\t\tmultimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n",
+          "new": "\t\t\tmultimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", (double) this.damage, 0));\n\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(field_111210_e, \"Tool modifier\", movement, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "3c775817c07fce2b274336d710475f00070f893dd2bc34f3b9633728a2785727",
+      "after_sha256": "1c3ab150fad3395172fc1eb3506a427919f178c61cb27adfeb417c12e49eac1e",
+      "edits": [
+        {
+          "before_offset": 42038,
+          "after_offset": 42038,
+          "old": "\t\t\tif(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers().containsKey(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName())) return;\n",
+          "new": "\t\t\tif(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getAttributeModifiers().containsKey(SharedMonsterAttributes.ATTACK_DAMAGE.getName())) return;\n"
+        },
+        {
+          "before_offset": 49031,
+          "after_offset": 49012,
+          "old": "\t\t\t\tmultimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(fopSpeed, \"FOP SPEED\", 0.5, 1));\n",
+          "new": "\t\t\t\tmultimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(fopSpeed, \"FOP SPEED\", 0.5, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java": {
+      "before_sha256": "da7b9e336dae71f7a695cd7c90f373294b6bd56c75b05f00f30d211651f57618",
+      "after_sha256": "ed57e5fbbefc93ed9c70b0c9a58e08a07962021243b59547c55c7b17168ff739",
+      "edits": [
+        {
+          "before_offset": 1153,
+          "after_offset": 1153,
+          "old": "\t\tEntityPlayer player = laser.world.getPlayerEntityByName(laser.getDataWatcher().getWatchableObjectString(20));\n",
+          "new": "\t\tEntityPlayer player = laser.world.getPlayerEntityByName(laser.getOwnerDisplayName());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDiFurnace.java": {
+      "before_sha256": "554a85268d1139c4f71c3d7279f45872cfb655c7511df006d418fa8a9a2f1929",
+      "after_sha256": "eeea4bdbf21c64ea165979358265929149fc89303145f1d4f8674761d422f27e",
+      "edits": [
+        {
+          "before_offset": 6734,
+          "after_offset": 6734,
+          "old": "",
+          "new": "\t\t\t\t\tItem fuelItem = this.slots[2].getItem();\n"
+        },
+        {
+          "before_offset": 6806,
+          "after_offset": 6852,
+          "old": "\t\t\t\t\t\tthis.slots[2] = this.slots[2].getItem().getContainerItem(this.slots[2]);\n",
+          "new": "\t\t\t\t\t\tItemStack residue = fuelItem.getContainerItem(this.slots[2]);\n\t\t\t\t\t\tthis.slots[2] = residue == ItemStack.EMPTY ? null : residue;\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

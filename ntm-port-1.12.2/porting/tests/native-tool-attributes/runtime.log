@@ -1,0 +1,13 @@
+PASS strict tool source guard: 9 complete-file CP91 inverses; 27 drift controls; 7 ancestry pins; 8 native overrides, 15 native UUID references, native ItemTool constructor, Sword raw-material getter and ItemStack held caller
+PASS native tool attributes: 329839 assertions; 8 complete method projections, 3 constructor projections, actual native Item/Sword/Tool/ItemStack dispatch and NBT
+
+KILLED ability-blind-super Exception in thread "main" java.lang.AssertionError: ability map size and depleted Crucible boundary
+KILLED custom-mainhand-only Exception in thread "main" java.lang.AssertionError: ability map size and depleted Crucible boundary
+KILLED new-offhand-effects Exception in thread "main" java.lang.AssertionError: ability map size and depleted Crucible boundary
+KILLED special-drop-original-baseline Exception in thread "main" java.lang.AssertionError: amount generic.attackDamage: 3.0 != 4.0
+KILLED special-after-rounded-plus-one Exception in thread "main" java.lang.AssertionError: amount generic.attackDamage: 1.000000001E9 != 1.0E9
+KILLED special-double-evaluation Exception in thread "main" java.lang.AssertionError: amount generic.attackDamage: 1.000000004E9 != 1.0E9
+KILLED special-clear-all-attributes Exception in thread "main" java.lang.AssertionError: special native baseline and exact custom map
+KILLED crucible-depleted-damage Exception in thread "main" java.lang.AssertionError: ability map size and depleted Crucible boundary
+KILLED wrong-damage-uuid Exception in thread "main" java.lang.AssertionError: original shared UUID generic.attackDamage
+KILLED gauntlet-offhand-query Exception in thread "main" java.lang.AssertionError: charged Crucible blocks gauntlet

@@ -1,0 +1,59 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:1630: error: cannot find symbol
+		block_insulator = new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + ":block_insulator_top").setTranslationKey("block_insulator").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":block_insulator_side");
+		                                                                                                                                                                                ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:1631: error: cannot find symbol
+		block_fiberglass = new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + ":block_fiberglass_top").setTranslationKey("block_fiberglass").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + ":block_fiberglass_side");
+		                                                                                                                                                                                   ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:1654: error: cannot find symbol
+		block_tritium = new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + ":block_tritium_top").setTranslationKey("block_tritium").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F).setBlockTextureName(RefStrings.MODID + ":block_tritium_side");
+		                                                                                                                                                                          ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:2693: error: cannot find symbol
+		pink_log = new BlockLogNT("log_oak", RefStrings.MODID + ":pink_log").setTranslationKey("pink_log").setHardness(0.5F).setStepSound(SoundType.WOOD).setCreativeTab(null);
+		                                                                                                                    ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:2699: error: cannot find symbol
+		vinyl_log = new BlockLogNT(RefStrings.MODID + ":vinyl_log_side", RefStrings.MODID + ":vinyl_log_top").setTranslationKey("vinyl_log").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                                                                                    ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:2700: error: cannot find symbol
+		pvc_log = new BlockLogNT(RefStrings.MODID + ":pvc_log_side", RefStrings.MODID + ":pvc_log_top").setTranslationKey("pvc_log").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                                                                            ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:2715: error: cannot find symbol
+		lattice_log = new BlockLogNT(RefStrings.MODID + ":rad_log_side", RefStrings.MODID + ":rad_log_top").setTranslationKey("lattice_log").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                                                                                    ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:2716: error: cannot find symbol
+		bf_log = new BlockLogNT(RefStrings.MODID + ":bf_log_side", RefStrings.MODID + ":bf_log_top").setTranslationKey("bf_log").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                                                                        ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:2717: error: cannot find symbol
+		primed_log = new BlockLogNT(RefStrings.MODID + ":primed_log_side", RefStrings.MODID + ":primed_log_top").setTranslationKey("primed_log").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                                                                                        ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/ModBlocks.java:2718: error: cannot find symbol
+		eu_log = new BlockLogNT(RefStrings.MODID + ":eu_log_side", RefStrings.MODID + ":eu_log_top").setTranslationKey("eu_log").setStepSound(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		                                                                                                                        ^
+  symbol:   method setStepSound(SoundType)
+  location: class Block

@@ -320,7 +320,7 @@ public class TileEntityTurretHIMARS extends TileEntityTurretBaseArtillery implem
 		
 		EntityArtilleryRocket proj = new EntityArtilleryRocket(this.world);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, 0.0F, 0.0F);
-		proj.setThrowableHeading(vec.x, vec.y, vec.z, 25F, 0.0F);
+		proj.shoot(vec.x, vec.y, vec.z, 25F, 0.0F);
 		
 		if(this.target != null)
 			proj.setTarget(this.target);

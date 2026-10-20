@@ -34,7 +34,7 @@ public class ItemModDoor extends Item {
 			if(this == ModItems.fence_gate) block = ModBlocks.fence_gate;
 
 			if(player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
-				if(!block.canPlaceBlockAt(world, x, y, z)) {
+				if(!block.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 					return false;
 				} else {
 					int i1 = MathHelper.floor((double) ((player.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
@@ -68,8 +68,8 @@ public class ItemModDoor extends Item {
 			offsetX = 1;
 		}
 
-		int i1 = (com.hbm.world.WorldBlockState.read(world, x - offsetX, y, z - offsetZ).getBlock().isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x - offsetX, y + 1, z - offsetZ).getBlock().isNormalCube() ? 1 : 0);
-		int j1 = (com.hbm.world.WorldBlockState.read(world, x + offsetX, y, z + offsetZ).getBlock().isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x + offsetX, y + 1, z + offsetZ).getBlock().isNormalCube() ? 1 : 0);
+		int i1 = (com.hbm.world.WorldBlockState.read(world, x - offsetX, y, z - offsetZ).isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x - offsetX, y + 1, z - offsetZ).isNormalCube() ? 1 : 0);
+		int j1 = (com.hbm.world.WorldBlockState.read(world, x + offsetX, y, z + offsetZ).isNormalCube() ? 1 : 0) + (com.hbm.world.WorldBlockState.read(world, x + offsetX, y + 1, z + offsetZ).isNormalCube() ? 1 : 0);
 		boolean flag = com.hbm.world.WorldBlockState.read(world, x - offsetX, y, z - offsetZ).getBlock() == door || com.hbm.world.WorldBlockState.read(world, x - offsetX, y + 1, z - offsetZ).getBlock() == door;
 		boolean flag1 = com.hbm.world.WorldBlockState.read(world, x + offsetX, y, z + offsetZ).getBlock() == door || com.hbm.world.WorldBlockState.read(world, x + offsetX, y + 1, z + offsetZ).getBlock() == door;
 		boolean flag2 = false;

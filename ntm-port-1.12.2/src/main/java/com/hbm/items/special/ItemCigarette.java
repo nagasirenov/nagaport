@@ -50,7 +50,7 @@ public class ItemCigarette extends Item  {
 				HbmLivingProps.incrementAsbestos(player, 2000);
 				HbmLivingProps.incrementRadiation(player, 100F);
 
-				ItemStack helmet = player.getEquipmentInSlot(4);
+				ItemStack helmet = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, 4);
 				if(helmet != null && helmet.getItem() == ModItems.no9) {
 					com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achNo9);
 				}

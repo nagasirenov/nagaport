@@ -1,0 +1,12 @@
+  public static boolean a(aji);
+    Code:
+       0: aload_0
+       1: getstatic     #20                 // Field ajn.aJ:Laji;
+       4: if_acmpeq     14
+       7: aload_0
+       8: getstatic     #22                 // Field ajn.bk:Laji;
+      11: if_acmpne     18
+      14: iconst_1
+      15: goto          19
+      18: iconst_0
+      19: ireturn

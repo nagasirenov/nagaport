@@ -1,0 +1,152 @@
+[
+  {
+    "line": 1477,
+    "name": "ore_nether_coal",
+    "owner": "BlockNetherCoal",
+    "before": "\t\tore_nether_coal = new BlockNetherCoal(Material.ROCK, false, 5, true).setTranslationKey(\"ore_nether_coal\").setCreativeTab(MainRegistry.blockTab).setLightLevel(10F/15F).setHardness(0.4F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":ore_nether_coal\");",
+    "after": "\t\tore_nether_coal = com.hbm.blocks.PlainCubeTextures.bind(new BlockNetherCoal(Material.ROCK, false, 5, true).setTranslationKey(\"ore_nether_coal\").setCreativeTab(MainRegistry.blockTab).setLightLevel(10F/15F).setHardness(0.4F).setResistance(10.0F), RefStrings.MODID + \":ore_nether_coal\");",
+    "texture": "ore_nether_coal",
+    "registration": "\t\tGameRegistry.registerBlock(ore_nether_coal, ore_nether_coal.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1602,
+    "name": "block_waste",
+    "owner": "BlockNuclearWaste",
+    "before": "\t\tblock_waste = new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_waste\");",
+    "after": "\t\tblock_waste = com.hbm.blocks.PlainCubeTextures.bind(new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_waste\");",
+    "texture": "block_waste",
+    "registration": "\t\tGameRegistry.registerBlock(block_waste, block_waste.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1603,
+    "name": "block_waste_painted",
+    "owner": "BlockNuclearWaste",
+    "before": "\t\tblock_waste_painted = new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_painted\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_waste_painted\");",
+    "after": "\t\tblock_waste_painted = com.hbm.blocks.PlainCubeTextures.bind(new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_painted\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_waste_painted\");",
+    "texture": "block_waste_painted",
+    "registration": "\t\tGameRegistry.registerBlock(block_waste_painted, block_waste_painted.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1604,
+    "name": "block_waste_vitrified",
+    "owner": "BlockNuclearWaste",
+    "before": "\t\tblock_waste_vitrified = new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_vitrified\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_waste_vitrified\");",
+    "after": "\t\tblock_waste_vitrified = com.hbm.blocks.PlainCubeTextures.bind(new BlockNuclearWaste().makeBeaconable().setDisplayEffect(ExtDisplayEffect.RADFOG).setTranslationKey(\"block_waste_vitrified\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_waste_vitrified\");",
+    "texture": "block_waste_vitrified",
+    "registration": "\t\tGameRegistry.registerBlock(block_waste_vitrified, block_waste_vitrified.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1629,
+    "name": "block_yellowcake",
+    "owner": "BlockHazardFalling",
+    "before": "\t\tblock_yellowcake = ((BlockHazardFalling) new BlockHazardFalling().makeBeaconable().setTranslationKey(\"block_yellowcake\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.SAND).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_yellowcake\");",
+    "after": "\t\tblock_yellowcake = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazardFalling) new BlockHazardFalling().makeBeaconable().setTranslationKey(\"block_yellowcake\").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.SAND).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_yellowcake\");",
+    "texture": "block_yellowcake",
+    "registration": "\t\tGameRegistry.registerBlock(block_yellowcake, block_yellowcake.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1637,
+    "name": "block_red_phosphorus",
+    "owner": "BlockHazardFalling",
+    "before": "\t\tblock_red_phosphorus = ((BlockHazardFalling) new BlockHazardFalling().makeBeaconable()).withSoundType(SoundType.SAND).setTranslationKey(\"block_red_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + \":block_red_phosphorus\");",
+    "after": "\t\tblock_red_phosphorus = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazardFalling) new BlockHazardFalling().makeBeaconable()).withSoundType(SoundType.SAND).setTranslationKey(\"block_red_phosphorus\").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + \":block_red_phosphorus\");",
+    "texture": "block_red_phosphorus",
+    "registration": "\t\tGameRegistry.registerBlock(block_red_phosphorus, block_red_phosphorus.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1638,
+    "name": "block_fallout",
+    "owner": "BlockHazardFalling",
+    "before": "\t\tblock_fallout = ((BlockHazardFalling) new BlockHazardFalling()).withSoundType(SoundType.GROUND).setTranslationKey(\"block_fallout\").setCreativeTab(MainRegistry.blockTab).setHardness(0.2F).setBlockTextureName(RefStrings.MODID + \":ash\");",
+    "after": "\t\tblock_fallout = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazardFalling) new BlockHazardFalling()).withSoundType(SoundType.GROUND).setTranslationKey(\"block_fallout\").setCreativeTab(MainRegistry.blockTab).setHardness(0.2F), RefStrings.MODID + \":ash\");",
+    "texture": "ash",
+    "registration": "\t\tGameRegistry.registerBlock(block_fallout, block_fallout.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1689,
+    "name": "asphalt",
+    "owner": "BlockSpeedy",
+    "before": "\t\tasphalt = new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(120.0F).setBlockTextureName(RefStrings.MODID + \":asphalt\");",
+    "after": "\t\tasphalt = com.hbm.blocks.PlainCubeTextures.bind(new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(120.0F), RefStrings.MODID + \":asphalt\");",
+    "texture": "asphalt",
+    "registration": "\t\tGameRegistry.registerBlock(asphalt, ItemBlockBlastInfo.class, asphalt.getTranslationKey());",
+    "item": "ItemBlockBlastInfo"
+  },
+  {
+    "line": 1690,
+    "name": "asphalt_light",
+    "owner": "BlockSpeedy",
+    "before": "\t\tasphalt_light = new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt_light\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(15.0F).setResistance(120.0F).setBlockTextureName(RefStrings.MODID + \":asphalt_light\");",
+    "after": "\t\tasphalt_light = com.hbm.blocks.PlainCubeTextures.bind(new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey(\"asphalt_light\").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(15.0F).setResistance(120.0F), RefStrings.MODID + \":asphalt_light\");",
+    "texture": "asphalt_light",
+    "registration": "\t\tGameRegistry.registerBlock(asphalt_light, ItemBlockBlastInfo.class, asphalt_light.getTranslationKey());",
+    "item": "ItemBlockBlastInfo"
+  },
+  {
+    "line": 1727,
+    "name": "concrete_smooth",
+    "owner": "BlockRadResistant",
+    "before": "\t\tconcrete_smooth = new BlockRadResistant(Material.ROCK).setTranslationKey(\"concrete_smooth\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F).setBlockTextureName(RefStrings.MODID + \":concrete\");",
+    "after": "\t\tconcrete_smooth = com.hbm.blocks.PlainCubeTextures.bind(new BlockRadResistant(Material.ROCK).setTranslationKey(\"concrete_smooth\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F), RefStrings.MODID + \":concrete\");",
+    "texture": "concrete",
+    "registration": "\t\tGameRegistry.registerBlock(concrete_smooth, ItemBlockBlastInfo.class, concrete_smooth.getTranslationKey());",
+    "item": "ItemBlockBlastInfo"
+  },
+  {
+    "line": 1734,
+    "name": "concrete_super_broken",
+    "owner": "BlockFalling",
+    "before": "\t\tconcrete_super_broken = new BlockFalling(Material.ROCK).setTranslationKey(\"concrete_super_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + \":concrete_super_broken\");",
+    "after": "\t\tconcrete_super_broken = com.hbm.blocks.PlainCubeTextures.bind(new BlockFalling(Material.ROCK).setTranslationKey(\"concrete_super_broken\").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(20.0F), RefStrings.MODID + \":concrete_super_broken\");",
+    "texture": "concrete_super_broken",
+    "registration": "\t\tGameRegistry.registerBlock(concrete_super_broken, ItemBlockBlastInfo.class, concrete_super_broken.getTranslationKey());",
+    "item": "ItemBlockBlastInfo"
+  },
+  {
+    "line": 1798,
+    "name": "block_meteor_treasure",
+    "owner": "BlockMeteoriteTreasure",
+    "before": "\t\tblock_meteor_treasure = new BlockMeteoriteTreasure(Material.ROCK).setTranslationKey(\"block_meteor_treasure\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":meteor_treasure\");",
+    "after": "\t\tblock_meteor_treasure = com.hbm.blocks.PlainCubeTextures.bind(new BlockMeteoriteTreasure(Material.ROCK).setTranslationKey(\"block_meteor_treasure\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":meteor_treasure\");",
+    "texture": "meteor_treasure",
+    "registration": "\t\tGameRegistry.registerBlock(block_meteor_treasure, block_meteor_treasure.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 1840,
+    "name": "brick_jungle_fragile",
+    "owner": "FragileBrick",
+    "before": "\t\tbrick_jungle_fragile = new FragileBrick(Material.ROCK).setTranslationKey(\"brick_jungle_fragile\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + \":brick_jungle_fragile\");",
+    "after": "\t\tbrick_jungle_fragile = com.hbm.blocks.PlainCubeTextures.bind(new FragileBrick(Material.ROCK).setTranslationKey(\"brick_jungle_fragile\").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + \":brick_jungle_fragile\");",
+    "texture": "brick_jungle_fragile",
+    "registration": "\t\tGameRegistry.registerBlock(brick_jungle_fragile, brick_jungle_fragile.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 2478,
+    "name": "oil_pipe",
+    "owner": "BlockNoDrop",
+    "before": "\t\toil_pipe = new BlockNoDrop(Material.IRON).setTranslationKey(\"oil_pipe\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":oil_pipe\");",
+    "after": "\t\toil_pipe = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.IRON).setTranslationKey(\"oil_pipe\").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + \":oil_pipe\");",
+    "texture": "oil_pipe",
+    "registration": "\t\tGameRegistry.registerBlock(oil_pipe, oil_pipe.getTranslationKey());",
+    "item": "ItemBlock"
+  },
+  {
+    "line": 2498,
+    "name": "barricade",
+    "owner": "BlockNoDrop",
+    "before": "\t\tbarricade = new BlockNoDrop(Material.SAND).setTranslationKey(\"barricade\").setHardness(1.0F).setResistance(2.5F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + \":barricade\");",
+    "after": "\t\tbarricade = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.SAND).setTranslationKey(\"barricade\").setHardness(1.0F).setResistance(2.5F).setCreativeTab(null), RefStrings.MODID + \":barricade\");",
+    "texture": "barricade",
+    "registration": "\t\tregister(barricade);",
+    "item": "ItemBlockBase"
+  }
+]

@@ -31,6 +31,6 @@ public class SlotNonRetarded extends Slot {
 	 */
 	@Override
 	public int getSlotStackLimit() {
-		return Math.max(this.inventory.getInventoryStackLimit(), this.getHasStack() ? this.getStack().stackSize : 1);
+		return Math.max(this.inventory.getInventoryStackLimit(), this.getHasStack() ? this.getStack().getCount() : 1);
 	}
 }

@@ -1,0 +1,12 @@
+{
+  "baseline_commit": "df18fc077648dd18e6d0c1055d82c11dc2ebdb78",
+  "independent_fix_commit": "f1b2c7f617a16175a606b99506193782b913cbaf",
+  "path": "src/main/java/com/hbm/render/item/NativeItemTextureModelHandler.java",
+  "baseline_sha256": "eda9237a3df2c6d55d7758c852e007b3534db8aa77f3cb9c2e83b15c85344ac7",
+  "fixed_sha256": "c2b5cba0fb608e58d7833ca3a5009ac1dc19254a307820c074ff12dc9686d761",
+  "exact_old": "                // The original default Item icon is metadata-insensitive. A\n                // plain subtype item still uses that same image for every meta.\n                if(item.getHasSubtypes()) ModelLoader.setCustomMeshDefinition(item, stack -> location);\n                else ModelLoader.setCustomModelResourceLocation(item, 0, location);\n",
+  "exact_new": "                // The original default Item icon is metadata-insensitive even\n                // for non-damageable items that do not declare subtypes.\n                ModelLoader.setCustomMeshDefinition(item, stack -> location);\n",
+  "reconstruction": "Require exact fixed hash; replace exact new block once with exact old block; require exact CP82 bytes and hash before historical guard comparison.",
+  "rejected_mutations": 5,
+  "foundation_fixture_sha256": "1b7f34d19c9bf3035af47c70233fb3a6be130d7831bbb8005b7af709528a7675"
+}

@@ -1,0 +1,1 @@
+PASS 7 native Slot overrides, 39 genuine native call targets, unchanged entire Slot subtree; 42 errors removed (38 missing calls + 4 invalid overrides), none added; 12471 -> 12429 diagnostics

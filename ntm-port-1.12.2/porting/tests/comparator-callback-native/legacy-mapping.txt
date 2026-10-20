@@ -1,0 +1,4 @@
+MD: aji/g (Lahb;IIII)I net/minecraft/block/Block/func_149736_g (Lnet/minecraft/world/World;IIII)I
+MD: aji/M ()Z net/minecraft/block/Block/func_149740_M ()Z
+func_149736_g,getComparatorInputOverride,2,"If hasComparatorInputOverride returns true, the return value from this is used instead of the redstone signal strength when this block inputs to a comparator."
+func_149740_M,hasComparatorInputOverride,2,"If this returns true, then comparators facing away from this block will use the value from getComparatorInputOverride instead of the actual redstone signal strength."

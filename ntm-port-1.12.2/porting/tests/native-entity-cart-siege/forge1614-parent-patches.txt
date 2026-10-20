@@ -1,0 +1,1173 @@
+===== net/minecraft/entity/Entity.java.patch =====
+--- ../src-base/minecraft/net/minecraft/entity/Entity.java
++++ ../src-work/minecraft/net/minecraft/entity/Entity.java
+@@ -1,7 +1,10 @@
+ package net.minecraft.entity;
+ 
++import cpw.mods.fml.common.FMLLog;
+ import cpw.mods.fml.relauncher.Side;
+ import cpw.mods.fml.relauncher.SideOnly;
++import java.util.ArrayList;
++import java.util.HashMap;
+ import java.util.List;
+ import java.util.Random;
+ import java.util.UUID;
+@@ -13,9 +16,14 @@
+ import net.minecraft.crash.CrashReportCategory;
+ import net.minecraft.enchantment.EnchantmentProtection;
+ import net.minecraft.entity.effect.EntityLightningBolt;
++import net.minecraft.entity.item.EntityBoat;
+ import net.minecraft.entity.item.EntityItem;
++import net.minecraft.entity.item.EntityItemFrame;
++import net.minecraft.entity.item.EntityMinecart;
++import net.minecraft.entity.item.EntityPainting;
+ import net.minecraft.entity.player.EntityPlayer;
+ import net.minecraft.init.Blocks;
++import net.minecraft.init.Items;
+ import net.minecraft.item.Item;
+ import net.minecraft.item.ItemStack;
+ import net.minecraft.nbt.NBTTagCompound;
+@@ -30,12 +38,17 @@
+ import net.minecraft.util.Direction;
+ import net.minecraft.util.IChatComponent;
+ import net.minecraft.util.MathHelper;
++import net.minecraft.util.MovingObjectPosition;
+ import net.minecraft.util.ReportedException;
+ import net.minecraft.util.StatCollector;
+ import net.minecraft.util.Vec3;
+ import net.minecraft.world.Explosion;
+ import net.minecraft.world.World;
+ import net.minecraft.world.WorldServer;
++import net.minecraftforge.common.IExtendedEntityProperties;
++import net.minecraftforge.common.MinecraftForge;
++import net.minecraftforge.event.entity.EntityEvent;
++import net.minecraftforge.fluids.IFluidBlock;
+ 
+ public abstract class Entity
+ {
+@@ -116,7 +129,14 @@
+     protected UUID field_96093_i;
+     public Entity.EnumEntitySize field_70168_am;
+     private static final String __OBFID = "CL_00001533";
++    /** Forge: Used to store custom data for each entity. */
++    private NBTTagCompound customEntityData;
++    public boolean captureDrops = false;
++    public ArrayList<EntityItem> capturedDrops = new ArrayList<EntityItem>();
++    private UUID persistentID;
+ 
++    protected HashMap<String, IExtendedEntityProperties> extendedProperties;
++
+     public int func_145782_y()
+     {
+         return this.field_145783_c;
+@@ -153,6 +173,15 @@
+         this.field_70180_af.func_75682_a(0, Byte.valueOf((byte)0));
+         this.field_70180_af.func_75682_a(1, Short.valueOf((short)300));
+         this.func_70088_a();
++
++        extendedProperties = new HashMap<String, IExtendedEntityProperties>();
++
++        MinecraftForge.EVENT_BUS.post(new EntityEvent.EntityConstructing(this));
++
++        for (IExtendedEntityProperties props : this.extendedProperties.values())
++        {
++            props.init(this, p_i1582_1_);
++        }
+     }
+ 
+     protected abstract void func_70088_a();
+@@ -991,9 +1020,22 @@
+ 
+         if (block.func_149688_o() == p_70055_1_)
+         {
+-            float f = BlockLiquid.func_149801_b(this.field_70170_p.func_72805_g(i, j, k)) - 0.11111111F;
+-            float f1 = (float)(j + 1) - f;
+-            return d0 < (double)f1;
++            double filled = 1.0f; //If it's not a liquid assume it's a solid block
++            if (block instanceof IFluidBlock)
++            {
++                filled = ((IFluidBlock)block).getFilledPercentage(field_70170_p, i, j, k);
++            }
++
++            if (filled < 0)
++            {
++                filled *= -1;
++                //filled -= 0.11111111F; //Why this is needed.. not sure...
++                return d0 > (double)(j + (1 - filled));
++            }
++            else
++            {
++                return d0 < (double)(j + filled);
++            }
+         }
+         else
+         {
+@@ -1278,8 +1320,27 @@
+             p_70109_1_.func_74768_a("PortalCooldown", this.field_71088_bW);
+             p_70109_1_.func_74772_a("UUIDMost", this.func_110124_au().getMostSignificantBits());
+             p_70109_1_.func_74772_a("UUIDLeast", this.func_110124_au().getLeastSignificantBits());
+-            this.func_70014_b(p_70109_1_);
++            if (customEntityData != null)
++            {
++                p_70109_1_.func_74782_a("ForgeData", customEntityData);
++            }
+ 
++           for (String identifier : this.extendedProperties.keySet())
++           {
++                try
++                {
++                    IExtendedEntityProperties props = this.extendedProperties.get(identifier);
++                    props.saveNBTData(p_70109_1_);
++                }
++                catch (Throwable t)
++                {
++                    FMLLog.severe("Failed to save extended properties for %s.  This is a mod issue.", identifier);
++                    t.printStackTrace();
++                }
++            }
++
++           this.func_70014_b(p_70109_1_);
++
+             if (this.field_70154_o != null)
+             {
+                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();
+@@ -1345,6 +1406,30 @@
+ 
+             this.func_70107_b(this.field_70165_t, this.field_70163_u, this.field_70161_v);
+             this.func_70101_b(this.field_70177_z, this.field_70125_A);
++            if (p_70020_1_.func_74764_b("ForgeData"))
++            {
++                customEntityData = p_70020_1_.func_74775_l("ForgeData");
++            }
++
++            for (String identifier : this.extendedProperties.keySet())
++            {
++                try
++                {
++                    IExtendedEntityProperties props = this.extendedProperties.get(identifier);
++                    props.loadNBTData(p_70020_1_);
++                }
++                catch (Throwable t)
++                {
++                    FMLLog.severe("Failed to load extended properties for %s.  This is a mod issue.", identifier);
++                    t.printStackTrace();
++                }
++            }
++
++            //Rawr, legacy code, Vanilla added a UUID, keep this so older maps will convert properly
++            if (p_70020_1_.func_74764_b("PersistentIDMSB") && p_70020_1_.func_74764_b("PersistentIDLSB"))
++            {
++                this.field_96093_i = new UUID(p_70020_1_.func_74763_f("PersistentIDMSB"), p_70020_1_.func_74763_f("PersistentIDLSB"));
++            }
+             this.func_70037_a(p_70020_1_);
+ 
+             if (this.func_142008_O())
+@@ -1423,7 +1508,14 @@
+         {
+             EntityItem entityitem = new EntityItem(this.field_70170_p, this.field_70165_t, this.field_70163_u + (double)p_70099_2_, this.field_70161_v, p_70099_1_);
+             entityitem.field_145804_b = 10;
+-            this.field_70170_p.func_72838_d(entityitem);
++            if (captureDrops)
++            {
++                capturedDrops.add(entityitem);
++            }
++            else
++            {
++                this.field_70170_p.func_72838_d(entityitem);
++            }
+             return entityitem;
+         }
+         else
+@@ -1687,7 +1779,7 @@
+ 
+     public boolean func_70115_ae()
+     {
+-        return this.field_70154_o != null;
++        return this.field_70154_o != null && field_70154_o.shouldRiderSit();
+     }
+ 
+     public boolean func_70093_af()
+@@ -1988,7 +2080,7 @@
+ 
+     public float func_145772_a(Explosion p_145772_1_, World p_145772_2_, int p_145772_3_, int p_145772_4_, int p_145772_5_, Block p_145772_6_)
+     {
+-        return p_145772_6_.func_149638_a(this);
++        return p_145772_6_.getExplosionResistance(this, p_145772_2_, p_145772_3_, p_145772_4_, p_145772_5_, field_70165_t, field_70163_u + func_70047_e(), field_70161_v);
+     }
+ 
+     public boolean func_145774_a(Explosion p_145774_1_, World p_145774_2_, int p_145774_3_, int p_145774_4_, int p_145774_5_, Block p_145774_6_, float p_145774_7_)
+@@ -2058,6 +2150,174 @@
+ 
+     public void func_145781_i(int p_145781_1_) {}
+ 
++    /* ================================== Forge Start =====================================*/
++    /**
++     * Returns a NBTTagCompound that can be used to store custom data for this entity.
++     * It will be written, and read from disc, so it persists over world saves.
++     * @return A NBTTagCompound
++     */
++    public NBTTagCompound getEntityData()
++    {
++        if (customEntityData == null)
++        {
++            customEntityData = new NBTTagCompound();
++        }
++        return customEntityData;
++    }
++
++    /**
++     * Used in model rendering to determine if the entity riding this entity should be in the 'sitting' position.
++     * @return false to prevent an entity that is mounted to this entity from displaying the 'sitting' animation.
++     */
++    public boolean shouldRiderSit()
++    {
++        return true;
++    }
++
++    /**
++     * Called when a user uses the creative pick block button on this entity.
++     *
++     * @param target The full target the player is looking at
++     * @return A ItemStack to add to the player's inventory, Null if nothing should be added.
++     */
++    public ItemStack getPickedResult(MovingObjectPosition target)
++    {
++        if (this instanceof EntityPainting)
++        {
++            return new ItemStack(Items.field_151159_an);
++        }
++        else if (this instanceof EntityLeashKnot)
++        {
++            return new ItemStack(Items.field_151058_ca);
++        }
++        else if (this instanceof EntityItemFrame)
++        {
++            ItemStack held = ((EntityItemFrame)this).func_82335_i();
++            if (held == null)
++            {
++                return new ItemStack(Items.field_151160_bD);
++            }
++            else
++            {
++                return held.func_77946_l();
++            }
++        }
++        else if (this instanceof EntityMinecart)
++        {
++            return ((EntityMinecart)this).getCartItem();
++        }
++        else if (this instanceof EntityBoat)
++        {
++            return new ItemStack(Items.field_151124_az);
++        }
++        else
++        {
++            int id = EntityList.func_75619_a(this);
++            if (id > 0 && EntityList.field_75627_a.containsKey(id))
++            {
++                return new ItemStack(Items.field_151063_bx, 1, id);
++            }
++        }
++        return null;
++    }
++
++    public UUID getPersistentID()
++    {
++        return field_96093_i;
++    }
++
++    /**
++     * Reset the entity ID to a new value. Not to be used from Mod code
++     */
++    public final void resetEntityId()
++    {
++        this.field_145783_c = field_70152_a++;
++    }
++
++    public boolean shouldRenderInPass(int pass)
++    {
++        return pass == 0;
++    }
++
++    /**
++     * Returns true if the entity is of the @link{EnumCreatureType} provided
++     * @param type The EnumCreatureType type this entity is evaluating
++     * @param forSpawnCount If this is being invoked to check spawn count caps.
++     * @return If the creature is of the type provided
++     */
++    public boolean isCreatureType(EnumCreatureType type, boolean forSpawnCount)
++    {
++        return type.func_75598_a().isAssignableFrom(this.getClass());
++    }
++
++    /**
++     * Register the instance of IExtendedProperties into the entity's collection.
++     * @param identifier The identifier which you can use to retrieve these properties for the entity.
++     * @param properties The instanceof IExtendedProperties to register
++     * @return The identifier that was used to register the extended properties.  Empty String indicates an error.  If your requested key already existed, this will return a modified one that is unique.
++     */
++    public String registerExtendedProperties(String identifier, IExtendedEntityProperties properties)
++    {
++        if (identifier == null)
++        {
++            FMLLog.warning("Someone is attempting to register extended properties using a null identifier.  This is not allowed.  Aborting.  This may have caused instability.");
++            return "";
++        }
++        if (properties == null)
++        {
++            FMLLog.warning("Someone is attempting to register null extended properties.  This is not allowed.  Aborting.  This may have caused instability.");
++            return "";
++        }
++
++        String baseIdentifier = identifier;
++        int identifierModCount = 1;
++        while (this.extendedProperties.containsKey(identifier))
++        {
++            identifier = String.format("%s%d", baseIdentifier, identifierModCount++);
++        }
++
++        if (baseIdentifier != identifier)
++        {
++            FMLLog.info("An attempt was made to register exended properties using an existing key.  The duplicate identifier (%s) has been remapped to %s.", baseIdentifier, identifier);
++        }
++
++        this.extendedProperties.put(identifier, properties);
++        return identifier;
++    }
++
++    /**
++     * Gets the extended properties identified by the passed in key
++     * @param identifier The key that identifies the extended properties.
++     * @return The instance of IExtendedProperties that was found, or null.
++     */
++    public IExtendedEntityProperties getExtendedProperties(String identifier)
++    {
++        return this.extendedProperties.get(identifier);
++    }
++
++    /**
++     * If a rider of this entity can interact with this entity. Should return true on the
++     * ridden entity if so.
++     *
++     * @return if the entity can be interacted with from a rider
++     */
++    public boolean canRiderInteract()
++    {
++        return false;
++    }
++
++    /**
++     * If the rider should be dismounted from the entity when the entity goes under water
++     *
++     * @param rider The entity that is riding
++     * @return if the entity should be dismounted when under water
++     */
++    public boolean shouldDismountInWater(Entity rider)
++    {
++        return this instanceof EntityLivingBase;
++    }
++    /* ================================== Forge End =====================================*/
++
+     public static enum EnumEntitySize
+     {
+         SIZE_1,
+
+===== net/minecraft/entity/EntityLivingBase.java.patch =====
+--- ../src-base/minecraft/net/minecraft/entity/EntityLivingBase.java
++++ ../src-work/minecraft/net/minecraft/entity/EntityLivingBase.java
+@@ -19,6 +19,7 @@
+ import net.minecraft.entity.item.EntityItem;
+ import net.minecraft.entity.item.EntityXPOrb;
+ import net.minecraft.entity.monster.EntityZombie;
++import net.minecraft.entity.passive.EntityPig;
+ import net.minecraft.entity.passive.EntityWolf;
+ import net.minecraft.entity.player.EntityPlayer;
+ import net.minecraft.entity.player.EntityPlayerMP;
+@@ -48,6 +49,7 @@
+ import net.minecraft.util.Vec3;
+ import net.minecraft.world.World;
+ import net.minecraft.world.WorldServer;
++import net.minecraftforge.common.ForgeHooks;
+ 
+ public abstract class EntityLivingBase extends Entity
+ {
+@@ -225,7 +227,7 @@
+                 }
+             }
+ 
+-            if (!this.field_70170_p.field_72995_K && this.func_70115_ae() && this.field_70154_o instanceof EntityLivingBase)
++            if (!this.field_70170_p.field_72995_K && this.func_70115_ae() && this.field_70154_o != null && field_70154_o.shouldDismountInWater(this))
+             {
+                 this.func_70078_a((Entity)null);
+             }
+@@ -374,6 +376,7 @@
+     {
+         this.field_70755_b = p_70604_1_;
+         this.field_70756_c = this.field_70173_aa;
++        ForgeHooks.onLivingSetAttackTarget(this, p_70604_1_);
+     }
+ 
+     public EntityLivingBase func_110144_aD()
+@@ -661,7 +664,6 @@
+         return this.func_70668_bt() == EnumCreatureAttribute.UNDEAD;
+     }
+ 
+-    @SideOnly(Side.CLIENT)
+     public void func_70618_n(int p_70618_1_)
+     {
+         this.field_70713_bf.remove(Integer.valueOf(p_70618_1_));
+@@ -710,6 +712,8 @@
+ 
+     public void func_70691_i(float p_70691_1_)
+     {
++        p_70691_1_ = net.minecraftforge.event.ForgeEventFactory.onLivingHeal(this, p_70691_1_);
++        if (p_70691_1_ <= 0) return;
+         float f1 = this.func_110143_aJ();
+ 
+         if (f1 > 0.0F)
+@@ -730,6 +734,7 @@
+ 
+     public boolean func_70097_a(DamageSource p_70097_1_, float p_70097_2_)
+     {
++        if (ForgeHooks.onLivingAttack(this, p_70097_1_, p_70097_2_)) return false;
+         if (this.func_85032_ar())
+         {
+             return false;
+@@ -796,9 +801,9 @@
+                         this.field_70718_bc = 100;
+                         this.field_70717_bb = (EntityPlayer)entity;
+                     }
+-                    else if (entity instanceof EntityWolf)
++                    else if (entity instanceof net.minecraft.entity.passive.EntityTameable)
+                     {
+-                        EntityWolf entitywolf = (EntityWolf)entity;
++                        net.minecraft.entity.passive.EntityTameable entitywolf = (net.minecraft.entity.passive.EntityTameable)entity;
+ 
+                         if (entitywolf.func_70909_n())
+                         {
+@@ -883,6 +888,7 @@
+ 
+     public void func_70645_a(DamageSource p_70645_1_)
+     {
++        if (ForgeHooks.onLivingDeath(this, p_70645_1_)) return;
+         Entity entity = p_70645_1_.func_76346_g();
+         EntityLivingBase entitylivingbase = this.func_94060_bK();
+ 
+@@ -908,6 +914,10 @@
+                 i = EnchantmentHelper.func_77519_f((EntityLivingBase)entity);
+             }
+ 
++            captureDrops = true;
++            capturedDrops.clear();
++            int j = 0;
++
+             if (this.func_146066_aG() && this.field_70170_p.func_82736_K().func_82766_b("doMobLoot"))
+             {
+                 this.func_70628_a(this.field_70718_bc > 0, i);
+@@ -915,7 +925,7 @@
+ 
+                 if (this.field_70718_bc > 0)
+                 {
+-                    int j = this.field_70146_Z.nextInt(200) - i;
++                    j = this.field_70146_Z.nextInt(200) - i;
+ 
+                     if (j < 5)
+                     {
+@@ -923,6 +933,16 @@
+                     }
+                 }
+             }
++
++            captureDrops = false;
++
++            if (!ForgeHooks.onLivingDrops(this, p_70645_1_, capturedDrops, i, field_70718_bc > 0, j))
++            {
++                for (EntityItem item : capturedDrops)
++                {
++                    field_70170_p.func_72838_d(item);
++                }
++            }
+         }
+ 
+         this.field_70170_p.func_72960_a(this, (byte)3);
+@@ -971,7 +991,7 @@
+         int j = MathHelper.func_76128_c(this.field_70121_D.field_72338_b);
+         int k = MathHelper.func_76128_c(this.field_70161_v);
+         Block block = this.field_70170_p.func_147439_a(i, j, k);
+-        return block == Blocks.field_150468_ap || block == Blocks.field_150395_bd;
++        return ForgeHooks.isLivingOnLadder(block, field_70170_p, i, j, k, this);
+     }
+ 
+     public boolean func_70089_S()
+@@ -981,6 +1001,8 @@
+ 
+     protected void func_70069_a(float p_70069_1_)
+     {
++        p_70069_1_ = ForgeHooks.onLivingFall(this, p_70069_1_);
++        if (p_70069_1_ <= 0) return;
+         super.func_70069_a(p_70069_1_);
+         PotionEffect potioneffect = this.func_70660_b(Potion.field_76430_j);
+         float f1 = potioneffect != null ? (float)(potioneffect.func_76458_c() + 1) : 0.0F;
+@@ -1060,7 +1082,7 @@
+         {
+             if (this instanceof EntityZombie)
+             {
+-                p_70672_2_ = p_70672_2_;
++                //par2 = par2; // Forge: Noop Warning
+             }
+ 
+             int i;
+@@ -1104,6 +1126,8 @@
+     {
+         if (!this.func_85032_ar())
+         {
++            p_70665_2_ = ForgeHooks.onLivingHurt(this, p_70665_1_, p_70665_2_);
++            if (p_70665_2_ <= 0) return;
+             p_70665_2_ = this.func_70655_b(p_70665_1_, p_70665_2_);
+             p_70665_2_ = this.func_70672_c(p_70665_1_, p_70665_2_);
+             float f1 = p_70665_2_;
+@@ -1152,6 +1176,17 @@
+ 
+     public void func_71038_i()
+     {
++        ItemStack stack = this.func_70694_bm();
++
++        if (stack != null && stack.func_77973_b() != null)
++        {
++            Item item = stack.func_77973_b();
++            if (item.onEntitySwing(this, stack))
++            {
++                return;
++            }
++        }
++
+         if (!this.field_82175_bq || this.field_110158_av >= this.func_82166_i() / 2 || this.field_110158_av < 0)
+         {
+             this.field_110158_av = -1;
+@@ -1347,6 +1382,7 @@
+         }
+ 
+         this.field_70160_al = true;
++        ForgeHooks.onLivingJump(this);
+     }
+ 
+     public void func_70612_e(float p_70612_1_, float p_70612_2_)
+@@ -1521,6 +1557,7 @@
+ 
+     public void func_70071_h_()
+     {
++        if (ForgeHooks.onLivingUpdate(this)) return;
+         super.func_70071_h_();
+ 
+         if (!this.field_70170_p.field_72995_K)
+@@ -2007,6 +2044,44 @@
+         return this.func_96124_cp() != null ? this.func_96124_cp().func_142054_a(p_142012_1_) : false;
+     }
+ 
++    /***
++     * Removes all potion effects that have curativeItem as a curative item for its effect
++     * @param curativeItem The itemstack we are using to cure potion effects
++     */
++    public void curePotionEffects(ItemStack curativeItem)
++    {
++        Iterator<Integer> potionKey = field_70713_bf.keySet().iterator();
++
++        if (field_70170_p.field_72995_K)
++        {
++            return;
++        }
++
++        while (potionKey.hasNext())
++        {
++            Integer key = potionKey.next();
++            PotionEffect effect = (PotionEffect)field_70713_bf.get(key);
++
++            if (effect.isCurativeItem(curativeItem))
++            {
++                potionKey.remove();
++                func_70688_c(effect);
++            }
++        }
++    }
++
++    /**
++     * Returns true if the entity's rider (EntityPlayer) should face forward when mounted.
++     * currently only used in vanilla code by pigs.
++     *
++     * @param player The player who is riding the entity.
++     * @return If the player should orient the same direction as this entity.
++     */
++    public boolean shouldRiderFaceForward(EntityPlayer player)
++    {
++        return this instanceof EntityPig;
++    }
++
+     public void func_152111_bt() {}
+ 
+     public void func_152112_bu() {}
+
+===== net/minecraft/entity/EntityLiving.java.patch =====
+--- ../src-base/minecraft/net/minecraft/entity/EntityLiving.java
++++ ../src-work/minecraft/net/minecraft/entity/EntityLiving.java
+@@ -34,6 +34,9 @@
+ import net.minecraft.world.EnumDifficulty;
+ import net.minecraft.world.World;
+ import net.minecraft.world.WorldServer;
++import net.minecraftforge.common.ForgeHooks;
++import cpw.mods.fml.common.eventhandler.Event.Result;
++import net.minecraftforge.event.ForgeEventFactory;
+ 
+ public abstract class EntityLiving extends EntityLivingBase
+ {
+@@ -117,6 +120,7 @@
+     public void func_70624_b(EntityLivingBase p_70624_1_)
+     {
+         this.field_70696_bz = p_70624_1_;
++        ForgeHooks.onLivingSetAttackTarget(this, p_70624_1_);
+     }
+ 
+     public boolean func_70686_a(Class p_70686_1_)
+@@ -476,10 +480,22 @@
+ 
+     protected void func_70623_bb()
+     {
++        Result result = null;
+         if (this.field_82179_bU)
+         {
+             this.field_70708_bq = 0;
+         }
++        else if ((this.field_70708_bq & 0x1F) == 0x1F && (result = ForgeEventFactory.canEntityDespawn(this)) != Result.DEFAULT)
++        {
++            if (result == Result.DENY)
++            {
++                this.field_70708_bq = 0;
++            }
++            else
++            {
++                this.func_70106_y();
++            }
++        }
+         else
+         {
+             EntityPlayer entityplayer = this.field_70170_p.func_72890_a(this, -1.0D);
+@@ -642,7 +658,6 @@
+         return this.field_70170_p.func_72855_b(this.field_70121_D) && this.field_70170_p.func_72945_a(this, this.field_70121_D).isEmpty() && !this.field_70170_p.func_72953_d(this.field_70121_D);
+     }
+ 
+-    @SideOnly(Side.CLIENT)
+     public float func_70603_bj()
+     {
+         return 1.0F;
+
+===== net/minecraft/entity/item/EntityMinecart.java.patch =====
+--- ../src-base/minecraft/net/minecraft/entity/item/EntityMinecart.java
++++ ../src-work/minecraft/net/minecraft/entity/item/EntityMinecart.java
+@@ -23,6 +23,10 @@
+ import net.minecraft.util.Vec3;
+ import net.minecraft.world.World;
+ import net.minecraft.world.WorldServer;
++import net.minecraftforge.common.IMinecartCollisionHandler;
++import net.minecraftforge.common.MinecraftForge;
++import net.minecraftforge.event.entity.minecart.MinecartCollisionEvent;
++import net.minecraftforge.event.entity.minecart.MinecartUpdateEvent;
+ 
+ public abstract class EntityMinecart extends Entity
+ {
+@@ -43,6 +47,20 @@
+     private double field_70506_as;
+     private static final String __OBFID = "CL_00001670";
+ 
++    /* Forge: Minecart Compatibility Layer Integration. */
++    public static float defaultMaxSpeedAirLateral = 0.4f;
++    public static float defaultMaxSpeedAirVertical = -1f;
++    public static double defaultDragAir = 0.94999998807907104D;
++    protected boolean canUseRail = true;
++    protected boolean canBePushed = true;
++    private static IMinecartCollisionHandler collisionHandler = null;
++
++    /* Instance versions of the above physics properties */
++    private float currentSpeedRail = getMaxCartSpeedOnRail();
++    protected float maxSpeedAirLateral = defaultMaxSpeedAirLateral;
++    protected float maxSpeedAirVertical = defaultMaxSpeedAirVertical;
++    protected double dragAir = defaultDragAir;
++
+     public EntityMinecart(World p_i1712_1_)
+     {
+         super(p_i1712_1_);
+@@ -89,17 +107,25 @@
+ 
+     public AxisAlignedBB func_70114_g(Entity p_70114_1_)
+     {
++        if (getCollisionHandler() != null)
++        {
++            return getCollisionHandler().getCollisionBox(this, p_70114_1_);
++        }
+         return p_70114_1_.func_70104_M() ? p_70114_1_.field_70121_D : null;
+     }
+ 
+     public AxisAlignedBB func_70046_E()
+     {
++        if (getCollisionHandler() != null)
++        {
++            return getCollisionHandler().getBoundingBox(this);
++        }
+         return null;
+     }
+ 
+     public boolean func_70104_M()
+     {
+-        return true;
++        return canBePushed;
+     }
+ 
+     public EntityMinecart(World p_i1713_1_, double p_i1713_2_, double p_i1713_4_, double p_i1713_6_)
+@@ -302,19 +328,20 @@
+             double d2 = 0.0078125D;
+             Block block = this.field_70170_p.func_147439_a(l, i, i1);
+ 
+-            if (BlockRailBase.func_150051_a(block))
++            if (canUseRail() && BlockRailBase.func_150051_a(block))
+             {
+-                int j = this.field_70170_p.func_72805_g(l, i, i1);
+-                this.func_145821_a(l, i, i1, d0, d2, block, j);
++                float railMaxSpeed = ((BlockRailBase)block).getRailMaxSpeed(field_70170_p, this, l, i, i1);
++                double maxSpeed = Math.min(railMaxSpeed, getCurrentCartSpeedCapOnRail());
++                this.func_145821_a(l, i, i1, maxSpeed, getSlopeAdjustment(), block, ((BlockRailBase)block).getBasicRailMetadata(field_70170_p, this, l, i, i1));
+ 
+                 if (block == Blocks.field_150408_cc)
+                 {
+-                    this.func_96095_a(l, i, i1, (j & 8) != 0);
++                    this.func_96095_a(l, i, i1, (field_70170_p.func_72805_g(l, i, i1) & 8) != 0);
+                 }
+             }
+             else
+             {
+-                this.func_94088_b(d0);
++                this.func_94088_b(field_70122_E ? d0 : getMaxSpeedAirLateral());
+             }
+ 
+             this.func_145775_I();
+@@ -341,8 +368,19 @@
+             }
+ 
+             this.func_70101_b(this.field_70177_z, this.field_70125_A);
+-            List list = this.field_70170_p.func_72839_b(this, this.field_70121_D.func_72314_b(0.20000000298023224D, 0.0D, 0.20000000298023224D));
+ 
++            AxisAlignedBB box;
++            if (getCollisionHandler() != null)
++            {
++                box = getCollisionHandler().getMinecartCollisionBox(this);
++            }
++            else
++            {
++                box = field_70121_D.func_72314_b(0.2D, 0.0D, 0.2D);
++            }
++
++            List list = this.field_70170_p.func_72839_b(this, box);
++
+             if (list != null && !list.isEmpty())
+             {
+                 for (int k = 0; k < list.size(); ++k)
+@@ -365,6 +403,8 @@
+ 
+                 this.field_70153_n = null;
+             }
++
++            MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, l, i, i1));
+         }
+     }
+ 
+@@ -392,6 +432,17 @@
+             this.field_70179_y = p_94088_1_;
+         }
+ 
++        double moveY = field_70181_x;
++        if(getMaxSpeedAirVertical() > 0 && field_70181_x > getMaxSpeedAirVertical())
++        {
++            moveY = getMaxSpeedAirVertical();
++            if(Math.abs(field_70159_w) < 0.3f && Math.abs(field_70179_y) < 0.3f)
++            {
++                moveY = 0.15f;
++                field_70181_x = moveY;
++            }
++        }
++
+         if (this.field_70122_E)
+         {
+             this.field_70159_w *= 0.5D;
+@@ -399,13 +450,13 @@
+             this.field_70179_y *= 0.5D;
+         }
+ 
+-        this.func_70091_d(this.field_70159_w, this.field_70181_x, this.field_70179_y);
++        this.func_70091_d(this.field_70159_w, moveY, this.field_70179_y);
+ 
+         if (!this.field_70122_E)
+         {
+-            this.field_70159_w *= 0.949999988079071D;
+-            this.field_70181_x *= 0.949999988079071D;
+-            this.field_70179_y *= 0.949999988079071D;
++            this.field_70159_w *= getDragAir();
++            this.field_70181_x *= getDragAir();
++            this.field_70179_y *= getDragAir();
+         }
+     }
+ 
+@@ -419,7 +470,7 @@
+ 
+         if (p_145821_8_ == Blocks.field_150318_D)
+         {
+-            flag = (p_145821_9_ & 8) != 0;
++            flag = (field_70170_p.func_72805_g(p_145821_1_, p_145821_2_, p_145821_3_) & 8) != 0;
+             flag1 = !flag;
+         }
+ 
+@@ -498,7 +549,7 @@
+             }
+         }
+ 
+-        if (flag1)
++        if (flag1 && shouldDoRailFunctions())
+         {
+             d7 = Math.sqrt(this.field_70159_w * this.field_70159_w + this.field_70179_y * this.field_70179_y);
+ 
+@@ -546,37 +597,9 @@
+         this.field_70165_t = d8 + d2 * d7;
+         this.field_70161_v = d9 + d3 * d7;
+         this.func_70107_b(this.field_70165_t, this.field_70163_u + (double)this.field_70129_M, this.field_70161_v);
+-        d12 = this.field_70159_w;
+-        d13 = this.field_70179_y;
+ 
+-        if (this.field_70153_n != null)
+-        {
+-            d12 *= 0.75D;
+-            d13 *= 0.75D;
+-        }
++        moveMinecartOnRail(p_145821_1_, p_145821_2_, p_145821_3_, p_145821_4_);
+ 
+-        if (d12 < -p_145821_4_)
+-        {
+-            d12 = -p_145821_4_;
+-        }
+-
+-        if (d12 > p_145821_4_)
+-        {
+-            d12 = p_145821_4_;
+-        }
+-
+-        if (d13 < -p_145821_4_)
+-        {
+-            d13 = -p_145821_4_;
+-        }
+-
+-        if (d13 > p_145821_4_)
+-        {
+-            d13 = p_145821_4_;
+-        }
+-
+-        this.func_70091_d(d12, 0.0D, d13);
+-
+         if (aint[0][1] != 0 && MathHelper.func_76128_c(this.field_70165_t) - p_145821_1_ == aint[0][0] && MathHelper.func_76128_c(this.field_70161_v) - p_145821_3_ == aint[0][2])
+         {
+             this.func_70107_b(this.field_70165_t, this.field_70163_u + (double)aint[0][1], this.field_70161_v);
+@@ -613,8 +636,13 @@
+             this.field_70179_y = d6 * (double)(i1 - p_145821_3_);
+         }
+ 
+-        if (flag)
++        if(shouldDoRailFunctions())
+         {
++            ((BlockRailBase)p_145821_8_).onMinecartPass(field_70170_p, this, p_145821_1_, p_145821_2_, p_145821_3_);
++        }
++
++        if (flag && shouldDoRailFunctions())
++        {
+             double d15 = Math.sqrt(this.field_70159_w * this.field_70159_w + this.field_70179_y * this.field_70179_y);
+ 
+             if (d15 > 0.01D)
+@@ -684,13 +712,8 @@
+         }
+         else
+         {
+-            int l = this.field_70170_p.func_72805_g(i, j, k);
++            int l = ((BlockRailBase)block).getBasicRailMetadata(field_70170_p, this, i, j, k);
+ 
+-            if (((BlockRailBase)block).func_150050_e())
+-            {
+-                l &= 7;
+-            }
+-
+             p_70495_3_ = (double)j;
+ 
+             if (l >= 2 && l <= 5)
+@@ -735,14 +758,9 @@
+ 
+         if (BlockRailBase.func_150051_a(block))
+         {
+-            int l = this.field_70170_p.func_72805_g(i, j, k);
++            int l = ((BlockRailBase)block).getBasicRailMetadata(field_70170_p, this, i, j, k);
+             p_70489_3_ = (double)j;
+ 
+-            if (((BlockRailBase)block).func_150050_e())
+-            {
+-                l &= 7;
+-            }
+-
+             if (l >= 2 && l <= 5)
+             {
+                 p_70489_3_ = (double)(j + 1);
+@@ -838,11 +856,17 @@
+ 
+     public void func_70108_f(Entity p_70108_1_)
+     {
++        MinecraftForge.EVENT_BUS.post(new MinecartCollisionEvent(this, p_70108_1_));
++        if (getCollisionHandler() != null)
++        {
++            getCollisionHandler().onEntityCollision(this, p_70108_1_);
++            return;
++        }
+         if (!this.field_70170_p.field_72995_K)
+         {
+             if (p_70108_1_ != this.field_70153_n)
+             {
+-                if (p_70108_1_ instanceof EntityLivingBase && !(p_70108_1_ instanceof EntityPlayer) && !(p_70108_1_ instanceof EntityIronGolem) && this.func_94087_l() == 0 && this.field_70159_w * this.field_70159_w + this.field_70179_y * this.field_70179_y > 0.01D && this.field_70153_n == null && p_70108_1_.field_70154_o == null)
++                if (p_70108_1_ instanceof EntityLivingBase && !(p_70108_1_ instanceof EntityPlayer) && !(p_70108_1_ instanceof EntityIronGolem) && canBeRidden()               && this.field_70159_w * this.field_70159_w + this.field_70179_y * this.field_70179_y > 0.01D && this.field_70153_n == null && p_70108_1_.field_70154_o == null)
+                 {
+                     p_70108_1_.func_70078_a(this);
+                 }
+@@ -888,7 +912,7 @@
+                         double d7 = p_70108_1_.field_70159_w + this.field_70159_w;
+                         double d8 = p_70108_1_.field_70179_y + this.field_70179_y;
+ 
+-                        if (((EntityMinecart)p_70108_1_).func_94087_l() == 2 && this.func_94087_l() != 2)
++                        if (((EntityMinecart)p_70108_1_).isPoweredCart() && !isPoweredCart())
+                         {
+                             this.field_70159_w *= 0.20000000298023224D;
+                             this.field_70179_y *= 0.20000000298023224D;
+@@ -896,7 +920,7 @@
+                             p_70108_1_.field_70159_w *= 0.949999988079071D;
+                             p_70108_1_.field_70179_y *= 0.949999988079071D;
+                         }
+-                        else if (((EntityMinecart)p_70108_1_).func_94087_l() != 2 && this.func_94087_l() == 2)
++                        else if (((EntityMinecart)p_70108_1_).isPoweredCart() && !isPoweredCart())
+                         {
+                             p_70108_1_.field_70159_w *= 0.20000000298023224D;
+                             p_70108_1_.field_70179_y *= 0.20000000298023224D;
+@@ -1065,4 +1089,216 @@
+     {
+         return this.field_94102_c;
+     }
++    /* =================================== FORGE START ===========================================*/
++    /**
++     * Moved to allow overrides.
++     * This code handles minecart movement and speed capping when on a rail.
++     */
++    public void moveMinecartOnRail(int x, int y, int z, double par4){
++        double d12 = this.field_70159_w;
++        double d13 = this.field_70179_y;
++
++        if (this.field_70153_n != null)
++        {
++            d12 *= 0.75D;
++            d13 *= 0.75D;
++        }
++
++        if (d12 < -par4)
++        {
++            d12 = -par4;
++        }
++
++        if (d12 > par4)
++        {
++            d12 = par4;
++        }
++
++        if (d13 < -par4)
++        {
++            d13 = -par4;
++        }
++
++        if (d13 > par4)
++        {
++            d13 = par4;
++        }
++
++        this.func_70091_d(d12, 0.0D, d13);
++    }
++
++    /**
++     * Gets the current global Minecart Collision handler if none
++     * is registered, returns null
++     * @return The collision handler or null
++     */
++    public static IMinecartCollisionHandler getCollisionHandler()
++    {
++        return collisionHandler;
++    }
++
++    /**
++     * Sets the global Minecart Collision handler, overwrites any
++     * that is currently set.
++     * @param handler The new handler
++     */
++    public static void setCollisionHandler(IMinecartCollisionHandler handler)
++    {
++        collisionHandler = handler;
++    }
++
++    /**
++     * This function returns an ItemStack that represents this cart.
++     * This should be an ItemStack that can be used by the player to place the cart,
++     * but is not necessary the item the cart drops when destroyed.
++     * @return An ItemStack that can be used to place the cart.
++     */
++    public ItemStack getCartItem()
++    {
++        if (this instanceof EntityMinecartFurnace)
++        {
++            return new ItemStack(Items.field_151109_aJ);
++        }
++        else if (this instanceof EntityMinecartChest)
++        {
++            return new ItemStack(Items.field_151108_aI);
++        }
++        else if (this instanceof EntityMinecartTNT)
++        {
++            return new ItemStack(Items.field_151142_bV);
++        }
++        else if (this instanceof EntityMinecartHopper)
++        {
++            return new ItemStack(Items.field_151140_bW);
++        }
++        else if (this instanceof EntityMinecartCommandBlock)
++        {
++            return new ItemStack(Items.field_151095_cc);
++        }
++        return new ItemStack(Items.field_151143_au);
++    }
++
++    /**
++     * Returns true if this cart can currently use rails.
++     * This function is mainly used to gracefully detach a minecart from a rail.
++     * @return True if the minecart can use rails.
++     */
++    public boolean canUseRail()
++    {
++        return canUseRail;
++    }
++
++    /**
++     * Set whether the minecart can use rails.
++     * This function is mainly used to gracefully detach a minecart from a rail.
++     * @param use Whether the minecart can currently use rails.
++     */
++    public void setCanUseRail(boolean use)
++    {
++        canUseRail = use;
++    }
++
++    /**
++     * Return false if this cart should not call onMinecartPass() and should ignore Powered Rails.
++     * @return True if this cart should call onMinecartPass().
++     */
++    public boolean shouldDoRailFunctions()
++    {
++        return true;
++    }
++
++    /**
++     * Returns true if this cart is self propelled.
++     * @return True if powered.
++     */
++    public boolean isPoweredCart()
++    {
++        return func_94087_l()== 2;
++    }
++
++    /**
++     * Returns true if this cart can be ridden by an Entity.
++     * @return True if this cart can be ridden.
++     */
++    public boolean canBeRidden()
++    {
++        if(this instanceof EntityMinecartEmpty)
++        {
++            return true;
++        }
++        return false;
++    }
++
++    /**
++     * Getters/setters for physics variables
++     */
++
++    /**
++     * Returns the carts max speed when traveling on rails. Carts going faster
++     * than 1.1 cause issues with chunk loading. Carts cant traverse slopes or
++     * corners at greater than 0.5 - 0.6. This value is compared with the rails
++     * max speed and the carts current speed cap to determine the carts current
++     * max speed. A normal rail's max speed is 0.4.
++     *
++     * @return Carts max speed.
++     */
++    public float getMaxCartSpeedOnRail()
++    {
++        return 1.2f;
++    }
++
++    /**
++     * Returns the current speed cap for the cart when traveling on rails. This
++     * functions differs from getMaxCartSpeedOnRail() in that it controls
++     * current movement and cannot be overridden. The value however can never be
++     * higher than getMaxCartSpeedOnRail().
++     *
++     * @return
++     */
++    public final float getCurrentCartSpeedCapOnRail()
++    {
++        return currentSpeedRail;
++    }
++
++    public final void setCurrentCartSpeedCapOnRail(float value)
++    {
++        value = Math.min(value, getMaxCartSpeedOnRail());
++        currentSpeedRail = value;
++    }
++
++    public float getMaxSpeedAirLateral()
++    {
++        return maxSpeedAirLateral;
++    }
++
++    public void setMaxSpeedAirLateral(float value)
++    {
++        maxSpeedAirLateral = value;
++    }
++
++    public float getMaxSpeedAirVertical()
++    {
++        return maxSpeedAirVertical;
++    }
++
++    public void setMaxSpeedAirVertical(float value)
++    {
++        maxSpeedAirVertical = value;
++    }
++
++    public double getDragAir()
++    {
++        return dragAir;
++    }
++
++    public void setDragAir(double value)
++    {
++        dragAir = value;
++    }
++
++    public double getSlopeAdjustment()
++    {
++        return 0.0078125D;
++    }
++    /* =================================== FORGE END ===========================================*/
+ }
+

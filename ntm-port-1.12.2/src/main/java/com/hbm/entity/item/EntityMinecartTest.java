@@ -49,14 +49,14 @@ public class EntityMinecartTest extends EntityMinecartModBase
         if (this.minecartTNTFuse > 0)
         {
             --this.minecartTNTFuse;
-            this.world.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+            this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
         }
         else if (this.minecartTNTFuse == 0)
         {
             this.explodeCart(this.motionX * this.motionX + this.motionZ * this.motionZ);
         }
 
-        if (this.isCollidedHorizontally)
+        if (this.collidedHorizontally)
         {
             double d0 = this.motionX * this.motionX + this.motionZ * this.motionZ;
 

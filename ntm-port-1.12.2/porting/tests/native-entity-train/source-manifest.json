@@ -1,0 +1,297 @@
+{
+  "base": "b51f8971c483858304306df2f0cbbafade512a77",
+  "baseline_kind": "recovered verified CP76 production tree; original CP76 commit unavailable",
+  "reconstruction": "Production patch reconstructed from exact prior transformations; original patch SHA256 independently matches. Evidence reconstructed after environment loss; rerun status recorded separately.",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarBase.java",
+      "class_name": "EntityRailCarBase",
+      "owner": "BoundingBoxDummyEntity",
+      "before_sha256": "aa62032cfb4b7297d8f341c8a9e2f197d29d170aba01bd426a9f809534df0914",
+      "after_sha256": "48c37359f62f49309da8a4587e115b31c992f2b6158ce7045c6a07e44f56767d",
+      "original_sha256": "14fb9f85afb1c07b0c6b9de0cdd76dbf083880199fac4884e8985868bac19c50",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\t\tprivate static final DataParameter<Integer> TRAIN_ID = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.VARINT);\n\t\tprivate static final DataParameter<Float> WIDTH = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.FLOAT);\n\t\tprivate static final DataParameter<Float> HEIGHT = EntityDataManager.createKey(BoundingBoxDummyEntity.class, DataSerializers.FLOAT);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.updateObject(3, train.getEntityId())",
+          "after": "this.dataManager.set(TRAIN_ID, train.getEntityId())",
+          "before_offset": 15648,
+          "before_line": 449,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "TRAIN_ID",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 16223,
+          "after_line": 456
+        },
+        {
+          "before": "this.dataWatcher.updateObject(4, width)",
+          "after": "this.dataManager.set(WIDTH, width)",
+          "before_offset": 15810,
+          "before_line": 454,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "WIDTH",
+          "serializer": "FLOAT",
+          "legacy_slot": 4,
+          "after_offset": 16383,
+          "after_line": 461
+        },
+        {
+          "before": "this.dataWatcher.updateObject(5, height)",
+          "after": "this.dataManager.set(HEIGHT, height)",
+          "before_offset": 15854,
+          "before_line": 455,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "HEIGHT",
+          "serializer": "FLOAT",
+          "legacy_slot": 5,
+          "after_offset": 16422,
+          "after_line": 462
+        },
+        {
+          "before": "this.dataWatcher.addObject(3, new Integer(0))",
+          "after": "this.dataManager.register(TRAIN_ID, new Integer(0))",
+          "before_offset": 15948,
+          "before_line": 459,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "TRAIN_ID",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 16512,
+          "after_line": 466
+        },
+        {
+          "before": "this.dataWatcher.addObject(4, new Float(1F))",
+          "after": "this.dataManager.register(WIDTH, new Float(1F))",
+          "before_offset": 15998,
+          "before_line": 460,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "WIDTH",
+          "serializer": "FLOAT",
+          "legacy_slot": 4,
+          "after_offset": 16568,
+          "after_line": 467
+        },
+        {
+          "before": "this.dataWatcher.addObject(5, new Float(1F))",
+          "after": "this.dataManager.register(HEIGHT, new Float(1F))",
+          "before_offset": 16047,
+          "before_line": 461,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "HEIGHT",
+          "serializer": "FLOAT",
+          "legacy_slot": 5,
+          "after_offset": 16620,
+          "after_line": 468
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(4)",
+          "after": "this.dataManager.get(WIDTH)",
+          "before_offset": 17467,
+          "before_line": 491,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "WIDTH",
+          "serializer": "FLOAT",
+          "legacy_slot": 4,
+          "after_offset": 18044,
+          "after_line": 498
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectFloat(5)",
+          "after": "this.dataManager.get(HEIGHT)",
+          "before_offset": 17512,
+          "before_line": 491,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "HEIGHT",
+          "serializer": "FLOAT",
+          "legacy_slot": 5,
+          "after_offset": 18073,
+          "after_line": 498
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(3)",
+          "after": "this.dataManager.get(TRAIN_ID)",
+          "before_offset": 17952,
+          "before_line": 503,
+          "declaring_owner": "BoundingBoxDummyEntity",
+          "receiver_static_type": "BoundingBoxDummyEntity",
+          "key": "TRAIN_ID",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 18498,
+          "after_line": 510
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java",
+      "class_name": "EntityRailCarRidable",
+      "owner": "SeatDummyEntity",
+      "before_sha256": "b160ba028cf08f31adb1a9ccc80ed7765759c410e712781278122e1e0c619ed4",
+      "after_sha256": "734c8e7eafcc16e05a078ef1e7ba99adc60d1d3ebcb7fb1b66d6c580be67fef4",
+      "original_sha256": "f83535c9f1d91e41b428f33ca41955b4b3e9cd6f06d6be0ec214dc20d04aaa20",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\t\tprivate static final DataParameter<Integer> TRAIN_ID = EntityDataManager.createKey(SeatDummyEntity.class, DataSerializers.VARINT);\n\t\tprivate static final DataParameter<Integer> SEAT_INDEX = EntityDataManager.createKey(SeatDummyEntity.class, DataSerializers.VARINT);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.updateObject(3, train.getEntityId())",
+          "after": "this.dataManager.set(TRAIN_ID, train.getEntityId())",
+          "before_offset": 6615,
+          "before_line": 214,
+          "declaring_owner": "SeatDummyEntity",
+          "receiver_static_type": "SeatDummyEntity",
+          "key": "TRAIN_ID",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 7049,
+          "after_line": 220
+        },
+        {
+          "before": "this.dataWatcher.updateObject(4, index)",
+          "after": "this.dataManager.set(SEAT_INDEX, index)",
+          "before_offset": 6673,
+          "before_line": 215,
+          "declaring_owner": "SeatDummyEntity",
+          "receiver_static_type": "SeatDummyEntity",
+          "key": "SEAT_INDEX",
+          "serializer": "VARINT",
+          "legacy_slot": 4,
+          "after_offset": 7105,
+          "after_line": 221
+        },
+        {
+          "before": "this.dataWatcher.addObject(3, new Integer(0))",
+          "after": "this.dataManager.register(TRAIN_ID, new Integer(0))",
+          "before_offset": 6763,
+          "before_line": 218,
+          "declaring_owner": "SeatDummyEntity",
+          "receiver_static_type": "SeatDummyEntity",
+          "key": "TRAIN_ID",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 7195,
+          "after_line": 224
+        },
+        {
+          "before": "this.dataWatcher.addObject(4, new Integer(0))",
+          "after": "this.dataManager.register(SEAT_INDEX, new Integer(0))",
+          "before_offset": 6810,
+          "before_line": 218,
+          "declaring_owner": "SeatDummyEntity",
+          "receiver_static_type": "SeatDummyEntity",
+          "key": "SEAT_INDEX",
+          "serializer": "VARINT",
+          "legacy_slot": 4,
+          "after_offset": 7248,
+          "after_line": 224
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(3)",
+          "after": "this.dataManager.get(TRAIN_ID)",
+          "before_offset": 8117,
+          "before_line": 255,
+          "declaring_owner": "SeatDummyEntity",
+          "receiver_static_type": "SeatDummyEntity",
+          "key": "TRAIN_ID",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 8563,
+          "after_line": 261
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(4)",
+          "after": "this.dataManager.get(SEAT_INDEX)",
+          "before_offset": 8632,
+          "before_line": 270,
+          "declaring_owner": "SeatDummyEntity",
+          "receiver_static_type": "SeatDummyEntity",
+          "key": "SEAT_INDEX",
+          "serializer": "VARINT",
+          "legacy_slot": 4,
+          "after_offset": 9067,
+          "after_line": 276
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarElectric.java",
+      "class_name": "EntityRailCarElectric",
+      "owner": "EntityRailCarElectric",
+      "before_sha256": "2a210d399f6ca60afef1a21b22c976cb41b0f21c3e5acb560e86c50e7103123d",
+      "after_sha256": "6aacd0f6e785edd82b89c0fa52da2405dd2272498c5cf9c6acca9574a1e68b34",
+      "original_sha256": "e696fa8f5f57b46a8596d2835a052e1f1d4df899121c86a82ef7d6cad8d437e5",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\n\tprivate static final DataParameter<Integer> POWER = EntityDataManager.createKey(EntityRailCarElectric.class, DataSerializers.VARINT);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(3, new Integer(0))",
+          "after": "this.dataManager.register(POWER, new Integer(0))",
+          "before_offset": 556,
+          "before_line": 23,
+          "declaring_owner": "EntityRailCarElectric",
+          "receiver_static_type": "EntityRailCarElectric",
+          "key": "POWER",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 857,
+          "after_line": 28
+        },
+        {
+          "before": "this.dataWatcher.updateObject(3, power)",
+          "after": "this.dataManager.set(POWER, power)",
+          "before_offset": 876,
+          "before_line": 36,
+          "declaring_owner": "EntityRailCarElectric",
+          "receiver_static_type": "EntityRailCarElectric",
+          "key": "POWER",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 1180,
+          "after_line": 41
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(3)",
+          "after": "this.dataManager.get(POWER)",
+          "before_offset": 956,
+          "before_line": 40,
+          "declaring_owner": "EntityRailCarElectric",
+          "receiver_static_type": "EntityRailCarElectric",
+          "key": "POWER",
+          "serializer": "VARINT",
+          "legacy_slot": 3,
+          "after_offset": 1255,
+          "after_line": 45
+        }
+      ]
+    }
+  ],
+  "unchanged_hierarchy_sources": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarCargo.java",
+      "sha256": "e51c7a230d756fea73a7b66a62d34b08b6ab60d2c4fd212c4896998a2599654b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/TrainCargoTram.java",
+      "sha256": "330b60b9ee5d953fefea4ddf8a644858f48e5ded53a5e3d70f8e44869a1f9409"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/TrainCargoTramTrailer.java",
+      "sha256": "0c6b950dee89d35342042f27aeec6fb086a7344745f771fb0d3a6594b64d5f99"
+    }
+  ]
+}

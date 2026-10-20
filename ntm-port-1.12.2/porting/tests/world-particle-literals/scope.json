@@ -1,0 +1,962 @@
+{
+  "base": "77b595c32b46e2f9309bcf9924d654ddc29a3c95",
+  "mapping": {
+    "lava": "LAVA",
+    "townaura": "TOWN_AURA",
+    "flame": "FLAME",
+    "smoke": "SMOKE_NORMAL",
+    "bubble": "WATER_BUBBLE",
+    "cloud": "CLOUD",
+    "fireworksSpark": "FIREWORKS_SPARK",
+    "reddust": "REDSTONE",
+    "hugeexplosion": "EXPLOSION_HUGE",
+    "largeexplode": "EXPLOSION_LARGE",
+    "explode": "EXPLOSION_NORMAL",
+    "portal": "PORTAL",
+    "splash": "WATER_SPLASH",
+    "dripLava": "DRIP_LAVA",
+    "largesmoke": "SMOKE_LARGE",
+    "magicCrit": "CRIT_MAGIC"
+  },
+  "files": {
+    "com/hbm/blocks/generic/BlockHazard.java": [
+      {
+        "line": 63,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\tworld.spawnParticle(\"lava\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 91,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"townaura\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 102,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"flame\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 103,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 104,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.1, 0.0);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockOreBasalt.java": [
+      {
+        "line": 66,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\tfor(int i = 0; i < 5; i++) world.spawnParticle(\"townaura\", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tfor(int i = 0; i < 5; i++) world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/explosion/ExplosionNT.java": [
+      {
+        "line": 231,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\t\tthis.worldObj.spawnParticle(\"smoke\", d0, d1, d2, d3, d4, d5);\r\n",
+        "after": "\t\t\t\t\tthis.worldObj.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, d3, d4, d5);\r\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityThrowableNT.java": [
+      {
+        "line": 263,
+        "old": "bubble",
+        "enum": "WATER_BUBBLE",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"bubble\", this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);\n"
+      }
+    ],
+    "com/hbm/blocks/machine/MachineFan.java": [
+      {
+        "line": 150,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 + dir.offsetX * 0.5, this.pos.getY() + 0.5 + dir.offsetY * 0.5, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5, dir.offsetX * speed, dir.offsetY * speed, dir.offsetZ * speed);\n",
+        "after": "\t\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + dir.offsetX * 0.5, this.pos.getY() + 0.5 + dir.offsetY * 0.5, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5, dir.offsetX * speed, dir.offsetY * speed, dir.offsetZ * speed);\n"
+      }
+    ],
+    "com/hbm/entity/item/EntityTNTPrimedBase.java": [
+      {
+        "line": 99,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/main/ModEventHandler.java": [
+      {
+        "line": 1489,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\t\tplayer.world.spawnParticle(\"townaura\", player.posX + vec.x, player.posY + 1 + vec.y, player.posZ + vec.z, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\tplayer.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, player.posX + vec.x, player.posY + 1 + vec.y, player.posZ + vec.z, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/entity/mob/EntityHunterChopper.java": [
+      {
+        "line": 89,
+        "old": "fireworksSpark",
+        "enum": "FIREWORKS_SPARK",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"fireworksSpark\", this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FIREWORKS_SPARK, this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityBullet.java": [
+      {
+        "line": 624,
+        "old": "fireworksSpark",
+        "enum": "FIREWORKS_SPARK",
+        "before": "\t\t\t\t\t\tthis.world.spawnParticle(\"fireworksSpark\", this.posX + this.motionX * i / 8.0D,\n",
+        "after": "\t\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FIREWORKS_SPARK, this.posX + this.motionX * i / 8.0D,\n"
+      },
+      {
+        "line": 629,
+        "old": "reddust",
+        "enum": "REDSTONE",
+        "before": "\t\t\t\t\t\tthis.world.spawnParticle(\"reddust\", this.posX + this.motionX * i / 8.0D,\n",
+        "after": "\t\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, this.posX + this.motionX * i / 8.0D,\n"
+      },
+      {
+        "line": 671,
+        "old": "bubble",
+        "enum": "WATER_BUBBLE",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"bubble\", this.posX - this.motionX * f4, this.posY - this.motionY * f4,\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4,\n"
+      }
+    ],
+    "com/hbm/entity/grenade/EntityGrenadeBouncyBase.java": [
+      {
+        "line": 196,
+        "old": "bubble",
+        "enum": "WATER_BUBBLE",
+        "before": "                this.world.spawnParticle(\"bubble\", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);\n",
+        "after": "                this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);\n"
+      }
+    ],
+    "com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java": [
+      {
+        "line": 31,
+        "old": "hugeexplosion",
+        "enum": "EXPLOSION_HUGE",
+        "before": "\t\t\tworld.spawnParticle(\"hugeexplosion\", x, y, z, 1.0D, 0.0D, 0.0D);\r\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_HUGE, x, y, z, 1.0D, 0.0D, 0.0D);\r\n"
+      },
+      {
+        "line": 33,
+        "old": "largeexplode",
+        "enum": "EXPLOSION_LARGE",
+        "before": "\t\t\tworld.spawnParticle(\"largeexplode\", x, y, z, 1.0D, 0.0D, 0.0D);\r\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_LARGE, x, y, z, 1.0D, 0.0D, 0.0D);\r\n"
+      },
+      {
+        "line": 60,
+        "old": "explode",
+        "enum": "EXPLOSION_NORMAL",
+        "before": "\t\t\tworld.spawnParticle(\"explode\", (oX + x * 1.0D) / 2.0D, (oY + y * 1.0D) / 2.0D, (oZ + z * 1.0D) / 2.0D, dX, dY, dZ);\r\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.EXPLOSION_NORMAL, (oX + x * 1.0D) / 2.0D, (oY + y * 1.0D) / 2.0D, (oZ + z * 1.0D) / 2.0D, dX, dY, dZ);\r\n"
+      },
+      {
+        "line": 61,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tworld.spawnParticle(\"smoke\", oX, oY, oZ, dX, dY, dZ);\r\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, oX, oY, oZ, dX, dY, dZ);\r\n"
+      }
+    ],
+    "com/hbm/items/tool/ItemAnchorRemote.java": [
+      {
+        "line": 95,
+        "old": "portal",
+        "enum": "PORTAL",
+        "before": "\t\t\t\tworld.spawnParticle(\"portal\", player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n"
+      }
+    ],
+    "com/hbm/items/tool/ItemLaserDetonator.java": [
+      {
+        "line": 64,
+        "old": "reddust",
+        "enum": "REDSTONE",
+        "before": "\t\t\t\tworld.spawnParticle(\"reddust\", player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/items/tool/ItemDiscord.java": [
+      {
+        "line": 39,
+        "old": "portal",
+        "enum": "PORTAL",
+        "before": "\t\t\t\tworld.spawnParticle(\"portal\", player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityArtilleryShell.java": [
+      {
+        "line": 152,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);\r\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);\r\n"
+      }
+    ],
+    "com/hbm/items/weapon/WeaponizedCell.java": [
+      {
+        "line": 48,
+        "old": "reddust",
+        "enum": "REDSTONE",
+        "before": "\t\t\tworld.spawnParticle(\"reddust\", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 50,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tworld.spawnParticle(\"smoke\", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 53,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\tworld.spawnParticle(\"lava\", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/entity/item/EntityMinecartTest.java": [
+      {
+        "line": 52,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "            this.world.spawnParticle(\"smoke\", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n",
+        "after": "            this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/entity/item/EntityFireworks.java": [
+      {
+        "line": 34,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\tthis.world.spawnParticle(\"flame\", posX, posY, posZ, 0.0, -0.3, 0.0);\n",
+        "after": "\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, posX, posY, posZ, 0.0, -0.3, 0.0);\n"
+      },
+      {
+        "line": 35,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\tthis.world.spawnParticle(\"smoke\", posX, posY, posZ, 0.0, -0.2, 0.0);\n",
+        "after": "\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY, posZ, 0.0, -0.2, 0.0);\n"
+      }
+    ],
+    "com/hbm/entity/item/EntityDroneBase.java": [
+      {
+        "line": 98,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n"
+      },
+      {
+        "line": 99,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);\n"
+      },
+      {
+        "line": 100,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);\n"
+      },
+      {
+        "line": 101,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);\n"
+      }
+    ],
+    "com/hbm/entity/item/EntityBoatRubber.java": [
+      {
+        "line": 392,
+        "old": "splash",
+        "enum": "WATER_SPLASH",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"splash\", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n"
+      },
+      {
+        "line": 396,
+        "old": "splash",
+        "enum": "WATER_SPLASH",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"splash\", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityRocket.java": [
+      {
+        "line": 440,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "                \tthis.world.spawnParticle(\"smoke\", this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);\n",
+        "after": "                \tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);\n"
+      },
+      {
+        "line": 481,
+        "old": "bubble",
+        "enum": "WATER_BUBBLE",
+        "before": "                    this.world.spawnParticle(\"bubble\", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n",
+        "after": "                    this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntitySchrab.java": [
+      {
+        "line": 438,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "                    this.world.spawnParticle(\"smoke\", this.posX, this.posY, this.posZ, 0, 0, 0 /*this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ*/);\n",
+        "after": "                    this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ, 0, 0, 0 /*this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ*/);\n"
+      },
+      {
+        "line": 478,
+        "old": "bubble",
+        "enum": "WATER_BUBBLE",
+        "before": "                    this.world.spawnParticle(\"bubble\", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n",
+        "after": "                    this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityChemical.java": [
+      {
+        "line": 375,
+        "old": "portal",
+        "enum": "PORTAL",
+        "before": "\t\t\t\te.world.spawnParticle(\"portal\", d7, d8, d9, (double) f, (double) f1, (double) f2);\n",
+        "after": "\t\t\t\te.world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, d7, d8, d9, (double) f, (double) f1, (double) f2);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityBulletBaseNT.java": [
+      {
+        "line": 208,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"smoke\", this.posX, this.posY, this.posZ,\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ,\n"
+      },
+      {
+        "line": 215,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tthis.world.spawnParticle(\"flame\", this.posX + this.motionX * mod, this.posY + this.motionY * mod, this.posZ + this.motionZ * mod, 0, 0, 0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.posX + this.motionX * mod, this.posY + this.motionY * mod, this.posZ + this.motionZ * mod, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityBeamVortex.java": [
+      {
+        "line": 44,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\tthis.world.spawnParticle(\"cloud\", pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityShrapnel.java": [
+      {
+        "line": 44,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tthis.world.spawnParticle(\"flame\", posX, posY, posZ, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, posX, posY, posZ, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 101,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\t\tfor(int i = 0; i < 5; i++) this.world.spawnParticle(\"lava\", posX, posY, posZ, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\tfor(int i = 0; i < 5; i++) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, posX, posY, posZ, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/entity/projectile/EntityWaterSplash.java": [
+      {
+        "line": 50,
+        "old": "splash",
+        "enum": "WATER_SPLASH",
+        "before": "\t\t\tthis.world.spawnParticle(\"splash\", posX, posY, posZ, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_SPLASH, posX, posY, posZ, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/entity/effect/EntityMist.java": [
+      {
+        "line": 343,
+        "old": "portal",
+        "enum": "PORTAL",
+        "before": "\t\t\t\te.world.spawnParticle(\"portal\", d7, d8, d9, (double) f, (double) f1, (double) f2);\n",
+        "after": "\t\t\t\te.world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, d7, d8, d9, (double) f, (double) f1, (double) f2);\n"
+      }
+    ],
+    "com/hbm/entity/mob/EntityRADBeast.java": [
+      {
+        "line": 117,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"townaura\", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 122,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"flame\", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 126,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\tthis.world.spawnParticle(\"lava\", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/entity/mob/EntityBurrowingSwingingBase.java": [
+      {
+        "line": 70,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"cloud\", posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);\n"
+      }
+    ],
+    "com/hbm/entity/cart/EntityMinecartDestroyer.java": [
+      {
+        "line": 126,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);\n"
+      }
+    ],
+    "com/hbm/handler/EntityEffectHandler.java": [
+      {
+        "line": 93,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\t\t\tfor(int i = 0; i < 3; i++) player.world.spawnParticle(\"townaura\", player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);\n",
+        "after": "\t\t\t\t\tfor(int i = 0; i < 3; i++) player.world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/blocks/gas/BlockGasCoal.java": [
+      {
+        "line": 26,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\tworld.spawnParticle(\"smoke\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/gas/BlockGasMeltdown.java": [
+      {
+        "line": 53,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/gas/BlockGasRadonDense.java": [
+      {
+        "line": 51,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/gas/BlockGasAsbestos.java": [
+      {
+        "line": 28,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/fluid/VolcanicBlock.java": [
+      {
+        "line": 146,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\t\tworld.spawnParticle(\"lava\", dx, dy, dz, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, dx, dy, dz, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 159,
+        "old": "dripLava",
+        "enum": "DRIP_LAVA",
+        "before": "\t\t\tworld.spawnParticle(\"dripLava\", dx, dy, dz, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.DRIP_LAVA, dx, dy, dz, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/fluid/SchrabidicBlock.java": [
+      {
+        "line": 117,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\tworld.spawnParticle(\"cloud\", dx, dy, dz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, dx, dy, dz, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 147,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\tworld.spawnParticle(\"cloud\", dx, dy, dz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, dx, dy, dz, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/fluid/GenericFluidBlock.java": [
+      {
+        "line": 88,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\t\tworld.spawnParticle(\"cloud\", entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/fluid/MeltedFlesh.java": [
+      {
+        "line": 81,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tworld.spawnParticle(\"smoke\", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 82,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\tworld.spawnParticle(\"cloud\", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 84,
+        "old": "largesmoke",
+        "enum": "SMOKE_LARGE",
+        "before": "\t\t\t\tworld.spawnParticle(\"largesmoke\", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\t        \t\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);\t        \t\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityICFController.java": [
+      {
+        "line": 180,
+        "old": "reddust",
+        "enum": "REDSTONE",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"reddust\", this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/blocks/machine/ReactorResearch.java": [
+      {
+        "line": 77,
+        "old": "bubble",
+        "enum": "WATER_BUBBLE",
+        "before": "\t\t\t\tworld.spawnParticle(\"bubble\", ix, iy, iz, 0.0, 0.2, 0.0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, ix, iy, iz, 0.0, 0.2, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/machine/MachineForceField.java": [
+      {
+        "line": 77,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"lava\", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 79,
+        "old": "reddust",
+        "enum": "REDSTONE",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"reddust\", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 89,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tworld.spawnParticle(\"smoke\", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/machine/MachineDiesel.java": [
+      {
+        "line": 51,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tworld.spawnParticle(\"smoke\", x + 0.5 - dir.offsetX * 0.6 + rot.offsetX * 0.1875, y + 0.3125, z + 0.5 - dir.offsetZ * 0.6 + rot.offsetZ * 0.1875, 0, 0, 0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + 0.5 - dir.offsetX * 0.6 + rot.offsetX * 0.1875, y + 0.3125, z + 0.5 - dir.offsetZ * 0.6 + rot.offsetZ * 0.1875, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/blocks/machine/WasteDrum.java": [
+      {
+        "line": 83,
+        "old": "bubble",
+        "enum": "WATER_BUBBLE",
+        "before": "\t\t\t\tworld.spawnParticle(\"bubble\", ix, iy, iz, 0.0, 0.2, 0.0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.WATER_BUBBLE, ix, iy, iz, 0.0, 0.2, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockGeysir.java": [
+      {
+        "line": 77,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\tp_149734_1_.spawnParticle(\"cloud\", f, f1, f2, 0.0D, 0.1D, 0.0D);\n",
+        "after": "\t\t\tp_149734_1_.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, f, f1, f2, 0.0D, 0.1D, 0.0D);\n"
+      },
+      {
+        "line": 81,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tp_149734_1_.spawnParticle(\"flame\", x + 0.5F, y + 1.0625F, z + 0.5F, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tp_149734_1_.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + 0.5F, y + 1.0625F, z + 0.5F, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockLithium.java": [
+      {
+        "line": 56,
+        "old": "largesmoke",
+        "enum": "SMOKE_LARGE",
+        "before": "\t\t\tworld.spawnParticle(\"largesmoke\", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockOutgas.java": [
+      {
+        "line": 102,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"townaura\", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockNetherCoal.java": [
+      {
+        "line": 54,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\t\tworld.spawnParticle(\"flame\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 55,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 56,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tworld.spawnParticle(\"smoke\", ix, iy, iz, 0.0, 0.1, 0.0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockSmolder.java": [
+      {
+        "line": 28,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\tworld.spawnParticle(\"lava\", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 29,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tworld.spawnParticle(\"flame\", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockStepEffect.java": [
+      {
+        "line": 164,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\tp_149734_1_.spawnParticle(\"townaura\", p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1F, p_149734_4_ + p_149734_5_.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tp_149734_1_.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1F, p_149734_4_ + p_149734_5_.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockHotHazard.java": [
+      {
+        "line": 22,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\tworld.spawnParticle(\"cloud\", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 43,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\tworld.spawnParticle(\"cloud\", ix, iy, iz, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, ix, iy, iz, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/BlockOreOutgas.java": [
+      {
+        "line": 62,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\t\t\tworld.spawnParticle(\"townaura\", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/blocks/generic/WasteEarth.java": [
+      {
+        "line": 107,
+        "old": "townaura",
+        "enum": "TOWN_AURA",
+        "before": "\t\t\tworld.spawnParticle(\"townaura\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 110,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tworld.spawnParticle(\"flame\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      },
+      {
+        "line": 111,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tworld.spawnParticle(\"smoke\", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n",
+        "after": "\t\t\tworld.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityFireboxBase.java": [
+      {
+        "line": 155,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"flame\", x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java": [
+      {
+        "line": 194,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java": [
+      {
+        "line": 137,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityChungus.java": [
+      {
+        "line": 174,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\",\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD,\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java": [
+      {
+        "line": 147,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n",
+        "after": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n"
+      },
+      {
+        "line": 148,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n",
+        "after": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n"
+      },
+      {
+        "line": 149,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n",
+        "after": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);\n"
+      },
+      {
+        "line": 150,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n",
+        "after": "\t\t\t\t\tif(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java": [
+      {
+        "line": 114,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 6.5D, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.1, 0.0);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 6.5D, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.1, 0.0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityCondenserPowered.java": [
+      {
+        "line": 97,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);\n"
+      },
+      {
+        "line": 98,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": [
+      {
+        "line": 230,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityCharger.java": [
+      {
+        "line": 82,
+        "old": "magicCrit",
+        "enum": "CRIT_MAGIC",
+        "before": "\t\t\tthis.world.spawnParticle(\"magicCrit\",\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CRIT_MAGIC,\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityMachineHephaestus.java": [
+      {
+        "line": 104,
+        "old": "cloud",
+        "enum": "CLOUD",
+        "before": "\t\t\t\t\tthis.world.spawnParticle(\"cloud\", this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);\n",
+        "after": "\t\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/TileEntityFurnaceCombination.java": [
+      {
+        "line": 136,
+        "old": "lava",
+        "enum": "LAVA",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"lava\", this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);\n"
+      }
+    ],
+    "com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java": [
+      {
+        "line": 46,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 47,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 49,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 50,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 52,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 53,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 55,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 56,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 58,
+        "old": "flame",
+        "enum": "FLAME",
+        "before": "\t\t\tthis.world.spawnParticle(\"flame\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n"
+      },
+      {
+        "line": 59,
+        "old": "smoke",
+        "enum": "SMOKE_NORMAL",
+        "before": "\t\t\tthis.world.spawnParticle(\"smoke\", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n",
+        "after": "\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);\n"
+      }
+    ],
+    "com/hbm/tileentity/network/TileEntityDroneWaypoint.java": [
+      {
+        "line": 46,
+        "old": "reddust",
+        "enum": "REDSTONE",
+        "before": "\t\t\t\tthis.world.spawnParticle(\"reddust\", x, y, z, 0, 0, 0);\n",
+        "after": "\t\t\t\tthis.world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, x, y, z, 0, 0, 0);\n"
+      }
+    ]
+  }
+}

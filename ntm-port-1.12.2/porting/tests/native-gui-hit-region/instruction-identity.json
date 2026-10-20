@@ -1,0 +1,5 @@
+{
+  "canonical_sha256": "1a6b6f7b06d802c0f4a36ef1f19537630e8db7637ce3126bfd32707d147ff042",
+  "instructions": 42,
+  "normalization": "javap whitespace, constant-pool reference numbers and the two officially mapped origin field names only; all opcode operands/branches unchanged"
+}

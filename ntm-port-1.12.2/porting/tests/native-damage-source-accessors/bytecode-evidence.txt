@@ -1,0 +1,125 @@
+func_76346_g,getEntity,2,
+
+func_76346_g,getTrueSource,2,"Retrieves the true causer of the damage, e.g. the player who fired an arrow, the shulker who fired the bullet, etc."
+
+MD: ro/j ()Lsa; net/minecraft/util/DamageSource/func_76346_g ()Lnet/minecraft/entity/Entity;
+
+func_76364_f,getSourceOfDamage,2,
+
+func_76364_f,getImmediateSource,2,"Retrieves the immediate causer of the damage, e.g. the arrow entity, not its shooter"
+
+MD: ro/i ()Lsa; net/minecraft/util/DamageSource/func_76364_f ()Lnet/minecraft/entity/Entity;
+
+  public sa j();
+    Code:
+       0: aconst_null
+       1: areturn
+
+
+  public net.minecraft.entity.Entity getTrueSource();
+    Code:
+       0: aconst_null
+       1: areturn
+
+
+  public sa i();
+    Code:
+       0: aload_0
+       1: invokevirtual #73                 // Method j:()Lsa;
+       4: areturn
+
+
+  public net.minecraft.entity.Entity getImmediateSource();
+    Code:
+       0: aload_0
+       1: invokevirtual #174                // Method getTrueSource:()Lnet/minecraft/entity/Entity;
+       4: areturn
+
+
+  public sa j();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field p:Lsa;
+       4: areturn
+
+
+  public net.minecraft.entity.Entity getTrueSource();
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field damageSourceEntity:Lnet/minecraft/entity/Entity;
+       4: areturn
+
+
+  public sa i();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field p:Lsa;
+       4: areturn
+
+
+  public net.minecraft.entity.Entity getImmediateSource();
+    Code:
+       0: aload_0
+       1: getfield      #26                 // Field damageSourceEntity:Lnet/minecraft/entity/Entity;
+       4: areturn
+
+
+  public sa j();
+    Code:
+       0: aload_0
+       1: getfield      #16                 // Field q:Lsa;
+       4: areturn
+
+
+  public net.minecraft.entity.Entity getTrueSource();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field indirectEntity:Lnet/minecraft/entity/Entity;
+       4: areturn
+
+
+  public rp(java.lang.String, sa);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #23                 // Method ro."<init>":(Ljava/lang/String;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #15                 // Field p:Lsa;
+      10: return
+
+
+  public net.minecraft.util.EntityDamageSource(java.lang.String, net.minecraft.entity.Entity);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #15                 // Method net/minecraft/util/DamageSource."<init>":(Ljava/lang/String;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #17                 // Field damageSourceEntity:Lnet/minecraft/entity/Entity;
+      10: return
+
+
+  public rq(java.lang.String, sa, sa);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #24                 // Method rp."<init>":(Ljava/lang/String;Lsa;)V
+       6: aload_0
+       7: aload_3
+       8: putfield      #16                 // Field q:Lsa;
+      11: return
+
+
+  public net.minecraft.util.EntityDamageSourceIndirect(java.lang.String, net.minecraft.entity.Entity, net.minecraft.entity.Entity);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #13                 // Method net/minecraft/util/EntityDamageSource."<init>":(Ljava/lang/String;Lnet/minecraft/entity/Entity;)V
+       6: aload_0
+       7: aload_3
+       8: putfield      #15                 // Field indirectEntity:Lnet/minecraft/entity/Entity;
+      11: return
+

@@ -791,19 +791,19 @@ public class OreDictManager {
 
 		recursionBrake = true;
 
-		HashSet<String> strings = reRegistration.get(event.Name);
+		HashSet<String> strings = reRegistration.get(event.getName());
 
 		if(strings != null) {
 			for(String name : strings) {
-				OreDictionary.registerOre(name, event.Ore);
-				MainRegistry.logger.info("Re-registration for " + event.Name + " to " + name);
+				OreDictionary.registerOre(name, event.getOre());
+				MainRegistry.logger.info("Re-registration for " + event.getName() + " to " + name);
 			}
 		}
 
 		recursionBrake = false;
 
-		if(event.Name.startsWith("ingot") || event.Name.startsWith("ore") || event.Name.startsWith("plate") || event.Name.startsWith("block")) {
-			arcSmeltable.add(new ComparableStack(event.Ore));
+		if(event.getName().startsWith("ingot") || event.getName().startsWith("ore") || event.getName().startsWith("plate") || event.getName().startsWith("block")) {
+			arcSmeltable.add(new ComparableStack(event.getOre()));
 		}
 	}
 

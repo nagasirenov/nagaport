@@ -1,0 +1,8 @@
+PASS 7 exact CP76 source reversals and pristine reader/writer slices; nullable ownership, schema and legacy unguarded writers unchanged
+PASS generated 14 production reader/writer slices without native API stubs; unchanged production helper
+PASS genuine mapped native ItemStack bytecode matches prior sealed runtime
+Note: /tmp/tmp.ot94n8BRFz/ExtractedTransportNbt.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS 14 exact production transport NBT reader/writer slices with genuine mapped ItemStack/NBT: 222 checks
+[08:23:58] [main/WARN]: Potentially Dangerous alternative prefix `nbtprobe` for name `hook`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native production nullable-inventory loader: 191 checks

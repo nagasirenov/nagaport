@@ -1,0 +1,62 @@
+  public boolean a(int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #100                // Field u:[Lapz;
+       4: iload_2
+       5: iconst_4
+       6: ishr
+       7: aaload
+       8: astore        5
+      10: aload         5
+      12: ifnonnull     17
+      15: iconst_0
+      16: ireturn
+      17: aload         5
+      19: iload_1
+      20: iload_2
+      21: bipush        15
+      23: iand
+      24: iload_3
+      25: invokevirtual #177                // Method apz.b:(III)I
+      28: istore        6
+      30: iload         6
+      32: iload         4
+      34: if_icmpne     39
+      37: iconst_0
+      38: ireturn
+      39: aload_0
+      40: iconst_1
+      41: putfield      #95                 // Field n:Z
+      44: aload         5
+      46: iload_1
+      47: iload_2
+      48: bipush        15
+      50: iand
+      51: iload_3
+      52: iload         4
+      54: invokevirtual #175                // Method apz.a:(IIII)V
+      57: aload         5
+      59: iload_1
+      60: iload_2
+      61: bipush        15
+      63: iand
+      64: iload_3
+      65: invokevirtual #174                // Method apz.a:(III)Laji;
+      68: instanceof    #26                 // class akw
+      71: ifeq          100
+      74: aload_0
+      75: iload_1
+      76: iload_2
+      77: iload_3
+      78: invokevirtual #165                // Method e:(III)Laor;
+      81: astore        7
+      83: aload         7
+      85: ifnull        100
+      88: aload         7
+      90: invokevirtual #149                // Method aor.u:()V
+      93: aload         7
+      95: iload         4
+      97: putfield      #80                 // Field aor.g:I
+     100: iconst_1
+     101: ireturn
+

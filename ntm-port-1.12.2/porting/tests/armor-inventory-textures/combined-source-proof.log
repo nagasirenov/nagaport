@@ -1,0 +1,2 @@
+PASS strict dependency composition: c2b5cba0fb608e58d7833ca3a5009ac1dc19254a307820c074ff12dc9686d761 -> exact CP82 eda9237a3df2c6d55d7758c852e007b3534db8aa77f3cb9c2e83b15c85344ac7 ; five unreviewed mutations rejected.
+PASS 106 exact before/after native destinations; 23 excluded full chains unchanged; 29 compiler-resolved owner/ancestor classes; 28 non-leather material identities; 98 pristine original PNGs; protected historical registry/renderer/worn-model sources unchanged after strict known dependency inversion.

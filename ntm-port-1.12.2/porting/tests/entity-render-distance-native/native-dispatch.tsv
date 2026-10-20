@@ -1,0 +1,10 @@
+CLASSES	4876
+3D_CALL	net/minecraft/client/renderer/RenderGlobal.renderEntities(Lnet/minecraft/entity/Entity;Lnet/minecraft/client/renderer/culling/ICamera;F)V	182	net/minecraft/entity/Entity.isInRangeToRender3d(DDD)Z
+3D_CALL	net/minecraft/client/renderer/entity/Render.shouldRender(Lnet/minecraft/entity/Entity;Lnet/minecraft/client/renderer/culling/ICamera;DDD)Z	182	net/minecraft/entity/Entity.isInRangeToRender3d(DDD)Z
+3D_CALL	net/minecraft/entity/item/EntityFireworkRocket.isInRangeToRender3d(DDD)Z	183	net/minecraft/entity/Entity.isInRangeToRender3d(DDD)Z
+FIELD	net/minecraft/entity/Entity.<clinit>()V	179	net/minecraft/entity/Entity.renderDistanceWeightD
+FIELD	net/minecraft/entity/Entity.getRenderDistanceWeight()D	178	net/minecraft/entity/Entity.renderDistanceWeightD
+FIELD	net/minecraft/entity/Entity.isInRangeToRenderDist(D)Z	178	net/minecraft/entity/Entity.renderDistanceWeightD
+FIELD	net/minecraft/entity/Entity.setRenderDistanceWeight(D)V	179	net/minecraft/entity/Entity.renderDistanceWeightD
+RANGE_CALL	net/minecraft/entity/Entity.isInRangeToRender3d(DDD)Z	182	net/minecraft/entity/Entity.isInRangeToRenderDist(D)Z
+RANGE_CALL	net/minecraft/entity/item/EntityEnderCrystal.isInRangeToRenderDist(D)Z	183	net/minecraft/entity/Entity.isInRangeToRenderDist(D)Z

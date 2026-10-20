@@ -388,7 +388,7 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	public void destruct() {
 		
 		clearSlots();
-		this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getX(), false);
+		com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getX(), false);
 	}
 	
 	public void clearSlots() {

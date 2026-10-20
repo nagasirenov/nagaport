@@ -1,0 +1,7 @@
+PASS: 60 exact selected edits, original-byte reversal and target regeneration in 50 files
+PASS: preflight 60 invocation-only edits across 50 files plus one domain helper; inverse preserves unrelated source bytes
+Applied; exact integration receipt: /tmp/destroy-merge-qbfjr7x4/receipt.json
+PASS: 60 exact selected edits, original-byte reversal and target regeneration in 50 files
+PASS: integrated files exactly reverse to pre-integration bytes under receipt
+PASS: all 60 invocation-only edits preserve unrelated later-tree content and exact inverse hashes
+PASS: changed invocation rejected before any write

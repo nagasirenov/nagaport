@@ -1,0 +1,10 @@
+{
+  "recovery_commit": "d25dcb9f0908d76b1e9eca96b75e58f6397de355",
+  "production_patch_sha256": "6fdceab3cef00dddfbccbc7d7d8af309f425ee54613ca067b1cb20d559e64337",
+  "matches_historical_patch": true,
+  "selected_tokens": 65,
+  "production_files": 10,
+  "tests_current_environment": "NOT_RUN: authentic native classpath absent; restoration pending",
+  "historical_results": "Prior report only: 3771 native assertions; 19 attribution fixtures; 65 negative compile controls; 65 source mutants; one runtime mutant; analysis 13021 to 12956. Original logs lost.",
+  "current_source_only_checks": "PASS: 10 complete source reversals; 65 selected tokens; 65 rejected token regressions; Python syntax parse"
+}

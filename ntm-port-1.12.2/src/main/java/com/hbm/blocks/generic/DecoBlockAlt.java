@@ -82,7 +82,7 @@ public class DecoBlockAlt extends BlockContainer {
 				
 				if((com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_red || cracked)) {
 					if(cracked) com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
-					world.func_147480_a(x, y, z, true);
+					com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);
 					return true;
 				}
 			}

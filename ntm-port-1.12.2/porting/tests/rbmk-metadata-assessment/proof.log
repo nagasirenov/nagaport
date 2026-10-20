@@ -1,0 +1,31 @@
+/workspace/shared/nagaport-metadata-cp90/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static final sun.misc.Unsafe U; static int checks;
+                      ^
+/workspace/shared/nagaport-metadata-cp90/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                              ^
+/workspace/shared/nagaport-metadata-cp90/ntm-port-1.12.2/porting/tests/world-block-write-native/WorldWriteTest.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static {try {Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);U=(sun.misc.Unsafe)f.get(null);}catch(Exception e){throw new RuntimeException(e);}}
+                                                                                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-metadata-cp90/ntm-port-1.12.2/src/main/java/com/hbm/tileentity/IPersistentNBT.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+OBSERVED native whole BlockDummyable neighbor callback: 2 -> 12, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable neighbor callback: 3 -> 13, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable neighbor callback: 4 -> 14, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable neighbor callback: 5 -> 15, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 2 -> 12, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 3 -> 13, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 4 -> 14, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED native whole BlockDummyable tick callback: 5 -> 15, old tile invalidated, identity changed, marker payload 12345 -> 0, marker stack 37 -> 0, break callbacks=0
+OBSERVED original World/Chunk metadata-only remote=false: 2 -> 12, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 3 -> 13, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 4 -> 14, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=false: 5 -> 15, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 2 -> 12, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 3 -> 13, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 4 -> 14, actual furnace tile identity, fuel counter 2205 and stack identity retained
+OBSERVED original World/Chunk metadata-only remote=true: 5 -> 15, actual furnace tile identity, fuel counter 2205 and stack identity retained
+PASS 104 counterexample checks. Native marker fixture is not a production press/RBMK tile. Original engine is vanilla 1.7 bytecode; Forge1614 patch is separately audited, not executed.

@@ -24,7 +24,7 @@ public class ItemRepairKit extends Item {
 		
 		for(int i = 0; i < 9; i++) {
 
-			ItemStack item = player.inventory.mainInventory[i];
+			ItemStack item = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);
 
 			if(item != null && item.getItem() instanceof ItemGunBaseNT) {
 				ItemGunBaseNT gun = (ItemGunBaseNT) item.getItem();

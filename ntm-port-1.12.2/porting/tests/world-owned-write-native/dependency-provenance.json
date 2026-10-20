@@ -1,0 +1,23 @@
+{
+  "kind": "actual supplied original mod classfiles, symbol-only SRG-to-obfuscated/owner-package remapping; not compiler-generated source fixtures",
+  "files": {
+    "/tmp/nagaport-legacy-client.jar": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "/workspace/shared/nagaport/mods1710/HBM-NTM-.1.0.27_X5645_H261.jar": "3f5629077628b5956ff7ff4e254c25ef0e1bc51f5b6668fde77badd5f784f67b",
+    "/tmp/nagaport1710-srg.zip": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2",
+    "/tmp/nagaport-forge1614-userdev.jar": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91"
+  },
+  "classes": {
+    "com/hbm/blocks/generic/BlockRedBrick.class": {
+      "original_sha256": "cfd4cb5985e623770326c3e32b8532fba60e5b02352a2c44463ba12f280132e0",
+      "remapped_sha256": "679266bc200526e04ff7c149f77f9dd3a60928c21821739fe0f63c86e79aa11f"
+    },
+    "com/hbm/blocks/generic/DecoSteelPoles.class": {
+      "original_sha256": "6f544bce93312b7b1b231cbabe0362179d4bb269df9bc7571ebe68d8b7c4e062",
+      "remapped_sha256": "5407bc72539be2003bbfe0ccd09ee8df621cbf6ef4e1f7c9c89a523aa71893f7"
+    },
+    "com/hbm/blocks/generic/DecoPoleTop.class": {
+      "original_sha256": "0df1cf67539c61b162c455d435b52fe7270a10ed4e7e74f0188f5e296328fd1b",
+      "remapped_sha256": "cec1121ea1015f23d36cba7a5936e29ce505779ad5eeb3b259b19dcfa7f92d4c"
+    }
+  }
+}

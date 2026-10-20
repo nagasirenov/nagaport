@@ -1,0 +1,10 @@
+PASS 11 exact forward/inverse complete files, 7 unchanged closure files, 59 wrong-weight/selector/formula/unrelated-drift controls
+PASS parse-only 4,065 actual production units: 29 constructor writes + one Ghost read-modify-write, zero local field declarations, 4 local descendants, one pre-existing effective range override. Exact file/line pairing with 30 authoritative native compiler Entity-private-field diagnostics.
+PASS full original 1,803-class and native 4,876-class field/caller census; only original Entity and unrelated ItemFrame read instance weight. Native Render/RenderGlobal -> virtual 3D range -> virtual range override.
+PASS 12 pinned engine classes, 8 exact SRG lines, original per-instance default1, native static load/store, exact range arithmetic and four intermediate superclass non-overrides in both versions.
+PASS four variable-weight owners have only data-register entityInit calls, no local descendants; actual native register/setEntry do not call back into an Entity or read it. Foreign constructor re-entrancy remains unsupported.
+PASS 11 exact forward/inverse complete files, 7 unchanged closure files, 59 wrong-weight/selector/formula/unrelated-drift controls
+PASS 67035 actual native/projection assertions, 5580 differential range rows; static bits, isolated weights, one-read evaluation, strict boundaries, NaN and infinities.
+PASS actual original Entity constructor, instance default/isolation, Ghost multiplication and 5580 original binary render-range rows.
+PASS rejected private native direct-field write; no reflection, access transformer or global setter used in production.
+PASS 39 constructor paths, 9 exact complete range-method projections, actual native and original range decisions match byte-for-byte (c528cbfb9e7483247d4c3462921ce3567b2adf86ead2ab5977043544b62a8cb0).

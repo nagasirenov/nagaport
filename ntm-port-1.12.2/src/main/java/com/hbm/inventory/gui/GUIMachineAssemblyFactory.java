@@ -111,7 +111,7 @@ public class GUIMachineAssemblyFactory extends GuiInfoContainer {
 			if(recipe != null && recipe.inputItem != null) {
 				for(int i = 0; i < recipe.inputItem.length; i++) {
 					Slot slot = (Slot) this.inventorySlots.inventorySlots.get(assembler.assemblerModule[g].inputSlots[i]);
-					if(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xDisplayPosition, slot.yDisplayPosition, 10F);
+					if(!slot.getHasStack()) this.renderItem(recipe.inputItem[i].extractForCyclingDisplay(20), slot.xPos, slot.yPos, 10F);
 				}
 	
 				Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
@@ -121,7 +121,7 @@ public class GUIMachineAssemblyFactory extends GuiInfoContainer {
 				this.zLevel = 300F;
 				for(int i = 0; i < recipe.inputItem.length; i++) {
 					Slot slot = (Slot) this.inventorySlots.inventorySlots.get(assembler.assemblerModule[g].inputSlots[i]);
-					if(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xDisplayPosition, guiTop + slot.yDisplayPosition, slot.xDisplayPosition, slot.yDisplayPosition, 16, 16);
+					if(!slot.getHasStack()) drawTexturedModalRect(guiLeft + slot.xPos, guiTop + slot.yPos, slot.xPos, slot.yPos, 16, 16);
 				}
 				this.zLevel = 0F;
 				GL11.glColor4f(1F, 1F, 1F, 1F);

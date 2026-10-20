@@ -12,6 +12,7 @@ import com.hbm.util.BobMathUtil;
 import com.hbm.util.ItemStackUtil;
 
 import net.minecraft.block.Block;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -47,7 +48,7 @@ public class HazardTransformerRadiationContainer extends HazardTransformerBase {
 		if(isCrate) {
 
 			for(int i = 0; i < 104; i++) {
-				ItemStack held = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("slot" + i));
+				ItemStack held = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag("slot" + i));
 
 				if(held != null) {
 					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.stackSize;

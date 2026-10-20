@@ -26,7 +26,7 @@ public class ArmorBismuth extends ArmorFSB implements IItemRendererProvider {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(models == null) {
 			models = new ModelArmorBismuth[4];
@@ -35,7 +35,7 @@ public class ArmorBismuth extends ArmorFSB implements IItemRendererProvider {
 				models[i] = new ModelArmorBismuth(i);
 		}
 		
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@Override public Item getItemForRenderer() { return this; }
@@ -47,15 +47,15 @@ public class ArmorBismuth extends ArmorFSB implements IItemRendererProvider {
 			public void renderInventory() { setupRenderInv(); }
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				if(armorType == 0) {
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {
 					GL11.glTranslated(0, -0.5, 0);
 					GL11.glScaled(0.625, 0.625, 0.625);
 				}
-				if(armorType == 1) {
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 1) {
 					GL11.glScaled(0.875, 0.875, 0.875);
 				}
 				GL11.glDisable(GL11.GL_CULL_FACE);
-				renderStandard(ResourceManager.armor_bismuth, armorType,
+				renderStandard(ResourceManager.armor_bismuth, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.armor_bismuth_tex, ResourceManager.armor_bismuth_tex, ResourceManager.armor_bismuth_tex, ResourceManager.armor_bismuth_tex,
 						"Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftFoot", "RightFoot");
 				GL11.glEnable(GL11.GL_CULL_FACE);

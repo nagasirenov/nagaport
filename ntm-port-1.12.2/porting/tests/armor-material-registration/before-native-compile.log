@@ -1,0 +1,346 @@
+/workspace/shared/nagaport-cp90-materials/ntm-port-1.12.2/porting/tests/armor-material-registration/NativeArmorMaterialTest.java:73: warning: ConstructorAccessor is internal proprietary API and may be removed in a future release
+   sun.reflect.ConstructorAccessor maker=sun.reflect.ReflectionFactory.getReflectionFactory().newConstructorAccessor(constructor);
+              ^
+/workspace/shared/nagaport-cp90-materials/ntm-port-1.12.2/porting/tests/armor-material-registration/NativeArmorMaterialTest.java:73: warning: ReflectionFactory is internal proprietary API and may be removed in a future release
+   sun.reflect.ConstructorAccessor maker=sun.reflect.ReflectionFactory.getReflectionFactory().newConstructorAccessor(constructor);
+                                                    ^
+[temporary-before-slice]/ProductionMaterialSlice.java:51: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatSchrab = EnumHelper.addArmorMaterial("HBM_SCHRABIDIUM", 100, new int[] { 3, 8, 6, 3 }, 50);ProductionMaterialSlice.aMatSchrab=aMatSchrab;}
+                                      ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:53: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatEuph = EnumHelper.addArmorMaterial("HBM_EUPHEMIUM", 15000000, new int[] { 3, 8, 6, 3 }, 100);ProductionMaterialSlice.aMatEuph=aMatEuph;}
+                                    ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:55: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatHaz = EnumHelper.addArmorMaterial("HBM_HAZMAT", 60, new int[] { 2, 5, 4, 1 }, 5);ProductionMaterialSlice.aMatHaz=aMatHaz;}
+                                   ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:57: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatHaz2 = EnumHelper.addArmorMaterial("HBM_HAZMAT2", 60, new int[] { 2, 5, 4, 1 }, 5);ProductionMaterialSlice.aMatHaz2=aMatHaz2;}
+                                    ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:59: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatHaz3 = EnumHelper.addArmorMaterial("HBM_HAZMAT3", 60, new int[] { 2, 5, 4, 1 }, 5);ProductionMaterialSlice.aMatHaz3=aMatHaz3;}
+                                    ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:61: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatSteel = EnumHelper.addArmorMaterial("HBM_STEEL", 20, new int[] { 2, 6, 5, 2 }, 5);ProductionMaterialSlice.aMatSteel=aMatSteel;}
+                                     ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:63: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatAsbestos = EnumHelper.addArmorMaterial("HBM_ASBESTOS", 20, new int[] { 1, 4, 3, 1 }, 5);ProductionMaterialSlice.aMatAsbestos=aMatAsbestos;}
+                                        ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:65: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatTitan = EnumHelper.addArmorMaterial("HBM_TITANIUM", 25, new int[] { 3, 8, 6, 3 }, 9);ProductionMaterialSlice.aMatTitan=aMatTitan;}
+                                     ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:67: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatAlloy = EnumHelper.addArmorMaterial("HBM_ALLOY", 40, new int[] { 3, 8, 6, 3 }, 12);ProductionMaterialSlice.aMatAlloy=aMatAlloy;}
+                                     ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:69: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatPaa = EnumHelper.addArmorMaterial("HBM_PAA", 75, new int[] { 3, 8, 6, 3 }, 25);ProductionMaterialSlice.aMatPaa=aMatPaa;}
+                                   ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:71: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatCMB = EnumHelper.addArmorMaterial("HBM_CMB", 60, new int[] { 3, 8, 6, 3 }, 50);ProductionMaterialSlice.aMatCMB=aMatCMB;}
+                                   ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:73: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatAus3 = EnumHelper.addArmorMaterial("HBM_AUSIII", 375, new int[] { 2, 6, 5, 2 }, 0);ProductionMaterialSlice.aMatAus3=aMatAus3;}
+                                    ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:75: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatSecurity = EnumHelper.addArmorMaterial("HBM_SECURITY", 100, new int[] { 3, 8, 6, 3 }, 15);ProductionMaterialSlice.aMatSecurity=aMatSecurity;}
+                                        ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:77: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatCobalt = EnumHelper.addArmorMaterial("HBM_COBALT", 70, new int[] { 3, 8, 6, 3 }, 60);ProductionMaterialSlice.aMatCobalt=aMatCobalt;}
+                                      ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:79: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatStarmetal = EnumHelper.addArmorMaterial("HBM_STARMETAL", 150, new int[] { 3, 8, 6, 3 }, 100);ProductionMaterialSlice.aMatStarmetal=aMatStarmetal;}
+                                         ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:81: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+{ArmorMaterial aMatBismuth = EnumHelper.addArmorMaterial("HBM_BISMUTH", 100, new int[] { 3, 8, 6, 3 }, 100);ProductionMaterialSlice.aMatBismuth=aMatBismuth;}
+                                       ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:85: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatRags = EnumHelper.addArmorMaterial("HBM_RAGS", 150, new int[] { 1, 1, 1, 1 }, 0);
+                                   ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:87: error: cannot find symbol
+aMatRags.customCraftingMaterial = ModItems.rag;
+        ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatRags of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:89: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatZirconium = EnumHelper.addArmorMaterial("HBM_ZIRCONIUM", 1000, new int[] { 2, 5, 3, 1 }, 1000);
+                                        ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:91: error: cannot find symbol
+aMatZirconium.customCraftingMaterial = ModItems.ingot_zirconium;
+             ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatZirconium of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:93: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatDNT = EnumHelper.addArmorMaterial("HBM_DNT_LOLOLOL", 3, new int[] { 1, 1, 1, 1 }, 0);
+                                  ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:95: error: cannot find symbol
+aMatDNT.customCraftingMaterial = ModItems.ingot_dineutronium;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatDNT of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:97: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatT51 = EnumHelper.addArmorMaterial("HBM_T51", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                  ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:99: error: cannot find symbol
+aMatT51.customCraftingMaterial = ModItems.plate_armor_titanium;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatT51 of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:101: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatDesh = EnumHelper.addArmorMaterial("HBM_DESH", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                   ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:103: error: cannot find symbol
+aMatDesh.customCraftingMaterial = ModItems.ingot_desh;
+        ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatDesh of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:105: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatDiesel = EnumHelper.addArmorMaterial("HBM_BNUUY", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                     ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:107: error: cannot find symbol
+aMatDiesel.customCraftingMaterial = ModItems.plate_copper;
+          ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatDiesel of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:109: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatAJR = EnumHelper.addArmorMaterial("HBM_T45AJR", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                  ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:111: error: cannot find symbol
+aMatAJR.customCraftingMaterial = ModItems.plate_armor_ajr;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatAJR of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:113: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatBJ = EnumHelper.addArmorMaterial("HBM_BLACKJACK", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                 ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:115: error: cannot find symbol
+aMatBJ.customCraftingMaterial = ModItems.plate_armor_lunar;
+      ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatBJ of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:117: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatEnv = EnumHelper.addArmorMaterial("HBM_ENV", 150, new int[] { 3, 8, 6, 3 }, 10);
+                                  ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:119: error: cannot find symbol
+aMatEnv.customCraftingMaterial = ModItems.plate_armor_hev;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatEnv of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:121: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatHEV = EnumHelper.addArmorMaterial("HBM_HEV", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                  ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:123: error: cannot find symbol
+aMatHEV.customCraftingMaterial = ModItems.plate_armor_hev;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatHEV of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:125: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatFau = EnumHelper.addArmorMaterial("HBM_DIGAMMA", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                  ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:127: error: cannot find symbol
+aMatFau.customCraftingMaterial = ModItems.plate_armor_fau;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatFau of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:129: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatDNS = EnumHelper.addArmorMaterial("HBM_DNT_NANO", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                  ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:131: error: cannot find symbol
+aMatDNS.customCraftingMaterial = ModItems.plate_armor_dnt;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatDNS of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:133: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatTaurun = EnumHelper.addArmorMaterial("HBM_TRENCH", 150, new int[] { 3, 8, 6, 3 }, 10);
+                                     ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:135: error: cannot find symbol
+aMatTaurun.customCraftingMaterial = ModItems.plate_iron;
+          ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatTaurun of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:137: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatTrench = EnumHelper.addArmorMaterial("HBM_TRENCH", 150, new int[] { 3, 8, 6, 3 }, 0);
+                                     ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:139: error: cannot find symbol
+aMatTrench.customCraftingMaterial = ModItems.plate_iron;
+          ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatTrench of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:143: error: method addArmorMaterial in class EnumHelper cannot be applied to given types;
+ArmorMaterial aMatLiquidator = EnumHelper.addArmorMaterial("HBM_LIQUIDATOR", 750, new int[] { 3, 8, 6, 3 }, 10);
+                                         ^
+  required: String,String,int,int[],int,SoundEvent,float
+  found: String,int,int[],int
+  reason: actual and formal argument lists differ in length
+[temporary-before-slice]/ProductionMaterialSlice.java:145: error: cannot find symbol
+aMatLiquidator.customCraftingMaterial = ModItems.plate_lead;
+              ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatLiquidator of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:149: error: cannot find symbol
+aMatSchrab.customCraftingMaterial = ModItems.ingot_schrabidium;
+          ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatSchrab of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:151: error: cannot find symbol
+aMatHaz.customCraftingMaterial = ModItems.hazmat_cloth;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatHaz of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:153: error: cannot find symbol
+aMatHaz2.customCraftingMaterial = ModItems.hazmat_cloth_red;
+        ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatHaz2 of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:155: error: cannot find symbol
+aMatHaz3.customCraftingMaterial = ModItems.hazmat_cloth_grey;
+        ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatHaz3 of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:157: error: cannot find symbol
+aMatTitan.customCraftingMaterial = ModItems.ingot_titanium;
+         ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatTitan of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:159: error: cannot find symbol
+aMatSteel.customCraftingMaterial = ModItems.ingot_steel;
+         ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatSteel of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:161: error: cannot find symbol
+aMatAsbestos.customCraftingMaterial = ModItems.asbestos_cloth;
+            ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatAsbestos of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:163: error: cannot find symbol
+aMatAlloy.customCraftingMaterial = ModItems.ingot_advanced_alloy;
+         ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatAlloy of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:165: error: cannot find symbol
+aMatPaa.customCraftingMaterial = ModItems.plate_paa;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatPaa of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:167: error: cannot find symbol
+aMatCMB.customCraftingMaterial = ModItems.ingot_combine_steel;
+       ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatCMB of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:169: error: cannot find symbol
+aMatAus3.customCraftingMaterial = ModItems.ingot_australium;
+        ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatAus3 of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:171: error: cannot find symbol
+aMatSecurity.customCraftingMaterial = ModItems.plate_kevlar;
+            ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatSecurity of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:173: error: cannot find symbol
+aMatCobalt.customCraftingMaterial = ModItems.ingot_cobalt;
+          ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatCobalt of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:175: error: cannot find symbol
+aMatStarmetal.customCraftingMaterial = ModItems.ingot_starmetal;
+             ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatStarmetal of type ArmorMaterial
+[temporary-before-slice]/ProductionMaterialSlice.java:177: error: cannot find symbol
+aMatBismuth.customCraftingMaterial = ModItems.plate_bismuth;
+           ^
+  symbol:   variable customCraftingMaterial
+  location: variable aMatBismuth of type ArmorMaterial
+Note: /workspace/shared/nagaport-cp90-materials/ntm-port-1.12.2/porting/tests/armor-material-registration/NativeArmorMaterialTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+61 errors
+2 warnings

@@ -1,0 +1,306 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/thatmo/WorldProviderThatmo.java",
+    "sha256": "ac6151248fad892ae1b9caa8151181a663e11f1737688f0cd58a9cacfb486ae9",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.logic.EntityBomber;"
+      },
+      {
+        "line": 74,
+        "source": "EntityBomber bomber = EntityBomber.statFacCarpetJet(this.world, targetPos.getX(), targetPos.getY(), targetPos.getZ());"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "sha256": "a9ffc8b3769b11f10244f8f609b869aeee081cf95aa8c6a86b65f3d5e5455ed6",
+    "references": [
+      {
+        "line": 120,
+        "source": "addEntity(EntityBomber.class, \"entity_bomber\", 1000);"
+      },
+      {
+        "line": 121,
+        "source": "addEntity(EntityC130.class, \"entity_c130\", 1000);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityBomber.java",
+    "sha256": "4a8750b55db3568bd394cbbbf613f85f2d4d5bf92a0b34afceeeb224f6085fa8",
+    "references": [
+      {
+        "line": 16,
+        "source": "public class EntityBomber extends EntityPlaneBase {"
+      },
+      {
+        "line": 26,
+        "source": "public EntityBomber(World world) {"
+      },
+      {
+        "line": 150,
+        "source": "public static EntityBomber statFacCarpet(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 151,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 161,
+        "source": "public static EntityBomber statFacNapalm(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 162,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 172,
+        "source": "public static EntityBomber statFacChlorine(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 173,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 183,
+        "source": "public static EntityBomber statFacOrange(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 184,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 194,
+        "source": "public static EntityBomber statFacABomb(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 195,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 217,
+        "source": "public static EntityBomber statFacStinger(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 218,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 229,
+        "source": "public static EntityBomber statFacBoxcar(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 230,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 241,
+        "source": "public static EntityBomber statFacPC(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 242,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 253,
+        "source": "public static EntityBomber statFacCV(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 254,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      },
+      {
+        "line": 270,
+        "source": "public static EntityBomber statFacCarpetJet(World world, double x, double y, double z) {"
+      },
+      {
+        "line": 271,
+        "source": "EntityBomber bomber = new EntityBomber(world);"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0))",
+      "this.getDataWatcher().getWatchableObjectFloat(17)",
+      "this.dataWatcher.getWatchableObjectByte(16)",
+      "this.getDataWatcher().updateObject(16, (byte) i)",
+      "bomber.getDataWatcher().updateObject(16, (byte) i)",
+      "bomber.getDataWatcher().updateObject(16, (byte) 4)",
+      "bomber.getDataWatcher().updateObject(16, (byte) 6)",
+      "bomber.getDataWatcher().updateObject(16, (byte) 6)",
+      "bomber.getDataWatcher().updateObject(16, (byte)9)",
+      "bomber.getDataWatcher().updateObject(16, (byte)10)",
+      "this.getDataWatcher().updateObject(16, nbt.getByte(\"style\"))",
+      "this.getDataWatcher().getWatchableObjectByte(16)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityC130.java",
+    "sha256": "17eb9c725660198abb35549c63eb134e3c7fcd45cbb79c47afaf8567708d1f49",
+    "references": [
+      {
+        "line": 14,
+        "source": "public class EntityC130 extends EntityPlaneBase {"
+      },
+      {
+        "line": 19,
+        "source": "public EntityC130(World world) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.getDataWatcher().getWatchableObjectFloat(17)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/logic/EntityPlaneBase.java",
+    "sha256": "b7ee548d33dadee2e72506bbed228471a25100f3e5e8ab69aec92a7bf4a4db83",
+    "references": [
+      {
+        "line": 26,
+        "source": "public abstract class EntityPlaneBase extends Entity implements IChunkLoader {"
+      },
+      {
+        "line": 47,
+        "source": "public EntityPlaneBase(World world) { super(world); }"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.addObject(17, new Float(50F))",
+      "this.dataWatcher.updateObject(17, health)",
+      "this.dataWatcher.getWatchableObjectFloat(17)",
+      "this.getDataWatcher().updateObject(17, nbt.getFloat(\"health\"))",
+      "this.getDataWatcher().getWatchableObjectFloat(17)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java",
+    "sha256": "b249704a4b6987fedc8f837836832bc255297fc0b8bb64c37dbc1b2e703b4b62",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.logic.EntityBomber;"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemBombCaller.java",
+    "sha256": "b21bb5b0914299180228c513b833d1cdbdc4bd29fa1e382db9eee84718e44f49",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.logic.EntityBomber;"
+      },
+      {
+        "line": 59,
+        "source": "EntityBomber bomber;"
+      },
+      {
+        "line": 62,
+        "source": "case 1: bomber = EntityBomber.statFacNapalm(world, x, y, z); break;"
+      },
+      {
+        "line": 63,
+        "source": "case 2: bomber = EntityBomber.statFacChlorine(world, x, y, z); break;"
+      },
+      {
+        "line": 64,
+        "source": "case 3: bomber = EntityBomber.statFacOrange(world, x, y, z); break;"
+      },
+      {
+        "line": 65,
+        "source": "case 4: bomber = EntityBomber.statFacABomb(world, x, y, z); break;"
+      },
+      {
+        "line": 66,
+        "source": "case 5: bomber = EntityBomber.statFacStinger(world, x, y, z); break;"
+      },
+      {
+        "line": 67,
+        "source": "case 6: bomber = EntityBomber.statFacBoxcar(world, x, y, z); break;"
+      },
+      {
+        "line": 68,
+        "source": "case 7: bomber = EntityBomber.statFacPC(world, x, y, z); break;"
+      },
+      {
+        "line": 69,
+        "source": "case 8: bomber = EntityBomber.statFacCV(world, x, y, z);"
+      },
+      {
+        "line": 71,
+        "source": "default: bomber = EntityBomber.statFacCarpet(world, x, y, z);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactory40mm.java",
+    "sha256": "0cba206f40007a54e6ced90315f5fce9334d3b4c2fa31a513db66da78b7d68ef",
+    "references": [
+      {
+        "line": 8,
+        "source": "import com.hbm.entity.logic.EntityC130;"
+      },
+      {
+        "line": 9,
+        "source": "import com.hbm.entity.logic.EntityC130.C130PayloadType;"
+      },
+      {
+        "line": 133,
+        "source": "EntityC130 c130 = new EntityC130(bullet.world);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "references": [
+      {
+        "line": 734,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityBomber.class, renderManager -> new RenderBomber(renderManager));"
+      },
+      {
+        "line": 735,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityC130.class, renderManager -> new RenderC130(renderManager));"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/item/RenderBomber.java",
+    "sha256": "6a1f1928ff01e11d05033e5102e2a4757f579d6c2d3a60eee47ec78c08967a59",
+    "references": [
+      {
+        "line": 13,
+        "source": "public class RenderBomber extends Render {"
+      },
+      {
+        "line": 15,
+        "source": "public RenderBomber(RenderManager renderManager) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "entity.getDataWatcher().getWatchableObjectByte(16)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+    "sha256": "3a14a96198ac6dee7da8f7c8d7bcf5378c2003eaec2395b74ee49bacd92af1c6",
+    "references": [
+      {
+        "line": 10,
+        "source": "import com.hbm.entity.logic.EntityBomber;"
+      },
+      {
+        "line": 643,
+        "source": "if(e instanceof EntityBomber) return true;"
+      }
+    ],
+    "baseline_legacy_calls": []
+  }
+]

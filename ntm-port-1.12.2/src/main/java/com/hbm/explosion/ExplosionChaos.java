@@ -59,7 +59,7 @@ public class ExplosionChaos { //TODO: destroy this entire class
 					int ZZ = YY + zz * zz;
 					if (ZZ < r22) {
 						if (com.hbm.world.WorldBlockState.read(world, X, Y, Z).getBlock() == ModBlocks.crystal_virus)
-							world.setBlock(X, Y, Z, ModBlocks.crystal_hardened);
+							{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = X; int nativeRegisteredWriteY = Y; int nativeRegisteredWriteZ = Z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 					}
 				}
 			}

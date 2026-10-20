@@ -77,7 +77,7 @@ public class EntityOrangeFX extends EntityModFX {
 
 							Block bl = com.hbm.world.WorldBlockState.read(this.world, (int) posX + a, (int) posY + b, (int) posZ + c).getBlock();
 							if(bl == Blocks.GRASS) {
-								this.world.setBlock((int) posX + a, (int) posY + b, (int) posZ + c, Blocks.DIRT, 1, 3);
+								com.hbm.world.WorldBlockState.write(this.world, (int) posX + a, (int) posY + b, (int) posZ + c, Blocks.DIRT.getStateFromMeta(1), 3);
 							} else {
 								ExplosionNukeGeneric.solinium(this.world, (int) posX + a, (int) posY + b, (int) posZ + c);
 							}

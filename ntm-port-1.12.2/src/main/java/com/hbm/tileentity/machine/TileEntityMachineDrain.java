@@ -71,7 +71,7 @@ public class TileEntityMachineDrain extends TileEntityLoadedBase implements IFlu
 						int y = mop.getBlockPos().getY() + 1;
 						int z = mop.getBlockPos().getZ();
 						Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
-						if(!block.getDefaultState().getMaterial().isLiquid() && block.isReplaceable(this.world, x, y, z) && ModBlocks.oil_spill.canPlaceBlockAt(this.world, x, y, z)) {
+						if(!block.getDefaultState().getMaterial().isLiquid() && block.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && ModBlocks.oil_spill.canPlaceBlockAt(this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 							this.world.setBlock(x, y, z, ModBlocks.oil_spill);
 						}
 					}

@@ -1,0 +1,466 @@
+{
+  "baseline": "fc2cd2dba34caba0dba74ed288f95107ab4dc979",
+  "helper_sha256": "4f9bb2ac1b44e5969e9d7777842f13daced08592f6bd9f7465f62378ebac172e",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": [
+      {
+        "start": 3125,
+        "end": 3160,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java": [
+      {
+        "start": 4432,
+        "end": 4467,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/BombFlameWar.java": [
+      {
+        "start": 1449,
+        "end": 1484,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java": [
+      {
+        "start": 3681,
+        "end": 3715,
+        "old": "world.func_147480_a(x, y, z, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/DetMiner.java": [
+      {
+        "start": 948,
+        "end": 983,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": [
+      {
+        "start": 5428,
+        "end": 5463,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": [
+      {
+        "start": 3223,
+        "end": 3275,
+        "old": "worldObj.func_147480_a(xCoord, yCoord, zCoord, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(worldObj, xCoord, yCoord, zCoord, true)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": [
+      {
+        "start": 9837,
+        "end": 9872,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockLithium.java": [
+      {
+        "start": 1368,
+        "end": 1403,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      },
+      {
+        "start": 1640,
+        "end": 1675,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java": [
+      {
+        "start": 1741,
+        "end": 1775,
+        "old": "world.func_147480_a(x, y, z, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java": [
+      {
+        "start": 2910,
+        "end": 2944,
+        "old": "world.func_147480_a(x, y, z, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/generic/FragileBrick.java": [
+      {
+        "start": 786,
+        "end": 821,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      },
+      {
+        "start": 994,
+        "end": 1029,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/BlastDoor.java": [
+      {
+        "start": 3560,
+        "end": 3594,
+        "old": "world.func_147480_a(x, y, z, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java": [
+      {
+        "start": 1481,
+        "end": 1515,
+        "old": "world.func_147480_a(a, b, c, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/DummyOldBase.java": [
+      {
+        "start": 1538,
+        "end": 1572,
+        "old": "world.func_147480_a(a, b, c, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true)"
+      }
+    ],
+    "src/main/java/com/hbm/blocks/machine/MachineSatDock.java": [
+      {
+        "start": 5528,
+        "end": 5580,
+        "old": "worldObj.func_147480_a(xCoord, yCoord, zCoord, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(worldObj, xCoord, yCoord, zCoord, true)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": [
+      {
+        "start": 10033,
+        "end": 10072,
+        "old": "this.world.func_147480_a(x, y, z, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, true)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/mob/EntityFBI.java": [
+      {
+        "start": 7195,
+        "end": 7304,
+        "old": "this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/mob/ai/EntityAIBreaking.java": [
+      {
+        "start": 3105,
+        "end": 3191,
+        "old": "entityDigger.world.func_147480_a(markedLoc[0], markedLoc[1], markedLoc[2], canHarvest)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(entityDigger.world, markedLoc[0], markedLoc[1], markedLoc[2], canHarvest)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": [
+      {
+        "start": 11081,
+        "end": 11190,
+        "old": "this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java": [
+      {
+        "start": 19098,
+        "end": 19141,
+        "old": "this.world.func_147480_a(bX, bY, bZ, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, bX, bY, bZ, false)"
+      },
+      {
+        "start": 19338,
+        "end": 19381,
+        "old": "this.world.func_147480_a(bX, bY, bZ, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, bX, bY, bZ, false)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntityCog.java": [
+      {
+        "start": 3914,
+        "end": 4023,
+        "old": "this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntitySawblade.java": [
+      {
+        "start": 3829,
+        "end": 3938,
+        "old": "this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/entity/projectile/EntitySiegeLaser.java": [
+      {
+        "start": 3303,
+        "end": 3412,
+        "old": "this.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/handler/MultiblockHandler.java": [
+      {
+        "start": 6322,
+        "end": 6357,
+        "old": "world.func_147480_a(a, b, c, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, false)"
+      }
+    ],
+    "src/main/java/com/hbm/items/tool/ItemMS.java": [
+      {
+        "start": 899,
+        "end": 934,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": [
+      {
+        "start": 6107,
+        "end": 6142,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      },
+      {
+        "start": 6540,
+        "end": 6575,
+        "old": "world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false)"
+      },
+      {
+        "start": 6783,
+        "end": 6822,
+        "old": "world.func_147480_a(x, y + 1, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y + 1, z, false)"
+      },
+      {
+        "start": 7030,
+        "end": 7069,
+        "old": "world.func_147480_a(x, y - 1, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(world, x, y - 1, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/items/weapon/sedna/BulletConfig.java": [
+      {
+        "start": 9231,
+        "end": 9342,
+        "old": "bullet.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactory12ga.java": [
+      {
+        "start": 7348,
+        "end": 7459,
+        "old": "bullet.world.func_147480_a(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryAccelerator.java": [
+      {
+        "start": 3186,
+        "end": 3228,
+        "old": "entity.world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(entity.world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityAntimatter.java": [
+      {
+        "start": 2777,
+        "end": 2859,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBalefire.java": [
+      {
+        "start": 2710,
+        "end": 2792,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java": [
+      {
+        "start": 14070,
+        "end": 14152,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getX(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getX(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBlastDoor.java": [
+      {
+        "start": 9931,
+        "end": 9971,
+        "old": "this.world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreEmitter.java": [
+      {
+        "start": 4551,
+        "end": 4591,
+        "old": "this.world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCoreReceiver.java": [
+      {
+        "start": 3283,
+        "end": 3365,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityCustomMachine.java": [
+      {
+        "start": 3436,
+        "end": 3518,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      },
+      {
+        "start": 3733,
+        "end": 3815,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityDummy.java": [
+      {
+        "start": 519,
+        "end": 601,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityICFController.java": [
+      {
+        "start": 4998,
+        "end": 5116,
+        "old": "this.world.func_147480_a(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityITER.java": [
+      {
+        "start": 15445,
+        "end": 15527,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java": [
+      {
+        "start": 16460,
+        "end": 16502,
+        "old": "this.world.func_147480_a(bx, by, bz, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, bx, by, bz, true)"
+      },
+      {
+        "start": 16585,
+        "end": 16627,
+        "old": "this.world.func_147480_a(bx, by, bz, true)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, bx, by, bz, true)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java": [
+      {
+        "start": 4003,
+        "end": 4085,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java": [
+      {
+        "start": 16936,
+        "end": 16976,
+        "old": "this.world.func_147480_a(x, y, z, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java": [
+      {
+        "start": 11564,
+        "end": 11622,
+        "old": "this.world.func_147480_a(targetX, targetY, targetZ, false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, targetX, targetY, targetZ, false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java": [
+      {
+        "start": 4349,
+        "end": 4431,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java": [
+      {
+        "start": 9467,
+        "end": 9549,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMicrowave.java": [
+      {
+        "start": 2465,
+        "end": 2547,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/TileEntityPWRController.java": [
+      {
+        "start": 9785,
+        "end": 9867,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityBarrel.java": [
+      {
+        "start": 9028,
+        "end": 9110,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      },
+      {
+        "start": 9492,
+        "end": 9574,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      },
+      {
+        "start": 11016,
+        "end": 11098,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ],
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMachineBAT9000.java": [
+      {
+        "start": 567,
+        "end": 649,
+        "old": "this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)",
+        "new": "com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false)"
+      }
+    ]
+  }
+}

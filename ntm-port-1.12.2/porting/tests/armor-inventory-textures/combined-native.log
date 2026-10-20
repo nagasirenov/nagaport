@@ -1,0 +1,30 @@
+/workspace/shared/nagaport-armor-textures/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static sun.misc.Unsafe unsafe;
+                ^
+/workspace/shared/nagaport-armor-textures/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                  ^
+/workspace/shared/nagaport-armor-textures/ntm-port-1.12.2/porting/tests/item-foundation-native/NativeItemFoundationTest.java:58: warning: Unsafe is internal proprietary API and may be removed in a future release
+  unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                        ^
+/workspace/shared/nagaport-armor-textures/ntm-port-1.12.2/porting/tests/armor-inventory-textures/OriginalArmorIcons.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+   sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+           ^
+/workspace/shared/nagaport-armor-textures/ntm-port-1.12.2/porting/tests/armor-inventory-textures/OriginalArmorIcons.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+   sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                   ^
+/workspace/shared/nagaport-armor-textures/ntm-port-1.12.2/porting/tests/armor-inventory-textures/OriginalArmorIcons.java:12: warning: Unsafe is internal proprietary API and may be removed in a future release
+   sun.misc.Unsafe unsafe=(sun.misc.Unsafe)field(sun.misc.Unsafe.class,"theUnsafe").get(null);
+                                                         ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/shared/nagaport-armor-textures/ntm-port-1.12.2/src/main/java/com/hbm/util/EnumUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+[10:17:47] [main/INFO]: Processing ObjectHolder annotations
+[10:17:47] [main/INFO]: Found 1167 ObjectHolder annotations
+[10:17:47] [main/WARN]: Potentially Dangerous alternative prefix `foreign` for name `item.foreign`, expected `hbm`. This could be a intended override, but in most cases indicates a broken mod.
+[10:17:47] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, resources
+[10:17:48] [main/INFO]: Reloading ResourceManager: forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar, armor-items.jar
+PASS original Item/ItemArmor bytecode: 1576 texture identity, one-pass, white tint and metadata-independent icon assertions; leather multipass exclusion control.
+PASS armor inventory textures: 3077 checks, 105 declarations / 103 final fields / 44 native custom callback owners, two actual Forge registry/model/atlas/mesher reloads. Native ItemArmor/Item receiver fixtures, extracted constructor tail and registration statements, not complete mod armor classes or GL rendering.

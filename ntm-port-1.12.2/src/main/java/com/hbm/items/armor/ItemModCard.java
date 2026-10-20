@@ -41,7 +41,7 @@ public class ItemModCard extends ItemArmorMod {
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		if(this == ModItems.card_qos && event.getEntityLiving().getRNG().nextInt(3) == 0 && event.getEntityLiving() instanceof EntityPlayer) {
 			HbmPlayerProps.plink((EntityPlayer) event.getEntityLiving(), "random.break", 0.5F, 1.0F + event.getEntityLiving().getRNG().nextFloat() * 0.5F);
-			event.ammount = 0;
+			event.setAmount(0);
 			event.setCanceled(true);
 		}
 	}

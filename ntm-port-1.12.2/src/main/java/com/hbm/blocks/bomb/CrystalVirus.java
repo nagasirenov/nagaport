@@ -48,7 +48,7 @@ public class CrystalVirus extends Block {
     		if(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() != ModBlocks.crystal_pulsar) {
     			world.setBlock(x, y, z - 1, ModBlocks.crystal_virus);
     		}
-			world.setBlock(x, y, z, ModBlocks.crystal_hardened);
+			{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
     	}
     	
     }
@@ -63,7 +63,7 @@ public class CrystalVirus extends Block {
     			(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_pulsar) && 
     			(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_pulsar) && 
     			!world.isRemote) {
-			world.setBlock(x, y, z, ModBlocks.crystal_hardened);
+			{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.crystal_hardened; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
     	}
     }
 

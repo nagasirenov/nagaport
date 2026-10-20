@@ -1,0 +1,5 @@
+b44685f2fd7b95c161aae61cd08c055c1cc756f7fecd1b64d4a1b64bb52c7887  ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBaseMK4.java
+c9e75c6187c5a6b13ab6f4c29bc28e60fcd867182807e19d1840f9493a72dd7e  ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBulletBeamBase.java
+c7fda860b8a2cb7b97b992c05545689655c5450714d39a0a4f83686176d84668  ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryRocket.java
+66941ca8549fa3c11b55b7f1e1c5ccaf88fcd6c2ccb3a4a61c176bb52d7fa2ad  ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java
+8206607b42aaf704193f4b8a10f7e559f058f66479ac2b59105d3273325ff550  ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderArtilleryRocket.java

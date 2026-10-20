@@ -57,7 +57,7 @@ abstract public class EntityDebrisBase extends Entity {
 	@Override
 	public void moveEntity(double moX, double moY, double moZ) {
 
-		this.world.theProfiler.startSection("move");
+		this.world.profiler.startSection("move");
 		this.ySize *= 0.4F;
 
 		if(this.isInWeb) {
@@ -184,15 +184,15 @@ abstract public class EntityDebrisBase extends Entity {
 			}
 		}
 
-		this.world.theProfiler.endSection();
-		this.world.theProfiler.startSection("rest");
+		this.world.profiler.endSection();
+		this.world.profiler.startSection("rest");
 		this.posX = (this.getEntityBoundingBox().minX + this.getEntityBoundingBox().maxX) / 2.0D;
 		this.posY = this.getEntityBoundingBox().minY + (double) this.yOffset - (double) this.ySize;
 		this.posZ = (this.getEntityBoundingBox().minZ + this.getEntityBoundingBox().maxZ) / 2.0D;
-		this.isCollidedHorizontally = initMoX != moX || initMoZ != moZ;
-		this.isCollidedVertically = initMoY != moY;
+		this.collidedHorizontally = initMoX != moX || initMoZ != moZ;
+		this.collidedVertically = initMoY != moY;
 		this.onGround = initMoY != moY && initMoY < 0.0D;
-		this.isCollided = this.isCollidedHorizontally || this.isCollidedVertically;
+		this.collided = this.collidedHorizontally || this.collidedVertically;
 		this.updateFallState(moY, this.onGround);
 
 		if(initMoX != moX) {
@@ -219,7 +219,7 @@ abstract public class EntityDebrisBase extends Entity {
 			throw new ReportedException(crashreport);
 		}
 
-		this.world.theProfiler.endSection();
+		this.world.profiler.endSection();
 	}
 
 	@Override

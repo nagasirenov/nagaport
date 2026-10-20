@@ -1,0 +1,7 @@
+  protected net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #376                // Field blockSoundType:Lnet/minecraft/block/SoundType;
+       5: aload_0
+       6: areturn

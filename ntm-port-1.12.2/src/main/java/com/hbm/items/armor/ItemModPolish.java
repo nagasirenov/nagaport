@@ -32,6 +32,6 @@ public class ItemModPolish extends ItemArmorMod {
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
 		
 		if(event.getEntity().world.rand.nextInt(20) == 0)
-			event.ammount = 0;
+			event.setAmount(0);
 	}
 }

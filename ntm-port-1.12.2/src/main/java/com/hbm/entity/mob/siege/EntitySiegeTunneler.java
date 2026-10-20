@@ -12,6 +12,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.world.World;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+
 
 //cursed code ahead
 //no, this time it's vanilla that is cursed
@@ -24,6 +28,8 @@ import net.minecraft.world.World;
 //honest to fucking god was the entire mojang dev team on crack when they wrote this?
 @NotableComments
 public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
+	private static final DataParameter<Integer> SIEGE_TIER = EntityDataManager.createKey(EntitySiegeTunneler.class, DataSerializers.VARINT);
+
 
 	public EntitySiegeTunneler(World world) {
 		super(world);
@@ -46,7 +52,7 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
 		}
 		
 		//noFF can't be harmed by other mobs
-		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getEntity() instanceof EntityPlayer))
+		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))
 			return false;
 		
 		damage -= tier.dt;
@@ -64,7 +70,7 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.getDataWatcher().addObject(12, (int) 0);
+		this.getDataManager().register(SIEGE_TIER, (int) 0);
 	}
 
 	@Override
@@ -77,7 +83,7 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
 	}
 	
 	public void setTier(SiegeTier tier) {
-		this.getDataWatcher().updateObject(12, tier.id);
+		this.getDataManager().set(SIEGE_TIER, tier.id);
 
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier("Tier Damage Mod", tier.damageMod, 1));
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.5);
@@ -85,7 +91,7 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
 	}
 	
 	public SiegeTier getTier() {
-		SiegeTier tier = SiegeTier.tiers[this.getDataWatcher().getWatchableObjectInt(12)];
+		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
 		return tier != null ? tier : SiegeTier.CLAY;
 	}
 

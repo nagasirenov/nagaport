@@ -12,6 +12,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -124,7 +125,7 @@ public class BlockLoot extends BlockContainer {
 			int count = nbt.getInteger("count");
 			
 			for(int i = 0; i < count; i++) {
-				ItemStack stack = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("item" + i));
+				ItemStack stack = NullableInventoryStackNbt.read(nbt.getCompoundTag("item" + i));
 				if(stack == null || stack.getItem() == null) continue;
 				double x = nbt.getDouble("x" + i);
 				double y = nbt.getDouble("y" + i);

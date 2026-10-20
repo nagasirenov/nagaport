@@ -1,0 +1,17 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "before_sha256": "51b16ab84ae4057aedc9193dbcd5e582f0ed06d1f3a5328ee14b5c5375ac5dc1",
+    "after_sha256": "8bcf69373279a90833404494b432deeaf2e6f0c5b1f82367d5e2dce6bfa04f87"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLogNT.java",
+    "before_sha256": "f3eca90b6b535cc688dda3e0095057496cceaffd1e7e7f3f465d5a30b867934a",
+    "after_sha256": "4784e39baf663104e9c3d5915c74e1f82c1a2378f0c8817f3fa3303b5f937f9a"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockRotatablePillar.java",
+    "before_sha256": "dabbf4a4f40d527f895208b468f97b54c5ac94f3ff3f3f2a524aec5016d0e278",
+    "after_sha256": "968ce9a1f43336acb14a516bed8b2d33e4e5ad95f19a0f2342724b97e21f4b4f"
+  }
+]

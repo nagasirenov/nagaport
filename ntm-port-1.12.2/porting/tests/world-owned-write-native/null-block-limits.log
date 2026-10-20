@@ -1,0 +1,4 @@
+Original in-domain null target, stone: block ID 1 -> 1, metadata=0, write chunk requests=1, height-cache 64 -> -999, allocated section=true, non-air count=1
+Original in-domain null target, air: block ID 0 -> 0, metadata=0, write chunk requests=1, height-cache 64 -> -999, allocated section=true, non-air count=1
+Original in-domain null target, empty section: block ID 0 -> 0, metadata=0, write chunk requests=1, height-cache 64 -> -999, allocated section=true, non-air count=1
+LIMIT: native conversion of null occurs before chunk access. Selected write equivalence requires the initialized, nonnull constructor identities. Pre-init/reflection-replaced null fields inside the domain are not equivalent; outside-domain null is independently preserved.

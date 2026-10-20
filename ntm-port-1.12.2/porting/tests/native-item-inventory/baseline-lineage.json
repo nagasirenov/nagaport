@@ -1,0 +1,18 @@
+[
+  [
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+    "class InventoryCrate extends ItemInventory"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemLeadBox.java",
+    "class InventoryLeadBox extends ItemInventory"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+    "class InventoryRebar extends ItemInventory"
+  ],
+  [
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java",
+    "class InventoryToolBox extends ItemInventory"
+  ]
+]

@@ -1,0 +1,4 @@
+SOURCE_DESCENDANT	com.hbm.items.weapon.sedna.DamageSourceSednaNoAttacker	net.minecraft.util.DamageSource
+SOURCE_DESCENDANT	com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker	com.hbm.items.weapon.sedna.DamageSourceSednaNoAttacker
+SOURCE_DESCENDANT	com.hbm.lib.ModDamageSource	net.minecraft.util.DamageSource
+Attribution errors in unfinished full source (NOT compile success): 12775

@@ -1,0 +1,45 @@
+  protected boolean isPointInRegion(int, int, int, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #109                // Field guiLeft:I
+       4: istore        7
+       6: aload_0
+       7: getfield      #114                // Field guiTop:I
+      10: istore        8
+      12: iload         5
+      14: iload         7
+      16: isub
+      17: istore        5
+      19: iload         6
+      21: iload         8
+      23: isub
+      24: istore        6
+      26: iload         5
+      28: iload_1
+      29: iconst_1
+      30: isub
+      31: if_icmplt     67
+      34: iload         5
+      36: iload_1
+      37: iload_3
+      38: iadd
+      39: iconst_1
+      40: iadd
+      41: if_icmpge     67
+      44: iload         6
+      46: iload_2
+      47: iconst_1
+      48: isub
+      49: if_icmplt     67
+      52: iload         6
+      54: iload_2
+      55: iload         4
+      57: iadd
+      58: iconst_1
+      59: iadd
+      60: if_icmpge     67
+      63: iconst_1
+      64: goto          68
+      67: iconst_0
+      68: ireturn
+

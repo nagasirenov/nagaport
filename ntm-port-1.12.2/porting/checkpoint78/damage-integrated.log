@@ -1,0 +1,52 @@
+PASS two generated dummy JARs exactly match pinned ForgeGradle generator entry/payload; all real dependency hashes remain strict
+PASS pinned dependency and original mapping hashes
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/NativeDamageSourceTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/LegacyDamageSourceTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/NativeDamageSourceTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/LegacyDamageSourceTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/NativeDamageSourceTest.java:6: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/LegacyDamageSourceTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/NativeDamageSourceTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+                                                  ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/NativeDamageSourceTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+                                                                                                                   ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/NativeDamageSourceTest.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+  net.minecraft.init.Bootstrap.register();Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+                                                                                                                             ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/LegacyDamageSourceTest.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+          ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/LegacyDamageSourceTest.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+                                                                           ^
+/workspace/shared/nagaport/ntm-port-1.12.2/porting/tests/native-damage-source-accessors/LegacyDamageSourceTest.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);Unsafe u=(Unsafe)f.get(null);
+                                                                                     ^
+12 warnings
+PASS 14 original-client native runtime source identity/null/virtual-dispatch assertions
+BINARY_DESCENDANTS 3 across 67 native dependency jars and 3 directory classes; accessor declarations: [net/minecraft/util/DamageSource=[getImmediateSource, getTrueSource], net/minecraft/util/EntityDamageSource=[getTrueSource], net/minecraft/util/EntityDamageSourceIndirect=[getImmediateSource, getTrueSource]]
+PASS 50 native runtime assertions, complete production Sedna classes; no full caller/game lifecycle claim
+PASS 37 exact source-token inverses across 21 files; original inventory and Sedna override bodies retained
+PASS pinned old/native MCP+SRG mapping; exact 5 getter implementations and 2 entity-attribution constructors
+PASS 8 real javac attribution fixtures including unknown/unrelated exclusions, custom overrides and UTF-16 spans
+SOURCE_DESCENDANT	com.hbm.items.weapon.sedna.DamageSourceSednaNoAttacker	net.minecraft.util.DamageSource
+SOURCE_DESCENDANT	com.hbm.items.weapon.sedna.DamageSourceSednaWithAttacker	com.hbm.items.weapon.sedna.DamageSourceSednaNoAttacker
+SOURCE_DESCENDANT	com.hbm.lib.ModDamageSource	net.minecraft.util.DamageSource
+Attribution errors in unfinished full source (NOT compile success): 12775
+PASS 37 exact source-token inverses across 21 files; original inventory and Sedna override bodies retained
+PASS every changed token resolves to actual native/custom declaration, all exact positions, original receiver type and enclosing method; 1 pre-existing native site untouched
+PASS bounded DamageSource accessor migration; full module still unfinished, no gameplay or complete caller lifecycle certified

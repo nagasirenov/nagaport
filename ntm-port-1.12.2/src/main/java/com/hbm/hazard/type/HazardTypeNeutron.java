@@ -46,10 +46,10 @@ public class HazardTypeNeutron extends HazardTypeBase {
 
 			if(target instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) target;
-				for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+				for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 					apply(player.inventory.getStackInSlot(i), rad);
 				}
-				for(int i = 0; i < player.inventory.armorInventory.length; i++) {
+				for(int i = 0; i < player.inventory.armorInventory.size(); i++) {
 					apply(player.inventory.armorItemInSlot(i), rad);
 				}
 			}

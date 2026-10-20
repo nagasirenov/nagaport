@@ -1,0 +1,90 @@
+{
+  "complete": {
+    "com/hbm/items/ItemInventory.java": "5843ef1ba3614b4076daa2531f2788c88806b3a310ed86e6ee318bdd3e10b270",
+    "com/hbm/items/ItemInventoryTransfer.java": "bdb786bf5c346ef229261d204284137656154e80f3c13a7b8ab00180bad8a20d",
+    "com/hbm/util/NullableInventoryStackNbt.java": "f4314bb560aac80e08b8bfb6801c9494baf26525929dab9fbf4ba335f662d0c8",
+    "com/hbm/util/NativeHeldItem.java": "c9cc68d6853ca7f9d080914452b5d7592a90a4cfb4ce86f447099113089b2692",
+    "com/hbm/inventory/SlotPattern.java": "fa609729a077bf5f7a415d58afb7ce8d691a56cdd51465859bdb3f9b4884710d",
+    "com/hbm/inventory/SlotNonRetarded.java": "a4dc41813dc9aa0692a01ce64d8874ef399d680f1f07b211929584fd615f4022",
+    "com/hbm/interfaces/NotableComments.java": "33740494056eeca8f903570fb940d0a6e5556b10359091854d22a9c8e0aea943",
+    "com/hbm/tileentity/IGUIProvider.java": "43941c5170dff5f972d0f1847f1e0712a3c1c6d6fb6cc885234fd3589c8acc47",
+    "com/hbm/sound/WorldSoundEffects.java": "444bdd41794f26b37d368f85691ba611b3648a62b096491ba62a5d95648c8d1e",
+    "com/hbm/main/ModSoundEvents.java": "338c546e9c7942bd6fb31f8e31a673860a6146c478e8debe0d8968facd0cb367",
+    "com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71"
+  },
+  "projections": {
+    "com/hbm/items/tool/ItemLeadBox.java": {
+      "complete_declarations": [
+        "public static class InventoryLeadBox extends ItemInventory"
+      ],
+      "sha256": "6c46417c97a1472a9c0656e2ed4c2728f313fafb83d73698c07bab6da3d047ae"
+    },
+    "com/hbm/items/tool/ItemToolBox.java": {
+      "complete_declarations": [
+        "public static class InventoryToolBox extends ItemInventory"
+      ],
+      "sha256": "c1f21456f82c753e5d9f88bf00c80b69ff77676fb2fd45e7c5cf47f94fa9370a"
+    },
+    "com/hbm/items/tool/ItemRebarPlacer.java": {
+      "complete_declarations": [
+        "public static class InventoryRebar extends ItemInventory"
+      ],
+      "sha256": "7a5342e8c1dd1b148dab579163b87eaf9fecce3f5dd78afebd5107627f66fe5d"
+    },
+    "com/hbm/inventory/container/ContainerLeadBox.java": {
+      "exact_methods": [
+        "public ContainerLeadBox(",
+        "public ItemStack transferStackInSlot(",
+        "public boolean canInteractWith(",
+        "public void onContainerClosed("
+      ],
+      "sha256": "63c7d9328152b4ad84a3ceaadecdb771496d86b68c79daeed93d90e94e2fc18c",
+      "excluded": "obsolete slotClick callback, unchanged and not activated"
+    },
+    "com/hbm/inventory/container/ContainerToolBox.java": {
+      "exact_methods": [
+        "public ContainerToolBox(",
+        "public ItemStack transferStackInSlot(",
+        "public boolean canInteractWith(",
+        "public void onContainerClosed("
+      ],
+      "sha256": "b112d299a4c8a52245a806f1442e368eb1fb54a6bf0e9927c6a9f0ff214dc8be",
+      "excluded": "obsolete slotClick callback, unchanged and not activated"
+    }
+  },
+  "original_mod_sha256": "3f5629077628b5956ff7ff4e254c25ef0e1bc51f5b6668fde77badd5f784f67b",
+  "adapted_original_merge_sha256": "05a75109bf76e2cb481b970b854c9446d0669c2fa60f9ddb1cd4b5f2e45d89ca",
+  "platform_sha256": {
+    "native": "c7773c57f5fa221476c1c1a6e30fc379a0b725ea4380933ecf93be1278840a7c",
+    "srg_quantity": "14309f485827c442a33a5c91dd1200f0de1fcf271eedc47e2fc7b1ba45fa3b69"
+  },
+  "rejected_mutants": {
+    "normalize_any_empty_destination": {
+      "sha256": "cc626c6e01d4ce1af34b3b4276ee4fdcc8f596e973f436df60a770c9534b1595",
+      "assertion": "Exception in thread \"main\" java.lang.AssertionError: matrix n=0 count=-2147483648 source=1 rev=false limit=1 kind=0 alias=false allow=true callback order"
+    },
+    "mask_signed_quantity": {
+      "sha256": "2f0e22d5e982052ab94d0ae317c099a37813ddde26ab88afda4f0e405be72d47",
+      "assertion": "Exception in thread \"main\" java.lang.AssertionError: matrix n=0 count=-2147483648 source=1 rev=false limit=1 kind=0 alias=false allow=true callback order"
+    },
+    "mask_registered_item": {
+      "sha256": "aa88aa8cf251dee687d5279d58f51cecefda597d54dcb1597674f4e16495e7a7",
+      "assertion": "Exception in thread \"main\" java.lang.AssertionError: matrix n=0 count=-2147483648 source=1 rev=false limit=1 kind=0 alias=false allow=true callback order"
+    },
+    "native_empty_tag_equality": {
+      "sha256": "2f164c147630152218e871f120eb13148f17d43b31eb8cbc81b083a0d1792889",
+      "assertion": "Exception in thread \"main\" java.lang.AssertionError: matrix n=0 count=-2147483648 source=1 rev=false limit=1 kind=0 alias=false allow=true callback order"
+    }
+  },
+  "assertions": 11370,
+  "fixtures": {
+    "com/hbm/main/MainRegistry.java": "package com.hbm.main; public class MainRegistry { public static Object instance=new Object(); }",
+    "com/hbm/items/ModItems.java": "package com.hbm.items; public class ModItems { public static net.minecraft.item.Item toolbox=net.minecraft.init.Items.CHEST_MINECART; }",
+    "com/hbm/items/block/ItemBlockStorageCrate.java": "package com.hbm.items.block; public class ItemBlockStorageCrate extends net.minecraft.item.Item {}",
+    "com/hbm/util/ItemStackUtil.java": "package com.hbm.util; public class ItemStackUtil {}",
+    "com/hbm/inventory/gui/GUILeadBox.java": "package com.hbm.inventory.gui; public class GUILeadBox { public GUILeadBox(net.minecraft.entity.player.InventoryPlayer p, com.hbm.items.tool.ItemLeadBox.InventoryLeadBox i) {} }"
+  },
+  "test_sha256": "fa7f9e266b9c115628225cb1eefcc126a64db46c9873cd61b50133291a708acc",
+  "generator_sha256": "7d1ed336b867ad95fb436a8edf47f218e3fbb69e16b64dbfebc303b8e324c8cd",
+  "adapter_sha256": "901bea7ae88d766de282dd8e63e8cf21e4ca806161d1ab1f6ccff5a6e15106f4"
+}

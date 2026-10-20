@@ -15,7 +15,7 @@ public class TileEntityDummy extends TileEntity implements net.minecraft.util.IT
 	public void update() {
     	if(!this.world.isRemote) {
     		if(!(com.hbm.world.WorldBlockState.read(this.world, targetX, targetY, targetZ).getBlock() instanceof IMultiblock)) {
-    			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+    			com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
     		}
     	}
     }

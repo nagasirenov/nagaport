@@ -60,7 +60,7 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		
-		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getSourceOfDamage() instanceof EntityEgg && rand.nextInt(10) == 0) {
+		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getImmediateSource() instanceof EntityEgg && rand.nextInt(10) == 0) {
 			this.experienceValue = 0;
 			this.setHealth(0);
 			return true;

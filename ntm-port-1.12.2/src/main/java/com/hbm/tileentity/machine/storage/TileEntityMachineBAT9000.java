@@ -22,7 +22,7 @@ public class TileEntityMachineBAT9000 extends TileEntityBarrel {
 	public void checkFluidInteraction() {
 		
 		if(tank.getTankType().isAntimatter()) {
-			this.world.func_147480_a(this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 			this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 10, true, true);
 		}
 	}

@@ -111,7 +111,7 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 				}
 
 				if(this.world.rand.nextInt(20) == 0 && MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 6, this.pos.getZ() + 0.5) < 50) {
-					this.world.spawnParticle("cloud", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 6.5D, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.1, 0.0);
+					this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 6.5D, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.1, 0.0);
 				}
 			}
 		}

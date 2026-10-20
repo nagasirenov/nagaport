@@ -3,6 +3,7 @@ package com.hbm.render.entity.item;
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.main.ResourceManager;
+import com.hbm.entity.logic.EntityBomber;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.Render;
@@ -28,7 +29,7 @@ public class RenderBomber extends Render {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glDisable(GL11.GL_CULL_FACE);
 
-		int i = entity.getDataWatcher().getWatchableObjectByte(16);
+		int i = ((EntityBomber) entity).getBomberStyle();
 
 		switch(i) {
 		case 0: bindTexture(ResourceManager.dornier_1_tex); break;

@@ -46,12 +46,12 @@ public class TileEntityRefueler extends TileEntityLoadedBase implements IFluidSt
 
 			isOperating = false;
 
-			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));
+			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(0.5, 0.0, 0.5));
 
 			for(EntityPlayer player : players) {
 				for(int i = 0; i < 5; i++) {
 
-					ItemStack stack = player.getEquipmentInSlot(i);
+					ItemStack stack = com.hbm.util.LivingEquipmentRead.getEquipmentNullable(player, i);
 					if(stack == null) continue;
 
 					if(fillFillable(stack)) {

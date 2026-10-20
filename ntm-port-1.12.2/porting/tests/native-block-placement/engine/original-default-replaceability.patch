@@ -1,0 +1,15 @@
++     * @param z Z position
++     * @return True if the block is replaceable by another block
++     */
++    public boolean isReplaceable(IBlockAccess world, int x, int y, int z)
++    {
++        return field_149764_J.func_76222_j();
++    }
++
++    /**
++     * Determines if this block should set fire and deal fire damage
++     * to entities coming into contact with it.
++     *
++     * @param world The current world
++     * @param x X Position
++     * @param y Y position

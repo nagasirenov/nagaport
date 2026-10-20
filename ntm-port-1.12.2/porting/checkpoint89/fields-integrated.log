@@ -1,0 +1,2 @@
+PASS exact whole-file inverse and 34 individual omitted-token controls across 12 files
+PASS collision assignment block also byte-matches pristine original source

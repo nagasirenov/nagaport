@@ -1,0 +1,77 @@
+{
+  "base": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "production_owners": [
+    "CommonConfig",
+    "BombConfig",
+    "WeaponConfig"
+  ],
+  "legacy_userdev_sha256": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+  "matching_native_artifact_sha256": {
+    "helpers-0-0.cfg": "92250ff593a652cf3c18bddb9a05a302f2e251c45bb30c1fc465ab3ace52a045",
+    "helpers-0-1.cfg": "c707d9794fd53cde0ea40a1f8fad1085a2874863db5786aceab851ecec769ea3",
+    "helpers-0-2.cfg": "3cc6f18f77fb0dcb91271fbc3249ad6d83ad0253dcaa35be75542522a40b7c99",
+    "helpers-1-0.cfg": "92250ff593a652cf3c18bddb9a05a302f2e251c45bb30c1fc465ab3ace52a045",
+    "helpers-1-1.cfg": "c707d9794fd53cde0ea40a1f8fad1085a2874863db5786aceab851ecec769ea3",
+    "helpers-1-2.cfg": "3cc6f18f77fb0dcb91271fbc3249ad6d83ad0253dcaa35be75542522a40b7c99",
+    "helpers-2-0.cfg": "6275386c437d8d6c8e1c443ae0b81dc9f6900c426d62adb48f1a4eb3d2eefcb9",
+    "helpers-2-1.cfg": "63770623c54c6acafe141114812d2136ca175e3b1b018f4c1c375d55037f4b26",
+    "helpers-2-2.cfg": "683b6467edf744c2f901efb5eccd812ed40f0073c6302dd2cc14ccf61e99ed8f",
+    "helpers-3-0.cfg": "d5ee477c661c55b152d5cd0769e3f34afcd26ea6c2d6c414e4f0c87b57946274",
+    "helpers-3-1.cfg": "57f678bc2ee1c7271eb926ff466135ad380a52a5b2bd13e0330f3832ab9de921",
+    "helpers-3-2.cfg": "af04f52eb684f3792e4235ad80dd2d6870bb9545a676faf3b8faeb4f964e509b",
+    "helpers-4-0.cfg": "0494598f6ba205b86908c89657b4d595dbf35e2e3d7cfe027de0addf5a378a5c",
+    "helpers-4-1.cfg": "f76ee33f7a563697711442ceecf94894cf8195577e098e9180127d5f40770426",
+    "helpers-4-2.cfg": "3b78f2709a8a48757a32cf54d705efe3da269a2a0dc5620c298e225c253f4319",
+    "helpers-5-0.cfg": "e9ae0b2fe4d88b7bf3470a1c6da8c07dfb7466cbc6cb9f672acd2c6f368f980c",
+    "helpers-5-1.cfg": "c072363f5ca1be13526cc6a06809490e39a031942b6bf6a8c571e5d29c0d8166",
+    "helpers-5-2.cfg": "4a329da2e3142b739684fa83614cdb98d644e0e0b30a80e5df9a4ce069346274",
+    "owners-0.cfg": "5cadc9e8d31571ec7c649f20466c23e22d300b6a21a255878cb1f07878da4c43",
+    "owners-1.cfg": "6cf48b3cbf504a25dd536c5c92cad01f5a14f521b4f4e5c2b23ba3ba999a97e7",
+    "owners-2.cfg": "5cadc9e8d31571ec7c649f20466c23e22d300b6a21a255878cb1f07878da4c43",
+    "snapshots.txt": "a2bf18a5102cbc8433b1b3af9c7f23fe992438ba35dc309bbaf4d5c0d5742861"
+  },
+  "inherited_engine_post_save_flag_differences": {
+    "helpers-0-0 post-save changed=true": 5,
+    "helpers-0-1 post-save changed=true": 7,
+    "helpers-0-2 post-save changed=true": 7,
+    "helpers-1-0 post-save changed=true": 5,
+    "helpers-1-1 post-save changed=true": 7,
+    "helpers-1-2 post-save changed=true": 7,
+    "helpers-2-0 post-save changed=true": 5,
+    "helpers-2-1 post-save changed=true": 7,
+    "helpers-2-2 post-save changed=true": 7,
+    "helpers-3-0 post-save changed=true": 5,
+    "helpers-3-1 post-save changed=true": 7,
+    "helpers-3-2 post-save changed=true": 7,
+    "helpers-4-0 post-save changed=true": 5,
+    "helpers-4-1 post-save changed=true": 7,
+    "helpers-4-2 post-save changed=true": 7,
+    "helpers-5-0 post-save changed=true": 5,
+    "helpers-5-1 post-save changed=true": 7,
+    "helpers-5-2 post-save changed=true": 7,
+    "owners-0 post-save changed=true": 28,
+    "owners-1 post-save changed=true": 28,
+    "owners-2 post-save changed=true": 28
+  },
+  "native_setter_bytecode": "0: aload_0\n       1: aload_1\n       2: putfield      #53                 // Field comment:Ljava/lang/String;\n       5: return",
+  "runtime_mutants": [
+    "omit-helper-comment",
+    "corrupt-literal-comment",
+    "alter-helper-return",
+    "alter-radius-default"
+  ],
+  "native_classes": {
+    "net/minecraftforge/common/config/Property.class": {
+      "jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "19867a1cd6efe464a2250fa983cf3497be5ab0806b44597631dde6dee9446ceb"
+    },
+    "net/minecraftforge/common/config/Configuration.class": {
+      "jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "0abad780c69f03b2720c165e15e2c82ccfa15871581fb190c9e634b9026f761f"
+    },
+    "net/minecraftforge/common/config/ConfigCategory.class": {
+      "jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+      "sha256": "4eddfe7a398707d279cc154dd44b7bfbebf7d2d09c9ac44fc06c899d0c9f131e"
+    }
+  }
+}

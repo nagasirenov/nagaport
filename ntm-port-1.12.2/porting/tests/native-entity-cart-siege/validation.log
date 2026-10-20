@@ -1,0 +1,4 @@
+PASS cart/siege: 6 owners / 12 owned native keys / 38 pristine calls and CP87 diagnostics / 13 named classes / 28 consumer files; exact complete source inverse; 48 unrelated same-file diagnostics retained
+PASS 3695 native cart/siege metadata assertions (craft-first); bounded projections only, not full owners, tier attribute effects, movement, AI, inventory, game startup or renderer GL
+PASS 3695 native cart/siege metadata assertions (ufo-first); bounded projections only, not full owners, tier attribute effects, movement, AI, inventory, game startup or renderer GL
+PASS 79 pinned exact source slices; all are bounded projections, not whole owners or game testing

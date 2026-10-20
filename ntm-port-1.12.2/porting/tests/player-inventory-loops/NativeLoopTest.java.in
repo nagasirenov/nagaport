@@ -1,0 +1,32 @@
+import java.util.*;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
+public final class NativeLoopTest {
+ static int checks;static void ok(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
+ @METHODS@
+ static List<ItemStack> original(ItemStack[] slots){List<ItemStack> visits=new ArrayList<>();for(ItemStack stack:slots)if(stack!=null)visits.add(stack);return visits;}
+ public static void main(String[]args)throws Exception{
+  net.minecraft.init.Bootstrap.register();InventoryPlayer inventory=new InventoryPlayer(null);
+  ok(inventory.mainInventory.size()==36,"native main size");ok(inventory.armorInventory.size()==4,"native armor size");
+  ItemStack positive=new ItemStack(Items.APPLE,7);NBTTagCompound tag=new NBTTagCompound();tag.setString("payload","preserved");positive.setTagCompound(tag);
+  ItemStack zero=new ItemStack(Items.APPLE,0),negative=new ItemStack(Items.APPLE,-3),air=new ItemStack(Items.AIR,5),nil=new ItemStack((net.minecraft.item.Item)null,9);
+  ItemStack[] values={ItemStack.EMPTY,positive,zero,negative,air,nil};
+  for(NonNullList<ItemStack> slots:Arrays.asList(inventory.mainInventory,inventory.armorInventory))for(int shift=0;shift<values.length;shift++){
+   ItemStack[] before=new ItemStack[slots.size()],legacy=new ItemStack[slots.size()];
+   for(int i=0;i<slots.size();i++){ItemStack value=values[(i+shift)%values.length];slots.set(i,value);before[i]=value;legacy[i]=value==ItemStack.EMPTY?null:value;}
+   List<ItemStack> expected=original(legacy);
+   for(int method=0;method<10;method++){
+    @CALL@
+    ok(actual.size()==expected.size(),"absent sentinel not visited "+method);
+    for(int i=0;i<actual.size();i++)ok(actual.get(i)==expected.get(i),"exact visit identity/order "+method);
+    for(int i=0;i<slots.size();i++)ok(slots.get(i)==before[i],"no slot mutation "+method);
+   }
+  }
+  ok(positive.getCount()==7 && positive.getTagCompound()==tag,"quantity and NBT identity retained");ok(zero!=ItemStack.EMPTY && negative!=ItemStack.EMPTY && air!=ItemStack.EMPTY && nil!=ItemStack.EMPTY,"noncanonical empty inputs are distinct");
+  for(int method=0;method<10;method++){NonNullList<ItemStack> slots=null;boolean failed=false;try{@CALL@}catch(NullPointerException expected){failed=true;}ok(failed,"null iterable still throws");}
+  System.out.println("PASS "+checks+" native inventory foreach boundary checks; actual InventoryPlayer lists, all ten production normalizers, exact noncanonical aliases and no slot mutation. Handler bodies/radiation gameplay are not executed.");
+ }
+}

@@ -66,10 +66,10 @@ public class TileEntityDemonLamp extends TileEntity implements net.minecraft.uti
 			ContaminationUtil.contaminate(e, HazardType.NEUTRON, ContaminationType.CREATIVE, eRads);
 			if(e instanceof EntityPlayer && !RadiationConfig.disableNeutron) {
 				EntityPlayer player = (EntityPlayer) e;
-				for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+				for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 					HazardTypeNeutron.apply(player.inventory.getStackInSlot(i), eRads);
 				}
-				for(int i = 0; i < player.inventory.armorInventory.length; i++) {
+				for(int i = 0; i < player.inventory.armorInventory.size(); i++) {
 					HazardTypeNeutron.apply(player.inventory.armorItemInSlot(i), eRads);
 				}
 			}

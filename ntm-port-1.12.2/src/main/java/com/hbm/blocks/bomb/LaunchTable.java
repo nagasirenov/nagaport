@@ -79,8 +79,8 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 		for(int k = -4; k <= 4; k++)
 			for(int l = -4; l <= 4; l++)
 				if(l != 0 && k != 0)
-					if(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, xCoord + k, yCoord, zCoord + l)) {
-						worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
+					if(!com.hbm.world.WorldBlockState.read(worldObj, xCoord + k, yCoord, zCoord + l).getBlock().isReplaceable(worldObj, new net.minecraft.util.math.BlockPos(xCoord + k, yCoord, zCoord + l))) {
+						com.hbm.world.WorldBlockDestruction.destroy(worldObj, xCoord, yCoord, zCoord, true);
 						return;
 					}
 

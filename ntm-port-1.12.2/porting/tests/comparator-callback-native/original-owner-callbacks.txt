@@ -1,0 +1,151 @@
+// com/hbm/blocks/generic/BlockStorageCrate.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(x, y, z));
+	}
+
+// com/hbm/blocks/machine/BlockMassStorage.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+		return ((TileEntityMassStorage) world.getTileEntity(x, y, z)).redstone;
+	}
+
+// com/hbm/blocks/machine/GeigerCounter.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+		TileEntityGeiger te = (TileEntityGeiger)world.getTileEntity(x, y, z);
+		if (te == null) return 0;
+
+		float rad = te.check();
+
+		// 0 at exactly 0 rads/sec
+		// +1 per 5 rads/sec
+		// 15 at 75+ rads/sec
+		return Math.min((int)Math.ceil(rad / 5f), 15);
+	}
+
+// com/hbm/blocks/machine/MachineBattery.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+
+		TileEntity te = world.getTileEntity(x, y, z);
+
+		if(!(te instanceof TileEntityMachineBattery))
+			return 0;
+
+		TileEntityMachineBattery battery = (TileEntityMachineBattery) te;
+		return battery.getComparatorPower();
+	}
+
+// com/hbm/blocks/machine/MachineBigAssTank9000.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+
+		int meta = world.getBlockMetadata(x, y, z);
+
+		if(meta >= 6) {
+			int[] pos = this.findCore(world, x, y, z);
+			if(pos == null) return 0;
+			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+
+			if(!(te instanceof TileEntityMachineBAT9000))
+				return 0;
+
+			TileEntityMachineBAT9000 tank = (TileEntityMachineBAT9000) te;
+			return tank.getComparatorPower();
+		}
+
+		return 0;
+	}
+
+// com/hbm/blocks/machine/MachineFluidTank.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+
+		int meta = world.getBlockMetadata(x, y, z);
+
+		if(meta >= 6) {
+			int[] pos = this.findCore(world, x, y, z);
+			if(pos == null) return 0;
+			TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+
+			if(!(te instanceof TileEntityMachineFluidTank))
+				return 0;
+
+			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) te;
+			return tank.getComparatorPower();
+		}
+
+		return 0;
+	}
+
+// com/hbm/blocks/machine/MachineReactorControl.java
+public boolean hasComparatorInputOverride()
+    {
+        return true;
+    }
+
+	@Override
+    public int getComparatorInputOverride(World world, int x, int y, int z, int p_149736_5_)
+    {
+		TileEntityReactorControl entity = (TileEntityReactorControl) world.getTileEntity(x, y, z);
+
+		if(entity != null)
+		{
+			return (int)Math.ceil((double)entity.heat * 15D / 50000D);
+		}
+
+		return 0;
+    }
+
+// com/hbm/blocks/machine/pile/BlockGraphiteFuel.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+		TileEntityPileFuel pile = (TileEntityPileFuel)world.getTileEntity(x, y, z);
+		return MathHelper.clamp_int((pile.progress * 15) / (pile.maxProgress - 1000), 0, 15);
+	}
+
+// com/hbm/blocks/network/MachineBatterySocket.java
+public boolean hasComparatorInputOverride() {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+		if(world.getBlockMetadata(x, y, z) < 6) return 0;
+		int[] pos = this.findCore(world, x, y, z);
+		if(pos == null) return 0;
+		TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+		if(!(te instanceof TileEntityBatterySocket)) return 0;
+
+		TileEntityBatterySocket battery = (TileEntityBatterySocket) te;
+		return battery.getComparatorPower();
+	}

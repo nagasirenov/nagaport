@@ -1,0 +1,34 @@
+{
+  "recovery_baseline": "d25dcb9f0908d76b1e9eca96b75e58f6397de355",
+  "recovery_tree": "b51f8971c483858304306df2f0cbbafade512a77",
+  "historical_baseline": "0aeda80b",
+  "status": "SOURCE RECOVERY VERIFIED; CURRENT NATIVE EXECUTION NOT RUN",
+  "placements": 44,
+  "counts": {
+    "ModBlocks.deco_steel": 7,
+    "ModBlocks.red_cable": 27,
+    "ModBlocks.red_wire_coated": 10
+  },
+  "files": {
+    "src/main/java/com/hbm/world/dungeon/Antenna.java": {
+      "before": "4cc0b5a733e13410778d3b56fa50fa410f0550ae049fc5e7d92cd96cfd4898f7",
+      "after": "a4dcd3b096c7ceaf75cd40b8c0351c35bddf4470dcc9c8336bf653ee03afc662",
+      "placements": 7
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin001.java": {
+      "before": "67f6c4a379bb162811427b96e269d678dbfc4ec47fc8eb17a9a11d89a91de1b2",
+      "after": "ccf5c1cd82b3e1b8956a3ec268aecf4b46c6a4ab6b379b2a292092d311e11042",
+      "placements": 3
+    },
+    "src/main/java/com/hbm/world/dungeon/Ruin002.java": {
+      "before": "6fbc06a7fc97a2b4b2dbda14cef3e799719fb184a71231f585303fb8a80cf5f8",
+      "after": "fd3924236805bbee2360dc2bb1a4e7a6dd7a14275243a38f63bf7bcc2ff7cd5b",
+      "placements": 14
+    },
+    "src/main/java/com/hbm/world/dungeon/Spaceship.java": {
+      "before": "27a68e34f5a42bffd06617f7812859af971e08bd498d289212b76e2c0d0e356b",
+      "after": "488d05d121dd7eb469b4048edd149ef30e727cc5d416f1c319b9183c2590ac53",
+      "placements": 20
+    }
+  }
+}

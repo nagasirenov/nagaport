@@ -1,0 +1,141 @@
+import java.util.*;import com.google.common.collect.*;import net.minecraft.item.*;import net.minecraft.entity.*;import net.minecraft.entity.ai.attributes.*;import net.minecraft.inventory.EntityEquipmentSlot;import com.hbm.util.ArmorSlotOrder;
+public class ProductionAttributeProjections {
+static final String[][] ORIGINAL = new String[][] {{"ArmorDesh","0","generic.movementSpeed","e572caf4-3e65-4152-bc79-c4d4048cbd29","Armor modifier","-0.025","1"},{"ArmorDesh","1","generic.movementSpeed","bed30902-8a6a-4769-9f65-2a9b67469fff","Armor modifier","-0.025","1"},{"ArmorDesh","2","generic.movementSpeed","baebf7b3-1eda-4a14-b233-068e2493e9a2","Armor modifier","-0.025","1"},{"ArmorDesh","3","generic.movementSpeed","28016c1b-d992-4324-9409-a9f9f0ffb85c","Armor modifier","-0.025","1"},{"ArmorDiesel","0","generic.knockbackResistance","e572caf4-3e65-4152-bc79-c4d4048cbd29","Armor modifier","0.25","1"},{"ArmorDiesel","1","generic.knockbackResistance","bed30902-8a6a-4769-9f65-2a9b67469fff","Armor modifier","0.25","1"},{"ArmorDiesel","2","generic.knockbackResistance","baebf7b3-1eda-4a14-b233-068e2493e9a2","Armor modifier","0.25","1"},{"ArmorDiesel","3","generic.knockbackResistance","28016c1b-d992-4324-9409-a9f9f0ffb85c","Armor modifier","0.25","1"},{"ArmorLiquidator","0","generic.knockbackResistance","e572caf4-3e65-4152-bc79-c4d4048cbd29","Armor modifier","100.0","0"},{"ArmorLiquidator","0","generic.movementSpeed","e572caf4-3e65-4152-bc79-c4d4048cbd29","Armor modifier","-0.1","1"},{"ArmorLiquidator","1","generic.knockbackResistance","bed30902-8a6a-4769-9f65-2a9b67469fff","Armor modifier","100.0","0"},{"ArmorLiquidator","1","generic.movementSpeed","bed30902-8a6a-4769-9f65-2a9b67469fff","Armor modifier","-0.1","1"},{"ArmorLiquidator","2","generic.knockbackResistance","baebf7b3-1eda-4a14-b233-068e2493e9a2","Armor modifier","100.0","0"},{"ArmorLiquidator","2","generic.movementSpeed","baebf7b3-1eda-4a14-b233-068e2493e9a2","Armor modifier","-0.1","1"},{"ArmorLiquidator","3","generic.knockbackResistance","28016c1b-d992-4324-9409-a9f9f0ffb85c","Armor modifier","100.0","0"},{"ArmorLiquidator","3","generic.movementSpeed","28016c1b-d992-4324-9409-a9f9f0ffb85c","Armor modifier","-0.1","1"}};
+static class ArmorModHandler {public static final UUID[] UUIDs = new UUID[] {
+			UUID.fromString("8d6e5c77-133e-4056-9c80-a9e42a1a0b65"),
+			UUID.fromString("b1b7ee0e-1d14-4400-8037-f7f2e02f21ca"),
+			UUID.fromString("30b50d2a-4858-4e5b-88d4-3e3612224238"),
+			UUID.fromString("426ee0d0-7587-4697-aaef-4772ab202e78")
+	};
+public static final UUID[] fixedUUIDs = new UUID[] {
+			UUID.fromString("e572caf4-3e65-4152-bc79-c4d4048cbd29"),
+			UUID.fromString("bed30902-8a6a-4769-9f65-2a9b67469fff"),
+			UUID.fromString("baebf7b3-1eda-4a14-b233-068e2493e9a2"),
+			UUID.fromString("28016c1b-d992-4324-9409-a9f9f0ffb85c")
+	};}
+static class ModItems { static Item servo_set,servo_set_desh,ncrpa_plate,envsuit_plate,dns_plate; }
+static class ItemArmorMod extends Item { public Multimap getModifiers(ItemStack armor) { return null; } }
+public static class ArmorDiesel extends ItemArmor { public ArmorDiesel(ArmorMaterial m,int i){super(m,0,ArmorSlotOrder.fromIndex(i));}
+public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", 0.25D, 1));
+		return multimap;
+	}}
+public static class ArmorDesh extends ItemArmor { public ArmorDesh(ArmorMaterial m,int i){super(m,0,ArmorSlotOrder.fromIndex(i));}
+public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", -0.025D, 1));
+		return multimap;
+	}}
+public static class ArmorLiquidator extends ItemArmor { public ArmorLiquidator(ArmorMaterial m,int i){super(m,0,ArmorSlotOrder.fromIndex(i));}
+public Multimap getItemAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot) {
+
+		Multimap multimap = super.getItemAttributeModifiers(slot);
+		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", 100D, 0));
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(ArmorModHandler.fixedUUIDs[com.hbm.util.ArmorSlotOrder.index(this.armorType)], "Armor modifier", -0.1D, 1));
+		return multimap;
+	}}
+public static class ArmorNCRPA extends ItemArmor { public ArmorNCRPA(){super(ArmorMaterial.DIAMOND,0,EntityEquipmentSlot.CHEST);} private static final UUID speed = UUID.fromString("6ab858ba-d712-485c-bae9-e5e765fc555a"); boolean hasFSBArmor(SpeedContext player){return player.fullSet;} public void speedSlice(SpeedContext player,ItemStack stack){if(this != ModItems.ncrpa_plate) return;Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "NCRPA SPEED", 0.1, 0));
+		player.getAttributeMap().removeAttributeModifiers(multimap);
+
+		if(player.isSprinting()) {
+			player.getAttributeMap().applyAttributeModifiers(multimap);
+		}
+		
+		}}
+public static class ArmorEnvsuit extends ItemArmor { public ArmorEnvsuit(){super(ArmorMaterial.DIAMOND,0,EntityEquipmentSlot.CHEST);} private static final UUID speed = UUID.fromString("6ab858ba-d712-485c-bae9-e5e765fc555a"); boolean hasFSBArmor(SpeedContext player){return player.fullSet;} public void speedSlice(SpeedContext player,ItemStack stack){if(this != ModItems.envsuit_plate)
+			return;Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "SQUIRREL SPEED", 0.1, 0));
+		player.getAttributeMap().removeAttributeModifiers(multimap);
+
+		if(this.hasFSBArmor(player)) {
+
+			if(player.isSprinting()) player.getAttributeMap().applyAttributeModifiers(multimap);
+
+			}}}
+public static class ArmorDNT extends ItemArmor { public ArmorDNT(){super(ArmorMaterial.DIAMOND,0,EntityEquipmentSlot.CHEST);} private static final UUID speed = UUID.fromString("6ab858ba-d712-485c-bae9-e5e765fc555a"); boolean hasFSBArmor(SpeedContext player){return player.fullSet;} public void speedSlice(SpeedContext player,ItemStack stack){if(this != ModItems.dns_plate)
+			return;Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, stack);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "DNT SPEED", 0.25, 0));
+		player.getAttributeMap().removeAttributeModifiers(multimap);
+
+		if(player.isSprinting()) {
+			player.getAttributeMap().applyAttributeModifiers(multimap);
+		}
+
+		}}
+public static class ItemModWD40 extends ItemArmorMod { public Multimap getModifiers(ItemStack armor) {
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
+		
+		multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(),
+				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Health", 4, 0));
+		
+		return multimap;
+	}}
+public static class ItemModIron extends ItemArmorMod { public Multimap getModifiers(ItemStack armor) {
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
+		
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(),
+				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Knockback", 0.5, 0));
+		
+		return multimap;
+	}}
+public static class ItemModServos extends ItemArmorMod { public Multimap getModifiers(ItemStack armor) {
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
+		
+		ItemArmor item = (ItemArmor)armor.getItem();
+		
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {
+			if(this == ModItems.servo_set)
+				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2));
+			
+			if(this == ModItems.servo_set_desh)
+				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 1.5, 2));
+		}
+		
+		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {
+			if(this == ModItems.servo_set)
+				multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.25, 2));
+			
+			if(this == ModItems.servo_set_desh)
+				multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
+						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2));
+		}
+		
+		return multimap;
+	}}
+public static class ItemModInsert extends ItemArmorMod { float speed; public ItemModInsert(float f){speed=f;}public Multimap getModifiers(ItemStack armor) {
+		
+		if(speed == 1)
+			return null;
+
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
+		
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
+				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Speed", -1F + speed, 2));
+		
+		return multimap;
+	}}
+public static class ItemModV1 extends ItemArmorMod { private static final UUID speed = UUID.fromString("1d11e63e-28c4-4e14-b09f-fe0bd1be708f");public Multimap getModifiers(ItemStack armor) {
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(speed, "V1 SPEED", 0.5, 2));
+		return multimap;
+	}}
+public static class ItemModHealth extends ItemArmorMod { float health; public ItemModHealth(float f){health=f;}public Multimap getModifiers(ItemStack armor) {
+		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
+		
+		multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(),
+				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Health", health, 0));
+		
+		return multimap;
+	}}
+public static class SpeedContext { final AbstractAttributeMap map; boolean sprint,fullSet; public SpeedContext(AbstractAttributeMap m){map=m;} public AbstractAttributeMap getAttributeMap(){return map;} public boolean isSprinting(){return sprint;} }
+}

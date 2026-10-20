@@ -61,7 +61,7 @@ public class ItemMetaUpgrade extends ItemMachineUpgrade {
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getTranslationKey(ItemStack stack) {
 		return super.getTranslationKey() + "_" + (stack.getItemDamage() + 1);
 	}
 }

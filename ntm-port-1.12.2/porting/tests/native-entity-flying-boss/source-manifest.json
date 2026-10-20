@@ -1,0 +1,564 @@
+{
+  "base": "a65d3acbf05634c3cedbce5eff43ad0bd15cefdb",
+  "entries": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "before_sha256": "6a5070e4cd36045f2c0f62ccb43d156efa53b6ffe94455e52f54a384bf4587a7",
+      "after_sha256": "76ac0f18aa16160d6c424b1497be6676bc4c7e84badc5dfc6e507cbb5e0566ca",
+      "original_sha256": "4577e643d8a9915d7a84cb83cd106d95cbdc4f0e002f50c9421de265608c4034",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\tprivate static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityUFO.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityUFO.class, DataSerializers.VARINT);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0))",
+          "after": "this.dataManager.register(BEAM, Byte.valueOf((byte) 0))",
+          "before_offset": 10685,
+          "method": "protected void entityInit() {",
+          "owner": "EntityUFO",
+          "legacy_id": 16,
+          "key": "BEAM",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 11351
+        },
+        {
+          "before": "this.dataWatcher.addObject(17, 0)",
+          "after": "this.dataManager.register(WAYPOINT_X, 0)",
+          "before_offset": 10743,
+          "method": "protected void entityInit() {",
+          "owner": "EntityUFO",
+          "legacy_id": 17,
+          "key": "WAYPOINT_X",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 11410
+        },
+        {
+          "before": "this.dataWatcher.addObject(18, 0)",
+          "after": "this.dataManager.register(WAYPOINT_Y, 0)",
+          "before_offset": 10780,
+          "method": "protected void entityInit() {",
+          "owner": "EntityUFO",
+          "legacy_id": 18,
+          "key": "WAYPOINT_Y",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 11454
+        },
+        {
+          "before": "this.dataWatcher.addObject(19, 0)",
+          "after": "this.dataManager.register(WAYPOINT_Z, 0)",
+          "before_offset": 10817,
+          "method": "protected void entityInit() {",
+          "owner": "EntityUFO",
+          "legacy_id": 19,
+          "key": "WAYPOINT_Z",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 11498
+        },
+        {
+          "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)))",
+          "after": "this.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)))",
+          "before_offset": 11877,
+          "method": "public void setBeam(boolean b) {",
+          "owner": "EntityUFO",
+          "legacy_id": 16,
+          "key": "BEAM",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 12565
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(16)",
+          "after": "this.dataManager.get(BEAM)",
+          "before_offset": 11987,
+          "method": "public boolean getBeam() {",
+          "owner": "EntityUFO",
+          "legacy_id": 16,
+          "key": "BEAM",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 12668
+        },
+        {
+          "before": "this.dataWatcher.updateObject(17, x)",
+          "after": "this.dataManager.set(WAYPOINT_X, x)",
+          "before_offset": 12091,
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityUFO",
+          "legacy_id": 17,
+          "key": "WAYPOINT_X",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 12755
+        },
+        {
+          "before": "this.dataWatcher.updateObject(18, y)",
+          "after": "this.dataManager.set(WAYPOINT_Y, y)",
+          "before_offset": 12131,
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityUFO",
+          "legacy_id": 18,
+          "key": "WAYPOINT_Y",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 12794
+        },
+        {
+          "before": "this.dataWatcher.updateObject(19, z)",
+          "after": "this.dataManager.set(WAYPOINT_Z, z)",
+          "before_offset": 12171,
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityUFO",
+          "legacy_id": 19,
+          "key": "WAYPOINT_Z",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 12833
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(17)",
+          "after": "this.dataManager.get(WAYPOINT_X)",
+          "before_offset": 12243,
+          "method": "public int getX() {",
+          "owner": "EntityUFO",
+          "legacy_id": 17,
+          "key": "WAYPOINT_X",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 12904
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(18)",
+          "after": "this.dataManager.get(WAYPOINT_Y)",
+          "before_offset": 12321,
+          "method": "public int getY() {",
+          "owner": "EntityUFO",
+          "legacy_id": 18,
+          "key": "WAYPOINT_Y",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 12972
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(19)",
+          "after": "this.dataManager.get(WAYPOINT_Z)",
+          "before_offset": 12399,
+          "method": "public int getZ() {",
+          "owner": "EntityUFO",
+          "legacy_id": 19,
+          "key": "WAYPOINT_Z",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 13040
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "before_sha256": "b93ab61736cd671a43b047b137e84afe06674eb277091c9e30a0979fd964b8ea",
+      "after_sha256": "59e7a538678d7a939a1d77a180a80a609f80bd977b12b2dc8219c212e671f3a0",
+      "original_sha256": "ece38a11c79dc01f49ae9469e99895357a7d533d795d88af8058e466bcf52bc4",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\tprivate static final DataParameter<Byte> BEAM = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Integer> WAYPOINT_X = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Y = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);\n\tprivate static final DataParameter<Integer> WAYPOINT_Z = EntityDataManager.createKey(EntityBFAngel.class, DataSerializers.VARINT);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0))",
+          "after": "this.dataManager.register(BEAM, Byte.valueOf((byte) 0))",
+          "before_offset": 16090,
+          "method": "protected void entityInit() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 16,
+          "key": "BEAM",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 16772
+        },
+        {
+          "before": "this.dataWatcher.addObject(17, 0)",
+          "after": "this.dataManager.register(WAYPOINT_X, 0)",
+          "before_offset": 16148,
+          "method": "protected void entityInit() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 17,
+          "key": "WAYPOINT_X",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 16831
+        },
+        {
+          "before": "this.dataWatcher.addObject(18, 0)",
+          "after": "this.dataManager.register(WAYPOINT_Y, 0)",
+          "before_offset": 16185,
+          "method": "protected void entityInit() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 18,
+          "key": "WAYPOINT_Y",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 16875
+        },
+        {
+          "before": "this.dataWatcher.addObject(19, 0)",
+          "after": "this.dataManager.register(WAYPOINT_Z, 0)",
+          "before_offset": 16222,
+          "method": "protected void entityInit() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 19,
+          "key": "WAYPOINT_Z",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 16919
+        },
+        {
+          "before": "this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b ? 1 : 0)))",
+          "after": "this.dataManager.set(BEAM, Byte.valueOf((byte) (b ? 1 : 0)))",
+          "before_offset": 17282,
+          "method": "public void setBeam(boolean b) {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 16,
+          "key": "BEAM",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 17986
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(16)",
+          "after": "this.dataManager.get(BEAM)",
+          "before_offset": 17392,
+          "method": "public boolean getBeam() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 16,
+          "key": "BEAM",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 18089
+        },
+        {
+          "before": "this.dataWatcher.updateObject(17, x)",
+          "after": "this.dataManager.set(WAYPOINT_X, x)",
+          "before_offset": 17496,
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 17,
+          "key": "WAYPOINT_X",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 18176
+        },
+        {
+          "before": "this.dataWatcher.updateObject(18, y)",
+          "after": "this.dataManager.set(WAYPOINT_Y, y)",
+          "before_offset": 17536,
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 18,
+          "key": "WAYPOINT_Y",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 18215
+        },
+        {
+          "before": "this.dataWatcher.updateObject(19, z)",
+          "after": "this.dataManager.set(WAYPOINT_Z, z)",
+          "before_offset": 17576,
+          "method": "public void setWaypoint(int x, int y, int z) {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 19,
+          "key": "WAYPOINT_Z",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 18254
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(17)",
+          "after": "this.dataManager.get(WAYPOINT_X)",
+          "before_offset": 17648,
+          "method": "public int getX() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 17,
+          "key": "WAYPOINT_X",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 18325
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(18)",
+          "after": "this.dataManager.get(WAYPOINT_Y)",
+          "before_offset": 17726,
+          "method": "public int getY() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 18,
+          "key": "WAYPOINT_Y",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 18393
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectInt(19)",
+          "after": "this.dataManager.get(WAYPOINT_Z)",
+          "before_offset": 17804,
+          "method": "public int getZ() {",
+          "owner": "EntityBFAngel",
+          "legacy_id": 19,
+          "key": "WAYPOINT_Z",
+          "type": "Integer",
+          "serializer": "VARINT",
+          "after_offset": 18461
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "before_sha256": "f59bf17e1169c51de000d58c78a49cf3f7cc8ee9fc6eff9c13dbe0ed94ff6775",
+      "after_sha256": "9102cc15bb659ce6c21ba6fd662bf82a125e846cee208b78fa1fd90e65652254",
+      "original_sha256": "2bc1d872a52bc228c76aa7003aa2ccff6a51360ebd999fed6a4277f546f819b7",
+      "insertions": [
+        "import net.minecraft.network.datasync.DataParameter;\nimport net.minecraft.network.datasync.DataSerializers;\nimport net.minecraft.network.datasync.EntityDataManager;\n",
+        "\tprivate static final DataParameter<Byte> ATTACKING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);\n\tprivate static final DataParameter<Float> LEGACY_UNUSED_21 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Float> LEGACY_UNUSED_22 = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.FLOAT);\n\tprivate static final DataParameter<Byte> DYING = EntityDataManager.createKey(EntityHunterChopper.class, DataSerializers.BYTE);\n"
+      ],
+      "transformations": [
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(16)",
+          "after": "this.dataManager.get(ATTACKING)",
+          "before_offset": 1869,
+          "method": "public boolean func_110182_bF() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 16,
+          "key": "ATTACKING",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 2576
+        },
+        {
+          "before": "this.dataWatcher.addObject(16, Byte.valueOf((byte) 0))",
+          "after": "this.dataManager.register(ATTACKING, Byte.valueOf((byte) 0))",
+          "before_offset": 3386,
+          "method": "protected void entityInit() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 16,
+          "key": "ATTACKING",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 4081
+        },
+        {
+          "before": "this.dataWatcher.addObject(21, Float.valueOf(0))",
+          "after": "this.dataManager.register(LEGACY_UNUSED_21, Float.valueOf(0))",
+          "before_offset": 3444,
+          "method": "protected void entityInit() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 21,
+          "key": "LEGACY_UNUSED_21",
+          "type": "Float",
+          "serializer": "FLOAT",
+          "after_offset": 4145
+        },
+        {
+          "before": "this.dataWatcher.addObject(22, Float.valueOf(0))",
+          "after": "this.dataManager.register(LEGACY_UNUSED_22, Float.valueOf(0))",
+          "before_offset": 3496,
+          "method": "protected void entityInit() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 22,
+          "key": "LEGACY_UNUSED_22",
+          "type": "Float",
+          "serializer": "FLOAT",
+          "after_offset": 4210
+        },
+        {
+          "before": "this.dataWatcher.addObject(23, Byte.valueOf((byte) 0))",
+          "after": "this.dataManager.register(DYING, Byte.valueOf((byte) 0))",
+          "before_offset": 3548,
+          "method": "protected void entityInit() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 23,
+          "key": "DYING",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 4275
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(16)",
+          "after": "this.dataManager.get(ATTACKING)",
+          "before_offset": 9100,
+          "method": "protected void updateEntityActionState() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 16,
+          "key": "ATTACKING",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 9829
+        },
+        {
+          "before": "this.dataWatcher.updateObject(16, Byte.valueOf(b0))",
+          "after": "this.dataManager.set(ATTACKING, Byte.valueOf(b0))",
+          "before_offset": 9226,
+          "method": "protected void updateEntityActionState() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 16,
+          "key": "ATTACKING",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 9943
+        },
+        {
+          "before": "this.dataWatcher.updateObject(23, Byte.valueOf((byte) (b ? 1 : 0)))",
+          "after": "this.dataManager.set(DYING, Byte.valueOf((byte) (b ? 1 : 0)))",
+          "before_offset": 14963,
+          "method": "public void setIsDying(boolean b) {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 23,
+          "key": "DYING",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 15678
+        },
+        {
+          "before": "this.dataWatcher.getWatchableObjectByte(23)",
+          "after": "this.dataManager.get(DYING)",
+          "before_offset": 15076,
+          "method": "public boolean getIsDying() {",
+          "owner": "EntityHunterChopper",
+          "legacy_id": 23,
+          "key": "DYING",
+          "type": "Byte",
+          "serializer": "BYTE",
+          "after_offset": 15785
+        }
+      ]
+    }
+  ],
+  "keys": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "declaring_owner": "EntityUFO",
+      "legacy_id": 16,
+      "key": "BEAM",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "default": "Byte.valueOf((byte) 0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "declaring_owner": "EntityUFO",
+      "legacy_id": 17,
+      "key": "WAYPOINT_X",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "declaring_owner": "EntityUFO",
+      "legacy_id": 18,
+      "key": "WAYPOINT_Y",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "declaring_owner": "EntityUFO",
+      "legacy_id": 19,
+      "key": "WAYPOINT_Z",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "declaring_owner": "EntityBFAngel",
+      "legacy_id": 16,
+      "key": "BEAM",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "default": "Byte.valueOf((byte) 0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "declaring_owner": "EntityBFAngel",
+      "legacy_id": 17,
+      "key": "WAYPOINT_X",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "declaring_owner": "EntityBFAngel",
+      "legacy_id": 18,
+      "key": "WAYPOINT_Y",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "declaring_owner": "EntityBFAngel",
+      "legacy_id": 19,
+      "key": "WAYPOINT_Z",
+      "type": "Integer",
+      "serializer": "VARINT",
+      "default": "0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "declaring_owner": "EntityHunterChopper",
+      "legacy_id": 16,
+      "key": "ATTACKING",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "default": "Byte.valueOf((byte) 0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "declaring_owner": "EntityHunterChopper",
+      "legacy_id": 21,
+      "key": "LEGACY_UNUSED_21",
+      "type": "Float",
+      "serializer": "FLOAT",
+      "default": "Float.valueOf(0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "declaring_owner": "EntityHunterChopper",
+      "legacy_id": 22,
+      "key": "LEGACY_UNUSED_22",
+      "type": "Float",
+      "serializer": "FLOAT",
+      "default": "Float.valueOf(0)"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java",
+      "declaring_owner": "EntityHunterChopper",
+      "legacy_id": 23,
+      "key": "DYING",
+      "type": "Byte",
+      "serializer": "BYTE",
+      "default": "Byte.valueOf((byte) 0)"
+    }
+  ],
+  "hierarchy": [
+    {
+      "class_name": "EntityUFO",
+      "parent": "EntityFlying",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java"
+    },
+    {
+      "class_name": "EntityBFAngel",
+      "parent": "EntityFlying",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java"
+    },
+    {
+      "class_name": "EntityHunterChopper",
+      "parent": "EntityFlying",
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityHunterChopper.java"
+    }
+  ]
+}

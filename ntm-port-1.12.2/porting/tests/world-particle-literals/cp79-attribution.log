@@ -1,0 +1,1150 @@
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockHazard.java:63: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			world.spawnParticle("lava", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockHazard.java:91: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					world.spawnParticle("townaura", ix, iy, iz, 0.0, 0.0, 0.0);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockHazard.java:102: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					world.spawnParticle("flame", ix, iy, iz, 0.0, 0.0, 0.0);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockHazard.java:103: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.0, 0.0);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockHazard.java:104: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.1, 0.0);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockOreBasalt.java:66: error: no suitable method found for spawnParticle(String,float,double,float,double,double,double)
+			for(int i = 0; i < 5; i++) world.spawnParticle("townaura", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			                                ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/explosion/ExplosionNT.java:231: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					this.worldObj.spawnParticle("smoke", d0, d1, d2, d3, d4, d5);
+					             ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityThrowableNT.java:263: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					this.world.spawnParticle("bubble", this.posX - this.motionX * (double) f, this.posY - this.motionY * (double) f, this.posZ - this.motionZ * (double) f, this.motionX, this.motionY, this.motionZ);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineFan.java:150: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+						this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + dir.offsetX * 0.5, this.pos.getY() + 0.5 + dir.offsetY * 0.5, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5, dir.offsetX * speed, dir.offsetY * speed, dir.offsetZ * speed);
+						          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityTNTPrimedBase.java:99: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/main/ModEventHandler.java:1489: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				player.world.spawnParticle("townaura", player.posX + vec.x, player.posY + 1 + vec.y, player.posZ + vec.z, 0.0, 0.0, 0.0);
+				            ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityHunterChopper.java:89: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					this.world.spawnParticle("fireworksSpark", this.posX, this.posY, this.posZ, d0 * i * 0.25, d1 * i * 0.25, d2 * i * 0.25);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityBullet.java:624: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+						this.world.spawnParticle("fireworksSpark", this.posX + this.motionX * i / 8.0D,
+						          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityBullet.java:629: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+						this.world.spawnParticle("reddust", this.posX + this.motionX * i / 8.0D,
+						          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityBullet.java:671: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					this.world.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4,
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/grenade/EntityGrenadeBouncyBase.java:196: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+                this.world.spawnParticle("bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
+                          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java:31: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("hugeexplosion", x, y, z, 1.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java:33: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("largeexplode", x, y, z, 1.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java:60: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("explode", (oX + x * 1.0D) / 2.0D, (oY + y * 1.0D) / 2.0D, (oZ + z * 1.0D) / 2.0D, dX, dY, dZ);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/explosion/vanillant/standard/ExplosionEffectStandard.java:61: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("smoke", oX, oY, oZ, dX, dY, dZ);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/tool/ItemAnchorRemote.java:95: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("portal", player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/tool/ItemLaserDetonator.java:64: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+				world.spawnParticle("reddust", player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/tool/ItemDiscord.java:39: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("portal", player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityArtilleryShell.java:152: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				this.world.spawnParticle("smoke", posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/WeaponizedCell.java:48: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("reddust", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/WeaponizedCell.java:50: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("smoke", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/items/weapon/WeaponizedCell.java:53: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("lava", item.posX + item.world.rand.nextGaussian() * item.width / 2, item.posY + item.world.rand.nextGaussian() * item.height, item.posZ + item.world.rand.nextGaussian() * item.width / 2, 0.0, 0.0, 0.0);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityMinecartTest.java:52: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+            this.world.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+                      ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityFireworks.java:34: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+		this.world.spawnParticle("flame", posX, posY, posZ, 0.0, -0.3, 0.0);
+		          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityFireworks.java:35: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+		this.world.spawnParticle("smoke", posX, posY, posZ, 0.0, -0.2, 0.0);
+		          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityDroneBase.java:98: error: no suitable method found for spawnParticle(String,double,double,double,int,double,int)
+			this.world.spawnParticle("smoke", posX + 1.125, posY + 0.75, posZ, 0, -0.2, 0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityDroneBase.java:99: error: no suitable method found for spawnParticle(String,double,double,double,int,double,int)
+			this.world.spawnParticle("smoke", posX - 1.125, posY + 0.75, posZ, 0, -0.2, 0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityDroneBase.java:100: error: no suitable method found for spawnParticle(String,double,double,double,int,double,int)
+			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ + 1.125, 0, -0.2, 0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityDroneBase.java:101: error: no suitable method found for spawnParticle(String,double,double,double,int,double,int)
+			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ - 1.125, 0, -0.2, 0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityBoatRubber.java:392: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					this.world.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/item/EntityBoatRubber.java:396: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					this.world.spawnParticle("splash", magX, this.posY - 0.125D, magZ, moX, 0.1, moZ);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityRocket.java:440: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+                	this.world.spawnParticle("smoke", this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);
+                	          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityRocket.java:481: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+                    this.world.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
+                              ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntitySchrab.java:438: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+                    this.world.spawnParticle("smoke", this.posX, this.posY, this.posZ, 0, 0, 0 /*this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ*/);
+                              ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntitySchrab.java:478: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+                    this.world.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
+                              ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityChemical.java:375: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				e.world.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
+				       ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java:208: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				this.world.spawnParticle("smoke", this.posX, this.posY, this.posZ,
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityBulletBaseNT.java:215: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+			this.world.spawnParticle("flame", this.posX + this.motionX * mod, this.posY + this.motionY * mod, this.posZ + this.motionZ * mod, 0, 0, 0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityBeamVortex.java:44: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+			this.world.spawnParticle("cloud", pos.hitVec.x, pos.hitVec.y, pos.hitVec.z, 0, 0, 0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityShrapnel.java:44: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("flame", posX, posY, posZ, 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityShrapnel.java:101: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				for(int i = 0; i < 5; i++) this.world.spawnParticle("lava", posX, posY, posZ, 0.0, 0.0, 0.0);
+				                                     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/projectile/EntityWaterSplash.java:50: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("splash", posX, posY, posZ, 0.0D, 0.0D, 0.0D);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/effect/EntityMist.java:343: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				e.world.spawnParticle("portal", d7, d8, d9, (double) f, (double) f1, (double) f2);
+				       ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityRADBeast.java:117: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				this.world.spawnParticle("townaura", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width * 1.5, 0.0D, 0.0D, 0.0D);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityRADBeast.java:122: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				this.world.spawnParticle("flame", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityRADBeast.java:126: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("lava", this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/mob/EntityBurrowingSwingingBase.java:70: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				this.world.spawnParticle("cloud", posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/entity/cart/EntityMinecartDestroyer.java:126: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("smoke", posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/handler/EntityEffectHandler.java:93: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+					for(int i = 0; i < 3; i++) player.world.spawnParticle("townaura", player.posX + rand.nextGaussian() * 3, player.posY + rand.nextGaussian() * 2, player.posZ + rand.nextGaussian() * 3, 0, 0, 0);
+					                                       ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/gas/BlockGasCoal.java:26: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+		world.spawnParticle("smoke", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+		     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/gas/BlockGasMeltdown.java:53: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+		world.spawnParticle("townaura", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+		     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java:51: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+		world.spawnParticle("townaura", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+		     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/gas/BlockGasAsbestos.java:28: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			world.spawnParticle("townaura", x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/VolcanicBlock.java:146: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("lava", dx, dy, dz, 0.0D, 0.0D, 0.0D);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/VolcanicBlock.java:159: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("dripLava", dx, dy, dz, 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java:117: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("cloud", dx, dy, dz, 0.0, 0.0, 0.0);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java:147: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("cloud", dx, dy, dz, 0.0, 0.0, 0.0);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/GenericFluidBlock.java:88: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+						world.spawnParticle("cloud", entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);
+						     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/MeltedFlesh.java:81: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/MeltedFlesh.java:82: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("cloud", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/fluid/MeltedFlesh.java:84: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("largesmoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);	        	
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityICFController.java:180: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+				this.world.spawnParticle("reddust", this.pos.getX() + 0.5 + dir.offsetX * dist + rot.offsetX * offXZ, this.pos.getY() + 0.5 + offY, this.pos.getZ() + 0.5 + dir.offsetZ * dist + rot.offsetZ * offXZ, 0, 0, 0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/ReactorResearch.java:77: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("bubble", ix, iy, iz, 0.0, 0.2, 0.0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineForceField.java:77: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+					world.spawnParticle("lava", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineForceField.java:79: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+					world.spawnParticle("reddust", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineForceField.java:89: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+				world.spawnParticle("smoke", f + f4, f1, f2 + f5, 0.0D, 0.0D, 0.0D);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/MachineDiesel.java:51: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+				world.spawnParticle("smoke", x + 0.5 - dir.offsetX * 0.6 + rot.offsetX * 0.1875, y + 0.3125, z + 0.5 - dir.offsetZ * 0.6 + rot.offsetZ * 0.1875, 0, 0, 0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/machine/WasteDrum.java:83: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("bubble", ix, iy, iz, 0.0, 0.2, 0.0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockGeysir.java:77: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			p_149734_1_.spawnParticle("cloud", f, f1, f2, 0.0D, 0.1D, 0.0D);
+			           ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockGeysir.java:81: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			p_149734_1_.spawnParticle("flame", x + 0.5F, y + 1.0625F, z + 0.5F, 0.0D, 0.0D, 0.0D);
+			           ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockLithium.java:56: error: no suitable method found for spawnParticle(String,float,int,float,double,double,double)
+			world.spawnParticle("largesmoke", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockOutgas.java:102: error: no suitable method found for spawnParticle(String,float,double,float,double,double,double)
+					world.spawnParticle("townaura", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockNetherCoal.java:54: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("flame", ix, iy, iz, 0.0, 0.0, 0.0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockNetherCoal.java:55: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.0, 0.0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockNetherCoal.java:56: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.1, 0.0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockSmolder.java:28: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("lava", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockSmolder.java:29: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			world.spawnParticle("flame", x + 0.25 + rand.nextDouble() * 0.5, y + 1.1, z + 0.25 + rand.nextDouble() * 0.5, 0.0, 0.0, 0.0);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockStepEffect.java:164: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			p_149734_1_.spawnParticle("townaura", p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1F, p_149734_4_ + p_149734_5_.nextFloat(), 0.0D, 0.0D, 0.0D);
+			           ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockHotHazard.java:22: error: no suitable method found for spawnParticle(String,float,int,float,double,double,double)
+			world.spawnParticle("cloud", x + ox, y + 1, z + oz, 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockHotHazard.java:43: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+				world.spawnParticle("cloud", ix, iy, iz, 0.0, 0.0, 0.0);
+				     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/BlockOreOutgas.java:62: error: no suitable method found for spawnParticle(String,float,double,float,double,double,double)
+					world.spawnParticle("townaura", x + world.rand.nextFloat(), y + 1.1, z + world.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+					     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/WasteEarth.java:107: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			world.spawnParticle("townaura", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/WasteEarth.java:110: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			world.spawnParticle("flame", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/blocks/generic/WasteEarth.java:111: error: no suitable method found for spawnParticle(String,float,float,float,double,double,double)
+			world.spawnParticle("smoke", x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+			     ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityFireboxBase.java:155: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+				this.world.spawnParticle("flame", x + this.world.rand.nextDouble() * 0.5 - 0.25, y + this.world.rand.nextDouble() * 0.25, z + this.world.rand.nextDouble() * 0.5 - 0.25, 0, 0, 0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityMachineRotaryFurnace.java:194: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+				this.world.spawnParticle("flame", this.pos.getX() + 0.5 + dir.offsetX * 0.5 + rot.offsetX + rand.nextGaussian() * 0.25, this.pos.getY() + 0.375, this.pos.getZ() + 0.5 + dir.offsetZ * 0.5 + rot.offsetZ + rand.nextGaussian() * 0.25, 0, 0, 0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityMachineWoodBurner.java:137: error: no suitable method found for spawnParticle(String,double,int,double,int,double,int)
+				this.world.spawnParticle("smoke", this.pos.getX() + 0.5 - dir.offsetX + rot.offsetX, this.pos.getY() + 4, this.pos.getZ() + 0.5 - dir.offsetZ + rot.offsetZ, 0, 0.05, 0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityChungus.java:174: error: no suitable method found for spawnParticle(String,double,double,double,double,int,double)
+					this.world.spawnParticle("cloud",
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:147: error: no suitable method found for spawnParticle(String,double,int,double,double,double,double)
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
+					                                               ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:148: error: no suitable method found for spawnParticle(String,double,int,double,double,double,double)
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
+					                                               ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:149: error: no suitable method found for spawnParticle(String,double,int,double,double,double,double)
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
+					                                               ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/oil/TileEntityMachinePyroOven.java:150: error: no suitable method found for spawnParticle(String,double,int,double,double,double,double)
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
+					                                               ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityMachineCrystallizer.java:114: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+					this.world.spawnParticle("cloud", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 6.5D, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.1, 0.0);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java:97: error: no suitable method found for spawnParticle(String,double,double,double,double,int,double)
+					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + dir.offsetZ * 1.5, dir.offsetX * 0.1, 0, dir.offsetZ * 0.1);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityCondenserPowered.java:98: error: no suitable method found for spawnParticle(String,double,double,double,double,int,double)
+					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - dir.offsetX * 1.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 - dir.offsetZ * 1.5, dir.offsetX * -0.1, 0, dir.offsetZ * -0.1);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityMachineAutosaw.java:230: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+				this.world.spawnParticle("smoke", this.pos.getX() + 0.5 + vec.x, this.pos.getY() + 2.0625, this.pos.getZ() + 0.5 + vec.z, 0, 0, 0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityCharger.java:82: error: no suitable method found for spawnParticle(String,double,double,double,double,int,double)
+			this.world.spawnParticle("magicCrit",
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityMachineHephaestus.java:104: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+					this.world.spawnParticle("cloud", this.pos.getX() + 0.5 + x, this.pos.getY() + 6 + y, this.pos.getZ() + 0.5 + z, 0, 0, 0);
+					          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/TileEntityFurnaceCombination.java:136: error: no suitable method found for spawnParticle(String,double,int,double,int,int,int)
+				this.world.spawnParticle("lava", this.pos.getX() + 0.5 + this.world.rand.nextGaussian() * 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.5 + this.world.rand.nextGaussian() * 0.5, 0, 0, 0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:46: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:47: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + 1.1, this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:49: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("flame", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:50: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("smoke", this.pos.getX() - 0.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:52: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("flame", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:53: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("smoke", this.pos.getX() + 1.1, this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + this.world.rand.nextDouble(), 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:55: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:56: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() - 0.1, 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:58: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("flame", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateTungsten.java:59: error: no suitable method found for spawnParticle(String,double,double,double,double,double,double)
+			this.world.spawnParticle("smoke", this.pos.getX() + this.world.rand.nextDouble(), this.pos.getY() + this.world.rand.nextDouble(), this.pos.getZ() + 1.1, 0.0, 0.0, 0.0);
+			          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+
+/workspace/shared/nagaport/ntm-port-1.12.2/build/sources/main/java/com/hbm/tileentity/network/TileEntityDroneWaypoint.java:46: error: no suitable method found for spawnParticle(String,double,double,double,int,int,int)
+				this.world.spawnParticle("reddust", x, y, z, 0, 0, 0);
+				          ^
+    method World.spawnParticle(EnumParticleTypes,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(EnumParticleTypes,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to EnumParticleTypes)
+    method World.spawnParticle(int,boolean,double,double,double,double,double,double,int...) is not applicable
+      (argument mismatch; String cannot be converted to int)
+

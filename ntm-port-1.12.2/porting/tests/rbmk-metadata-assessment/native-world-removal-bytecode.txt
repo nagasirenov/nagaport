@@ -1,0 +1,58 @@
+  public void removeTileEntity(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #1994               // Method getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+       5: astore_2
+       6: aload_2
+       7: ifnull        53
+      10: aload_0
+      11: getfield      #1555               // Field processingLoadedTiles:Z
+      14: ifeq          53
+      17: aload_2
+      18: invokevirtual #1638               // Method net/minecraft/tileentity/TileEntity.invalidate:()V
+      21: aload_0
+      22: getfield      #156                // Field addedTileEntityList:Ljava/util/List;
+      25: aload_2
+      26: invokeinterface #1142,  2         // InterfaceMethod java/util/List.remove:(Ljava/lang/Object;)Z
+      31: pop
+      32: aload_2
+      33: instanceof    #1622               // class net/minecraft/util/ITickable
+      36: ifne          99
+      39: aload_0
+      40: getfield      #152                // Field loadedTileEntityList:Ljava/util/List;
+      43: aload_2
+      44: invokeinterface #1142,  2         // InterfaceMethod java/util/List.remove:(Ljava/lang/Object;)Z
+      49: pop
+      50: goto          99
+      53: aload_2
+      54: ifnull        90
+      57: aload_0
+      58: getfield      #156                // Field addedTileEntityList:Ljava/util/List;
+      61: aload_2
+      62: invokeinterface #1142,  2         // InterfaceMethod java/util/List.remove:(Ljava/lang/Object;)Z
+      67: pop
+      68: aload_0
+      69: getfield      #152                // Field loadedTileEntityList:Ljava/util/List;
+      72: aload_2
+      73: invokeinterface #1142,  2         // InterfaceMethod java/util/List.remove:(Ljava/lang/Object;)Z
+      78: pop
+      79: aload_0
+      80: getfield      #154                // Field tickableTileEntities:Ljava/util/List;
+      83: aload_2
+      84: invokeinterface #1142,  2         // InterfaceMethod java/util/List.remove:(Ljava/lang/Object;)Z
+      89: pop
+      90: aload_0
+      91: aload_1
+      92: invokevirtual #277                // Method getChunk:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/world/chunk/Chunk;
+      95: aload_1
+      96: invokevirtual #1652               // Method net/minecraft/world/chunk/Chunk.removeTileEntity:(Lnet/minecraft/util/math/BlockPos;)V
+      99: aload_0
+     100: aload_1
+     101: aload_0
+     102: aload_1
+     103: invokevirtual #382                // Method getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     106: invokeinterface #401,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     111: invokevirtual #565                // Method updateComparatorOutputLevel:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;)V
+     114: return
+

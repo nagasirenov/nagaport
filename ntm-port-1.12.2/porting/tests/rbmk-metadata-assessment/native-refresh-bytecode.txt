@@ -1,0 +1,22 @@
+  public boolean shouldRefresh(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_0
+       1: getfield      #385                // Field isVanilla:Z
+       4: ifeq          31
+       7: aload_3
+       8: invokeinterface #266,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      13: aload         4
+      15: invokeinterface #266,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      20: if_acmpeq     27
+      23: iconst_1
+      24: goto          42
+      27: iconst_0
+      28: goto          42
+      31: aload_3
+      32: aload         4
+      34: if_acmpeq     41
+      37: iconst_1
+      38: goto          42
+      41: iconst_0
+      42: ireturn
+

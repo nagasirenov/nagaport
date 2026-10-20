@@ -31,7 +31,7 @@ public class ReinforcedLamp extends Block {
 		if(!world.isRemote) {
 			
 			if(this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
-				world.scheduleBlockUpdate(x, y, z, this, 4);
+				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);
 				
 			} else if(!this.isOn && world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.setBlock(x, y, z, getOn(), 0, 2);
@@ -45,7 +45,7 @@ public class ReinforcedLamp extends Block {
 		if(!world.isRemote) {
 			
 			if(this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
-				world.scheduleBlockUpdate(x, y, z, this, 4);
+				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);
 				
 			} else if(!this.isOn && world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.setBlock(x, y, z, getOn(), 0, 2);

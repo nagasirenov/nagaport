@@ -10,6 +10,7 @@ import com.hbm.inventory.recipes.CrystallizerRecipes.CrystallizerRecipe;
 import com.hbm.util.Tuple.Pair;
 
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCMessage;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -24,7 +25,7 @@ public class IMCCrystallizer extends IMCHandler {
 		NBTTagCompound data = message.getNBTValue();
 
 		NBTTagCompound output = data.getCompoundTag("output");
-		ItemStack out = ItemStack.loadItemStackFromNBT(output);
+		ItemStack out = NullableInventoryStackNbt.read(output);
 		
 		if(out == null) {
 			this.printError(message, "Output stack could not be read!");
@@ -32,7 +33,7 @@ public class IMCCrystallizer extends IMCHandler {
 		}
 		
 		NBTTagCompound input = data.getCompoundTag("input");
-		ItemStack in = ItemStack.loadItemStackFromNBT(input);
+		ItemStack in = NullableInventoryStackNbt.read(input);
 		
 		int time = data.getInteger("duration");
 		FluidStack acid = new FluidStack(Fluids.fromID(data.getInteger("acid")), data.getInteger("amount"));

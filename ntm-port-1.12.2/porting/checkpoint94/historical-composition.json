@@ -1,0 +1,47 @@
+{
+  "baseline": "d2f171750be2f0d156a019f25fa781db39db308a",
+  "files": [
+    "src/main/java/com/hbm/blocks/ModBlocks.java",
+    "src/main/java/com/hbm/blocks/generic/BlockLogNT.java",
+    "src/main/java/com/hbm/blocks/generic/BlockRotatablePillar.java",
+    "src/main/java/com/hbm/dim/SkyProviderCelestial.java",
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+    "src/main/java/com/hbm/inventory/gui/GUILeadBox.java",
+    "src/main/java/com/hbm/inventory/gui/GUIToolBox.java",
+    "src/main/java/com/hbm/items/ItemInventory.java",
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+    "src/main/java/com/hbm/items/tool/ItemLeadBox.java",
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java",
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java"
+  ],
+  "pins": {
+    "porting/tests/remaining-normal-batches/check_source.py": "4eb9fdd3523bfc02049e0da31311a1517b0a08471b121979f14b7afe3ffcec1d",
+    "porting/tests/remaining-normal-batches/transform.py": "e7faedbc3c8a77df66a6ca2c277a920b2a54e5719cf4af848b171750088dd64a",
+    "porting/tests/remaining-normal-batches/manifest.json": "101367e0f9755678f0fee84eb79e230fc573847d4d361a7ad7c95d261f343e53",
+    "porting/tests/remaining-textured-batches/transform.py": "213a21ae5cace9f579885a882e23e22d1f84eb306dc8aca6f6151e458284459e",
+    "porting/tests/simple-textured-batches/check_source.py": "5d2bb6185524abfa4f01f13abe8b388abaaeeaee93607d5d7c75e681b84ce82b",
+    "porting/tests/simple-textured-batches/manifest.json": "167829668080f0abde17745f85f78b2c223ff95786bac3dce282203b1b0a289b",
+    "porting/tests/native-block-air-captures/check_cp93_composition.py": "01f62f708e605bf1f92bbc3d29c8a0449c1372d5da56724bd53478afe91c39c4",
+    "porting/tests/native-block-air-captures/composition-cp93.json": "85ba2091f97be3929e2b979a77257d866e83ea38ef3f5d21594438f3bc4eb148",
+    "porting/tests/native-block-air-captures/check_source.py": "116540e4e9e754d5f2119090a19c6a94ed7cca1438076b82afb017670c81beaf",
+    "porting/tests/native-block-air-captures/manifest.json": "38dcf6b49f511c4e69d2d1050b358315325934fec513e4cddbf551b5ff6d808d",
+    "porting/tests/legacy-press-promotion/cache-audit/scan.py": "f03bec78f7614f5958d4871c8f856da6f3ec0b6856c71854eff5b5840ab70b10",
+    "porting/tests/legacy-press-promotion/audit.py": "b8059db5fea43d7bd600f187cb836f73b3d9a4141b513b8e489a5a81b6f6c8db",
+    "porting/tests/legacy-press-promotion/cache-audit/manifest.json": "8f465ddad6b8e3b24d50e6ae8b256768539201cc81791276c0d908c51939f465",
+    "porting/tests/legacy-press-promotion/cache-audit/composition-cp93.json": "eaedadff13d3b5074c93bc41111d22a7fdd0c39065dd0d2b875100e8090483ce",
+    "porting/tests/legacy-press-promotion/cache-audit/composition-cp92.json": "f84637a2470497e1945b8b96224aa93161a3afd23e7c9415dcf9aa9a931e54dd",
+    "porting/tests/legacy-press-promotion/cache-audit/composition-colored.json": "1a3779031e5a417c283fdc15c67c331fbc0391e477bc33e84cdfebaa06677aa6",
+    "porting/tests/legacy-press-promotion/cache-audit/composition-replaceability.json": "1d39f521210a1e6c8e66e145a5583d0a43fae5a6dd8aac86ea63594addf2155c",
+    "porting/tests/native-inventory-sound-sky-source-manifest.json": "1c6767e7c5efcd3a46ee7ad24962d440b6a54a450b59f541c57efb216587645f",
+    "porting/tests/check-native-inventory-sound-sky-source.py": "4daa4fceee66e7fa3c1bc42f84b5db9013c94ccf2d7a19cbe8e7eb2e45bc3aa3",
+    "porting/checkpoint94/cp93-source-boundary.py": "63a7aea8157ea60c2e25974717e094e37648f293361e7040fe2f3d14d9cc332c"
+  },
+  "intersections": {
+    "normal": [
+      "src/main/java/com/hbm/dim/SkyProviderCelestial.java"
+    ],
+    "air": [],
+    "press": []
+  }
+}

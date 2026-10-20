@@ -316,9 +316,9 @@ public class InventoryUtil {
 
 		int count = 0;
 
-		for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+		for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 
-			ItemStack stack = player.inventory.mainInventory[i];
+			ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);
 
 			if(stack != null) {
 
@@ -338,9 +338,9 @@ public class InventoryUtil {
 
 	public static void consumeOreDictMatches(EntityPlayer player, String dict, int count) {
 
-		for(int i = 0; i < player.inventory.mainInventory.length; i++) {
+		for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
 
-			ItemStack stack = player.inventory.mainInventory[i];
+			ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);
 
 			if(stack != null) {
 

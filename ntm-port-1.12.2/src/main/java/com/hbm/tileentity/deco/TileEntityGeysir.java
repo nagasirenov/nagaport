@@ -93,7 +93,7 @@ public class TileEntityGeysir extends TileEntity implements net.minecraft.util.I
 	private void fire() {
 
 		int range = 32;
-		if(this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range)).isEmpty())
+		if(this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range)).isEmpty())
 			return;
 
 		if(this.world.rand.nextInt(3) == 0) {

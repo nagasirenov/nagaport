@@ -47,6 +47,6 @@ public class RenderArtilleryRocket extends Render {
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		EntityArtilleryRocket rocket = (EntityArtilleryRocket) entity;
-		return ItemAmmoHIMARS.itemTypes[rocket.getDataWatcher().getWatchableObjectInt(10)].texture;
+		return ItemAmmoHIMARS.itemTypes[rocket.getTypeId()].texture;
 	}
 }

@@ -1,0 +1,4 @@
+PASS exact full CP93 celestial owner inverse; 6 closed scopes, 5 acquisitions, 13 batch sites, 54 vertex expressions, 3 color setters, 6 exact private-helper calls; 76 source mutations rejected by BOTH hash and independent audit, 2 manifest-hash mutations rejected; exact arguments, closed helper ownership, per-batch attributes, and all surrounding source preserved.
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[14:03:13] [main/INFO]: Setting user: AtlasProbe
+PASS actual original/native singleton per-batch formats and Mesa uploads: 90 paired streams, 264 batch comparisons, 10257 vertices, 438 nonempty engine draw submissions (live original shader programs), 90 empty engine submissions. Exact XYZ/UV float words and RGBA bytes, absent normal/lightmap, owner resets, complete loops and RNG call counts, empty-batch no-op, and post-draw GL/current-color/current-normal/UV0/UV1/texture/matrix state. Not full renderer linkage or in-game pixels.

@@ -1,0 +1,18 @@
+{
+  "com.hbm.blocks.fluid.CoriumBlock": "com.hbm.blocks.fluid.CoriumBlock",
+  "com.hbm.blocks.fluid.CoriumFinite": "com.hbm.blocks.fluid.CoriumFinite",
+  "com.hbm.blocks.fluid.MeltedFlesh": "com.hbm.blocks.fluid.MeltedFlesh",
+  "com.hbm.blocks.gas.BlockGasAsbestos": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasBase": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasClorine": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasCoal": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasExplosive": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasFlammable": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasMeltdown": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasMonoxide": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasRadon": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasRadonDense": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockGasRadonTomb": "com.hbm.blocks.gas.BlockGasBase",
+  "com.hbm.blocks.gas.BlockVacuum": "com.hbm.blocks.gas.BlockVacuum",
+  "com.hbm.blocks.generic.BlockFallout": "com.hbm.blocks.generic.BlockFallout"
+}

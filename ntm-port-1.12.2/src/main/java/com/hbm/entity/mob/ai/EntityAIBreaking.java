@@ -107,7 +107,7 @@ public class EntityAIBreaking extends EntityAIBase {
 			digTick = 0;
 			
 			boolean canHarvest = false;
-			entityDigger.world.func_147480_a(markedLoc[0], markedLoc[1], markedLoc[2], canHarvest);
+			com.hbm.world.WorldBlockDestruction.destroy(entityDigger.world, markedLoc[0], markedLoc[1], markedLoc[2], canHarvest);
 			markedLoc = null;
 			
 			if(target != null)

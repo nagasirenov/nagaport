@@ -1,0 +1,707 @@
+{
+  "baseline": "bdb4c897d5f554458d23c6efab036b056ee20de0",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/Balefire.java",
+      "before_sha256": "0b388ed99269658b37eb152ef4374fd96c8d283835083ec36e9e8d9675a335c5",
+      "after_sha256": "707319c6807a00805b3b4a183e92c80c857aea4bcecfb20c1863fc39a4b6eebb",
+      "calls": [
+        {
+          "start": 1950,
+          "end": 2031,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world) + rand.nextInt(10))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world) + rand.nextInt(10))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world) + rand.nextInt(10)"
+          ],
+          "receiver": "world",
+          "line": 65
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+      "before_sha256": "00a1f3d3d0a226029ee553f45db8ae95b0e31372b663cc10ddbf12a52e37004e",
+      "after_sha256": "b09c1c834437dfcf3cb1eb0c061ffe2f4c7ecb0affede12049ebcfb207d4e7da",
+      "calls": [
+        {
+          "start": 1227,
+          "end": 1290,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 10 + rand.nextInt(40))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10 + rand.nextInt(40))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "10 + rand.nextInt(40)"
+          ],
+          "receiver": "world",
+          "line": 45
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+      "before_sha256": "f0da30c86b14293c0de7e8f4f2e8324e8a689731b5270a5badd8102edaca5faf",
+      "after_sha256": "f859a3c0243bf499c9ad18891575b424ff3eda3065cdc8ff05e5eb6816bbcb1a",
+      "calls": [
+        {
+          "start": 2075,
+          "end": 2119,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 10)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "10"
+          ],
+          "receiver": "world",
+          "line": 85
+        },
+        {
+          "start": 2385,
+          "end": 2429,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 10)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "10"
+          ],
+          "receiver": "world",
+          "line": 93
+        },
+        {
+          "start": 2823,
+          "end": 2880,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, getDelay(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, getDelay(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "getDelay(world)"
+          ],
+          "receiver": "world",
+          "line": 106
+        },
+        {
+          "start": 3445,
+          "end": 3544,
+          "before": "world.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, getDelay(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, getDelay(world))",
+          "args": [
+            "x + dir.offsetX",
+            "y + dir.offsetY",
+            "z + dir.offsetZ",
+            "this",
+            "getDelay(world)"
+          ],
+          "receiver": "world",
+          "line": 121
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/gas/BlockGasFlammable.java",
+      "before_sha256": "a4c68fb39176f15b75556a5c001f1528ff01864b621a419b762b84feb0d07600",
+      "after_sha256": "22ad59a550e03e7404951a3ea7b68e934056edf64f464814471ebb8ca2684b07",
+      "calls": [
+        {
+          "start": 2553,
+          "end": 2596,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 2)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "2"
+          ],
+          "receiver": "world",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "before_sha256": "71f1365dbce2d89912b6ab2e0758853069c90567f097d3ff5019e6504bbf8275",
+      "after_sha256": "998af3b903b3631fac795cea0859a490369056e2c976c3690087da6b409d9790",
+      "calls": [
+        {
+          "start": 1867,
+          "end": 1910,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 1)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "1"
+          ],
+          "receiver": "world",
+          "line": 71
+        },
+        {
+          "start": 2033,
+          "end": 2076,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 1)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "1"
+          ],
+          "receiver": "world",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockAbsorber.java",
+      "before_sha256": "e66713a6e5f5704ad70fc057ff651f354148f0c59cbbdb55f2eb2a059b215987",
+      "after_sha256": "7bee2a07e28d121ebce226a3b7331a6cd922b6d7172c3a9066dfb27a92c53274",
+      "calls": [
+        {
+          "start": 2440,
+          "end": 2497,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 74
+        },
+        {
+          "start": 2616,
+          "end": 2673,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 80
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "before_sha256": "d4b19d465ab94d2b5a140b375be010936c5200087c73722828009274df36b530",
+      "after_sha256": "2680debe75122918629e61a3eca74f1a5cdcecb8e4bf9ca37e4bb0898d790aef",
+      "calls": [
+        {
+          "start": 5949,
+          "end": 6006,
+          "before": "world.scheduleBlockUpdate(x, y - 1, z, ModBlocks.slag, 1)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y - 1, z), ModBlocks.slag, 1)",
+          "args": [
+            "x",
+            "y - 1",
+            "z",
+            "ModBlocks.slag",
+            "1"
+          ],
+          "receiver": "world",
+          "line": 164
+        },
+        {
+          "start": 6985,
+          "end": 7040,
+          "before": "world.scheduleBlockUpdate(iX, y, iZ, ModBlocks.slag, 1)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(iX, y, iZ), ModBlocks.slag, 1)",
+          "args": [
+            "iX",
+            "y",
+            "iZ",
+            "ModBlocks.slag",
+            "1"
+          ],
+          "receiver": "world",
+          "line": 192
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockFallingRad.java",
+      "before_sha256": "e8ee34a2478ecdb5d56da74ebfd173d4c23a340918f39db8d00dc1c9ecb48c3c",
+      "after_sha256": "4cead65c857afbd06b2e4c3293637f9dae4925a71966d3d6df3a382e953c37b3",
+      "calls": [
+        {
+          "start": 640,
+          "end": 702,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 24
+        },
+        {
+          "start": 874,
+          "end": 936,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockHazard.java",
+      "before_sha256": "d7770ccc05c006d4f851bdfc683b2b72fa9d31556b6e4df1cdee3eaa75306515",
+      "after_sha256": "edcf259e0c1946a349bcb4f467ea46c6c00a76ae40985c9ff4637204f4006dd5",
+      "calls": [
+        {
+          "start": 4036,
+          "end": 4098,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 131
+        },
+        {
+          "start": 4475,
+          "end": 4537,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java",
+      "before_sha256": "b065c12215db546dd38fa1dd5bf9baf6ddd7ab87f7e76dc593fd3075f4b0b438",
+      "after_sha256": "849ff5e2bb668528fa2227465e8aeea2087cc0625cad0af618f6ffaf132c53d0",
+      "calls": [
+        {
+          "start": 1247,
+          "end": 1309,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 50
+        },
+        {
+          "start": 1710,
+          "end": 1772,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 71
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMSand.java",
+      "before_sha256": "3c9d2a691f10d4ec41e5e5e175f13e40282f9ec2dfa7bbbd84f524d14ab196e2",
+      "after_sha256": "d481b0a4a3a04bcabbdf07316dcd506be709cc11047bacc05c61625cbfb7c63e",
+      "calls": [
+        {
+          "start": 577,
+          "end": 639,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 23
+        },
+        {
+          "start": 738,
+          "end": 800,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/FragileBrick.java",
+      "before_sha256": "34f1bba654fa855fd99b2c9206364a2668b02c445f9b48bd58e24ce863003146",
+      "after_sha256": "d8931d17e66b9297a86e715405c333555af2542f8d7e15fb837f2005dc57bd01",
+      "calls": [
+        {
+          "start": 1345,
+          "end": 1454,
+          "before": "world.scheduleBlockUpdate(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this, world.rand.nextInt(4) + 8)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, world.rand.nextInt(4) + 8)",
+          "args": [
+            "x + dir.offsetX",
+            "y + dir.offsetY",
+            "z + dir.offsetZ",
+            "this",
+            "world.rand.nextInt(4) + 8"
+          ],
+          "receiver": "world",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/ReinforcedLamp.java",
+      "before_sha256": "1d8c615cf5d0cae69543bd76beb73cf1b85b368bdb9e7a586282eb96e5ba8e72",
+      "after_sha256": "b476f39f34e82af93d71a0a67c78391dbbed5cf2c20492e8777ccdbc1587ea5b",
+      "calls": [
+        {
+          "start": 787,
+          "end": 830,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 4)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "4"
+          ],
+          "receiver": "world",
+          "line": 34
+        },
+        {
+          "start": 1209,
+          "end": 1252,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 4)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "4"
+          ],
+          "receiver": "world",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/TritiumLamp.java",
+      "before_sha256": "c859a45d557ff1642c6585fec0737d655166a01463a4f51ec947e13ad333bfc9",
+      "after_sha256": "79cbf36ff1273ae85c4596b743e3f637e3b85b42b1ae8c6e0c8e49495d01e697",
+      "calls": [
+        {
+          "start": 913,
+          "end": 956,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 4)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "4"
+          ],
+          "receiver": "world",
+          "line": 37
+        },
+        {
+          "start": 1370,
+          "end": 1413,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 4)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "4"
+          ],
+          "receiver": "world",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java",
+      "before_sha256": "2da6b590abff72d211d97392bd2698e24a792ee32c1e6e7947a93d675640c46a",
+      "after_sha256": "a25570bd2322e569560d2ba52435573ffca557f0d873655f5510ab5841ebae7f",
+      "calls": [
+        {
+          "start": 559,
+          "end": 621,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 24
+        },
+        {
+          "start": 905,
+          "end": 967,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "before_sha256": "6c2ec042e17d73ce7c076d93e6e3035723686f9f1724647d960ada68a5fa65e7",
+      "after_sha256": "a1539318e126682278c6aa7a162d172ba81a3a1b7bf3b0945a4732d9f7d49db9",
+      "calls": [
+        {
+          "start": 3721,
+          "end": 3764,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 1)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "1"
+          ],
+          "receiver": "world",
+          "line": 132
+        },
+        {
+          "start": 3768,
+          "end": 3811,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 2)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "2"
+          ],
+          "receiver": "world",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java",
+      "before_sha256": "d21a3ac16df98cee53b7712fbcdb62dfdf914d9b45718d0cac93820916f0f16f",
+      "after_sha256": "75e399a50dcee75d6b97ca40ecd444e7ef563aca68d27fb6cb8f47b0410c1331",
+      "calls": [
+        {
+          "start": 785,
+          "end": 847,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 30
+        },
+        {
+          "start": 1237,
+          "end": 1299,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "before_sha256": "7860e6ce83d0e43dc1a565647de7ea2d08036f9177003f954b8ac324581ea0a0",
+      "after_sha256": "642bc95accb35b038d94e02ea404f2fe759fe6e53349e6f5aa7f9b64100cd68a",
+      "calls": [
+        {
+          "start": 3311,
+          "end": 3354,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 1)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "1"
+          ],
+          "receiver": "world",
+          "line": 111
+        },
+        {
+          "start": 3358,
+          "end": 3401,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, 2)",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2)",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "2"
+          ],
+          "receiver": "world",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "before_sha256": "b8c2f52f244dc59b0fde2e35fe259bf6347aea89ad1b518c2d8a92d0a42e4f4b",
+      "after_sha256": "72b312285e53851c6dc17666354bcfc62af03f8cb6497377612e152c3d1199b5",
+      "calls": [
+        {
+          "start": 3342,
+          "end": 3404,
+          "before": "world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world))",
+          "after": "world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world))",
+          "args": [
+            "x",
+            "y",
+            "z",
+            "this",
+            "this.tickRate(world)"
+          ],
+          "receiver": "world",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineEPress.java",
+      "before_sha256": "1646752b7ffad771c13ce7e9b6bf9c6dcf569cc742f2d4aef6518c863acf7241",
+      "after_sha256": "f733ab029379677e7983e5cb5a709944abb1ae7fb1dceb171d66fdf541e95f22",
+      "calls": [
+        {
+          "start": 2627,
+          "end": 2821,
+          "before": "this.world.scheduleBlockUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1)",
+          "after": "this.world.scheduleUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1)",
+          "args": [
+            "this.pos.getX()",
+            "this.pos.getY()",
+            "this.pos.getZ()",
+            "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock()",
+            "1"
+          ],
+          "receiver": "this.world",
+          "line": 77
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachinePress.java",
+      "before_sha256": "3ea750aae34574dedd8edcecede9a780f5fb686185ec2e4e1de4e7cfd56ffc59",
+      "after_sha256": "0740dd7cb8a4a7119c69977e47ac0676b2545f9124402ffadd8412d99fca6b86",
+      "calls": [
+        {
+          "start": 2746,
+          "end": 2940,
+          "before": "this.world.scheduleBlockUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1)",
+          "after": "this.world.scheduleUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock(), 1)",
+          "args": [
+            "this.pos.getX()",
+            "this.pos.getY()",
+            "this.pos.getZ()",
+            "com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock()",
+            "1"
+          ],
+          "receiver": "this.world",
+          "line": 66
+        }
+      ]
+    }
+  ]
+}

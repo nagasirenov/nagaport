@@ -132,8 +132,8 @@ public class ItemGunStinger extends ItemGunBaseNT {
 		if(type == ElementType.CROSSHAIRS) {
 			event.setCanceled(true);
 			if(aimingProgress < 1F) return;
-			RenderScreenOverlay.renderCustomCrosshairs(event.resolution, Minecraft.getMinecraft().ingameGUI, gun.getConfig(stack, 0).getCrosshair(stack));
-			RenderScreenOverlay.renderStingerLockon(event.resolution, Minecraft.getMinecraft().ingameGUI);
+			RenderScreenOverlay.renderCustomCrosshairs(event.getResolution(), Minecraft.getMinecraft().ingameGUI, gun.getConfig(stack, 0).getCrosshair(stack));
+			RenderScreenOverlay.renderStingerLockon(event.getResolution(), Minecraft.getMinecraft().ingameGUI);
 		}
 		
 		int confNo = this.configs_DNA.length;

@@ -1,0 +1,11 @@
+{
+  "legacy_userdev_sha256": "6ed364c0defdb481a41ef2d99c02d382f16fc42a6ea0ea1c2b849848d8466e91",
+  "legacy_player_patch_sha256": "631d4945a71f4c0aeb3cd764d9dab9a0166b56cd19da018d1f6825bb5c153bdd",
+  "legacy_string_method_patch": "+    public String getDisplayName()\n+    {\n+        if(this.displayname == null)\n+        {\n+            this.displayname = ForgeEventFactory.getPlayerDisplayName(this, this.func_70005_c_());\n+        }\n+        return this.displayname;\n+    }\n+\n",
+  "native_class": {
+    "jar": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "class_sha256": "73661efbad740b8eadf1f000f0f4e9953b39745d496895f6e619be86d31d9171"
+  },
+  "native_string_method_javap": "  public java.lang.String getDisplayNameString();\n    Code:\n       0: aload_0\n       1: getfield      #2695               // Field displayname:Ljava/lang/String;\n       4: ifnonnull     19\n       7: aload_0\n       8: aload_0\n       9: aload_0\n      10: invokevirtual #934                // Method getName:()Ljava/lang/String;\n      13: invokestatic  #2699               // Method net/minecraftforge/event/ForgeEventFactory.getPlayerDisplayName:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/String;)Ljava/lang/String;\n      16: putfield      #2695               // Field displayname:Ljava/lang/String;\n      19: aload_0\n      20: getfield      #2695               // Field displayname:Ljava/lang/String;\n      23: areturn\n\n",
+  "mapping": "Forge getDisplayName String -> native getDisplayNameString String; cached field and Forge display-name event preserved, not username or decorated chat component."
+}

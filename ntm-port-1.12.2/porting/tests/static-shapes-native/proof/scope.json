@@ -1,0 +1,12 @@
+{
+  "baseline": "df18fc077648dd18e6d0c1055d82c11dc2ebdb78",
+  "source_units": 4065,
+  "all_source_path_and_hash_sha256": "83b023a74068579cf18506bd95db46c79476e4d5a1861f6589c3282dd166ec66",
+  "selected": [
+    "src/main/java/com/hbm/blocks/BlockCrop.java",
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java"
+  ],
+  "test_scope": "Four exact full native constructor projections and their shape/opacity/fullcube callbacks; controlled ModBlocks.salted_fallout and CBT_Atmosphere type; no complete owner compile."
+}

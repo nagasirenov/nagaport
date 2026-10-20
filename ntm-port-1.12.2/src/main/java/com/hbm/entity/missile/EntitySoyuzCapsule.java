@@ -8,6 +8,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -82,7 +83,7 @@ public class EntitySoyuzCapsule extends EntityThrowable {
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 			byte b0 = nbt1.getByte("slot");
 			if (b0 >= 0 && b0 < payload.length) {
-				payload[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				payload[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 	}

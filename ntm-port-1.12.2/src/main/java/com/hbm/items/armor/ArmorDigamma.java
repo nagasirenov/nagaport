@@ -26,7 +26,7 @@ public class ArmorDigamma extends ArmorFSBPowered implements IItemRendererProvid
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, net.minecraft.inventory.EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
 		
 		if(models == null) {
 			models = new ModelArmorDigamma[4];
@@ -35,7 +35,7 @@ public class ArmorDigamma extends ArmorFSBPowered implements IItemRendererProvid
 				models[i] = new ModelArmorDigamma(i);
 		}
 		
-		return models[armorSlot];
+		return models[com.hbm.util.ArmorSlotOrder.index(armorSlot)];
 	}
 
 	@Override public Item getItemForRenderer() { return this; }
@@ -45,7 +45,7 @@ public class ArmorDigamma extends ArmorFSBPowered implements IItemRendererProvid
 	public ItemRenderBase getRenderer() {
 		return new ItemRenderBase( ) {
 			public void renderInventory() {
-				if(armorType == 0) {
+				if(com.hbm.util.ArmorSlotOrder.index(armorType) == 0) {
 					GL11.glScaled(0.875, 0.875, 0.875);
 					GL11.glTranslated(0, -2, 0);
 				}
@@ -53,7 +53,7 @@ public class ArmorDigamma extends ArmorFSBPowered implements IItemRendererProvid
 			}
 			public void renderNonInv() { setupRenderNonInv(); }
 			public void renderCommon() {
-				renderStandard(ResourceManager.armor_fau, armorType,
+				renderStandard(ResourceManager.armor_fau, com.hbm.util.ArmorSlotOrder.index(armorType),
 						ResourceManager.fau_helmet, ResourceManager.fau_chest, ResourceManager.fau_arm, ResourceManager.fau_leg,
 						"Head", "Body,Cassette", "LeftArm", "RightArm", "LeftLeg", "RightLeg", "LeftBoot", "RightBoot");
 			}};

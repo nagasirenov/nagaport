@@ -1,0 +1,377 @@
+[
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4121,
+    "source": "gun_b92 = NativeItemTextureRegistry.texture(new GunB92().setTranslationKey(\"gun_b92\").setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + \":gun_b92\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4124,
+    "source": "crucible = NativeItemTextureRegistry.texture(new ItemCrucible(5000, 1F, matCrucible).setTranslationKey(\"crucible\").setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + \":crucible\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4157,
+    "source": "ullapool_caber = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatSteel).setTranslationKey(\"ullapool_caber\").setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + \":ullapool_caber\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4317,
+    "source": "wrench_archineer = NativeItemTextureRegistry.texture(new ItemToolingWeapon(ToolType.WRENCH, 1000, 12F).setTranslationKey(\"wrench_archineer\"), RefStrings.MODID + \":wrench_archineer_hd\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4445,
+    "source": "mirror_tool = NativeItemTextureRegistry.texture(new ItemMirrorTool().setTranslationKey(\"mirror_tool\").setMaxStackSize(1).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + \":mirror_tool\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4446,
+    "source": "rbmk_tool = NativeItemTextureRegistry.texture(new ItemRBMKTool().setTranslationKey(\"rbmk_tool\").setMaxStackSize(1).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + \":rbmk_tool\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4523,
+    "source": "schrabidium_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(75, 0, MainRegistry.tMatSchrab)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4528,
+    "source": "schrabidium_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(20, 0, MainRegistry.tMatSchrab, EnumToolType.PICKAXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4539,
+    "source": "schrabidium_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(25, 0, MainRegistry.tMatSchrab, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4551,
+    "source": "schrabidium_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(15, 0, MainRegistry.tMatSchrab, EnumToolType.SHOVEL)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4564,
+    "source": "titanium_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(6.5F, 0, MainRegistry.tMatTitan).setTranslationKey(\"titanium_sword\"), RefStrings.MODID + \":titanium_sword\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4565,
+    "source": "titanium_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(4.5F, 0, MainRegistry.tMatTitan, EnumToolType.PICKAXE).setTranslationKey(\"titanium_pickaxe\"), RefStrings.MODID + \":titanium_pickaxe\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4566,
+    "source": "titanium_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(5.5F, 0, MainRegistry.tMatTitan, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4568,
+    "source": "titanium_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(3.5F, 0, MainRegistry.tMatTitan, EnumToolType.SHOVEL).setTranslationKey(\"titanium_shovel\"), RefStrings.MODID + \":titanium_shovel\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4570,
+    "source": "steel_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(6F, 0, MainRegistry.tMatSteel).setTranslationKey(\"steel_sword\"), RefStrings.MODID + \":steel_sword\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4571,
+    "source": "steel_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(4F, 0, MainRegistry.tMatSteel, EnumToolType.PICKAXE).setTranslationKey(\"steel_pickaxe\"), RefStrings.MODID + \":steel_pickaxe\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4572,
+    "source": "steel_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(5F, 0, MainRegistry.tMatSteel, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4574,
+    "source": "steel_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(3F, 0, MainRegistry.tMatSteel, EnumToolType.SHOVEL).setTranslationKey(\"steel_shovel\"), RefStrings.MODID + \":steel_shovel\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4577,
+    "source": "alloy_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(8F, 0, MainRegistry.tMatAlloy)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4580,
+    "source": "alloy_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(5F, 0, MainRegistry.tMatAlloy, EnumToolType.PICKAXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4583,
+    "source": "alloy_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(7F, 0, MainRegistry.tMatAlloy, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4587,
+    "source": "alloy_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(4F, 0, MainRegistry.tMatAlloy, EnumToolType.SHOVEL)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4592,
+    "source": "cmb_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(35F, 0, MainRegistry.tMatCMB)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4596,
+    "source": "cmb_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(10F, 0, MainRegistry.tMatCMB, EnumToolType.PICKAXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4602,
+    "source": "cmb_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(30F, 0, MainRegistry.tMatCMB, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4609,
+    "source": "cmb_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(8F, 0, MainRegistry.tMatCMB, EnumToolType.SHOVEL)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4617,
+    "source": "elec_sword = NativeItemTextureRegistry.texture(new ItemSwordAbilityPower(12.5F, 0, MainRegistry.tMatElec, 500000, 1000, 100)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4620,
+    "source": "elec_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbilityPower(6F, 0, MainRegistry.tMatElec, EnumToolType.PICKAXE, 500000, 1000, 100)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4627,
+    "source": "elec_axe = NativeItemTextureRegistry.texture(new ItemToolAbilityPower(10F, 0, MainRegistry.tMatElec, EnumToolType.AXE, 500000, 1000, 100)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4636,
+    "source": "elec_shovel = NativeItemTextureRegistry.texture(new ItemToolAbilityPower(5F, 0, MainRegistry.tMatElec, EnumToolType.SHOVEL, 500000, 1000, 100)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4643,
+    "source": "desh_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(12.5F, 0, MainRegistry.tMatDesh)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4646,
+    "source": "desh_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(5F, -0.05, MainRegistry.tMatDesh, EnumToolType.PICKAXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4653,
+    "source": "desh_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(7.5F, -0.05, MainRegistry.tMatDesh, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4661,
+    "source": "desh_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(4F, -0.05, MainRegistry.tMatDesh, EnumToolType.SHOVEL)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4670,
+    "source": "cobalt_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(12F, 0, MainRegistry.tMatCobalt).setTranslationKey(\"cobalt_sword\"), RefStrings.MODID + \":cobalt_sword\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4671,
+    "source": "cobalt_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(4F, 0, MainRegistry.tMatCobalt, EnumToolType.PICKAXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4675,
+    "source": "cobalt_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(6F, 0, MainRegistry.tMatCobalt, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4680,
+    "source": "cobalt_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(3.5F, 0, MainRegistry.tMatCobalt, EnumToolType.SHOVEL)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4687,
+    "source": "cobalt_decorated_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(15F, 0, matDecCobalt)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4689,
+    "source": "cobalt_decorated_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(6F, 0, matDecCobalt, EnumToolType.PICKAXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4695,
+    "source": "cobalt_decorated_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(8F, 0, matDecCobalt, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4702,
+    "source": "cobalt_decorated_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(5F, 0, matDecCobalt, EnumToolType.SHOVEL)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4711,
+    "source": "starmetal_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(25F, 0, matStarmetal)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4715,
+    "source": "starmetal_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(8F, 0, matStarmetal, EnumToolType.PICKAXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4722,
+    "source": "starmetal_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(12F, 0, matStarmetal, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4730,
+    "source": "starmetal_shovel = NativeItemTextureRegistry.texture(new ItemToolAbility(7F, 0, matStarmetal, EnumToolType.SHOVEL)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4739,
+    "source": "centri_stick = NativeItemTextureRegistry.texture(new ItemToolAbility(3F, 0, MainRegistry.tMatElec, EnumToolType.MINER)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4741,
+    "source": "smashing_hammer = NativeItemTextureRegistry.texture(new ItemToolAbility(12F, -0.1, MainRegistry.tMatSteel, EnumToolType.MINER)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4743,
+    "source": "drax = NativeItemTextureRegistry.texture(new ItemToolAbilityPower(10F, -0.05, MainRegistry.tMatElec, EnumToolType.MINER, 500000000, 100000, 5000)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4750,
+    "source": "drax_mk2 = NativeItemTextureRegistry.texture(new ItemToolAbilityPower(15F, -0.05, MainRegistry.tMatElec, EnumToolType.MINER, 1000000000, 250000, 7500)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4758,
+    "source": "drax_mk3 = NativeItemTextureRegistry.texture(new ItemToolAbilityPower(20F, -0.05, MainRegistry.tMatElec, EnumToolType.MINER, 2500000000L, 500000, 10000)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4770,
+    "source": "bismuth_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(15F, 0, matBismuth, EnumToolType.MINER)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4781,
+    "source": "bismuth_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(25F, 0, matBismuth, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4794,
+    "source": "volcanic_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(15F, 0, matVolcano, EnumToolType.MINER)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4805,
+    "source": "volcanic_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(25F, 0, matVolcano, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4817,
+    "source": "chlorophyte_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(20F, 0, matChlorophyte, EnumToolType.MINER)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4828,
+    "source": "chlorophyte_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(50F, 0, matChlorophyte, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4838,
+    "source": "mese_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(35F, 0, matMese, EnumToolType.MINER)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4850,
+    "source": "mese_axe = NativeItemTextureRegistry.texture(new ItemToolAbility(75F, 0, matMese, EnumToolType.AXE)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4861,
+    "source": "dnt_sword = NativeItemTextureRegistry.texture(new ItemSwordAbility(12F, 0, matMese).setTranslationKey(\"dnt_sword\"), RefStrings.MODID + \":dnt_sword\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4864,
+    "source": "dwarven_pickaxe = NativeItemTextureRegistry.texture(new ItemToolAbility(5F, -0.1, matDwarf, EnumToolType.MINER)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4926,
+    "source": "schrabidium_hammer = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatHammmer).setTranslationKey(\"schrabidium_hammer\").setMaxStackSize(1), RefStrings.MODID + \":schrabidium_hammer\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4927,
+    "source": "shimmer_sledge = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.enumToolMaterialSledge).setTranslationKey(\"shimmer_sledge\").setMaxStackSize(1), RefStrings.MODID + \":shimmer_sledge_original\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4928,
+    "source": "shimmer_axe = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.enumToolMaterialSledge).setTranslationKey(\"shimmer_axe\").setMaxStackSize(1), RefStrings.MODID + \":shimmer_axe\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4929,
+    "source": "bottle_opener = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.enumToolMaterialBottleOpener).setTranslationKey(\"bottle_opener\").setCreativeTab(MainRegistry.consumableTab).setMaxStackSize(1), RefStrings.MODID + \":bottle_opener\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4930,
+    "source": "pch = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatHammmer).setTranslationKey(\"pch\").setMaxStackSize(1).setCreativeTab(null), RefStrings.MODID + \":schrabidium_hammer\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4934,
+    "source": "wrench_flipped = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatElec).setTranslationKey(\"wrench_flipped\").setMaxStackSize(1), RefStrings.MODID + \":wrench_flipped\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4935,
+    "source": "memespoon = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatSteel).setTranslationKey(\"memespoon\").setMaxStackSize(1), RefStrings.MODID + \":memespoon\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4936,
+    "source": "wood_gavel = NativeItemTextureRegistry.texture(new WeaponSpecial(ToolMaterial.WOOD).setTranslationKey(\"wood_gavel\").setMaxStackSize(1), RefStrings.MODID + \":wood_gavel\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4937,
+    "source": "lead_gavel = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatSteel).setTranslationKey(\"lead_gavel\").setMaxStackSize(1), RefStrings.MODID + \":lead_gavel\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4938,
+    "source": "diamond_gavel = NativeItemTextureRegistry.texture(new WeaponSpecial(ToolMaterial.DIAMOND).setTranslationKey(\"diamond_gavel\").setMaxStackSize(1), RefStrings.MODID + \":diamond_gavel\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4940,
+    "source": "mese_gavel = NativeItemTextureRegistry.texture(new ItemSwordAbility(250, 1.5, matMeseGavel)"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4954,
+    "source": "stopsign = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatAlloy).setTranslationKey(\"stopsign\"), RefStrings.MODID + \":stopsign\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4955,
+    "source": "sopsign = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatAlloy).setTranslationKey(\"sopsign\"), RefStrings.MODID + \":sopsign\");"
+  },
+  {
+    "file": "src/main/java/com/hbm/items/ModItems.java",
+    "line": 4956,
+    "source": "chernobylsign = NativeItemTextureRegistry.texture(new WeaponSpecial(MainRegistry.tMatAlloy).setTranslationKey(\"chernobylsign\"), RefStrings.MODID + \":chernobylsign\");"
+  }
+]

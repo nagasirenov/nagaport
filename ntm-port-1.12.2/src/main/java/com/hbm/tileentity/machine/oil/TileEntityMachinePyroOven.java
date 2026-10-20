@@ -144,10 +144,10 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 				audio.updateVolume(this.getVolume(1F));
 
 				if(MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 3, this.pos.getZ() + 0.5) < 50) {
-					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
-					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
-					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
-					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle("cloud", this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX - dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ - dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 0.875, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 0.875, 0.0, 0.05, 0.0);
+					if(this.world.rand.nextInt(20) == 0) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, this.pos.getX() + 0.5 - rot.offsetX + dir.offsetX * 2.375, this.pos.getY() + 3, this.pos.getZ() + 0.5 - rot.offsetZ + dir.offsetZ * 2.375, 0.0, 0.05, 0.0);
 				}
 
 			} else {

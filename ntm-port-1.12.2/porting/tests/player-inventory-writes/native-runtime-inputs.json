@@ -1,0 +1,17 @@
+{
+  "net/minecraft/entity/player/InventoryPlayer.class": {
+    "provider": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "provider_sha256": "69e6736b75384d9218846614fd47fd61c66c0f7e8899341ef98d1886b835d775",
+    "class_sha256": "4d6547fba58d1e98fb8c28eda28f38c4d0c325e143cafa258b114d35d1a75d17"
+  },
+  "net/minecraft/util/NonNullList.class": {
+    "provider": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "provider_sha256": "69e6736b75384d9218846614fd47fd61c66c0f7e8899341ef98d1886b835d775",
+    "class_sha256": "24d68d187fd67b32ed426a1d8d4baf4413b85c631469a016c267befa08f499b3"
+  },
+  "net/minecraft/item/ItemStack.class": {
+    "provider": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "provider_sha256": "69e6736b75384d9218846614fd47fd61c66c0f7e8899341ef98d1886b835d775",
+    "class_sha256": "c7773c57f5fa221476c1c1a6e30fc379a0b725ea4380933ecf93be1278840a7c"
+  }
+}

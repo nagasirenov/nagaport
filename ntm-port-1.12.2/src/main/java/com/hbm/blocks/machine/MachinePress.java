@@ -34,6 +34,18 @@ public class MachinePress extends BlockDummyable implements IToolable {
 	}
 
 	@Override
+	protected void fixLegacyMonoblock(World world, int x, int y, int z) {
+		net.minecraft.util.math.BlockPos pos = new net.minecraft.util.math.BlockPos(x, y, z);
+		TileEntity tile = world.getTileEntity(pos);
+		if (tile instanceof TileEntityMachinePress) {
+			((TileEntityMachinePress) tile).withLegacyPromotion(this, world, pos,
+					() -> super.fixLegacyMonoblock(world, x, y, z));
+		} else {
+			super.fixLegacyMonoblock(world, x, y, z);
+		}
+	}
+
+	@Override
 	protected boolean isLegacyMonoblock(World world, int x, int y, int z) {
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		return te != null && te instanceof TileEntityMachinePress;

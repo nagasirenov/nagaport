@@ -1,0 +1,10 @@
+Historical initial probe with beta included. This demonstrated an existing provider gap; beta is now explicitly excluded, not patched.
+java.lang.AssertionError: native armor damage-independent icon lookup beta 1
+	at NativeArmorInventoryTextureTest.check(NativeArmorInventoryTextureTest.java:35) ~[NativeArmorInventoryTextureTest.class:?]
+	at NativeArmorInventoryTextureTest$Audit.bake(NativeArmorInventoryTextureTest.java:104) ~[NativeArmorInventoryTextureTest$Audit.class:?]
+	at NativeArmorInventoryTextureTest.main(NativeArmorInventoryTextureTest.java:116) [NativeArmorInventoryTextureTest.class:?]
+Exception in thread "main" java.lang.AssertionError: Native event test failed: NativeArmorInventoryTextureTest
+Caused by: java.lang.AssertionError: native armor damage-independent icon lookup beta 1
+	at NativeArmorInventoryTextureTest.check(NativeArmorInventoryTextureTest.java:35)
+	at NativeArmorInventoryTextureTest$Audit.bake(NativeArmorInventoryTextureTest.java:104)
+	at NativeArmorInventoryTextureTest.main(NativeArmorInventoryTextureTest.java:116)

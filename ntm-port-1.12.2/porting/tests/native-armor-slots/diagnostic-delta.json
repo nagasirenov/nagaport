@@ -1,0 +1,475 @@
+{
+  "before": 11151,
+  "after": 11052,
+  "removed": [
+    {
+      "path": "src/main/java/com/hbm/entity/mob/EntityDummy.java",
+      "code": "compiler.err.operator.cant.be.applied.1",
+      "message": "bad operand types for binary operator '-'\\n  first type:  int\\n  second type: net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/handler/ArmorModHandler.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/inventory/container/ContainerArmorTable.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 4
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorFSB.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAJR.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAJR.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAJRO.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAJRO.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAsbestos.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAsbestos.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAshGlasses.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorAshGlasses.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBJ.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBJ.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBJ.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBismuth.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBismuth.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorBismuth.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDNT.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDesh.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDiesel.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDigamma.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDigamma.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorDigamma.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorEuphemium.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorEuphemium.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorGasMask.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorGasMask.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorHEV.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorHEV.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorModel.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorModel.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorHazmatMask.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "code": "compiler.err.cant.apply.symbol",
+      "message": "method getArmorModel in class net.minecraft.item.Item cannot be applied to given types;\\n  required: net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,net.minecraft.inventory.EntityEquipmentSlot,net.minecraft.client.model.ModelBiped\\n  found: net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack,int\\n  reason: actual and formal argument lists differ in length",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorLiquidator.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorNCRPA.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorRPA.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorRPA.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorRPA.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorT51.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorT51.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorTaurun.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorTaurun.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorTaurun.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ArmorTrenchmaster.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModHealth.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModHeavyBoots.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModInsert.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModIron.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "code": "compiler.err.incomparable.types",
+      "message": "incomparable types: net.minecraft.inventory.EntityEquipmentSlot and int",
+      "count": 6
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModServos.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 4
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ItemModWD40.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: net.minecraft.inventory.EntityEquipmentSlot cannot be converted to int",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBase.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBase.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 2
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBooster.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackBreak.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackRegular.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/JetpackVectorized.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/MaskOfInfamy.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/MaskOfInfamy.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ModArmor.java",
+      "code": "compiler.err.prob.found.req",
+      "message": "incompatible types: int cannot be converted to net.minecraft.inventory.EntityEquipmentSlot",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/ModArmor.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    },
+    {
+      "path": "src/main/java/com/hbm/items/armor/WingsMurk.java",
+      "code": "compiler.err.method.does.not.override.superclass",
+      "message": "method does not override or implement a method from a supertype",
+      "count": 1
+    }
+  ],
+  "exposed": []
+}

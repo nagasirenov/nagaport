@@ -1,0 +1,12 @@
+CODE	appeng/api/recipes/IIngredient	()Z	
+CODE	appeng/block/paint/BlockPaint	(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z	4,172
+CODE	net/minecraft/block/Block	(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/block/material/Material;	25:0,180:net/minecraft/block/Block.materialLnet/minecraft/block/material/Material;,176
+CODE	net/minecraft/block/Block	(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z	25:1,185:net/minecraft/block/state/IBlockState.getMaterial()Lnet/minecraft/block/material/Material;,178:net/minecraft/block/material/Material.AIRLnet/minecraft/block/material/Material;,JUMP:166,4,JUMP:167,3,172
+CODE	net/minecraft/block/state/BlockStateContainer$StateImplementation	()Lnet/minecraft/block/material/Material;	25:0,180:net/minecraft/block/state/BlockStateContainer$StateImplementation.blockLnet/minecraft/block/Block;,25:0,182:net/minecraft/block/Block.getMaterial(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/block/material/Material;,176
+CODE	net/minecraft/block/state/IBlockProperties	()Lnet/minecraft/block/material/Material;	
+METHOD	appeng/api/recipes/IIngredient	()Z
+METHOD	appeng/block/paint/BlockPaint	(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z
+METHOD	net/minecraft/block/Block	(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/block/material/Material;
+METHOD	net/minecraft/block/Block	(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Z
+METHOD	net/minecraft/block/state/BlockStateContainer$StateImplementation	()Lnet/minecraft/block/material/Material;
+METHOD	net/minecraft/block/state/IBlockProperties	()Lnet/minecraft/block/material/Material;

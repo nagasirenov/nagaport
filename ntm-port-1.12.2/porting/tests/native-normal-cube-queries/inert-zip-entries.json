@@ -1,0 +1,8 @@
+{
+  "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/compileDummy.jar": {
+    "dummyThing": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89"
+  },
+  "/workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/deobfedDeps/providedDummy.jar": {
+    "dummyThing": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89"
+  }
+}

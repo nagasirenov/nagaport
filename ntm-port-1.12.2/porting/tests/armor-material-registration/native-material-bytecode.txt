@@ -1,0 +1,381 @@
+Compiled from "ItemArmor.java"
+public final class net.minecraft.item.ItemArmor$ArmorMaterial extends java.lang.Enum<net.minecraft.item.ItemArmor$ArmorMaterial> {
+  public static final net.minecraft.item.ItemArmor$ArmorMaterial LEATHER;
+
+  public static final net.minecraft.item.ItemArmor$ArmorMaterial CHAIN;
+
+  public static final net.minecraft.item.ItemArmor$ArmorMaterial IRON;
+
+  public static final net.minecraft.item.ItemArmor$ArmorMaterial GOLD;
+
+  public static final net.minecraft.item.ItemArmor$ArmorMaterial DIAMOND;
+
+  private final java.lang.String name;
+
+  private final int maxDamageFactor;
+
+  private final int[] damageReductionAmountArray;
+
+  private final int enchantability;
+
+  private final net.minecraft.util.SoundEvent soundEvent;
+
+  private final float toughness;
+
+  public net.minecraft.item.ItemStack repairMaterial;
+
+  private static final net.minecraft.item.ItemArmor$ArmorMaterial[] $VALUES;
+
+  public static net.minecraft.item.ItemArmor$ArmorMaterial[] values();
+    Code:
+       0: getstatic     #34                 // Field $VALUES:[Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+       3: invokevirtual #39                 // Method "[Lnet/minecraft/item/ItemArmor$ArmorMaterial;".clone:()Ljava/lang/Object;
+       6: checkcast     #35                 // class "[Lnet/minecraft/item/ItemArmor$ArmorMaterial;"
+       9: areturn
+
+  public static net.minecraft.item.ItemArmor$ArmorMaterial valueOf(java.lang.String);
+    Code:
+       0: ldc           #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+       2: aload_0
+       3: invokestatic  #44                 // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+       6: checkcast     #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+       9: areturn
+
+  private net.minecraft.item.ItemArmor$ArmorMaterial(java.lang.String, int, int[], int, net.minecraft.util.SoundEvent, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokespecial #50                 // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+       6: aload_0
+       7: getstatic     #55                 // Field net/minecraft/item/ItemStack.EMPTY:Lnet/minecraft/item/ItemStack;
+      10: putfield      #57                 // Field repairMaterial:Lnet/minecraft/item/ItemStack;
+      13: aload_0
+      14: aload_3
+      15: putfield      #59                 // Field name:Ljava/lang/String;
+      18: aload_0
+      19: iload         4
+      21: putfield      #61                 // Field maxDamageFactor:I
+      24: aload_0
+      25: aload         5
+      27: putfield      #63                 // Field damageReductionAmountArray:[I
+      30: aload_0
+      31: iload         6
+      33: putfield      #65                 // Field enchantability:I
+      36: aload_0
+      37: aload         7
+      39: putfield      #67                 // Field soundEvent:Lnet/minecraft/util/SoundEvent;
+      42: aload_0
+      43: fload         8
+      45: putfield      #69                 // Field toughness:F
+      48: return
+
+  public int getDurability(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: invokestatic  #84                 // Method net/minecraft/item/ItemArmor.access$000:()[I
+       3: aload_1
+       4: invokevirtual #90                 // Method net/minecraft/inventory/EntityEquipmentSlot.getIndex:()I
+       7: iaload
+       8: aload_0
+       9: getfield      #61                 // Field maxDamageFactor:I
+      12: imul
+      13: ireturn
+
+  public int getDamageReductionAmount(net.minecraft.inventory.EntityEquipmentSlot);
+    Code:
+       0: aload_0
+       1: getfield      #63                 // Field damageReductionAmountArray:[I
+       4: aload_1
+       5: invokevirtual #90                 // Method net/minecraft/inventory/EntityEquipmentSlot.getIndex:()I
+       8: iaload
+       9: ireturn
+
+  public int getEnchantability();
+    Code:
+       0: aload_0
+       1: getfield      #65                 // Field enchantability:I
+       4: ireturn
+
+  public net.minecraft.util.SoundEvent getSoundEvent();
+    Code:
+       0: aload_0
+       1: getfield      #67                 // Field soundEvent:Lnet/minecraft/util/SoundEvent;
+       4: areturn
+
+  public net.minecraft.item.Item getRepairItem();
+    Code:
+       0: aload_0
+       1: getstatic     #102                // Field LEATHER:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+       4: if_acmpne     11
+       7: getstatic     #107                // Field net/minecraft/init/Items.LEATHER:Lnet/minecraft/item/Item;
+      10: areturn
+      11: aload_0
+      12: getstatic     #109                // Field CHAIN:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      15: if_acmpne     22
+      18: getstatic     #112                // Field net/minecraft/init/Items.IRON_INGOT:Lnet/minecraft/item/Item;
+      21: areturn
+      22: aload_0
+      23: getstatic     #114                // Field GOLD:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      26: if_acmpne     33
+      29: getstatic     #117                // Field net/minecraft/init/Items.GOLD_INGOT:Lnet/minecraft/item/Item;
+      32: areturn
+      33: aload_0
+      34: getstatic     #119                // Field IRON:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      37: if_acmpne     44
+      40: getstatic     #112                // Field net/minecraft/init/Items.IRON_INGOT:Lnet/minecraft/item/Item;
+      43: areturn
+      44: aload_0
+      45: getstatic     #121                // Field DIAMOND:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      48: if_acmpne     57
+      51: getstatic     #123                // Field net/minecraft/init/Items.DIAMOND:Lnet/minecraft/item/Item;
+      54: goto          58
+      57: aconst_null
+      58: areturn
+
+  public java.lang.String getName();
+    Code:
+       0: aload_0
+       1: getfield      #59                 // Field name:Ljava/lang/String;
+       4: areturn
+
+  public float getToughness();
+    Code:
+       0: aload_0
+       1: getfield      #69                 // Field toughness:F
+       4: freturn
+
+  public net.minecraft.item.ItemArmor$ArmorMaterial setRepairItem(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getfield      #57                 // Field repairMaterial:Lnet/minecraft/item/ItemStack;
+       4: invokevirtual #139                // Method net/minecraft/item/ItemStack.isEmpty:()Z
+       7: ifne          20
+      10: new           #141                // class java/lang/RuntimeException
+      13: dup
+      14: ldc           #143                // String Repair material has already been set
+      16: invokespecial #146                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+      19: athrow
+      20: aload_0
+      21: getstatic     #102                // Field LEATHER:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      24: if_acmpeq     55
+      27: aload_0
+      28: getstatic     #109                // Field CHAIN:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      31: if_acmpeq     55
+      34: aload_0
+      35: getstatic     #114                // Field GOLD:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      38: if_acmpeq     55
+      41: aload_0
+      42: getstatic     #119                // Field IRON:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      45: if_acmpeq     55
+      48: aload_0
+      49: getstatic     #121                // Field DIAMOND:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      52: if_acmpne     65
+      55: new           #141                // class java/lang/RuntimeException
+      58: dup
+      59: ldc           #148                // String Can not change vanilla armor repair materials
+      61: invokespecial #146                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+      64: athrow
+      65: aload_0
+      66: aload_1
+      67: putfield      #57                 // Field repairMaterial:Lnet/minecraft/item/ItemStack;
+      70: aload_0
+      71: areturn
+
+  public net.minecraft.item.ItemStack getRepairItemStack();
+    Code:
+       0: aload_0
+       1: getfield      #57                 // Field repairMaterial:Lnet/minecraft/item/ItemStack;
+       4: invokevirtual #139                // Method net/minecraft/item/ItemStack.isEmpty:()Z
+       7: ifne          15
+      10: aload_0
+      11: getfield      #57                 // Field repairMaterial:Lnet/minecraft/item/ItemStack;
+      14: areturn
+      15: aload_0
+      16: invokevirtual #153                // Method getRepairItem:()Lnet/minecraft/item/Item;
+      19: astore_1
+      20: aload_1
+      21: ifnull        40
+      24: aload_0
+      25: new           #52                 // class net/minecraft/item/ItemStack
+      28: dup
+      29: aload_1
+      30: iconst_1
+      31: sipush        32767
+      34: invokespecial #156                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;II)V
+      37: putfield      #57                 // Field repairMaterial:Lnet/minecraft/item/ItemStack;
+      40: aload_0
+      41: getfield      #57                 // Field repairMaterial:Lnet/minecraft/item/ItemStack;
+      44: areturn
+
+  static {};
+    Code:
+       0: new           #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+       3: dup
+       4: ldc           #160                // String LEATHER
+       6: iconst_0
+       7: ldc           #162                // String leather
+       9: iconst_5
+      10: iconst_4
+      11: newarray       int
+      13: dup
+      14: iconst_0
+      15: iconst_1
+      16: iastore
+      17: dup
+      18: iconst_1
+      19: iconst_2
+      20: iastore
+      21: dup
+      22: iconst_2
+      23: iconst_3
+      24: iastore
+      25: dup
+      26: iconst_3
+      27: iconst_1
+      28: iastore
+      29: bipush        15
+      31: getstatic     #167                // Field net/minecraft/init/SoundEvents.ITEM_ARMOR_EQUIP_LEATHER:Lnet/minecraft/util/SoundEvent;
+      34: fconst_0
+      35: invokespecial #169                // Method "<init>":(Ljava/lang/String;ILjava/lang/String;I[IILnet/minecraft/util/SoundEvent;F)V
+      38: putstatic     #102                // Field LEATHER:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      41: new           #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+      44: dup
+      45: ldc           #170                // String CHAIN
+      47: iconst_1
+      48: ldc           #172                // String chainmail
+      50: bipush        15
+      52: iconst_4
+      53: newarray       int
+      55: dup
+      56: iconst_0
+      57: iconst_1
+      58: iastore
+      59: dup
+      60: iconst_1
+      61: iconst_4
+      62: iastore
+      63: dup
+      64: iconst_2
+      65: iconst_5
+      66: iastore
+      67: dup
+      68: iconst_3
+      69: iconst_2
+      70: iastore
+      71: bipush        12
+      73: getstatic     #175                // Field net/minecraft/init/SoundEvents.ITEM_ARMOR_EQUIP_CHAIN:Lnet/minecraft/util/SoundEvent;
+      76: fconst_0
+      77: invokespecial #169                // Method "<init>":(Ljava/lang/String;ILjava/lang/String;I[IILnet/minecraft/util/SoundEvent;F)V
+      80: putstatic     #109                // Field CHAIN:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+      83: new           #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+      86: dup
+      87: ldc           #176                // String IRON
+      89: iconst_2
+      90: ldc           #178                // String iron
+      92: bipush        15
+      94: iconst_4
+      95: newarray       int
+      97: dup
+      98: iconst_0
+      99: iconst_2
+     100: iastore
+     101: dup
+     102: iconst_1
+     103: iconst_5
+     104: iastore
+     105: dup
+     106: iconst_2
+     107: bipush        6
+     109: iastore
+     110: dup
+     111: iconst_3
+     112: iconst_2
+     113: iastore
+     114: bipush        9
+     116: getstatic     #181                // Field net/minecraft/init/SoundEvents.ITEM_ARMOR_EQUIP_IRON:Lnet/minecraft/util/SoundEvent;
+     119: fconst_0
+     120: invokespecial #169                // Method "<init>":(Ljava/lang/String;ILjava/lang/String;I[IILnet/minecraft/util/SoundEvent;F)V
+     123: putstatic     #119                // Field IRON:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     126: new           #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+     129: dup
+     130: ldc           #182                // String GOLD
+     132: iconst_3
+     133: ldc           #184                // String gold
+     135: bipush        7
+     137: iconst_4
+     138: newarray       int
+     140: dup
+     141: iconst_0
+     142: iconst_1
+     143: iastore
+     144: dup
+     145: iconst_1
+     146: iconst_3
+     147: iastore
+     148: dup
+     149: iconst_2
+     150: iconst_5
+     151: iastore
+     152: dup
+     153: iconst_3
+     154: iconst_2
+     155: iastore
+     156: bipush        25
+     158: getstatic     #187                // Field net/minecraft/init/SoundEvents.ITEM_ARMOR_EQUIP_GOLD:Lnet/minecraft/util/SoundEvent;
+     161: fconst_0
+     162: invokespecial #169                // Method "<init>":(Ljava/lang/String;ILjava/lang/String;I[IILnet/minecraft/util/SoundEvent;F)V
+     165: putstatic     #114                // Field GOLD:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     168: new           #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+     171: dup
+     172: ldc           #188                // String DIAMOND
+     174: iconst_4
+     175: ldc           #190                // String diamond
+     177: bipush        33
+     179: iconst_4
+     180: newarray       int
+     182: dup
+     183: iconst_0
+     184: iconst_3
+     185: iastore
+     186: dup
+     187: iconst_1
+     188: bipush        6
+     190: iastore
+     191: dup
+     192: iconst_2
+     193: bipush        8
+     195: iastore
+     196: dup
+     197: iconst_3
+     198: iconst_3
+     199: iastore
+     200: bipush        10
+     202: getstatic     #193                // Field net/minecraft/init/SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND:Lnet/minecraft/util/SoundEvent;
+     205: fconst_2
+     206: invokespecial #169                // Method "<init>":(Ljava/lang/String;ILjava/lang/String;I[IILnet/minecraft/util/SoundEvent;F)V
+     209: putstatic     #121                // Field DIAMOND:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     212: iconst_5
+     213: anewarray     #2                  // class net/minecraft/item/ItemArmor$ArmorMaterial
+     216: dup
+     217: iconst_0
+     218: getstatic     #102                // Field LEATHER:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     221: aastore
+     222: dup
+     223: iconst_1
+     224: getstatic     #109                // Field CHAIN:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     227: aastore
+     228: dup
+     229: iconst_2
+     230: getstatic     #119                // Field IRON:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     233: aastore
+     234: dup
+     235: iconst_3
+     236: getstatic     #114                // Field GOLD:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     239: aastore
+     240: dup
+     241: iconst_4
+     242: getstatic     #121                // Field DIAMOND:Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     245: aastore
+     246: putstatic     #34                 // Field $VALUES:[Lnet/minecraft/item/ItemArmor$ArmorMaterial;
+     249: return
+}

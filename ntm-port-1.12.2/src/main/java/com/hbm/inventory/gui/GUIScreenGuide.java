@@ -17,6 +17,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -96,14 +98,17 @@ public class GUIScreenGuide extends GuiScreen {
 
 	public static void drawImage(int x, int y, int dimX, int dimY) {
 		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(240);
-		tessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F);
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x,			y + dimY,	0.0D,	0,	1);
-		tessellator.addVertexWithUV(x + dimX,	y + dimY,	0.0D,	1,	1);
-		tessellator.addVertexWithUV(x + dimX,	y,			0.0D,	1,	0);
-		tessellator.addVertexWithUV(x,			y,			0.0D,	0,	0);
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+		// Legacy begin resets this attribute; retain its argument evaluation.
+		int tessellatorResetBrightness = 240;
+		// Legacy begin resets this attribute; retain its argument evaluation.
+		float tessellatorResetRed = 1.0F, tessellatorResetGreen = 1.0F, tessellatorResetBlue = 1.0F, tessellatorResetAlpha = 1.0F;
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(x, y + dimY, 0.0D).tex(0, 1).endVertex();
+		tessellatorBuffer.pos(x + dimX, y + dimY, 0.0D).tex(1, 1).endVertex();
+		tessellatorBuffer.pos(x + dimX, y, 0.0D).tex(1, 0).endVertex();
+		tessellatorBuffer.pos(x, y, 0.0D).tex(0, 0).endVertex();
 		tessellator.draw();
 	}
 

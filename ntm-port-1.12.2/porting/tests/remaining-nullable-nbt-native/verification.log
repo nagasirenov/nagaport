@@ -1,0 +1,17 @@
+PASS 19 loader-only edits in14 owners reverse exactly to sealed CP78; all3 wire/import exclusions unchanged
+PASS complete original storage/consumer fragments and IMC process bodies retain null/fallback/unguarded behavior
+PASS generated actual persistence bodies, consumer methods, paired particle constructor and bounded native input fragments
+PASS genuine mapped native ItemStack class hash, unchanged production helper
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+PASS actual remaining nullable NBT production slices: 387 checks
+LIMIT: extracted complete NBT bodies omit superclass calls; rocket/shell/control/IMC are bounded native-stack fragments, not game/world/network/recipe-registry acceptance.
+[08:58:39] [main/WARN]: Potentially Dangerous alternative prefix `nbtprobe` for name `hook`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native production nullable-inventory loader: 191 checks
+Observed UTC: 2026-10-20T06:00:10Z
+openjdk version "1.8.0_504"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_504-b01)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.504-b01, mixed mode)
+1aad790ba6157349fd84a7a88bb53cd148a636436fb9e295810b897c9701c626  /workspace/shared/remaining-nullable-nbt-cp78-production.patch
+PASS exact Shell cargo read/write/setCargo/groundDespawn fragments and unchanged helper on supplied tree
+LIMIT: no whole-Shell approval; compose with independent projectile metadata edit/reversal guard

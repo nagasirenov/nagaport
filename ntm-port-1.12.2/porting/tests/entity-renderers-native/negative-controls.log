@@ -1,0 +1,3 @@
+global-manager: expected exit 1; AssertionError: native inherited manager is exact callback identity
+quacc-scale: expected exit 1; AssertionError: actual native pre-render bridge preserves 25x boss transform
+duck-texture: expected exit 1; AssertionError: native erased texture bridge reaches duck texture, not vanilla chicken

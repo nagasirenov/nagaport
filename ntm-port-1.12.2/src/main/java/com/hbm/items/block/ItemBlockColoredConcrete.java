@@ -3,7 +3,7 @@ package com.hbm.items.block;
 import com.hbm.blocks.generic.BlockConcreteColored;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemDye;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 
 public class ItemBlockColoredConcrete extends ItemBlockBlastInfo {
@@ -18,7 +18,7 @@ public class ItemBlockColoredConcrete extends ItemBlockBlastInfo {
 		return meta;
 	}
 	
-	public String getUnlocalizedName(ItemStack stack) {
-		return super.getTranslationKey() + "." + ItemDye.field_150923_a[BlockConcreteColored.func_150032_b(stack.getItemDamage())];
+	public String getTranslationKey(ItemStack stack) {
+		return super.getTranslationKey() + "." + EnumDyeColor.byDyeDamage(BlockConcreteColored.func_150032_b(stack.getItemDamage())).getTranslationKey();
 	}
 }

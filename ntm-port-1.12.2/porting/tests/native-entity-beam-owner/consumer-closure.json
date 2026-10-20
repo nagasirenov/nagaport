@@ -1,0 +1,88 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/EntityMappings.java",
+    "sha256": "a9ffc8b3769b11f10244f8f609b869aeee081cf95aa8c6a86b65f3d5e5455ed6",
+    "references": [
+      {
+        "line": 171,
+        "source": "addEntity(EntityBeamVortex.class, \"entity_vortex_beam\", 1000);"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamBase.java",
+    "sha256": "ea2fbc0750ee1c756b91ec362deab9c9dbba665889b5b3a7a8ba6736db5dbefd",
+    "references": [
+      {
+        "line": 11,
+        "source": "public abstract class EntityBeamBase extends Entity {"
+      },
+      {
+        "line": 13,
+        "source": "public EntityBeamBase(World world) {"
+      },
+      {
+        "line": 18,
+        "source": "public EntityBeamBase(World world, EntityPlayer player) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.updateObject(20, player.getDisplayName())",
+      "this.dataWatcher.addObject(20, \"\")"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBeamVortex.java",
+    "sha256": "8a23f8b253f4dda66bc7a4b05c833f11630ce4284b586821a04d3aabf48d5a03",
+    "references": [
+      {
+        "line": 14,
+        "source": "public class EntityBeamVortex extends EntityBeamBase {"
+      },
+      {
+        "line": 16,
+        "source": "public EntityBeamVortex(World world) {"
+      },
+      {
+        "line": 20,
+        "source": "public EntityBeamVortex(World world, EntityPlayer player) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "this.dataWatcher.getWatchableObjectString(20)"
+    ]
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ClientProxy.java",
+    "sha256": "c7923142be3b495495c2a6dd5ec67964b3bf72d7e56720119a029bb7f16ef56e",
+    "references": [
+      {
+        "line": 747,
+        "source": "RenderingRegistry.registerEntityRenderingHandler(EntityBeamVortex.class, renderManager -> new RenderVortexBeam(renderManager));"
+      }
+    ],
+    "baseline_legacy_calls": []
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/entity/projectile/RenderVortexBeam.java",
+    "sha256": "da7b9e336dae71f7a695cd7c90f373294b6bd56c75b05f00f30d211651f57618",
+    "references": [
+      {
+        "line": 5,
+        "source": "import com.hbm.entity.projectile.EntityBeamBase;"
+      },
+      {
+        "line": 27,
+        "source": "this.doRender((EntityBeamBase)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);"
+      },
+      {
+        "line": 30,
+        "source": "public void doRender(EntityBeamBase laser, double x, double y, double z, float p_76986_8_, float p_76986_9_) {"
+      }
+    ],
+    "baseline_legacy_calls": [
+      "laser.getDataWatcher().getWatchableObjectString(20)"
+    ]
+  }
+]
